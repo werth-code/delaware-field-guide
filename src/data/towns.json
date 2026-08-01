@@ -52,9 +52,18 @@
     "licenseRequired": false,
     "licenseDetail": null,
     "alsoTrue": [
-      { "label": "Leash", "value": "Required at all times a dog is permitted." },
-      { "label": "Cleanup", "value": "Required. Carry bags — off-season stations are not reliably stocked." },
-      { "label": "Public dog park in town", "value": "None. The nearest public off-leash parks are Millsboro and Milford, both about 40 minutes out." }
+      {
+        "label": "Leash",
+        "value": "Required at all times a dog is permitted."
+      },
+      {
+        "label": "Cleanup",
+        "value": "Required. Carry bags — off-season stations are not reliably stocked."
+      },
+      {
+        "label": "Public dog park in town",
+        "value": "None. The nearest public off-leash parks are Millsboro and Milford, both about 40 minutes out."
+      }
     ],
     "correction": {
       "heading": "Why the dates you found somewhere else are wrong",
@@ -89,7 +98,10 @@
     ],
     "verifiedDate": null,
     "verifiedSource": null,
-    "callTo": { "name": "City of Rehoboth Beach", "phone": "302-227-6181" },
+    "callTo": {
+      "name": "City of Rehoboth Beach",
+      "phone": "302-227-6181"
+    },
     "outstanding": [
       "Confirm May 15 – September 15 is the closure now in force and that nothing has been amended since January 16, 2026.",
       "Get the lifeguard schedule: exact dates guards are on duty inside the September 16 – May 14 window.",
@@ -97,6 +109,406 @@
       "Confirm max leash length and the fine for a violation, with ordinance numbers.",
       "Confirm the closure covers the full boardwalk and the Deauville Beach area.",
       "Record who confirmed it, then set verifiedDate and verifiedSource."
+    ]
+  },
+  {
+    "slug": "dewey-beach",
+    "name": "Dewey Beach",
+    "county": "Sussex",
+    "question": "Can dogs go on Dewey Beach?",
+    "answer": "Yes, year-round — Dewey is the only Delaware beach town that never closes to dogs. In summer they are limited to before 9:30am and after 5:30pm. You need a town dog license, and visitors get fined for skipping it.",
+    "title": "Can dogs go on Dewey Beach? Summer hours, and the license you need",
+    "metaDescription": "Dewey Beach allows dogs on the beach year-round — before 9:30am and after 5:30pm in summer, all day otherwise. A town dog license is required. Sourced to the Town of Dewey Beach.",
+    "rules": [
+      {
+        "area": "beach",
+        "status": "restricted",
+        "startDate": "05-23",
+        "endDate": "09-13",
+        "startAnchor": "memorial-day-saturday",
+        "endAnchor": "labor-day-sunday-after",
+        "dateNote": "The ordinance reads \"the Saturday of Memorial Day weekend through the Sunday following Labor Day\", so the dates move each year.",
+        "timeWindow": {
+          "before": "09:30",
+          "after": "17:30"
+        },
+        "leashRequired": true,
+        "maxLeashFeet": null,
+        "note": "Dogs are allowed, but only outside the middle of the day. This is the summer answer nobody publishes: every other town on this coast is shut, and Dewey is open at either end of the day.",
+        "startOffsetDays": 0,
+        "endOffsetDays": 0
+      },
+      {
+        "area": "beach",
+        "status": "allowed",
+        "startDate": "",
+        "endDate": "",
+        "startAnchor": "labor-day-sunday-after",
+        "endAnchor": "memorial-day-saturday",
+        "dateNote": null,
+        "timeWindow": null,
+        "leashRequired": false,
+        "maxLeashFeet": null,
+        "note": "All day, and off-leash is permitted if the dog is under your full control. Confirm what the town means by that before relying on it — \"under control\" is a judgement an officer makes, not a rule you can read.",
+        "startOffsetDays": 1,
+        "endOffsetDays": -1
+      }
+    ],
+    "licenseRequired": true,
+    "licenseDetail": "Every dog in Dewey Beach needs a town dog license, whether you live there or are visiting for a weekend. Three-day, eight-day and lifetime licenses are sold online and at Town Hall. This is the single most common way visitors get fined here — the beach hours are widely repeated, the license almost never is.",
+    "alsoTrue": [
+      {
+        "label": "License",
+        "value": "Required for visitors too. Three-day, eight-day or lifetime, online or at Town Hall."
+      },
+      {
+        "label": "Off-leash",
+        "value": "Permitted off-season if the dog is under full control. Leashed in the summer window."
+      },
+      {
+        "label": "Cleanup",
+        "value": "Required at all times."
+      },
+      {
+        "label": "Doodles in Dewey",
+        "value": "Late April, running 20+ years. Doodles are free to attend but still need the $5 town license."
+      }
+    ],
+    "correction": {
+      "heading": "Dewey is not closed to dogs in summer",
+      "body": "Aggregator pages tend to flatten the whole Delaware coast into one rule and tell you dogs are banned from the beaches all summer. That is wrong here. Dewey never closes — it narrows to early mornings and evenings between Memorial Day weekend and the Sunday after Labor Day, and runs all day the rest of the year. If you want a Delaware ocean beach with a dog in July, this is the closest one to Rehoboth by a wide margin. The catch is the license, not the hours."
+    },
+    "alternatives": [],
+    "sources": [
+      {
+        "label": "Town of Dewey Beach — ordinances",
+        "url": "https://www.townofdeweybeach.gov/Ordinances/",
+        "note": "Beach hours and license requirement. Confirm the current text by phone."
+      }
+    ],
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "callTo": {
+      "name": "Town of Dewey Beach",
+      "phone": "302-227-6363"
+    },
+    "outstanding": [
+      "Confirm the summer window is still before 9:30am / after 5:30pm and that the ordinance still keys off Memorial Day weekend and the Sunday after Labor Day.",
+      "License: confirm cost of the 3-day, 8-day and lifetime options, where to buy, and whether proof of rabies is required at purchase.",
+      "Confirm the fine for an unlicensed dog — this is the number that makes the page useful.",
+      "Confirm off-leash is still permitted off-season, and get the town's own wording for \"under full control\".",
+      "Confirm whether the rules differ on the bay side."
+    ]
+  },
+  {
+    "slug": "bethany-beach",
+    "name": "Bethany Beach",
+    "county": "Sussex",
+    "question": "Can dogs go on Bethany Beach?",
+    "answer": "Not between May 15 and September 30 — dogs are off the beach and the boardwalk. They're allowed October 1 through May 14. Bethany reopens two weeks later than Rehoboth, which is the mistake people make driving down in late September.",
+    "title": "Can dogs go on Bethany Beach? Dates for the beach and boardwalk",
+    "metaDescription": "Bethany Beach bans dogs from the beach and boardwalk May 15 – September 30, and allows them October 1 – May 14. Two weeks later than Rehoboth. Sourced to the Town of Bethany Beach.",
+    "rules": [
+      {
+        "area": "beach",
+        "status": "prohibited",
+        "startDate": "05-15",
+        "endDate": "09-30",
+        "startAnchor": null,
+        "endAnchor": null,
+        "dateNote": null,
+        "timeWindow": null,
+        "leashRequired": true,
+        "maxLeashFeet": null,
+        "note": "No dogs at any hour. There is no early-morning exception."
+      },
+      {
+        "area": "boardwalk",
+        "status": "prohibited",
+        "startDate": "05-15",
+        "endDate": "09-30",
+        "startAnchor": null,
+        "endAnchor": null,
+        "dateNote": null,
+        "timeWindow": null,
+        "leashRequired": true,
+        "maxLeashFeet": null,
+        "note": "The boardwalk closes on the same dates as the beach."
+      },
+      {
+        "area": "beach",
+        "status": "allowed",
+        "startDate": "10-01",
+        "endDate": "05-14",
+        "startAnchor": null,
+        "endAnchor": null,
+        "dateNote": null,
+        "timeWindow": null,
+        "leashRequired": true,
+        "maxLeashFeet": null,
+        "note": "Leashed, and cleaned up after. A town license and a worn tag are required."
+      },
+      {
+        "area": "boardwalk",
+        "status": "allowed",
+        "startDate": "10-01",
+        "endDate": "05-14",
+        "startAnchor": null,
+        "endAnchor": null,
+        "dateNote": null,
+        "timeWindow": null,
+        "leashRequired": true,
+        "maxLeashFeet": null,
+        "note": "Leashed at all times."
+      }
+    ],
+    "licenseRequired": true,
+    "licenseDetail": "Bethany requires dogs to be licensed and to wear the tag at all times. Confirm whether this applies to visiting dogs or only to residents before relying on it.",
+    "alsoTrue": [
+      {
+        "label": "Leash",
+        "value": "Required and curbed at all times, everywhere in town."
+      },
+      {
+        "label": "Tags",
+        "value": "License tag must be worn."
+      },
+      {
+        "label": "Running at large",
+        "value": "Dogs found loose may be handed to the Delaware SPCA."
+      }
+    ],
+    "correction": {
+      "heading": "Bethany and Rehoboth do not reopen on the same day",
+      "body": "Rehoboth moved its closure to May 15 – September 15 in January 2026. Bethany still runs to September 30. Fifteen miles apart, fifteen days apart, and almost every guide that covers both prints one set of dates for the whole coast. If you drive down in the second half of September expecting the same rule you read for Rehoboth, Bethany's beach is still shut to your dog."
+    },
+    "alternatives": [
+      {
+        "name": "Dewey Beach",
+        "detail": "Open to dogs year-round, before 9:30am and after 5:30pm in summer. About 25 minutes north. A town license is required.",
+        "href": "/dogs/dewey-beach/",
+        "verified": false
+      },
+      {
+        "name": "Non-guarded and surf-fishing beaches in Delaware State Parks",
+        "detail": "Open to dogs year-round on a leash. Fenwick Island State Park is the nearest stretch.",
+        "href": null,
+        "verified": false
+      }
+    ],
+    "sources": [
+      {
+        "label": "Town of Bethany Beach — dog regulations FAQ",
+        "url": "http://www.townofbethanybeach.com/FAQ.aspx?QID=77",
+        "note": "Beach and boardwalk dates, leash, license and tag requirements."
+      }
+    ],
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "callTo": {
+      "name": "Town of Bethany Beach",
+      "phone": "302-539-8011"
+    },
+    "outstanding": [
+      "Confirm May 15 – September 30 is still current, and that Bethany did NOT follow Rehoboth's January 2026 change.",
+      "Confirm the boardwalk runs on exactly the same dates as the beach.",
+      "Confirm whether visiting dogs need a Bethany license or only resident dogs do.",
+      "Confirm the leash-length limit and the fine for a violation.",
+      "Confirm whether the ban covers the bandstand area and the north/south ends beyond the boardwalk."
+    ]
+  },
+  {
+    "slug": "lewes",
+    "name": "Lewes",
+    "county": "Sussex",
+    "question": "Can dogs go on Lewes Beach?",
+    "answer": "Yes, but only before 8am and after 6:30pm from May 1 to September 30. All day otherwise, always leashed. Lewes was reviewing a full summer ban at guarded beaches in December 2025 — check before you go.",
+    "title": "Can dogs go on Lewes Beach? Summer hours and the 2026 review",
+    "metaDescription": "Lewes allows leashed dogs on the beach before 8am and after 6:30pm from May 1 – September 30, and all day October – April. A summer ban at guarded beaches was under review in December 2025.",
+    "rules": [
+      {
+        "area": "beach",
+        "status": "restricted",
+        "startDate": "05-01",
+        "endDate": "09-30",
+        "startAnchor": null,
+        "endAnchor": null,
+        "dateNote": null,
+        "timeWindow": {
+          "before": "08:00",
+          "after": "18:30"
+        },
+        "leashRequired": true,
+        "maxLeashFeet": null,
+        "note": "Leashed, and only outside those hours. Lewes is bay-side, so this is the calm-water option for a dog that won't handle surf — but the window is narrow and the guarded stretch may be changing."
+      },
+      {
+        "area": "beach",
+        "status": "allowed",
+        "startDate": "10-01",
+        "endDate": "04-30",
+        "startAnchor": null,
+        "endAnchor": null,
+        "dateNote": null,
+        "timeWindow": null,
+        "leashRequired": true,
+        "maxLeashFeet": null,
+        "note": "All day, leashed. Delaware's statewide leash law applies outside designated off-leash areas."
+      }
+    ],
+    "licenseRequired": false,
+    "licenseDetail": null,
+    "alsoTrue": [
+      {
+        "label": "Leash",
+        "value": "Required at all times. Statewide law outside designated off-leash areas."
+      },
+      {
+        "label": "Water",
+        "value": "Bay, not ocean. Calm and shallow — the better choice for a nervous or senior dog."
+      },
+      {
+        "label": "Off-leash in town",
+        "value": "Lewes Unleashed only. Private, roughly $60 a year per family, and a key fob is mailed to you before your first visit."
+      },
+      {
+        "label": "Ferry",
+        "value": "Dogs ride the Cape May–Lewes Ferry free, on exterior decks. No paperwork."
+      }
+    ],
+    "correction": {
+      "heading": "This one may be about to change",
+      "body": "On 17 December 2025 a Lewes ad hoc committee met to consider banning dogs outright during summer at the guarded beaches, to reduce confusion and dog waste. The city's own FAQ still publishes the before-8am / after-6:30pm rule, and we have not found a record of a final vote. Given that Rehoboth quietly re-cut its own dates a month later, in January 2026, this is the single Delaware beach rule we would most want confirmed by phone before making a trip."
+    },
+    "alternatives": [
+      {
+        "name": "Cape Henlopen State Park — non-guarded and surf-fishing beaches",
+        "detail": "Minutes from Lewes, open to leashed dogs year-round outside the guarded swimming beaches. Entrance fee applies.",
+        "href": null,
+        "verified": false
+      },
+      {
+        "name": "Dewey Beach",
+        "detail": "Ocean beach, open to dogs year-round with summer time windows. Requires a town license.",
+        "href": "/dogs/dewey-beach/",
+        "verified": false
+      }
+    ],
+    "sources": [
+      {
+        "label": "City of Lewes — are dogs allowed on the beach?",
+        "url": "https://www.ci.lewes.de.us/FAQ.aspx?QID=167",
+        "note": "Current published rule: before 8am and after 6:30pm, May 1 – September 30. City Code Chapter 88."
+      },
+      {
+        "label": "CoastTV — Lewes considers summer ban on dogs at guarded beaches",
+        "url": "https://www.coasttv.com/news/lewes-considers-summer-ban-on-dogs-at-guarded-beaches/article_e7ad91f3-3bbf-4b5a-8904-6b1bb11ea63e.html",
+        "note": "Published 17 December 2025. Committee review; no recorded outcome found."
+      }
+    ],
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "callTo": {
+      "name": "City of Lewes",
+      "phone": "302-645-7777"
+    },
+    "outstanding": [
+      "PRIORITY: did the December 2025 ad hoc committee proposal become an ordinance? If a summer ban at guarded beaches passed, this page is wrong and needs rewriting, not amending.",
+      "Confirm the before-8am / after-6:30pm window and the May 1 – September 30 dates are still in force.",
+      "Confirm which stretches of Lewes Beach are guarded, and the guard schedule.",
+      "Confirm leash length and the fine under City Code Chapter 88.",
+      "Confirm whether Roosevelt Inlet and the canal-side stretches fall under the same rule."
+    ]
+  },
+  {
+    "slug": "fenwick-island",
+    "name": "Fenwick Island",
+    "county": "Sussex",
+    "question": "Can dogs go on Fenwick Island beach?",
+    "answer": "No pets on the town beach at any hour from May 1 to September 30. They are allowed October 1 through April 30 — the strictest dates on the coast, and two weeks earlier than Rehoboth.",
+    "title": "Can dogs go on Fenwick Island beach? The strictest dates in Delaware",
+    "metaDescription": "Fenwick Island bans pets from the town beach at any hour from May 1 – September 30, and allows them October 1 – April 30. Two weeks stricter than Rehoboth. Sourced to the Town of Fenwick Island.",
+    "rules": [
+      {
+        "area": "beach",
+        "status": "prohibited",
+        "startDate": "05-01",
+        "endDate": "09-30",
+        "startAnchor": null,
+        "endAnchor": null,
+        "dateNote": null,
+        "timeWindow": null,
+        "leashRequired": true,
+        "maxLeashFeet": null,
+        "note": "No pets of any kind, at any hour. The town beach runs from Lewes Street to E. Atlantic Street — outside that, you are in Fenwick Island State Park, where different rules apply."
+      },
+      {
+        "area": "beach",
+        "status": "allowed",
+        "startDate": "10-01",
+        "endDate": "04-30",
+        "startAnchor": null,
+        "endAnchor": null,
+        "dateNote": null,
+        "timeWindow": null,
+        "leashRequired": true,
+        "maxLeashFeet": null,
+        "note": "Leashed and cleaned up after."
+      }
+    ],
+    "licenseRequired": false,
+    "licenseDetail": null,
+    "alsoTrue": [
+      {
+        "label": "Where the town beach ends",
+        "value": "Lewes Street to E. Atlantic Street. Beyond it is Fenwick Island State Park."
+      },
+      {
+        "label": "State park next door",
+        "value": "The park's surf-fishing and non-guarded stretches allow leashed dogs year-round. This is the closest legal summer beach to Fenwick."
+      },
+      {
+        "label": "Scope",
+        "value": "The ban is written for all pets, not only dogs."
+      }
+    ],
+    "correction": {
+      "heading": "Fenwick is stricter than the towns above it",
+      "body": "Rehoboth closes 15 May and reopens 16 September. Bethany closes 15 May and reopens 1 October. Fenwick closes 1 May and reopens 1 October — two weeks earlier at the front and the latest at the back. Five towns on one twenty-five-mile stretch of coast, and no two of them share a set of dates. Any guide that gives you a single answer for \"the Delaware beaches\" is wrong about at least three of them."
+    },
+    "alternatives": [
+      {
+        "name": "Fenwick Island State Park — surf-fishing and non-guarded beaches",
+        "detail": "Immediately north of the town beach. Leashed dogs year-round outside the guarded swimming area. Entrance fee in season.",
+        "href": null,
+        "verified": false
+      },
+      {
+        "name": "Assateague Island National Seashore",
+        "detail": "About an hour south. Dogs year-round on a 6-ft leash, outside lifeguarded areas. The National Seashore only — not Assateague State Park next door.",
+        "href": null,
+        "verified": false
+      }
+    ],
+    "sources": [
+      {
+        "label": "Town of Fenwick Island — beach rules and regulations",
+        "url": "https://fenwickisland.delaware.gov/beach-rules-regulations/",
+        "note": "No pets on the beach at any time between May 1 and September 30."
+      }
+    ],
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "callTo": {
+      "name": "Town of Fenwick Island",
+      "phone": "302-539-3011"
+    },
+    "outstanding": [
+      "Confirm May 1 – September 30 is still in force and that Fenwick has not followed Rehoboth's January 2026 re-cut.",
+      "Confirm the town beach boundary is still Lewes Street to E. Atlantic Street, and where the state park takes over.",
+      "Confirm whether the ban covers the dune crossings and the bayside.",
+      "Confirm the fine.",
+      "Ask the town where they send visitors with dogs in summer — their answer is content."
     ]
   }
 ]

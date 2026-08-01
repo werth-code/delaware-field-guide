@@ -10,17 +10,87 @@
 export type Status = "allowed" | "restricted" | "prohibited";
 export type Area = "beach" | "boardwalk";
 
+/**
+ * Anchors for rules that hang off a floating holiday rather than a calendar
+ * date. Dewey's beach hours run "the Saturday of Memorial Day weekend through
+ * the Sunday following Labor Day", which lands on different dates every year.
+ *
+ * Hard-coding one year's dates would publish a wrong answer every following
+ * year, silently, on a site whose entire claim is that the dates are right.
+ * So they're computed.
+ */
+export type Anchor = "memorial-day-saturday" | "labor-day-sunday-after";
+
+/** nth weekday of a month. `nth = -1` means the last one. */
+function nthWeekday(year: number, month: number, weekday: number, nth: number): Date {
+  if (nth > 0) {
+    const first = new Date(year, month - 1, 1);
+    const shift = (weekday - first.getDay() + 7) % 7;
+    return new Date(year, month - 1, 1 + shift + (nth - 1) * 7);
+  }
+  const last = new Date(year, month, 0);
+  const shift = (last.getDay() - weekday + 7) % 7;
+  return new Date(year, month, 0 - shift);
+}
+
+export function resolveAnchor(anchor: Anchor, year: number): string {
+  const p = (n: number) => String(n).padStart(2, "0");
+  const fmt = (d: Date) => `${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+
+  if (anchor === "memorial-day-saturday") {
+    // Memorial Day is the last Monday in May; the weekend starts two days before.
+    const memorial = nthWeekday(year, 5, 1, -1);
+    return fmt(new Date(year, 4, memorial.getDate() - 2));
+  }
+  // Labor Day is the first Monday in September; "the Sunday following" is +6.
+  const labor = nthWeekday(year, 9, 1, 1);
+  return fmt(new Date(year, 8, labor.getDate() + 6));
+}
+
 /** `null` means UNVERIFIED, not absent. Render it as "not confirmed". */
 export interface Rule {
   area: Area;
   status: Status;
-  /** "MM-DD", inclusive. A window may wrap the year end. */
+  /** "MM-DD", inclusive. A window may wrap the year end. Ignored if an anchor is set. */
   startDate: string;
   endDate: string;
+  /** Floating-holiday anchors. When present they win over startDate/endDate. */
+  startAnchor?: Anchor | null;
+  endAnchor?: Anchor | null;
+  /**
+   * Days to shift an anchor by. The off-season rule is the complement of the
+   * summer one, so it runs from the day AFTER the summer window ends to the
+   * day BEFORE it starts — +1 and −1. Without these the two rules overlap on
+   * the boundary days and the table prints a range that's a day wrong.
+   */
+  startOffsetDays?: number | null;
+  endOffsetDays?: number | null;
+  /** How the rule is worded in the ordinance, when dates alone don't say it. */
+  dateNote?: string | null;
   timeWindow: { before?: string; after?: string } | null;
   leashRequired: boolean;
   maxLeashFeet: number | null;
   note: string | null;
+}
+
+/** Shift an "MM-DD" by n days within a year, wrapping month boundaries. */
+function shiftMonthDay(mmdd: string, days: number, year: number): string {
+  if (!days) return mmdd;
+  const [m, d] = mmdd.split("-").map(Number);
+  const shifted = new Date(year, m - 1, d + days);
+  const p = (n: number) => String(n).padStart(2, "0");
+  return `${p(shifted.getMonth() + 1)}-${p(shifted.getDate())}`;
+}
+
+/** The rule's effective MM-DD bounds for a given year. */
+export function resolveRule(rule: Rule, year: number): { start: string; end: string } {
+  const start = rule.startAnchor
+    ? shiftMonthDay(resolveAnchor(rule.startAnchor, year), rule.startOffsetDays ?? 0, year)
+    : rule.startDate;
+  const end = rule.endAnchor
+    ? shiftMonthDay(resolveAnchor(rule.endAnchor, year), rule.endOffsetDays ?? 0, year)
+    : rule.endDate;
+  return { start, end };
 }
 
 export interface Town {
@@ -55,11 +125,16 @@ const ord = (mmdd: string): number => {
 
 const ordOf = (date: Date): number => (date.getMonth() + 1) * 100 + date.getDate();
 
-/** Does `date` fall inside [startDate, endDate]? Handles year-wrapping windows. */
+/**
+ * Does `date` fall inside the rule's window? Handles year-wrapping windows,
+ * and resolves floating-holiday anchors against the year being asked about —
+ * not against the build year, so a rule stays correct across New Year.
+ */
 export function ruleCoversDate(rule: Rule, date: Date): boolean {
+  const { start, end } = resolveRule(rule, date.getFullYear());
   const t = ordOf(date);
-  const a = ord(rule.startDate);
-  const b = ord(rule.endDate);
+  const a = ord(start);
+  const b = ord(end);
   return a <= b ? t >= a && t <= b : t >= a || t <= b;
 }
 
@@ -95,9 +170,39 @@ export function formatMonthDay(mmdd: string): string {
   return `${MONTHS[m - 1]} ${d}`;
 }
 
-/** "05-15" + "09-15" → "May 15 – September 15" */
-export const formatRange = (rule: Rule): string =>
-  `${formatMonthDay(rule.startDate)} – ${formatMonthDay(rule.endDate)}`;
+/**
+ * "May 15 – September 15". Anchored rules resolve against `year` and are
+ * rendered with the year attached, because "23 May" is only this year's answer
+ * to a rule that actually reads "the Saturday of Memorial Day weekend".
+ */
+export function formatRange(rule: Rule, year?: number): string {
+  const y = year ?? new Date().getFullYear();
+  const { start, end } = resolveRule(rule, y);
+  if (!rule.startAnchor && !rule.endAnchor) {
+    return `${formatMonthDay(start)} – ${formatMonthDay(end)}`;
+  }
+  // A wrapping anchored range spans two years — printing one would misread as
+  // "September 14 to May 23 of the same year", which is nine months backwards.
+  const wraps = ord(start) > ord(end);
+  return wraps
+    ? `${formatMonthDay(start)} ${y} – ${formatMonthDay(end)} ${y + 1}`
+    : `${formatMonthDay(start)} – ${formatMonthDay(end)} ${y}`;
+}
+
+/** "before 8:00 am" / "after 6:30 pm" / both. */
+export function formatWindow(w: Rule["timeWindow"]): string | null {
+  if (!w) return null;
+  const t = (hhmm: string) => {
+    const [h, m] = hhmm.split(":").map(Number);
+    const ap = h >= 12 ? "pm" : "am";
+    const hr = h % 12 === 0 ? 12 : h % 12;
+    return m === 0 ? `${hr} ${ap}` : `${hr}:${String(m).padStart(2, "0")} ${ap}`;
+  };
+  const parts: string[] = [];
+  if (w.before) parts.push(`before ${t(w.before)}`);
+  if (w.after) parts.push(`after ${t(w.after)}`);
+  return parts.join(" and ");
+}
 
 /** Spec display format: "6 Aug 2026". Parsed by hand to avoid timezone drift. */
 export function formatStampDate(iso: string): string {

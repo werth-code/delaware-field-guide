@@ -12,7 +12,7 @@
  * season is scannable with a thumb without reading a word.
  */
 import type { Rule, Status } from "../lib/rules";
-import { STATUS_META, formatRange } from "../lib/rules";
+import { STATUS_META, formatRange, formatWindow } from "../lib/rules";
 import FlagIcon from "./FlagIcon.astro";
 
 interface Props {
@@ -70,8 +70,22 @@ const areaLabel = (a: string) => (a === "boardwalk" ? "Boardwalk" : "Beach");
                 {areaLabel(rule.area)}
               </th>
 
-              <td class="block sm:table-cell px-4 sm:px-5 sm:py-5 whitespace-nowrap">
-                <span class="stamp text-[0.94rem]">{formatRange(rule)}</span>
+              <td class="block sm:table-cell px-4 sm:px-5 sm:py-5">
+                <span class="stamp text-[0.94rem] whitespace-nowrap">{formatRange(rule)}</span>
+
+                {/* The hours are the rule at Dewey and Lewes — a date range
+                    alone would say "restricted" and leave out the answer. */}
+                {formatWindow(rule.timeWindow) && (
+                  <span class="block stamp text-[0.86rem] text-ochre-deep mt-1.5 sm:max-w-[11rem] leading-snug">
+                    {formatWindow(rule.timeWindow)}
+                  </span>
+                )}
+
+                {rule.dateNote && (
+                  <span class="block text-[0.8rem] text-ink-soft mt-1.5 sm:max-w-[13rem] leading-snug">
+                    {rule.dateNote}
+                  </span>
+                )}
               </td>
 
               <td class="block sm:table-cell px-4 sm:px-5 pt-2.5 pb-4 sm:py-5">

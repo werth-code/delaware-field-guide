@@ -26,7 +26,7 @@ import BeachScene from "../../components/BeachScene.astro";
 
 import townsData from "../../data/towns.json";
 import type { Town } from "../../lib/rules";
-import { STATUS_META, formatLongDate, formatRange, ruleFor, statusOn, toISODate } from "../../lib/rules";
+import { STATUS_META, formatLongDate, formatRange, formatWindow, ruleFor, statusOn } from "../../lib/rules";
 import { assertAnswerLength, isVerified, reportOutstanding, robotsFor } from "../../lib/verification";
 
 const towns = townsData as Town[];
@@ -69,13 +69,46 @@ const headline = {
   prohibited: `Dogs are not allowed on ${town.name} today`,
 }[status];
 
+/*
+  When a rule is time-windowed, the hours ARE the answer — "allowed, with
+  limits" without them sends someone to the beach at noon. So they lead.
+*/
+const windowText = formatWindow(beachRule?.timeWindow ?? null);
+
 const detail =
   status === "prohibited"
     ? `Today falls inside the ${beachRule ? formatRange(beachRule) : ""} closure — off the beach and off the boardwalk at every hour.${nextChange ? ` Dogs come back ${nextChange}.` : ""}`
-    : (beachRule?.note ?? null);
+    : windowText
+      ? `Today, ${windowText} — not in between. ${beachRule?.note ?? ""}`.trim()
+      : (beachRule?.note ?? null);
 
 const verified = isVerified(town);
 const alternatives = town.alternatives ?? [];
+
+/* Sibling towns, each summarised by its closed window — the thing a reader
+   crossing town lines actually needs. */
+const siblings = towns.filter((t) => t.slug !== town.slug);
+
+function summarise(t: Town): string {
+  const shut = t.rules.find((r) => r.area === "beach" && r.status === "prohibited");
+  if (shut) return `shut ${formatRange(shut)}`;
+  const limited = t.rules.find((r) => r.area === "beach" && r.status === "restricted");
+  if (limited) {
+    const w = formatWindow(limited.timeWindow);
+    return w ? `open all year, ${w} in season` : "open all year, with limits in season";
+  }
+  return "open all year";
+}
+
+/* The illustration is only worth its space if the caption says something true
+   about THIS town, so the claim it carries follows the rule shape. */
+const hasBoardwalkRule = town.rules.some((r) => r.area === "boardwalk");
+const plateCaption =
+  status === "prohibited"
+    ? `${town.name} in the closed season.${hasBoardwalkRule ? " The closure covers the boardwalk on the same dates as the beach — that's the part people miss." : ""} The guard stand matters too: where an off-season allowance exists, it usually doesn't apply on days lifeguards are working.`
+    : windowText
+      ? `${town.name}. Dogs are legal here right now, but only ${windowText} — the guard stand is the thing that decides it. Turn up in the middle of the day and you are in the wrong.`
+      : `${town.name} in the open season. Leashed, cleaned up after, and off the guarded swimming beach whenever lifeguards are working.`;
 
 /* --------------------------------------------------------------- schema -- */
 
@@ -150,11 +183,7 @@ const schema = verified ? [articleSchema, faqSchema] : [];
         {town.answer}
       </p>
 
-      <Plate
-        plate="01"
-        class="breakout"
-        caption={`${town.name}. The closure covers the beach and the boardwalk on the same dates — the boardwalk is the part people miss. The guard stand matters too: the off-season allowance doesn't apply on days lifeguards are working.`}
-      >
+      <Plate plate="01" class="breakout" caption={plateCaption}>
         <BeachScene flag={status === "prohibited" ? "closed" : "none"} />
       </Plate>
 
@@ -238,9 +267,21 @@ const schema = verified ? [articleSchema, faqSchema] : [];
 
       <VerificationStamp item={town} />
 
-      <h2>Related</h2>
+      <h2>The other towns</h2>
+      <p class="text-[0.95rem] text-ink-soft">
+        No two of these share a set of dates. If your trip crosses more than one,
+        check each.
+      </p>
       <ul>
-        <li><a href="/dogs/">Every Delaware beach town's dog rules</a></li>
+        {
+          siblings.map((t) => (
+            <li>
+              <a href={`/dogs/${t.slug}/`}>{t.question}</a>{" "}
+              <span class="stamp text-ink-soft">— {summarise(t)}</span>
+            </li>
+          ))
+        }
+        <li><a href="/dogs/">All five, side by side</a></li>
         <li><a href="/how-we-verify/">How we check this, and what we do when we're wrong</a></li>
       </ul>
     </div>
