@@ -1,0 +1,49 @@
+---
+/**
+ * Footer email capture, live from day one.
+ *
+ * Zero subscribers today is fine. Adding this in month six means five months
+ * of traffic captured by nobody — and this audience has a real recurring
+ * reason to come back, because the rules genuinely change (they changed in
+ * January 2026).
+ *
+ * GitHub Pages cannot handle form posts, so this is a Beehiiv embed, same
+ * provider already in use elsewhere. Do not build a custom form endpoint.
+ *
+ * SETUP: create the publication, then put the embed URL in
+ * PUBLIC_BEEHIIV_EMBED_URL (.env locally, repo variable in CI). Until it's
+ * set this renders a disabled, clearly-labelled placeholder rather than a
+ * form that silently drops addresses.
+ */
+const embedUrl = import.meta.env.PUBLIC_BEEHIIV_EMBED_URL;
+---
+
+<div class="max-w-[34rem]">
+  <p class="font-display text-[1.15rem] font-semibold m-0">
+    Get the rule changes when they happen.
+  </p>
+  <p class="mt-1 mb-3 text-[0.9rem] text-structure-text">
+    Rehoboth moved its dog dates in January 2026 and most guides still haven't
+    noticed. When a town changes a rule, you'll hear it here. Nothing else.
+  </p>
+
+  {
+    embedUrl ? (
+      <iframe
+        src={embedUrl}
+        title="Subscribe for Delaware dog rule changes"
+        loading="lazy"
+        class="w-full h-[62px] border-0 bg-transparent"
+        scrolling="no"
+      />
+    ) : (
+      <div class="sign px-3 py-3">
+        <p class="label m-0">Beehiiv embed not configured</p>
+        <p class="mt-1 mb-0 text-[0.85rem] text-structure-text">
+          Set <code class="stamp">PUBLIC_BEEHIIV_EMBED_URL</code> to switch this on.
+          Showing a placeholder rather than a form that drops addresses.
+        </p>
+      </div>
+    )
+  }
+</div>

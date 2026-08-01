@@ -1,0 +1,102 @@
+[
+  {
+    "slug": "rehoboth-beach",
+    "name": "Rehoboth Beach",
+    "county": "Sussex",
+    "question": "Can dogs go on Rehoboth Beach?",
+    "answer": "Yes, from September 16 through May 14. Dogs are banned from the beach and boardwalk May 15 through September 15. The city moved these dates in January 2026 — most guides still print the old May 1 to September 30 ban.",
+    "title": "Can dogs go on Rehoboth Beach? Dates, rules, and the 2026 change",
+    "metaDescription": "Rehoboth Beach changed its dog dates in January 2026. Leashed dogs are allowed on the beach and boardwalk September 16 – May 14, not October 1 – April 30. Sourced to the City of Rehoboth Beach.",
+    "rules": [
+      {
+        "area": "beach",
+        "status": "prohibited",
+        "startDate": "05-15",
+        "endDate": "09-15",
+        "timeWindow": null,
+        "leashRequired": true,
+        "maxLeashFeet": null,
+        "note": "No dogs at any hour. There is no early-morning or evening exception during the closure."
+      },
+      {
+        "area": "boardwalk",
+        "status": "prohibited",
+        "startDate": "05-15",
+        "endDate": "09-15",
+        "timeWindow": null,
+        "leashRequired": true,
+        "maxLeashFeet": null,
+        "note": "The boardwalk closure runs on the same dates as the beach."
+      },
+      {
+        "area": "beach",
+        "status": "restricted",
+        "startDate": "09-16",
+        "endDate": "05-14",
+        "timeWindow": null,
+        "leashRequired": true,
+        "maxLeashFeet": null,
+        "note": "Leashed dogs are allowed, EXCEPT when lifeguards are on duty. Guards are typically still working the shoulder weeks in September and again in May — confirm the guard schedule before relying on this in mid-May or late September."
+      },
+      {
+        "area": "boardwalk",
+        "status": "allowed",
+        "startDate": "09-16",
+        "endDate": "05-14",
+        "timeWindow": null,
+        "leashRequired": true,
+        "maxLeashFeet": null,
+        "note": "The lifeguard exception is written for the beach. Whether it also reaches the boardwalk is not settled in the published notice — treat as unconfirmed."
+      }
+    ],
+    "licenseRequired": false,
+    "licenseDetail": null,
+    "alsoTrue": [
+      { "label": "Leash", "value": "Required at all times a dog is permitted." },
+      { "label": "Cleanup", "value": "Required. Carry bags — off-season stations are not reliably stocked." },
+      { "label": "Public dog park in town", "value": "None. The nearest public off-leash parks are Millsboro and Milford, both about 40 minutes out." }
+    ],
+    "correction": {
+      "heading": "Why the dates you found somewhere else are wrong",
+      "body": "Rehoboth ran its dog closure from May 1 to September 30 for years. On January 16, 2026 the commissioners re-cut the seasonal dates to match the city's parking season, moving the closure to May 15 – September 15. Rental agencies, tourism pages and blog posts are still publishing the old window. Practically, that means they will tell you dogs are banned for the second half of September when they are not, and that dogs are welcome in the first half of May when they are not. One of those errors costs you a trip; the other costs you a fine."
+    },
+    "alternatives": [
+      {
+        "name": "Non-guarded and surf-fishing beaches in Delaware State Parks",
+        "detail": "Open to dogs year-round, including through the summer. Watch for discarded hooks and monofilament line — that is the tradeoff for a beach where dogs are legal in July.",
+        "href": null,
+        "verified": false
+      },
+      {
+        "name": "Slaughter Beach",
+        "detail": "Leashed dogs year-round, about 40 minutes north. Horseshoe crab sanctuary — in May and June the beach is carpeted with them and dogs will eat the molts.",
+        "href": null,
+        "verified": false
+      },
+      {
+        "name": "Assateague Island National Seashore",
+        "detail": "Dogs year-round on a 6-ft leash, outside lifeguarded areas. The National Seashore only — not Assateague State Park next door, which is where people get this wrong.",
+        "href": null,
+        "verified": false
+      }
+    ],
+    "sources": [
+      {
+        "label": "City of Rehoboth Beach — seasonal restriction date change",
+        "url": "https://www.rehobothbeachde.gov/city-of-rehoboth-beach-changes-dates-for-seasonal-restrictions/",
+        "note": "Published January 16, 2026. Effective on the commissioners' vote."
+      }
+    ],
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "callTo": { "name": "City of Rehoboth Beach", "phone": "302-227-6181" },
+    "outstanding": [
+      "Confirm May 15 – September 15 is the closure now in force and that nothing has been amended since January 16, 2026.",
+      "Get the lifeguard schedule: exact dates guards are on duty inside the September 16 – May 14 window.",
+      "Confirm whether the lifeguard exception applies to the boardwalk or to the beach only.",
+      "Confirm max leash length and the fine for a violation, with ordinance numbers.",
+      "Confirm the closure covers the full boardwalk and the Deauville Beach area.",
+      "Record who confirmed it, then set verifiedDate and verifiedSource."
+    ]
+  }
+]

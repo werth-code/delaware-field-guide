@@ -1,0 +1,81 @@
+---
+/**
+ * Renders a town's rule array. Table first, prose second — this is the part
+ * people came for, and it has to survive being read one-handed on a phone.
+ *
+ * Below 40rem it stops being a table and becomes stacked records, because a
+ * five-column table on a 375px screen is a horizontal scroll nobody performs.
+ */
+import type { Rule, Status } from "../lib/rules";
+import { STATUS_META, formatRange } from "../lib/rules";
+import FlagIcon from "./FlagIcon.astro";
+
+interface Props {
+  rules: Rule[];
+  caption?: string;
+}
+
+const { rules, caption } = Astro.props;
+
+const chipFor = (status: Status) =>
+  ({
+    green: "bg-flag-green-bearing text-white",
+    yellow: "bg-flag-yellow text-ink",
+    red: "bg-flag-red-bearing text-white",
+  })[STATUS_META[status].flag]!;
+
+const areaLabel = (a: string) => (a === "boardwalk" ? "Boardwalk" : "Beach");
+---
+
+<div class="sign my-6 overflow-hidden">
+  <table class="w-full text-left">
+    {caption && <caption class="label px-4 pt-4 pb-1 text-left">{caption}</caption>}
+
+    <thead class="hidden sm:table-header-group">
+      <tr class="border-b border-rule">
+        <th scope="col" class="label px-4 py-3 font-medium">Where</th>
+        <th scope="col" class="label px-4 py-3 font-medium">Dates</th>
+        <th scope="col" class="label px-4 py-3 font-medium">Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {
+        rules.map((rule) => {
+          const meta = STATUS_META[rule.status];
+          return (
+            <tr class="block sm:table-row border-b border-rule last:border-b-0 align-top">
+              <th
+                scope="row"
+                class="block sm:table-cell px-4 pt-4 sm:py-4 font-display text-[1.05rem] font-semibold text-left"
+              >
+                {areaLabel(rule.area)}
+              </th>
+
+              <td class="block sm:table-cell px-4 sm:py-4">
+                <span class="stamp text-[0.9rem] whitespace-nowrap">{formatRange(rule)}</span>
+              </td>
+
+              <td class="block sm:table-cell px-4 pt-2 pb-4 sm:py-4">
+                <span
+                  class={`${chipFor(rule.status)} inline-flex items-center gap-1.5 px-2 py-1 rounded-[2px] font-mono text-[0.7rem] font-medium uppercase tracking-[0.08em]`}
+                >
+                  <FlagIcon icon={meta.icon} class="w-[1em] h-[1em]" />
+                  {meta.word}
+                </span>
+
+                {rule.note && <p class="mt-2 mb-0 text-[0.9rem] leading-[1.5] max-w-[46ch]">{rule.note}</p>}
+
+                {rule.leashRequired && (
+                  <p class="mt-1.5 mb-0 stamp text-structure-text">
+                    Leash required{rule.maxLeashFeet ? ` · max ${rule.maxLeashFeet} ft` : ""}
+                  </p>
+                )}
+              </td>
+            </tr>
+          );
+        })
+      }
+    </tbody>
+  </table>
+</div>

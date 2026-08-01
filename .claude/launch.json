@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "delaware-field-guide",
+      "comment": "Invokes node@26 directly. The `npm` on PATH is bound to the system node 12, which cannot run Astro — see README, Local development.",
+      "runtimeExecutable": "/usr/local/opt/node@26/bin/node",
+      "runtimeArgs": ["./node_modules/astro/bin/astro.mjs", "dev", "--port", "8250"],
+      "port": 8250
+    }
+  ]
+}

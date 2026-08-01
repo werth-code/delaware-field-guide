@@ -1,0 +1,87 @@
+---
+/**
+ * Home. Deliberately thin.
+ *
+ * Nobody lands here — they land on an answer page from a search. This page's
+ * job is to say what the site is, point at the one live section, and get out
+ * of the way. It gets rebuilt when there's a second section.
+ */
+import Layout from "../layouts/Layout.astro";
+
+import townsData from "../data/towns.json";
+import type { Town } from "../lib/rules";
+import { isVerified } from "../lib/verification";
+
+const live = (townsData as Town[]).filter(isVerified);
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Delaware Field Guide",
+    url: "https://delawarefieldguide.com/",
+    description:
+      "A reference for outdoor Delaware. Every fact carries the date it was checked and the source it came from.",
+    publisher: { "@type": "Organization", name: "Delaware Field Guide" },
+  },
+];
+---
+
+<Layout
+  title="Delaware Field Guide — outdoor Delaware, verified and dated"
+  description="A reference for outdoor Delaware, starting with where your dog is legal, on what dates, and what it costs. Every fact carries the date it was checked and its source."
+  schema={schema}
+>
+  <div class="wrap pt-14 pb-10">
+    <h1 class="text-[2.3rem] sm:text-[3rem] leading-[1.08] m-0 max-w-[18ch]">
+      Outdoor Delaware, checked and dated.
+    </h1>
+
+    <p class="mt-5 mb-0 text-[1.2rem] leading-[1.5] max-w-[54ch]">
+      A reference for the Delaware coast and the parks inland. Every rule here
+      carries the date we last confirmed it and the name of whoever told us —
+      because the published answer is wrong more often than you'd think.
+    </p>
+  </div>
+
+  <div class="wrap pb-6">
+    <a href="/dogs/" class="sign no-underline block px-5 py-5 group">
+      <p class="label m-0">Section one · live</p>
+      <p
+        class="font-display text-[1.5rem] font-semibold mt-1.5 mb-0 underline decoration-rule-strong decoration-[1.5px] underline-offset-[0.18em] group-hover:decoration-ink"
+      >
+        Dogs
+      </p>
+      <p class="mt-2 mb-0 text-[0.98rem] max-w-[54ch]">
+        Where your dog is legal, on what date, and what it costs. Beach and
+        boardwalk rules by town, state park exceptions, dog parks, and pet fees.
+      </p>
+      {
+        live.length > 0 && (
+          <p class="stamp text-structure-text mt-3 mb-0">
+            {live.length} town {live.length === 1 ? "page" : "pages"} published
+          </p>
+        )
+      }
+    </a>
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    <h2>What's coming</h2>
+    <p class="max-w-[58ch]">
+      Dogs is the first of ten planned sections. Surf fishing permits are next —
+      same beaches, same off-season, and it shares the non-guarded-beach rules
+      the dog section already had to get right. Then crabbing, the state parks,
+      and the rest.
+    </p>
+
+    <h2>Why the dates matter more than the writing</h2>
+    <p class="max-w-[58ch]">
+      Rehoboth Beach moved its seasonal dog dates in January 2026. Most guides
+      you'll find still print the old ones, which means they'll tell you the
+      beach is closed to dogs when it isn't, and open when it isn't. Nobody
+      re-checks, because nobody wrote down where the fact came from in the first
+      place. <a href="/how-we-verify/">That's the thing this site does differently</a>.
+    </p>
+  </div>
+</Layout>

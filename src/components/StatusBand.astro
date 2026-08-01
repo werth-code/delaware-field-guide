@@ -1,0 +1,72 @@
+---
+/**
+ * The signature element.
+ *
+ * A full-width band showing today's status in the flag color. Every town and
+ * park page opens with one. On the week-4 date checker, changing the date
+ * re-flags the whole list at once.
+ *
+ * Composition is deliberate: a solid flag-colored bar (which carries NO text,
+ * so it can use the canonical hex), a chip with an icon and a word on a
+ * text-bearing variant that clears 7:1, and the detail in ink on a pale wash.
+ * Grayscale it and the icon plus the word still answer the question.
+ */
+import type { Status } from "../lib/rules";
+import { STATUS_META } from "../lib/rules";
+import FlagIcon from "./FlagIcon.astro";
+
+interface Props {
+  status: Status;
+  /** "Dogs are not allowed today" — the sentence, not the label. */
+  headline: string;
+  /** One line of why. */
+  detail?: string | null;
+  /** The date this reflects. Always shown — a status with no date is a rumor. */
+  asOf: string;
+}
+
+const { status, headline, detail = null, asOf } = Astro.props;
+const meta = STATUS_META[status];
+
+const bar = {
+  green: "bg-flag-green",
+  yellow: "bg-flag-yellow",
+  red: "bg-flag-red",
+}[meta.flag]!;
+
+const wash = {
+  green: "bg-flag-green-wash",
+  yellow: "bg-flag-yellow-wash",
+  red: "bg-flag-red-wash",
+}[meta.flag]!;
+
+// Text-bearing surfaces use the darkened variant so white clears 7:1.
+// Yellow is the exception — ink sits on the canonical yellow instead.
+const chip = {
+  green: "bg-flag-green-bearing text-white",
+  yellow: "bg-flag-yellow text-ink",
+  red: "bg-flag-red-bearing text-white",
+}[meta.flag]!;
+---
+
+<section class={`${wash} border-y border-rule`} aria-label="Current status">
+  <div class={`${bar} h-2.5 w-full`}></div>
+
+  <div class="wrap py-6">
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+      <span
+        class={`${chip} inline-flex items-center gap-2 px-3 py-1.5 rounded-[2px] font-mono text-[0.78rem] font-medium uppercase tracking-[0.09em]`}
+      >
+        <FlagIcon icon={meta.icon} class="w-[1.05em] h-[1.05em]" />
+        {meta.word}
+      </span>
+      <span class="stamp text-structure-text">as of {asOf}</span>
+    </div>
+
+    <p class="font-display text-[1.6rem] leading-[1.15] font-semibold mt-3 mb-0 text-ink">
+      {headline}
+    </p>
+
+    {detail && <p class="mt-2 mb-0 max-w-[58ch] text-[0.95rem] text-ink">{detail}</p>}
+  </div>
+</section>

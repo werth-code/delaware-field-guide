@@ -1,0 +1,158 @@
+---
+/**
+ * Twenty minutes of writing that states the entire differentiator plainly.
+ *
+ * It's also the signal that gets a small site cited by an AI rather than
+ * retrieved and discarded — models weight sourcing and provenance, and this
+ * page is the provenance statement. Linked from the footer of every page.
+ */
+import Layout from "../layouts/Layout.astro";
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "How we verify",
+    description:
+      "Every fact on Delaware Field Guide carries the date it was checked and the source it came from. Here is the method, and what happens when we get something wrong.",
+    mainEntityOfPage: new URL("/how-we-verify/", Astro.site).href,
+    author: { "@type": "Organization", name: "Delaware Field Guide" },
+    publisher: { "@type": "Organization", name: "Delaware Field Guide" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Where do the rules on this site come from?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "From the body that sets them — the city, the state park, or the property itself — by phone or from its own published notice. Never from another guide.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What does the verification date mean?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "It is the date we last confirmed that fact with its source. It is not the date the page was published or edited. If a page has no verification stamp, it has not been confirmed and it is not indexed.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What happens when a fact turns out to be wrong?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We fix it, re-date it, and say on the page that it was corrected and when. Corrections are not quietly edited away.",
+        },
+      },
+    ],
+  },
+];
+---
+
+<Layout
+  title="How we verify — Delaware Field Guide"
+  description="Every fact here carries the date it was checked and the source it came from. The method, in full, including what happens when we get something wrong."
+  schema={schema}
+>
+  <div class="wrap pt-10 pb-2">
+    <p class="label m-0">Method</p>
+    <h1 class="text-[2.15rem] sm:text-[2.6rem] mt-2 mb-0">How we verify</h1>
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    <p class="text-[1.2rem] leading-[1.5] font-medium max-w-[58ch]">
+      We call the source, we date every fact, and we publish corrections. That's
+      the whole method. It is unglamorous and it is the entire reason this site
+      exists.
+    </p>
+
+    <h2>Why this page exists at all</h2>
+    <p>
+      Most guides to the Delaware beaches copy their dog rules from each other.
+      That works until a town changes a rule — and then the error propagates
+      across a dozen sites and sits there for years, because nobody re-checked
+      and nobody had a source to re-check against.
+    </p>
+    <p>
+      That is not hypothetical. Rehoboth Beach moved its seasonal dog dates in
+      January 2026. A large share of the pages you'll find still publish the
+      old ones. Being right about that is not a content-marketing flourish; it
+      is the difference between a wasted three-hour drive and a good weekend.
+    </p>
+
+    <h2>The rules</h2>
+
+    <h3>1. The source is the body that sets the rule</h3>
+    <p>
+      A town's dog rules come from the town — by phone, or from the town's own
+      published notice. A state park rule comes from the park. A pet fee comes
+      from the property, not from a booking site's summary of the property. We
+      do not source a fact from another guide, ever, including when that guide
+      is probably right.
+    </p>
+
+    <h3>2. Every fact carries the date it was checked</h3>
+    <p>
+      Not the date the page went up, and not the date we last touched the file
+      — the date we last confirmed the fact with its source. That's what the
+      mono stamp at the bottom of each page is. It tells you how much to trust
+      the page, which is information you can't get from a page that doesn't
+      have one.
+    </p>
+
+    <h3>3. Unverified means unpublished</h3>
+    <p>
+      A page whose facts we haven't confirmed doesn't get a stamp, doesn't get
+      indexed, and doesn't appear in the section list. This is enforced by the
+      site's build, not by our good intentions: pages with no verification date
+      and no named source are automatically marked <code class="stamp">noindex</code>
+      and dropped from the sitemap. We can't accidentally ship a draft as fact.
+    </p>
+
+    <h3>4. "Not confirmed" is a real answer</h3>
+    <p>
+      Where we don't know something, the page says "not confirmed" rather than
+      guessing or quietly omitting it. An empty field on a park listing means we
+      haven't checked it — it does not mean the park lacks the thing.
+    </p>
+
+    <h3 id="corrections">5. Corrections are published, not buried</h3>
+    <p>
+      When we get something wrong, we fix it, re-date it, and note on the page
+      that it was corrected and when. A site that claims to be verified and
+      silently rewrites its mistakes is worth less than one that never claimed
+      it.
+    </p>
+
+    <h2>What we don't do</h2>
+    <ul>
+      <li>
+        We don't run a live water-quality or bloom tracker. Conditions change
+        hourly and a stale "safe today" badge is worse than no badge. We link to
+        DNREC and the Division of Public Health, who actually monitor it.
+      </li>
+      <li>
+        We don't publish a rule we've only seen on an aggregator, no matter how
+        many aggregators agree. Agreement between copies is not corroboration.
+      </li>
+      <li>
+        We don't take payment to change or soften a listing. Lodging links may
+        earn a commission; the fees, weight limits and policies we publish are
+        what the property told us, and an unfavourable answer gets published the
+        same as a favourable one.
+      </li>
+    </ul>
+
+    <h2>Found something wrong?</h2>
+    <p>
+      Tell us and we'll check it and correct it. Local regulars know these rules
+      better than any publisher does, and a correction from someone who was
+      standing there yesterday is worth more than another phone call.
+      <a href="https://werth.design" rel="noopener">Get in touch through Werth Design</a>,
+      who build and maintain this site.
+    </p>
+  </div>
+</Layout>

@@ -1,0 +1,72 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  /** Defaults to indexable. Verified-gated pages pass their own value. */
+  robots?: string;
+  /** ISO date. Should match the page's verification date. */
+  dateModified?: string | null;
+  /** JSON-LD blocks. Article on everything; FAQPage/Place/Table where they apply. */
+  schema?: Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  robots = "index, follow, max-snippet:-1, max-image-preview:large",
+  dateModified = null,
+  schema = [],
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Delaware Field Guide" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary" />
+    {dateModified && <meta property="article:modified_time" content={dateModified} />}
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    {
+      schema.map((block) => (
+        <script type="application/ld+json" set:html={JSON.stringify(block)} />
+      ))
+    }
+  </head>
+
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-2 focus:px-4 focus:py-3 focus:bg-ink focus:text-ground focus:rounded-[2px]"
+    >
+      Skip to content
+    </a>
+
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

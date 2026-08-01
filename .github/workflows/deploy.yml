@@ -1,0 +1,46 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+  # The site's status bands resolve "today" at build time. A daily rebuild is
+  # what makes that honest: without it, the flag on every town page freezes on
+  # the date of the last commit. 07:10 UTC ≈ 03:10 ET, before anyone is
+  # checking whether they can walk the dog on the beach this morning.
+  schedule:
+    - cron: "10 7 * * *"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never cancel a running deploy — a half-published site is worse than a
+# slightly stale one. Queue instead.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        uses: withastro/action@v3
+        env:
+          PUBLIC_BEEHIIV_EMBED_URL: ${{ vars.PUBLIC_BEEHIIV_EMBED_URL }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

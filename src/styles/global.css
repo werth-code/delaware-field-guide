@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+/* Self-hosted. No Google Fonts request, per spec. */
+@import "@fontsource-variable/inter";
+@import "@fontsource/zilla-slab/600.css";
+@import "@fontsource/zilla-slab/700.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+/*
+  Delaware Field Guide — design system
+  ==========================================================================
+  Vernacular: beach warning flags + state park signage. Field guide, not
+  puppy blog. Explicitly NOT cream / high-contrast-serif / terracotta.
+
+  Reading conditions drive every decision here: a phone, outdoors, in bright
+  sun, one-handed, in a hurry. So — 19px base, 7:1 minimum on body text, no
+  light gray on white ever, 44px tap targets, no motion.
+
+  FLAG COLOR RULE
+  ---------------
+  The six palette tokens below are from the spec and are canonical. Flag
+  colors appear ONLY in status contexts — never in headers, links, or
+  decoration. If it's flag-colored, it means something.
+
+  Two of the three flags fail 7:1 when text sits directly on them, so each
+  flag has a `-bearing` variant used *only* as a background behind text, and
+  a `-wash` variant used as a pale fill. The canonical hex stays the
+  identity color and is used for the solid bar, which carries no text.
+
+    flag-red      #C0392B  bar        · bearing #8E2A20 w/ white  → 8.4:1
+    flag-green    #2E7D32  bar        · bearing #1F5C24 w/ white  → 8.0:1
+    flag-yellow   #E8A33D  bar+chip   · ink on canonical yellow   → 7.6:1
+
+  Status is NEVER color alone. Every status renders color + icon + word, and
+  is unambiguous in grayscale. Roughly 1 in 12 men has a color vision
+  deficiency, and this audience skews that way.
+*/
+
+@theme {
+  /* ---- Type ------------------------------------------------------------ */
+  --font-display: "Zilla Slab", ui-serif, Georgia, serif;
+  --font-body: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* ---- Palette (spec) --------------------------------------------------- */
+  --color-ground: #edefe8; /* page background — cool pale marsh, not cream */
+  --color-ink: #1b211a; /* body text, near-black with a green cast */
+  --color-structure: #4a5a4c; /* rules, borders — NOT text (6.3:1) */
+
+  /* Text-safe derivatives of `structure`. Secondary text must still clear 7:1. */
+  --color-structure-text: #3c4a3e; /* 8.1:1 on ground */
+  --color-rule: #c5cbc1; /* hairlines */
+  --color-rule-strong: #9aa599;
+
+  /* Raised surfaces. Sign-white, slightly off pure to cut glare. */
+  --color-panel: #f8f9f5;
+  --color-panel-sunk: #e3e6dc;
+
+  /* ---- Flags — status only --------------------------------------------- */
+  --color-flag-green: #2e7d32;
+  --color-flag-green-bearing: #1f5c24;
+  --color-flag-green-wash: #e2eddf;
+
+  --color-flag-yellow: #e8a33d;
+  --color-flag-yellow-bearing: #e8a33d; /* ink sits on it, not white */
+  --color-flag-yellow-wash: #faeed9;
+
+  --color-flag-red: #c0392b;
+  --color-flag-red-bearing: #8e2a20;
+  --color-flag-red-wash: #f6e2df;
+
+  --radius-sign: 2px;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ground);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 19px; /* spec: 19px base, 1.6 line-height */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    font-synthesis-weight: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.14;
+    letter-spacing: -0.008em;
+    text-wrap: balance;
+  }
+
+  /* Links are structure-colored, never flag-colored. Underlined always —
+     color alone is not an affordance outdoors in sun. */
+  a {
+    color: var(--color-ink);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--color-rule-strong);
+  }
+
+  a:hover {
+    text-decoration-color: currentColor;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  /* No motion. There is nothing on this site worth animating. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* ---- Layout ---------------------------------------------------------- */
+  .wrap {
+    width: 100%;
+    max-width: 46rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .wrap-wide {
+    max-width: 62rem;
+  }
+
+  /* Tap targets ≥44px, per spec. Applied to every nav/footer link. */
+  .tap {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* ---- Prose ----------------------------------------------------------- */
+  .prose-field > p {
+    margin-block: 1rem;
+    max-width: 64ch;
+  }
+
+  .prose-field h2 {
+    font-size: 1.6rem;
+    margin-block: 2.75rem 0.85rem;
+  }
+
+  .prose-field h3 {
+    font-size: 1.2rem;
+    margin-block: 1.85rem 0.4rem;
+  }
+
+  .prose-field ul {
+    margin-block: 1rem;
+    padding-inline-start: 1.35rem;
+    list-style: none;
+    max-width: 64ch;
+  }
+
+  .prose-field li {
+    position: relative;
+    margin-block: 0.55rem;
+  }
+
+  .prose-field ul > li::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: -1.35rem;
+    inset-block-start: 0.62em;
+    width: 0.45rem;
+    height: 0.45rem;
+    background: var(--color-structure);
+  }
+
+  /* Lists that opt out of prose bullets (cards, stamps, source lists) must not
+     inherit the square marker just because they sit inside .prose-field. */
+  .prose-field ul.list-none > li::before {
+    content: none;
+  }
+
+  .prose-field ol {
+    margin-block: 1rem;
+    padding-inline-start: 1.35rem;
+    list-style: decimal;
+    max-width: 64ch;
+  }
+
+  .prose-field ol > li::marker {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--color-structure-text);
+  }
+
+  /* The answer paragraph sits directly under the status band — it shouldn't
+     read as a separate section. */
+  .prose-field > :first-child {
+    margin-block-start: 0;
+  }
+
+  /* ---- The sign ---------------------------------------------------------
+     Every panel is a routed sign: hard 1px rule, 2px radius, no shadow.
+     Soft shadows read as "app"; this needs to read as "posted notice". */
+  .sign {
+    background: var(--color-panel);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-sign);
+  }
+
+  /* Mono utility — dates, stamps, tabular data. This does real work: it's
+     what makes the page read as a reference document rather than a blog. */
+  .stamp {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--color-structure-text);
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
+}

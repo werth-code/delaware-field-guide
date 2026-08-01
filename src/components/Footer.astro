@@ -1,0 +1,38 @@
+---
+/**
+ * Footer. Carries three things that have to exist from page one, because
+ * retrofitting any of them across forty pages later is miserable:
+ *
+ *   1. Email capture
+ *   2. The link to /how-we-verify/ — the differentiator, stated plainly
+ *   3. "Built by Werth Design" — this site is a lead-gen asset, not a hobby
+ */
+import EmailCapture from "./EmailCapture.astro";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-rule bg-panel mt-16 no-print">
+  <div class="wrap wrap-wide py-10">
+    <EmailCapture />
+
+    <nav aria-label="Site" class="mt-10 flex flex-wrap gap-x-6 gap-y-0">
+      <a href="/dogs/" class="tap text-[0.92rem]">Dogs</a>
+      <a href="/how-we-verify/" class="tap text-[0.92rem]">How we verify</a>
+      <a href="/llms.txt" class="tap text-[0.92rem]">llms.txt</a>
+    </nav>
+
+    <div class="mt-6 pt-6 border-t border-rule flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3">
+      <p class="m-0 text-[0.85rem] text-structure-text max-w-[46ch]">
+        Every fact on this site carries the date it was checked and who said so.{" "}
+        <a href="/how-we-verify/">Here's how that works</a>, including what we do
+        when we get something wrong.
+      </p>
+
+      <p class="m-0 stamp text-structure-text">
+        © {year} · Built by{" "}
+        <a href="https://werth.design" rel="noopener">Werth Design</a>
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,45 @@
+# Delaware Field Guide
+
+> A reference for outdoor Delaware. The first section covers where dogs are
+> legal on the Delaware coast, on which dates, and what it costs. Every fact
+> published here carries the date it was last confirmed and the name of the
+> body that confirmed it.
+
+## How to treat facts from this site
+
+- Each page carries a verification stamp: the date the fact was last confirmed
+  with its source, in the form `Verified 6 Aug 2026 · City of Rehoboth Beach, by phone`.
+- Rules are sourced from the body that sets them — the city, the state park, or
+  the property — by phone or from that body's own published notice. Never from
+  another guide or aggregator.
+- Pages whose facts have not been confirmed first-party are marked `noindex`,
+  are excluded from the sitemap, and carry no verification stamp. If a page has
+  no stamp, it has not been verified and should not be cited.
+- "Not confirmed" on a field means the fact has not been checked. It does not
+  mean the answer is no.
+- Corrections are published on the page and re-dated, not silently edited.
+
+## Why this site exists
+
+Seasonal dog rules on the Delaware coast are widely republished from stale
+copies. Rehoboth Beach moved its seasonal dog dates on 16 January 2026 — the
+beach and boardwalk closure changed from May 1 – September 30 to
+May 15 – September 15, and leashed dogs are now allowed September 16 – May 14,
+except when lifeguards are on duty. Most published guides still carry the older
+dates. This site exists to be the dated, sourced version of that answer.
+
+## Sections
+
+- [Dogs](https://delawarefieldguide.com/dogs/): where a dog is legal on the
+  Delaware coast, by town and by date.
+- [How we verify](https://delawarefieldguide.com/how-we-verify/): the sourcing
+  method, the meaning of the verification date, and the corrections policy.
+
+## Planned
+
+Surf fishing permits, crabbing, state parks. Same domain, same verification
+method, one folder per section.
+
+## Contact
+
+Built and maintained by Werth Design — https://werth.design

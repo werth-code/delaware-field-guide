@@ -1,0 +1,133 @@
+---
+/**
+ * Section hub. In week 4 the date checker mounts here as the one React
+ * island; everything above and below it stays static, and the list below is
+ * the no-JS fallback the checker must degrade to.
+ */
+import Layout from "../../layouts/Layout.astro";
+import FlagIcon from "../../components/FlagIcon.astro";
+
+import townsData from "../../data/towns.json";
+import type { Town } from "../../lib/rules";
+import { STATUS_META, formatLongDate, formatRange, ruleFor, statusOn } from "../../lib/rules";
+import { isVerified } from "../../lib/verification";
+
+const towns = (townsData as Town[]).filter(isVerified);
+const drafts = (townsData as Town[]).filter((t) => !isVerified(t));
+
+const today = new Date();
+const asOf = formatLongDate(today);
+
+const chipFor = (flag: string) =>
+  ({
+    green: "bg-flag-green-bearing text-white",
+    yellow: "bg-flag-yellow text-ink",
+    red: "bg-flag-red-bearing text-white",
+  })[flag]!;
+
+const schema = towns.length
+  ? [
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: "Delaware beach towns — dog rules",
+        itemListElement: towns.map((t, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: t.name,
+          url: new URL(`/dogs/${t.slug}/`, Astro.site).href,
+        })),
+      },
+    ]
+  : [];
+---
+
+<Layout
+  title="Dogs at the Delaware beaches — rules by town and date"
+  description="Where your dog is legal on the Delaware coast, by town and by date. Every rule carries the date it was checked and the source it came from."
+  schema={schema}
+>
+  <div class="wrap pt-10 pb-4">
+    <p class="label m-0">Section one</p>
+    <h1 class="text-[2.15rem] sm:text-[2.6rem] mt-2 mb-0">
+      Where your dog is legal on the Delaware coast
+    </h1>
+    <p class="mt-4 mb-0 text-[1.1rem] max-w-[58ch]">
+      Six jurisdictions, six different sets of dates, and they don't all change
+      on the same day. Rehoboth moved its dates in January 2026 and most
+      published guides still have the old ones.
+    </p>
+    <p class="stamp text-structure-text mt-4 mb-0">Status shown as of {asOf}</p>
+  </div>
+
+  <div class="wrap py-6">
+    {
+      towns.length > 0 ? (
+        <ul class="list-none p-0 m-0 space-y-3">
+          {towns.map((town) => {
+            const status = statusOn(town, today);
+            const meta = STATUS_META[status];
+            const beach = ruleFor(town, "beach", today);
+            return (
+              <li class="sign">
+                <a href={`/dogs/${town.slug}/`} class="no-underline block px-4 py-4 group">
+                  <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+                    <span
+                      class={`${chipFor(meta.flag)} inline-flex items-center gap-1.5 px-2 py-1 rounded-[2px] font-mono text-[0.7rem] font-medium uppercase tracking-[0.08em]`}
+                    >
+                      <FlagIcon icon={meta.icon} class="w-[1em] h-[1em]" />
+                      {meta.word}
+                    </span>
+                    <span class="font-display text-[1.25rem] font-semibold underline decoration-rule-strong decoration-[1.5px] underline-offset-[0.18em] group-hover:decoration-ink">
+                      {town.name}
+                    </span>
+                  </div>
+                  {beach && (
+                    <p class="mt-2 mb-0 stamp text-structure-text">
+                      Beach: {formatRange(beach)} · {meta.word.toLowerCase()}
+                    </p>
+                  )}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <div class="sign px-4 py-5">
+          <p class="label m-0">Nothing published yet</p>
+          <p class="mt-2 mb-0 max-w-[56ch] text-[0.95rem]">
+            Town pages appear here once their rules have been confirmed
+            first-party. Drafts are deliberately withheld — an unverified page
+            is worth less than no page, because being wrong is the one thing
+            this site cannot be.
+          </p>
+        </div>
+      )
+    }
+
+    {
+      drafts.length > 0 && (
+        <p class="stamp text-structure-text mt-5 mb-0">
+          {drafts.length} town {drafts.length === 1 ? "page" : "pages"} drafted, awaiting confirmation
+        </p>
+      )
+    }
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    <h2>Coming in this section</h2>
+    <p class="text-[0.95rem] text-structure-text max-w-[60ch]">
+      Listed so you know what's not here yet, rather than discovering it by
+      searching for it.
+    </p>
+    <ul>
+      <li>Dewey, Bethany, Lewes and Fenwick Island — town rules, plus Dewey's dog license</li>
+      <li>State parks — and the year-round exception for non-guarded and surf-fishing beaches</li>
+      <li>Summer — where a dog is actually legal in July</li>
+      <li>Pond safety — harmful algal blooms, and the one dog park everyone swims in</li>
+      <li>Pet fees — what lodging actually charges, in total, with weight limits</li>
+      <li>Dog parks — fenced, size split, water, shade, surface, fee, hours</li>
+      <li>The drive — where to stop, by the city you're coming from</li>
+    </ul>
+  </div>
+</Layout>

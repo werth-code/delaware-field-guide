@@ -1,0 +1,218 @@
+---
+/**
+ * The town page template.
+ *
+ * Every town renders from src/data/towns.json through this one file. Week 3
+ * (Dewey, Bethany, Lewes, Fenwick) is four data records and zero new markup.
+ *
+ * Page structure is fixed by spec and must not be reordered:
+ *   1. Question-shaped H1
+ *   2. Status band for today
+ *   3. The answer, under 40 words, extractable standalone
+ *   4. Supporting detail — table first, prose second
+ *   5. What to do instead, if the answer is no
+ *   6. Verification stamp
+ *   7. Related pages
+ */
+import type { GetStaticPaths } from "astro";
+
+import Layout from "../../layouts/Layout.astro";
+import StatusBand from "../../components/StatusBand.astro";
+import RuleTable from "../../components/RuleTable.astro";
+import VerificationStamp from "../../components/VerificationStamp.astro";
+
+import townsData from "../../data/towns.json";
+import type { Town } from "../../lib/rules";
+import { STATUS_META, formatLongDate, formatRange, ruleFor, statusOn, toISODate } from "../../lib/rules";
+import { assertAnswerLength, isVerified, robotsFor } from "../../lib/verification";
+
+const towns = townsData as Town[];
+
+export const getStaticPaths = (() => {
+  return (townsData as Town[]).map((town) => ({
+    params: { slug: town.slug },
+    props: { town },
+  }));
+}) satisfies GetStaticPaths;
+
+const { town } = Astro.props as { town: Town };
+
+// Build-time gate: the answer is the format. Fail the build, not the reader.
+assertAnswerLength(town.slug, town.answer);
+
+/*
+  "Today" is resolved at build time. That is only honest if the site rebuilds
+  daily — the deploy workflow runs on a cron for exactly this reason — and if
+  the date is stated rather than implied. Hence "as of {today}" on the band:
+  a stale build then reads as out-of-date, not as wrong.
+*/
+const today = new Date();
+const status = statusOn(town, today);
+const asOf = formatLongDate(today);
+
+const beachRule = ruleFor(town, "beach", today);
+const boardwalkRule = ruleFor(town, "boardwalk", today);
+
+const nextChange = town.rules
+  .filter((r) => r.area === "beach" && r.status !== beachRule?.status)
+  .map((r) => formatRange(r).split(" – ")[0])[0];
+
+const headline = {
+  allowed: `Dogs are allowed on ${town.name} today`,
+  restricted: `Dogs are allowed on ${town.name} today, with limits`,
+  prohibited: `Dogs are not allowed on ${town.name} today`,
+}[status];
+
+const detail =
+  status === "prohibited"
+    ? `Today falls inside the ${beachRule ? formatRange(beachRule) : ""} closure — off the beach and off the boardwalk at every hour.${nextChange ? ` Dogs come back ${nextChange}.` : ""}`
+    : (beachRule?.note ?? null);
+
+const verified = isVerified(town);
+const alternatives = town.alternatives ?? [];
+
+/* --------------------------------------------------------------- schema -- */
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: town.question,
+  description: town.metaDescription,
+  mainEntityOfPage: canonical,
+  ...(town.verifiedDate ? { dateModified: town.verifiedDate, datePublished: town.verifiedDate } : {}),
+  author: { "@type": "Organization", name: "Delaware Field Guide" },
+  publisher: { "@type": "Organization", name: "Delaware Field Guide" },
+  ...(verified && town.sources.length
+    ? { citation: town.sources.map((s) => ({ "@type": "CreativeWork", name: s.label, url: s.url })) }
+    : {}),
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: town.question, acceptedAnswer: { "@type": "Answer", text: town.answer } },
+    ...town.rules
+      .filter((r) => r.area === "beach")
+      .map((r) => ({
+        "@type": "Question",
+        name: `Are dogs allowed on ${town.name} between ${formatRange(r)}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `${STATUS_META[r.status].word}. ${r.note ?? ""}`.trim(),
+        },
+      })),
+  ],
+};
+
+// Unverified pages are noindex — don't hand a crawler structured data for
+// something we've told it not to index.
+const schema = verified ? [articleSchema, faqSchema] : [];
+---
+
+<Layout
+  title={town.title}
+  description={town.metaDescription}
+  robots={robotsFor(town)}
+  dateModified={town.verifiedDate}
+  schema={schema}
+>
+  <article>
+    <div class="wrap pt-10 pb-6">
+      <p class="label m-0">{town.name} · {town.county} County</p>
+      <h1 class="text-[2.15rem] sm:text-[2.6rem] mt-2 mb-0">{town.question}</h1>
+    </div>
+
+    <StatusBand status={status} headline={headline} detail={detail} asOf={asOf} />
+
+    <div class="wrap pt-8 prose-field">
+      {/* The answer. Under 40 words, enforced at build. Must stand alone —
+          this is the paragraph an AI assistant lifts. */}
+      <p class="text-[1.2rem] leading-[1.5] font-medium max-w-[58ch]">{town.answer}</p>
+
+      <h2>The dates</h2>
+      <RuleTable rules={town.rules} caption={`${town.name} — dog rules by season`} />
+
+      {
+        boardwalkRule?.note && boardwalkRule.status !== beachRule?.status && (
+          <p class="text-[0.95rem]">
+            <strong>Note the split:</strong> the beach and the boardwalk are not
+            always on the same rule today. Check both rows above.
+          </p>
+        )
+      }
+
+      {
+        town.alsoTrue.length > 0 && (
+          <>
+            <h2>Also true</h2>
+            <dl class="sign my-6 divide-y divide-rule">
+              {town.alsoTrue.map((item) => (
+                <div class="px-4 py-3">
+                  <dt class="label">{item.label}</dt>
+                  <dd class="m-0 mt-1 text-[0.95rem]">{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </>
+        )
+      }
+
+      {
+        town.licenseRequired && town.licenseDetail && (
+          <>
+            <h2>You need a license</h2>
+            <p>{town.licenseDetail}</p>
+          </>
+        )
+      }
+
+      {
+        town.correction && (
+          <>
+            <h2>{town.correction.heading}</h2>
+            <p>{town.correction.body}</p>
+          </>
+        )
+      }
+
+      {
+        alternatives.length > 0 && (
+          <>
+            <h2>Where to go instead during the closure</h2>
+            <p class="text-[0.95rem] text-structure-text">
+              Most guides answer the summer question with "you can't." These are
+              the places where a dog is legal anyway.
+            </p>
+
+            <ul class="list-none p-0 m-0 mt-4 space-y-3">
+              {alternatives.map((alt) => (
+                <li class="sign px-4 py-3">
+                  <p class="m-0 font-display text-[1.05rem] font-semibold">
+                    {alt.href ? <a href={alt.href}>{alt.name}</a> : alt.name}
+                  </p>
+                  <p class="mt-1 mb-0 text-[0.92rem]">{alt.detail}</p>
+                  {!alt.verified && (
+                    <p class="stamp text-structure-text mt-2 mb-0">
+                      Not yet first-party verified
+                    </p>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+
+      <VerificationStamp item={town} />
+
+      <h2>Related</h2>
+      <ul>
+        <li><a href="/dogs/">Every Delaware beach town's dog rules</a></li>
+        <li><a href="/how-we-verify/">How we check this, and what we do when we're wrong</a></li>
+      </ul>
+    </div>
+  </article>
+</Layout>

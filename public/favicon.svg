@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- A beach warning flag on its staff. The site's whole vocabulary at 32px. -->
+  <rect width="32" height="32" fill="#EDEFE8"/>
+  <rect x="7" y="4" width="2.5" height="24" fill="#1B211A"/>
+  <path d="M9.5 5.5h16l-4.5 5.5 4.5 5.5h-16z" fill="#C0392B"/>
+</svg>
