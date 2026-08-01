@@ -1,29 +1,34 @@
 ---
 /**
- * Header. Deliberately plain: a wordmark and the section.
+ * Header. Deliberately plain: a mark, a wordmark, and the section.
  *
  * No mega-nav, no search, no hamburger. There is one section today and the
- * pages are reached from the section hub. When section two (surf fishing)
- * lands, this grows one link.
+ * pages are reached from the hub. When section two (surf fishing) lands, this
+ * grows one link.
+ *
+ * The active section is marked with a rule under it — signage, not a pill.
  */
+import FlagMark from "./FlagMark.astro";
+
 const { pathname } = Astro.url;
 const inDogs = pathname.startsWith("/dogs");
 ---
 
-<header class="border-b border-rule bg-panel">
-  <div class="wrap wrap-wide flex items-baseline justify-between gap-4 py-3">
-    <a href="/" class="tap no-underline group">
-      <span class="font-display text-[1.15rem] font-bold tracking-tight text-ink"
-        >Delaware Field Guide</span
-      >
+<header class="border-b-[3px] border-b-ink bg-panel">
+  <div class="wrap flex items-center justify-between gap-4 py-3">
+    <a href="/" class="tap no-underline gap-2.5 text-ink">
+      <FlagMark class="w-[0.95rem] h-[1.17rem] shrink-0" />
+      <span class="font-display text-[1.18rem] font-bold tracking-[-0.022em]">
+        Delaware Field Guide
+      </span>
     </a>
 
     <nav aria-label="Sections">
       <a
         href="/dogs/"
-        class="tap label no-underline hover:text-ink"
-        aria-current={inDogs ? "true" : undefined}
-        style={inDogs ? "color: var(--color-ink); box-shadow: inset 0 -2px 0 var(--color-ink);" : ""}
+        class={`tap label no-underline hover:text-ink ${inDogs ? "text-ink" : ""}`}
+        aria-current={inDogs ? "page" : undefined}
+        style={inDogs ? "box-shadow: inset 0 -3px 0 var(--color-ink);" : ""}
       >
         Dogs
       </a>

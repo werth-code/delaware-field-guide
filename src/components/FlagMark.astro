@@ -1,0 +1,24 @@
+---
+/**
+ * The house mark: a warning flag on its staff.
+ *
+ * The one piece of decoration on the site, and it earns its place by being the
+ * literal subject — a beach flag is the object this whole section is about.
+ * Deliberately not a dog, a paw, or a wave.
+ */
+interface Props {
+  class?: string;
+}
+const { class: className = "" } = Astro.props;
+---
+
+<svg
+  class={className}
+  viewBox="0 0 26 32"
+  fill="none"
+  aria-hidden="true"
+  focusable="false"
+>
+  <rect x="2" y="1" width="2.6" height="30" fill="currentColor" />
+  <path d="M4.6 2.5h19.5l-5 5.5 5 5.5H4.6z" fill="currentColor" />
+</svg>

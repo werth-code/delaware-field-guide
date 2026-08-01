@@ -20,6 +20,7 @@ import Layout from "../../layouts/Layout.astro";
 import StatusBand from "../../components/StatusBand.astro";
 import RuleTable from "../../components/RuleTable.astro";
 import VerificationStamp from "../../components/VerificationStamp.astro";
+import FlagMark from "../../components/FlagMark.astro";
 
 import townsData from "../../data/towns.json";
 import type { Town } from "../../lib/rules";
@@ -120,17 +121,26 @@ const schema = verified ? [articleSchema, faqSchema] : [];
   schema={schema}
 >
   <article>
-    <div class="wrap pt-10 pb-6">
-      <p class="label m-0">{town.name} · {town.county} County</p>
-      <h1 class="text-[2.15rem] sm:text-[2.6rem] mt-2 mb-0">{town.question}</h1>
+    <div class="wrap pt-11 pb-7">
+      <p class="label m-0 flex items-center gap-2">
+        <FlagMark class="w-[0.5rem] h-[0.62rem] shrink-0" />
+        {town.name} · {town.county} County
+      </p>
+      <h1 class="text-[2.4rem] sm:text-[3.1rem] mt-3 mb-0 max-w-[16ch]">{town.question}</h1>
     </div>
 
     <StatusBand status={status} headline={headline} detail={detail} asOf={asOf} />
 
     <div class="wrap pt-8 prose-field">
       {/* The answer. Under 40 words, enforced at build. Must stand alone —
-          this is the paragraph an AI assistant lifts. */}
-      <p class="text-[1.2rem] leading-[1.5] font-medium max-w-[58ch]">{town.answer}</p>
+          this is the paragraph an AI assistant lifts, and the whole page for
+          someone reading it one-handed in the sun. Set larger than body and
+          hung off a rule so the eye lands here first. */}
+      <p
+        class="text-[1.28rem] leading-[1.45] font-medium max-w-[54ch] border-l-[3px] border-l-ink ps-4 sm:ps-5"
+      >
+        {town.answer}
+      </p>
 
       <h2>The dates</h2>
       <RuleTable rules={town.rules} caption={`${town.name} — dog rules by season`} />
@@ -148,11 +158,11 @@ const schema = verified ? [articleSchema, faqSchema] : [];
         town.alsoTrue.length > 0 && (
           <>
             <h2>Also true</h2>
-            <dl class="sign my-6 divide-y divide-rule">
+            <dl class="sign breakout my-7 divide-y divide-rule">
               {town.alsoTrue.map((item) => (
-                <div class="px-4 py-3">
-                  <dt class="label">{item.label}</dt>
-                  <dd class="m-0 mt-1 text-[0.95rem]">{item.value}</dd>
+                <div class="px-4 sm:px-5 py-3.5 sm:flex sm:gap-6">
+                  <dt class="label sm:w-[11rem] sm:shrink-0 sm:pt-1">{item.label}</dt>
+                  <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem] leading-[1.55]">{item.value}</dd>
                 </div>
               ))}
             </dl>
@@ -187,15 +197,19 @@ const schema = verified ? [articleSchema, faqSchema] : [];
               the places where a dog is legal anyway.
             </p>
 
-            <ul class="list-none p-0 m-0 mt-4 space-y-3">
-              {alternatives.map((alt) => (
-                <li class="sign px-4 py-3">
-                  <p class="m-0 font-display text-[1.05rem] font-semibold">
+            <ul class="list-none p-0 m-0 mt-5 space-y-3">
+              {alternatives.map((alt, i) => (
+                <li class="sign px-4 sm:px-5 py-4 relative">
+                  {/* Plate number, the way a field guide indexes its entries. */}
+                  <span class="stamp text-structure-text absolute top-4 right-4 sm:right-5">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p class="m-0 font-display text-[1.12rem] font-semibold tracking-[-0.012em] pe-8">
                     {alt.href ? <a href={alt.href}>{alt.name}</a> : alt.name}
                   </p>
-                  <p class="mt-1 mb-0 text-[0.92rem]">{alt.detail}</p>
+                  <p class="mt-1.5 mb-0 text-[0.92rem] leading-[1.55] max-w-[54ch]">{alt.detail}</p>
                   {!alt.verified && (
-                    <p class="stamp text-structure-text mt-2 mb-0">
+                    <p class="stamp text-structure-text mt-2.5 mb-0">
                       Not yet first-party verified
                     </p>
                   )}

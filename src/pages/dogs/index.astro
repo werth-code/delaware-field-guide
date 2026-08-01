@@ -49,7 +49,7 @@ const schema = towns.length
 >
   <div class="wrap pt-10 pb-4">
     <p class="label m-0">Section one</p>
-    <h1 class="text-[2.15rem] sm:text-[2.6rem] mt-2 mb-0">
+    <h1 class="text-[2.4rem] sm:text-[3.1rem] mt-3 mb-0 max-w-[15ch]">
       Where your dog is legal on the Delaware coast
     </h1>
     <p class="mt-4 mb-0 text-[1.1rem] max-w-[58ch]">
@@ -69,7 +69,7 @@ const schema = towns.length
             const meta = STATUS_META[status];
             const beach = ruleFor(town, "beach", today);
             return (
-              <li class="sign">
+              <li class="sign sign-action">
                 <a href={`/dogs/${town.slug}/`} class="no-underline block px-4 py-4 group">
                   <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
                     <span

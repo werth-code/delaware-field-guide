@@ -1,10 +1,15 @@
 ---
 /**
- * Renders a town's rule array. Table first, prose second — this is the part
- * people came for, and it has to survive being read one-handed on a phone.
+ * A town's rule array, set as a posted schedule.
+ *
+ * Breaks wider than the prose measure on large screens — prose wants 64ch, a
+ * schedule wants room, and the asymmetry stops the page reading as one
+ * undifferentiated column.
  *
  * Below 40rem it stops being a table and becomes stacked records, because a
- * five-column table on a 375px screen is a horizontal scroll nobody performs.
+ * three-column table on a 375px screen is a horizontal scroll nobody performs.
+ * Each stacked record keeps a flag-coloured left edge so the season is
+ * scannable with a thumb.
  */
 import type { Rule, Status } from "../lib/rules";
 import { STATUS_META, formatRange } from "../lib/rules";
@@ -24,18 +29,29 @@ const chipFor = (status: Status) =>
     red: "bg-flag-red-bearing text-white",
   })[STATUS_META[status].flag]!;
 
+const edgeFor = (status: Status) =>
+  ({
+    green: "border-l-flag-green",
+    yellow: "border-l-flag-yellow",
+    red: "border-l-flag-red",
+  })[STATUS_META[status].flag]!;
+
 const areaLabel = (a: string) => (a === "boardwalk" ? "Boardwalk" : "Beach");
 ---
 
-<div class="sign my-6 overflow-hidden">
-  <table class="w-full text-left">
-    {caption && <caption class="label px-4 pt-4 pb-1 text-left">{caption}</caption>}
+<div class="sign breakout my-7 overflow-hidden">
+  {
+    caption && (
+      <p class="label px-4 sm:px-5 pt-4 pb-3 m-0 border-b border-rule">{caption}</p>
+    )
+  }
 
+  <table class="w-full text-left">
     <thead class="hidden sm:table-header-group">
-      <tr class="border-b border-rule">
-        <th scope="col" class="label px-4 py-3 font-medium">Where</th>
-        <th scope="col" class="label px-4 py-3 font-medium">Dates</th>
-        <th scope="col" class="label px-4 py-3 font-medium">Status</th>
+      <tr class="border-b border-rule bg-panel-sunk">
+        <th scope="col" class="label px-5 py-2.5 font-medium">Where</th>
+        <th scope="col" class="label px-5 py-2.5 font-medium">Dates</th>
+        <th scope="col" class="label px-5 py-2.5 font-medium">Status</th>
       </tr>
     </thead>
 
@@ -44,30 +60,34 @@ const areaLabel = (a: string) => (a === "boardwalk" ? "Boardwalk" : "Beach");
         rules.map((rule) => {
           const meta = STATUS_META[rule.status];
           return (
-            <tr class="block sm:table-row border-b border-rule last:border-b-0 align-top">
+            <tr
+              class={`block sm:table-row border-b border-rule last:border-b-0 align-top border-l-[5px] sm:border-l-0 ${edgeFor(rule.status)}`}
+            >
               <th
                 scope="row"
-                class="block sm:table-cell px-4 pt-4 sm:py-4 font-display text-[1.05rem] font-semibold text-left"
+                class="block sm:table-cell px-4 sm:px-5 pt-4 sm:py-5 font-display text-[1.1rem] font-semibold text-left tracking-[-0.01em]"
               >
                 {areaLabel(rule.area)}
               </th>
 
-              <td class="block sm:table-cell px-4 sm:py-4">
-                <span class="stamp text-[0.9rem] whitespace-nowrap">{formatRange(rule)}</span>
+              <td class="block sm:table-cell px-4 sm:px-5 sm:py-5 whitespace-nowrap">
+                <span class="stamp text-[0.92rem]">{formatRange(rule)}</span>
               </td>
 
-              <td class="block sm:table-cell px-4 pt-2 pb-4 sm:py-4">
+              <td class="block sm:table-cell px-4 sm:px-5 pt-2.5 pb-4 sm:py-5">
                 <span
-                  class={`${chipFor(rule.status)} inline-flex items-center gap-1.5 px-2 py-1 rounded-[2px] font-mono text-[0.7rem] font-medium uppercase tracking-[0.08em]`}
+                  class={`${chipFor(rule.status)} inline-flex items-center gap-1.5 px-2 py-1 rounded-[2px] font-mono text-[0.7rem] font-medium uppercase tracking-[0.09em]`}
                 >
                   <FlagIcon icon={meta.icon} class="w-[1em] h-[1em]" />
                   {meta.word}
                 </span>
 
-                {rule.note && <p class="mt-2 mb-0 text-[0.9rem] leading-[1.5] max-w-[46ch]">{rule.note}</p>}
+                {rule.note && (
+                  <p class="mt-2.5 mb-0 text-[0.9rem] leading-[1.5] max-w-[52ch]">{rule.note}</p>
+                )}
 
                 {rule.leashRequired && (
-                  <p class="mt-1.5 mb-0 stamp text-structure-text">
+                  <p class="mt-2 mb-0 stamp text-structure-text">
                     Leash required{rule.maxLeashFeet ? ` · max ${rule.maxLeashFeet} ft` : ""}
                   </p>
                 )}

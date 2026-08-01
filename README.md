@@ -111,34 +111,61 @@ town through one template. Four more towns is four data records and zero new mar
 
 ---
 
-## Design
+## Design — "Posted Notice"
 
 Vernacular is **beach warning flags** and **state park signage**. Field guide, not puppy blog.
 Explicitly not the cream / high-contrast-serif / terracotta look — that reads as templated, and the
 whole competing category is soft pastels and golden retrievers in sun flare. Looking sober is a
 credibility claim here.
 
-**Flag colors appear only in status contexts.** Never in headers, links, or decoration. If it's
-flag-colored, it means something.
+The site is a public notice board, not a page. Content sits on enameled sign panels — hard 1px
+edge, 2px radius, a hairline drop rule, never a blur — mounted on paper-grain ground. Type is set
+like a routed park sign. Dates are rubber-stamped like a permit. The visual claim is "someone is
+accountable for this," which is the same claim the content makes.
+
+### Type
+
+| Role | Face | Why |
+|---|---|---|
+| Body | **Public Sans** | The U.S. Web Design System face — what federal agencies set their own notices in. Exactly the register this site argues for, at no cost to legibility. |
+| Display | **Zilla Slab** | Clarendon-adjacent; the slab lineage park and roadway signage actually descends from. |
+| Mono | **IBM Plex Mono** | Stamps, dates, tabular data. Does the real work on the "reference document, not blog" claim. |
+
+All self-hosted via `@fontsource`. No Google Fonts request.
+
+### Status is encoded four ways
+
+**Colour + icon + word + bar texture.** The flag bar is `bar-solid` when dogs are allowed,
+`bar-dashed` when restricted, `bar-hazard` (diagonal stripes) when prohibited. Three of the four
+channels survive grayscale and the fourth survives a bad screen in glare. Verified by actually
+grayscaling the page, not by intending to. Roughly 1 in 12 men has a colour vision deficiency and
+this audience skews that way.
+
+**Flag colours appear only in status contexts.** Never in headers, links, or decoration. If it's
+flag-coloured, it means something.
 
 Two of the three flags fail 7:1 with text on them, so each has a `-bearing` variant used only as a
-background behind text. The canonical hex stays the identity color and is used for the solid bar,
-which carries no text. See the comment block at the top of `src/styles/global.css`.
-
-**Status is never color alone.** Every status renders colour + icon + word and is unambiguous in
-grayscale — roughly 1 in 12 men has a colour vision deficiency and this audience skews that way.
-Verified by grayscaling the page, not by intending to.
+background behind text. The canonical hex stays the identity colour and is used for the bar, which
+carries no text. See the comment block at the top of `src/styles/global.css`.
 
 ### Reading conditions drive everything
 
 A phone, outdoors, bright sun, one-handed while holding a leash, in a hurry.
 
-- 19px base, 1.6 line-height, Inter
-- **7:1 minimum on body text** — audited across all 88 text nodes on the Rehoboth page, zero below
+- 19px base, 1.6 line-height
+- **7:1 minimum on body text** — audited across all 91 text nodes on the Rehoboth page, zero below
 - No light gray on white, ever
 - Tap targets ≥44px on standalone controls (`.tap`)
-- No hero video, no carousel, no cookie banner, no motion, no dark mode in v1
-- Fonts self-hosted via `@fontsource` — no Google Fonts request
+- **No entrance animation anywhere.** Someone opening this page wants to know if they can walk the
+  dog in the next ten minutes; fading the answer in is an insult. Motion is confined to
+  interaction, is under 150ms, and is removed on `prefers-reduced-motion`.
+- No hero video, no carousel, no cookie banner, no dark mode in v1
+
+### Composition
+
+One column, one left edge — header, band, and prose all align. `.breakout` is the only deviation:
+on ≥68rem, rule tables and stamps extend 3.5rem past the measure on both sides. Prose wants 64ch; a
+schedule wants room, and the asymmetry stops the page reading as one undifferentiated column.
 
 ---
 

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* Self-hosted. No Google Fonts request, per spec. */
-@import "@fontsource-variable/inter";
+@import "@fontsource-variable/public-sans";
 @import "@fontsource/zilla-slab/600.css";
 @import "@fontsource/zilla-slab/700.css";
 @import "@fontsource/ibm-plex-mono/400.css";
@@ -10,37 +10,54 @@
 /*
   Delaware Field Guide — design system
   ==========================================================================
-  Vernacular: beach warning flags + state park signage. Field guide, not
-  puppy blog. Explicitly NOT cream / high-contrast-serif / terracotta.
 
-  Reading conditions drive every decision here: a phone, outdoors, in bright
-  sun, one-handed, in a hurry. So — 19px base, 7:1 minimum on body text, no
-  light gray on white ever, 44px tap targets, no motion.
+  DIRECTION: "Posted Notice."
 
-  FLAG COLOR RULE
-  ---------------
-  The six palette tokens below are from the spec and are canonical. Flag
-  colors appear ONLY in status contexts — never in headers, links, or
-  decoration. If it's flag-colored, it means something.
+  The site is a public notice board, not a page. Content sits on enameled sign
+  panels with hard edges and a hairline drop rule, mounted on paper-grain
+  ground. Type is set like a routed park sign. Dates are rubber-stamped like a
+  permit. Nothing floats, nothing glows, nothing is rounded — the visual claim
+  is "this was posted by someone who is accountable for it," which is the same
+  claim the content makes.
 
-  Two of the three flags fail 7:1 when text sits directly on them, so each
-  flag has a `-bearing` variant used *only* as a background behind text, and
-  a `-wash` variant used as a pale fill. The canonical hex stays the
-  identity color and is used for the solid bar, which carries no text.
+  Body face is PUBLIC SANS — the typeface of the U.S. Web Design System, the
+  one federal agencies set their own notices in. That is the exact register
+  this site is arguing for, and it costs nothing in legibility. Display is
+  Zilla Slab: Clarendon-adjacent, the slab lineage that park and roadway
+  signage actually comes from. Mono is IBM Plex Mono, and it does real work —
+  it is what makes a page read as a reference document rather than a blog.
 
-    flag-red      #C0392B  bar        · bearing #8E2A20 w/ white  → 8.4:1
-    flag-green    #2E7D32  bar        · bearing #1F5C24 w/ white  → 8.0:1
-    flag-yellow   #E8A33D  bar+chip   · ink on canonical yellow   → 7.6:1
+  WHY IT LOOKS LIKE THIS
+  The reader is on a phone, outdoors, in bright sun, one-handed on a leash, in
+  a hurry. So: 19px base, 7:1 minimum on body text, no light gray on white,
+  44px targets, no entrance animation that delays reading a single word. The
+  competing category is soft pastels, script accents and a golden retriever in
+  a sun flare. Looking sober is the positioning.
 
-  Status is NEVER color alone. Every status renders color + icon + word, and
-  is unambiguous in grayscale. Roughly 1 in 12 men has a color vision
-  deficiency, and this audience skews that way.
+  STATUS IS ENCODED FOUR WAYS
+  Colour + icon + word + BAR TEXTURE. The flag bar is solid when dogs are
+  allowed, dashed when restricted, and diagonal hazard stripes when
+  prohibited. Three of the four channels survive grayscale, and the fourth
+  survives a bad phone screen in glare. Roughly 1 in 12 men has a colour
+  vision deficiency and this audience skews that way.
+
+  FLAG COLOUR RULE
+  Flag colours appear ONLY in status contexts. Never in headers, links, or
+  decoration. If it is flag-coloured, it means something.
+
+  Two of three flags fail 7:1 with text on them, so each has a `-bearing`
+  variant used only as a background behind text. The canonical hex stays the
+  identity colour and is used for the bar, which carries no text.
+
+    flag-red      #C0392B  bar   · bearing #8E2A20 w/ white  → 8.4:1
+    flag-green    #2E7D32  bar   · bearing #1F5C24 w/ white  → 8.0:1
+    flag-yellow   #E8A33D  bar   · ink on canonical yellow   → 7.6:1
 */
 
 @theme {
   /* ---- Type ------------------------------------------------------------ */
   --font-display: "Zilla Slab", ui-serif, Georgia, serif;
-  --font-body: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Public Sans Variable", "Public Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 
   /* ---- Palette (spec) --------------------------------------------------- */
@@ -48,12 +65,12 @@
   --color-ink: #1b211a; /* body text, near-black with a green cast */
   --color-structure: #4a5a4c; /* rules, borders — NOT text (6.3:1) */
 
-  /* Text-safe derivatives of `structure`. Secondary text must still clear 7:1. */
+  /* Text-safe derivative. Secondary text must still clear 7:1. */
   --color-structure-text: #3c4a3e; /* 8.1:1 on ground */
-  --color-rule: #c5cbc1; /* hairlines */
-  --color-rule-strong: #9aa599;
+  --color-rule: #c5cbc1;
+  --color-rule-strong: #97a396;
 
-  /* Raised surfaces. Sign-white, slightly off pure to cut glare. */
+  /* Panel surfaces. Sign-white, off pure to cut glare. */
   --color-panel: #f8f9f5;
   --color-panel-sunk: #e3e6dc;
 
@@ -63,7 +80,7 @@
   --color-flag-green-wash: #e2eddf;
 
   --color-flag-yellow: #e8a33d;
-  --color-flag-yellow-bearing: #e8a33d; /* ink sits on it, not white */
+  --color-flag-yellow-bearing: #e8a33d;
   --color-flag-yellow-wash: #faeed9;
 
   --color-flag-red: #c0392b;
@@ -71,6 +88,9 @@
   --color-flag-red-wash: #f6e2df;
 
   --radius-sign: 2px;
+
+  /* Interaction is fast and small. Nothing here is worth waiting for. */
+  --ease-sign: cubic-bezier(0.2, 0, 0.15, 1);
 }
 
 @layer base {
@@ -78,11 +98,18 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  /*
+    Paper grain. A printed field guide has tooth; a flat hex fill does not.
+    Fixed attachment so the grain belongs to the sheet rather than scrolling
+    as a texture layer. ~3.5% — visible as warmth, never as noise.
+  */
   body {
     background-color: var(--color-ground);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-attachment: fixed;
     color: var(--color-ink);
     font-family: var(--font-body);
-    font-size: 19px; /* spec: 19px base, 1.6 line-height */
+    font-size: 19px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     font-synthesis-weight: none;
@@ -94,23 +121,28 @@
   h4 {
     font-family: var(--font-display);
     font-weight: 600;
-    line-height: 1.14;
-    letter-spacing: -0.008em;
+    line-height: 1.1;
+    letter-spacing: -0.014em;
     text-wrap: balance;
   }
 
-  /* Links are structure-colored, never flag-colored. Underlined always —
-     color alone is not an affordance outdoors in sun. */
+  /* Routed-sign optics: the bigger it gets, the tighter it sets. */
+  h1 {
+    letter-spacing: -0.028em;
+  }
+
   a {
     color: var(--color-ink);
     text-decoration-line: underline;
     text-decoration-thickness: 1.5px;
     text-underline-offset: 0.18em;
     text-decoration-color: var(--color-rule-strong);
+    transition: text-decoration-color 120ms var(--ease-sign);
   }
 
   a:hover {
     text-decoration-color: currentColor;
+    text-decoration-thickness: 2px;
   }
 
   :focus-visible {
@@ -118,17 +150,28 @@
     outline-offset: 2px;
   }
 
+  ::selection {
+    background: var(--color-flag-yellow-wash);
+    color: var(--color-ink);
+  }
+
   table {
     border-collapse: collapse;
   }
 
-  /* No motion. There is nothing on this site worth animating. */
+  /*
+    No entrance animation anywhere on this site. Someone opening this page is
+    trying to find out whether they can walk the dog in the next ten minutes;
+    fading the answer in is an insult. Motion is confined to interaction, is
+    under 150ms, and is removed entirely on request.
+  */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
       animation-duration: 0.01ms !important;
       transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
     }
   }
 }
@@ -143,14 +186,110 @@
   }
 
   .wrap-wide {
-    max-width: 62rem;
+    max-width: 64rem;
   }
 
-  /* Tap targets ≥44px, per spec. Applied to every nav/footer link. */
+  /*
+    Panels break wider than the measure on large screens. Prose wants 64ch;
+    a rule table wants room. The asymmetry is the point — it keeps the page
+    from reading as one undifferentiated column.
+  */
+  @media (min-width: 68rem) {
+    .breakout {
+      width: calc(100% + 7rem);
+      margin-inline-start: -3.5rem;
+    }
+  }
+
   .tap {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
+  }
+
+  /* ---- The sign ---------------------------------------------------------
+     Every panel is a routed sign: hard 1px rule, 2px radius, and a hairline
+     drop rule so it sits proud of the sheet. No blur, ever — a soft shadow
+     reads as "app", and this needs to read as "posted notice". */
+  .sign {
+    background: var(--color-panel);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-sign);
+    box-shadow: 0 1px 0 0 var(--color-rule-strong);
+  }
+
+  /* Panels you can click get a physical response: they seat down. */
+  .sign-action {
+    transition:
+      transform 110ms var(--ease-sign),
+      border-color 110ms var(--ease-sign),
+      box-shadow 110ms var(--ease-sign);
+  }
+
+  .sign-action:hover {
+    border-color: var(--color-structure);
+    box-shadow: 0 1px 0 0 var(--color-structure);
+  }
+
+  .sign-action:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 0 0 var(--color-structure);
+  }
+
+  /* ---- Status bar textures ---------------------------------------------
+     The fourth redundant channel. Texture carries status with no colour at
+     all: solid = allowed, dashed = limits apply, hazard = closed. */
+  .bar-solid {
+    background-color: var(--color-flag-green);
+  }
+
+  .bar-dashed {
+    background-color: var(--color-flag-yellow);
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(27, 33, 26, 0.55) 0 14px,
+      transparent 14px 30px
+    );
+  }
+
+  .bar-hazard {
+    background-color: var(--color-flag-red);
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(27, 33, 26, 0.42) 0 9px,
+      transparent 9px 20px
+    );
+  }
+
+  /* ---- Mono utilities ---------------------------------------------------
+     Dates, stamps, tabular data. This does the heavy lifting on the
+     "reference document, not blog" claim. */
+  .stamp {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-structure-text);
+  }
+
+  /* The verification stamp proper: struck onto the page, slightly askew,
+     the way a date stamp actually lands on a permit. */
+  .stamp-struck {
+    display: inline-block;
+    border: 1.5px solid var(--color-flag-green-bearing);
+    border-radius: var(--radius-sign);
+    padding: 0.35rem 0.6rem;
+    color: var(--color-flag-green-bearing);
+    rotate: -0.6deg;
   }
 
   /* ---- Prose ----------------------------------------------------------- */
@@ -159,14 +298,21 @@
     max-width: 64ch;
   }
 
+  .prose-field > :first-child {
+    margin-block-start: 0;
+  }
+
+  /* Section heads are ruled, like the divisions on a posted notice. */
   .prose-field h2 {
     font-size: 1.6rem;
-    margin-block: 2.75rem 0.85rem;
+    margin-block: 3rem 1rem;
+    padding-block-end: 0.5rem;
+    border-block-end: 1px solid var(--color-rule);
   }
 
   .prose-field h3 {
     font-size: 1.2rem;
-    margin-block: 1.85rem 0.4rem;
+    margin-block: 2rem 0.4rem;
   }
 
   .prose-field ul {
@@ -181,66 +327,31 @@
     margin-block: 0.55rem;
   }
 
+  /* Survey tick, not a bullet. */
   .prose-field ul > li::before {
     content: "";
     position: absolute;
     inset-inline-start: -1.35rem;
-    inset-block-start: 0.62em;
-    width: 0.45rem;
-    height: 0.45rem;
+    inset-block-start: 0.66em;
+    width: 0.7rem;
+    height: 2px;
     background: var(--color-structure);
   }
 
-  /* Lists that opt out of prose bullets (cards, stamps, source lists) must not
-     inherit the square marker just because they sit inside .prose-field. */
   .prose-field ul.list-none > li::before {
     content: none;
   }
 
   .prose-field ol {
     margin-block: 1rem;
-    padding-inline-start: 1.35rem;
+    padding-inline-start: 1.5rem;
     list-style: decimal;
     max-width: 64ch;
   }
 
   .prose-field ol > li::marker {
     font-family: var(--font-mono);
-    font-size: 0.85em;
-    color: var(--color-structure-text);
-  }
-
-  /* The answer paragraph sits directly under the status band — it shouldn't
-     read as a separate section. */
-  .prose-field > :first-child {
-    margin-block-start: 0;
-  }
-
-  /* ---- The sign ---------------------------------------------------------
-     Every panel is a routed sign: hard 1px rule, 2px radius, no shadow.
-     Soft shadows read as "app"; this needs to read as "posted notice". */
-  .sign {
-    background: var(--color-panel);
-    border: 1px solid var(--color-rule);
-    border-radius: var(--radius-sign);
-  }
-
-  /* Mono utility — dates, stamps, tabular data. This does real work: it's
-     what makes the page read as a reference document rather than a blog. */
-  .stamp {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .label {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
+    font-size: 0.82em;
     color: var(--color-structure-text);
   }
 }
@@ -252,5 +363,10 @@
 
   body {
     background: #fff;
+    background-image: none;
+  }
+
+  .sign {
+    box-shadow: none;
   }
 }
