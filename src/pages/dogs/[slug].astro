@@ -27,7 +27,7 @@ import BeachScene from "../../components/BeachScene.astro";
 import townsData from "../../data/towns.json";
 import type { Town } from "../../lib/rules";
 import { STATUS_META, formatLongDate, formatRange, ruleFor, statusOn, toISODate } from "../../lib/rules";
-import { assertAnswerLength, isVerified, robotsFor } from "../../lib/verification";
+import { assertAnswerLength, isVerified, reportOutstanding, robotsFor } from "../../lib/verification";
 
 const towns = townsData as Town[];
 
@@ -42,6 +42,9 @@ const { town } = Astro.props as { town: Town };
 
 // Build-time gate: the answer is the format. Fail the build, not the reader.
 assertAnswerLength(town.slug, town.answer);
+
+// Unverified pages announce what they are waiting on, in the terminal.
+reportOutstanding(town.slug, town);
 
 /*
   "Today" is resolved at build time. That is only honest if the site rebuilds
@@ -129,11 +132,14 @@ const schema = verified ? [articleSchema, faqSchema] : [];
         {town.name} · {town.county} County
       </p>
       <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">{town.question}</h1>
+
+      {/* Status sits with the heading rather than as a full-bleed band between
+          sections — it answers "today", which is a note on the question, not a
+          division of the page. */}
+      <StatusBand status={status} headline={headline} detail={detail} asOf={asOf} />
     </div>
 
-    <StatusBand status={status} headline={headline} detail={detail} asOf={asOf} />
-
-    <div class="wrap pt-8 prose-field">
+    <div class="wrap prose-field">
       {/* The answer. Under 40 words, enforced at build. Must stand alone —
           this is the paragraph an AI assistant lifts, and the whole page for
           someone reading it one-handed in the sun. Set larger than body and

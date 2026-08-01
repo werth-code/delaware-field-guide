@@ -1,15 +1,24 @@
 ---
 /**
- * Two mutually exclusive renderings, chosen by the data — never by hand:
+ * Sourcing block. One quiet panel, in both states.
  *
- *   verified   → the mono stamp. "Verified 6 Aug 2026 · City of Rehoboth Beach, by phone"
- *   unverified → a loud, unmissable notice listing exactly what's outstanding
- *                and who to call. The page is already noindex by this point
- *                (see verification.ts), so this block is for the author, not
- *                for search.
+ * The unverified case used to render a loud red author-facing block listing
+ * every outstanding to-do. That was a work tracker on a reader's page. The
+ * checklist now prints to the build console instead (see lib/verification.ts,
+ * called from the town template), which is where the person who has to act on
+ * it actually is.
  *
- * There is no third state and no override. If it isn't confirmed, it cannot
- * wear the stamp.
+ * What survives is what a reader can use: who says so, when it was last
+ * checked, and the number to call if they want to hear it first-hand. The
+ * phone number is genuinely useful published content — "here is the city's
+ * number" beats "trust us" — so it shows whether or not the page is verified.
+ *
+ * One line of honesty stays when the page is unconfirmed. It is small and
+ * unalarming, but it is not optional: this site's whole claim is that facts
+ * carry their provenance, and a page presenting unconfirmed dates with no
+ * caveat would break that even while noindexed. The noindex, the sitemap
+ * exclusion and the hiding from /dogs/ are all unchanged — they live in
+ * verification.ts, not here.
  */
 import type { Verifiable } from "../lib/verification";
 import { isVerified, stampText } from "../lib/verification";
@@ -18,85 +27,58 @@ interface Props {
   item: Verifiable & {
     sources?: { label: string; url: string; note: string | null }[];
     callTo?: { name: string; phone: string } | null;
-    outstanding?: string[];
   };
 }
 
 const { item } = Astro.props;
 const verified = isVerified(item);
 const sources = item.sources ?? [];
+const tel = item.callTo?.phone.replace(/[^0-9+]/g, "");
 ---
 
-{
-  verified ? (
-    <aside class="sign breakout my-10 border-l-[9px] border-l-flag-green px-4 sm:px-5 py-5">
+<aside
+  class={`sign breakout my-10 px-4 sm:px-5 py-5 ${verified ? "border-l-[9px] border-l-flag-green" : "border-l-[9px] border-l-ochre"}`}
+>
+  {
+    verified ? (
       <p class="m-0">
         <span class="stamp stamp-struck">{stampText(item)}</span>
       </p>
-      {sources.length > 0 && (
-        <ul class="list-none p-0 mt-4 mb-0 space-y-1">
-          {sources.map((s) => (
-            <li class="text-[0.85rem] leading-snug">
-              <a href={s.url} rel="nofollow">{s.label}</a>
-              {s.note && <span class="text-ink-soft"> — {s.note}</span>}
-            </li>
-          ))}
-        </ul>
-      )}
-      <p class="mt-3.5 mb-0 text-[0.85rem] text-ink-soft max-w-[56ch]">
-        Rules change. If you find this wrong,{" "}
-        <a href="/how-we-verify/#corrections">tell us and we'll fix it and say we did</a>.
+    ) : (
+      <p class="stamp text-ink-soft m-0">
+        Drafted from the source below. Not yet confirmed first-hand.
       </p>
-    </aside>
-  ) : (
-    <aside
-      class="breakout my-10 border-2 border-flag-red border-l-[9px] border-l-flag-red bg-flag-red-wash px-4 sm:px-5 py-5 rounded-[2px]"
-      style="box-shadow: 5px 5px 0 0 var(--color-flag-red-bearing);"
-    >
-      <p class="label text-flag-red-bearing m-0">Not verified — this page is noindex</p>
+    )
+  }
 
-      <p class="mt-2 mb-0 text-[0.95rem] max-w-[60ch]">
-        Nothing here has been confirmed first-party yet, so it does not carry a
-        verification stamp and search engines are told not to index it. Confirm
-        the outstanding items, then set <code class="stamp">verifiedDate</code> and{" "}
-        <code class="stamp">verifiedSource</code> in{" "}
-        <code class="stamp">src/data/towns.json</code> to publish it.
+  {
+    sources.length > 0 && (
+      <ul class="list-none p-0 mt-4 mb-0 space-y-1.5">
+        {sources.map((s) => (
+          <li class="text-[0.88rem] leading-snug">
+            <a href={s.url} rel="nofollow">{s.label}</a>
+            {s.note && <span class="text-ink-soft"> — {s.note}</span>}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  {
+    item.callTo && (
+      <p class="mt-4 mb-0 text-[0.92rem]">
+        <span class="label">Check it yourself</span>
+        <br />
+        <a href={`tel:${tel}`} class="tap stamp text-[1rem]">
+          {item.callTo.phone}
+        </a>
+        <span class="block text-ink-soft text-[0.88rem]">{item.callTo.name}</span>
       </p>
+    )
+  }
 
-      {item.callTo && (
-        <p class="mt-3 mb-0 text-[0.95rem]">
-          <span class="label">Call</span>{" "}
-          <a href={`tel:${item.callTo.phone.replace(/[^0-9+]/g, "")}`} class="tap stamp text-[0.95rem]">
-            {item.callTo.phone}
-          </a>{" "}
-          <span class="text-ink-soft">— {item.callTo.name}</span>
-        </p>
-      )}
-
-      {item.outstanding && item.outstanding.length > 0 && (
-        <>
-          <p class="label mt-4 mb-1">Outstanding</p>
-          <ol class="list-decimal m-0 ps-5 text-[0.9rem] leading-snug space-y-1.5">
-            {item.outstanding.map((o) => (
-              <li>{o}</li>
-            ))}
-          </ol>
-        </>
-      )}
-
-      {sources.length > 0 && (
-        <>
-          <p class="label mt-4 mb-1">Drafted from</p>
-          <ul class="list-none p-0 m-0 space-y-1">
-            {sources.map((s) => (
-              <li class="text-[0.85rem] leading-snug">
-                <a href={s.url} rel="nofollow">{s.label}</a>
-                {s.note && <span class="text-ink-soft"> — {s.note}</span>}
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
-    </aside>
-  )
-}
+  <p class="mt-4 mb-0 text-[0.85rem] text-ink-soft max-w-[56ch]">
+    Rules change. If you find this wrong,{" "}
+    <a href="/how-we-verify/#corrections">tell us and we'll fix it and say we did</a>.
+  </p>
+</aside>

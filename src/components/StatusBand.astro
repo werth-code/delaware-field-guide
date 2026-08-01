@@ -1,19 +1,18 @@
 ---
 /**
- * The signature element — a posted status placard, full bleed.
+ * Today's status, as a compact stamped notice.
  *
- * Sits between the deep masthead and the sand reading field, and it is the
- * one place a flag colour gets to fill a whole band. Saturated textured bar
- * on top, the flag's wash as the field, a hard-bordered chip, and a heavy
- * double rule closing it.
+ * This used to be a full-bleed band in the flag's wash with a 2.4rem
+ * headline. Two problems: a pink or green field fights the sand-and-marsh
+ * palette everywhere it appears, and the size implied the status was the
+ * page, when the page is really the dates. So the panel now sits in the
+ * content column on the site's own warm shell with an ochre keyline, and the
+ * flag colour is concentrated into the two places it means something.
  *
- * Status survives being stripped of colour. Bar texture is the fourth
- * redundant channel after colour, icon and word: solid means allowed, dashed
- * means limits apply, diagonal hazard means closed.
- *
- * Every chip carries a 2px ink keyline. That is what keeps the yellow chip
- * legible on the yellow wash, and it makes all three read as printed rather
- * than as UI.
+ * Status is still encoded four ways — colour + icon + word + bar texture.
+ * The texture bar is now vertical down the left edge: solid means allowed,
+ * dashed means limits apply, diagonal hazard means closed. It reads at a
+ * glance with no colour information at all.
  */
 import type { Status } from "../lib/rules";
 import { STATUS_META } from "../lib/rules";
@@ -31,54 +30,36 @@ const meta = STATUS_META[status];
 
 const bar = { green: "bar-solid", yellow: "bar-dashed", red: "bar-hazard" }[meta.flag]!;
 
-const wash = {
-  green: "bg-flag-green-wash",
-  yellow: "bg-flag-yellow-wash",
-  red: "bg-flag-red-wash",
-}[meta.flag]!;
-
-/* White on the deep bearing greens/reds clears 8.6:1; yellow takes ink. */
 const chip = {
   green: "bg-flag-green-bearing text-white",
   yellow: "bg-flag-yellow text-ink",
   red: "bg-flag-red-bearing text-white",
 }[meta.flag]!;
-
-const rule = {
-  green: "bg-flag-green",
-  yellow: "bg-flag-yellow",
-  red: "bg-flag-red",
-}[meta.flag]!;
 ---
 
-<section class={wash} aria-label="Current status">
-  <div class={`${bar} h-4 w-full`}></div>
+<section
+  class="sign-quiet bg-shell border-ochre flex overflow-hidden my-6"
+  style="border-width: 2px;"
+  aria-label="Current status"
+>
+  {/* Texture bar, vertical. The channel that survives grayscale. */}
+  <div class={`${bar} w-2.5 shrink-0`}></div>
 
-  <div class="wrap py-8 sm:py-9">
-    <div class="flex flex-wrap items-center gap-x-3.5 gap-y-2.5">
+  <div class="px-4 py-3.5 sm:px-5">
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
       <span
-        class={`${chip} inline-flex items-center gap-2 px-3 py-1.5 rounded-[2px] border-2 border-ink font-mono text-[0.78rem] font-medium uppercase tracking-[0.1em]`}
+        class={`${chip} inline-flex items-center gap-1.5 px-2 py-1 rounded-[2px] border-2 border-ink font-mono text-[0.68rem] font-medium uppercase tracking-[0.09em]`}
       >
-        <FlagIcon icon={meta.icon} class="w-[1.05em] h-[1.05em]" />
+        <FlagIcon icon={meta.icon} class="w-[1em] h-[1em]" />
         {meta.word}
       </span>
       <span class="stamp text-ink-soft">as of {asOf}</span>
     </div>
 
-    <p
-      class="font-display text-[1.9rem] sm:text-[2.4rem] leading-[1.04] tracking-[-0.03em] font-bold mt-4 mb-0 text-ink max-w-[19ch]"
-    >
+    <p class="font-display text-[1.15rem] leading-[1.2] font-bold mt-2.5 mb-0 text-marsh">
       {headline}
     </p>
 
-    {
-      detail && (
-        <p class="mt-3 mb-0 max-w-[56ch] text-[0.96rem] leading-[1.55] text-ink">{detail}</p>
-      )
-    }
+    {detail && <p class="mt-1.5 mb-0 max-w-[58ch] text-[0.9rem] leading-[1.5]">{detail}</p>}
   </div>
-
-  {/* Heavy flag rule over marsh — how a posted notice closes. */}
-  <div class={`${rule} h-[5px] w-full`}></div>
-  <div class="bg-marsh h-[2px] w-full"></div>
 </section>

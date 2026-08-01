@@ -48,6 +48,31 @@ export const countWords = (s: string): number => (s.match(WORD) ?? []).length;
  * be extractable standalone. Checked at build time so it can't quietly rot
  * into a paragraph three pages from now.
  */
+/**
+ * Print what's still outstanding on an unverified page, at build time.
+ *
+ * This used to render into the page as a red block, which put a work tracker
+ * in front of readers. The console is where the person who has to make the
+ * call actually is, and it means `npm run build` doubles as the to-do list.
+ */
+export function reportOutstanding(
+  slug: string,
+  item: Verifiable & { callTo?: { name: string; phone: string } | null; outstanding?: string[] },
+): void {
+  if (isVerified(item)) return;
+
+  const lines = [
+    ``,
+    `  ⚑ /dogs/${slug}/ is UNVERIFIED — noindex, not in the sitemap, hidden from /dogs/.`,
+  ];
+  if (item.callTo) lines.push(`    Call ${item.callTo.name} on ${item.callTo.phone}:`);
+  for (const [i, o] of (item.outstanding ?? []).entries()) {
+    lines.push(`      ${i + 1}. ${o}`);
+  }
+  lines.push(`    Then set verifiedDate + verifiedSource in src/data/towns.json.`, ``);
+  console.warn(lines.join("\n"));
+}
+
 export function assertAnswerLength(slug: string, answer: string): void {
   const n = countWords(answer);
   if (n > 40) {
