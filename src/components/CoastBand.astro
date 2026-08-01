@@ -1,0 +1,129 @@
+---
+/**
+ * The poster.
+ *
+ * A flat, screen-printed Delaware coast — deep sky, ochre sun, the bay, a
+ * dune that resolves into the page ground, and a warning flag on its staff.
+ * Built the way a WPA park poster is built: hard-edged bands, no gradients,
+ * no cartoon, six colours and nothing else.
+ *
+ * The staff and flag are drawn as a dark silhouette rather than in one of the
+ * three flag colours. A red flag here would read as a status claim, and
+ * status is never decorative on this site.
+ *
+ * `slice` so it crops from the middle at any aspect — the horizon stays put.
+ */
+interface Props {
+  class?: string;
+  /** Bottom band matches the page ground so the dune runs into the sheet. */
+  height?: string;
+}
+const { class: className = "", height = "h-[13rem] sm:h-[17rem]" } = Astro.props;
+
+const grass = [
+  [318, 292], [332, 296], [346, 291], [1042, 276], [1056, 280], [1070, 275],
+  [612, 286], [626, 290],
+];
+---
+
+<div class={`${className} ${height} w-full overflow-hidden`} aria-hidden="true">
+  <svg
+    viewBox="0 0 1200 340"
+    preserveAspectRatio="xMidYMid slice"
+    class="w-full h-full block"
+    role="presentation"
+  >
+    <!-- Sky, in three flat bands. Deepest at the top, the way a poster stacks it. -->
+    <rect x="0" y="0" width="1200" height="128" fill="var(--color-abyss)" />
+    <rect x="0" y="128" width="1200" height="62" fill="var(--color-marsh)" />
+    <rect x="0" y="190" width="1200" height="30" fill="var(--color-tide)" />
+
+    <!-- Sun. The one warm note, and the reason the palette isn't all green. -->
+    <circle cx="905" cy="132" r="52" fill="var(--color-ochre)" />
+
+    <!-- Two struck rules through the sky: survey lines, not decoration. -->
+    <rect x="0" y="96" width="1200" height="2" fill="var(--color-tide)" opacity="0.55" />
+    <rect x="0" y="104" width="1200" height="1" fill="var(--color-tide)" opacity="0.35" />
+
+    <!-- The bay. -->
+    <rect x="0" y="220" width="1200" height="60" fill="var(--color-marsh)" />
+
+    <!-- Chop. Broken rules, offset, the way flat waves get drawn. -->
+    <g fill="var(--color-surf)" opacity="0.72">
+      <rect x="60" y="236" width="120" height="3" />
+      <rect x="240" y="236" width="66" height="3" />
+      <rect x="470" y="236" width="150" height="3" />
+      <rect x="700" y="236" width="80" height="3" />
+      <rect x="880" y="236" width="180" height="3" />
+      <rect x="0" y="254" width="90" height="3" />
+      <rect x="150" y="254" width="170" height="3" />
+      <rect x="400" y="254" width="70" height="3" />
+      <rect x="560" y="254" width="200" height="3" />
+      <rect x="840" y="254" width="110" height="3" />
+      <rect x="1020" y="254" width="140" height="3" />
+    </g>
+
+    <!-- Wet sand, then the dune. The dune is page ground, so it runs into
+         the sheet with no seam. -->
+    <path d="M0 292 Q 300 268 620 280 T 1200 264 L1200 300 L0 300 Z" fill="var(--color-tide)" />
+    <path d="M0 300 Q 300 276 620 288 T 1200 272 L1200 340 L0 340 Z" fill="var(--color-sand)" />
+
+    <!-- Beach grass. -->
+    <g stroke="var(--color-marsh)" stroke-width="2.5" stroke-linecap="round" fill="none">
+      {
+        grass.map(([x, y]) => (
+          <>
+            <path d={`M${x} ${y} q -3 -14 -9 -22`} />
+            <path d={`M${x} ${y} q 1 -16 2 -25`} />
+            <path d={`M${x} ${y} q 5 -13 12 -20`} />
+          </>
+        ))
+      }
+    </g>
+
+    <!-- The staff. Silhouette, deliberately not flag-coloured: a red flag here
+         would read as a status claim, and status is never decorative. -->
+    <g fill="var(--color-abyss)">
+      <rect x="188" y="150" width="5" height="140" />
+      <path d="M193 156h84l-22 24 22 24h-84z" />
+    </g>
+
+    <!-- A walker and a dog on the wet sand. Same geometric idiom as the mark:
+         circles and rounded bars, no cartoon, and the reason the poster is
+         about this site rather than about any coast. -->
+    <g fill="var(--color-abyss)">
+      <!-- Walker -->
+      <circle cx="726" cy="222" r="9" />
+      <rect x="719" y="232" width="15" height="30" rx="7" />
+      <rect x="719" y="258" width="6" height="26" rx="3" transform="rotate(9 722 258)" />
+      <rect x="729" y="258" width="6" height="26" rx="3" transform="rotate(-11 732 258)" />
+      <rect x="732" y="236" width="24" height="5" rx="2.5" transform="rotate(16 732 236)" />
+
+      <!-- Lead -->
+      <path
+        d="M756 244q16 6 30 12"
+        stroke="var(--color-abyss)"
+        stroke-width="2.5"
+        fill="none"
+        stroke-linecap="round"
+      />
+
+      <!-- Dog, mid-stride -->
+      <path
+        d="M789 258c-6-1-10-5-11-11"
+        stroke="var(--color-abyss)"
+        stroke-width="5"
+        stroke-linecap="round"
+        fill="none"
+      />
+      <rect x="786" y="256" width="38" height="16" rx="8" />
+      <rect x="790" y="266" width="6" height="19" rx="3" transform="rotate(20 793 266)" />
+      <rect x="801" y="266" width="6" height="18" rx="3" transform="rotate(-16 804 266)" />
+      <rect x="812" y="266" width="6" height="19" rx="3" transform="rotate(18 815 266)" />
+      <circle cx="831" cy="253" r="9" />
+      <rect x="834" y="252" width="15" height="7" rx="3.5" />
+      <path d="M823 245l10-3-3 11z" />
+      <rect x="822" y="255" width="4.5" height="12" rx="1.6" fill="var(--color-ochre)" />
+    </g>
+  </svg>
+</div>

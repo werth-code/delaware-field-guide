@@ -49,7 +49,7 @@ const schema = towns.length
 >
   <div class="wrap pt-10 pb-4">
     <p class="label m-0">Section one</p>
-    <h1 class="text-[2.4rem] sm:text-[3.1rem] mt-3 mb-0 max-w-[15ch]">
+    <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
       Where your dog is legal on the Delaware coast
     </h1>
     <p class="mt-4 mb-0 text-[1.1rem] max-w-[58ch]">
@@ -57,13 +57,13 @@ const schema = towns.length
       on the same day. Rehoboth moved its dates in January 2026 and most
       published guides still have the old ones.
     </p>
-    <p class="stamp text-structure-text mt-4 mb-0">Status shown as of {asOf}</p>
+    <p class="stamp text-ink-soft mt-4 mb-0">Status shown as of {asOf}</p>
   </div>
 
   <div class="wrap py-6">
     {
       towns.length > 0 ? (
-        <ul class="list-none p-0 m-0 space-y-3">
+        <ul class="list-none p-0 m-0 space-y-5">
           {towns.map((town) => {
             const status = statusOn(town, today);
             const meta = STATUS_META[status];
@@ -78,12 +78,12 @@ const schema = towns.length
                       <FlagIcon icon={meta.icon} class="w-[1em] h-[1em]" />
                       {meta.word}
                     </span>
-                    <span class="font-display text-[1.25rem] font-semibold underline decoration-rule-strong decoration-[1.5px] underline-offset-[0.18em] group-hover:decoration-ink">
+                    <span class="font-display text-[1.25rem] font-semibold underline decoration-ochre decoration-[3px] underline-offset-[0.18em] group-hover:decoration-ink">
                       {town.name}
                     </span>
                   </div>
                   {beach && (
-                    <p class="mt-2 mb-0 stamp text-structure-text">
+                    <p class="mt-2 mb-0 stamp text-ink-soft">
                       Beach: {formatRange(beach)} · {meta.word.toLowerCase()}
                     </p>
                   )}
@@ -93,7 +93,7 @@ const schema = towns.length
           })}
         </ul>
       ) : (
-        <div class="sign px-4 py-5">
+        <div class="sign px-5 py-6">
           <p class="label m-0">Nothing published yet</p>
           <p class="mt-2 mb-0 max-w-[56ch] text-[0.95rem]">
             Town pages appear here once their rules have been confirmed
@@ -107,7 +107,7 @@ const schema = towns.length
 
     {
       drafts.length > 0 && (
-        <p class="stamp text-structure-text mt-5 mb-0">
+        <p class="stamp text-ink-soft mt-5 mb-0">
           {drafts.length} town {drafts.length === 1 ? "page" : "pages"} drafted, awaiting confirmation
         </p>
       )
@@ -116,7 +116,7 @@ const schema = towns.length
 
   <div class="wrap prose-field pb-4">
     <h2>Coming in this section</h2>
-    <p class="text-[0.95rem] text-structure-text max-w-[60ch]">
+    <p class="text-[0.95rem] text-ink-soft max-w-[60ch]">
       Listed so you know what's not here yet, rather than discovering it by
       searching for it.
     </p>

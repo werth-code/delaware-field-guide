@@ -1,20 +1,19 @@
 ---
 /**
- * The signature element.
+ * The signature element — a posted status placard, full bleed.
  *
- * A full-width posted notice showing today's status. Every town and park page
- * opens with one. On the week-4 date checker, changing the date re-flags the
- * whole list at once.
+ * Sits between the deep masthead and the sand reading field, and it is the
+ * one place a flag colour gets to fill a whole band. Saturated textured bar
+ * on top, the flag's wash as the field, a hard-bordered chip, and a heavy
+ * double rule closing it.
  *
- * Status survives being stripped of colour. The bar texture is the fourth
+ * Status survives being stripped of colour. Bar texture is the fourth
  * redundant channel after colour, icon and word: solid means allowed, dashed
- * means limits apply, diagonal hazard means closed. Grayscale the page and the
- * band still answers the question from across the room.
+ * means limits apply, diagonal hazard means closed.
  *
- * Composition: a textured flag bar (which carries NO text, so it uses the
- * canonical hex), a chip with icon and word on a text-bearing variant that
- * clears 7:1, and the verdict in ink on a pale wash. Double rule at the foot,
- * the way an official notice closes.
+ * Every chip carries a 2px ink keyline. That is what keeps the yellow chip
+ * legible on the yellow wash, and it makes all three read as printed rather
+ * than as UI.
  */
 import type { Status } from "../lib/rules";
 import { STATUS_META } from "../lib/rules";
@@ -22,11 +21,8 @@ import FlagIcon from "./FlagIcon.astro";
 
 interface Props {
   status: Status;
-  /** "Dogs are not allowed today" — the sentence, not the label. */
   headline: string;
-  /** One line of why. */
   detail?: string | null;
-  /** The date this reflects. Always shown — a status with no date is a rumour. */
   asOf: string;
 }
 
@@ -41,43 +37,48 @@ const wash = {
   red: "bg-flag-red-wash",
 }[meta.flag]!;
 
+/* White on the deep bearing greens/reds clears 8.6:1; yellow takes ink. */
 const chip = {
   green: "bg-flag-green-bearing text-white",
   yellow: "bg-flag-yellow text-ink",
   red: "bg-flag-red-bearing text-white",
 }[meta.flag]!;
 
-const edge = {
-  green: "border-b-flag-green",
-  yellow: "border-b-flag-yellow",
-  red: "border-b-flag-red",
+const rule = {
+  green: "bg-flag-green",
+  yellow: "bg-flag-yellow",
+  red: "bg-flag-red",
 }[meta.flag]!;
 ---
 
-<section class={`${wash} border-t border-t-rule`} aria-label="Current status">
-  <div class={`${bar} h-3 w-full`}></div>
+<section class={wash} aria-label="Current status">
+  <div class={`${bar} h-4 w-full`}></div>
 
-  <div class="wrap py-7">
-    <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+  <div class="wrap py-8 sm:py-9">
+    <div class="flex flex-wrap items-center gap-x-3.5 gap-y-2.5">
       <span
-        class={`${chip} inline-flex items-center gap-2 px-3 py-1.5 rounded-[2px] font-mono text-[0.78rem] font-medium uppercase tracking-[0.1em]`}
+        class={`${chip} inline-flex items-center gap-2 px-3 py-1.5 rounded-[2px] border-2 border-ink font-mono text-[0.78rem] font-medium uppercase tracking-[0.1em]`}
       >
         <FlagIcon icon={meta.icon} class="w-[1.05em] h-[1.05em]" />
         {meta.word}
       </span>
-      <span class="stamp text-structure-text">as of {asOf}</span>
+      <span class="stamp text-ink-soft">as of {asOf}</span>
     </div>
 
     <p
-      class="font-display text-[1.75rem] sm:text-[2.1rem] leading-[1.08] tracking-[-0.02em] font-semibold mt-3.5 mb-0 text-ink max-w-[20ch]"
+      class="font-display text-[1.9rem] sm:text-[2.4rem] leading-[1.04] tracking-[-0.03em] font-bold mt-4 mb-0 text-ink max-w-[19ch]"
     >
       {headline}
     </p>
 
-    {detail && <p class="mt-2.5 mb-0 max-w-[56ch] text-[0.95rem] leading-[1.55] text-ink">{detail}</p>}
+    {
+      detail && (
+        <p class="mt-3 mb-0 max-w-[56ch] text-[0.96rem] leading-[1.55] text-ink">{detail}</p>
+      )
+    }
   </div>
 
-  {/* Double rule — how a posted notice closes. */}
-  <div class={`h-[3px] w-full border-b-[3px] ${edge}`}></div>
-  <div class="h-px w-full bg-rule"></div>
+  {/* Heavy flag rule over marsh — how a posted notice closes. */}
+  <div class={`${rule} h-[5px] w-full`}></div>
+  <div class="bg-marsh h-[2px] w-full"></div>
 </section>

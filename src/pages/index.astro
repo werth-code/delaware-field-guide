@@ -1,14 +1,16 @@
 ---
 /**
- * Home, as the notice board itself.
+ * Home, as the poster and the notice board.
  *
  * Nobody lands here — they land on an answer page from a search. So this page
  * has one job: make the shape of the site legible in three seconds. Two
- * placards, one posted and one plainly not yet, say "ten sections, one at a
- * time, and we don't pretend the empty ones exist" better than a paragraph can.
+ * placards, one posted and one plainly not, say "ten sections, one at a time,
+ * and we don't pretend the empty ones exist" better than a paragraph can.
  */
 import Layout from "../layouts/Layout.astro";
+import CoastBand from "../components/CoastBand.astro";
 import FlagMark from "../components/FlagMark.astro";
+import DogFigure from "../components/DogFigure.astro";
 
 import townsData from "../data/towns.json";
 import type { Town } from "../lib/rules";
@@ -44,8 +46,15 @@ const schema = [
   description="A reference for outdoor Delaware, starting with where your dog is legal, on what dates, and what it costs. Every fact carries the date it was checked and its source."
   schema={schema}
 >
-  <div class="wrap pt-14 sm:pt-20 pb-9">
-    <h1 class="text-[2.6rem] sm:text-[3.6rem] m-0 max-w-[15ch]">
+  <CoastBand />
+
+  <div class="wrap pt-9 pb-9">
+    <p class="label m-0 flex items-center gap-2">
+      <FlagMark class="w-[0.5rem] h-[0.62rem] shrink-0 text-ochre-deep" />
+      A reference for outdoor Delaware
+    </p>
+
+    <h1 class="text-[2.7rem] sm:text-[3.9rem] mt-3.5 mb-0 max-w-[14ch] text-marsh">
       Outdoor Delaware, checked and dated.
     </h1>
 
@@ -56,65 +65,60 @@ const schema = [
     </p>
   </div>
 
-  {/* Masthead rule: heavy over hairline. How a posted notice divides itself. */}
-  <div class="wrap">
-    <div class="border-t-[3px] border-t-ink"></div>
-    <div class="border-t border-t-rule mt-[3px]"></div>
-  </div>
-
-  <div class="wrap py-9 grid gap-4 sm:grid-cols-2">
+  <div class="wrap pb-10 grid gap-6 sm:gap-5 sm:grid-cols-2">
     <a href="/dogs/" class="sign sign-action no-underline block p-5 sm:p-6 group relative">
-      <span class="stamp text-structure-text absolute top-5 right-5">01</span>
+      <span class="stamp text-ochre-deep absolute top-5 right-5">01</span>
 
-      <p class="label m-0 flex items-center gap-2">
+      <p class="label m-0 flex items-center gap-2 text-tide">
         <FlagMark class="w-[0.5rem] h-[0.62rem] shrink-0" />
         Posted
       </p>
 
-      <p
-        class="font-display text-[1.9rem] font-semibold mt-2 mb-0 tracking-[-0.022em] underline decoration-rule-strong decoration-2 underline-offset-[0.16em] group-hover:decoration-ink"
-      >
-        Dogs
-      </p>
+      <div class="flex items-end justify-between gap-3">
+        <p
+          class="font-display text-[2.1rem] font-bold mt-2 mb-0 tracking-[-0.03em] text-marsh underline decoration-ochre decoration-[3px] underline-offset-[0.14em] group-hover:decoration-marsh"
+        >
+          Dogs
+        </p>
+        <DogFigure pose="sit" class="w-[4.4rem] h-auto text-marsh shrink-0" />
+      </div>
 
       <p class="mt-2.5 mb-0 text-[0.95rem] leading-[1.5]">
         Where your dog is legal, on what date, and what it costs.
       </p>
 
-      <ul class="list-none p-0 mt-4 mb-0 border-t border-rule">
+      <ul class="list-none p-0 mt-4 mb-0 border-t-2 border-marsh">
         {
           contents.map((item) => (
-            <li class="text-[0.85rem] leading-snug py-2 border-b border-rule text-structure-text">
+            <li class="text-[0.86rem] leading-snug py-2 border-b border-tide/35 text-ink-soft">
               {item}
             </li>
           ))
         }
       </ul>
 
-      <p class="stamp text-structure-text mt-4 mb-0">
+      <p class="stamp text-ink-soft mt-4 mb-0">
         {live.length} published{drafted > 0 ? ` · ${drafted} awaiting confirmation` : ""}
       </p>
     </a>
 
     {/* Plainly not yet. An empty placard is more honest than a promise. */}
-    <div class="border border-dashed border-rule-strong rounded-[2px] p-5 sm:p-6 relative">
-      <span class="stamp text-structure-text absolute top-5 right-5">02</span>
+    <div class="border-2 border-dashed border-tide rounded-[2px] p-5 sm:p-6 relative">
+      <span class="stamp text-ochre-deep absolute top-5 right-5">02</span>
 
-      <p class="label m-0">Not yet posted</p>
+      <p class="label m-0 text-tide">Not yet posted</p>
 
-      <p
-        class="font-display text-[1.9rem] font-semibold mt-2 mb-0 tracking-[-0.022em] text-structure-text"
-      >
+      <p class="font-display text-[2.1rem] font-bold mt-2 mb-0 tracking-[-0.03em] text-tide">
         Surf fishing
       </p>
 
-      <p class="mt-2.5 mb-0 text-[0.95rem] leading-[1.5] text-structure-text max-w-[38ch]">
+      <p class="mt-2.5 mb-0 text-[0.95rem] leading-[1.5] text-ink-soft max-w-[38ch]">
         Permits, seasons, and the drive-on beaches. Same coast and same
         off-season as the dog section, and it shares the non-guarded-beach rules
         that section already had to get right.
       </p>
 
-      <p class="stamp text-structure-text mt-4 mb-0">Eight more sections behind it</p>
+      <p class="stamp text-ink-soft mt-4 mb-0">Eight more sections behind it</p>
     </div>
   </div>
 

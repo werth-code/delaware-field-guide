@@ -1,0 +1,98 @@
+---
+/**
+ * The mark: a horseshoe crab, set in a diamond.
+ *
+ * WHY THIS AND NOT A DOG
+ * Dogs are section one of ten. A dog mark would date the brand the moment
+ * surf fishing lands. The crab is Delaware itself.
+ *
+ * WHY THE CRAB
+ * Delaware Bay is the largest horseshoe crab spawning ground on earth. It is
+ * why Slaughter Beach is a sanctuary, it is why the bay beaches fill with
+ * molts every May and June, and it already appears in this site's own content
+ * as a hazard warning. It is also 450 million years old, which is about as
+ * field-guide as a subject gets.
+ *
+ * WHY THE DIAMOND
+ * Delaware is the Diamond State — and it avoids the circular roundel every
+ * park badge defaults to.
+ *
+ * DRAWING NOTES
+ * The animal is ONE continuous path. Drawn as separate pieces it grows a gap
+ * between carapace and abdomen, and that gap reads as a mouth — at which
+ * point the whole thing is a face, not a crab. Proportions are the real ones:
+ * the prosoma is twice as wide as it is tall, with a straight rear edge.
+ *
+ * It is laid out against the diamond rather than dropped into it — the shell
+ * reaches full width at y=52 where the diamond is widest, and the telson has
+ * tapered to 2 units by y=86 where the diamond has closed to 10. Nothing
+ * clips. Light shape on a deep field, because a dark silhouette on sand went
+ * muddy at 22px.
+ */
+interface Props {
+  class?: string;
+  /** Unique id — multiple instances on a page must not share a clip path. */
+  id?: string;
+}
+const { class: className = "", id = "logo" } = Astro.props;
+const clip = `${id}-clip`;
+---
+
+<svg
+  class={className}
+  viewBox="0 0 100 100"
+  role="img"
+  aria-label="Delaware Field Guide"
+>
+  <defs>
+    <clipPath id={clip}>
+      <path d="M50 8 L92 50 L50 92 L8 50 Z" />
+    </clipPath>
+  </defs>
+
+  <!-- Diamond badge: marsh ground, ochre keyline. -->
+  <path d="M50 0 L100 50 L50 100 L0 50 Z" fill="var(--color-marsh)" />
+  <path d="M50 4 L96 50 L50 96 L4 50 Z" fill="var(--color-ochre)" />
+
+  <g clip-path={`url(#${clip})`}>
+    <!-- Night field, with the bay across the lower third. -->
+    <rect x="0" y="0" width="100" height="100" fill="var(--color-abyss)" />
+    <rect x="0" y="66" width="100" height="34" fill="var(--color-tide)" />
+
+    <!--
+      One path: domed prosoma → straight rear edge → spined abdomen → telson.
+
+      The abdomen is ~60% of the shell's width, not the third it started at —
+      too narrow and the whole mark reads as a mushroom. The six lateral
+      spines are the feature that says horseshoe crab and nothing else, so
+      they're cut into the outline rather than added on top.
+    -->
+    <path
+      d="M50 24
+         C67 24 78 36 78 50
+         L77 54 L67 54
+         L70 57 L65 58
+         L68 62 L63 63
+         L65 67 L59 68
+         L57 72
+         L51 74 L50.8 88
+         L49.2 88 L49 74
+         L43 72
+         L41 68 L35 67
+         L37 63 L32 62
+         L35 58 L30 57
+         L33 54 L23 54
+         L22 50
+         C22 36 33 24 50 24 Z"
+      fill="var(--color-sand)"
+    />
+
+    <!-- Shell structure: the median ridge and its pair. Cut back into the
+         shape in the field colour, so it reads as carapace, never as a face. -->
+    <g stroke="var(--color-abyss)" stroke-linecap="round" fill="none">
+      <path d="M50 31v20" stroke-width="2.2" opacity="0.5" />
+      <path d="M40 37l-3 13" stroke-width="1.7" opacity="0.32" />
+      <path d="M60 37l3 13" stroke-width="1.7" opacity="0.32" />
+    </g>
+  </g>
+</svg>

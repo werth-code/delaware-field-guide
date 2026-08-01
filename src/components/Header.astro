@@ -1,24 +1,23 @@
 ---
 /**
- * Header. Deliberately plain: a mark, a wordmark, and the section.
+ * Masthead. A deep field with a rule under it — a park entrance sign, not a
+ * web nav. It anchors the top of every page and is the reason the sheet reads
+ * as something posted rather than something scrolled.
  *
- * No mega-nav, no search, no hamburger. There is one section today and the
- * pages are reached from the hub. When section two (surf fishing) lands, this
- * grows one link.
- *
- * The active section is marked with a rule under it — signage, not a pill.
+ * No mega-nav, no search, no hamburger. There is one section today. When
+ * section two lands, this grows one link.
  */
-import FlagMark from "./FlagMark.astro";
+import Logo from "./Logo.astro";
 
 const { pathname } = Astro.url;
 const inDogs = pathname.startsWith("/dogs");
 ---
 
-<header class="border-b-[3px] border-b-ink bg-panel">
+<header class="field-deep">
   <div class="wrap flex items-center justify-between gap-4 py-3">
-    <a href="/" class="tap no-underline gap-2.5 text-ink">
-      <FlagMark class="w-[0.95rem] h-[1.17rem] shrink-0" />
-      <span class="font-display text-[1.18rem] font-bold tracking-[-0.022em]">
+    <a href="/" class="tap no-underline gap-2.5 text-cream">
+      <Logo id="masthead" class="w-[2.1rem] h-[2.1rem] shrink-0" />
+      <span class="font-display text-[1.2rem] font-bold tracking-[-0.026em] leading-none">
         Delaware Field Guide
       </span>
     </a>
@@ -26,12 +25,16 @@ const inDogs = pathname.startsWith("/dogs");
     <nav aria-label="Sections">
       <a
         href="/dogs/"
-        class={`tap label no-underline hover:text-ink ${inDogs ? "text-ink" : ""}`}
+        class={`tap label no-underline ${inDogs ? "text-cream" : "text-surf hover:text-cream"}`}
         aria-current={inDogs ? "page" : undefined}
-        style={inDogs ? "box-shadow: inset 0 -3px 0 var(--color-ink);" : ""}
+        style={inDogs ? "box-shadow: inset 0 -3px 0 var(--color-ochre);" : ""}
       >
         Dogs
       </a>
     </nav>
   </div>
+
+  {/* Registration rule: ochre over teal, like a two-colour print edge. */}
+  <div class="h-[3px] w-full bg-ochre"></div>
+  <div class="h-[2px] w-full bg-tide"></div>
 </header>

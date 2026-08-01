@@ -1,0 +1,74 @@
+---
+/**
+ * A plate — the framed image slot, named the way a field guide names them.
+ *
+ * This exists so photographs have somewhere to land the moment they're shot.
+ * Every plate carries a caption, a credit and a date, because a photo is a
+ * claim like any other: "the Millsboro fountain is broken" is only worth
+ * something if you know who took it and when.
+ *
+ * With no `src`, it renders the illustrated placeholder and says plainly that
+ * the photograph hasn't been taken. It does NOT render a stock image or a
+ * generic beach shot — an invented picture would undercut the one thing this
+ * site sells.
+ *
+ * Week 2 shot list (from the plan — photograph these on the Sussex drive):
+ *   · Millsboro's broken water fountain — reviewers complain, nobody has a photo
+ *   · The Lums Pond sight line proving it isn't fenced
+ *   · The Lewes Unleashed gate and its member-access signage
+ *   · Tidbury's "closed Sunday" sign
+ *   · Surface close-ups at each park — mulch vs grass vs dirt
+ */
+interface Props {
+  /** Plate number, e.g. "04". Field-guide indexing. */
+  plate?: string;
+  /** What the image proves. Not a description of the picture — the claim. */
+  caption: string;
+  /** Photo path in /public. Omit until the photograph exists. */
+  src?: string | null;
+  /** Real alt text describing the claim the photo proves. */
+  alt?: string | null;
+  credit?: string | null;
+  /** ISO date the photo was taken. */
+  shotOn?: string | null;
+  class?: string;
+}
+
+const {
+  plate,
+  caption,
+  src = null,
+  alt = null,
+  credit = null,
+  shotOn = null,
+  class: className = "",
+} = Astro.props;
+---
+
+<figure class={`sign my-8 overflow-hidden ${className}`}>
+  <div class="field-deep flex items-center justify-between gap-4 px-4 sm:px-5 py-2.5">
+    <span class="label text-foam">{plate ? `Plate ${plate}` : "Plate"}</span>
+    {!src && <span class="label text-foam">Not yet photographed</span>}
+  </div>
+
+  {
+    src ? (
+      <img src={src} alt={alt ?? caption} loading="lazy" decoding="async" class="w-full block" />
+    ) : (
+      <div class="relative">
+        <slot />
+      </div>
+    )
+  }
+
+  <figcaption class="px-4 sm:px-5 py-3.5 border-t-2 border-marsh">
+    <p class="m-0 text-[0.92rem] leading-[1.5]">{caption}</p>
+    <p class="stamp text-ink-soft mt-1.5 mb-0">
+      {
+        src
+          ? [credit, shotOn].filter(Boolean).join(" · ")
+          : "Illustrated stand-in. Replaced when the photograph is taken."
+      }
+    </p>
+  </figcaption>
+</figure>

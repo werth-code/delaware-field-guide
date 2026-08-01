@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Self-hosted. No Google Fonts request, per spec. */
+/* Self-hosted. No Google Fonts request. */
 @import "@fontsource-variable/public-sans";
 @import "@fontsource/zilla-slab/600.css";
 @import "@fontsource/zilla-slab/700.css";
@@ -11,47 +11,35 @@
   Delaware Field Guide — design system
   ==========================================================================
 
-  DIRECTION: "Posted Notice."
+  DIRECTION: WPA park poster.
 
-  The site is a public notice board, not a page. Content sits on enameled sign
-  panels with hard edges and a hairline drop rule, mounted on paper-grain
-  ground. Type is set like a routed park sign. Dates are rubber-stamped like a
-  permit. Nothing floats, nothing glows, nothing is rounded — the visual claim
-  is "this was posted by someone who is accountable for it," which is the same
-  claim the content makes.
+  The 1930s Works Progress Administration national park posters are the
+  actual origin of American park signage: flat screen-printed shapes, hard
+  edges, no gradients, and a small but deeply saturated palette. That is the
+  reference — institutional and credible, but not colourless. Panels sit on
+  the sheet with a hard offset shadow, the way a two-colour screen print sits
+  slightly out of registration.
 
-  Body face is PUBLIC SANS — the typeface of the U.S. Web Design System, the
-  one federal agencies set their own notices in. That is the exact register
-  this site is arguing for, and it costs nothing in legibility. Display is
-  Zilla Slab: Clarendon-adjacent, the slab lineage that park and roadway
-  signage actually comes from. Mono is IBM Plex Mono, and it does real work —
-  it is what makes a page read as a reference document rather than a blog.
+  Chrome is a deep marsh green that anchors the top and bottom of every page.
+  The reading field is warm dune sand, not the cold grey it started as. Teal
+  and ochre do the decorative work so the three flag colours stay reserved.
 
   WHY IT LOOKS LIKE THIS
-  The reader is on a phone, outdoors, in bright sun, one-handed on a leash, in
-  a hurry. So: 19px base, 7:1 minimum on body text, no light gray on white,
-  44px targets, no entrance animation that delays reading a single word. The
-  competing category is soft pastels, script accents and a golden retriever in
-  a sun flare. Looking sober is the positioning.
+  The reader is on a phone, outdoors, in bright sun, one-handed on a leash,
+  in a hurry. So: 19px base, 7:1 minimum on body text, big targets, and no
+  entrance animation that delays reading a single word. The competing
+  category is soft pastels, script accents and a golden retriever in a sun
+  flare. This should look like a thing the state posted.
 
   STATUS IS ENCODED FOUR WAYS
-  Colour + icon + word + BAR TEXTURE. The flag bar is solid when dogs are
-  allowed, dashed when restricted, and diagonal hazard stripes when
-  prohibited. Three of the four channels survive grayscale, and the fourth
-  survives a bad phone screen in glare. Roughly 1 in 12 men has a colour
-  vision deficiency and this audience skews that way.
+  Colour + icon + word + BAR TEXTURE. Solid = allowed, dashed = limits apply,
+  diagonal hazard = closed. Three of four survive grayscale. Roughly 1 in 12
+  men has a colour vision deficiency and this audience skews that way.
 
   FLAG COLOUR RULE
-  Flag colours appear ONLY in status contexts. Never in headers, links, or
-  decoration. If it is flag-coloured, it means something.
-
-  Two of three flags fail 7:1 with text on them, so each has a `-bearing`
-  variant used only as a background behind text. The canonical hex stays the
-  identity colour and is used for the bar, which carries no text.
-
-    flag-red      #C0392B  bar   · bearing #8E2A20 w/ white  → 8.4:1
-    flag-green    #2E7D32  bar   · bearing #1F5C24 w/ white  → 8.0:1
-    flag-yellow   #E8A33D  bar   · ink on canonical yellow   → 7.6:1
+  The three flag colours appear only in STATUS contexts in the UI — never as
+  decoration, never in a heading or a link. The poster illustration is exempt:
+  it is a picture, not an interface, and its sun is allowed to be ochre.
 */
 
 @theme {
@@ -60,52 +48,55 @@
   --font-body: "Public Sans Variable", "Public Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* ---- Palette (spec) --------------------------------------------------- */
-  --color-ground: #edefe8; /* page background — cool pale marsh, not cream */
-  --color-ink: #1b211a; /* body text, near-black with a green cast */
-  --color-structure: #4a5a4c; /* rules, borders — NOT text (6.3:1) */
+  /* ---- Deep field — chrome, mastheads, status ------------------------- */
+  --color-abyss: #0c2a27; /* deepest. masthead, footer, status field */
+  --color-marsh: #14453d; /* primary green. borders, offset shadow, fills */
+  --color-tide: #1d6e64; /* mid teal. rules, secondary fills */
+  --color-surf: #6fb3a8; /* light teal. accents on dark only */
+  --color-foam: #a9d5cc; /* palest teal. hairlines on dark */
 
-  /* Text-safe derivative. Secondary text must still clear 7:1. */
-  --color-structure-text: #3c4a3e; /* 8.1:1 on ground */
-  --color-rule: #c5cbc1;
-  --color-rule-strong: #97a396;
+  /* ---- Reading field --------------------------------------------------- */
+  --color-sand: #f0e4ce; /* page ground — warm dune, not grey */
+  --color-shell: #fbf5e9; /* raised panels */
+  --color-shell-sunk: #e6dac2; /* table heads, inset rows */
 
-  /* Panel surfaces. Sign-white, off pure to cut glare. */
-  --color-panel: #f8f9f5;
-  --color-panel-sunk: #e3e6dc;
+  /* ---- Ink ------------------------------------------------------------- */
+  --color-ink: #10201c; /* body text — 13.4:1 on sand */
+  --color-ink-soft: #35483f; /* secondary text — 7.8:1 on sand */
+  --color-cream: #fbf5e9; /* text on deep field — 14:1 on abyss */
+  --color-cream-soft: #cfe0d8; /* secondary text on deep field */
+
+  /* Ochre — decorative accent. Warm counterweight to all that green. */
+  --color-ochre: #d99441;
+  --color-ochre-deep: #8a5410; /* text-safe on sand: 7.4:1 */
 
   /* ---- Flags — status only --------------------------------------------- */
   --color-flag-green: #2e7d32;
-  --color-flag-green-bearing: #1f5c24;
-  --color-flag-green-wash: #e2eddf;
+  --color-flag-green-bearing: #1c5720;
+  --color-flag-green-wash: #dcebd7;
 
   --color-flag-yellow: #e8a33d;
-  --color-flag-yellow-bearing: #e8a33d;
-  --color-flag-yellow-wash: #faeed9;
+  --color-flag-yellow-bearing: #e8a33d; /* ink sits on it, not white */
+  --color-flag-yellow-wash: #f7e7c8;
 
   --color-flag-red: #c0392b;
-  --color-flag-red-bearing: #8e2a20;
-  --color-flag-red-wash: #f6e2df;
+  --color-flag-red-bearing: #8a2018;
+  --color-flag-red-wash: #f3ded6;
 
   --radius-sign: 2px;
-
-  /* Interaction is fast and small. Nothing here is worth waiting for. */
   --ease-sign: cubic-bezier(0.2, 0, 0.15, 1);
 }
 
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
+    background-color: var(--color-abyss);
   }
 
-  /*
-    Paper grain. A printed field guide has tooth; a flat hex fill does not.
-    Fixed attachment so the grain belongs to the sheet rather than scrolling
-    as a texture layer. ~3.5% — visible as warmth, never as noise.
-  */
+  /* Print tooth. A screen-printed poster has grain; a flat hex fill doesn't. */
   body {
-    background-color: var(--color-ground);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-color: var(--color-sand);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E");
     background-attachment: fixed;
     color: var(--color-ink);
     font-family: var(--font-body);
@@ -120,39 +111,37 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -0.014em;
+    font-weight: 700;
+    line-height: 1.06;
+    letter-spacing: -0.02em;
     text-wrap: balance;
   }
 
-  /* Routed-sign optics: the bigger it gets, the tighter it sets. */
   h1 {
-    letter-spacing: -0.028em;
+    letter-spacing: -0.032em;
   }
 
   a {
-    color: var(--color-ink);
+    color: inherit;
     text-decoration-line: underline;
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: 0.18em;
-    text-decoration-color: var(--color-rule-strong);
-    transition: text-decoration-color 120ms var(--ease-sign);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.16em;
+    text-decoration-color: var(--color-tide);
+    transition: text-decoration-color 110ms var(--ease-sign);
   }
 
   a:hover {
     text-decoration-color: currentColor;
-    text-decoration-thickness: 2px;
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-ink);
+    outline: 3px solid var(--color-ochre);
     outline-offset: 2px;
   }
 
   ::selection {
-    background: var(--color-flag-yellow-wash);
-    color: var(--color-ink);
+    background: var(--color-ochre);
+    color: var(--color-abyss);
   }
 
   table {
@@ -160,10 +149,10 @@
   }
 
   /*
-    No entrance animation anywhere on this site. Someone opening this page is
-    trying to find out whether they can walk the dog in the next ten minutes;
-    fading the answer in is an insult. Motion is confined to interaction, is
-    under 150ms, and is removed entirely on request.
+    No entrance animation anywhere. Someone opening this page wants to know
+    whether they can walk the dog in the next ten minutes; fading the answer
+    in is an insult. Motion is interaction-only, under 150ms, and gone on
+    request.
   */
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -180,21 +169,12 @@
   /* ---- Layout ---------------------------------------------------------- */
   .wrap {
     width: 100%;
-    max-width: 46rem;
+    max-width: 47rem;
     margin-inline: auto;
     padding-inline: 1.25rem;
   }
 
-  .wrap-wide {
-    max-width: 64rem;
-  }
-
-  /*
-    Panels break wider than the measure on large screens. Prose wants 64ch;
-    a rule table wants room. The asymmetry is the point — it keeps the page
-    from reading as one undifferentiated column.
-  */
-  @media (min-width: 68rem) {
+  @media (min-width: 70rem) {
     .breakout {
       width: calc(100% + 7rem);
       margin-inline-start: -3.5rem;
@@ -207,38 +187,52 @@
     min-height: 44px;
   }
 
-  /* ---- The sign ---------------------------------------------------------
-     Every panel is a routed sign: hard 1px rule, 2px radius, and a hairline
-     drop rule so it sits proud of the sheet. No blur, ever — a soft shadow
-     reads as "app", and this needs to read as "posted notice". */
-  .sign {
-    background: var(--color-panel);
-    border: 1px solid var(--color-rule);
-    border-radius: var(--radius-sign);
-    box-shadow: 0 1px 0 0 var(--color-rule-strong);
+  /* ---- Deep field ------------------------------------------------------- */
+  .field-deep {
+    background-color: var(--color-abyss);
+    color: var(--color-cream);
   }
 
-  /* Panels you can click get a physical response: they seat down. */
+  .field-deep a {
+    text-decoration-color: var(--color-surf);
+  }
+
+  /* ---- The sign ---------------------------------------------------------
+     Screen-print registration: a hard 2px marsh keyline with the block
+     offset behind it. No blur — a soft shadow reads as "app", and this has
+     to read as something that was printed and posted. */
+  .sign {
+    background: var(--color-shell);
+    border: 2px solid var(--color-marsh);
+    border-radius: var(--radius-sign);
+    box-shadow: 5px 5px 0 0 var(--color-marsh);
+  }
+
+  .sign-quiet {
+    background: var(--color-shell);
+    border: 1px solid var(--color-tide);
+    border-radius: var(--radius-sign);
+  }
+
+  /* Panels you can press seat down into their own shadow. */
   .sign-action {
     transition:
       transform 110ms var(--ease-sign),
-      border-color 110ms var(--ease-sign),
       box-shadow 110ms var(--ease-sign);
   }
 
   .sign-action:hover {
-    border-color: var(--color-structure);
-    box-shadow: 0 1px 0 0 var(--color-structure);
+    box-shadow: 7px 7px 0 0 var(--color-tide);
+    transform: translate(-2px, -2px);
   }
 
   .sign-action:active {
-    transform: translateY(1px);
-    box-shadow: 0 0 0 0 var(--color-structure);
+    box-shadow: 1px 1px 0 0 var(--color-marsh);
+    transform: translate(4px, 4px);
   }
 
   /* ---- Status bar textures ---------------------------------------------
-     The fourth redundant channel. Texture carries status with no colour at
-     all: solid = allowed, dashed = limits apply, hazard = closed. */
+     The fourth redundant channel. Reads with zero colour information. */
   .bar-solid {
     background-color: var(--color-flag-green);
   }
@@ -247,7 +241,7 @@
     background-color: var(--color-flag-yellow);
     background-image: repeating-linear-gradient(
       90deg,
-      rgba(27, 33, 26, 0.55) 0 14px,
+      rgba(12, 42, 39, 0.62) 0 14px,
       transparent 14px 30px
     );
   }
@@ -256,14 +250,12 @@
     background-color: var(--color-flag-red);
     background-image: repeating-linear-gradient(
       45deg,
-      rgba(27, 33, 26, 0.42) 0 9px,
+      rgba(12, 42, 39, 0.5) 0 9px,
       transparent 9px 20px
     );
   }
 
-  /* ---- Mono utilities ---------------------------------------------------
-     Dates, stamps, tabular data. This does the heavy lifting on the
-     "reference document, not blog" claim. */
+  /* ---- Mono utilities --------------------------------------------------- */
   .stamp {
     font-family: var(--font-mono);
     font-size: 0.8rem;
@@ -276,23 +268,30 @@
     font-family: var(--font-mono);
     font-size: 0.72rem;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.11em;
     text-transform: uppercase;
-    color: var(--color-structure-text);
+    color: var(--color-ink-soft);
   }
 
-  /* The verification stamp proper: struck onto the page, slightly askew,
+  /*
+    NOTE: there is deliberately no `.field-deep .label` rule. A descendant
+    selector like that also catches labels inside light panels nested in the
+    dark footer, and silently drops them to ~2:1. Labels on a deep field get
+    `text-foam` explicitly at the call site instead — 9.5:1 on abyss.
+  */
+
+  /* The verification stamp: struck onto the sheet, slightly out of true,
      the way a date stamp actually lands on a permit. */
   .stamp-struck {
     display: inline-block;
-    border: 1.5px solid var(--color-flag-green-bearing);
+    border: 2px solid var(--color-flag-green-bearing);
     border-radius: var(--radius-sign);
-    padding: 0.35rem 0.6rem;
+    padding: 0.35rem 0.65rem;
     color: var(--color-flag-green-bearing);
-    rotate: -0.6deg;
+    rotate: -0.8deg;
   }
 
-  /* ---- Prose ----------------------------------------------------------- */
+  /* ---- Prose ------------------------------------------------------------ */
   .prose-field > p {
     margin-block: 1rem;
     max-width: 64ch;
@@ -302,22 +301,25 @@
     margin-block-start: 0;
   }
 
-  /* Section heads are ruled, like the divisions on a posted notice. */
+  /* Section heads carry the poster's rule: heavy marsh over a hairline. */
   .prose-field h2 {
-    font-size: 1.6rem;
-    margin-block: 3rem 1rem;
-    padding-block-end: 0.5rem;
-    border-block-end: 1px solid var(--color-rule);
+    font-size: 1.75rem;
+    color: var(--color-marsh);
+    margin-block: 3.25rem 1.1rem;
+    padding-block-end: 0.55rem;
+    border-block-end: 3px solid var(--color-marsh);
+    box-shadow: 0 4px 0 -1px var(--color-tide);
   }
 
   .prose-field h3 {
-    font-size: 1.2rem;
-    margin-block: 2rem 0.4rem;
+    font-size: 1.22rem;
+    color: var(--color-marsh);
+    margin-block: 2.1rem 0.4rem;
   }
 
   .prose-field ul {
     margin-block: 1rem;
-    padding-inline-start: 1.35rem;
+    padding-inline-start: 1.4rem;
     list-style: none;
     max-width: 64ch;
   }
@@ -331,11 +333,11 @@
   .prose-field ul > li::before {
     content: "";
     position: absolute;
-    inset-inline-start: -1.35rem;
-    inset-block-start: 0.66em;
-    width: 0.7rem;
-    height: 2px;
-    background: var(--color-structure);
+    inset-inline-start: -1.4rem;
+    inset-block-start: 0.64em;
+    width: 0.75rem;
+    height: 3px;
+    background: var(--color-tide);
   }
 
   .prose-field ul.list-none > li::before {
@@ -352,7 +354,7 @@
   .prose-field ol > li::marker {
     font-family: var(--font-mono);
     font-size: 0.82em;
-    color: var(--color-structure-text);
+    color: var(--color-tide);
   }
 }
 
