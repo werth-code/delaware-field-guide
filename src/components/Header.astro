@@ -8,6 +8,7 @@
  * section two lands, this grows one link.
  */
 import Logo from "./Logo.astro";
+import SectionNav from "./SectionNav.astro";
 
 const { pathname } = Astro.url;
 const inDogs = pathname.startsWith("/dogs");
@@ -36,5 +37,8 @@ const inDogs = pathname.startsWith("/dogs");
 
   {/* Registration rule: ochre over teal, like a two-colour print edge. */}
   <div class="h-[3px] w-full bg-ochre"></div>
-  <div class="h-[2px] w-full bg-tide"></div>
 </header>
+
+{/* Town nav rides under the masthead inside the section, so the other four
+    towns are one tap away from anywhere. */}
+{inDogs && <SectionNav />}

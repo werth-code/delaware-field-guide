@@ -1,0 +1,80 @@
+---
+/**
+ * One park, seven fields, in the order people actually ask them:
+ * fenced → size split → water → shade → surface → fee → hours.
+ *
+ * That order is from the complaints, not from a schema. "Is it fenced" is the
+ * question that ruins a trip when it's wrong (Lums Pond isn't, and its reviews
+ * are full of people who arrived expecting an enclosure), so it goes first.
+ *
+ * Unknown fields say "Not confirmed" and are visibly dimmer than known ones.
+ * They are never rendered as "No".
+ */
+import type { Park } from "../lib/parks";
+import { completeness, feeText, formatHours, text, tri } from "../lib/parks";
+import FlagIcon from "./FlagIcon.astro";
+
+interface Props {
+  park: Park;
+}
+const { park } = Astro.props;
+
+const fields = [
+  { label: "Fenced", ...tri(park.fenced, "Yes, enclosed", "No — open area") },
+  { label: "Size split", ...tri(park.sizeSplit, "Yes", "No") },
+  { label: "Water", ...tri(park.water, "Yes", "No") },
+  { label: "Shade", ...text(park.shade) },
+  { label: "Surface", ...text(park.surface) },
+  { label: "Fee", ...feeText(park) },
+  { label: "Hours", ...formatHours(park.hours) },
+];
+
+const { known, total } = completeness(park);
+const notes = [park.waterNote, park.hoursNote, park.notes].filter(Boolean) as string[];
+---
+
+<article class="sign p-4 sm:p-5">
+  <header class="flex items-start justify-between gap-3">
+    <div>
+      <h3 class="font-display text-[1.2rem] font-bold tracking-[-0.018em] m-0 text-marsh">
+        {park.name}
+      </h3>
+      <p class="stamp text-ink-soft mt-1 mb-0">{park.address}</p>
+    </div>
+    <span class="stamp text-ink-soft shrink-0">{known}/{total}</span>
+  </header>
+
+  <dl class="grid grid-cols-2 gap-x-4 gap-y-0 mt-4 mb-0 border-t-2 border-marsh">
+    {
+      fields.map((f) => (
+        <div class="border-b border-tide/30 py-2">
+          <dt class="label">{f.label}</dt>
+          <dd
+            class={`m-0 mt-0.5 text-[0.9rem] leading-snug ${
+              f.state === "unknown" ? "text-ink-soft italic" : "text-ink"
+            }`}
+          >
+            {f.state === "no" && f.label === "Fenced" && (
+              <FlagIcon icon="alert" class="w-[0.85em] h-[0.85em] inline-block me-1 text-flag-red" />
+            )}
+            {f.text}
+          </dd>
+        </div>
+      ))
+    }
+  </dl>
+
+  {
+    notes.length > 0 && (
+      <ul class="list-none p-0 m-0 mt-3.5 space-y-1.5">
+        {notes.map((n) => (
+          <li class="text-[0.86rem] leading-snug text-ink-soft">{n}</li>
+        ))}
+      </ul>
+    )
+  }
+
+  <p class="stamp text-ink-soft mt-3.5 mb-0">
+    {park.verifiedDate ? `Verified ${park.verifiedDate}` : "Not yet visited or called"}
+  </p>
+</article>

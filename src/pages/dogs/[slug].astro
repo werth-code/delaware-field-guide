@@ -75,9 +75,17 @@ const headline = {
 */
 const windowText = formatWindow(beachRule?.timeWindow ?? null);
 
+/* Only claim the boardwalk is shut where the data actually carries a
+   boardwalk rule — Fenwick has none, and asserting one would be a fabricated
+   fact on a page whose whole point is not doing that. */
+const boardwalkShut =
+  boardwalkRule?.status === "prohibited" && beachRule?.status === "prohibited";
+
 const detail =
   status === "prohibited"
-    ? `Today falls inside the ${beachRule ? formatRange(beachRule) : ""} closure — off the beach and off the boardwalk at every hour.${nextChange ? ` Dogs come back ${nextChange}.` : ""}`
+    ? `Today falls inside the ${beachRule ? formatRange(beachRule) : ""} closure — ${
+        boardwalkShut ? "off the beach and off the boardwalk" : "off the beach"
+      } at every hour.${nextChange ? ` Dogs come back ${nextChange}.` : ""}`
     : windowText
       ? `Today, ${windowText} — not in between. ${beachRule?.note ?? ""}`.trim()
       : (beachRule?.note ?? null);

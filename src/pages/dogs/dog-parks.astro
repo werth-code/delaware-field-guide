@@ -1,0 +1,148 @@
+---
+/**
+ * Every dog park in Delaware, on the seven fields nobody publishes together.
+ *
+ * Grouped by county with Sussex first, because the beach audience is the one
+ * this section is for and Sussex is where they are. Three facts here exist
+ * nowhere else in one place: Lums Pond is unfenced AND charges a park entry
+ * fee, Tidbury closes on Sundays, and Lewes Unleashed will not let you in
+ * without a key fob that arrives by mail.
+ */
+import Layout from "../../layouts/Layout.astro";
+import ParkCard from "../../components/ParkCard.astro";
+import FlagIcon from "../../components/FlagIcon.astro";
+
+import parksData from "../../data/parks.json";
+import { COUNTY_ORDER, type Park } from "../../lib/parks";
+import { isVerified, robotsFor } from "../../lib/verification";
+
+const parks = parksData as Park[];
+const verified = parks.filter(isVerified);
+
+// The page is only indexable once at least one record has been confirmed.
+const pageGate = { verifiedDate: verified.length ? "confirmed" : null, verifiedSource: verified.length ? "confirmed" : null };
+
+const byCounty = COUNTY_ORDER.map((county) => ({
+  county,
+  parks: parks.filter((p) => p.county === county),
+})).filter((g) => g.parks.length);
+
+const unfenced = parks.filter((p) => p.fenced === false);
+const noWater = parks.filter((p) => p.water === false);
+
+const schema = verified.length
+  ? [
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: "Dog parks in Delaware",
+        itemListElement: verified.map((p, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          item: {
+            "@type": "Place",
+            name: p.name,
+            address: p.address,
+            ...(p.lat && p.lng
+              ? { geo: { "@type": "GeoCoordinates", latitude: p.lat, longitude: p.lng } }
+              : {}),
+          },
+        })),
+      },
+    ]
+  : [];
+---
+
+<Layout
+  title="Delaware dog parks: fenced, water, shade, surface, fee"
+  description="Delaware dog parks on the seven fields that decide a trip: fenced, size split, water, shade, surface, fee and hours. Including which four are not fenced."
+  robots={robotsFor(pageGate)}
+  schema={schema}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">Dog parks</p>
+    <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
+      Every Delaware dog park, on seven fields
+    </h1>
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
+      Fenced? Size split? Water? Shade? Surface? Fee? Hours? Those are the seven
+      things people complain about after they've driven there, and no existing
+      guide publishes them together.
+    </p>
+  </div>
+
+  <div class="wrap prose-field pb-2">
+    <h2>Read this first</h2>
+    <p class="max-w-[58ch]">
+      Four of these are <strong>not fenced</strong>, which is the single most
+      common way a dog park trip goes wrong — people arrive expecting an
+      enclosure and find an open field. Two of them cost money. One is closed on
+      Sundays. One is private and you cannot get in on the day.
+    </p>
+
+    <ul class="list-none p-0 m-0 mt-5 mb-2 grid gap-3 sm:grid-cols-2">
+      <li class="sign px-4 py-3.5">
+        <p class="label m-0 flex items-center gap-1.5">
+          <FlagIcon icon="alert" class="w-[1em] h-[1em] text-flag-red" />
+          Not fenced
+        </p>
+        <p class="mt-1.5 mb-0 text-[0.9rem] leading-snug">
+          {unfenced.map((p) => p.name).join(", ") || "None recorded"}.
+          Reliable recall required.
+        </p>
+      </li>
+      <li class="sign px-4 py-3.5">
+        <p class="label m-0 flex items-center gap-1.5">
+          <FlagIcon icon="alert" class="w-[1em] h-[1em] text-flag-red" />
+          No water on site
+        </p>
+        <p class="mt-1.5 mb-0 text-[0.9rem] leading-snug">
+          {noWater.map((p) => p.name).join(", ") || "None recorded"}.
+          Bring your own and a bowl.
+        </p>
+      </li>
+    </ul>
+
+    <p class="text-[0.9rem] text-ink-soft max-w-[58ch]">
+      Every card shows how many of its seven fields are confirmed. A field
+      reading <em>Not confirmed</em> means we haven't checked it — it does not
+      mean the park lacks the thing. Google's posted hours usually belong to the
+      parent park rather than the dog run inside it, which is why so many of
+      these still say not confirmed.
+    </p>
+  </div>
+
+  {
+    byCounty.map(({ county, parks: group }) => (
+      <div class="wrap pb-8">
+        <h2 class="font-display text-[1.5rem] font-bold text-marsh border-b-[3px] border-marsh pb-2 mb-5 mt-8">
+          {county} County
+          <span class="stamp text-ink-soft ms-2">{group.length}</span>
+        </h2>
+        <div class="grid gap-4 sm:grid-cols-2 breakout">
+          {group.map((park) => (
+            <ParkCard park={park} />
+          ))}
+        </div>
+      </div>
+    ))
+  }
+
+  <div class="wrap prose-field pb-4">
+    <h2>What's missing</h2>
+    <p class="max-w-[58ch]">
+      We have found no confirmed public dog park in Seaford, Laurel, Georgetown,
+      Smyrna or Bridgeville. If one exists and we've missed it,
+      <a href="/how-we-verify/#corrections">tell us</a>. Banning Regional Park
+      and the Limestone Road site are listed by other guides but we have not
+      been able to confirm either exists as described, so neither is presented
+      as fact.
+    </p>
+
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/dogs/">Beach rules by town — all five, side by side</a></li>
+      <li><a href="/how-we-verify/">How we check this, and what we do when we're wrong</a></li>
+    </ul>
+  </div>
+</Layout>

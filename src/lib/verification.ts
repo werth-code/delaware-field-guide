@@ -73,6 +73,25 @@ export function reportOutstanding(
   console.warn(lines.join("\n"));
 }
 
+/**
+ * Warn on titles and descriptions that Google will truncate.
+ *
+ * A warning rather than a build failure: a clipped description costs a little
+ * click-through, it doesn't publish a wrong fact. The 40-word answer rule
+ * below fails hard because that one does.
+ *
+ * ~60 chars of title and ~158 of description is roughly where the desktop SERP
+ * cuts. Both are pixel-based in reality, so treat these as guide rails.
+ */
+export function checkMeta(where: string, title: string, description: string): void {
+  const notes: string[] = [];
+  if (title.length > 60) notes.push(`title ${title.length} chars (>60, will clip)`);
+  if (title.length < 25) notes.push(`title ${title.length} chars (<25, thin)`);
+  if (description.length > 158) notes.push(`description ${description.length} chars (>158, will clip)`);
+  if (description.length < 110) notes.push(`description ${description.length} chars (<110, wastes the slot)`);
+  if (notes.length) console.warn(`  ◦ SEO ${where}: ${notes.join("; ")}`);
+}
+
 export function assertAnswerLength(slug: string, answer: string): void {
   const n = countWords(answer);
   if (n > 40) {

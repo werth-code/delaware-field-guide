@@ -11,12 +11,21 @@ import sitemap from '@astrojs/sitemap';
  * Keep those same pages out of the sitemap, so the two signals can never
  * disagree — submitting a noindex URL is a crawl-budget own goal.
  */
-const towns = JSON.parse(
-  readFileSync(fileURLToPath(new URL('./src/data/towns.json', import.meta.url)), 'utf8'),
-);
-const unverified = towns
-  .filter((t) => t.verifiedDate === null || t.verifiedSource === null)
-  .map((t) => `/dogs/${t.slug}/`);
+const read = (p) => JSON.parse(readFileSync(fileURLToPath(new URL(p, import.meta.url)), 'utf8'));
+
+const towns = read('./src/data/towns.json');
+const parks = read('./src/data/parks.json');
+const lodging = read('./src/data/lodging.json').filter((l) => typeof l.name === 'string');
+
+const confirmed = (r) => r.verifiedDate !== null && r.verifiedSource !== null;
+
+const unverified = [
+  ...towns.filter((t) => !confirmed(t)).map((t) => `/dogs/${t.slug}/`),
+  // Aggregate pages are indexable only once at least one record is confirmed —
+  // the same rule their `robots` meta uses, kept in step here.
+  ...(parks.some(confirmed) ? [] : ['/dogs/dog-parks/']),
+  ...(lodging.some((l) => l.petFee?.amount !== null) ? [] : ['/dogs/pet-fees/']),
+];
 
 // https://astro.build/config
 export default defineConfig({
