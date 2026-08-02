@@ -15,16 +15,21 @@ const read = (p) => JSON.parse(readFileSync(fileURLToPath(new URL(p, import.meta
 
 const towns = read('./src/data/towns.json');
 const parks = read('./src/data/parks.json');
+const places = read('./src/data/places.json');
 const lodging = read('./src/data/lodging.json').filter((l) => typeof l.name === 'string');
 
 const confirmed = (r) => r.verifiedDate !== null && r.verifiedSource !== null;
+const placeOf = (slug) => places.find((p) => p.slug === slug);
 
 const unverified = [
   ...towns.filter((t) => !confirmed(t)).map((t) => `/dogs/${t.slug}/`),
+  ...parks.filter((p) => !confirmed(p)).map((p) => `/dogs/dog-parks/${p.slug}/`),
   // Aggregate pages are indexable only once at least one record is confirmed —
   // the same rule their `robots` meta uses, kept in step here.
   ...(parks.some(confirmed) ? [] : ['/dogs/dog-parks/']),
   ...(lodging.some((l) => l.petFee?.amount !== null) ? [] : ['/dogs/pet-fees/']),
+  ...(places.some(confirmed) ? [] : ['/dogs/summer/']),
+  ...(confirmed(placeOf('state-park-surf-fishing-beaches') ?? {}) ? [] : ['/dogs/state-parks/']),
 ];
 
 // https://astro.build/config

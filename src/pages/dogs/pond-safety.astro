@@ -1,0 +1,227 @@
+---
+/**
+ * Harmful algal blooms.
+ *
+ * The most urgent page in this section and the one with real stakes: blooms
+ * peak in August and September, and the one Delaware dog spot everybody loves
+ * for its swimming — Lums Pond — is a warm, slow, nutrient-rich millpond,
+ * which is exactly the condition that produces them. Its reviews rave about
+ * the swimming. None of them mention this.
+ *
+ * DELIBERATELY NOT A TRACKER. No "safe today" badge, no bloom map, no status
+ * component. Conditions change hourly, a stale green light is worse than no
+ * light at all, and owning that liability for a lead-gen site would be
+ * indefensible. We describe what a bloom looks like and link to the agencies
+ * that actually monitor the water.
+ *
+ * This page gives general guidance and says plainly that it is not veterinary
+ * advice. If a dog is symptomatic the instruction is "go now", not "read on".
+ */
+import Layout from "../../layouts/Layout.astro";
+import FlagIcon from "../../components/FlagIcon.astro";
+
+const answer =
+  "Not without looking first. Blue-green algae blooms peak in Delaware millponds in August and September, and the toxins can kill a dog within hours. If the water is scummy, pea-green, or has foam or mats along the edge, keep the dog out of it.";
+
+const looksLike = [
+  "Pea-soup green, blue-green, or brownish water",
+  "Paint-like streaks on the surface",
+  "Scum, mats, or foam collecting along the downwind shoreline",
+  "A dried crust on rocks or the bank — still toxic, and dogs lick it",
+  "An unusual musty or septic smell",
+];
+
+const symptoms = [
+  "Vomiting or bloody diarrhoea",
+  "Weakness, staggering, or collapse",
+  "Muscle tremors or seizures",
+  "Excessive drooling",
+  "Difficulty breathing",
+];
+
+const ponds = [
+  { name: "Lums Pond", note: "Bear. The one with the off-leash area, and the one dogs actually swim in." },
+  { name: "Trap Pond", note: "Laurel. Bald cypress, warm and slow." },
+  { name: "Killens Pond", note: "Felton." },
+  { name: "Records Pond", note: "Laurel." },
+  { name: "Chipman Pond", note: "Laurel." },
+  { name: "Wagamon Pond", note: "Milton." },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Can my dog swim in a Delaware pond?",
+        acceptedAnswer: { "@type": "Answer", text: answer },
+      },
+      {
+        "@type": "Question",
+        name: "What does a harmful algal bloom look like?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Pea-soup green or blue-green water, paint-like surface streaks, scum or foam mats along the shoreline, and a dried crust on rocks and banks. Not all blooms are visible, and toxicity cannot be judged by eye.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What do I do if my dog swam in water with algae?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Rinse the dog with clean water immediately, before it can lick its coat, and do not let it drink the pond water. If it shows vomiting, weakness, staggering, tremors or seizures, go to a vet immediately — cyanotoxin poisoning can be fatal within hours.",
+        },
+      },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Blue-green algae and dogs: Delaware ponds in bloom season"
+  description="Blooms peak in Delaware millponds in August and September and can kill a dog in hours. What one looks like, which ponds, and what to do if yours swam in it."
+  schema={schema}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">Pond safety</p>
+    <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
+      Can my dog swim in a Delaware pond?
+    </h1>
+  </div>
+
+  {/* Emergency instruction first. Someone arriving here with a sick dog should
+      not have to read a page to find "go now". */}
+  <div class="wrap">
+    <aside
+      class="border-2 border-flag-red border-l-[9px] bg-flag-red-wash px-4 sm:px-5 py-4 rounded-[2px] my-2"
+      style="box-shadow: 5px 5px 0 0 var(--color-flag-red-bearing);"
+    >
+      <p class="label text-flag-red-bearing m-0 flex items-center gap-1.5">
+        <FlagIcon icon="alert" class="w-[1em] h-[1em]" />
+        If your dog is already sick
+      </p>
+      <p class="mt-2 mb-0 text-[1rem] leading-[1.5] max-w-[56ch]">
+        Vomiting, weakness, staggering, tremors or seizures after being in pond
+        water — <strong>go to a vet now</strong> and say it may have been
+        exposed to blue-green algae. Cyanotoxin poisoning can be fatal in hours.
+        Do not wait to see whether it passes.
+      </p>
+    </aside>
+  </div>
+
+  <div class="wrap prose-field pt-6">
+    <p
+      class="text-[1.28rem] leading-[1.45] font-medium max-w-[54ch] border-l-[5px] border-l-ochre ps-4 sm:ps-5"
+    >
+      {answer}
+    </p>
+
+    <h2>Why this is a Delaware problem specifically</h2>
+    <p class="max-w-[58ch]">
+      Nearly every freshwater spot a dog swims in this state is a millpond —
+      warm, shallow, slow-moving and nutrient-rich. Those are precisely the
+      conditions that produce cyanobacteria blooms, and the season runs through
+      August and September.
+    </p>
+    <p class="max-w-[58ch]">
+      Dogs are far more exposed than people are. They drink while they swim, and
+      then they lick their coat dry afterwards. A dog can take in a meaningful
+      dose from water a person would only wade in.
+      <strong>Not all cyanobacteria are toxic, and there is no way to tell by
+      looking.</strong> Treat any bloom as if it is.
+    </p>
+
+    <h2>What a bloom looks like</h2>
+    <ul>
+      {looksLike.map((l) => <li>{l}</li>)}
+    </ul>
+    <p class="text-[0.95rem] text-ink-soft max-w-[58ch]">
+      Some blooms aren't visible at all. Clear-looking water is not a guarantee
+      — it just means there's nothing obvious to see.
+    </p>
+
+    <h2>The ponds to be careful about</h2>
+    <p class="max-w-[58ch]">
+      Not a warning that any of these is blooming today — we don't track that
+      and neither should you take our word for it. These are simply the
+      freshwater bodies where Delaware dogs actually swim.
+    </p>
+  </div>
+
+  <div class="wrap pb-2">
+    <ul class="list-none p-0 m-0 grid gap-3 sm:grid-cols-2 breakout">
+      {
+        ponds.map((p) => (
+          <li class="sign px-4 py-3">
+            <p class="font-display text-[1.05rem] font-bold m-0 text-marsh">{p.name}</p>
+            <p class="mt-1 mb-0 text-[0.88rem] leading-snug text-ink-soft">{p.note}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div class="wrap prose-field">
+    <h2>Lums Pond deserves its own paragraph</h2>
+    <p class="max-w-[58ch]">
+      It is the highest-rated dog spot in the state, and the reason people love
+      it is that dogs can swim in the pond. Its reviews are full of that. None
+      of them mention blooms. It is a millpond like the others, and if the water
+      looks wrong on the day you visit, the swimming is the part to skip — the
+      off-leash area is still worth the trip.
+      <a href="/dogs/dog-parks/">The other thing to know about Lums Pond</a> is
+      that it isn't fenced.
+    </p>
+
+    <h2>If your dog has been in the water</h2>
+    <ul>
+      <li><strong>Rinse it with clean water immediately</strong>, before it starts licking its coat. Carry a jug in the car in bloom season.</li>
+      <li><strong>Don't let it drink pond water</strong> — bring fresh water and a bowl.</li>
+      <li><strong>Watch it closely for the rest of the day.</strong> Onset can be fast.</li>
+    </ul>
+
+    <h3>Signs to drive to a vet for</h3>
+    <ul>
+      {symptoms.map((s) => <li>{s}</li>)}
+    </ul>
+
+    <h2>Who actually monitors this</h2>
+    <p class="max-w-[58ch]">
+      We deliberately do not publish a bloom map or a "safe today" badge.
+      Conditions change within hours, a stale green light is more dangerous than
+      no light at all, and these are the agencies that sample the water:
+    </p>
+    <ul>
+      <li>
+        <a href="https://dnrec.delaware.gov/" rel="nofollow">DNREC</a> — Delaware's
+        environmental agency, for current advisories and closures.
+      </li>
+      <li>
+        <a href="https://dhss.delaware.gov/dph/" rel="nofollow">Delaware Division of Public Health</a>
+        — publishes a cyanobacteria FAQ and health guidance.
+      </li>
+      <li>
+        <a href="https://www.cdc.gov/harmful-algal-blooms/prevention/preventing-pet-and-livestock-illnesses.html" rel="nofollow">CDC</a>
+        — preventing pet illness from harmful algal blooms.
+      </li>
+    </ul>
+
+    <aside class="sign px-4 sm:px-5 py-4 my-8">
+      <p class="label m-0">On this page</p>
+      <p class="mt-2 mb-0 text-[0.92rem] leading-[1.55] max-w-[58ch]">
+        General guidance drawn from the public health sources above. It is not
+        veterinary advice and it is not a substitute for calling a vet. If you
+        are weighing whether a dog is sick enough to go in, take it in.
+      </p>
+    </aside>
+
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/dogs/summer/">Where a dog is legal in July</a></li>
+      <li><a href="/dogs/dog-parks/">Every Delaware dog park, on seven fields</a></li>
+      <li><a href="/how-we-verify/">How we check this</a></li>
+    </ul>
+  </div>
+</Layout>

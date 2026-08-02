@@ -33,16 +33,26 @@ const { known, total } = completeness(park);
 const notes = [park.waterNote, park.hoursNote, park.notes].filter(Boolean) as string[];
 ---
 
-<article class="sign p-4 sm:p-5">
-  <header class="flex items-start justify-between gap-3">
-    <div>
-      <h3 class="font-display text-[1.2rem] font-bold tracking-[-0.018em] m-0 text-marsh">
-        {park.name}
-      </h3>
-      <p class="stamp text-ink-soft mt-1 mb-0">{park.address}</p>
-    </div>
-    <span class="stamp text-ink-soft shrink-0">{known}/{total}</span>
-  </header>
+<article class="sign sign-action relative group">
+  {/* Stretched link: the whole box is the target, but the accessible name
+      stays on the heading and the seven fields below remain selectable text
+      rather than becoming part of one enormous link. */}
+  <a href={`/dogs/dog-parks/${park.slug}/`} class="absolute inset-0 z-10 no-underline">
+    <span class="sr-only">{park.name}</span>
+  </a>
+
+  <div class="p-4 sm:p-5">
+    <header class="flex items-start justify-between gap-3">
+      <div>
+        <h3
+          class="font-display text-[1.2rem] font-bold tracking-[-0.018em] m-0 text-marsh underline decoration-ochre decoration-2 underline-offset-[0.16em] group-hover:decoration-marsh"
+        >
+          {park.name}
+        </h3>
+        <p class="stamp text-ink-soft mt-1 mb-0">{park.address}</p>
+      </div>
+      <span class="stamp text-ink-soft shrink-0">{known}/{total}</span>
+    </header>
 
   <dl class="grid grid-cols-2 gap-x-4 gap-y-0 mt-4 mb-0 border-t-2 border-marsh">
     {
@@ -74,7 +84,9 @@ const notes = [park.waterNote, park.hoursNote, park.notes].filter(Boolean) as st
     )
   }
 
-  <p class="stamp text-ink-soft mt-3.5 mb-0">
-    {park.verifiedDate ? `Verified ${park.verifiedDate}` : "Not yet visited or called"}
-  </p>
+    <p class="stamp text-ink-soft mt-3.5 mb-0 flex items-center justify-between gap-3">
+      <span>{park.verifiedDate ? `Verified ${park.verifiedDate}` : "Not yet visited or called"}</span>
+      <span class="text-marsh group-hover:translate-x-0.5 transition-transform duration-100">→</span>
+    </p>
+  </div>
 </article>

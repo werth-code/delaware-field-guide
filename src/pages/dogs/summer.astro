@@ -1,0 +1,199 @@
+---
+/**
+ * The escape hatch.
+ *
+ * "Where can I take my dog to the beach in July?" is the highest-intent
+ * question on this coast and every existing answer is "you can't." That's
+ * wrong, and it's wrong in five separate places. This page is the list.
+ *
+ * Question-shaped H1, answer in the first forty words, and each place carries
+ * what it costs, what it bans, and what will hurt the dog when you get there.
+ */
+import Layout from "../../layouts/Layout.astro";
+import CoastBand from "../../components/CoastBand.astro";
+import FlagIcon from "../../components/FlagIcon.astro";
+
+import placesData from "../../data/places.json";
+import { assertAnswerLength, isVerified, robotsFor } from "../../lib/verification";
+
+const places = placesData as any[];
+const verified = places.filter(isVerified);
+const pageGate = {
+  verifiedDate: verified.length ? "confirmed" : null,
+  verifiedSource: verified.length ? "confirmed" : null,
+};
+
+const answer =
+  "Yes — five of them. Dewey Beach never closes, Slaughter Beach allows dogs year-round, the non-guarded and surf-fishing beaches in Delaware State Parks are open all summer, Assateague National Seashore takes dogs year-round, and Lewes has an early-and-late window.";
+
+assertAnswerLength("summer", answer);
+
+const schema = verified.length
+  ? [
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Where can I take my dog to the beach in Delaware in July?",
+            acceptedAnswer: { "@type": "Answer", text: answer },
+          },
+        ],
+      },
+    ]
+  : [];
+
+const openLabel: Record<string, string> = {
+  yes: "Open all summer",
+  hours: "Open, at certain hours",
+};
+---
+
+<Layout
+  title="Where can I take my dog to the beach in July? Delaware"
+  description="Five Delaware-area beaches where a dog is legal in summer, when the town beaches are shut: Dewey, Slaughter Beach, the state park surf-fishing sand, and more."
+  robots={robotsFor(pageGate)}
+  schema={schema}
+>
+  <CoastBand height="h-[9rem] sm:h-[12rem]" />
+
+  <div class="wrap pt-9 pb-6">
+    <p class="label m-0">Summer</p>
+    <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[16ch] text-marsh">
+      Where can I take my dog to the beach in July?
+    </h1>
+  </div>
+
+  <div class="wrap prose-field">
+    <p
+      class="text-[1.28rem] leading-[1.45] font-medium max-w-[54ch] border-l-[5px] border-l-ochre ps-4 sm:ps-5"
+    >
+      {answer}
+    </p>
+
+    <h2>Why everyone tells you no</h2>
+    <p class="max-w-[58ch]">
+      Because they're describing the town beaches, and about the town beaches
+      they're right — Rehoboth, Bethany and Fenwick are all shut to dogs through
+      the summer. But "the Delaware beaches" is not one jurisdiction. It's five
+      towns plus a state park system plus the bay, and the rule is different in
+      every one of them. Three of those places never close at all.
+    </p>
+    <p class="max-w-[58ch]">
+      The most useful of them is the one nearest to where you probably already
+      are. <strong>Dewey Beach is ten minutes from Rehoboth and it is open every
+      day of the year.</strong> It just isn't open in the middle of the day.
+    </p>
+
+    <h2>The five</h2>
+  </div>
+
+  <div class="wrap pb-6">
+    <ol class="list-none p-0 m-0 space-y-6 breakout">
+      {
+        places.map((p, i) => (
+          <li class="sign p-4 sm:p-5">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="label m-0">{p.kind} · {p.county}</p>
+                <h3 class="font-display text-[1.4rem] font-bold tracking-[-0.02em] mt-1.5 mb-0 text-marsh">
+                  {p.href ? <a href={p.href}>{p.name}</a> : p.name}
+                </h3>
+              </div>
+              <span class="stamp text-ochre-deep shrink-0">{String(i + 1).padStart(2, "0")}</span>
+            </div>
+
+            <p class="mt-3 mb-0 text-[1.02rem] leading-[1.45] font-medium max-w-[52ch]">
+              {p.headline}
+            </p>
+
+            <div class="flex flex-wrap gap-x-3 gap-y-2 mt-3.5">
+              <span
+                class={`inline-flex items-center gap-1.5 px-2 py-1 rounded-[2px] border-2 border-ink font-mono text-[0.68rem] font-medium uppercase tracking-[0.09em] ${
+                  p.openInSummer === "yes"
+                    ? "bg-flag-green-bearing text-white"
+                    : "bg-flag-yellow text-ink"
+                }`}
+              >
+                <FlagIcon icon={p.openInSummer === "yes" ? "check" : "alert"} class="w-[1em] h-[1em]" />
+                {openLabel[p.openInSummer]}
+              </span>
+              <span class="stamp text-ink-soft self-center">{p.driveFromRehoboth} from Rehoboth</span>
+            </div>
+
+            <p class="mt-3.5 mb-0 text-[0.94rem] leading-[1.55] max-w-[56ch]">{p.detail}</p>
+
+            <div class="grid gap-4 sm:grid-cols-2 mt-4 pt-4 border-t-2 border-marsh">
+              <div>
+                <p class="label m-0">Conditions</p>
+                <ul class="list-none p-0 m-0 mt-1.5 space-y-1">
+                  {p.conditions.map((c: string) => (
+                    <li class="text-[0.88rem] leading-snug">{c}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p class="label m-0 flex items-center gap-1.5">
+                  <FlagIcon icon="alert" class="w-[1em] h-[1em] text-flag-red" />
+                  What will hurt the dog
+                </p>
+                <ul class="list-none p-0 m-0 mt-1.5 space-y-1">
+                  {p.hazards.map((h: string) => (
+                    <li class="text-[0.88rem] leading-snug">{h}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <p class="stamp text-ink-soft mt-4 mb-0">{p.feeNote}</p>
+            {!isVerified(p) && (
+              <p class="stamp text-ink-soft mt-1.5 mb-0">Not yet confirmed first-hand</p>
+            )}
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    <h2>The hooks, and why they matter here</h2>
+    <p class="max-w-[58ch]">
+      Worth saying plainly, because it follows directly from the answer above:
+      the Delaware beaches where a dog is legal in summer are, by definition,
+      the ones without lifeguards — which means the ones people drive onto and
+      fish from. Discarded hooks and cut monofilament line are the real hazard
+      on a summer dog walk here, more than the water and more than the crowds.
+      Check the sand in front of you, and keep the dog out of the tackle line.
+    </p>
+
+    <h2>What is not on this list</h2>
+    <ul>
+      <li>
+        <strong>Rehoboth, Bethany and Fenwick town beaches</strong> — shut to
+        dogs through the summer, no early-morning exception at any of them.
+      </li>
+      <li>
+        <strong>Ocean City, Maryland</strong> — banned from the beach and
+        boardwalk May 1 – September 30, same as here but with more paperwork.
+        Maryland is not the escape hatch people assume it is.
+      </li>
+      <li>
+        <strong>Assateague State Park</strong> — no dogs, ever. It shares a
+        road with the National Seashore, which does allow them. This is the
+        single most common mix-up in the region.
+      </li>
+      <li>
+        <strong>Broadkill and Bowers Beach</strong> — bay beaches, but both run
+        an October-to-April dog season rather than year-round.
+      </li>
+    </ul>
+
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/dogs/state-parks/">State parks — the year-round exception in full</a></li>
+      <li><a href="/dogs/">Beach rules by town — all five, side by side</a></li>
+      <li><a href="/dogs/pond-safety/">Pond safety — why not to let the dog swim in a millpond right now</a></li>
+    </ul>
+  </div>
+</Layout>

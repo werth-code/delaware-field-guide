@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "dewey-beach-summer",
+    "name": "Dewey Beach",
+    "kind": "Town beach",
+    "county": "Sussex",
+    "href": "/dogs/dewey-beach/",
+    "openInSummer": "hours",
+    "headline": "Ocean beach, ten minutes from Rehoboth, open every day of the year.",
+    "detail": "Dogs are legal all summer — just not in the middle of the day. Before 9:30am and after 5:30pm from Memorial Day weekend through the Sunday after Labor Day, all day the rest of the year. This is the nearest legal summer ocean beach to Rehoboth by a wide margin, and almost nothing published tells you it exists.",
+    "conditions": ["Leashed during the summer window", "Town dog license required, visitors included"],
+    "hazards": ["Hot sand between 10am and 4pm — if you would not walk it barefoot, neither should the dog"],
+    "feeNote": "No beach fee. The dog license is the cost — 3-day, 8-day and lifetime terms.",
+    "driveFromRehoboth": "10 minutes",
+    "sources": [
+      { "label": "Town of Dewey Beach — ordinances", "url": "https://www.townofdeweybeach.gov/Ordinances/", "note": null }
+    ],
+    "verifiedDate": null,
+    "verifiedSource": null
+  },
+  {
+    "slug": "state-park-surf-fishing-beaches",
+    "name": "Non-guarded and surf-fishing beaches, Delaware State Parks",
+    "kind": "State park",
+    "county": "Sussex",
+    "href": "/dogs/state-parks/",
+    "openInSummer": "yes",
+    "headline": "The year-round exception hiding inside the statewide ban.",
+    "detail": "Delaware prohibits dogs on lifeguarded swimming beaches from May 1 to September 30. It does not prohibit them on the rest of the sand. The non-guarded stretches and the drive-on surf-fishing beaches at Cape Henlopen, Delaware Seashore and Fenwick Island State Park are open to leashed dogs all year, including July. This single distinction is the answer to the most-asked unanswered question on this coast.",
+    "conditions": [
+      "Leashed at all times",
+      "Off the guarded swimming beaches between May 1 and September 30",
+      "Proof of rabies vaccination is required in state parks",
+      "Beach Plum Island is closed to pets year-round",
+      "Shorebird nesting areas and surfboarding beaches are closed to pets"
+    ],
+    "hazards": [
+      "Discarded fishhooks and cut monofilament line — this is the tradeoff. The beaches where a dog is legal in summer are the beaches people fish from.",
+      "Saltwater ingestion from dogs chasing balls into surf",
+      "Hot sand"
+    ],
+    "feeNote": "Park entry applies March 1 – November 30. From 2026 the beach parks are $10 for a Delaware-registered vehicle and $20 out-of-state. Annual passes are $50 and $100.",
+    "driveFromRehoboth": "5–25 minutes",
+    "sources": [
+      { "label": "Delaware State Parks — Pets in the Parks", "url": "https://www.destateparks.com/pets-in-the-parks/", "note": "Lifeguarded beaches closed to pets May 1 – September 30; non-guarded open year-round." },
+      { "label": "Delaware State Parks — Passes, Permits and Fees", "url": "https://www.destateparks.com/passes-permits-and-fees/", "note": "2026 fee schedule, effective 1 March 2026." }
+    ],
+    "verifiedDate": null,
+    "verifiedSource": null
+  },
+  {
+    "slug": "slaughter-beach",
+    "name": "Slaughter Beach",
+    "kind": "Town beach",
+    "county": "Sussex",
+    "href": null,
+    "openInSummer": "yes",
+    "headline": "Bay beach, dogs every day of the year, and almost nobody there.",
+    "detail": "Leashed dogs are welcome year-round. It is a quiet Delaware Bay beach about forty minutes north of Rehoboth, and it appears in most aggregator lists as one bullet among twelve, if at all. Calm shallow water rather than surf, which suits an older or nervous dog better than the ocean does.",
+    "conditions": ["Leash under 6 feet", "Dogs off the dunes", "Clean up after your dog"],
+    "hazards": [
+      "Horseshoe crabs. This is a designated sanctuary and in May and June the beach is carpeted with spawning crabs and their molts. Dogs eat the molts. Disturbing spawning crabs or the shorebirds feeding on their eggs is also a genuine conservation problem.",
+      "Biting flies in high summer"
+    ],
+    "feeNote": "Free.",
+    "driveFromRehoboth": "40 minutes",
+    "sources": [
+      { "label": "Town of Slaughter Beach", "url": "https://slaughterbeach.delaware.gov/", "note": "Confirm the leash length and dune rule with the town." }
+    ],
+    "verifiedDate": null,
+    "verifiedSource": null
+  },
+  {
+    "slug": "assateague-island-national-seashore",
+    "name": "Assateague Island National Seashore",
+    "kind": "National seashore",
+    "county": "Worcester County, Maryland",
+    "href": null,
+    "openInSummer": "yes",
+    "headline": "Ocean beach, dogs year-round — but only the National Seashore.",
+    "detail": "Pets are welcome year-round in most of the Maryland portion of the National Seashore, including the beaches and the water, on a leash no longer than six feet. The catch is the name: Assateague State Park sits immediately alongside it and bans dogs entirely, as does the whole Virginia portion. People get this wrong constantly, and the two entrances are minutes apart.",
+    "conditions": [
+      "Leash no longer than 6 feet at all times",
+      "Maryland portion only — pets are banned in the Virginia portion entirely",
+      "The National Seashore, NOT Assateague State Park next door",
+      "Off the lifeguard-protected beach in season",
+      "Not on nature trails, in backcountry campsites, or north to the Ocean City Inlet",
+      "Never left unattended, including in a vehicle"
+    ],
+    "hazards": [
+      "Wild horses. They bite and kick, they are genuinely wild, and a dog will provoke one.",
+      "Ticks in the dune scrub",
+      "Hot sand"
+    ],
+    "feeNote": "National Seashore entrance fee applies. Confirm the current rate with the park.",
+    "driveFromRehoboth": "About 1 hour 15 minutes",
+    "sources": [
+      { "label": "Assateague Island National Seashore — pet regulations", "url": "https://www.nps.gov/asis/planyourvisit/pets.htm", "note": "Park phone 410-641-3030." }
+    ],
+    "verifiedDate": null,
+    "verifiedSource": null
+  },
+  {
+    "slug": "lewes-beach-summer",
+    "name": "Lewes Beach",
+    "kind": "Town beach",
+    "county": "Sussex",
+    "href": "/dogs/lewes/",
+    "openInSummer": "hours",
+    "headline": "Bay beach with an early-morning and evening window.",
+    "detail": "Leashed dogs before 8am and after 6:30pm from May 1 to September 30. Calm bay water, walkable from town. Treat this one as provisional: a city committee met in December 2025 to consider banning dogs outright at the guarded beaches in summer, and we have found no record of the outcome.",
+    "conditions": ["Leashed at all times", "Only outside the posted hours in season"],
+    "hazards": ["Rule may have changed — confirm with the city before making the trip"],
+    "feeNote": "Beach parking fees apply in season.",
+    "driveFromRehoboth": "20 minutes",
+    "sources": [
+      { "label": "City of Lewes — are dogs allowed on the beach?", "url": "https://www.ci.lewes.de.us/FAQ.aspx?QID=167", "note": null }
+    ],
+    "verifiedDate": null,
+    "verifiedSource": null
+  }
+]

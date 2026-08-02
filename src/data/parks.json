@@ -19,7 +19,11 @@
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Confirm dog-run hours separately from park hours", "Confirm shade", "Confirm bag restocking is still an issue"]
+    "outstanding": [
+      "Confirm dog-run hours separately from park hours",
+      "Confirm shade",
+      "Confirm bag restocking is still an issue"
+    ]
   },
   {
     "slug": "talley-day-dog-park",
@@ -41,7 +45,9 @@
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Confirm dog-run hours separately from park hours"]
+    "outstanding": [
+      "Confirm dog-run hours separately from park hours"
+    ]
   },
   {
     "slug": "elsmere-dog-park",
@@ -63,7 +69,10 @@
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Confirm agility equipment condition", "Photograph the drainage/mud issue after rain"]
+    "outstanding": [
+      "Confirm agility equipment condition",
+      "Photograph the drainage/mud issue after rain"
+    ]
   },
   {
     "slug": "charles-e-price-memorial-dog-park",
@@ -85,7 +94,10 @@
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Confirm water", "Confirm whether the inconsistent opening times are still a problem"]
+    "outstanding": [
+      "Confirm water",
+      "Confirm whether the inconsistent opening times are still a problem"
+    ]
   },
   {
     "slug": "river-road-dog-park",
@@ -107,7 +119,12 @@
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["HOURS — not published anywhere", "Confirm size split", "Confirm water", "Confirm surface"]
+    "outstanding": [
+      "HOURS — not published anywhere",
+      "Confirm size split",
+      "Confirm water",
+      "Confirm surface"
+    ]
   },
   {
     "slug": "lums-pond-dog-park",
@@ -122,8 +139,8 @@
     "waterNote": "Pond access for swimming. See the harmful algal bloom page before letting a dog in.",
     "shade": null,
     "surface": "grass",
-    "fee": 4,
-    "feeNote": "State park entrance fee applies: $4 in-state / $8 out-of-state, March–November.",
+    "fee": 5,
+    "feeNote": "State park entry applies: from 1 March 2026, $5 in-state / $10 out-of-state for inland parks. Fees rose in 2026 — older guides quote $4/$8.",
     "hours": "07:00-19:30",
     "hoursNote": null,
     "notes": "Highest-rated dog park in the state (4.9★) and the two things that matter most about it are the two things nobody publishes: it is NOT fenced, and it costs money. Requires reliable recall.",
@@ -133,7 +150,8 @@
     "outstanding": [
       "Confirm the fee and the months it applies",
       "PHOTOGRAPH the sight line showing it isn't fenced — this is the single highest-value photo on the list",
-      "Confirm whether DNREC posts bloom advisories at the pond"
+      "Confirm whether DNREC posts bloom advisories at the pond",
+      "Confirm which 2026 fee band Lums Pond falls in — inland ($5/$10) or beach ($10/$20)."
     ]
   },
   {
@@ -156,7 +174,10 @@
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Confirm surface", "Confirm shade"]
+    "outstanding": [
+      "Confirm surface",
+      "Confirm shade"
+    ]
   },
   {
     "slug": "iron-hill-dog-park",
@@ -178,7 +199,12 @@
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Confirm size split", "Confirm water", "Confirm shade", "Confirm surface"]
+    "outstanding": [
+      "Confirm size split",
+      "Confirm water",
+      "Confirm shade",
+      "Confirm surface"
+    ]
   },
   {
     "slug": "banning-regional-dog-park",
@@ -200,7 +226,10 @@
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["CONFIRM THIS PARK EXISTS AS LISTED before publishing anything about it", "Get a street address"]
+    "outstanding": [
+      "CONFIRM THIS PARK EXISTS AS LISTED before publishing anything about it",
+      "Get a street address"
+    ]
   },
   {
     "slug": "skyline-off-leash-area",
@@ -222,7 +251,9 @@
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Confirm it still operates as an off-leash area"]
+    "outstanding": [
+      "Confirm it still operates as an off-leash area"
+    ]
   },
   {
     "slug": "bark-park-limestone",
@@ -244,9 +275,10 @@
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["CONFIRM IT STILL OPERATES before listing it at all"]
+    "outstanding": [
+      "CONFIRM IT STILL OPERATES before listing it at all"
+    ]
   },
-
   {
     "slug": "little-creek-dog-park",
     "name": "Little Creek Dog Park",
@@ -268,7 +300,11 @@
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["HOURS — not published", "Confirm surface", "Confirm the hand pumps work"]
+    "outstanding": [
+      "HOURS — not published",
+      "Confirm surface",
+      "Confirm the hand pumps work"
+    ]
   },
   {
     "slug": "schutte-dog-park",
@@ -290,7 +326,11 @@
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["HOURS — not published", "Get a street address", "Confirm the no-water finding — it's a top-six complaint"]
+    "outstanding": [
+      "HOURS — not published",
+      "Get a street address",
+      "Confirm the no-water finding — it's a top-six complaint"
+    ]
   },
   {
     "slug": "tidbury-dog-park",
@@ -318,7 +358,6 @@
       "Get a street address"
     ]
   },
-
   {
     "slug": "milford-dog-park",
     "name": "Milford Dog Park",
@@ -339,7 +378,11 @@
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Confirm shade", "Confirm surface", "One of only two public options within ~40 min of Rehoboth — worth a visit"]
+    "outstanding": [
+      "Confirm shade",
+      "Confirm surface",
+      "One of only two public options within ~40 min of Rehoboth — worth a visit"
+    ]
   },
   {
     "slug": "millsboro-dog-park",

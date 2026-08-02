@@ -33,6 +33,7 @@ jobs:
         uses: withastro/action@v3
         env:
           PUBLIC_BEEHIIV_EMBED_URL: ${{ vars.PUBLIC_BEEHIIV_EMBED_URL }}
+          PUBLIC_REPORT_ENDPOINT: ${{ vars.PUBLIC_REPORT_ENDPOINT }}
 
   deploy:
     needs: build

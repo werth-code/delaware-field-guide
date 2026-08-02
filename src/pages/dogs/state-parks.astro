@@ -1,0 +1,178 @@
+---
+/**
+ * The state park rule, in full.
+ *
+ * The whole page turns on one distinction that Delaware's own summary sentence
+ * makes easy to miss: the ban is on GUARDED SWIMMING BEACHES, not on state
+ * park beaches. Everything else follows from that.
+ *
+ * Also carries the 2026 fee increase, which most published guides have not
+ * caught up with — beach parks doubled.
+ */
+import Layout from "../../layouts/Layout.astro";
+import Plate from "../../components/Plate.astro";
+import BeachScene from "../../components/BeachScene.astro";
+import FlagIcon from "../../components/FlagIcon.astro";
+
+import placesData from "../../data/places.json";
+import { assertAnswerLength, isVerified, robotsFor } from "../../lib/verification";
+
+const parks = (placesData as any[]).find((p) => p.slug === "state-park-surf-fishing-beaches");
+const pageGate = {
+  verifiedDate: isVerified(parks) ? "confirmed" : null,
+  verifiedSource: isVerified(parks) ? "confirmed" : null,
+};
+
+const answer =
+  "Only on the guarded swimming beaches, and only from May 1 to September 30. Everywhere else in the park — the non-guarded sand and the drive-on surf-fishing beaches — leashed dogs are legal all year, including July.";
+
+assertAnswerLength("state-parks", answer);
+
+const fees = [
+  { label: "Beach parks, in-state vehicle", value: "$10 / day" },
+  { label: "Beach parks, out-of-state", value: "$20 / day" },
+  { label: "Inland parks, in-state", value: "$5 / day" },
+  { label: "Inland parks, out-of-state", value: "$10 / day" },
+  { label: "Annual pass, in-state", value: "$50" },
+  { label: "Annual pass, out-of-state", value: "$100" },
+];
+
+const closed = [
+  "Guarded swimming beaches, May 1 – September 30",
+  "Beach Plum Island — closed to pets year-round",
+  "Shorebird nesting areas",
+  "Surfboarding and sailboarding beaches",
+];
+
+const schema = isVerified(parks)
+  ? [
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Are dogs allowed in Delaware State Parks?",
+            acceptedAnswer: { "@type": "Answer", text: answer },
+          },
+        ],
+      },
+    ]
+  : [];
+---
+
+<Layout
+  title="Are dogs allowed in Delaware State Parks? Rules and fees"
+  description="Delaware bans dogs from guarded swimming beaches May 1 – September 30 only. Non-guarded and surf-fishing sand takes leashed dogs all year. With 2026 fees."
+  robots={robotsFor(pageGate)}
+  schema={schema}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">State parks</p>
+    <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
+      Are dogs banned from Delaware State Parks in summer?
+    </h1>
+  </div>
+
+  <div class="wrap prose-field">
+    <p
+      class="text-[1.28rem] leading-[1.45] font-medium max-w-[54ch] border-l-[5px] border-l-ochre ps-4 sm:ps-5"
+    >
+      {answer}
+    </p>
+
+    <h2>The distinction the whole thing turns on</h2>
+    <p class="max-w-[58ch]">
+      State law prohibits pets from <strong>lifeguarded beaches</strong> between
+      May 1 and September 30. It is very easy to read that as "dogs are banned
+      from the state park beaches in summer," and almost every guide does. But a
+      guarded swimming beach is a small marked stretch of a very long park. The
+      rest of the sand — the non-guarded portions, and the drive-on surf-fishing
+      beaches at Cape Henlopen, Delaware Seashore and Fenwick Island — is open
+      to leashed dogs every day of the year.
+    </p>
+    <p class="max-w-[58ch]">
+      That is the entire answer to the summer question, and it is sitting inside
+      the sentence everyone quotes as a ban.
+    </p>
+
+    <Plate
+      plate="01"
+      class="breakout"
+      caption="A guarded swimming beach is the stretch with the stand on it. The ban follows the stand, not the park boundary — walk past the guarded section and you are on sand where a leashed dog is legal in July."
+    >
+      <BeachScene flag="none" />
+    </Plate>
+
+    <h2>Where dogs are closed out</h2>
+    <ul class="list-none p-0 m-0 my-5">
+      {
+        closed.map((c) => (
+          <li class="flex gap-2.5 items-start py-2 border-b border-tide/30">
+            <FlagIcon icon="cross" class="w-[1em] h-[1em] mt-1 shrink-0 text-flag-red" />
+            <span class="text-[0.95rem] leading-snug">{c}</span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2>Conditions everywhere else</h2>
+    <ul>
+      <li><strong>Leashed at all times.</strong> Six feet is the statewide maximum outside designated off-leash areas.</li>
+      <li><strong>Proof of rabies vaccination is required</strong> in state parks. Carry the tag or the paperwork.</li>
+      <li><strong>Clean up.</strong> Use the doggie dooleys where they exist; carry bags where they don't.</li>
+    </ul>
+
+    <h2>What it costs in 2026</h2>
+    <p class="max-w-[58ch]">
+      Entry fees rose on 1 March 2026 and the beach parks roughly doubled. Most
+      guides still quote the old numbers, so budget from this table rather than
+      from a blog post.
+    </p>
+  </div>
+
+  <div class="wrap pb-4">
+    <dl class="sign breakout my-6 divide-y-2 divide-tide/30">
+      {
+        fees.map((f) => (
+          <div class="px-4 sm:px-5 py-3 flex items-baseline justify-between gap-6">
+            <dt class="label">{f.label}</dt>
+            <dd class="m-0 stamp text-[0.95rem] text-ink shrink-0">{f.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+    <p class="stamp text-ink-soft mt-0 mb-0">
+      Entry charged 1 March – 30 November. Surf fishing permits are priced
+      separately and were unchanged for 2026.
+    </p>
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    <h2>The tradeoff nobody mentions</h2>
+    <p class="max-w-[58ch]">
+      The beaches where your dog is legal in summer are the beaches without
+      lifeguards — which means the ones people drive onto and fish from.
+      Discarded fishhooks and cut monofilament line are the genuine hazard here,
+      and a hook in a paw or a swallowed line is a vet trip, not an
+      inconvenience. Walk in front of the dog on a short leash near the tackle
+      line, and don't let it forage in the wrack.
+    </p>
+
+    <h2>Lums Pond is the other one to know</h2>
+    <p class="max-w-[58ch]">
+      Lums Pond State Park has the highest-rated dog area in Delaware and two
+      facts almost nobody publishes together: it is <strong>not fenced</strong>,
+      and it charges park entry to get in. It is also a millpond, which matters
+      in August — see <a href="/dogs/pond-safety/">pond safety</a> before letting
+      a dog swim there.
+    </p>
+
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/dogs/summer/">Where a dog is legal in July — all five options</a></li>
+      <li><a href="/dogs/dog-parks/">Every Delaware dog park, on seven fields</a></li>
+      <li><a href="/dogs/">Beach rules by town</a></li>
+    </ul>
+  </div>
+</Layout>

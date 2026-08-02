@@ -1,0 +1,221 @@
+---
+/**
+ * One park, one page.
+ *
+ * The index answers "which park"; this answers "what will I find when I get
+ * there". Same seven-field box as the card — that grid is the product, so it
+ * carries through rather than being replaced with prose.
+ *
+ * This is also where field reports live. A park is the one thing on this site
+ * whose facts genuinely rot: fountains break, gates get left open, surfaces
+ * turn to mud. A phone call to a parks department confirms the fountain
+ * exists; only someone who was there on Saturday knows it's broken.
+ */
+import type { GetStaticPaths } from "astro";
+
+import Layout from "../../../layouts/Layout.astro";
+import FlagIcon from "../../../components/FlagIcon.astro";
+import FieldReports from "../../../components/FieldReports.astro";
+import type { Report } from "../../../components/FieldReports.astro";
+
+import parksData from "../../../data/parks.json";
+import reportsData from "../../../data/reports.json";
+import { completeness, feeText, formatHours, text, tri, type Park } from "../../../lib/parks";
+import { isVerified, robotsFor } from "../../../lib/verification";
+
+export const getStaticPaths = (() =>
+  (parksData as Park[]).map((park) => ({
+    params: { slug: park.slug },
+    props: { park },
+  }))) satisfies GetStaticPaths;
+
+const { park } = Astro.props as { park: Park };
+
+const reports = (reportsData as unknown[]).filter(
+  (r): r is Report => typeof (r as Report).parkSlug === "string",
+);
+
+const fields = [
+  { label: "Fenced", hint: "The one that ruins a trip when it's wrong", ...tri(park.fenced, "Yes, enclosed", "No — open area") },
+  { label: "Size split", hint: "Separate area for small dogs", ...tri(park.sizeSplit, "Yes", "No") },
+  { label: "Water", hint: "On site, for the dog", ...tri(park.water, "Yes", "No") },
+  { label: "Shade", hint: null, ...text(park.shade) },
+  { label: "Surface", hint: null, ...text(park.surface) },
+  { label: "Fee", hint: null, ...feeText(park) },
+  { label: "Hours", hint: null, ...formatHours(park.hours) },
+];
+
+const { known, total } = completeness(park);
+const notes = [park.waterNote, park.hoursNote, park.notes].filter(Boolean) as string[];
+const others = (parksData as Park[]).filter(
+  (p) => p.county === park.county && p.slug !== park.slug,
+);
+
+const verified = isVerified(park);
+
+const schema = verified
+  ? [
+      {
+        "@context": "https://schema.org",
+        "@type": "Place",
+        name: park.name,
+        address: park.address,
+        ...(park.lat && park.lng
+          ? { geo: { "@type": "GeoCoordinates", latitude: park.lat, longitude: park.lng } }
+          : {}),
+        ...(park.hours ? { openingHours: park.hours } : {}),
+      },
+    ]
+  : [];
+
+/* A description that says what's actually known, not a template. */
+const knownBits = [
+  park.fenced === true ? "fenced" : park.fenced === false ? "not fenced" : null,
+  park.water === true ? "water on site" : park.water === false ? "no water" : null,
+  park.sizeSplit === true ? "separate small-dog area" : null,
+  park.fee === 0 ? "free" : null,
+].filter(Boolean);
+
+const description = `${park.name} in ${park.county} County, Delaware — ${
+  knownBits.length ? knownBits.join(", ") : "details being confirmed"
+}. Fenced, water, shade, surface, fee and hours, checked and dated.`;
+
+// Only append the qualifier when the result still fits inside the SERP cut.
+const title =
+  park.name.length > 36 ? park.name : `${park.name} — fenced, water, hours`;
+---
+
+<Layout
+  title={title}
+  description={description.slice(0, 157)}
+  robots={robotsFor(park)}
+  dateModified={park.verifiedDate}
+  schema={schema}
+>
+  <article>
+    <div class="wrap pt-11 pb-6">
+      <p class="label m-0">
+        <a href="/dogs/dog-parks/" class="no-underline hover:underline">Dog parks</a>
+        <span class="text-ink-soft"> · </span>{park.county} County
+      </p>
+      <h1 class="text-[2.4rem] sm:text-[3.1rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
+        {park.name}
+      </h1>
+      <p class="stamp text-ink-soft mt-3 mb-0">{park.address}</p>
+    </div>
+
+    {/* The headline warning, where there is one. Not fenced is the single most
+        common way a dog park trip goes wrong. */}
+    {
+      park.fenced === false && (
+        <div class="wrap">
+          <aside
+            class="border-2 border-flag-red border-l-[9px] bg-flag-red-wash px-4 sm:px-5 py-4 rounded-[2px] my-2"
+            style="box-shadow: 5px 5px 0 0 var(--color-flag-red-bearing);"
+          >
+            <p class="label text-flag-red-bearing m-0 flex items-center gap-1.5">
+              <FlagIcon icon="alert" class="w-[1em] h-[1em]" />
+              This one is not fenced
+            </p>
+            <p class="mt-2 mb-0 text-[0.98rem] leading-[1.5] max-w-[56ch]">
+              It's a designated off-leash area, not an enclosure. Reliable recall
+              required — people arrive here expecting a fence and find open
+              ground.
+            </p>
+          </aside>
+        </div>
+      )
+    }
+
+    <div class="wrap pt-6">
+      <div class="sign breakout p-4 sm:p-5">
+        <div class="flex items-baseline justify-between gap-4">
+          <p class="label m-0">The seven fields</p>
+          <span class="stamp text-ink-soft">{known}/{total} confirmed</span>
+        </div>
+
+        <dl class="grid sm:grid-cols-2 gap-x-6 gap-y-0 mt-3.5 mb-0 border-t-2 border-marsh">
+          {
+            fields.map((f) => (
+              <div class="border-b border-tide/30 py-2.5">
+                <dt class="label">{f.label}</dt>
+                <dd
+                  class={`m-0 mt-0.5 text-[0.95rem] leading-snug ${
+                    f.state === "unknown" ? "text-ink-soft italic" : "text-ink"
+                  }`}
+                >
+                  {f.state === "no" && f.label === "Fenced" && (
+                    <FlagIcon icon="alert" class="w-[0.85em] h-[0.85em] inline-block me-1 text-flag-red" />
+                  )}
+                  {f.text}
+                </dd>
+                {f.hint && f.state !== "unknown" && (
+                  <p class="stamp text-ink-soft mt-1 mb-0 text-[0.7rem]">{f.hint}</p>
+                )}
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+
+    <div class="wrap prose-field pt-4">
+      {
+        notes.length > 0 && (
+          <>
+            <h2>What else to know</h2>
+            <ul>
+              {notes.map((n) => (
+                <li>{n}</li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+
+      {
+        park.outstanding && park.outstanding.length > 0 && !verified && (
+          <>
+            <h2>Still to confirm</h2>
+            <p class="text-[0.95rem] text-ink-soft max-w-[58ch]">
+              Listed openly rather than hidden, because a gap you can see is
+              worth more than a gap you can't.
+            </p>
+            <ul>
+              {park.outstanding.map((o) => (
+                <li>{o}</li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+
+      <FieldReports park={park} reports={reports} />
+
+      {
+        others.length > 0 && (
+          <>
+            <h2>Other parks in {park.county} County</h2>
+            <ul>
+              {others.map((p) => (
+                <li>
+                  <a href={`/dogs/dog-parks/${p.slug}/`}>{p.name}</a>
+                  {p.fenced === false && (
+                    <span class="stamp text-ink-soft"> — not fenced</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+
+      <h2>Related</h2>
+      <ul>
+        <li><a href="/dogs/dog-parks/">All Delaware dog parks, side by side</a></li>
+        <li><a href="/dogs/pond-safety/">Pond safety — before letting a dog swim</a></li>
+        <li><a href="/how-we-verify/">How we check this</a></li>
+      </ul>
+    </div>
+  </article>
+</Layout>

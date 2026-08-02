@@ -8,13 +8,13 @@
  * fee, Tidbury closes on Sundays, and Lewes Unleashed will not let you in
  * without a key fob that arrives by mail.
  */
-import Layout from "../../layouts/Layout.astro";
-import ParkCard from "../../components/ParkCard.astro";
-import FlagIcon from "../../components/FlagIcon.astro";
+import Layout from "../../../layouts/Layout.astro";
+import ParkCard from "../../../components/ParkCard.astro";
+import FlagIcon from "../../../components/FlagIcon.astro";
 
-import parksData from "../../data/parks.json";
-import { COUNTY_ORDER, type Park } from "../../lib/parks";
-import { isVerified, robotsFor } from "../../lib/verification";
+import parksData from "../../../data/parks.json";
+import { COUNTY_ORDER, type Park } from "../../../lib/parks";
+import { isVerified, robotsFor } from "../../../lib/verification";
 
 const parks = parksData as Park[];
 const verified = parks.filter(isVerified);

@@ -1,0 +1,209 @@
+---
+/**
+ * Field reports — the community layer.
+ *
+ * WHY THIS SHAPE AND NOT COMMENTS
+ * The project brief rules out user accounts, reviews and comments, and it's
+ * right to: an unmoderated thread on a reference page becomes the least
+ * reliable thing on it, and this site's only asset is being right. But the
+ * instinct behind wanting interaction is also right — the research found that
+ * dog-park regulars form weekly social groups and "will correct your data for
+ * free", and a correction from someone who stood at the gate yesterday beats
+ * another phone call to a parks department.
+ *
+ * So the community feature is a verification channel rather than a comment
+ * box. A report is dated to the VISIT, attributed, read before it appears, and
+ * when it contradicts a published field it triggers a re-check rather than
+ * silently overwriting one. Every incentive points at accuracy instead of
+ * volume, and there is nothing here for a spammer to gain.
+ *
+ * Concretely that means: no accounts, no login, no reply threads, no ratings,
+ * no vote counts, nothing published unread.
+ *
+ * SUBMISSION
+ * Static site, so the form posts to a third-party endpoint set in
+ * PUBLIC_REPORT_ENDPOINT (Formspree-shaped: POST, form-encoded, `_subject`
+ * honoured). Until it's set this renders a labelled placeholder rather than a
+ * form that silently drops what people write — same rule as the newsletter
+ * embed.
+ */
+import type { Park } from "../lib/parks";
+import { formatStampDate } from "../lib/rules";
+import FlagIcon from "./FlagIcon.astro";
+
+export interface Report {
+  parkSlug: string;
+  visitedOn: string;
+  name: string;
+  town?: string | null;
+  found?: Record<string, unknown>;
+  note: string;
+  acceptedOn: string | null;
+}
+
+interface Props {
+  park: Park;
+  reports: Report[];
+}
+
+const { park, reports } = Astro.props;
+const endpoint = import.meta.env.PUBLIC_REPORT_ENDPOINT;
+
+// No acceptedOn, no render. The moderation step can't be skipped by accident.
+const live = reports
+  .filter((r) => r.parkSlug === park.slug && r.acceptedOn)
+  .sort((a, b) => b.visitedOn.localeCompare(a.visitedOn));
+---
+
+<section class="breakout my-10" aria-labelledby={`reports-${park.slug}`}>
+  <h2
+    id={`reports-${park.slug}`}
+    class="font-display text-[1.6rem] font-bold text-marsh border-b-[3px] border-marsh pb-2 mb-1"
+    style="box-shadow: 0 4px 0 -1px var(--color-tide);"
+  >
+    Field reports
+  </h2>
+  <p class="text-[0.92rem] text-ink-soft mt-4 mb-5 max-w-[58ch]">
+    What people found when they were actually there. Every one is dated to the
+    visit, read before it goes up, and credited. If a report contradicts
+    something above, we go and re-check rather than quietly swapping it.
+  </p>
+
+  {
+    live.length > 0 ? (
+      <ol class="list-none p-0 m-0 space-y-4">
+        {live.map((r) => (
+          <li class="sign px-4 sm:px-5 py-4">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <p class="font-display text-[1.02rem] font-bold m-0 text-marsh">
+                {r.name || "Anonymous"}
+                {r.town && <span class="font-body font-normal text-ink-soft"> · {r.town}</span>}
+              </p>
+              <p class="stamp text-ink-soft m-0">Visited {formatStampDate(r.visitedOn)}</p>
+            </div>
+            <p class="mt-2 mb-0 text-[0.95rem] leading-[1.55] max-w-[58ch]">{r.note}</p>
+          </li>
+        ))}
+      </ol>
+    ) : (
+      <div class="sign px-4 sm:px-5 py-4">
+        <p class="label m-0">No reports yet</p>
+        <p class="mt-2 mb-0 text-[0.93rem] leading-[1.55] max-w-[58ch]">
+          Nobody has sent one in for {park.name}. If you've been recently — and
+          especially if something above is wrong — you know more about this park
+          today than we do.
+        </p>
+      </div>
+    )
+  }
+
+  {/* ---- Submit ---------------------------------------------------------- */}
+  <div class="sign px-4 sm:px-5 py-5 mt-5">
+    <p class="label m-0 flex items-center gap-1.5">
+      <FlagIcon icon="check" class="w-[1em] h-[1em] text-flag-green" />
+      Send a report
+    </p>
+    <p class="mt-2 mb-4 text-[0.93rem] leading-[1.55] max-w-[58ch]">
+      Were you at {park.name}? Tell us what you found. Most useful: whether the
+      water was working, whether the gate and fence were sound, and how busy it
+      was. No account, no login.
+    </p>
+
+    {
+      endpoint ? (
+        <form method="POST" action={endpoint} class="grid gap-4 max-w-[34rem]">
+          <input type="hidden" name="park" value={park.slug} />
+          <input type="hidden" name="_subject" value={`Field report — ${park.name}`} />
+          {/* Honeypot. Bots fill it, people never see it. */}
+          <p class="hidden" aria-hidden="true">
+            <label>Leave this empty<input type="text" name="_gotcha" tabindex="-1" /></label>
+          </p>
+
+          <div class="grid gap-1.5">
+            <label for={`visited-${park.slug}`} class="label">When were you there?</label>
+            <input
+              id={`visited-${park.slug}`}
+              type="date"
+              name="visitedOn"
+              required
+              class="sign-quiet px-3 py-2.5 text-[0.95rem] font-mono bg-shell text-ink min-h-[44px]"
+            />
+          </div>
+
+          <fieldset class="border-0 p-0 m-0 grid gap-2">
+            <legend class="label p-0 mb-1">What did you find? (optional)</legend>
+            {[
+              ["waterWorking", "Water was working"],
+              ["waterBroken", "Water was broken or shut off"],
+              ["fenceSound", "Fence and gates were sound"],
+              ["fenceProblem", "Fence or gate had a problem"],
+              ["muddy", "Muddy or waterlogged"],
+              ["busy", "Busy"],
+            ].map(([value, label]) => (
+              <label class="tap gap-2.5 text-[0.93rem] cursor-pointer">
+                <input type="checkbox" name="found" value={value} class="w-[1.1rem] h-[1.1rem] accent-[var(--color-marsh)]" />
+                {label}
+              </label>
+            ))}
+          </fieldset>
+
+          <div class="grid gap-1.5">
+            <label for={`note-${park.slug}`} class="label">Anything else</label>
+            <textarea
+              id={`note-${park.slug}`}
+              name="note"
+              rows="4"
+              required
+              placeholder="What would you have wanted to know before you drove there?"
+              class="sign-quiet px-3 py-2.5 text-[0.95rem] bg-shell text-ink leading-[1.5]"
+            />
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="grid gap-1.5">
+              <label for={`name-${park.slug}`} class="label">Name (optional)</label>
+              <input
+                id={`name-${park.slug}`}
+                type="text"
+                name="name"
+                autocomplete="given-name"
+                class="sign-quiet px-3 py-2.5 text-[0.95rem] bg-shell text-ink min-h-[44px]"
+              />
+            </div>
+            <div class="grid gap-1.5">
+              <label for={`town-${park.slug}`} class="label">Town (optional)</label>
+              <input
+                id={`town-${park.slug}`}
+                type="text"
+                name="town"
+                autocomplete="address-level2"
+                class="sign-quiet px-3 py-2.5 text-[0.95rem] bg-shell text-ink min-h-[44px]"
+              />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="sign sign-action bg-marsh text-cream font-mono text-[0.78rem] font-medium uppercase tracking-[0.1em] px-5 py-3 min-h-[44px] justify-self-start cursor-pointer border-marsh"
+          >
+            Send report
+          </button>
+
+          <p class="stamp text-ink-soft m-0">
+            We read every one. Nothing is published automatically, and we never
+            publish an email address.
+          </p>
+        </form>
+      ) : (
+        <div class="sign-quiet px-3 py-3">
+          <p class="label m-0">Report form not configured</p>
+          <p class="mt-1 mb-0 text-[0.86rem] text-ink-soft max-w-[54ch]">
+            Set <code class="stamp">PUBLIC_REPORT_ENDPOINT</code> to a form endpoint
+            to switch this on. Showing a placeholder rather than a form that
+            drops what people write.
+          </p>
+        </div>
+      )
+    }
+  </div>
+</section>

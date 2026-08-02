@@ -1,0 +1,19 @@
+[
+  {
+    "_comment": "Accepted field reports. NOT a comment thread — a verification channel. Someone who stood at the gate yesterday knows more than a phone call to a parks department does, and this is where that goes. Every report is read before it appears, carries the date of the VISIT (not the post), and is attributed. Reports that contradict a published field are the point: they're what triggers a re-check. Nothing here renders until it has an acceptedOn date, so the moderation step cannot be skipped by accident.",
+    "_workflow": [
+      "1. Submission arrives at the configured endpoint (see PUBLIC_REPORT_ENDPOINT).",
+      "2. Read it. Obvious spam and anything abusive is dropped, unpublished.",
+      "3. If it contradicts a published field, treat it as a re-check trigger, not as truth — call the park or go look.",
+      "4. Add it here with acceptedOn set. It renders on that park's page, dated and credited."
+    ],
+    "_fields": {
+      "parkSlug": "must match a slug in parks.json",
+      "visitedOn": "ISO date the person was actually there",
+      "name": "as they gave it; first name and initial is fine, empty means anonymous",
+      "found": "optional structured observations — water, fenced, crowd, surface",
+      "note": "their words, lightly trimmed for length only",
+      "acceptedOn": "ISO date we read and published it. No acceptedOn, no render."
+    }
+  }
+]
