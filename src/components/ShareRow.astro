@@ -1,0 +1,166 @@
+---
+/**
+ * Share.
+ *
+ * This site has no domain authority and no budget, so word of mouth is the
+ * distribution plan. The sharing that actually matters here is not a viral
+ * button — it's one person texting a link to the other person planning the
+ * trip, and it's someone answering a question in r/DelawareBeaches with a
+ * link. Both are built for directly.
+ *
+ * Plain anchors, no SDKs, no tracking pixels, no third-party JavaScript. A
+ * Facebook or X widget would load a tracker onto a page that promises not to,
+ * and would be slower than the link it replaces.
+ *
+ * Progressive enhancement, in this order:
+ *   1. On a phone, the native share sheet replaces the whole row — it reaches
+ *      Messages, WhatsApp and everything else the visitor actually uses.
+ *   2. Copy-link is upgraded to the clipboard API.
+ *   3. With no JS at all, every target below is a working link.
+ */
+interface Props {
+  /** Page title — becomes the shared text. */
+  title: string;
+  /** One line of why it's worth opening. */
+  summary?: string;
+  class?: string;
+}
+
+const { title, summary = "", class: className = "" } = Astro.props;
+
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const text = summary ? `${title} — ${summary}` : title;
+
+const enc = encodeURIComponent;
+
+const targets = [
+  {
+    key: "sms",
+    label: "Text",
+    // `?&body=` is the form that works on both iOS and Android.
+    href: `sms:?&body=${enc(`${text} ${url}`)}`,
+    hint: "Send it to whoever is driving",
+  },
+  {
+    key: "email",
+    label: "Email",
+    href: `mailto:?subject=${enc(title)}&body=${enc(`${text}\n\n${url}`)}`,
+    hint: null,
+  },
+  {
+    key: "facebook",
+    label: "Facebook",
+    href: `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`,
+    hint: null,
+  },
+  {
+    key: "reddit",
+    label: "Reddit",
+    href: `https://www.reddit.com/submit?url=${enc(url)}&title=${enc(title)}`,
+    hint: "r/DelawareBeaches",
+  },
+  {
+    key: "x",
+    label: "X",
+    href: `https://x.com/intent/post?text=${enc(text)}&url=${enc(url)}`,
+    hint: null,
+  },
+];
+---
+
+<section class={`no-print ${className}`} aria-labelledby="share-heading">
+  <div class="sign px-4 sm:px-5 py-4">
+    <p id="share-heading" class="label m-0">Send this to someone</p>
+    <p class="mt-1.5 mb-3.5 text-[0.9rem] leading-snug text-ink-soft max-w-[52ch]">
+      Most people find out these rules the hard way, standing on a beach. Save
+      someone the drive.
+    </p>
+
+    <div
+      class="flex flex-wrap gap-2"
+      data-share
+      data-url={url}
+      data-title={title}
+      data-text={text}
+    >
+      {/* Replaced by the native share sheet where one exists. */}
+      <button
+        type="button"
+        data-share-native
+        hidden
+        class="tap sign-quiet bg-marsh text-cream border-marsh px-4 gap-2 font-mono text-[0.72rem] font-medium uppercase tracking-[0.09em] cursor-pointer"
+      >
+        <svg viewBox="0 0 24 24" class="w-[1.05em] h-[1.05em]" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true">
+          <path d="M12 16V4" /><path d="M7 9l5-5 5 5" /><path d="M4 15v5h16v-5" />
+        </svg>
+        Share
+      </button>
+
+      <div class="contents" data-share-fallback>
+        {
+          targets.map((t) => (
+            <a
+              href={t.href}
+              class="tap sign-quiet px-3.5 gap-2 no-underline font-mono text-[0.72rem] font-medium uppercase tracking-[0.09em] text-marsh hover:bg-shell-sunk"
+              rel={t.key === "sms" || t.key === "email" ? undefined : "noopener nofollow"}
+              target={t.key === "sms" || t.key === "email" ? undefined : "_blank"}
+              title={t.hint ?? undefined}
+            >
+              {t.label}
+            </a>
+          ))
+        }
+
+        <button
+          type="button"
+          data-share-copy
+          class="tap sign-quiet px-3.5 gap-2 font-mono text-[0.72rem] font-medium uppercase tracking-[0.09em] text-marsh hover:bg-shell-sunk cursor-pointer"
+        >
+          <span data-copy-label>Copy link</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    for (const root of document.querySelectorAll("[data-share]")) {
+      const url = root.dataset.url;
+      const title = root.dataset.title;
+      const text = root.dataset.text;
+
+      // 1. Native share sheet. On a phone this reaches Messages, WhatsApp and
+      //    everything else, which is where these links actually travel.
+      const native = root.querySelector("[data-share-native]");
+      const fallback = root.querySelector("[data-share-fallback]");
+      if (navigator.share && native && fallback) {
+        native.hidden = false;
+        fallback.hidden = true;
+        native.addEventListener("click", async () => {
+          try {
+            await navigator.share({ title, text, url });
+          } catch {
+            // Cancelled, or refused. Give the explicit targets back.
+            native.hidden = true;
+            fallback.hidden = false;
+          }
+        });
+      }
+
+      // 2. Copy link.
+      const copy = root.querySelector("[data-share-copy]");
+      const label = copy?.querySelector("[data-copy-label]");
+      copy?.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(url);
+          label.textContent = "Copied";
+          copy.setAttribute("aria-live", "polite");
+          setTimeout(() => (label.textContent = "Copy link"), 2000);
+        } catch {
+          label.textContent = url;
+        }
+      });
+    }
+  })();
+</script>
