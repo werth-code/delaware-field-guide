@@ -1,75 +1,60 @@
 ---
 /**
- * Section nav — the five towns, always visible, directly under the masthead.
+ * Section nav — every page in the current section, one tap away.
  *
- * Reachable in one tap from any page in the section, which matters because
- * the towns don't share dates: someone checking Bethany very often needs
- * Rehoboth next, and until now that meant scrolling to the end of the article.
+ * Items come from the section registry (src/lib/sections.ts) rather than being
+ * hardcoded, so a new section brings its own nav.
  *
- * No hamburger and no JS, per the spec. On a phone it's a horizontally
- * scrolling strip with snap points; on desktop it simply wraps. A hamburger
- * would hide five links behind a tap for no reason and break at exactly the
- * moment someone is standing on a beach trying to check a rule.
+ * No hamburger and no JS for the links themselves, per the spec. On a phone
+ * it's a horizontally scrolling strip with snap points; on desktop it wraps. A
+ * hamburger would hide a dozen links behind a tap and fail at exactly the
+ * moment someone is standing on a beach checking a rule.
  */
-import townsData from "../data/towns.json";
-import type { Town } from "../lib/rules";
+import { sectionFor } from "../lib/sections";
 
-const towns = townsData as Town[];
 const path = Astro.url.pathname;
-
-/* Towns first — they're what people arrive for — then the section's other
-   pages. One flat strip rather than two rows: on a phone a second row costs
-   more vertical space than the scroll costs effort. */
-const items = [
-  { href: "/dogs/", label: "All towns" },
-  ...towns.map((t) => ({ href: `/dogs/${t.slug}/`, label: t.name })),
-  { href: "/dogs/dog-parks/", label: "Dog parks" },
-  { href: "/dogs/pet-fees/", label: "Pet fees" },
-];
+const section = sectionFor(path);
 ---
 
-<nav class="bg-marsh border-b-2 border-b-abyss" aria-label="Dog section">
-  <div class="wrap !px-0 sm:!px-5">
-    <ul
-      class="list-none m-0 p-0 flex gap-0 overflow-x-auto snap-x snap-mandatory sm:flex-wrap sm:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-    >
-      {
-        items.map((item) => {
-          const here = path === item.href;
-          return (
-            <li class="snap-start shrink-0">
-              <a
-                href={item.href}
-                class={`tap px-4 sm:px-3 no-underline font-mono text-[0.72rem] font-medium uppercase tracking-[0.09em] whitespace-nowrap ${
-                  here ? "text-marsh bg-sand" : "text-cream-soft hover:text-cream"
-                }`}
-                aria-current={here ? "page" : undefined}
-              >
-                {item.label}
-              </a>
-            </li>
-          );
-        })
-      }
-    </ul>
-  </div>
-</nav>
+{
+  section && (
+    <nav class="bg-marsh border-b-2 border-b-abyss" aria-label={`${section.label} section`}>
+      <div class="wrap !px-0 sm:!px-5">
+        <ul class="list-none m-0 p-0 flex gap-0 overflow-x-auto snap-x snap-mandatory sm:flex-wrap sm:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {section.nav.map((item) => {
+            const here = path === item.href;
+            return (
+              <li class="snap-start shrink-0">
+                <a
+                  href={item.href}
+                  class={`tap px-4 sm:px-3 no-underline font-mono text-[0.72rem] font-medium uppercase tracking-[0.09em] whitespace-nowrap ${
+                    here ? "text-marsh bg-sand" : "text-cream-soft hover:text-cream"
+                  }`}
+                  aria-current={here ? "page" : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </nav>
+  )
+}
 
 {/*
-  Bring the current town into view in the scrolling strip. Purely positional —
+  Bring the current page into view in the scrolling strip. Purely positional —
   with JS off the nav still works, it just starts at the left. `instant` so it
   never animates in front of someone trying to read.
 */}
 <script is:inline>
   (() => {
-    const here = document.querySelector('nav[aria-label="Dog section"] [aria-current="page"]');
+    const here = document.querySelector('nav[aria-label$="section"] [aria-current="page"]');
     if (!here) return;
     const strip = here.closest("ul");
     if (strip && strip.scrollWidth > strip.clientWidth) {
-      strip.scrollTo({
-        left: here.parentElement.offsetLeft - 16,
-        behavior: "instant",
-      });
+      strip.scrollTo({ left: here.parentElement.offsetLeft - 16, behavior: "instant" });
     }
   })();
 </script>
