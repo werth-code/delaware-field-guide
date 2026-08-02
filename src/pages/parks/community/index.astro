@@ -1,0 +1,184 @@
+---
+/**
+ * Community parks — the county and town parks, as opposed to the 17 state ones.
+ *
+ * Restrooms lead every card. It's the question people actually ask before
+ * loading a car with children or an older dog, it's almost never published,
+ * and "yes" versus "yes, from Memorial Day" is a whole ruined outing. The
+ * honesty of this page is mostly in how many of them currently read
+ * "Not confirmed" — that's the real state, and hiding it would be the
+ * aggregator move.
+ */
+import Layout from "../../../layouts/Layout.astro";
+import FlagIcon from "../../../components/FlagIcon.astro";
+
+import parksData from "../../../data/community-parks.json";
+import {
+  COUNTY_ORDER,
+  completeness,
+  present,
+  restroomAnswer,
+  type CommunityPark,
+} from "../../../lib/community-parks";
+import { isVerified, robotsFor } from "../../../lib/verification";
+
+const parks = parksData as CommunityPark[];
+const verified = parks.filter(isVerified);
+const pageGate = {
+  verifiedDate: verified.length ? "confirmed" : null,
+  verifiedSource: verified.length ? "confirmed" : null,
+};
+
+const byCounty = COUNTY_ORDER.map((county) => ({
+  county,
+  parks: parks.filter((p) => p.county === county),
+})).filter((g) => g.parks.length);
+
+const withRestrooms = parks.filter((p) => p.restrooms.present === true).length;
+const restroomsUnknown = parks.filter((p) => p.restrooms.present === null).length;
+const withDogPark = parks.filter((p) => p.facilities.dogPark === true).length;
+---
+
+<Layout
+  title="Delaware community parks: restrooms, playgrounds, facilities"
+  description="County and town parks across Delaware — restrooms, playground, water, shade and dog park. The facts nobody publishes, with the gaps marked openly."
+  robots={robotsFor(pageGate)}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">
+      <a href="/parks/" class="no-underline hover:underline">Parks</a>
+      <span class="text-ink-soft"> · </span>Community parks
+    </p>
+    <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[14ch] text-marsh">
+      Are there restrooms?
+    </h1>
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
+      County and town parks, on the questions you ask before loading the car:
+      toilets, playground, water, shade, and whether the dog can come. Not the
+      seventeen state parks — <a href="/parks/">those are here</a>.
+    </p>
+  </div>
+
+  <div class="wrap prose-field pb-2">
+    <h2>Why restrooms get top billing</h2>
+    <p class="max-w-[58ch]">
+      Because it's the thing that decides whether an outing works with a
+      four-year-old or an older dog, and because virtually nobody publishes it.
+      A yes/no isn't enough either — a permanent block, a portable unit, and a
+      block that only opens after Memorial Day are three different answers, and
+      the third one ruins an April trip.
+    </p>
+
+    <div class="sign breakout my-6 px-4 sm:px-5 py-4">
+      <p class="label m-0">Where this dataset stands</p>
+      <dl class="grid grid-cols-3 gap-4 mt-3 mb-0">
+        {
+          [
+            { n: parks.length, label: "parks listed" },
+            { n: withRestrooms, label: "restrooms confirmed" },
+            { n: withDogPark, label: "with a dog park" },
+          ].map((s) => (
+            <div>
+              <dt class="font-display text-[2rem] font-bold text-marsh leading-none">{s.n}</dt>
+              <dd class="m-0 mt-1 stamp text-ink-soft">{s.label}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <p class="mt-3.5 mb-0 text-[0.9rem] leading-snug text-ink-soft max-w-[56ch]">
+        {restroomsUnknown} of {parks.length} still read <em>Not confirmed</em>.
+        That's the honest state of it — every one is on
+        <a href="/how-we-verify/">the call list</a> and none of them will say
+        "yes" until someone has checked.
+      </p>
+    </div>
+  </div>
+
+  {
+    byCounty.map(({ county, parks: group }) => (
+      <div class="wrap pb-8">
+        <h2 class="font-display text-[1.5rem] font-bold text-marsh border-b-[3px] border-marsh pb-2 mb-5 mt-8">
+          {county} County
+          <span class="stamp text-ink-soft ms-2">{group.length}</span>
+        </h2>
+
+        <div class="grid gap-4 sm:grid-cols-2 breakout">
+          {group.map((park) => {
+            const { known, total } = completeness(park);
+            const wc = restroomAnswer(park.restrooms);
+            const has = present(park).filter((f) => f !== "Dog park");
+            return (
+              <article class="sign sign-action relative group">
+                <a href={`/parks/community/${park.slug}/`} class="absolute inset-0 z-10 no-underline">
+                  <span class="sr-only">{park.name}</span>
+                </a>
+
+                <div class="p-4 sm:p-5">
+                  <header class="flex items-start justify-between gap-3">
+                    <div>
+                      <h3 class="font-display text-[1.18rem] font-bold tracking-[-0.018em] m-0 text-marsh underline decoration-ochre decoration-2 underline-offset-[0.16em] group-hover:decoration-marsh">
+                        {park.name}
+                      </h3>
+                      <p class="stamp text-ink-soft mt-1 mb-0">
+                        {park.operator} · {park.town}
+                      </p>
+                    </div>
+                    <span class="stamp text-ink-soft shrink-0">{known}/{total}</span>
+                  </header>
+
+                  {/* Restrooms first, always, and visually separated. */}
+                  <div class="mt-3.5 border-y-2 border-marsh py-2.5 flex items-baseline justify-between gap-3">
+                    <span class="label">Restrooms</span>
+                    <span
+                      class={`text-[0.92rem] text-right ${
+                        wc.state === "unknown" ? "text-ink-soft italic" : "text-ink font-medium"
+                      }`}
+                    >
+                      {wc.text}
+                    </span>
+                  </div>
+
+                  <p class="mt-3 mb-0 text-[0.9rem] leading-[1.55]">{park.blurb}</p>
+
+                  {has.length > 0 && (
+                    <ul class="list-none p-0 m-0 mt-3.5 flex flex-wrap gap-1.5">
+                      {has.map((f) => (
+                        <li class="sign-quiet px-2 py-0.5 stamp text-[0.68rem] text-marsh">{f}</li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <p class="stamp text-ink-soft mt-3.5 mb-0 flex items-center justify-between gap-3">
+                    <span>
+                      {park.facilities.dogPark === true ? "Has a dog park" : " "}
+                    </span>
+                    <span class="text-marsh group-hover:translate-x-0.5 transition-transform duration-100">→</span>
+                  </p>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    ))
+  }
+
+  <div class="wrap prose-field pb-4">
+    <h2>Sussex County is missing, and that's real</h2>
+    <p class="max-w-[58ch]">
+      There are no Sussex County community parks on this list because Sussex
+      largely doesn't run them — the state parks and the wildlife areas do that
+      job down there, and the towns keep small municipal greens rather than
+      county facilities. If we're wrong about that,
+      <a href="/how-we-verify/#corrections">tell us</a>; it's the kind of gap
+      worth being wrong about publicly rather than quietly.
+    </p>
+
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/parks/">The 17 Delaware state parks</a></li>
+      <li><a href="/dogs/dog-parks/">Dog parks — the seven fields</a></li>
+      <li><a href="/how-we-verify/">How we check this</a></li>
+    </ul>
+  </div>
+</Layout>

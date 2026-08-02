@@ -17,6 +17,7 @@ const towns = read('./src/data/towns.json');
 const parks = read('./src/data/parks.json');
 const places = read('./src/data/places.json');
 const stateParks = read('./src/data/state-parks.json');
+const communityParks = read('./src/data/community-parks.json');
 const lodging = read('./src/data/lodging.json').filter((l) => typeof l.name === 'string');
 
 const confirmed = (r) => r.verifiedDate !== null && r.verifiedSource !== null;
@@ -27,6 +28,8 @@ const unverified = [
   ...parks.filter((p) => !confirmed(p)).map((p) => `/dogs/dog-parks/${p.slug}/`),
   ...stateParks.filter((p) => !confirmed(p)).map((p) => `/parks/${p.slug}/`),
   ...(stateParks.some(confirmed) ? [] : ['/parks/']),
+  ...communityParks.filter((p) => !confirmed(p)).map((p) => `/parks/community/${p.slug}/`),
+  ...(communityParks.some(confirmed) ? [] : ['/parks/community/']),
   // Aggregate pages are indexable only once at least one record is confirmed —
   // the same rule their `robots` meta uses, kept in step here.
   ...(parks.some(confirmed) ? [] : ['/dogs/dog-parks/']),

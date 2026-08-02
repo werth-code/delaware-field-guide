@@ -1,0 +1,248 @@
+---
+/**
+ * One community park.
+ *
+ * Restrooms get their own block at the top rather than a row in a grid,
+ * because it is the single question this page exists to answer.
+ */
+import type { GetStaticPaths } from "astro";
+
+import Layout from "../../../layouts/Layout.astro";
+import FlagIcon from "../../../components/FlagIcon.astro";
+
+import parksData from "../../../data/community-parks.json";
+import dogParksData from "../../../data/parks.json";
+import {
+  FACILITY_LABELS,
+  completeness,
+  restroomAnswer,
+  tri,
+  type CommunityPark,
+} from "../../../lib/community-parks";
+import { isVerified, reportOutstanding, robotsFor } from "../../../lib/verification";
+
+export const getStaticPaths = (() =>
+  (parksData as CommunityPark[]).map((park) => ({
+    params: { slug: park.slug },
+    props: { park },
+  }))) satisfies GetStaticPaths;
+
+const { park } = Astro.props as { park: CommunityPark };
+reportOutstanding(`parks/community/${park.slug}`, park);
+
+const { known, total } = completeness(park);
+const wc = restroomAnswer(park.restrooms);
+const verified = isVerified(park);
+
+const dogPark = park.dogParkSlug
+  ? (dogParksData as { slug: string; name: string }[]).find((d) => d.slug === park.dogParkSlug)
+  : null;
+
+const others = (parksData as CommunityPark[]).filter(
+  (p) => p.county === park.county && p.slug !== park.slug,
+);
+
+const schema = verified
+  ? [
+      {
+        "@context": "https://schema.org",
+        "@type": "Park",
+        name: park.name,
+        description: park.blurb,
+        address: { "@type": "PostalAddress", streetAddress: park.address, addressRegion: "DE" },
+        ...(park.phone ? { telephone: park.phone } : {}),
+      },
+    ]
+  : [];
+
+const base =
+  `${park.name}, ${park.town} — restrooms ${wc.text.toLowerCase()}. ` +
+  `Playground, water, shade, trails and dog park, checked and dated.`;
+const description = base.length < 118 ? `${base} Run by ${park.operator}.` : base;
+---
+
+<Layout
+  title={park.name.length > 40 ? park.name : `${park.name} — restrooms and facilities`}
+  description={description.slice(0, 157)}
+  robots={robotsFor(park)}
+  dateModified={park.verifiedDate}
+  schema={schema}
+>
+  <article>
+    <div class="wrap pt-11 pb-6">
+      <p class="label m-0">
+        <a href="/parks/community/" class="no-underline hover:underline">Community parks</a>
+        <span class="text-ink-soft"> · </span>{park.county} County
+      </p>
+      <h1 class="text-[2.4rem] sm:text-[3.1rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
+        {park.name}
+      </h1>
+      <p class="stamp text-ink-soft mt-3 mb-0">
+        {park.operator} · {park.address}{park.acres ? ` · ${park.acres} acres` : ""}
+      </p>
+    </div>
+
+    {
+      park.warnings.length > 0 && (
+        <div class="wrap">
+          <aside
+            class="border-2 border-flag-red border-l-[9px] bg-flag-red-wash px-4 sm:px-5 py-4 rounded-[2px] my-2"
+            style="box-shadow: 5px 5px 0 0 var(--color-flag-red-bearing);"
+          >
+            <p class="label text-flag-red-bearing m-0 flex items-center gap-1.5">
+              <FlagIcon icon="alert" class="w-[1em] h-[1em]" />
+              Before you go
+            </p>
+            <ul class="list-none p-0 m-0 mt-2 space-y-1.5">
+              {park.warnings.map((w) => (
+                <li class="text-[0.96rem] leading-[1.5] max-w-[56ch]">{w}</li>
+              ))}
+            </ul>
+          </aside>
+        </div>
+      )
+    }
+
+    {/* The question this page exists to answer. */}
+    <div class="wrap pt-6">
+      <div class="sign breakout px-4 sm:px-5 py-5 border-l-[9px] border-l-ochre">
+        <p class="label m-0">Restrooms</p>
+        <p
+          class={`font-display text-[1.6rem] font-bold tracking-[-0.02em] mt-1.5 mb-0 ${
+            wc.state === "unknown" ? "text-ink-soft" : "text-marsh"
+          }`}
+        >
+          {wc.text}
+        </p>
+        {park.restrooms.note && (
+          <p class="mt-2 mb-0 text-[0.92rem] leading-[1.55] text-ink-soft max-w-[56ch]">
+            {park.restrooms.note}
+          </p>
+        )}
+      </div>
+    </div>
+
+    <div class="wrap prose-field pt-6">
+      <p class="text-[1.15rem] leading-[1.5] max-w-[56ch]">{park.blurb}</p>
+
+      <h2>What's there</h2>
+      <div class="sign breakout my-6 p-4 sm:p-5">
+        <div class="flex items-baseline justify-between gap-4">
+          <p class="label m-0">Facilities</p>
+          <span class="stamp text-ink-soft">{known}/{total} confirmed</span>
+        </div>
+
+        <dl class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-0 mt-3.5 mb-0 border-t-2 border-marsh">
+          {
+            FACILITY_LABELS.map(([key, label]) => {
+              const v = tri(park.facilities[key]);
+              return (
+                <div class="border-b border-tide/30 py-2.5">
+                  <dt class="label">{label}</dt>
+                  <dd
+                    class={`m-0 mt-0.5 text-[0.93rem] ${
+                      v.state === "unknown" ? "text-ink-soft italic" : "text-ink"
+                    }`}
+                  >
+                    {v.text}
+                  </dd>
+                </div>
+              );
+            })
+          }
+        </dl>
+      </div>
+
+      {
+        park.accessibility && (
+          <>
+            <h2>Getting around</h2>
+            <p class="max-w-[58ch]">{park.accessibility}</p>
+          </>
+        )
+      }
+
+      <h2>Hours and contact</h2>
+      <dl class="sign breakout my-6 divide-y-2 divide-tide/30">
+        <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Hours</dt>
+          <dd class={`m-0 mt-1 sm:mt-0 text-[0.95rem] ${park.hours ? "" : "text-ink-soft italic"}`}>
+            {park.hours ?? "Not confirmed"}
+            {park.hoursNote && (
+              <span class="block text-[0.86rem] text-ink-soft mt-1 leading-snug">{park.hoursNote}</span>
+            )}
+          </dd>
+        </div>
+        <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Phone</dt>
+          <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem]">
+            {park.phone ? (
+              <a href={`tel:${park.phone.replace(/[^0-9+]/g, "")}`} class="tap stamp text-[1rem]">
+                {park.phone}
+              </a>
+            ) : (
+              <span class="text-ink-soft italic">Not confirmed</span>
+            )}
+          </dd>
+        </div>
+      </dl>
+
+      {
+        dogPark && (
+          <>
+            <h2>The dog park inside it</h2>
+            <p class="max-w-[58ch]">
+              This park contains <a href={`/dogs/dog-parks/${dogPark.slug}/`}>{dogPark.name}</a>,
+              which has its own page with the seven fields that decide whether the
+              trip is worth it — fenced, size split, water, shade, surface, fee
+              and hours.
+            </p>
+          </>
+        )
+      }
+
+      {
+        park.outstanding && park.outstanding.length > 0 && !verified && (
+          <>
+            <h2>Still to confirm</h2>
+            <p class="text-[0.95rem] text-ink-soft max-w-[58ch]">
+              Listed openly rather than hidden, because a gap you can see is
+              worth more than a gap you can't.
+            </p>
+            <ul>
+              {park.outstanding.map((o) => (
+                <li>{o}</li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+
+      {
+        others.length > 0 && (
+          <>
+            <h2>Other community parks in {park.county} County</h2>
+            <ul>
+              {others.map((p) => {
+                const w = restroomAnswer(p.restrooms);
+                return (
+                  <li>
+                    <a href={`/parks/community/${p.slug}/`}>{p.name}</a>
+                    <span class="stamp text-ink-soft"> — restrooms: {w.text.toLowerCase()}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          </>
+        )
+      }
+
+      <h2>Related</h2>
+      <ul>
+        <li><a href="/parks/community/">All community parks</a></li>
+        <li><a href="/parks/">The 17 Delaware state parks</a></li>
+        <li><a href="/dogs/dog-parks/">Dog parks — the seven fields</a></li>
+      </ul>
+    </div>
+  </article>
+</Layout>

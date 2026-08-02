@@ -229,6 +229,99 @@ Section two. Lower stakes — mostly hours, fees and facilities.
 - [ ] Confirm Rockford Tower opening season.
 
 
+## 4b. Community parks
+
+Restrooms first — it is the field people actually ask about and the one
+most often missing here.
+
+### Glasgow Regional Park
+
+- [ ] RESTROOMS — confirm they exist, whether they're seasonal, and the hours.
+- [ ] Confirm drinking water.
+- [ ] Get the county parks number.
+- [ ] Confirm farmers market day and season.
+
+### Carousel Park
+
+- [ ] RESTROOMS — confirm.
+- [ ] ⚑ The off-leash dog area here is NOT in our dog-park dataset. Visit it, run the seven fields, and add it — this is a real coverage gap.
+- [ ] Get a street number for the address.
+- [ ] Confirm hours.
+
+### Rockwood Park
+
+- [ ] RESTROOMS — confirm, and whether they follow mansion hours rather than park hours.
+- [ ] Confirm the address.
+- [ ] Confirm whether dogs are allowed on the mansion grounds.
+
+### Banning Park
+
+- [ ] RESTROOMS — confirm.
+- [ ] CONFIRM WHETHER THE DOG PARK EXISTS. This is the same open question sitting in parks.json.
+- [ ] Confirm the address and hours.
+
+### Brandywine Springs Park
+
+- [ ] RESTROOMS — confirm.
+- [ ] Confirm hours and whether the historical site tours are seasonal.
+
+### Iron Hill Park
+
+- [ ] RESTROOMS — confirm.
+- [ ] Confirm drinking water.
+- [ ] Confirm disc golf course access and whether it's free.
+
+### Talley Day Park
+
+- [ ] RESTROOMS — confirm, and confirm whether the library's are usable when the park is open but the library isn't.
+- [ ] Confirm the water fountains are dog-fillable.
+
+### River Road Park
+
+- [ ] RESTROOMS — confirm.
+- [ ] HOURS — not published anywhere. Same gap as the dog-park record.
+
+### Brecknock Park
+
+- [ ] Confirm restroom season and hours — 'has restrooms' and 'restrooms open in February' are different facts.
+- [ ] Confirm the address.
+- [ ] Confirm pavilion booking and whether it costs.
+
+### Tidbury Creek County Park
+
+- [ ] RESTROOMS — confirm.
+- [ ] Confirm whether the Sunday closure covers the whole park or just the dog run.
+- [ ] Get a street address.
+
+### Hunn Nature Park
+
+- [ ] RESTROOMS — confirm whether there are any at all.
+- [ ] Confirm the trail surface — 'accessible for all skill levels' is not the same as wheelchair accessible.
+- [ ] Get a street address.
+
+### Big Oak Park
+
+- [ ] Everything. Call Kent County Parks and fill this record in, or drop it.
+
+### Browns Branch County Park
+
+- [ ] Everything. Call Kent County Parks and fill this record in, or drop it.
+
+### Lebanon Landing
+
+- [ ] Everything, including whether it's a boat launch rather than a park.
+
+### Kesselring County Park
+
+- [ ] Everything. Call Kent County Parks and fill this record in, or drop it.
+
+### Schutte Park
+
+- [ ] RESTROOMS — confirm, this is a busy sports park.
+- [ ] HOURS — not published.
+- [ ] Get a street address.
+
+
 ## 5. Dog parks
 
 Google's posted hours usually belong to the parent park rather than the dog
@@ -436,5 +529,5 @@ they book with a dog?* That last one is free demand research.
 
 ---
 
-**208 open items.** Every one of them is a fact this site cannot publish
+**247 open items.** Every one of them is a fact this site cannot publish
 until someone picks up a phone. That is the moat, not overhead.

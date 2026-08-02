@@ -10,6 +10,7 @@
  */
 import townsData from "../data/towns.json";
 import stateParksData from "../data/state-parks.json";
+import communityParksData from "../data/community-parks.json";
 
 export interface NavItem {
   href: string;
@@ -26,6 +27,7 @@ export interface Section {
 
 const towns = townsData as { slug: string; name: string }[];
 const stateParks = stateParksData as { slug: string; name: string; county: string }[];
+const communityParks = communityParksData as { slug: string; name: string }[];
 
 export const SECTIONS: Section[] = [
   {
@@ -44,7 +46,8 @@ export const SECTIONS: Section[] = [
     slug: "parks",
     label: "Parks",
     nav: [
-      { href: "/parks/", label: "All parks" },
+      { href: "/parks/", label: "State parks" },
+      { href: "/parks/community/", label: "Community parks" },
       // Sussex first — the coastal parks are what most visitors are after, and
       // they're the ones the dog section already leans on.
       ...["Sussex", "Kent", "New Castle"].flatMap((county) =>

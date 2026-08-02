@@ -27,6 +27,13 @@ const parks = read("src/data/parks.json");
 const places = read("src/data/places.json");
 const emergency = read("src/data/emergency.json");
 const lodging = read("src/data/lodging.json");
+const community = (() => {
+  try {
+    return read("src/data/community-parks.json");
+  } catch {
+    return [];
+  }
+})();
 const statePark = (() => {
   try {
     return read("src/data/state-parks.json");
@@ -98,6 +105,14 @@ for (const p of places.filter((p) => !done(p))) {
 if (statePark.length) {
   section("4. State parks", "Section two. Lower stakes — mostly hours, fees and facilities.");
   for (const p of statePark.filter((p) => !done(p))) {
+    entry(p.name, p.phone, p.outstanding);
+  }
+}
+
+/* 4b — Community parks */
+if (community.length) {
+  section("4b. Community parks", "Restrooms first — it is the field people actually ask about and the one\nmost often missing here.");
+  for (const p of community.filter((p) => !done(p))) {
     entry(p.name, p.phone, p.outstanding);
   }
 }
