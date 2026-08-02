@@ -1,0 +1,90 @@
+{
+  "_comment": "Emergency contacts. The most safety-critical data on this site — a wrong number here costs a dog. Nothing in this file may be inferred, rounded, or carried over from a listing site. Every number needs a first-party confirmation call before verifiedDate is set, and the hours need re-checking seasonally because urgent-care hours at coastal practices move with the season.",
+
+  "headline": {
+    "fact": "There is no 24-hour emergency vet in Sussex County.",
+    "detail": "That is the single most important thing on this page and almost nobody tells visitors. If your dog is in trouble at 11pm at Rehoboth, the nearest round-the-clock option is an hour or more away. Know which one you're driving to BEFORE you need it — pick one now and put it in your phone.",
+    "verifiedDate": null,
+    "verifiedSource": null
+  },
+
+  "vets": [
+    {
+      "slug": "delmarva-animal-emergency-center",
+      "name": "Delmarva Animal Emergency Center",
+      "phone": "302-697-0850",
+      "address": "1482 E Lebanon Rd, Dover, DE 19901",
+      "hours": "Mon–Thu 6pm – 8am · Fri–Sun 24 hours",
+      "hoursNote": "NOT 24/7 on weekdays — it opens at 6pm and closes at 8am. A Tuesday afternoon emergency is not covered here.",
+      "driveFromRehoboth": "About 1 hour",
+      "coversWeekdayDaytime": false,
+      "verifiedDate": null,
+      "verifiedSource": null
+    },
+    {
+      "slug": "pets-er-salisbury",
+      "name": "Pet's ER",
+      "phone": "410-543-8400",
+      "address": "402 Punkin Ct, Salisbury, MD 21804",
+      "hours": "Not confirmed",
+      "hoursNote": "Closest option to Fenwick and Bethany. Confirm hours and whether they take out-of-state clients.",
+      "driveFromRehoboth": "About 1 hour",
+      "coversWeekdayDaytime": null,
+      "verifiedDate": null,
+      "verifiedSource": null
+    },
+    {
+      "slug": "bluepearl-christiana",
+      "name": "BluePearl Pet Hospital, Christiana",
+      "phone": "302-322-6933",
+      "address": "106 Geoffrey Dr, Newark, DE 19713",
+      "hours": "24 hours, every day",
+      "hoursNote": "The only genuine round-the-clock option in Delaware, but it is at the top of the state — a long drive from the beaches.",
+      "driveFromRehoboth": "About 1 hour 45 minutes",
+      "coversWeekdayDaytime": true,
+      "verifiedDate": null,
+      "verifiedSource": null
+    },
+    {
+      "slug": "rehoboth-beach-animal-hospital",
+      "name": "Rehoboth Beach Animal Hospital",
+      "phone": null,
+      "address": "Rehoboth Beach, DE",
+      "hours": "Urgent care, reported five days a week",
+      "hoursNote": "Nearest urgent care to the beach towns, but it is urgent care and not a 24-hour ER. Confirm the days, the hours, and whether they see non-clients.",
+      "driveFromRehoboth": "In town",
+      "coversWeekdayDaytime": null,
+      "verifiedDate": null,
+      "verifiedSource": null
+    }
+  ],
+
+  "statewide": [
+    {
+      "label": "Emergency — people",
+      "value": "911",
+      "dial": false,
+      "note": "Always. Beach emergencies, injuries, anything time-critical."
+    },
+    {
+      "label": "Delaware SPCA",
+      "value": null,
+      "note": "Stray and loose-dog intake. Number not yet confirmed."
+    },
+    {
+      "label": "Animal Poison Control (ASPCA)",
+      "value": "888-426-4435",
+      "note": "24 hours. A consultation fee usually applies. Useful for a swallowed bait, a bloom exposure, or anything eaten off the sand."
+    }
+  ],
+
+  "outstanding": [
+    "Call every number in this file and confirm it rings the right place. This is the one dataset where a stale number does real harm.",
+    "Confirm Delmarva's weekday 6pm–8am window and the Fri–Sun 24-hour claim.",
+    "Get Rehoboth Beach Animal Hospital's number and its actual urgent-care days and hours.",
+    "Confirm whether Pet's ER in Salisbury takes Delaware clients and what its hours are.",
+    "Get the Delaware SPCA intake number for Sussex County.",
+    "Confirm the ASPCA poison-control fee so the page can state it.",
+    "Re-check all hours at the start of each season — coastal practices change them."
+  ]
+}

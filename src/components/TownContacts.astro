@@ -1,0 +1,171 @@
+---
+/**
+ * Town profile and the numbers worth having in your phone.
+ *
+ * Two blocks, in this order: the town's own contacts (licenses, loose dogs,
+ * rule questions), then emergency vets — which are regional rather than
+ * per-town, and which carry the single most useful fact on the site:
+ *
+ *   THERE IS NO 24-HOUR EMERGENCY VET IN SUSSEX COUNTY.
+ *
+ * The pond-safety page tells someone to go to a vet now. Until this existed,
+ * it didn't tell them where, and "where" is an hour's drive that you do not
+ * want to be researching at 11pm with a seizing dog in the back.
+ *
+ * Every number is tel: linked — this is read on a phone, by someone who needs
+ * to dial, and a number you can't tap is a number you retype wrong.
+ */
+import type { Town } from "../lib/rules";
+import emergency from "../data/emergency.json";
+import FlagIcon from "./FlagIcon.astro";
+
+interface Props {
+  town: Town & {
+    profile?: { water: string; boardwalk: boolean; blurb: string; parking: string } | null;
+    contacts?: {
+      label: string;
+      phone: string | null;
+      address: string | null;
+      hours: string | null;
+      note: string | null;
+      verified: boolean;
+    }[];
+  };
+}
+
+const { town } = Astro.props;
+const contacts = town.contacts ?? [];
+const tel = (p: string) => p.replace(/[^0-9+]/g, "");
+
+const vets = emergency.vets;
+const statewide = emergency.statewide;
+---
+
+{
+  town.profile && (
+    <>
+      <h2>About {town.name}</h2>
+      <p class="max-w-[58ch]">{town.profile.blurb}</p>
+
+      <dl class="sign breakout my-6 divide-y-2 divide-tide/30">
+        {[
+          { label: "Water", value: town.profile.water },
+          { label: "Boardwalk", value: town.profile.boardwalk ? "Yes" : "None" },
+          { label: "Parking", value: town.profile.parking },
+          { label: "County", value: `${town.county} County` },
+        ].map((f) => (
+          <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
+            <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">{f.label}</dt>
+            <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem] leading-[1.55]">{f.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </>
+  )
+}
+
+{
+  contacts.length > 0 && (
+    <>
+      <h2>Who to call in {town.name}</h2>
+      <ul class="list-none p-0 m-0 my-6 grid gap-3 sm:grid-cols-2 breakout">
+        {contacts.map((c) => (
+          <li class="sign px-4 py-3.5">
+            <p class="label m-0">{c.label}</p>
+            {c.phone ? (
+              <p class="m-0 mt-1.5">
+                <a href={`tel:${tel(c.phone)}`} class="tap stamp text-[1.02rem]">
+                  {c.phone}
+                </a>
+              </p>
+            ) : (
+              <p class="m-0 mt-1.5 text-[0.92rem] text-ink-soft italic">Not confirmed</p>
+            )}
+            {c.address && <p class="stamp text-ink-soft mt-1.5 mb-0">{c.address}</p>}
+            {c.hours && <p class="stamp text-ink-soft mt-1 mb-0">{c.hours}</p>}
+            {c.note && <p class="mt-2 mb-0 text-[0.86rem] leading-snug text-ink-soft">{c.note}</p>}
+          </li>
+        ))}
+      </ul>
+    </>
+  )
+}
+
+<h2 id="emergency">If something goes wrong</h2>
+
+{/* The headline fact, loud, because it changes what you do rather than what
+    you know. */}
+<aside
+  class="breakout border-2 border-flag-red border-l-[9px] bg-flag-red-wash px-4 sm:px-5 py-4 rounded-[2px] my-6"
+  style="box-shadow: 5px 5px 0 0 var(--color-flag-red-bearing);"
+>
+  <p class="label text-flag-red-bearing m-0 flex items-center gap-1.5">
+    <FlagIcon icon="alert" class="w-[1em] h-[1em]" />
+    {emergency.headline.fact}
+  </p>
+  <p class="mt-2 mb-0 text-[0.98rem] leading-[1.5] max-w-[58ch]">{emergency.headline.detail}</p>
+</aside>
+
+<ul class="list-none p-0 m-0 my-6 space-y-3 breakout">
+  {
+    vets.map((v) => (
+      <li class="sign px-4 sm:px-5 py-4">
+        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <p class="font-display text-[1.08rem] font-bold m-0 text-marsh">{v.name}</p>
+          <span class="stamp text-ink-soft">{v.driveFromRehoboth}</span>
+        </div>
+
+        {v.phone ? (
+          <p class="m-0 mt-2">
+            <a href={`tel:${tel(v.phone)}`} class="tap stamp text-[1.05rem]">
+              {v.phone}
+            </a>
+          </p>
+        ) : (
+          <p class="m-0 mt-2 text-[0.92rem] text-ink-soft italic">Number not confirmed</p>
+        )}
+
+        <p class="stamp text-ink-soft mt-1.5 mb-0">{v.address}</p>
+        <p class="mt-2 mb-0 text-[0.92rem]">
+          <span class="label">Hours</span> <span class="stamp">{v.hours}</span>
+        </p>
+        {v.hoursNote && (
+          <p class="mt-1.5 mb-0 text-[0.86rem] leading-snug text-ink-soft max-w-[54ch]">
+            {v.hoursNote}
+          </p>
+        )}
+      </li>
+    ))
+  }
+</ul>
+
+<dl class="sign breakout my-6 divide-y-2 divide-tide/30">
+  {
+    statewide.map((s) => (
+      <div class="px-4 sm:px-5 py-3">
+        <dt class="label">{s.label}</dt>
+        <dd class="m-0 mt-1">
+          {/* 911 is deliberately NOT a tel: link. A mis-tap on a page someone is
+              scrolling one-handed would dial emergency services, and nobody has
+              ever needed help remembering how to dial it. */}
+          {s.value == null ? (
+            <span class="text-[0.92rem] text-ink-soft italic">Not confirmed</span>
+          ) : s.dial === false ? (
+            <span class="stamp text-[1.02rem]">{s.value}</span>
+          ) : (
+            <a href={`tel:${tel(s.value)}`} class="tap stamp text-[1.02rem]">
+              {s.value}
+            </a>
+          )}
+          {s.note && <p class="mt-1 mb-0 text-[0.86rem] leading-snug text-ink-soft">{s.note}</p>}
+        </dd>
+      </div>
+    ))
+  }
+</dl>
+
+<p class="text-[0.88rem] text-ink-soft max-w-[58ch]">
+  Hours at coastal practices move with the season and none of these numbers has
+  been confirmed first-hand yet. <strong>Call ahead rather than driving on
+  trust</strong>, and pick your one now — before you need it.
+</p>

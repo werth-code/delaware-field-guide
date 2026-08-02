@@ -68,7 +68,11 @@
 
   /* Ochre — decorative accent. Warm counterweight to all that green. */
   --color-ochre: #d99441;
-  --color-ochre-deep: #8a5410; /* text-safe on sand: 7.4:1 */
+  /* Text-safe ochre. Must clear 7:1 on SHELL (#FBF5E9), not just sand — shell
+     is the lighter of the two and it's where the rule-table time windows sit.
+     #8A5410 only made 5.8:1 there and shipped unnoticed because time windows
+     only appear on Dewey and Lewes. 8.2:1 on shell, 7.1:1 on sand. */
+  --color-ochre-deep: #6b3f08;
 
   /* ---- Flags — status only --------------------------------------------- */
   --color-flag-green: #2e7d32;

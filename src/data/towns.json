@@ -108,7 +108,32 @@
       "Confirm whether the lifeguard exception applies to the boardwalk or to the beach only.",
       "Confirm max leash length and the fine for a violation, with ordinance numbers.",
       "Confirm the closure covers the full boardwalk and the Deauville Beach area.",
-      "Record who confirmed it, then set verifiedDate and verifiedSource."
+      "Record who confirmed it, then set verifiedDate and verifiedSource.",
+      "Confirm the police non-emergency number and City Hall street address."
+    ],
+    "profile": {
+      "water": "Ocean",
+      "boardwalk": true,
+      "blurb": "The biggest of the Delaware beach towns and the one most visitors mean by \"the beach\". A mile of boardwalk, and no public dog park anywhere in the city limits.",
+      "parking": "Metered and permit, in season."
+    },
+    "contacts": [
+      {
+        "label": "City of Rehoboth Beach",
+        "phone": "302-227-6181",
+        "address": "229 Rehoboth Ave",
+        "hours": null,
+        "note": "Dog rules, ordinances, beach questions.",
+        "verified": false
+      },
+      {
+        "label": "Police / 911 Center, non-emergency",
+        "phone": "302-227-2577",
+        "address": null,
+        "hours": null,
+        "note": "Loose dog, a dispute, anything not an emergency. Confirm this is the right non-emergency line.",
+        "verified": false
+      }
     ]
   },
   {
@@ -197,7 +222,32 @@
       "License: confirm cost of the 3-day, 8-day and lifetime options, where to buy, and whether proof of rabies is required at purchase.",
       "Confirm the fine for an unlicensed dog — this is the number that makes the page useful.",
       "Confirm off-leash is still permitted off-season, and get the town's own wording for \"under full control\".",
-      "Confirm whether the rules differ on the bay side."
+      "Confirm whether the rules differ on the bay side.",
+      "Confirm Town Hall seasonal hours — the weekend opening is what makes a visitor license possible."
+    ],
+    "profile": {
+      "water": "Ocean and bay",
+      "boardwalk": false,
+      "blurb": "A mile long and two blocks wide, ocean on one side and Rehoboth Bay on the other. The only Delaware beach town that never closes to dogs — and the only one that requires a town dog license.",
+      "parking": "Paid, in season."
+    },
+    "contacts": [
+      {
+        "label": "Town of Dewey Beach",
+        "phone": "302-227-6363",
+        "address": "105 Rodney Ave",
+        "hours": "Mon–Thu 8–4:30 · Fri 8–6 · Sat 9–3 · Sun 9–2",
+        "note": "Where you buy the dog license. Open weekends in season, which matters if you arrive on a Saturday.",
+        "verified": false
+      },
+      {
+        "label": "Dewey Beach Police, non-emergency",
+        "phone": "302-227-1110",
+        "address": null,
+        "hours": null,
+        "note": null,
+        "verified": false
+      }
     ]
   },
   {
@@ -315,6 +365,30 @@
       "Confirm whether visiting dogs need a Bethany license or only resident dogs do.",
       "Confirm the leash-length limit and the fine for a violation.",
       "Confirm whether the ban covers the bandstand area and the north/south ends beyond the boardwalk."
+    ],
+    "profile": {
+      "water": "Ocean",
+      "boardwalk": true,
+      "blurb": "The \"quiet resorts\" — smaller and more residential than Rehoboth, with a boardwalk and a bandstand. Closes to dogs later in the year than any of its neighbours.",
+      "parking": "Metered, in season."
+    },
+    "contacts": [
+      {
+        "label": "Town of Bethany Beach",
+        "phone": "302-539-8011",
+        "address": "214 Garfield Parkway",
+        "hours": null,
+        "note": "Dog rules, licenses, tags.",
+        "verified": false
+      },
+      {
+        "label": "Bethany Beach Police, non-emergency",
+        "phone": "302-539-1000",
+        "address": null,
+        "hours": null,
+        "note": null,
+        "verified": false
+      }
     ]
   },
   {
@@ -417,7 +491,32 @@
       "Confirm the before-8am / after-6:30pm window and the May 1 – September 30 dates are still in force.",
       "Confirm which stretches of Lewes Beach are guarded, and the guard schedule.",
       "Confirm leash length and the fine under City Code Chapter 88.",
-      "Confirm whether Roosevelt Inlet and the canal-side stretches fall under the same rule."
+      "Confirm whether Roosevelt Inlet and the canal-side stretches fall under the same rule.",
+      "Get the Lewes Police non-emergency number and City Hall address."
+    ],
+    "profile": {
+      "water": "Delaware Bay",
+      "boardwalk": false,
+      "blurb": "Bay-side rather than ocean, so calm shallow water — the better option for a nervous or senior dog. Also the ferry terminal: dogs ride the Cape May–Lewes Ferry free, on the outer decks, with no paperwork.",
+      "parking": "Paid beach parking, in season."
+    },
+    "contacts": [
+      {
+        "label": "City of Lewes",
+        "phone": "302-645-7777",
+        "address": null,
+        "hours": null,
+        "note": "Confirm the dog ordinance status — a summer ban at guarded beaches was under review in Dec 2025.",
+        "verified": false
+      },
+      {
+        "label": "Lewes Police, non-emergency",
+        "phone": null,
+        "address": null,
+        "hours": null,
+        "note": null,
+        "verified": false
+      }
     ]
   },
   {
@@ -508,7 +607,33 @@
       "Confirm the town beach boundary is still Lewes Street to E. Atlantic Street, and where the state park takes over.",
       "Confirm whether the ban covers the dune crossings and the bayside.",
       "Confirm the fine.",
-      "Ask the town where they send visitors with dogs in summer — their answer is content."
+      "Ask the town where they send visitors with dogs in summer — their answer is content.",
+      "Get the Fenwick Island Police non-emergency number and Town Hall address.",
+      "Confirm beach parking — free vs metered."
+    ],
+    "profile": {
+      "water": "Ocean",
+      "boardwalk": false,
+      "blurb": "The southernmost Delaware beach town, on the Maryland line. Small — the public beach runs from Lewes Street to E. Atlantic Street, and beyond that you are in Fenwick Island State Park, where the rules are different.",
+      "parking": "Free in places, metered in others. Confirm."
+    },
+    "contacts": [
+      {
+        "label": "Town of Fenwick Island",
+        "phone": "302-539-3011",
+        "address": null,
+        "hours": null,
+        "note": "Beach rules and the town beach boundary.",
+        "verified": false
+      },
+      {
+        "label": "Fenwick Island Police, non-emergency",
+        "phone": null,
+        "address": null,
+        "hours": null,
+        "note": null,
+        "verified": false
+      }
     ]
   }
 ]

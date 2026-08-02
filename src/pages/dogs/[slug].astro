@@ -23,6 +23,7 @@ import VerificationStamp from "../../components/VerificationStamp.astro";
 import FlagMark from "../../components/FlagMark.astro";
 import Plate from "../../components/Plate.astro";
 import BeachScene from "../../components/BeachScene.astro";
+import TownContacts from "../../components/TownContacts.astro";
 
 import townsData from "../../data/towns.json";
 import type { Town } from "../../lib/rules";
@@ -272,6 +273,8 @@ const schema = verified ? [articleSchema, faqSchema] : [];
           </>
         )
       }
+
+      <TownContacts town={town} />
 
       <VerificationStamp item={town} />
 

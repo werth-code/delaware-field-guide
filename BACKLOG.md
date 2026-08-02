@@ -84,3 +84,8 @@ one arrives.
 - **Formspree endpoint** for field reports — set `PUBLIC_REPORT_ENDPOINT`.
 - **Cloudflare DNS** — the only thing between this and being live. See README.
 - **Search Console + Bing Webmaster** — submit once DNS resolves.
+- **Verify every emergency number in `src/data/emergency.json`.** Highest-priority
+  call list on the site: a stale vet number is the one error here that does real
+  harm. Also missing: Lewes and Fenwick police non-emergency lines, the Delaware
+  SPCA Sussex intake number, and Rehoboth Beach Animal Hospital's number and
+  actual urgent-care hours. Re-check all vet hours each season.
