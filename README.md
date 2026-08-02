@@ -1,5 +1,15 @@
 # delawarefieldguide.com
 
+**Repo:** https://github.com/werth-code/delaware-field-guide
+**Deploy:** GitHub Actions → GitHub Pages, green. Rebuilds daily at 07:10 UTC.
+
+> **Not reachable yet.** `public/CNAME` claims `delawarefieldguide.com` and
+> `astro.config.mjs` has no `base` path, because this is an apex domain and not
+> a project subpath. That's correct for production and it means the
+> `werth-code.github.io/delaware-field-guide/` URL serves the home page but
+> 404s on every internal link. **Point Cloudflare DNS and it goes live** — see
+> Deploy below. Until then, `npm run dev` is the preview.
+
 Reference site for outdoor Delaware. First section is dogs. Nine more sections planned — built so a
 second section drops in without refactoring.
 
@@ -173,10 +183,21 @@ schedule wants room, and the asymmetry stops the page reading as one undifferent
 
 1. `public/CNAME` contains `delawarefieldguide.com` ✅
 2. `.github/workflows/deploy.yml` uses `withastro/action` + `actions/deploy-pages` ✅
-3. Repo → Settings → Pages → Source: **GitHub Actions**; add the custom domain; **enable Enforce
-   HTTPS**
-4. Cloudflare DNS: apex `A` records to the GitHub Pages IPs (or CNAME flattening to
-   `werth-code.github.io`), plus a `www` CNAME
+   (pinned to Node 22 — the action defaults to 20 and Astro 7 needs ≥22.12)
+3. Repo → Settings → Pages → Source: **GitHub Actions** ✅, HTTPS enforced ✅
+4. **Remaining: Cloudflare DNS.** Four apex `A` records, plus `www`:
+
+   ```
+   A     @      185.199.108.153
+   A     @      185.199.109.153
+   A     @      185.199.110.153
+   A     @      185.199.111.153
+   CNAME www    werth-code.github.io
+   ```
+
+   Set these **DNS-only (grey cloud) first**. Let GitHub issue its certificate —
+   Settings → Pages will show the custom domain going green — and only then turn
+   the proxy orange.
 
 ### Gotchas that cost an afternoon
 
