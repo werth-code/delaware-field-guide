@@ -258,6 +258,14 @@ Errors and empty states give direction, not mood.
 
 ---
 
+## Parked
+
+See [`BACKLOG.md`](BACKLOG.md) for deferred work and the reasoning behind it —
+donations, the lodging affiliate, the date checker, and the pages not yet
+written.
+
+---
+
 ## Do not build
 
 Mobile app · user accounts · user reviews · comments · a map from scratch · a live water-quality
