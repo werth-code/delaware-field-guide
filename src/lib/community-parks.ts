@@ -21,6 +21,15 @@ export interface Restrooms {
   /** Open only part of the year. The fact that ruins an April trip. */
   seasonal: boolean | null;
   note: string | null;
+  /**
+   * Field-level provenance. Restrooms get confirmed one at a time, by someone
+   * who was standing there, long before the other twelve fields on a record
+   * are done — so this field carries its own date and source rather than
+   * waiting on the record-level gate. Confirming a toilet does not verify a
+   * park.
+   */
+  confirmedOn?: string | null;
+  confirmedBy?: string | null;
 }
 
 export interface Facilities {

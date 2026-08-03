@@ -19,6 +19,7 @@ import {
   tri,
   type CommunityPark,
 } from "../../../lib/community-parks";
+import { formatStampDate } from "../../../lib/rules";
 import { isVerified, reportOutstanding, robotsFor } from "../../../lib/verification";
 
 export const getStaticPaths = (() =>
@@ -117,6 +118,13 @@ const description = base.length < 118 ? `${base} Run by ${park.operator}.` : bas
         {park.restrooms.note && (
           <p class="mt-2 mb-0 text-[0.92rem] leading-[1.55] text-ink-soft max-w-[56ch]">
             {park.restrooms.note}
+          </p>
+        )}
+        {/* Field-level stamp. Confirming a toilet doesn't verify a park, so
+            this carries its own date rather than borrowing the record's. */}
+        {park.restrooms.confirmedOn && park.restrooms.confirmedBy && (
+          <p class="stamp text-flag-green-bearing mt-3 mb-0">
+            Confirmed {formatStampDate(park.restrooms.confirmedOn)} · {park.restrooms.confirmedBy}
           </p>
         )}
       </div>

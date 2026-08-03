@@ -236,7 +236,7 @@ most often missing here.
 
 ### Glasgow Regional Park
 
-- [ ] RESTROOMS — confirm they exist, whether they're seasonal, and the hours.
+- [ ] Restrooms confirmed present — still need the type (permanent vs portable) and whether they are seasonal or year-round.
 - [ ] Confirm drinking water.
 - [ ] Get the county parks number.
 - [ ] Confirm farmers market day and season.

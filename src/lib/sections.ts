@@ -45,16 +45,14 @@ export const SECTIONS: Section[] = [
   {
     slug: "parks",
     label: "Parks",
+    /*
+      Two entries, not nineteen. The dog nav lists towns because those ARE the
+      answer pages and there are five. Parks has 33 records across two kinds,
+      so the nav points at the two indexes and the card grids do the drilling.
+    */
     nav: [
       { href: "/parks/", label: "State parks" },
       { href: "/parks/community/", label: "Community parks" },
-      // Sussex first — the coastal parks are what most visitors are after, and
-      // they're the ones the dog section already leans on.
-      ...["Sussex", "Kent", "New Castle"].flatMap((county) =>
-        stateParks
-          .filter((p) => p.county === county)
-          .map((p) => ({ href: `/parks/${p.slug}/`, label: p.name })),
-      ),
     ],
   },
 ];

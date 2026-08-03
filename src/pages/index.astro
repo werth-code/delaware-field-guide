@@ -1,11 +1,11 @@
 ---
 /**
- * Home, as the poster and the notice board.
+ * Home.
  *
- * Nobody lands here — they land on an answer page from a search. So this page
- * has one job: make the shape of the site legible in three seconds. Two
- * placards, one posted and one plainly not, say "ten sections, one at a time,
- * and we don't pretend the empty ones exist" better than a paragraph can.
+ * Orients someone who has never heard of the site, then points at the three
+ * live collections. Section counts are derived from the data so they can't
+ * drift, and each card says how much of it is confirmed rather than implying
+ * it's all done.
  */
 import Layout from "../layouts/Layout.astro";
 import CoastBand from "../components/CoastBand.astro";
@@ -13,19 +13,81 @@ import FlagMark from "../components/FlagMark.astro";
 import DogFigure from "../components/DogFigure.astro";
 
 import townsData from "../data/towns.json";
-import type { Town } from "../lib/rules";
+import stateParksData from "../data/state-parks.json";
+import communityParksData from "../data/community-parks.json";
+import dogParksData from "../data/parks.json";
 import { isVerified } from "../lib/verification";
 
-const towns = townsData as Town[];
-const live = towns.filter(isVerified);
-const drafted = towns.length - live.length;
+const towns = townsData as { slug: string; name: string; verifiedDate: string | null; verifiedSource: string | null }[];
+const stateParks = stateParksData as { county: string; verifiedDate: string | null; verifiedSource: string | null }[];
+const communityParks = communityParksData as { county: string; verifiedDate: string | null; verifiedSource: string | null }[];
+const dogParks = dogParksData as { verifiedDate: string | null; verifiedSource: string | null }[];
 
-const contents = [
-  "Beach and boardwalk rules, by town",
-  "State parks, and the year-round exception",
-  "Where a dog is legal in July",
-  "Pet fees, in total, with weight limits",
-  "Dog parks — fenced, water, shade, surface",
+const count = (rows: { verifiedDate: string | null; verifiedSource: string | null }[]) => ({
+  total: rows.length,
+  live: rows.filter(isVerified).length,
+});
+
+const sections = [
+  {
+    href: "/dogs/",
+    n: "01",
+    title: "Dogs",
+    lede: "Where your dog is legal, on what date, and what it costs.",
+    detail:
+      "Five beach towns with five different sets of dates, the summer beaches that never close, pet fees, and every dog park on seven fields.",
+    contents: [
+      "Beach and boardwalk rules, by town",
+      "Where a dog is legal in July",
+      "Dog parks — fenced, water, shade, surface",
+      "Pet fees, weight limits, dog counts",
+      "Blue-green algae and pond safety",
+    ],
+    ...count(towns),
+    unit: "town pages",
+    figure: true,
+  },
+  {
+    href: "/parks/",
+    n: "02",
+    title: "State parks",
+    lede: "All 17, what's actually at each one, and the 2026 fees.",
+    detail:
+      "From Cape Henlopen's 5,451 acres to a Civil War fort you can only reach by ferry. Camping, trails, surf fishing, and where dogs are allowed.",
+    contents: [
+      "Facilities, park by park",
+      "2026 entry fees — the beach parks doubled",
+      "Camping, cabins and trails",
+      "Dog rules per park",
+    ],
+    ...count(stateParks),
+    unit: "parks",
+    figure: false,
+  },
+  {
+    href: "/parks/community/",
+    n: "03",
+    title: "Community parks",
+    lede: "County and town parks. Starting with: are there restrooms?",
+    detail:
+      "The questions you ask before loading the car — toilets, playground, drinking water, shade, and whether the dog can come.",
+    contents: [
+      "Restrooms — permanent, portable or seasonal",
+      "Playgrounds and accessibility",
+      "Water, shade and pavilions",
+      "Which ones contain a dog park",
+    ],
+    ...count(communityParks),
+    unit: "parks",
+    figure: false,
+  },
+];
+
+const facts = [
+  { n: "3", label: "counties" },
+  { n: String(stateParks.length), label: "state parks" },
+  { n: String(towns.length), label: "beach towns" },
+  { n: String(dogParks.length + communityParks.length), label: "local parks" },
 ];
 
 const schema = [
@@ -42,13 +104,14 @@ const schema = [
 ---
 
 <Layout
-  title="Delaware Field Guide — outdoor Delaware, verified and dated"
-  description="Where your dog is legal on the Delaware coast, on what dates, and what it costs. Every fact carries the date we checked it and who told us."
+  title="Delaware Field Guide — parks and dog rules, verified"
+  description="A reference for outdoor Delaware: dog rules by town, all 17 state parks, and the county parks. Every fact carries the date we checked it and who told us."
   schema={schema}
+  share={false}
 >
   <CoastBand />
 
-  <div class="wrap pt-9 pb-9">
+  <div class="wrap pt-9 pb-8">
     <p class="label m-0 flex items-center gap-2">
       <FlagMark class="w-[0.5rem] h-[0.62rem] shrink-0 text-ochre-deep" />
       A reference for outdoor Delaware
@@ -58,80 +121,97 @@ const schema = [
       Outdoor Delaware, checked and dated.
     </h1>
 
-    <p class="mt-6 mb-0 text-[1.2rem] leading-[1.5] max-w-[52ch]">
-      A reference for the Delaware coast and the parks inland. Every rule here
-      carries the date we last confirmed it and the name of whoever told us —
-      because the published answer is wrong more often than you'd think.
+    <p class="mt-6 mb-0 text-[1.2rem] leading-[1.5] max-w-[54ch]">
+      You can cross Delaware in two hours and still spend a decade finding
+      everything in it. Twenty-five miles of Atlantic coast, seventeen state
+      parks, bald cypress swamps in the south and creek valleys in the north —
+      and a bay that hosts the largest horseshoe crab spawning on earth.
+    </p>
+
+    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
+      This is the guide that tells you what's actually there today: which beach
+      your dog can walk on this week, what a park costs this season, and whether
+      there's a toilet when you arrive. Every fact carries the date we confirmed
+      it and who told us. <a href="/how-we-verify/">Here's how that works</a>.
     </p>
   </div>
 
-  <div class="wrap pb-10 grid gap-6 sm:gap-5 sm:grid-cols-2">
-    <a href="/dogs/" class="sign sign-action no-underline block p-5 sm:p-6 group relative">
-      <span class="stamp text-ochre-deep absolute top-5 right-5">01</span>
+  {/* Orientation for someone who has never been. */}
+  <div class="wrap pb-9">
+    <dl class="sign breakout grid grid-cols-2 sm:grid-cols-4 gap-0 divide-x-2 divide-y-2 sm:divide-y-0 divide-tide/30">
+      {
+        facts.map((f) => (
+          <div class="px-4 py-4">
+            <dt class="font-display text-[2.1rem] font-bold text-marsh leading-none">{f.n}</dt>
+            <dd class="m-0 mt-1.5 stamp text-ink-soft">{f.label}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
 
-      <p class="label m-0 flex items-center gap-2 text-tide">
-        <FlagMark class="w-[0.5rem] h-[0.62rem] shrink-0" />
-        Posted
-      </p>
+  <div class="wrap">
+    <div class="border-t-[3px] border-t-marsh"></div>
+    <div class="border-t border-t-tide mt-[3px]"></div>
+  </div>
 
-      <div class="flex items-end justify-between gap-3">
-        <p
-          class="font-display text-[2.1rem] font-bold mt-2 mb-0 tracking-[-0.03em] text-marsh underline decoration-ochre decoration-[3px] underline-offset-[0.14em] group-hover:decoration-marsh"
-        >
-          Dogs
-        </p>
-        <DogFigure pose="sit" class="w-[4.4rem] h-auto text-marsh shrink-0" />
-      </div>
+  <div class="wrap py-9 grid gap-6 sm:gap-5 sm:grid-cols-3">
+    {
+      sections.map((s) => (
+        <a href={s.href} class="sign sign-action no-underline block p-5 group relative">
+          <span class="stamp text-ochre-deep absolute top-5 right-5">{s.n}</span>
 
-      <p class="mt-2.5 mb-0 text-[0.95rem] leading-[1.5]">
-        Where your dog is legal, on what date, and what it costs.
-      </p>
+          <p class="label m-0 flex items-center gap-2">
+            <FlagMark class="w-[0.5rem] h-[0.62rem] shrink-0" />
+            Section {s.n}
+          </p>
 
-      <ul class="list-none p-0 mt-4 mb-0 border-t-2 border-marsh">
-        {
-          contents.map((item) => (
-            <li class="text-[0.86rem] leading-snug py-2 border-b border-tide/35 text-ink-soft">
-              {item}
-            </li>
-          ))
-        }
-      </ul>
+          <div class="flex items-end justify-between gap-3">
+            <p class="font-display text-[1.85rem] font-bold mt-2 mb-0 tracking-[-0.03em] text-marsh underline decoration-ochre decoration-[3px] underline-offset-[0.14em] group-hover:decoration-marsh">
+              {s.title}
+            </p>
+            {s.figure && <DogFigure pose="sit" class="w-[3.4rem] h-auto text-marsh shrink-0" />}
+          </div>
 
-      <p class="stamp text-ink-soft mt-4 mb-0">
-        {live.length} published{drafted > 0 ? ` · ${drafted} awaiting confirmation` : ""}
-      </p>
-    </a>
+          <p class="mt-2.5 mb-0 text-[0.98rem] leading-[1.45] font-medium">{s.lede}</p>
+          <p class="mt-2 mb-0 text-[0.9rem] leading-[1.5] text-ink-soft">{s.detail}</p>
 
-    {/* Plainly not yet. An empty placard is more honest than a promise. */}
-    <div class="border-2 border-dashed border-tide rounded-[2px] p-5 sm:p-6 relative">
-      <span class="stamp text-ochre-deep absolute top-5 right-5">02</span>
+          <ul class="list-none p-0 mt-4 mb-0 border-t-2 border-marsh">
+            {s.contents.map((item) => (
+              <li class="text-[0.84rem] leading-snug py-1.5 border-b border-tide/35 text-ink-soft">
+                {item}
+              </li>
+            ))}
+          </ul>
 
-      <p class="label m-0 text-tide">Not yet posted</p>
-
-      <p class="font-display text-[2.1rem] font-bold mt-2 mb-0 tracking-[-0.03em] text-tide">
-        Surf fishing
-      </p>
-
-      <p class="mt-2.5 mb-0 text-[0.95rem] leading-[1.5] text-ink-soft max-w-[38ch]">
-        Permits, seasons, and the drive-on beaches. Same coast and same
-        off-season as the dog section, and it shares the non-guarded-beach rules
-        that section already had to get right.
-      </p>
-
-      <p class="stamp text-ink-soft mt-4 mb-0">Eight more sections behind it</p>
-    </div>
+          <p class="stamp text-ink-soft mt-4 mb-0">
+            {s.live} of {s.total} {s.unit} confirmed
+          </p>
+        </a>
+      ))
+    }
   </div>
 
   <div class="wrap prose-field pb-6">
-    <h2>Why the dates matter more than the writing</h2>
+    <h2>Every fact here is dated</h2>
     <p class="max-w-[58ch]">
-      Rehoboth Beach moved its seasonal dog dates in January 2026. Most guides
-      you'll find still print the old ones, which means they'll tell you the
-      beach is closed to dogs when it isn't, and open when it isn't. Nobody
-      re-checks, because nobody wrote down where the fact came from in the first
-      place. <a href="/how-we-verify/">That's the thing this site does differently</a>,
-      and it's enforced by the build rather than by good intentions — a page we
-      haven't confirmed can't publish itself.
+      Delaware changes its rules more often than you'd expect. Rehoboth gave
+      dogs two extra weeks of beach in January. The state parks reset their fees
+      in March. Good news travels slowly, so we go and ask — the city, the park,
+      the property — and then we write down the date and who said it.
+    </p>
+    <p class="max-w-[58ch]">
+      It means you can see exactly how fresh an answer is before you drive
+      anywhere. And a page we haven't confirmed first-hand simply doesn't
+      publish itself: no stamp, no listing, no search.
+      <a href="/how-we-verify/">That's built into the site</a>, so what you're
+      reading has always been checked by a person.
+    </p>
+
+    <h2>Still to come</h2>
+    <p class="max-w-[58ch]">
+      Surf fishing permits, crabbing and the trails are next. One section at a
+      time, each one checked before it goes up.
     </p>
   </div>
 </Layout>

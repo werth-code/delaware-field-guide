@@ -51,7 +51,10 @@
   /* ---- Deep field — chrome, mastheads, status ------------------------- */
   --color-abyss: #0c2a27; /* deepest. masthead, footer, status field */
   --color-marsh: #14453d; /* primary green. borders, offset shadow, fills */
-  --color-tide: #1d6e64; /* mid teal. rules, secondary fills */
+  /* Mid teal. SURFACES ONLY — rules, borders, fills. Never text on a light
+     background: it is 5.6:1 on shell and 4.8:1 on sand, both under target.
+     For teal-ish text use --color-marsh (9.9:1 on shell). */
+  --color-tide: #1d6e64;
   --color-surf: #6fb3a8; /* light teal. accents on dark only */
   --color-foam: #a9d5cc; /* palest teal. hairlines on dark */
 

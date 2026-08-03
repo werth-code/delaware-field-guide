@@ -8,8 +8,28 @@
     "address": "2275 Pulaski Hwy, Newark, DE 19702",
     "acres": null,
     "blurb": "The county's flagship park. A large playground with adaptive swings and the fully fenced High5 adaptive sensory playground, shade sails and a shade pavilion, a skate bowl, a promenade, and the busiest public dog park in the state.",
-    "restrooms": { "present": null, "type": null, "seasonal": null, "note": "Not confirmed. Given the size of the playground and the farmers market this almost certainly has them, but we haven't checked and won't assert it." },
-    "facilities": { "playground": true, "water": null, "shade": true, "pavilion": true, "grills": null, "trails": true, "pavedPath": true, "sports": null, "fishing": null, "discGolf": null, "skate": true, "dogPark": true },
+    "restrooms": {
+      "present": true,
+      "type": null,
+      "seasonal": null,
+      "note": "Confirmed present. Whether they are a permanent block or portables, and whether they are open year-round, is still unchecked.",
+      "confirmedOn": "2026-08-02",
+      "confirmedBy": "Matthew Werth, in person"
+    },
+    "facilities": {
+      "playground": true,
+      "water": null,
+      "shade": true,
+      "pavilion": true,
+      "grills": null,
+      "trails": true,
+      "pavedPath": true,
+      "sports": null,
+      "fishing": null,
+      "discGolf": null,
+      "skate": true,
+      "dogPark": true
+    },
     "accessibility": "Adaptive swings and a fully fenced adaptive sensory playground. Paved promenade.",
     "dogParkSlug": "new-castle-county-bark-park",
     "hours": "07:00-20:00",
@@ -18,7 +38,12 @@
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["RESTROOMS — confirm they exist, whether they're seasonal, and the hours.", "Confirm drinking water.", "Get the county parks number.", "Confirm farmers market day and season."]
+    "outstanding": [
+      "Restrooms confirmed present — still need the type (permanent vs portable) and whether they are seasonal or year-round.",
+      "Confirm drinking water.",
+      "Get the county parks number.",
+      "Confirm farmers market day and season."
+    ]
   },
   {
     "slug": "carousel-park",
@@ -29,8 +54,26 @@
     "address": "Limestone Rd, Wilmington, DE 19808",
     "acres": null,
     "blurb": "Meadows, ponds and a lake off Limestone Road, with miles of walking trails and an unusual playground built from cement teepees, canoes, horses and climbing rocks. Also has an equestrian centre and an off-leash dog area that local reviews rate highly.",
-    "restrooms": { "present": null, "type": null, "seasonal": null, "note": "Not confirmed." },
-    "facilities": { "playground": true, "water": null, "shade": null, "pavilion": null, "grills": null, "trails": true, "pavedPath": null, "sports": null, "fishing": null, "discGolf": null, "skate": false, "dogPark": true },
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "Not confirmed."
+    },
+    "facilities": {
+      "playground": true,
+      "water": null,
+      "shade": null,
+      "pavilion": null,
+      "grills": null,
+      "trails": true,
+      "pavedPath": null,
+      "sports": null,
+      "fishing": null,
+      "discGolf": null,
+      "skate": false,
+      "dogPark": true
+    },
     "accessibility": null,
     "dogParkSlug": null,
     "hours": null,
@@ -39,7 +82,12 @@
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["RESTROOMS — confirm.", "⚑ The off-leash dog area here is NOT in our dog-park dataset. Visit it, run the seven fields, and add it — this is a real coverage gap.", "Get a street number for the address.", "Confirm hours."]
+    "outstanding": [
+      "RESTROOMS — confirm.",
+      "⚑ The off-leash dog area here is NOT in our dog-park dataset. Visit it, run the seven fields, and add it — this is a real coverage gap.",
+      "Get a street number for the address.",
+      "Confirm hours."
+    ]
   },
   {
     "slug": "rockwood-park",
@@ -50,8 +98,26 @@
     "address": "4651 Washington St Ext, Wilmington, DE 19809",
     "acres": null,
     "blurb": "A Gothic Revival mansion and its grounds, with gardens, lawns and walking paths. Hosts a farmers market. More formal than the county's other parks — this is a stroll rather than a hike.",
-    "restrooms": { "present": null, "type": null, "seasonal": null, "note": "Not confirmed. Mansion visitor facilities may be separate from park restrooms and may follow museum hours." },
-    "facilities": { "playground": null, "water": null, "shade": true, "pavilion": null, "grills": null, "trails": true, "pavedPath": null, "sports": false, "fishing": false, "discGolf": false, "skate": false, "dogPark": false },
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "Not confirmed. Mansion visitor facilities may be separate from park restrooms and may follow museum hours."
+    },
+    "facilities": {
+      "playground": null,
+      "water": null,
+      "shade": true,
+      "pavilion": null,
+      "grills": null,
+      "trails": true,
+      "pavedPath": null,
+      "sports": false,
+      "fishing": false,
+      "discGolf": false,
+      "skate": false,
+      "dogPark": false
+    },
     "accessibility": null,
     "dogParkSlug": null,
     "hours": null,
@@ -60,7 +126,11 @@
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["RESTROOMS — confirm, and whether they follow mansion hours rather than park hours.", "Confirm the address.", "Confirm whether dogs are allowed on the mansion grounds."]
+    "outstanding": [
+      "RESTROOMS — confirm, and whether they follow mansion hours rather than park hours.",
+      "Confirm the address.",
+      "Confirm whether dogs are allowed on the mansion grounds."
+    ]
   },
   {
     "slug": "banning-park",
@@ -71,17 +141,41 @@
     "address": "Middleboro Rd, Wilmington, DE 19804",
     "acres": null,
     "blurb": "A large county park south-west of Wilmington with ponds, ball fields and picnic areas. Other guides list a dog park here; we have not been able to confirm it exists as described.",
-    "restrooms": { "present": null, "type": null, "seasonal": null, "note": "Not confirmed." },
-    "facilities": { "playground": null, "water": null, "shade": null, "pavilion": true, "grills": null, "trails": true, "pavedPath": null, "sports": true, "fishing": true, "discGolf": null, "skate": false, "dogPark": null },
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "Not confirmed."
+    },
+    "facilities": {
+      "playground": null,
+      "water": null,
+      "shade": null,
+      "pavilion": true,
+      "grills": null,
+      "trails": true,
+      "pavedPath": null,
+      "sports": true,
+      "fishing": true,
+      "discGolf": null,
+      "skate": false,
+      "dogPark": null
+    },
     "accessibility": null,
     "dogParkSlug": "banning-regional-dog-park",
     "hours": null,
     "hoursNote": null,
     "phone": null,
-    "warnings": ["The dog park listed here by other guides is unconfirmed. Do not drive out for it on the strength of a listing."],
+    "warnings": [
+      "The dog park listed here by other guides is unconfirmed. Do not drive out for it on the strength of a listing."
+    ],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["RESTROOMS — confirm.", "CONFIRM WHETHER THE DOG PARK EXISTS. This is the same open question sitting in parks.json.", "Confirm the address and hours."]
+    "outstanding": [
+      "RESTROOMS — confirm.",
+      "CONFIRM WHETHER THE DOG PARK EXISTS. This is the same open question sitting in parks.json.",
+      "Confirm the address and hours."
+    ]
   },
   {
     "slug": "brandywine-springs-park",
@@ -92,8 +186,26 @@
     "address": "3300 Faulkland Rd, Wilmington, DE 19808",
     "acres": null,
     "blurb": "The site of a 19th-century resort and later an amusement park, now woodland and playing fields with interpretive markers where the rides used to be. Volunteers run archaeology days.",
-    "restrooms": { "present": null, "type": null, "seasonal": null, "note": "Not confirmed." },
-    "facilities": { "playground": true, "water": null, "shade": true, "pavilion": true, "grills": null, "trails": true, "pavedPath": null, "sports": true, "fishing": null, "discGolf": null, "skate": false, "dogPark": false },
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "Not confirmed."
+    },
+    "facilities": {
+      "playground": true,
+      "water": null,
+      "shade": true,
+      "pavilion": true,
+      "grills": null,
+      "trails": true,
+      "pavedPath": null,
+      "sports": true,
+      "fishing": null,
+      "discGolf": null,
+      "skate": false,
+      "dogPark": false
+    },
     "accessibility": null,
     "dogParkSlug": null,
     "hours": null,
@@ -102,7 +214,10 @@
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["RESTROOMS — confirm.", "Confirm hours and whether the historical site tours are seasonal."]
+    "outstanding": [
+      "RESTROOMS — confirm.",
+      "Confirm hours and whether the historical site tours are seasonal."
+    ]
   },
   {
     "slug": "iron-hill-park",
@@ -113,8 +228,26 @@
     "address": "1337 S Old Baltimore Pike, Newark, DE 19702",
     "acres": null,
     "blurb": "Woodland and trails on the highest ground in this part of the county, with a well-known disc golf course, a playground and a small fenced dog park.",
-    "restrooms": { "present": null, "type": null, "seasonal": null, "note": "Not confirmed." },
-    "facilities": { "playground": true, "water": null, "shade": true, "pavilion": null, "grills": null, "trails": true, "pavedPath": null, "sports": null, "fishing": null, "discGolf": true, "skate": false, "dogPark": true },
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "Not confirmed."
+    },
+    "facilities": {
+      "playground": true,
+      "water": null,
+      "shade": true,
+      "pavilion": null,
+      "grills": null,
+      "trails": true,
+      "pavedPath": null,
+      "sports": null,
+      "fishing": null,
+      "discGolf": true,
+      "skate": false,
+      "dogPark": true
+    },
     "accessibility": null,
     "dogParkSlug": "iron-hill-dog-park",
     "hours": "08:00-20:00",
@@ -123,7 +256,11 @@
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["RESTROOMS — confirm.", "Confirm drinking water.", "Confirm disc golf course access and whether it's free."]
+    "outstanding": [
+      "RESTROOMS — confirm.",
+      "Confirm drinking water.",
+      "Confirm disc golf course access and whether it's free."
+    ]
   },
   {
     "slug": "talley-day-park",
@@ -134,8 +271,26 @@
     "address": "1308 Foulk Rd, Wilmington, DE 19803",
     "acres": null,
     "blurb": "A neighbourhood park sharing a site with the Brandywine Hundred library. Covered pavilions, mature shade, a playground and one of the better-kept dog parks in the county.",
-    "restrooms": { "present": null, "type": null, "seasonal": null, "note": "Not confirmed. The adjacent library has public facilities during its opening hours, which may be the practical answer here." },
-    "facilities": { "playground": true, "water": true, "shade": true, "pavilion": true, "grills": null, "trails": true, "pavedPath": null, "sports": null, "fishing": false, "discGolf": false, "skate": false, "dogPark": true },
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "Not confirmed. The adjacent library has public facilities during its opening hours, which may be the practical answer here."
+    },
+    "facilities": {
+      "playground": true,
+      "water": true,
+      "shade": true,
+      "pavilion": true,
+      "grills": null,
+      "trails": true,
+      "pavedPath": null,
+      "sports": null,
+      "fishing": false,
+      "discGolf": false,
+      "skate": false,
+      "dogPark": true
+    },
     "accessibility": null,
     "dogParkSlug": "talley-day-dog-park",
     "hours": "06:00-18:00",
@@ -144,7 +299,10 @@
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["RESTROOMS — confirm, and confirm whether the library's are usable when the park is open but the library isn't.", "Confirm the water fountains are dog-fillable."]
+    "outstanding": [
+      "RESTROOMS — confirm, and confirm whether the library's are usable when the park is open but the library isn't.",
+      "Confirm the water fountains are dog-fillable."
+    ]
   },
   {
     "slug": "river-road-park",
@@ -155,8 +313,26 @@
     "address": "1226 Lodge Ln, Wilmington, DE 19809",
     "acres": null,
     "blurb": "A small riverside park with a fenced dog park. A large shade tree in the big-dog area was removed, so shade is now limited.",
-    "restrooms": { "present": null, "type": null, "seasonal": null, "note": "Not confirmed." },
-    "facilities": { "playground": null, "water": null, "shade": false, "pavilion": null, "grills": null, "trails": null, "pavedPath": null, "sports": null, "fishing": null, "discGolf": false, "skate": false, "dogPark": true },
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "Not confirmed."
+    },
+    "facilities": {
+      "playground": null,
+      "water": null,
+      "shade": false,
+      "pavilion": null,
+      "grills": null,
+      "trails": null,
+      "pavedPath": null,
+      "sports": null,
+      "fishing": null,
+      "discGolf": false,
+      "skate": false,
+      "dogPark": true
+    },
     "accessibility": null,
     "dogParkSlug": "river-road-dog-park",
     "hours": null,
@@ -165,9 +341,11 @@
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["RESTROOMS — confirm.", "HOURS — not published anywhere. Same gap as the dog-park record."]
+    "outstanding": [
+      "RESTROOMS — confirm.",
+      "HOURS — not published anywhere. Same gap as the dog-park record."
+    ]
   },
-
   {
     "slug": "brecknock-park",
     "name": "Brecknock Park",
@@ -177,8 +355,26 @@
     "address": "80 Old Camden Rd, Camden, DE 19934",
     "acres": 86,
     "blurb": "Eighty-six acres with the fullest facility list of any county park in Kent — sand volleyball, horseshoes, multiple trails, pavilions with grills, sports and multipurpose fields, a nature centre and a stage. Historic buildings on site.",
-    "restrooms": { "present": true, "type": "permanent", "seasonal": null, "note": "Public restrooms confirmed on the county's own listing. Season and hours still to check." },
-    "facilities": { "playground": true, "water": null, "shade": null, "pavilion": true, "grills": true, "trails": true, "pavedPath": null, "sports": true, "fishing": null, "discGolf": false, "skate": false, "dogPark": false },
+    "restrooms": {
+      "present": true,
+      "type": "permanent",
+      "seasonal": null,
+      "note": "Public restrooms confirmed on the county's own listing. Season and hours still to check."
+    },
+    "facilities": {
+      "playground": true,
+      "water": null,
+      "shade": null,
+      "pavilion": true,
+      "grills": true,
+      "trails": true,
+      "pavedPath": null,
+      "sports": true,
+      "fishing": null,
+      "discGolf": false,
+      "skate": false,
+      "dogPark": false
+    },
     "accessibility": null,
     "dogParkSlug": null,
     "hours": null,
@@ -187,7 +383,11 @@
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Confirm restroom season and hours — 'has restrooms' and 'restrooms open in February' are different facts.", "Confirm the address.", "Confirm pavilion booking and whether it costs."]
+    "outstanding": [
+      "Confirm restroom season and hours — 'has restrooms' and 'restrooms open in February' are different facts.",
+      "Confirm the address.",
+      "Confirm pavilion booking and whether it costs."
+    ]
   },
   {
     "slug": "tidbury-creek-park",
@@ -198,17 +398,41 @@
     "address": "Camden, DE 19934",
     "acres": null,
     "blurb": "Playground, open space and trails along Tidbury Creek, with a fenced dog park. The dog park is closed on Sundays, which is unusual and catches people out.",
-    "restrooms": { "present": null, "type": null, "seasonal": null, "note": "Not confirmed." },
-    "facilities": { "playground": true, "water": null, "shade": null, "pavilion": null, "grills": null, "trails": true, "pavedPath": null, "sports": null, "fishing": null, "discGolf": false, "skate": false, "dogPark": true },
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "Not confirmed."
+    },
+    "facilities": {
+      "playground": true,
+      "water": null,
+      "shade": null,
+      "pavilion": null,
+      "grills": null,
+      "trails": true,
+      "pavedPath": null,
+      "sports": null,
+      "fishing": null,
+      "discGolf": false,
+      "skate": false,
+      "dogPark": true
+    },
     "accessibility": null,
     "dogParkSlug": "tidbury-dog-park",
     "hours": "07:00-19:00",
     "hoursNote": "The dog park is CLOSED SUNDAYS. Confirm whether that applies to the whole park or only the dog run.",
     "phone": null,
-    "warnings": ["The dog park is closed on Sundays."],
+    "warnings": [
+      "The dog park is closed on Sundays."
+    ],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["RESTROOMS — confirm.", "Confirm whether the Sunday closure covers the whole park or just the dog run.", "Get a street address."]
+    "outstanding": [
+      "RESTROOMS — confirm.",
+      "Confirm whether the Sunday closure covers the whole park or just the dog run.",
+      "Get a street address."
+    ]
   },
   {
     "slug": "hunn-nature-park",
@@ -219,8 +443,26 @@
     "address": "Dover, DE 19901",
     "acres": null,
     "blurb": "A 1.5-mile nature trail, flat and easy, used mostly for walking and dog-walking. Nature preserve rather than a facilities park — come for the walk, not the amenities.",
-    "restrooms": { "present": null, "type": null, "seasonal": null, "note": "Not confirmed, and unlikely at a trail-only preserve. Plan accordingly." },
-    "facilities": { "playground": false, "water": null, "shade": true, "pavilion": null, "grills": false, "trails": true, "pavedPath": null, "sports": false, "fishing": null, "discGolf": false, "skate": false, "dogPark": false },
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "Not confirmed, and unlikely at a trail-only preserve. Plan accordingly."
+    },
+    "facilities": {
+      "playground": false,
+      "water": null,
+      "shade": true,
+      "pavilion": null,
+      "grills": false,
+      "trails": true,
+      "pavedPath": null,
+      "sports": false,
+      "fishing": null,
+      "discGolf": false,
+      "skate": false,
+      "dogPark": false
+    },
     "accessibility": "Trail described by the county as accessible for all skill levels. Surface not confirmed.",
     "dogParkSlug": null,
     "hours": null,
@@ -229,7 +471,11 @@
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["RESTROOMS — confirm whether there are any at all.", "Confirm the trail surface — 'accessible for all skill levels' is not the same as wheelchair accessible.", "Get a street address."]
+    "outstanding": [
+      "RESTROOMS — confirm whether there are any at all.",
+      "Confirm the trail surface — 'accessible for all skill levels' is not the same as wheelchair accessible.",
+      "Get a street address."
+    ]
   },
   {
     "slug": "big-oak-park",
@@ -240,8 +486,26 @@
     "address": "Smyrna, DE 19977",
     "acres": null,
     "blurb": "A Kent County park in the Smyrna area. Facilities not yet confirmed — this record exists so the gap is visible rather than hidden.",
-    "restrooms": { "present": null, "type": null, "seasonal": null, "note": "Not confirmed." },
-    "facilities": { "playground": null, "water": null, "shade": null, "pavilion": null, "grills": null, "trails": null, "pavedPath": null, "sports": null, "fishing": null, "discGolf": null, "skate": null, "dogPark": null },
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "Not confirmed."
+    },
+    "facilities": {
+      "playground": null,
+      "water": null,
+      "shade": null,
+      "pavilion": null,
+      "grills": null,
+      "trails": null,
+      "pavedPath": null,
+      "sports": null,
+      "fishing": null,
+      "discGolf": null,
+      "skate": null,
+      "dogPark": null
+    },
     "accessibility": null,
     "dogParkSlug": null,
     "hours": null,
@@ -250,7 +514,9 @@
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Everything. Call Kent County Parks and fill this record in, or drop it."]
+    "outstanding": [
+      "Everything. Call Kent County Parks and fill this record in, or drop it."
+    ]
   },
   {
     "slug": "browns-branch-park",
@@ -261,8 +527,26 @@
     "address": "Kent County, DE",
     "acres": null,
     "blurb": "A Kent County park. Facilities not yet confirmed.",
-    "restrooms": { "present": null, "type": null, "seasonal": null, "note": "Not confirmed." },
-    "facilities": { "playground": null, "water": null, "shade": null, "pavilion": null, "grills": null, "trails": null, "pavedPath": null, "sports": null, "fishing": null, "discGolf": null, "skate": null, "dogPark": null },
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "Not confirmed."
+    },
+    "facilities": {
+      "playground": null,
+      "water": null,
+      "shade": null,
+      "pavilion": null,
+      "grills": null,
+      "trails": null,
+      "pavedPath": null,
+      "sports": null,
+      "fishing": null,
+      "discGolf": null,
+      "skate": null,
+      "dogPark": null
+    },
     "accessibility": null,
     "dogParkSlug": null,
     "hours": null,
@@ -271,7 +555,9 @@
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Everything. Call Kent County Parks and fill this record in, or drop it."]
+    "outstanding": [
+      "Everything. Call Kent County Parks and fill this record in, or drop it."
+    ]
   },
   {
     "slug": "lebanon-landing",
@@ -282,8 +568,26 @@
     "address": "Kent County, DE",
     "acres": null,
     "blurb": "A Kent County landing on the St Jones River. Likely boat access rather than a facilities park, but unconfirmed.",
-    "restrooms": { "present": null, "type": null, "seasonal": null, "note": "Not confirmed." },
-    "facilities": { "playground": null, "water": null, "shade": null, "pavilion": null, "grills": null, "trails": null, "pavedPath": null, "sports": null, "fishing": null, "discGolf": null, "skate": null, "dogPark": null },
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "Not confirmed."
+    },
+    "facilities": {
+      "playground": null,
+      "water": null,
+      "shade": null,
+      "pavilion": null,
+      "grills": null,
+      "trails": null,
+      "pavedPath": null,
+      "sports": null,
+      "fishing": null,
+      "discGolf": null,
+      "skate": null,
+      "dogPark": null
+    },
     "accessibility": null,
     "dogParkSlug": null,
     "hours": null,
@@ -292,7 +596,9 @@
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Everything, including whether it's a boat launch rather than a park."]
+    "outstanding": [
+      "Everything, including whether it's a boat launch rather than a park."
+    ]
   },
   {
     "slug": "kesselring-park",
@@ -303,8 +609,26 @@
     "address": "Kent County, DE",
     "acres": null,
     "blurb": "A Kent County park. Facilities not yet confirmed.",
-    "restrooms": { "present": null, "type": null, "seasonal": null, "note": "Not confirmed." },
-    "facilities": { "playground": null, "water": null, "shade": null, "pavilion": null, "grills": null, "trails": null, "pavedPath": null, "sports": null, "fishing": null, "discGolf": null, "skate": null, "dogPark": null },
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "Not confirmed."
+    },
+    "facilities": {
+      "playground": null,
+      "water": null,
+      "shade": null,
+      "pavilion": null,
+      "grills": null,
+      "trails": null,
+      "pavedPath": null,
+      "sports": null,
+      "fishing": null,
+      "discGolf": null,
+      "skate": null,
+      "dogPark": null
+    },
     "accessibility": null,
     "dogParkSlug": null,
     "hours": null,
@@ -313,7 +637,9 @@
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Everything. Call Kent County Parks and fill this record in, or drop it."]
+    "outstanding": [
+      "Everything. Call Kent County Parks and fill this record in, or drop it."
+    ]
   },
   {
     "slug": "schutte-park",
@@ -324,16 +650,41 @@
     "address": "Dover, DE 19904",
     "acres": null,
     "blurb": "Dover's main recreation park: three tennis courts, a softball field, a multipurpose field, two basketball courts, a disc golf course, two pavilions, picnic areas, walking paths, fishing and playgrounds. Also a three-section dog park with a full agility course.",
-    "restrooms": { "present": null, "type": null, "seasonal": null, "note": "Not confirmed. A park with this many courts and fields would normally have them, but we haven't checked." },
-    "facilities": { "playground": true, "water": false, "shade": null, "pavilion": true, "grills": null, "trails": true, "pavedPath": null, "sports": true, "fishing": true, "discGolf": true, "skate": false, "dogPark": true },
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "Not confirmed. A park with this many courts and fields would normally have them, but we haven't checked."
+    },
+    "facilities": {
+      "playground": true,
+      "water": false,
+      "shade": null,
+      "pavilion": true,
+      "grills": null,
+      "trails": true,
+      "pavedPath": null,
+      "sports": true,
+      "fishing": true,
+      "discGolf": true,
+      "skate": false,
+      "dogPark": true
+    },
     "accessibility": null,
     "dogParkSlug": "schutte-dog-park",
     "hours": null,
     "hoursNote": "Not posted anywhere findable.",
     "phone": null,
-    "warnings": ["No hydration station in the dog park — bring water.", "Reviews report seasonal bee swarms when the grass goes uncut."],
+    "warnings": [
+      "No hydration station in the dog park — bring water.",
+      "Reviews report seasonal bee swarms when the grass goes uncut."
+    ],
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["RESTROOMS — confirm, this is a busy sports park.", "HOURS — not published.", "Get a street address."]
+    "outstanding": [
+      "RESTROOMS — confirm, this is a busy sports park.",
+      "HOURS — not published.",
+      "Get a street address."
+    ]
   }
 ]
