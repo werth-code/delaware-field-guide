@@ -243,14 +243,14 @@ most often missing here.
 
 ### Carousel Park
 
-- [ ] RESTROOMS — confirm.
+- [ ] Restrooms confirmed present — still need type (permanent vs portable) and whether they are seasonal.
 - [ ] ⚑ The off-leash dog area here is NOT in our dog-park dataset. Visit it, run the seven fields, and add it — this is a real coverage gap.
 - [ ] Get a street number for the address.
 - [ ] Confirm hours.
 
 ### Rockwood Park
 
-- [ ] RESTROOMS — confirm, and whether they follow mansion hours rather than park hours.
+- [ ] Restrooms confirmed present — establish whether they run on museum hours or park hours.
 - [ ] Confirm the address.
 - [ ] Confirm whether dogs are allowed on the mansion grounds.
 
@@ -273,7 +273,7 @@ most often missing here.
 
 ### Talley Day Park
 
-- [ ] RESTROOMS — confirm, and confirm whether the library's are usable when the park is open but the library isn't.
+- [ ] Restrooms confirmed present — establish whether they are the park’s own or the library’s, and whether they are usable when the library is shut.
 - [ ] Confirm the water fountains are dog-fillable.
 
 ### River Road Park

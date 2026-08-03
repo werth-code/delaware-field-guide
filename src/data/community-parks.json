@@ -55,10 +55,12 @@
     "acres": null,
     "blurb": "Meadows, ponds and a lake off Limestone Road, with miles of walking trails and an unusual playground built from cement teepees, canoes, horses and climbing rocks. Also has an equestrian centre and an off-leash dog area that local reviews rate highly.",
     "restrooms": {
-      "present": null,
+      "present": true,
       "type": null,
       "seasonal": null,
-      "note": "Not confirmed."
+      "note": "Confirmed present. Type and season still unchecked.",
+      "confirmedOn": "2026-08-02",
+      "confirmedBy": "Matthew Werth, in person"
     },
     "facilities": {
       "playground": true,
@@ -83,7 +85,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "RESTROOMS — confirm.",
+      "Restrooms confirmed present — still need type (permanent vs portable) and whether they are seasonal.",
       "⚑ The off-leash dog area here is NOT in our dog-park dataset. Visit it, run the seven fields, and add it — this is a real coverage gap.",
       "Get a street number for the address.",
       "Confirm hours."
@@ -99,10 +101,12 @@
     "acres": null,
     "blurb": "A Gothic Revival mansion and its grounds, with gardens, lawns and walking paths. Hosts a farmers market. More formal than the county's other parks — this is a stroll rather than a hike.",
     "restrooms": {
-      "present": null,
+      "present": true,
       "type": null,
       "seasonal": null,
-      "note": "Not confirmed. Mansion visitor facilities may be separate from park restrooms and may follow museum hours."
+      "note": "Confirmed present. Still to check: whether they follow the mansion’s museum hours rather than the park’s, which would leave the grounds without facilities outside opening times.",
+      "confirmedOn": "2026-08-02",
+      "confirmedBy": "Matthew Werth, in person"
     },
     "facilities": {
       "playground": null,
@@ -127,7 +131,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "RESTROOMS — confirm, and whether they follow mansion hours rather than park hours.",
+      "Restrooms confirmed present — establish whether they run on museum hours or park hours.",
       "Confirm the address.",
       "Confirm whether dogs are allowed on the mansion grounds."
     ]
@@ -272,10 +276,12 @@
     "acres": null,
     "blurb": "A neighbourhood park sharing a site with the Brandywine Hundred library. Covered pavilions, mature shade, a playground and one of the better-kept dog parks in the county.",
     "restrooms": {
-      "present": null,
+      "present": true,
       "type": null,
       "seasonal": null,
-      "note": "Not confirmed. The adjacent library has public facilities during its opening hours, which may be the practical answer here."
+      "note": "Confirmed present. Still to check: whether these are the park’s own facilities or the adjacent library’s — it matters, because the library keeps shorter hours than the park.",
+      "confirmedOn": "2026-08-02",
+      "confirmedBy": "Matthew Werth, in person"
     },
     "facilities": {
       "playground": true,
@@ -300,7 +306,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "RESTROOMS — confirm, and confirm whether the library's are usable when the park is open but the library isn't.",
+      "Restrooms confirmed present — establish whether they are the park’s own or the library’s, and whether they are usable when the library is shut.",
       "Confirm the water fountains are dog-fillable."
     ]
   },
