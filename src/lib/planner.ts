@@ -1,0 +1,231 @@
+/**
+ * The planner index.
+ *
+ * Flattens all five datasets into one shape the browser can match against.
+ * Built at build time; the client does simple comparisons over it.
+ *
+ * TWO DESIGN RULES, BOTH LOAD-BEARING
+ *
+ * 1. NO LANGUAGE MODEL TOUCHES A FACT. The matching is deterministic — dates,
+ *    flags, comparisons. A model that can phrase "dogs are allowed at Rehoboth
+ *    in July" is an existential risk to a site whose only asset is being right,
+ *    and a conversational surface hides the verification stamp that would
+ *    otherwise catch it. Free text is parsed into filters; the filters do the
+ *    work.
+ *
+ * 2. UNKNOWN IS NOT NO. Community park facilities are mostly unconfirmed —
+ *    14 of 16 have no water answer. A matcher that treats null as false would
+ *    return almost nothing and quietly assert a pile of facts we never checked.
+ *    So results come back in two buckets: confirmed matches, and ones that may
+ *    match but haven't been checked.
+ *
+ * Date rules are RESOLVED SERVER-SIDE into plain MM-DD ranges, per year, so the
+ * client never re-implements the floating-holiday maths. One source of truth
+ * for "is a dog legal on this date", shared with the town pages.
+ */
+import townsData from "../data/towns.json";
+import stateParksData from "../data/state-parks.json";
+import communityParksData from "../data/community-parks.json";
+import dogParksData from "../data/parks.json";
+import placesData from "../data/places.json";
+
+import { formatWindow, resolveRule, type Rule, type Status, type Town } from "./rules";
+import { isVerified } from "./verification";
+import type { StatePark } from "./state-parks";
+import type { CommunityPark } from "./community-parks";
+import type { Park as DogPark } from "./parks";
+
+export type Kind = "beach town" | "state park" | "community park" | "dog park" | "summer beach";
+
+/** Tri-state. `null` means unconfirmed and must never be shown as "no". */
+export type Tri = boolean | null;
+
+export interface Facilities {
+  restrooms: Tri;
+  playground: Tri;
+  water: Tri;
+  shade: Tri;
+  trails: Tri;
+  beach: Tri;
+  camping: Tri;
+  fenced: Tri;
+  free: Tri;
+  paved: Tri;
+  sports: Tri;
+  dogPark: Tri;
+}
+
+/** A dog rule window with its anchors already resolved for a given year. */
+export interface ResolvedWindow {
+  from: string;
+  to: string;
+  status: Status;
+  /** "before 9:30 am and after 5:30 pm", or null. */
+  hours: string | null;
+}
+
+export interface PlannerPlace {
+  id: string;
+  name: string;
+  href: string;
+  kind: Kind;
+  county: string;
+  town: string;
+  blurb: string;
+  verified: boolean;
+  f: Facilities;
+  /** Beach towns: resolved rule windows keyed by year. */
+  dogWindows?: Record<string, ResolvedWindow[]>;
+  /** Everywhere else: a flat answer, since the rule doesn't move with the date. */
+  dogs?: { allowed: "yes" | "hours" | "no" | null; note: string };
+}
+
+const EMPTY: Facilities = {
+  restrooms: null, playground: null, water: null, shade: null, trails: null, beach: null,
+  camping: null, fenced: null, free: null, paved: null, sports: null, dogPark: null,
+};
+
+/* Resolve for this year and next — a trip booked in December lands in the
+   following season, and the anchored windows shift between years. */
+const YEARS = [new Date().getFullYear(), new Date().getFullYear() + 1];
+
+function resolveWindows(rules: Rule[]): Record<string, ResolvedWindow[]> {
+  const out: Record<string, ResolvedWindow[]> = {};
+  for (const year of YEARS) {
+    out[String(year)] = rules
+      .filter((r) => r.area === "beach")
+      .map((r) => {
+        const { start, end } = resolveRule(r, year);
+        return { from: start, to: end, status: r.status, hours: formatWindow(r.timeWindow) };
+      });
+  }
+  return out;
+}
+
+export function buildIndex(): PlannerPlace[] {
+  const places: PlannerPlace[] = [];
+
+  for (const t of townsData as Town[]) {
+    places.push({
+      id: `town-${t.slug}`,
+      name: t.name,
+      href: `/dogs/${t.slug}/`,
+      kind: "beach town",
+      county: t.county,
+      town: t.name,
+      blurb: (t as any).profile?.blurb ?? t.answer,
+      verified: isVerified(t),
+      f: { ...EMPTY, beach: true, restrooms: null, free: null },
+      dogWindows: resolveWindows(t.rules),
+    });
+  }
+
+  for (const p of stateParksData as StatePark[]) {
+    places.push({
+      id: `sp-${p.slug}`,
+      name: p.name,
+      href: `/parks/${p.slug}/`,
+      kind: "state park",
+      county: p.county,
+      town: p.town,
+      blurb: p.blurb,
+      verified: isVerified(p),
+      f: {
+        ...EMPTY,
+        beach: p.features.beach,
+        camping: p.features.camping,
+        trails: p.features.trails,
+        // Entry is charged at every fee-banded park, so a known band means not free.
+        free: p.feeBand === null ? null : false,
+      },
+      dogs: { allowed: "yes", note: p.dogs.summary },
+    });
+  }
+
+  for (const p of communityParksData as CommunityPark[]) {
+    places.push({
+      id: `cp-${p.slug}`,
+      name: p.name,
+      href: `/parks/community/${p.slug}/`,
+      kind: "community park",
+      county: p.county,
+      town: p.town,
+      blurb: p.blurb,
+      verified: isVerified(p),
+      f: {
+        ...EMPTY,
+        restrooms: p.restrooms.present,
+        playground: p.facilities.playground,
+        water: p.facilities.water,
+        shade: p.facilities.shade,
+        trails: p.facilities.trails,
+        paved: p.facilities.pavedPath,
+        sports: p.facilities.sports,
+        dogPark: p.facilities.dogPark,
+        free: true,
+      },
+      dogs: {
+        allowed: "yes",
+        note: p.facilities.dogPark === true ? "Leashed, and there's a dog park here." : "Leashed.",
+      },
+    });
+  }
+
+  for (const p of dogParksData as DogPark[]) {
+    places.push({
+      id: `dp-${p.slug}`,
+      name: p.name,
+      href: `/dogs/dog-parks/${p.slug}/`,
+      kind: "dog park",
+      county: p.county,
+      town: p.address.split(",")[1]?.trim() ?? p.county,
+      blurb: p.notes ?? "",
+      verified: isVerified(p),
+      f: {
+        ...EMPTY,
+        water: p.water,
+        shade: p.shade === null ? null : p.shade !== "minimal",
+        fenced: p.fenced,
+        free: p.fee === null ? null : p.fee === 0,
+        dogPark: true,
+      },
+      dogs: { allowed: "yes", note: p.fenced === false ? "Off-leash but NOT fenced." : "Off-leash." },
+    });
+  }
+
+  for (const p of placesData as any[]) {
+    if (p.href?.startsWith("/dogs/") && p.href !== "/dogs/state-parks/") continue; // town dupes
+    places.push({
+      id: `pl-${p.slug}`,
+      name: p.name,
+      href: p.href ?? "/dogs/summer/",
+      kind: "summer beach",
+      county: p.county,
+      town: p.county,
+      blurb: p.headline,
+      verified: isVerified(p),
+      f: { ...EMPTY, beach: true },
+      dogs: {
+        allowed: p.openInSummer === "yes" ? "yes" : "hours",
+        note: p.detail.slice(0, 160),
+      },
+    });
+  }
+
+  return places;
+}
+
+/** Facility labels, in the words a person would use. */
+export const NEED_LABELS: [keyof Facilities, string][] = [
+  ["restrooms", "Restrooms"],
+  ["playground", "Playground"],
+  ["water", "Drinking water"],
+  ["shade", "Shade"],
+  ["trails", "Trails to walk"],
+  ["beach", "A beach"],
+  ["camping", "Camping"],
+  ["fenced", "Fenced dog area"],
+  ["free", "Free to get in"],
+  ["paved", "Paved paths"],
+  ["sports", "Courts or fields"],
+];

@@ -35,6 +35,11 @@ const unverified = [
   ...(parks.some(confirmed) ? [] : ['/dogs/dog-parks/']),
   ...(lodging.some((l) => l.petFee?.amount !== null) ? [] : ['/dogs/pet-fees/']),
   ...(places.some(confirmed) ? [] : ['/dogs/summer/']),
+  // The planner can only recommend what's been confirmed, so it stays out of
+  // search until something, anywhere, has been.
+  ...([...towns, ...parks, ...stateParks, ...communityParks, ...places].some(confirmed)
+    ? []
+    : ['/plan/']),
   ...(confirmed(placeOf('state-park-surf-fishing-beaches') ?? {}) ? [] : ['/dogs/state-parks/']),
 ];
 

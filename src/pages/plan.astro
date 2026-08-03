@@ -1,0 +1,413 @@
+---
+/**
+ * The planner.
+ *
+ * "I'm here on Saturday with a dog and two kids and I need a toilet" — answered
+ * against the actual data rather than a page of prose.
+ *
+ * WHY THERE IS NO LANGUAGE MODEL BEHIND THIS
+ * A chatbot that can phrase a sentence can phrase a wrong one, and "dogs are
+ * allowed at Rehoboth in July" said conversationally, away from the
+ * verification stamp, would undo the whole site. So the free-text box parses
+ * words into filters and the filters do the work. Every fact in a result comes
+ * out of the same JSON the pages render from, and every result links back to
+ * the page where its provenance lives.
+ *
+ * UNKNOWN IS A RESULT, NOT A REJECTION
+ * Most community-park facilities are unconfirmed. Treating null as "no" would
+ * return almost nothing and silently assert facts we never checked. So answers
+ * come back in two groups — confirmed, and not-yet-checked — and the second
+ * group is a feature: it's the call list, surfaced to the person who might
+ * actually go and look.
+ *
+ * Works with JavaScript off: the full list renders server-side and the form
+ * degrades to a plain list of everything.
+ */
+import Layout from "../layouts/Layout.astro";
+import FlagIcon from "../components/FlagIcon.astro";
+
+import { NEED_LABELS, buildIndex } from "../lib/planner";
+import { isVerified } from "../lib/verification";
+
+const index = buildIndex();
+const anyVerified = index.some((p) => p.verified);
+
+// Same gate as everywhere else: this can't be indexed while it would only ever
+// recommend unconfirmed places.
+const pageGate = {
+  verifiedDate: anyVerified ? "confirmed" : null,
+  verifiedSource: anyVerified ? "confirmed" : null,
+};
+
+const counties = ["New Castle", "Kent", "Sussex"];
+const kinds = ["beach town", "state park", "community park", "dog park", "summer beach"];
+---
+
+<Layout
+  title="Plan a day out in Delaware — parks, beaches and dog rules"
+  description="Tell it who's coming, when, and what you need. It checks the dog rules for that date and matches parks and beaches on restrooms, playgrounds, shade and more."
+  robots={pageGate.verifiedDate ? undefined : "noindex, nofollow"}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">Planner</p>
+    <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[14ch] text-marsh">
+      What should we do today?
+    </h1>
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
+      Tell it who's coming and what you need. It checks the dog rules for your
+      actual date and matches everything we've got on facilities — then shows you
+      what's confirmed and what still needs checking.
+    </p>
+  </div>
+
+  <div class="wrap pb-4">
+    <form id="planner" class="sign breakout p-4 sm:p-6" novalidate>
+      {/* Free text. Parsed into the controls below, client-side. */}
+      <label for="freetext" class="label">Say it in your own words</label>
+      <input
+        id="freetext"
+        type="text"
+        autocomplete="off"
+        placeholder="saturday with the dog and kids near rehoboth, need a toilet"
+        class="sign-quiet w-full mt-1.5 px-3 py-3 text-[1rem] bg-shell text-ink min-h-[48px]"
+      />
+      <p id="parsed" class="stamp text-ink-soft mt-2 mb-0" aria-live="polite"></p>
+
+      <div class="grid sm:grid-cols-2 gap-5 mt-6 pt-6 border-t-2 border-marsh">
+        <div class="grid gap-1.5 content-start">
+          <label for="when" class="label">When</label>
+          <input
+            id="when"
+            type="date"
+            class="sign-quiet px-3 py-2.5 text-[0.95rem] font-mono bg-shell text-ink min-h-[44px]"
+          />
+        </div>
+
+        <div class="grid gap-1.5 content-start">
+          <label for="county" class="label">Where</label>
+          <select
+            id="county"
+            class="sign-quiet px-3 py-2.5 text-[0.95rem] bg-shell text-ink min-h-[44px]"
+          >
+            <option value="">Anywhere in Delaware</option>
+            {counties.map((c) => <option value={c}>{c} County</option>)}
+          </select>
+        </div>
+      </div>
+
+      <fieldset class="border-0 p-0 m-0 mt-5">
+        <legend class="label p-0 mb-2">Who's coming</legend>
+        <div class="flex flex-wrap gap-2">
+          {
+            [
+              ["dog", "A dog"],
+              ["kids", "Kids"],
+            ].map(([v, l]) => (
+              <label class="tap sign-quiet px-3.5 gap-2 cursor-pointer text-[0.9rem] has-[:checked]:bg-marsh has-[:checked]:text-cream has-[:checked]:border-marsh">
+                <input type="checkbox" name="who" value={v} class="w-[1.05rem] h-[1.05rem] accent-[var(--color-marsh)]" />
+                {l}
+              </label>
+            ))
+          }
+        </div>
+      </fieldset>
+
+      <fieldset class="border-0 p-0 m-0 mt-5">
+        <legend class="label p-0 mb-2">What you need</legend>
+        <div class="flex flex-wrap gap-2">
+          {
+            NEED_LABELS.map(([v, l]) => (
+              <label class="tap sign-quiet px-3.5 gap-2 cursor-pointer text-[0.9rem] has-[:checked]:bg-marsh has-[:checked]:text-cream has-[:checked]:border-marsh">
+                <input type="checkbox" name="need" value={v} class="w-[1.05rem] h-[1.05rem] accent-[var(--color-marsh)]" />
+                {l}
+              </label>
+            ))
+          }
+        </div>
+      </fieldset>
+
+      <div class="flex flex-wrap gap-3 mt-6">
+        <button
+          type="button"
+          id="reset"
+          class="tap sign-quiet px-4 font-mono text-[0.72rem] font-medium uppercase tracking-[0.09em] text-marsh cursor-pointer"
+        >
+          Clear
+        </button>
+      </div>
+    </form>
+  </div>
+
+  {/* Results. Rendered by script; the noscript list below is the fallback. */}
+  <div class="wrap pb-4">
+    <div id="results" hidden></div>
+
+    <noscript>
+      <div class="sign px-4 sm:px-5 py-4 my-6">
+        <p class="label m-0">Everything we have</p>
+        <p class="mt-2 mb-0 text-[0.93rem] max-w-[56ch]">
+          The planner needs JavaScript to match on your date. Here's the full
+          list instead — every place is on its own page with the same facts.
+        </p>
+      </div>
+      <ul class="list-none p-0 m-0 space-y-2">
+        {
+          index.map((p) => (
+            <li class="sign px-4 py-3">
+              <a href={p.href} class="font-display text-[1.05rem] font-bold text-marsh">{p.name}</a>
+              <span class="stamp text-ink-soft"> — {p.kind}, {p.county} County</span>
+            </li>
+          ))
+        }
+      </ul>
+    </noscript>
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    <h2>How it decides</h2>
+    <p class="max-w-[58ch]">
+      Dog rules are checked against the real date you pick, using the same rule
+      windows the town pages publish — including the ones that move with
+      Memorial Day and Labor Day. Everything else is matched on facilities we've
+      recorded.
+    </p>
+    <p class="max-w-[58ch]">
+      <strong>Nothing here is generated.</strong> Every fact in a result comes
+      from the same records the pages render from, and every result links back to
+      the page where you can see who confirmed it and when. Where we haven't
+      checked something, it says so instead of guessing —
+      <a href="/how-we-verify/">that's the whole method</a>.
+    </p>
+  </div>
+</Layout>
+
+<script define:vars={{ places: index, needLabels: NEED_LABELS }} is:inline>
+  (() => {
+    const form = document.getElementById("planner");
+    if (!form) return;
+
+    const $ = (id) => document.getElementById(id);
+    const whenEl = $("when");
+    const countyEl = $("county");
+    const freeEl = $("freetext");
+    const parsedEl = $("parsed");
+    const resultsEl = $("results");
+
+    const ord = (mmdd) => { const [m, d] = mmdd.split("-").map(Number); return m * 100 + d; };
+    const iso = (dt) => `${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,"0")}-${String(dt.getDate()).padStart(2,"0")}`;
+    whenEl.value = iso(new Date());
+
+    /* ---- dog legality on a date, from the server-resolved windows -------- */
+    function dogStatus(place, date) {
+      if (place.dogWindows) {
+        const year = String(date.getFullYear());
+        const wins = place.dogWindows[year] || Object.values(place.dogWindows)[0];
+        const t = (date.getMonth() + 1) * 100 + date.getDate();
+        for (const w of wins) {
+          const a = ord(w.from), b = ord(w.to);
+          const hit = a <= b ? t >= a && t <= b : t >= a || t <= b;
+          if (hit) {
+            if (w.status === "prohibited") return { ok: false, why: "Closed to dogs on this date" };
+            if (w.status === "restricted")
+              return { ok: true, why: w.hours ? `Dogs OK ${w.hours}` : "Dogs OK, with limits" };
+            return { ok: true, why: "Dogs OK all day" };
+          }
+        }
+        return { ok: null, why: "Dog rule not confirmed for this date" };
+      }
+      if (!place.dogs) return { ok: null, why: "Dog rule not confirmed" };
+      if (place.dogs.allowed === "no") return { ok: false, why: "No dogs" };
+      if (place.dogs.allowed === null) return { ok: null, why: "Dog rule not confirmed" };
+      if (place.dogs.allowed === "hours") return { ok: true, why: "Dogs OK, with limits", detail: place.dogs.note };
+      return { ok: true, why: "Dogs welcome", detail: place.dogs.note };
+    }
+
+    /* ---- free text → filters. Keywords, not a model. -------------------- */
+    const NEED_WORDS = {
+      restrooms: ["toilet","toilets","restroom","restrooms","bathroom","bathrooms","loo","wc"],
+      playground: ["playground","play","swings","slide"],
+      water: ["water","fountain","drink","drinking"],
+      shade: ["shade","shady","hot","sun"],
+      trails: ["trail","trails","walk","walking","hike","hiking"],
+      beach: ["beach","sand","ocean","surf","swim","swimming"],
+      camping: ["camp","camping","campground","tent","rv"],
+      fenced: ["fenced","fence","enclosed","off-leash","offleash"],
+      free: ["free","cheap","no fee","budget"],
+      paved: ["paved","stroller","wheelchair","accessible","pram"],
+      sports: ["court","courts","field","fields","basketball","tennis","ball"],
+    };
+    const DAYS = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
+
+    function parseText(raw) {
+      const s = raw.toLowerCase();
+      const found = { needs: [], who: [], county: null, date: null, words: [] };
+
+      for (const [key, words] of Object.entries(NEED_WORDS))
+        if (words.some((w) => s.includes(w))) { found.needs.push(key); found.words.push(key); }
+
+      if (/\bdogs?\b|\bpup\b|\bpuppy\b/.test(s)) { found.who.push("dog"); found.words.push("a dog"); }
+      if (/\bkids?\b|\bchildren\b|\btoddler\b|\bfamily\b/.test(s)) { found.who.push("kids"); found.words.push("kids"); }
+
+      for (const c of ["new castle","kent","sussex"])
+        if (s.includes(c)) { found.county = c.replace(/\b\w/g, (m) => m.toUpperCase()); found.words.push(found.county + " County"); }
+
+      /* Town names imply their county. People type "rehoboth", not "Rehoboth
+         Beach", so match on the distinctive part too — longest needle first so
+         "Fenwick Island" wins over "Fenwick", and word-bounded so "Bear"
+         doesn't fire on "bear left at the lights". */
+      if (!found.county) {
+        const needles = [];
+        for (const p of places) {
+          if (!p.town) continue;
+          const full = p.town.toLowerCase();
+          needles.push({ n: full, county: p.county, town: p.town });
+          const short = full.replace(/\s+(beach|island|city)$/, "");
+          if (short !== full && short.length > 3) needles.push({ n: short, county: p.county, town: p.town });
+        }
+        needles.sort((a, b) => b.n.length - a.n.length);
+        for (const { n, county, town } of needles) {
+          if (new RegExp(`\\b${n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`).test(s)) {
+            found.county = county;
+            found.words.push("near " + town);
+            break;
+          }
+        }
+      }
+
+      const today = new Date();
+      if (s.includes("tomorrow")) {
+        const d = new Date(today); d.setDate(d.getDate() + 1); found.date = d;
+      } else {
+        const di = DAYS.findIndex((d) => s.includes(d));
+        if (di >= 0) {
+          const d = new Date(today);
+          d.setDate(d.getDate() + ((di - d.getDay() + 7) % 7 || 7));
+          found.date = d;
+          found.words.push(DAYS[di].replace(/^\w/, (m) => m.toUpperCase()));
+        }
+      }
+      return found;
+    }
+
+    /* ---- matching -------------------------------------------------------- */
+    function run() {
+      const date = whenEl.value ? new Date(whenEl.value + "T12:00:00") : new Date();
+      const county = countyEl.value;
+      const who = [...form.querySelectorAll('input[name=who]:checked')].map((i) => i.value);
+      const needs = [...form.querySelectorAll('input[name=need]:checked')].map((i) => i.value);
+      const wantsDog = who.includes("dog");
+      const wantsKids = who.includes("kids");
+
+      const confirmed = [], unchecked = [], excluded = [];
+
+      for (const p of places) {
+        if (county && p.county !== county) continue;
+
+        const reasons = [], gaps = []; let note = "";
+        const dog = wantsDog ? dogStatus(p, date) : null;
+        if (dog && dog.ok === false) { excluded.push({ p, why: dog.why }); continue; }
+        if (dog && dog.ok === true) { reasons.push(dog.why); if (dog.detail) note = dog.detail; }
+        if (dog && dog.ok === null) gaps.push(dog.why);
+
+        // Kids: a playground is a strong signal, restrooms nearly as much.
+        const effectiveNeeds = [...needs];
+        if (wantsKids && !effectiveNeeds.includes("playground")) effectiveNeeds.push("playground");
+
+        let hardFail = false;
+        for (const n of effectiveNeeds) {
+          const v = p.f[n];
+          const label = (needLabels.find(([k]) => k === n) || [n, n])[1];
+          if (v === true) reasons.push(label);
+          else if (v === false) { hardFail = true; excluded.push({ p, why: `No ${label.toLowerCase()}` }); break; }
+          else gaps.push(label + " not checked");
+        }
+        if (hardFail) continue;
+
+        const score = reasons.length * 2 - gaps.length + (p.verified ? 3 : 0);
+        const row = { p, reasons, gaps, score, note };
+        if (gaps.length === 0 && (reasons.length > 0 || effectiveNeeds.length === 0)) confirmed.push(row);
+        else unchecked.push(row);
+      }
+
+      confirmed.sort((a, b) => b.score - a.score);
+      unchecked.sort((a, b) => b.score - a.score);
+      render(confirmed, unchecked, excluded, { date, needs: needs.length + (wantsKids ? 1 : 0) });
+    }
+
+    const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+
+    function card(row, dim) {
+      const { p, reasons, gaps, note } = row;
+      return `<li class="sign px-4 py-3.5">
+        <div class="flex items-start justify-between gap-3">
+          <p class="m-0"><a href="${p.href}" class="font-display text-[1.08rem] font-bold text-marsh">${esc(p.name)}</a>
+          <span class="stamp text-ink-soft block mt-0.5">${esc(p.kind)} · ${esc(p.county)} County</span></p>
+          ${p.verified ? '<span class="stamp text-flag-green-bearing shrink-0">verified</span>' : '<span class="stamp text-ink-soft shrink-0">unconfirmed</span>'}
+        </div>
+        ${reasons.length ? `<ul class="list-none p-0 m-0 mt-2.5 flex flex-wrap gap-1.5">${reasons.map((r) => `<li class="sign-quiet px-2 py-0.5 stamp text-[0.68rem] text-marsh">${esc(r)}</li>`).join("")}</ul>` : ""}
+        ${note ? `<p class="mt-2 mb-0 text-[0.86rem] leading-snug">${esc(note)}</p>` : ""}
+        ${gaps.length ? `<p class="mt-2 mb-0 text-[0.84rem] leading-snug text-ink-soft">Not checked: ${gaps.map(esc).join(", ")}</p>` : ""}
+      </li>`;
+    }
+
+    function render(confirmed, unchecked, excluded, ctx) {
+      const total = confirmed.length + unchecked.length;
+      let html = `<div class="flex items-baseline justify-between gap-4 mt-2 mb-4">
+        <p class="label m-0">${total} match${total === 1 ? "" : "es"}</p>
+        <p class="stamp text-ink-soft m-0">${excluded.length} ruled out</p>
+      </div>`;
+
+      if (confirmed.length) {
+        html += `<p class="label mb-2">Confirmed to match</p>
+          <ul class="list-none p-0 m-0 space-y-2.5 mb-7">${confirmed.slice(0, 12).map((r) => card(r)).join("")}</ul>`;
+      }
+
+      if (unchecked.length) {
+        html += `<p class="label mb-1">Might match — we haven't checked</p>
+          <p class="text-[0.88rem] text-ink-soft mt-0 mb-2.5 max-w-[54ch]">These aren't ruled out. We just don't have the answer yet, and we'd rather say so than guess.</p>
+          <ul class="list-none p-0 m-0 space-y-2.5 mb-7">${unchecked.slice(0, 12).map((r) => card(r)).join("")}</ul>`;
+      }
+
+      if (!total) {
+        html += `<div class="sign px-4 py-5">
+          <p class="label m-0">Nothing matches all of that</p>
+          <p class="mt-2 mb-0 text-[0.95rem] max-w-[54ch]">Try removing a requirement — ${ctx.needs > 1 ? "asking for several things at once narrows it fast" : "or widening the area"}.</p>
+        </div>`;
+      }
+
+      if (excluded.length) {
+        html += `<details class="sign px-4 py-3"><summary class="label cursor-pointer">Why ${excluded.length} were ruled out</summary>
+          <ul class="list-none p-0 m-0 mt-3 space-y-1.5">${excluded.slice(0, 20).map((e) => `<li class="text-[0.86rem] leading-snug"><a href="${e.p.href}">${esc(e.p.name)}</a> <span class="text-ink-soft">— ${esc(e.why)}</span></li>`).join("")}</ul></details>`;
+      }
+
+      resultsEl.innerHTML = html;
+      resultsEl.hidden = false;
+    }
+
+    /* ---- wiring ---------------------------------------------------------- */
+    let t;
+    freeEl.addEventListener("input", () => {
+      clearTimeout(t);
+      t = setTimeout(() => {
+        const f = parseText(freeEl.value);
+        for (const el of form.querySelectorAll('input[name=need]')) el.checked = f.needs.includes(el.value);
+        for (const el of form.querySelectorAll('input[name=who]')) el.checked = f.who.includes(el.value);
+        countyEl.value = f.county || "";
+        if (f.date) whenEl.value = iso(f.date);
+        parsedEl.textContent = f.words.length ? "Reading that as: " + f.words.join(" · ") : "";
+        run();
+      }, 220);
+    });
+
+    form.addEventListener("change", run);
+    document.getElementById("reset").addEventListener("click", () => {
+      form.reset();
+      freeEl.value = "";
+      parsedEl.textContent = "";
+      whenEl.value = iso(new Date());
+      run();
+    });
+
+    run();
+  })();
+</script>

@@ -23,7 +23,16 @@ const current = sectionFor(pathname);
       </span>
     </a>
 
-    <nav aria-label="Sections" class="flex gap-4 sm:gap-5">
+    <nav aria-label="Sections" class="flex gap-4 sm:gap-5 items-center">
+      {/* The planner spans every section, so it sits outside the list. */}
+      <a
+        href="/plan/"
+        class={`tap label no-underline ${pathname === "/plan/" ? "text-cream" : "text-cream-soft hover:text-cream"}`}
+        aria-current={pathname === "/plan/" ? "page" : undefined}
+        style={pathname === "/plan/" ? "box-shadow: inset 0 -3px 0 var(--color-ochre);" : ""}
+      >
+        Plan
+      </a>
       {
         SECTIONS.map((s) => {
           const here = current?.slug === s.slug;
