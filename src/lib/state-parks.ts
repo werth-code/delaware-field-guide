@@ -107,3 +107,37 @@ export function completeness(park: StatePark): { known: number; total: number } 
 }
 
 export const COUNTY_ORDER: County[] = ["Sussex", "Kent", "New Castle"];
+
+
+/* ----------------------------------------------------------------- asks -- */
+
+/**
+ * Reader-facing questions for the report form, DERIVED FROM THE DATA.
+ *
+ * Never from `outstanding` — those are written for whoever makes the phone
+ * calls ("PRIORITY: get the admission price") and putting that in front of a
+ * visitor asks them to care about our workflow. They want the answer too.
+ * Deriving from nulls also means a question disappears the moment it's
+ * answered, with nobody having to remember to delete it.
+ */
+const PARK_ASKS: [keyof StateParkFeatures, string][] = [
+  ["cabins", "Are there cabins?"],
+  ["boatLaunch", "Is there a boat launch?"],
+  ["camping", "Can you camp?"],
+  ["pier", "Is there a pier?"],
+  ["trails", "Are there trails?"],
+  ["surfFishing", "Can you surf fish?"],
+  ["beach", "Is there a beach?"],
+  ["guardedSwimming", "Are there lifeguards?"],
+];
+
+/** Four at most. A wall of questions reads as a survey and gets nothing back. */
+export function asksForStatePark(p: StatePark): string[] {
+  const out: string[] = [];
+  if (!p.hours) out.push("What are the hours?");
+  if (!p.phone) out.push("What's the park office number?");
+  for (const [k, q] of PARK_ASKS) {
+    if (p.features[k] === null || p.features[k] === undefined) out.push(q);
+  }
+  return out.slice(0, 4);
+}

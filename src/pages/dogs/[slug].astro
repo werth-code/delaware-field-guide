@@ -44,6 +44,15 @@ export const getStaticPaths = (() => {
 
 const { town } = Astro.props as { town: Town };
 
+/* What a dog owner standing on the boardwalk would actually ask. Derived, so
+   a question stops appearing once the field is filled in. */
+const asks = [
+  !town.phone ? "What's the town's number?" : null,
+  "Is the rule signed on the beach?",
+  "Are dogs allowed on the boardwalk?",
+  "Is it enforced off-season?",
+].filter(Boolean) as string[];
+
 // Build-time gate: the answer is the format. Fail the build, not the reader.
 assertAnswerLength(town.slug, town.answer);
 
@@ -289,7 +298,7 @@ const schema = publishable ? [articleSchema, faqSchema] : [];
       <h2>Where it is</h2>
       <MapEmbed name={`${town.name} public beach`} town={town.name} address={null} />
 
-      <ReportBox subject={town.name} path={`/dogs/${town.slug}/`} gaps={town.outstanding ?? []} />
+      <ReportBox subject={town.name} path={`/dogs/${town.slug}/`} asks={asks} />
 
       <h2>The other towns</h2>
       <p class="text-[0.95rem] text-ink-soft">

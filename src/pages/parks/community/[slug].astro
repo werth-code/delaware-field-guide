@@ -216,22 +216,14 @@ const description = base.length < 118 ? `${base} Run by ${park.operator}.` : bas
         )
       }
 
-      {
-        park.outstanding && park.outstanding.length > 0 && !verified && (
-          <>
-            <h2>Still to confirm</h2>
-            <p class="text-[0.95rem] text-ink-soft max-w-[58ch]">
-              Listed openly rather than hidden, because a gap you can see is
-              worth more than a gap you can't.
-            </p>
-            <ul>
-              {park.outstanding.map((o) => (
-                <li>{o}</li>
-              ))}
-            </ul>
-          </>
-        )
-      }
+      {/* The internal to-do list used to render here as "Still to confirm".
+          It was written for whoever makes the phone calls — "PRIORITY: get the
+          admission price" — and putting that in front of a visitor asks them
+          to care about our workflow. They don't; they wanted the answer too.
+          It lives in CALL-SHEET.md now, and the reader gets the same gaps as
+          tappable questions in the report box below. Every unconfirmed field
+          still reads "Not confirmed" where it sits, which is the honest signal
+          that actually helps. */}
 
       {
         others.length > 0 && (

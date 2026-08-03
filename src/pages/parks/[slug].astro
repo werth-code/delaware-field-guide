@@ -21,6 +21,7 @@ import {
   COUNTY_ORDER,
   FEATURE_LABELS,
   completeness,
+  asksForStatePark,
   feeText,
   FEE_SEASON,
   PASSES,
@@ -216,22 +217,14 @@ const description =
         )}
       </div>
 
-      {
-        park.outstanding && park.outstanding.length > 0 && !verified && (
-          <>
-            <h2>Still to confirm</h2>
-            <p class="text-[0.95rem] text-ink-soft max-w-[58ch]">
-              Listed openly rather than hidden, because a gap you can see is
-              worth more than a gap you can't.
-            </p>
-            <ul>
-              {park.outstanding.map((o) => (
-                <li>{o}</li>
-              ))}
-            </ul>
-          </>
-        )
-      }
+      {/* The internal to-do list used to render here as "Still to confirm".
+          It was written for whoever makes the phone calls — "PRIORITY: get the
+          admission price" — and putting that in front of a visitor asks them
+          to care about our workflow. They don't; they wanted the answer too.
+          It lives in CALL-SHEET.md now, and the reader gets the same gaps as
+          tappable questions in the report box below. Every unconfirmed field
+          still reads "Not confirmed" where it sits, which is the honest signal
+          that actually helps. */}
 
       {
         others.length > 0 && (
@@ -261,7 +254,7 @@ const description =
       <h2>Where it is</h2>
       <MapEmbed name={`${park.name} State Park`} town={park.town} address={null} />
 
-      <ReportBox subject={`${park.name} State Park`} path={`/parks/${park.slug}/`} gaps={park.outstanding ?? []} />
+      <ReportBox subject={`${park.name} State Park`} path={`/parks/${park.slug}/`} asks={asksForStatePark(park)} />
 
       <h2>Related</h2>
       <ul>
