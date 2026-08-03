@@ -9,6 +9,16 @@
 
 export type County = "New Castle" | "Kent" | "Sussex";
 
+/** A photograph attached to a record. Shape mirrors Photo.astro's props. */
+export interface Photo {
+  file: string;
+  alt: string;
+  caption?: string | null;
+  credit: string;
+  takenOn: string;
+  portrait?: boolean;
+}
+
 export interface StateParkFeatures {
   beach: boolean | null;
   guardedSwimming: boolean | null;
@@ -39,6 +49,7 @@ export interface StatePark {
   verifiedDate: string | null;
   verifiedSource: string | null;
   outstanding?: string[];
+  photos?: Photo[];
 }
 
 /** Fees effective 1 March 2026. Entry is charged 1 March – 30 November. */

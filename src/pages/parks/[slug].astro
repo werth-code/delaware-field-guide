@@ -13,6 +13,7 @@ import Layout from "../../layouts/Layout.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
 import MapLink from "../../components/MapLink.astro";
 import MapEmbed from "../../components/MapEmbed.astro";
+import Photo from "../../components/Photo.astro";
 import ReportBox from "../../components/ReportBox.astro";
 
 import parksData from "../../data/state-parks.json";
@@ -123,6 +124,8 @@ const description =
       <p class="text-[1.2rem] leading-[1.5] font-medium max-w-[54ch] border-l-[5px] border-l-ochre ps-4 sm:ps-5">
         {park.blurb}
       </p>
+
+      {park.photos && park.photos.length > 0 && <Photo {...park.photos[0]} hero />}
 
       <h2>What's there</h2>
       <div class="sign breakout my-6 p-4 sm:p-5">
@@ -242,6 +245,15 @@ const description =
                 </li>
               ))}
             </ul>
+          </>
+        )
+      }
+
+      {
+        park.photos && park.photos.length > 1 && (
+          <>
+            <h2>More photographs</h2>
+            {park.photos.slice(1).map((ph) => <Photo {...ph} />)}
           </>
         )
       }
