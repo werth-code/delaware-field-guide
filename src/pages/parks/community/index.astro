@@ -108,7 +108,7 @@ const withDogPark = parks.filter((p) => p.facilities.dogPark === true).length;
             const wc = restroomAnswer(park.restrooms);
             const has = present(park).filter((f) => f !== "Dog park");
             return (
-              <article class="sign sign-action relative group">
+              <article data-reveal class="sign sign-action relative group">
                 <a href={`/parks/community/${park.slug}/`} class="absolute inset-0 z-10 no-underline">
                   <span class="sr-only">{park.name}</span>
                 </a>

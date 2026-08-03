@@ -16,6 +16,7 @@ import type { GetStaticPaths } from "astro";
 import Layout from "../../../layouts/Layout.astro";
 import FlagIcon from "../../../components/FlagIcon.astro";
 import MapLink from "../../../components/MapLink.astro";
+import MapEmbed from "../../../components/MapEmbed.astro";
 import ReportBox from "../../../components/ReportBox.astro";
 import FieldReports from "../../../components/FieldReports.astro";
 import type { Report } from "../../../components/FieldReports.astro";
@@ -212,6 +213,9 @@ const title =
           </>
         )
       }
+
+      <h2>Where it is</h2>
+      <MapEmbed name={park.name} town={park.town} address={park.address} />
 
       <ReportBox subject={park.name} path={`/dogs/dog-parks/${park.slug}/`} gaps={park.outstanding ?? []} />
 

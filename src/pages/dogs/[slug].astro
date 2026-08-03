@@ -18,6 +18,7 @@ import type { GetStaticPaths } from "astro";
 
 import Layout from "../../layouts/Layout.astro";
 import MapLink from "../../components/MapLink.astro";
+import MapEmbed from "../../components/MapEmbed.astro";
 import ReportBox from "../../components/ReportBox.astro";
 import StatusBand from "../../components/StatusBand.astro";
 import RuleTable from "../../components/RuleTable.astro";
@@ -284,6 +285,9 @@ const schema = publishable ? [articleSchema, faqSchema] : [];
       <TownContacts town={town} />
 
       <VerificationStamp item={town} />
+
+      <h2>Where it is</h2>
+      <MapEmbed name={`${town.name} public beach`} town={town.name} address={null} />
 
       <ReportBox subject={town.name} path={`/dogs/${town.slug}/`} gaps={town.outstanding ?? []} />
 

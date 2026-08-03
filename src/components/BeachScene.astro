@@ -9,6 +9,12 @@
  * Flat bands, six colours, no gradient. The guard stand earns its place —
  * "when lifeguards are present" is the clause that decides whether a dog is
  * legal in the shoulder weeks, so it belongs in the picture.
+ *
+ * There is deliberately nobody in it. A figure walking a dog was drawn here
+ * once and read as a crude pictogram at every size the page uses — and worse,
+ * it asserted something: a dog on the sand, on a page whose whole job is to
+ * tell you whether that is currently legal. An empty beach says nothing it
+ * shouldn't.
  */
 interface Props {
   class?: string;
@@ -80,36 +86,5 @@ const slats = Array.from({ length: 34 }, (_, i) => 24 + i * 35);
       {flag === "none" && <path d="M156 246h78l-20 22 20 22h-78z" />}
     </g>
 
-    <!-- Walker and dog on the dry sand -->
-    <g fill="var(--color-abyss)">
-      <circle cx="700" cy="352" r="11" />
-      <rect x="691" y="364" width="19" height="36" rx="9" />
-      <rect x="691" y="396" width="7" height="32" rx="3.5" transform="rotate(10 694 396)" />
-      <rect x="703" y="396" width="7" height="32" rx="3.5" transform="rotate(-12 706 396)" />
-      <rect x="708" y="370" width="30" height="6" rx="3" transform="rotate(18 708 370)" />
-      <path
-        d="M738 380q20 8 38 15"
-        stroke="var(--color-abyss)"
-        stroke-width="3"
-        fill="none"
-        stroke-linecap="round"
-      />
-
-      <path
-        d="M782 398c-8-1-13-6-14-14"
-        stroke="var(--color-abyss)"
-        stroke-width="6"
-        stroke-linecap="round"
-        fill="none"
-      />
-      <rect x="778" y="396" width="46" height="19" rx="9.5" />
-      <rect x="783" y="408" width="7" height="24" rx="3.5" transform="rotate(20 786 408)" />
-      <rect x="796" y="408" width="7" height="22" rx="3.5" transform="rotate(-16 799 408)" />
-      <rect x="810" y="408" width="7" height="24" rx="3.5" transform="rotate(18 813 408)" />
-      <circle cx="833" cy="391" r="11" />
-      <rect x="837" y="389" width="18" height="8.5" rx="4.25" />
-      <path d="M823 381l12-4-4 13z" />
-      <rect x="821" y="393" width="5.5" height="15" rx="2" fill="var(--color-ochre)" />
-    </g>
   </svg>
 </div>

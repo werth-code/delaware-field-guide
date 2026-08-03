@@ -1,124 +1,67 @@
 ---
 /**
- * Geometric dogs, in the poster idiom.
+ * Dog mark.
  *
- * Circles and rounded bars, in the Charley Harper lineage — the reason these
- * can be dogs without being cute. No big eyes, no tongues, no paw prints. The
- * competing category is built entirely out of those, so not using them is the
- * positioning, same as the copy rule about puns.
+ * Previously a hand-drawn geometric dog in the Charley Harper lineage. That was
+ * the right intent and the wrong result: built from circles and rounded bars,
+ * it read as a crude pictogram at the sizes the pages actually use. Replaced
+ * with a properly drawn icon.
  *
- * `currentColor` throughout, with the collar in ochre, so a figure can sit on
- * any field in the palette.
+ * ICON SOURCE — Lucide (https://lucide.dev), ISC licence.
+ *   Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as
+ *   part of Feather (MIT). All other copyright (c) for Lucide are held by
+ *   Lucide Contributors 2022.
+ * ISC permits commercial use and modification; retaining the notice above is
+ * the whole obligation. Paths are inlined rather than fetched, so the page
+ * still loads nothing from a third party.
+ *
+ * Stroke weight is absolute against a 24-unit viewBox, so the mark holds at
+ * 20px in a list and at 3.4rem on the home page without becoming either a blob
+ * or a hairline.
+ *
+ * Old call sites pass pose="stand" | "run" | "sit"; those all resolve to the
+ * paw, which is the one that survives being small.
  */
 interface Props {
-  pose?: "stand" | "run" | "sit";
+  pose?: "paw" | "dog" | "stand" | "run" | "sit";
   class?: string;
-  /** Collar on by default — it's what reads "someone's dog" rather than "a dog". */
+  /** Soft ochre disc behind the mark, for use on a plain field. */
   collar?: boolean;
 }
-const { pose = "stand", class: className = "", collar = true } = Astro.props;
+const { pose = "paw", class: className = "", collar = false } = Astro.props;
+const shape = pose === "dog" ? "dog" : "paw";
 ---
 
 <svg
   class={className}
-  viewBox="0 0 112 82"
-  fill="currentColor"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.75"
+  stroke-linecap="round"
+  stroke-linejoin="round"
   aria-hidden="true"
   focusable="false"
 >
-  {
-    pose === "stand" && (
-      <>
-        <path
-          d="M20 30c-6-3-9-10-7-17"
-          stroke="currentColor"
-          stroke-width="7"
-          stroke-linecap="round"
-          fill="none"
-        />
-        <rect x="16" y="28" width="52" height="24" rx="12" />
-        <rect x="22" y="46" width="8" height="26" rx="4" />
-        <rect x="34" y="46" width="8" height="26" rx="4" />
-        <rect x="50" y="46" width="8" height="26" rx="4" />
-        <rect x="60" y="46" width="8" height="26" rx="4" />
-        <circle cx="76" cy="24" r="13" />
-        <rect x="80" y="22" width="21" height="10" rx="5" />
-        <path d="M65 12l14-5-4 15z" />
-        {collar && <rect x="64" y="27" width="6" height="17" rx="2" fill="var(--color-ochre)" />}
-      </>
-    )
-  }
+  {collar && <circle cx="12" cy="12" r="11.1" fill="var(--color-ochre)" opacity="0.16" stroke="none" />}
 
   {
-    pose === "run" && (
+    shape === "dog" ? (
       <>
-        <path
-          d="M18 26c-7-1-12-6-13-13"
-          stroke="currentColor"
-          stroke-width="7"
-          stroke-linecap="round"
-          fill="none"
-        />
-        <rect x="14" y="26" width="54" height="22" rx="11" />
-        <rect
-          x="18"
-          y="42"
-          width="8"
-          height="27"
-          rx="4"
-          transform="rotate(24 22 42)"
-        />
-        <rect
-          x="34"
-          y="42"
-          width="8"
-          height="25"
-          rx="4"
-          transform="rotate(-20 38 42)"
-        />
-        <rect
-          x="52"
-          y="42"
-          width="8"
-          height="27"
-          rx="4"
-          transform="rotate(22 56 42)"
-        />
-        <rect
-          x="62"
-          y="42"
-          width="8"
-          height="25"
-          rx="4"
-          transform="rotate(-18 66 42)"
-        />
-        <circle cx="76" cy="22" r="12.5" />
-        <rect x="80" y="20" width="22" height="10" rx="5" />
-        <path d="M64 11l15-4-5 15z" />
-        {collar && <rect x="64" y="25" width="6" height="16" rx="2" fill="var(--color-ochre)" />}
+        {/* lucide: dog */}
+        <path d="M11.25 16.25h1.5L12 17z" />
+        <path d="M16 14v.5" />
+        <path d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444a11.702 11.702 0 0 0-.493-3.309" />
+        <path d="M8 14v.5" />
+        <path d="M8.5 8.5c-.384 1.05-1.083 2.028-2.344 2.5-1.931.722-3.576-.297-3.656-1-.113-.994 1.177-6.53 4-7 1.923-.321 3.651.845 3.651 2.235A7.497 7.497 0 0 1 14 5.277c0-1.39 1.844-2.598 3.767-2.277 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.96-1.45-2.344-2.5" />
       </>
-    )
-  }
-
-  {
-    pose === "sit" && (
+    ) : (
       <>
-        <path
-          d="M24 62c-8 1-14-3-16-10"
-          stroke="currentColor"
-          stroke-width="7"
-          stroke-linecap="round"
-          fill="none"
-        />
-        <path d="M26 40h26a14 14 0 0 1 14 14v18H26z" />
-        <rect x="26" y="52" width="26" height="20" rx="10" />
-        <rect x="56" y="50" width="8" height="22" rx="4" />
-        <rect x="66" y="50" width="8" height="22" rx="4" />
-        <rect x="58" y="26" width="14" height="28" rx="7" />
-        <circle cx="72" cy="20" r="13" />
-        <rect x="76" y="18" width="21" height="10" rx="5" />
-        <path d="M61 8l14-5-4 15z" />
-        {collar && <rect x="60" y="24" width="6" height="16" rx="2" fill="var(--color-ochre)" />}
+        {/* lucide: paw-print */}
+        <circle cx="11" cy="4" r="2" />
+        <circle cx="18" cy="8" r="2" />
+        <circle cx="20" cy="16" r="2" />
+        <path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" />
       </>
     )
   }

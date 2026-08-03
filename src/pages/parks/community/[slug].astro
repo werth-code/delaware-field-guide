@@ -10,6 +10,7 @@ import type { GetStaticPaths } from "astro";
 import Layout from "../../../layouts/Layout.astro";
 import FlagIcon from "../../../components/FlagIcon.astro";
 import MapLink from "../../../components/MapLink.astro";
+import MapEmbed from "../../../components/MapEmbed.astro";
 import ReportBox from "../../../components/ReportBox.astro";
 
 import parksData from "../../../data/community-parks.json";
@@ -250,6 +251,9 @@ const description = base.length < 118 ? `${base} Run by ${park.operator}.` : bas
           </>
         )
       }
+
+      <h2>Where it is</h2>
+      <MapEmbed name={park.name} town={park.town} address={park.address} />
 
       <ReportBox subject={park.name} path={`/parks/community/${park.slug}/`} gaps={park.outstanding ?? []} />
 
