@@ -16,6 +16,7 @@ import townsData from "../data/towns.json";
 import stateParksData from "../data/state-parks.json";
 import communityParksData from "../data/community-parks.json";
 import dogParksData from "../data/parks.json";
+import surfData from "../data/surf-fishing.json";
 import { isVerified } from "../lib/verification";
 
 const towns = townsData as { slug: string; name: string; verifiedDate: string | null; verifiedSource: string | null }[];
@@ -79,6 +80,25 @@ const sections = [
     ],
     ...count(communityParks),
     unit: "parks",
+    figure: false,
+  },
+  {
+    href: "/surf-fishing/",
+    n: "04",
+    title: "Surf fishing",
+    lede: "Five of the twelve crossings need a reservation. Not seven.",
+    detail:
+      "Drive-on access, permits, licences, and the after-4pm rule that lets annual permit holders skip reservations entirely.",
+    contents: [
+      "Which crossings need a reservation",
+      "Permit tiers and the 3-week delivery",
+      "The licence exemption that covers only you",
+      "The off-peak permit ending in 2027",
+      "Walk-on access — free, no permit",
+    ],
+    total: surfData.crossings.length,
+    live: 0,
+    unit: "crossings",
     figure: false,
   },
 ];
@@ -155,7 +175,7 @@ const schema = [
     <div class="border-t border-t-tide mt-[3px]"></div>
   </div>
 
-  <div class="wrap py-9 grid gap-6 sm:gap-5 sm:grid-cols-3">
+  <div class="wrap py-9 grid gap-6 sm:gap-5 sm:grid-cols-2">
     {
       sections.map((s) => (
         <a href={s.href} class="sign sign-action no-underline block p-5 group relative">
@@ -210,8 +230,8 @@ const schema = [
 
     <h2>Still to come</h2>
     <p class="max-w-[58ch]">
-      Surf fishing permits, crabbing and the trails are next. One section at a
-      time, each one checked before it goes up.
+      Crabbing, the trails, and Delaware's 48 breweries and wineries are next.
+      One section at a time, each one checked before it goes up.
     </p>
   </div>
 </Layout>

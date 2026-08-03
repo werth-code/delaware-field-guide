@@ -1,0 +1,186 @@
+---
+/**
+ * Section three: surf fishing.
+ *
+ * Same shape as the dog section's flagship — a widely-republished rule changed,
+ * almost nobody noticed, and being right about it is the whole reason to
+ * exist. Here it's the reservation list: seven crossings needed one in 2024,
+ * five do now, and the guides still say seven.
+ *
+ * The stakes are higher than the dog section's. Getting Rehoboth's dates wrong
+ * costs a wasted drive. Getting this wrong costs a $107 fine.
+ */
+import Layout from "../../layouts/Layout.astro";
+import CoastBand from "../../components/CoastBand.astro";
+import FlagIcon from "../../components/FlagIcon.astro";
+
+import data from "../../data/surf-fishing.json";
+import { isVerified, robotsFor } from "../../lib/verification";
+
+const { headline, reservations, afterFour, crossings, closures, noResidentPriority } = data;
+
+const pageGate = {
+  verifiedDate: isVerified(headline) ? "confirmed" : null,
+  verifiedSource: isVerified(headline) ? "confirmed" : null,
+};
+
+const reservable = crossings.filter((c) => c.reservation);
+const open = crossings.filter((c) => !c.reservation);
+const walkOn = crossings.filter((c) => c.walkOn === true);
+
+const byPark = ["Cape Henlopen", "Cape Henlopen area", "Delaware Seashore", "Fenwick Island"]
+  .map((park) => ({ park, list: crossings.filter((c) => c.park === park) }))
+  .filter((g) => g.list.length);
+---
+
+<Layout
+  title="Delaware surf fishing: which beaches need a reservation"
+  description="Only five of the twelve drive-on crossings need a reservation in 2026, not seven. Permits, the after-4pm rule, and what closes a beach you already paid for."
+  robots={robotsFor(pageGate)}
+>
+  <CoastBand height="h-[9rem] sm:h-[12rem]" />
+
+  <div class="wrap pt-9 pb-6">
+    <p class="label m-0">Section three</p>
+    <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
+      Which beaches need a reservation?
+    </h1>
+  </div>
+
+  <div class="wrap">
+    <aside
+      class="breakout border-2 border-flag-red border-l-[9px] bg-flag-red-wash px-4 sm:px-5 py-4 rounded-[2px] my-2"
+      style="box-shadow: 5px 5px 0 0 var(--color-flag-red-bearing);"
+    >
+      <p class="label text-flag-red-bearing m-0 flex items-center gap-1.5">
+        <FlagIcon icon="alert" class="w-[1em] h-[1em]" />
+        {headline.fact}
+      </p>
+      <p class="mt-2 mb-0 text-[0.98rem] leading-[1.5] max-w-[58ch]">{headline.detail}</p>
+    </aside>
+  </div>
+
+  <div class="wrap prose-field pt-6">
+    <p class="text-[1.28rem] leading-[1.45] font-medium max-w-[54ch] border-l-[5px] border-l-ochre ps-4 sm:ps-5">
+      Five of the twelve drive-on crossings need a reservation, and only on
+      weekends and holidays between {reservations.window}, 8am to 4pm. The other
+      seven need nothing but a permit.
+    </p>
+
+    <h2>The twelve crossings</h2>
+  </div>
+
+  <div class="wrap pb-6">
+    <div class="sign breakout overflow-hidden">
+      <p class="label field-deep text-foam px-4 sm:px-5 py-3 m-0">
+        Drive-on crossings · {reservable.length} reservable · {open.length} open
+      </p>
+
+      {
+        byPark.map(({ park, list }) => (
+          <div>
+            <p class="label bg-shell-sunk px-4 sm:px-5 py-2 m-0 border-y border-tide/30">{park}</p>
+            <ul class="list-none p-0 m-0">
+              {list.map((c) => (
+                <li
+                  class={`px-4 sm:px-5 py-3.5 border-b border-tide/30 last:border-b-0 border-l-[6px] ${
+                    c.reservation ? "border-l-flag-yellow" : "border-l-flag-green"
+                  }`}
+                >
+                  <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+                    <p class="font-display text-[1.08rem] font-bold m-0 text-marsh">{c.name}</p>
+                    <span
+                      class={`inline-flex items-center gap-1.5 px-2 py-1 rounded-[2px] border-2 border-ink font-mono text-[0.66rem] font-medium uppercase tracking-[0.08em] ${
+                        c.reservation ? "bg-flag-yellow text-ink" : "bg-flag-green-bearing text-white"
+                      }`}
+                    >
+                      <FlagIcon icon={c.reservation ? "alert" : "check"} class="w-[1em] h-[1em]" />
+                      {c.reservation ? "Reservation needed" : "No reservation"}
+                    </span>
+                  </div>
+                  {c.walkOn === true && (
+                    <p class="stamp text-ink-soft mt-1.5 mb-0">Walk-on access too — no permit, no fee</p>
+                  )}
+                  {c.note && <p class="mt-2 mb-0 text-[0.88rem] leading-snug max-w-[54ch]">{c.note}</p>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="wrap prose-field">
+    <h2>When a reservation is actually required</h2>
+    <dl class="sign breakout my-6 divide-y-2 divide-tide/30">
+      {
+        [
+          { k: "Season", v: reservations.window },
+          { k: "Days", v: reservations.days },
+          { k: "Hours", v: reservations.hours },
+          { k: "Cost", v: `${reservations.cost} — non-refundable, non-changeable` },
+        ].map((r) => (
+          <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
+            <dt class="label sm:w-[7rem] sm:shrink-0 sm:pt-1">{r.k}</dt>
+            <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem]">{r.v}</dd>
+          </div>
+        ))
+      }
+    </dl>
+
+    <h3>Booking opens weekly, not in advance</h3>
+    <ul>
+      {reservations.release.map((r) => <li><strong>{r.when}</strong> — for {r.for}</li>)}
+    </ul>
+    <p class="text-[0.95rem] text-ink-soft max-w-[58ch]">{reservations.releaseNote}</p>
+
+    <ul>
+      {reservations.notes.map((n) => <li>{n}</li>)}
+    </ul>
+
+    {/* The section's most useful practical fact. */}
+    <h2>The 4pm rule</h2>
+    <div class="sign breakout px-4 sm:px-5 py-5 my-6 border-l-[9px] border-l-ochre">
+      <p class="font-display text-[1.3rem] font-bold tracking-[-0.02em] m-0 text-marsh max-w-[26ch]">
+        {afterFour.rule}
+      </p>
+      <p class="mt-2.5 mb-0 text-[0.98rem] leading-[1.5] max-w-[56ch]">{afterFour.catch}</p>
+      <p class="mt-2.5 mb-0 text-[0.92rem] leading-[1.55] text-ink-soft max-w-[56ch]">{afterFour.why}</p>
+    </div>
+
+    <h2>Free access, no permit at all</h2>
+    <p class="max-w-[58ch]">
+      Every Delaware State Park has a walk-on stretch anglers can fish, usually
+      just outside the lifeguarded zone. No permit, no reservation, no fee — and
+      it's the right answer for anyone in a rental house for a week who isn't
+      going to buy a $180 permit for one trip.
+    </p>
+    <ul>
+      {walkOn.map((c) => <li><strong>{c.name}</strong> — {c.park}</li>)}
+      <li><strong>Indian River Inlet</strong> — both sides. Heavily fished in summer for tog and sheepshead, right in the rocks.</li>
+      <li><strong>Tower Beach</strong> — walk-on only, no vehicles from Key Box toward Dewey.</li>
+    </ul>
+
+    <h2>{closures.headline}</h2>
+    <p class="max-w-[58ch]">{closures.detail}</p>
+    <p class="max-w-[58ch]"><strong>{closures.consequence}</strong></p>
+    <p class="max-w-[58ch] text-[0.95rem] text-ink-soft">
+      The same sand is four things at once: a drive-on fishing beach, protected
+      plover and tern nesting habitat, a red knot stopover feeding on horseshoe
+      crab eggs, and one of the few beaches
+      <a href="/dogs/summer/">a dog is legal on in summer</a>. That's why it
+      closes, and why the closure isn't negotiable.
+    </p>
+
+    <h2>{noResidentPriority.question}</h2>
+    <p class="max-w-[58ch]">{noResidentPriority.answer}</p>
+
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/surf-fishing/permits/">Permits and licences — every tier, and who's actually covered</a></li>
+      <li><a href="/parks/">The state parks these beaches sit in</a></li>
+      <li><a href="/dogs/summer/">The same beaches, from the dog owner's side</a></li>
+    </ul>
+  </div>
+</Layout>

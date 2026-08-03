@@ -127,6 +127,24 @@ The answers on /dogs/summer/ — the pages with no competitor.
 - [ ] Confirm the fee note: "Beach parking fees apply in season."
 
 
+## 3b. Surf fishing
+
+Higher stakes than the dog section: being wrong here costs a $107 fine,
+not just a wasted drive. Two calls to DNREC resolve most of it.
+
+### DNREC Division of Parks & Recreation
+
+- [ ] PRIORITY: does a two-year off-peak permit bought in 2026 stay valid through 2027, when the off-peak permit is discontinued? Nobody has asked this.
+- [ ] Resolve the senior permit conflict — one source says no senior discount on the standard annual, another lists $80/$160/$320.
+- [ ] Confirm all 2026 permit prices, every tier, with DNREC.
+- [ ] Confirm the after-4pm rule and the 8am departure — this is the section's most useful fact and it rests on one source.
+- [ ] Confirm vehicle requirements. The 4WD and 7-inch clearance figures come from a 2019 post.
+- [ ] Confirm which of the twelve crossings are open right now, and any active closures (Delaware Seashore park office, Inlet Road).
+- [ ] Confirm Key Box and Conquest parking lots are open.
+- [ ] Confirm the reservation release times — Tue/Wed/Thu 11am.
+- [ ] Confirm the $107 fine and whether it has changed for 2026.
+
+
 ## 4. State parks
 
 Section two. Lower stakes — mostly hours, fees and facilities.
@@ -529,5 +547,5 @@ they book with a dog?* That last one is free demand research.
 
 ---
 
-**247 open items.** Every one of them is a fact this site cannot publish
+**256 open items.** Every one of them is a fact this site cannot publish
 until someone picks up a phone. That is the moat, not overhead.

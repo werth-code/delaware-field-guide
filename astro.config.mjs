@@ -18,6 +18,7 @@ const parks = read('./src/data/parks.json');
 const places = read('./src/data/places.json');
 const stateParks = read('./src/data/state-parks.json');
 const communityParks = read('./src/data/community-parks.json');
+const surf = read('./src/data/surf-fishing.json');
 const lodging = read('./src/data/lodging.json').filter((l) => typeof l.name === 'string');
 
 const confirmed = (r) => r.verifiedDate !== null && r.verifiedSource !== null;
@@ -35,6 +36,8 @@ const unverified = [
   ...(parks.some(confirmed) ? [] : ['/dogs/dog-parks/']),
   ...(lodging.some((l) => l.petFee?.amount !== null) ? [] : ['/dogs/pet-fees/']),
   ...(places.some(confirmed) ? [] : ['/dogs/summer/']),
+  ...(confirmed(surf.headline) ? [] : ['/surf-fishing/']),
+  ...(confirmed(surf.permits) ? [] : ['/surf-fishing/permits/']),
   // The planner can only recommend what's been confirmed, so it stays out of
   // search until something, anywhere, has been.
   ...([...towns, ...parks, ...stateParks, ...communityParks, ...places].some(confirmed)

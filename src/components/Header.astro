@@ -15,15 +15,17 @@ const current = sectionFor(pathname);
 ---
 
 <header class="field-deep">
-  <div class="wrap flex items-center justify-between gap-4 py-3">
-    <a href="/" class="tap no-underline gap-2.5 text-cream">
+  {/* Stacks on mobile. Four sections plus the wordmark cannot share a 375px
+      row without the wordmark breaking to three lines. */}
+  <div class="wrap flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 py-2.5 sm:py-3">
+    <a href="/" class="tap no-underline gap-2.5 text-cream self-start">
       <Logo id="masthead" class="w-[2.1rem] h-[2.1rem] shrink-0" />
-      <span class="font-display text-[1.2rem] font-bold tracking-[-0.026em] leading-none">
+      <span class="font-display text-[1.2rem] font-bold tracking-[-0.026em] leading-none whitespace-nowrap">
         Delaware Field Guide
       </span>
     </a>
 
-    <nav aria-label="Sections" class="flex gap-4 sm:gap-5 items-center">
+    <nav aria-label="Sections" class="flex gap-4 sm:gap-5 items-center flex-wrap">
       {/* The planner spans every section, so it sits outside the list. */}
       <a
         href="/plan/"

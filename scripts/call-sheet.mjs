@@ -27,6 +27,13 @@ const parks = read("src/data/parks.json");
 const places = read("src/data/places.json");
 const emergency = read("src/data/emergency.json");
 const lodging = read("src/data/lodging.json");
+const surf = (() => {
+  try {
+    return read("src/data/surf-fishing.json");
+  } catch {
+    return null;
+  }
+})();
 const community = (() => {
   try {
     return read("src/data/community-parks.json");
@@ -99,6 +106,12 @@ for (const p of places.filter((p) => !done(p))) {
     `Confirm dogs are permitted as described: "${p.headline}"`,
     `Confirm the fee note: "${p.feeNote}"`,
   ]);
+}
+
+/* 3b — Surf fishing */
+if (surf) {
+  section("3b. Surf fishing", "Higher stakes than the dog section: being wrong here costs a $107 fine,\nnot just a wasted drive. Two calls to DNREC resolve most of it.");
+  entry("DNREC Division of Parks & Recreation", null, surf.outstanding);
 }
 
 /* 4 — State parks */

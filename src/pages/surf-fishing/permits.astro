@@ -1,0 +1,166 @@
+---
+/**
+ * Permits and licences.
+ *
+ * Two facts here that are barely published anywhere:
+ *   - the off-peak permit is being discontinued in 2027
+ *   - a surf fishing permit exempts the HOLDER from a fishing licence, and
+ *     nobody else in the vehicle
+ *
+ * The second is what gets people ticketed. The first is what makes someone
+ * think twice before buying a two-year off-peak permit this season.
+ *
+ * The senior permit prices CONFLICT between sources and are rendered as
+ * unresolved rather than picked. Choosing one would be inventing a fact.
+ */
+import Layout from "../../layouts/Layout.astro";
+import FlagIcon from "../../components/FlagIcon.astro";
+
+import data from "../../data/surf-fishing.json";
+import { isVerified, robotsFor } from "../../lib/verification";
+
+const { permits, offPeakEnding, license, rules } = data;
+
+const pageGate = {
+  verifiedDate: isVerified(permits) ? "confirmed" : null,
+  verifiedSource: isVerified(permits) ? "confirmed" : null,
+};
+---
+
+<Layout
+  title="Delaware surf fishing permits and licences, 2026"
+  description="Permit tiers, the three-week delivery, the licence exemption that covers only the permit holder, and the off-peak permit being discontinued in 2027."
+  robots={robotsFor(pageGate)}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">
+      <a href="/surf-fishing/" class="no-underline hover:underline">Surf fishing</a>
+      <span class="text-ink-soft"> · </span>Permits
+    </p>
+    <h1 class="text-[2.4rem] sm:text-[3.1rem] mt-3.5 mb-0 max-w-[16ch] text-marsh">
+      What you need before you drive on
+    </h1>
+  </div>
+
+  {/* The thing to know before buying anything. */}
+  <div class="wrap">
+    <aside
+      class="breakout border-2 border-flag-yellow border-l-[9px] bg-flag-yellow-wash px-4 sm:px-5 py-4 rounded-[2px] my-2"
+      style="box-shadow: 5px 5px 0 0 var(--color-ink);"
+    >
+      <p class="label text-ink m-0 flex items-center gap-1.5">
+        <FlagIcon icon="alert" class="w-[1em] h-[1em]" />
+        {offPeakEnding.fact}
+      </p>
+      <p class="mt-2 mb-0 text-[0.98rem] leading-[1.5] max-w-[58ch]">{offPeakEnding.detail}</p>
+      <p class="mt-2.5 mb-0 text-[0.92rem] leading-[1.5] max-w-[58ch] text-ink">
+        <strong>Open question:</strong> {offPeakEnding.openQuestion}
+      </p>
+    </aside>
+  </div>
+
+  <div class="wrap prose-field pt-6">
+    <h2>Permit prices</h2>
+    <p class="text-[0.95rem] text-ink-soft max-w-[58ch]">{permits.note}</p>
+
+    <div class="sign breakout my-6 overflow-hidden">
+      <table class="w-full text-left">
+        <thead class="hidden sm:table-header-group">
+          <tr class="bg-shell-sunk border-b-2 border-marsh">
+            <th scope="col" class="label px-5 py-3 font-medium">Permit</th>
+            <th scope="col" class="label px-5 py-3 font-medium">Resident</th>
+            <th scope="col" class="label px-5 py-3 font-medium">Non-resident</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            permits.tiers.map((t) => (
+              <tr class="block sm:table-row border-b border-tide/30 last:border-b-0 align-top">
+                <th scope="row" class="block sm:table-cell px-4 sm:px-5 pt-3.5 sm:py-4 font-display text-[1.02rem] font-bold text-left text-marsh">
+                  {t.label}
+                </th>
+                {/* Stacked on mobile, so each cell has to name itself — a bare
+                    "$90 / $180" says nothing without the column head. */}
+                <td class="block sm:table-cell px-4 sm:px-5 sm:py-4">
+                  <span class="label sm:hidden me-2">Resident</span>
+                  <span class={`stamp text-[0.95rem] ${t.conflict ? "text-ink-soft line-through" : ""}`}>
+                    {t.resident}
+                  </span>
+                </td>
+                <td class="block sm:table-cell px-4 sm:px-5 pb-3.5 sm:py-4">
+                  <span class="label sm:hidden me-2">Non-resident</span>
+                  <span class={`stamp text-[0.95rem] ${t.conflict ? "text-ink-soft line-through" : ""}`}>
+                    {t.nonResident ?? "—"}
+                  </span>
+                  {t.conflict && (
+                    <span class="block text-[0.84rem] leading-snug text-flag-red-bearing mt-1.5 max-w-[44ch]">
+                      Sources disagree — not published until confirmed. {t.conflict}
+                    </span>
+                  )}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <p class="max-w-[58ch]"><strong>Free permits.</strong> {permits.free}</p>
+
+    <h3>It takes three to four weeks to arrive</h3>
+    <p class="max-w-[58ch]">{permits.delivery}</p>
+
+    <h3>When an off-peak permit is valid</h3>
+    <p class="max-w-[58ch]">{permits.offPeakWindows}</p>
+
+    <h2>The licence exemption almost nobody explains</h2>
+    <div class="sign breakout px-4 sm:px-5 py-5 my-6 border-l-[9px] border-l-ochre">
+      <p class="m-0 text-[1.05rem] leading-[1.5] max-w-[56ch]">{license.exemption.rule}</p>
+      <p class="mt-3 mb-0 text-[0.98rem] leading-[1.5] max-w-[56ch]">
+        <strong>{license.exemption.catch}</strong>
+      </p>
+      <p class="mt-2.5 mb-0 text-[0.92rem] text-ink-soft max-w-[56ch]">{license.exemption.seniors}</p>
+    </div>
+
+    <h2>Fishing licences</h2>
+    <dl class="sign breakout my-6 divide-y-2 divide-tide/30">
+      {
+        license.tiers.map((t) => (
+          <div class="px-4 sm:px-5 py-3 flex items-baseline justify-between gap-6">
+            <dt class="label">{t.label}</dt>
+            <dd class="m-0 stamp text-[0.95rem] shrink-0">{t.cost}</dd>
+          </div>
+        ))
+      }
+    </dl>
+    <p class="max-w-[58ch] text-[0.95rem]">
+      The <strong>FIN number</strong> catches people out: it's free, it's separate
+      from the licence, and everyone 16 and over needs one — including anglers
+      who are exempt from the licence itself.
+    </p>
+
+    <h2>The rest of the rules</h2>
+    <dl class="sign breakout my-6 divide-y-2 divide-tide/30">
+      {
+        rules.map((r) => (
+          <div class="px-4 sm:px-5 py-3.5 sm:flex sm:gap-6">
+            <dt class="label sm:w-[10rem] sm:shrink-0 sm:pt-1">{r.label}</dt>
+            <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem] leading-[1.55]">
+              {r.value}
+              {r.caution && (
+                <span class="block stamp text-flag-red-bearing mt-1.5">{r.caution}</span>
+              )}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/surf-fishing/">Which crossings need a reservation</a></li>
+      <li><a href="/parks/">State park entry fees, which are separate from all of this</a></li>
+      <li><a href="/dogs/summer/">The same beaches, from the dog owner's side</a></li>
+    </ul>
+  </div>
+</Layout>

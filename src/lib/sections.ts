@@ -55,6 +55,14 @@ export const SECTIONS: Section[] = [
       { href: "/parks/community/", label: "Community parks" },
     ],
   },
+  {
+    slug: "surf-fishing",
+    label: "Surf fishing",
+    nav: [
+      { href: "/surf-fishing/", label: "Reservations" },
+      { href: "/surf-fishing/permits/", label: "Permits & licences" },
+    ],
+  },
 ];
 
 /** The section a path belongs to, or null for home / how-we-verify. */
