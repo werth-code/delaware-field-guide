@@ -1,0 +1,188 @@
+---
+/**
+ * /verified/ — every fact on the site, its source, and its age.
+ *
+ * Generated from the JSON at build time, so it cannot drift from what the
+ * pages say. Anyone can write "we verify everything"; almost nobody will
+ * publish the table. This is the table.
+ *
+ * It is also the work queue. Sort by age and the stalest facts float up, which
+ * is why the staleness threshold is real rather than decorative.
+ */
+import Layout from "../layouts/Layout.astro";
+import FlagIcon from "../components/FlagIcon.astro";
+
+import { STALE_AFTER_DAYS, buildVerifiedIndex, summarise } from "../lib/verified-index";
+import { formatStampDate, formatLongDate } from "../lib/rules";
+
+const today = new Date();
+const rows = buildVerifiedIndex(today);
+const stats = summarise(rows);
+
+/* Confirmed first, then sourced, then the unstarted — and oldest first inside
+   each tier, so the thing most in need of a call is nearest the top. */
+const order = { confirmed: 0, sourced: 1, reported: 2 } as const;
+const sorted = [...rows].sort(
+  (a, b) => order[a.tier] - order[b.tier] || (b.ageDays ?? -1) - (a.ageDays ?? -1) || a.fact.localeCompare(b.fact),
+);
+
+const tierMeta = {
+  confirmed: { label: "Confirmed", chip: "bg-flag-green-bearing text-white", icon: "check" as const },
+  sourced: { label: "Sourced", chip: "bg-flag-yellow text-ink", icon: "alert" as const },
+  reported: { label: "Not checked", chip: "bg-shell-sunk text-ink", icon: "alert" as const },
+};
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: "Delaware Field Guide verification index",
+    description:
+      "Every fact published on Delaware Field Guide, with the date it was confirmed or read from its source, the source itself, and its age.",
+    url: new URL("/verified/", Astro.site).href,
+    dateModified: today.toISOString().slice(0, 10),
+    creator: { "@type": "Organization", name: "Delaware Field Guide" },
+  },
+];
+---
+
+<Layout
+  title="Verification index — every fact, its source and its age"
+  description="Every fact published on this site, when it was checked, who said so, and how old that answer is. Generated from the data, so it can't drift from the pages."
+  schema={schema}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">Method</p>
+    <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
+      Everything we claim, and where it came from
+    </h1>
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
+      Every fact on the site, the date we checked it, and who told us — generated
+      from the data itself, so this page can't disagree with the pages it
+      describes. Sorted oldest-first, which makes it our to-do list as much as
+      your reassurance.
+    </p>
+    <p class="stamp text-ink-soft mt-4 mb-0">Generated {formatLongDate(today)}</p>
+  </div>
+
+  <div class="wrap pb-6">
+    <dl class="sign breakout grid grid-cols-2 sm:grid-cols-4 gap-0 divide-x-2 divide-y-2 sm:divide-y-0 divide-tide/30">
+      {
+        [
+          { n: stats.confirmed, label: "confirmed" },
+          { n: stats.sourced, label: "sourced" },
+          { n: stats.reported, label: "not yet checked" },
+          { n: stats.total, label: "facts tracked" },
+        ].map((s) => (
+          <div class="px-4 py-4">
+            <dt class="font-display text-[2.1rem] font-bold text-marsh leading-none">{s.n}</dt>
+            <dd class="m-0 mt-1.5 stamp text-ink-soft">{s.label}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+
+  <div class="wrap prose-field pb-2">
+    <h2>What the three words mean</h2>
+    <ul>
+      <li><strong>Confirmed</strong> — we called, visited, or asked the body that sets the rule.</li>
+      <li><strong>Sourced</strong> — read from a named primary source: the city's own notice, DNREC's fee schedule, the county's listing. Not yet confirmed by phone.</li>
+      <li><strong>Not yet checked</strong> — we have information but no primary source for it. These are <strong>not published</strong> — they're kept out of search until someone checks them, and they're listed here so the gap is visible.</li>
+    </ul>
+    <p class="text-[0.95rem] text-ink-soft max-w-[58ch]">
+      Anything older than {STALE_AFTER_DAYS} days gets a re-check marker. Rules
+      change; a date that was right in March is not automatically right in
+      September, and this page is how we keep ourselves honest about that.
+    </p>
+  </div>
+
+  <div class="wrap pb-8">
+    <div class="sign breakout overflow-hidden">
+      <table class="w-full text-left">
+        <caption class="label field-deep text-foam px-4 sm:px-5 py-3 text-left">
+          {rows.length} facts · oldest first within each tier
+        </caption>
+        <thead class="hidden sm:table-header-group">
+          <tr class="bg-shell-sunk border-b-2 border-marsh">
+            <th scope="col" class="label px-5 py-3 font-medium">Fact</th>
+            <th scope="col" class="label px-5 py-3 font-medium">Status</th>
+            <th scope="col" class="label px-5 py-3 font-medium">Source</th>
+            <th scope="col" class="label px-5 py-3 font-medium">Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            sorted.map((f) => {
+              const m = tierMeta[f.tier];
+              return (
+                <tr class="block sm:table-row border-b border-tide/30 last:border-b-0 align-top">
+                  <th scope="row" class="block sm:table-cell px-4 sm:px-5 pt-3.5 sm:py-4 text-left font-normal">
+                    {f.href ? (
+                      <a href={f.href} class="text-[0.96rem] font-medium">{f.fact}</a>
+                    ) : (
+                      <span class="text-[0.96rem] font-medium">{f.fact}</span>
+                    )}
+                    <span class="stamp text-ink-soft block mt-1">{f.section}</span>
+                  </th>
+
+                  <td class="block sm:table-cell px-4 sm:px-5 pt-2 sm:py-4">
+                    <span
+                      class={`${m.chip} inline-flex items-center gap-1.5 px-2 py-1 rounded-[2px] border-2 border-ink font-mono text-[0.66rem] font-medium uppercase tracking-[0.08em]`}
+                    >
+                      <FlagIcon icon={m.icon} class="w-[1em] h-[1em]" />
+                      {m.label}
+                    </span>
+                  </td>
+
+                  <td class="block sm:table-cell px-4 sm:px-5 pt-2 sm:py-4">
+                    <span class="label sm:hidden me-2">Source</span>
+                    <span class={`text-[0.88rem] ${f.source ? "" : "text-ink-soft italic"}`}>
+                      {f.source ?? "None yet"}
+                    </span>
+                  </td>
+
+                  <td class="block sm:table-cell px-4 sm:px-5 pt-2 pb-3.5 sm:py-4 whitespace-nowrap">
+                    <span class="label sm:hidden me-2">Age</span>
+                    {f.date ? (
+                      <span class="stamp" title={formatStampDate(f.date)}>
+                        {f.ageDays === 0 ? "today" : `${f.ageDays}d`}
+                      </span>
+                    ) : (
+                      <span class="stamp text-ink-soft">—</span>
+                    )}
+                    {f.stale && (
+                      <span class="stamp text-flag-red-bearing block mt-1">needs re-check</span>
+                    )}
+                  </td>
+                </tr>
+              );
+            })
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    <h2>Why publish this at all</h2>
+    <p class="max-w-[58ch]">
+      Because the alternative is asking you to take our word for it, and every
+      guide that's wrong about Delaware's dog dates right now would also have
+      asked you to take their word for it. A number you can check beats an
+      adjective you can't.
+    </p>
+    <p class="max-w-[58ch]">
+      If something here is wrong, or you've been somewhere recently and know
+      better, <a href="/how-we-verify/#corrections">tell us</a> — a correction
+      from someone who was standing there yesterday is worth more than another
+      phone call.
+    </p>
+
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/how-we-verify/">The method in full</a></li>
+      <li><a href="/plan/">Plan a day out</a></li>
+    </ul>
+  </div>
+</Layout>

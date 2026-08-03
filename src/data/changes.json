@@ -1,0 +1,75 @@
+[
+  {
+    "date": "2026-01-16",
+    "section": "Dogs",
+    "entity": "Rehoboth Beach",
+    "href": "/dogs/rehoboth-beach/",
+    "type": "rule-change",
+    "headline": "Rehoboth moved its dog dates — dogs get two extra weeks of beach",
+    "description": "The commissioners re-cut the seasonal restriction dates to match the city's parking season. The beach and boardwalk closure moved from May 1 – September 30 to May 15 – September 15, and leashed dogs are now allowed September 16 – May 14, except when lifeguards are on duty. Dogs come back on 16 September, not 1 October.",
+    "whoIsWrong": "Rental agencies, tourism pages and most published guides still print the old May 1 – September 30 window.",
+    "source": { "label": "City of Rehoboth Beach", "url": "https://www.rehobothbeachde.gov/city-of-rehoboth-beach-changes-dates-for-seasonal-restrictions/" },
+    "sourcedOn": "2026-08-01"
+  },
+  {
+    "date": "2026-03-01",
+    "section": "Parks",
+    "entity": "Delaware State Parks",
+    "href": "/parks/",
+    "type": "price-change",
+    "headline": "State park entry fees rose for the first time in a decade — beach parks roughly doubled",
+    "description": "Daily entry at the beach parks went to $10 for a Delaware-registered vehicle and $20 out-of-state. Inland parks are $5 and $10. Annual passes are $50 and $100, with a $150 lifetime pass for Delaware residents 65 and over, and a $10 annual pass for those receiving State Service Center assistance. The previous rates were $35 and $70.",
+    "whoIsWrong": "Most guides still quote the pre-2026 numbers, which are roughly 43% low.",
+    "source": { "label": "Delaware State Parks — passes, permits and fees", "url": "https://www.destateparks.com/passes-permits-and-fees/" },
+    "sourcedOn": "2026-08-02"
+  },
+  {
+    "date": "2025-07-01",
+    "section": "Surf fishing",
+    "entity": "Delaware State Parks drive-on crossings",
+    "href": "/surf-fishing/",
+    "type": "rule-change",
+    "headline": "Reservations dropped at seven of the twelve drive-on crossings",
+    "description": "DNREC suspended weekend and holiday reservations at seven crossings, leaving five: Gordons Pond, Herring Point, Navy Crossing and Point Crossing at Cape Henlopen, plus 3Rs at Delaware Seashore. Everywhere else needs a permit but no reservation.",
+    "whoIsWrong": "Nearly every guide, forum post and blog still says all seven multi-use beaches require a reservation. Getting it wrong the other way costs a $107 fine.",
+    "source": { "label": "DNREC Division of Parks & Recreation", "url": "https://www.destateparks.com/surf-fishing/" },
+    "sourcedOn": "2026-08-03"
+  },
+  {
+    "date": "2027-01-01",
+    "section": "Surf fishing",
+    "entity": "Off-peak surf fishing permit",
+    "href": "/surf-fishing/permits/",
+    "type": "rule-change",
+    "headline": "The off-peak surf fishing permit is being discontinued in 2027",
+    "description": "With weekend and holiday reservations removed from most surf fishing beaches in July 2025, the off-peak permit lost its reason to exist. It goes away in 2027. Whether a two-year off-peak permit bought in 2026 stays valid through 2027 is an open question nobody appears to have asked.",
+    "whoIsWrong": "Almost nobody has published this. Anyone buying a two-year off-peak permit this season should know.",
+    "source": { "label": "DNREC Division of Parks & Recreation", "url": "https://www.destateparks.com/surf-fishing/" },
+    "sourcedOn": "2026-08-03",
+    "upcoming": true
+  },
+  {
+    "date": "2025-12-17",
+    "section": "Dogs",
+    "entity": "Lewes",
+    "href": "/dogs/lewes/",
+    "type": "under-review",
+    "headline": "Lewes considered banning dogs at guarded beaches in summer — outcome unknown",
+    "description": "A city ad hoc committee met on 17 December 2025 to consider banning dogs outright during summer at the guarded beaches, to reduce confusion and dog waste. The city's own FAQ still publishes the before-8am / after-6:30pm rule and we have found no record of a final vote. Rehoboth quietly re-cut its own dates a month later, so treat this as live until the city says otherwise.",
+    "whoIsWrong": "Everyone, potentially — including us. This is the single Delaware beach rule we would most want confirmed before making a trip.",
+    "source": { "label": "CoastTV — Lewes considers summer ban on dogs at guarded beaches", "url": "https://www.coasttv.com/news/lewes-considers-summer-ban-on-dogs-at-guarded-beaches/article_e7ad91f3-3bbf-4b5a-8904-6b1bb11ea63e.html" },
+    "sourcedOn": "2026-08-01"
+  },
+  {
+    "date": "2025-09-01",
+    "section": "Drink",
+    "entity": "Iron Hill Brewery & Restaurant",
+    "href": null,
+    "type": "closed",
+    "headline": "Iron Hill closed every location, including the Newark original",
+    "description": "Founded in Newark in 1996 and 29 years old, Iron Hill closed all of its locations in September 2025. Delaware's most historically significant brewpub chain, and it started here.",
+    "whoIsWrong": "Delaware Today's craft brewery guide still lists the Wilmington and Newark locations as active, with addresses and menu descriptions.",
+    "source": { "label": "Company statement, September 2025", "url": null },
+    "sourcedOn": "2026-08-01"
+  }
+]
