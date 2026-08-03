@@ -31,6 +31,11 @@ const communityParks = communityParksData as { slug: string; name: string }[];
 
 export const SECTIONS: Section[] = [
   {
+    slug: "events",
+    label: "Events",
+    nav: [{ href: "/events/", label: "Fairs and events" }],
+  },
+  {
     slug: "dogs",
     label: "Dogs",
     nav: [

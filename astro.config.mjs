@@ -17,6 +17,7 @@ const towns = read('./src/data/towns.json');
 const parks = read('./src/data/parks.json');
 const places = read('./src/data/places.json');
 const stateParks = read('./src/data/state-parks.json');
+const events = read('./src/data/events.json');
 const communityParks = read('./src/data/community-parks.json');
 const surf = read('./src/data/surf-fishing.json');
 const lodging = read('./src/data/lodging.json').filter((l) => typeof l.name === 'string');
@@ -31,6 +32,8 @@ const confirmed = (r) =>
 const placeOf = (slug) => places.find((p) => p.slug === slug);
 
 const unverified = [
+  ...events.filter((e) => !confirmed(e)).map((e) => `/events/${e.slug}/`),
+  ...(events.some(confirmed) ? [] : ['/events/']),
   ...towns.filter((t) => !confirmed(t)).map((t) => `/dogs/${t.slug}/`),
   ...parks.filter((p) => !confirmed(p)).map((p) => `/dogs/dog-parks/${p.slug}/`),
   ...stateParks.filter((p) => !confirmed(p)).map((p) => `/parks/${p.slug}/`),
