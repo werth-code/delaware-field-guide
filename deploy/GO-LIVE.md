@@ -1,6 +1,23 @@
 # Go live
 
-Everything is built and pushed. This is the whole remaining list.
+**The site is live at https://delawarefieldguide.com** as of 3 August 2026.
+
+Done:
+
+- [x] DNS in Cloudflare, DNS-only (grey cloud)
+- [x] GitHub Pages custom domain set
+- [x] Certificate issued — covers both the apex and www
+- [x] Enforce HTTPS enabled
+- [x] www 301s to the apex
+- [x] 45 pages live and in the sitemap
+
+> **One known gap.** `http://delawarefieldguide.com` still answers 200 rather
+> than redirecting to HTTPS. GitHub can take an hour or so to apply Enforce
+> HTTPS after issuing a certificate. If it hasn't started redirecting by
+> tomorrow, Cloudflare's **Always Use HTTPS** (SSL/TLS → Edge Certificates)
+> settles it permanently. www already redirects correctly.
+
+The rest of this file is what's left.
 
 ---
 
