@@ -47,6 +47,25 @@ export const FEES = {
   inland: { inState: 5, outState: 10, label: "Inland park" },
 } as const;
 
+/** The window in which a day fee is charged at all. Outside it, entry is free. */
+export const FEE_SEASON = "1 March – 30 November";
+
+/**
+ * Annual passes. Verified against the state's own fee-season announcement on
+ * 3 August 2026 — the amounts roughly doubled in March 2026 and a great deal
+ * of published guidance still quotes the old ones.
+ */
+export const PASSES = {
+  resident: 50,
+  nonResident: 100,
+  note:
+    "Discounted passes are available for active-duty military and veterans; the discounted amounts are not confirmed. " +
+    "Deauville Beach has its own annual pass at $115.",
+  where:
+    "Online at destateparks.com, which issues a virtual pass usable for 30 days from purchase, or at a park office.",
+  whereUrl: "https://www.destateparks.com/passes-permits-and-fees/",
+} as const;
+
 export function feeText(park: StatePark): { text: string; state: "yes" | "unknown" } {
   if (!park.feeBand) return { text: "Not confirmed", state: "unknown" };
   const f = FEES[park.feeBand];

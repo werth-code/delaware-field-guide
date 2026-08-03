@@ -11,6 +11,8 @@ import type { GetStaticPaths } from "astro";
 
 import Layout from "../../layouts/Layout.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
+import MapLink from "../../components/MapLink.astro";
+import ReportBox from "../../components/ReportBox.astro";
 
 import parksData from "../../data/state-parks.json";
 import {
@@ -18,6 +20,8 @@ import {
   FEATURE_LABELS,
   completeness,
   feeText,
+  FEE_SEASON,
+  PASSES,
   type StatePark,
 } from "../../lib/state-parks";
 import { isPublishable, isVerified, reportOutstanding, robotsFor } from "../../lib/verification";
@@ -154,16 +158,34 @@ const description =
           <dd class={`m-0 mt-1 sm:mt-0 text-[0.95rem] ${fee.state === "unknown" ? "text-ink-soft italic" : ""}`}>
             {fee.text}
             {fee.state === "yes" && (
-              <span class="block stamp text-ink-soft mt-1">
-                Charged 1 March – 30 November. Annual pass $50 in-state / $100 out.
-              </span>
+              <span class="block stamp text-ink-soft mt-1">Charged {FEE_SEASON}. Free outside it.</span>
             )}
+          </dd>
+        </div>
+        <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Annual pass</dt>
+          <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem] leading-[1.55]">
+            ${PASSES.resident} for a Delaware-registered vehicle, ${PASSES.nonResident} out of state.
+            <span class="block text-[0.88rem] text-ink-soft mt-1 leading-snug">{PASSES.note}</span>
+          </dd>
+        </div>
+        <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Where to buy</dt>
+          <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem] leading-[1.55]">
+            <a href={PASSES.whereUrl} rel="nofollow">Delaware State Parks — passes and permits</a>
+            <span class="block text-[0.88rem] text-ink-soft mt-1 leading-snug">{PASSES.where}</span>
           </dd>
         </div>
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
           <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Hours</dt>
           <dd class={`m-0 mt-1 sm:mt-0 text-[0.95rem] ${park.hours ? "" : "text-ink-soft italic"}`}>
             {park.hours ?? "Not confirmed"}
+          </dd>
+        </div>
+        <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Getting there</dt>
+          <dd class="m-0 mt-1 sm:mt-0">
+            <MapLink name={`${park.name} State Park`} town={park.town} label="Open in Google Maps" />
           </dd>
         </div>
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
@@ -222,6 +244,8 @@ const description =
           </>
         )
       }
+
+      <ReportBox subject={`${park.name} State Park`} path={`/parks/${park.slug}/`} gaps={park.outstanding ?? []} />
 
       <h2>Related</h2>
       <ul>

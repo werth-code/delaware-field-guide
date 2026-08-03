@@ -15,6 +15,8 @@ import type { GetStaticPaths } from "astro";
 
 import Layout from "../../../layouts/Layout.astro";
 import FlagIcon from "../../../components/FlagIcon.astro";
+import MapLink from "../../../components/MapLink.astro";
+import ReportBox from "../../../components/ReportBox.astro";
 import FieldReports from "../../../components/FieldReports.astro";
 import type { Report } from "../../../components/FieldReports.astro";
 
@@ -102,6 +104,7 @@ const title =
         {park.name}
       </h1>
       <p class="stamp text-ink-soft mt-3 mb-0">{park.address}</p>
+      <p class="mt-3 mb-0"><MapLink name={park.name} town={park.town} address={park.address} label="Open in Google Maps" /></p>
     </div>
 
     {/* The headline warning, where there is one. Not fenced is the single most
@@ -209,6 +212,8 @@ const title =
           </>
         )
       }
+
+      <ReportBox subject={park.name} path={`/dogs/dog-parks/${park.slug}/`} gaps={park.outstanding ?? []} />
 
       <h2>Related</h2>
       <ul>

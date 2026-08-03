@@ -17,6 +17,8 @@
 import type { GetStaticPaths } from "astro";
 
 import Layout from "../../layouts/Layout.astro";
+import MapLink from "../../components/MapLink.astro";
+import ReportBox from "../../components/ReportBox.astro";
 import StatusBand from "../../components/StatusBand.astro";
 import RuleTable from "../../components/RuleTable.astro";
 import VerificationStamp from "../../components/VerificationStamp.astro";
@@ -275,9 +277,15 @@ const schema = publishable ? [articleSchema, faqSchema] : [];
         )
       }
 
+      <p class="mt-6 mb-0">
+        <MapLink name={`${town.name} public beach`} town={town.name} label="Open in Google Maps" />
+      </p>
+
       <TownContacts town={town} />
 
       <VerificationStamp item={town} />
+
+      <ReportBox subject={town.name} path={`/dogs/${town.slug}/`} gaps={town.outstanding ?? []} />
 
       <h2>The other towns</h2>
       <p class="text-[0.95rem] text-ink-soft">
