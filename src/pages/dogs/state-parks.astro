@@ -15,12 +15,12 @@ import BeachScene from "../../components/BeachScene.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
 
 import placesData from "../../data/places.json";
-import { assertAnswerLength, isVerified, robotsFor } from "../../lib/verification";
+import { assertAnswerLength, isPublishable, robotsFor } from "../../lib/verification";
 
 const parks = (placesData as any[]).find((p) => p.slug === "state-park-surf-fishing-beaches");
 const pageGate = {
-  verifiedDate: isVerified(parks) ? "confirmed" : null,
-  verifiedSource: isVerified(parks) ? "confirmed" : null,
+  verifiedDate: isPublishable(parks) ? "confirmed" : null,
+  verifiedSource: isPublishable(parks) ? "confirmed" : null,
 };
 
 const answer =
@@ -44,7 +44,7 @@ const closed = [
   "Surfboarding and sailboarding beaches",
 ];
 
-const schema = isVerified(parks)
+const schema = isPublishable(parks)
   ? [
       {
         "@context": "https://schema.org",

@@ -16,10 +16,10 @@ import FlagIcon from "../../components/FlagIcon.astro";
 
 import parksData from "../../data/state-parks.json";
 import { COUNTY_ORDER, completeness, feeText, present, type StatePark } from "../../lib/state-parks";
-import { isVerified, robotsFor } from "../../lib/verification";
+import { isPublishable, robotsFor } from "../../lib/verification";
 
 const parks = parksData as StatePark[];
-const verified = parks.filter(isVerified);
+const verified = parks.filter(isPublishable);
 const pageGate = {
   verifiedDate: verified.length ? "confirmed" : null,
   verifiedSource: verified.length ? "confirmed" : null,

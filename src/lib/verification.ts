@@ -19,19 +19,66 @@ import { formatStampDate } from "./rules";
 export interface Verifiable {
   verifiedDate: string | null;
   verifiedSource: string | null;
+  /** Named primary sources — the body that sets the rule, not an aggregator. */
+  sources?: { label: string; url: string; note?: string | null }[] | null;
+  /** ISO date those sources were read. Required for a record to count as sourced. */
+  sourcedOn?: string | null;
 }
 
-export const isVerified = (v: Verifiable): boolean =>
-  Boolean(v.verifiedDate) && Boolean(v.verifiedSource);
+/**
+ * THREE TIERS, NOT TWO.
+ *
+ * The original gate was binary: phone-confirmed or invisible. That was right
+ * while there were five pages and wrong at sixty-eight — it left the whole
+ * site unpublishable and made the calls a prerequisite rather than an upgrade.
+ *
+ *   confirmed — someone called, visited, or asked the body directly.
+ *   sourced   — read from a named PRIMARY source: the city's own notice,
+ *               DNREC's published schedule, the county's own listing.
+ *   reported  — third-hand. An aggregator, a review site, a blog.
+ *
+ * Confirmed and sourced publish. **Reported never does**, and that is the line
+ * that actually protects the site: /how-we-verify/ promises we don't source a
+ * fact from another guide, and this is what enforces it. A dog park whose only
+ * origin is a Google listing stays out of search until someone stands in it.
+ *
+ * The distinction is shown to the reader, not hidden — "the city publishes
+ * this" and "we called and asked" are different claims and the stamp says
+ * which one you're getting.
+ */
+export type Tier = "confirmed" | "sourced" | "reported";
 
-/** Unverified pages are never indexed. Not configurable per page. */
+export function tierOf(v: Verifiable): Tier {
+  if (v.verifiedDate && v.verifiedSource) return "confirmed";
+  if (v.sources && v.sources.length > 0 && v.sourcedOn) return "sourced";
+  return "reported";
+}
+
+/** True only for first-party confirmation. Used where the strong claim matters. */
+export const isVerified = (v: Verifiable): boolean => tierOf(v) === "confirmed";
+
+/** Confirmed or sourced. Reported stays out of search. */
+export const isPublishable = (v: Verifiable): boolean => tierOf(v) !== "reported";
+
 export const robotsFor = (v: Verifiable): string =>
-  isVerified(v) ? "index, follow, max-snippet:-1, max-image-preview:large" : "noindex, nofollow";
+  isPublishable(v)
+    ? "index, follow, max-snippet:-1, max-image-preview:large"
+    : "noindex, nofollow";
 
 /** "Verified 6 Aug 2026 · City of Rehoboth Beach, by phone" */
 export function stampText(v: Verifiable): string | null {
   if (!isVerified(v)) return null;
   return `Verified ${formatStampDate(v.verifiedDate!)} · ${v.verifiedSource}`;
+}
+
+/**
+ * The stamp for a sourced record. Deliberately worded so it cannot be mistaken
+ * for confirmation — "read from" is doing real work here.
+ */
+export function sourcedText(v: Verifiable): string | null {
+  if (tierOf(v) !== "sourced") return null;
+  const from = v.sources![0].label;
+  return `Read from ${from} on ${formatStampDate(v.sourcedOn!)} · not yet confirmed by phone`;
 }
 
 /** `null` means unverified, never "no". Spec convention, used across renderers. */

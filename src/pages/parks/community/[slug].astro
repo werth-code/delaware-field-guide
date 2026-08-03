@@ -20,7 +20,7 @@ import {
   type CommunityPark,
 } from "../../../lib/community-parks";
 import { formatStampDate } from "../../../lib/rules";
-import { isVerified, reportOutstanding, robotsFor } from "../../../lib/verification";
+import { isPublishable, isVerified, reportOutstanding, robotsFor } from "../../../lib/verification";
 
 export const getStaticPaths = (() =>
   (parksData as CommunityPark[]).map((park) => ({
@@ -34,6 +34,7 @@ reportOutstanding(`parks/community/${park.slug}`, park);
 const { known, total } = completeness(park);
 const wc = restroomAnswer(park.restrooms);
 const verified = isVerified(park);
+const publishable = isPublishable(park);
 
 const dogPark = park.dogParkSlug
   ? (dogParksData as { slug: string; name: string }[]).find((d) => d.slug === park.dogParkSlug)
@@ -43,7 +44,7 @@ const others = (parksData as CommunityPark[]).filter(
   (p) => p.county === park.county && p.slug !== park.slug,
 );
 
-const schema = verified
+const schema = publishable
   ? [
       {
         "@context": "https://schema.org",

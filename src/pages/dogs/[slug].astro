@@ -28,7 +28,7 @@ import TownContacts from "../../components/TownContacts.astro";
 import townsData from "../../data/towns.json";
 import type { Town } from "../../lib/rules";
 import { STATUS_META, formatLongDate, formatRange, formatWindow, ruleFor, statusOn } from "../../lib/rules";
-import { assertAnswerLength, isVerified, reportOutstanding, robotsFor } from "../../lib/verification";
+import { assertAnswerLength, isPublishable, isVerified, reportOutstanding, robotsFor } from "../../lib/verification";
 
 const towns = townsData as Town[];
 
@@ -92,6 +92,7 @@ const detail =
       : (beachRule?.note ?? null);
 
 const verified = isVerified(town);
+const publishable = isPublishable(town);
 const alternatives = town.alternatives ?? [];
 
 /* Sibling towns, each summarised by its closed window — the thing a reader
@@ -132,7 +133,7 @@ const articleSchema = {
   ...(town.verifiedDate ? { dateModified: town.verifiedDate, datePublished: town.verifiedDate } : {}),
   author: { "@type": "Organization", name: "Delaware Field Guide" },
   publisher: { "@type": "Organization", name: "Delaware Field Guide" },
-  ...(verified && town.sources.length
+  ...(publishable && town.sources.length
     ? { citation: town.sources.map((s) => ({ "@type": "CreativeWork", name: s.label, url: s.url })) }
     : {}),
 };
@@ -157,7 +158,7 @@ const faqSchema = {
 
 // Unverified pages are noindex — don't hand a crawler structured data for
 // something we've told it not to index.
-const schema = verified ? [articleSchema, faqSchema] : [];
+const schema = publishable ? [articleSchema, faqSchema] : [];
 ---
 
 <Layout

@@ -14,10 +14,10 @@ import CoastBand from "../../components/CoastBand.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
 
 import placesData from "../../data/places.json";
-import { assertAnswerLength, isVerified, robotsFor } from "../../lib/verification";
+import { assertAnswerLength, isPublishable, robotsFor } from "../../lib/verification";
 
 const places = placesData as any[];
-const verified = places.filter(isVerified);
+const verified = places.filter(isPublishable);
 const pageGate = {
   verifiedDate: verified.length ? "confirmed" : null,
   verifiedSource: verified.length ? "confirmed" : null,
@@ -147,7 +147,7 @@ const openLabel: Record<string, string> = {
             </div>
 
             <p class="stamp text-ink-soft mt-4 mb-0">{p.feeNote}</p>
-            {!isVerified(p) && (
+            {!isPublishable(p) && (
               <p class="stamp text-ink-soft mt-1.5 mb-0">Not yet confirmed first-hand</p>
             )}
           </li>

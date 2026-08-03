@@ -7,15 +7,48 @@
     "kind": "Ocean",
     "town": "Lewes",
     "blurb": "The biggest park in the state and the one where the Delaware Bay meets the Atlantic. Great Dune, WWII observation towers, a fishing pier, and a campground with a bike loop down to the beaches. The point is a genuinely wild stretch of coast twenty minutes from Rehoboth.",
-    "features": { "beach": true, "guardedSwimming": true, "surfFishing": true, "camping": true, "cabins": null, "trails": true, "boatLaunch": null, "pier": true, "discGolf": true },
+    "features": {
+      "beach": true,
+      "guardedSwimming": true,
+      "surfFishing": true,
+      "camping": true,
+      "cabins": null,
+      "trails": true,
+      "boatLaunch": null,
+      "pier": true,
+      "discGolf": true
+    },
     "feeBand": "beach",
-    "dogs": { "summary": "Leashed year-round outside the guarded swimming beaches. Non-guarded and surf-fishing sand is open in July.", "href": "/dogs/state-parks/" },
-    "warnings": ["Ticks. Campground reviews flag them repeatedly, especially the wooded loops and dune scrub."],
+    "dogs": {
+      "summary": "Leashed year-round outside the guarded swimming beaches. Non-guarded and surf-fishing sand is open in July.",
+      "href": "/dogs/state-parks/"
+    },
+    "warnings": [
+      "Ticks. Campground reviews flag them repeatedly, especially the wooded loops and dune scrub."
+    ],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number and seasonal hours.", "Confirm the fee band and the guarded-beach dates.", "Confirm which loops have shade and spigots.", "Confirm cabins and boat launch."]
+    "outstanding": [
+      "Get the park office number and seasonal hours.",
+      "Confirm the fee band and the guarded-beach dates.",
+      "Confirm which loops have shade and spigots.",
+      "Confirm cabins and boat launch."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "delaware-seashore",
@@ -25,15 +58,47 @@
     "kind": "Ocean and bay",
     "town": "Rehoboth Beach",
     "blurb": "Six miles of barrier island between Dewey and Bethany, ocean on one side and Rehoboth and Indian River bays on the other. The Indian River Inlet cuts through the middle of it. This is where most of the drive-on surf fishing happens.",
-    "features": { "beach": true, "guardedSwimming": true, "surfFishing": true, "camping": true, "cabins": null, "trails": null, "boatLaunch": true, "pier": null, "discGolf": null },
+    "features": {
+      "beach": true,
+      "guardedSwimming": true,
+      "surfFishing": true,
+      "camping": true,
+      "cabins": null,
+      "trails": null,
+      "boatLaunch": true,
+      "pier": null,
+      "discGolf": null
+    },
     "feeBand": "beach",
-    "dogs": { "summary": "The surf-fishing and non-guarded stretches take leashed dogs all year — this is the closest legal summer beach to Rehoboth after Dewey.", "href": "/dogs/summer/" },
-    "warnings": ["Discarded fishhooks and cut monofilament line on the drive-on beaches."],
+    "dogs": {
+      "summary": "The surf-fishing and non-guarded stretches take leashed dogs all year — this is the closest legal summer beach to Rehoboth after Dewey.",
+      "href": "/dogs/summer/"
+    },
+    "warnings": [
+      "Discarded fishhooks and cut monofilament line on the drive-on beaches."
+    ],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number.", "Confirm where the drive-on access points are and what a surf-fishing permit costs in 2026.", "Confirm the guarded beach locations and dates."]
+    "outstanding": [
+      "Get the park office number.",
+      "Confirm where the drive-on access points are and what a surf-fishing permit costs in 2026.",
+      "Confirm the guarded beach locations and dates."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "fenwick-island",
@@ -43,15 +108,45 @@
     "kind": "Ocean and bay",
     "town": "Fenwick Island",
     "blurb": "A quiet three-mile strip between Bethany and the Maryland line, immediately north of the Fenwick Island town beach. Ocean on one side, Little Assawoman Bay on the other. Much less crowded than the parks above it.",
-    "features": { "beach": true, "guardedSwimming": true, "surfFishing": true, "camping": false, "cabins": false, "trails": null, "boatLaunch": null, "pier": null, "discGolf": null },
+    "features": {
+      "beach": true,
+      "guardedSwimming": true,
+      "surfFishing": true,
+      "camping": false,
+      "cabins": false,
+      "trails": null,
+      "boatLaunch": null,
+      "pier": null,
+      "discGolf": null
+    },
     "feeBand": "beach",
-    "dogs": { "summary": "Leashed year-round outside the guarded beach — and it starts where the Fenwick town beach, which bans dogs all summer, ends.", "href": "/dogs/fenwick-island/" },
+    "dogs": {
+      "summary": "Leashed year-round outside the guarded beach — and it starts where the Fenwick town beach, which bans dogs all summer, ends.",
+      "href": "/dogs/fenwick-island/"
+    },
     "warnings": [],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number.", "Confirm exactly where the town beach ends and the park begins — this is the fact that decides whether a dog is legal.", "Confirm watersports rentals on the bay side."]
+    "outstanding": [
+      "Get the park office number.",
+      "Confirm exactly where the town beach ends and the park begins — this is the fact that decides whether a dog is legal.",
+      "Confirm watersports rentals on the bay side."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "holts-landing",
@@ -61,15 +156,45 @@
     "kind": "Bay",
     "town": "Dagsboro",
     "blurb": "Small and quiet on the south shore of Indian River Bay. Known for crabbing and clamming off the pier rather than for swimming — the bay here is shallow and warm.",
-    "features": { "beach": null, "guardedSwimming": false, "surfFishing": false, "camping": null, "cabins": null, "trails": true, "boatLaunch": true, "pier": true, "discGolf": null },
+    "features": {
+      "beach": null,
+      "guardedSwimming": false,
+      "surfFishing": false,
+      "camping": null,
+      "cabins": null,
+      "trails": true,
+      "boatLaunch": true,
+      "pier": true,
+      "discGolf": null
+    },
     "feeBand": "inland",
-    "dogs": { "summary": "Leashed. No guarded swimming beach here, so the summer closure that applies elsewhere may not bite — confirm before relying on it.", "href": "/dogs/state-parks/" },
+    "dogs": {
+      "summary": "Leashed. No guarded swimming beach here, so the summer closure that applies elsewhere may not bite — confirm before relying on it.",
+      "href": "/dogs/state-parks/"
+    },
     "warnings": [],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number.", "Confirm the fee band — bay-side parks may be priced as beach parks.", "Confirm crabbing pier access and whether a licence is needed."]
+    "outstanding": [
+      "Get the park office number.",
+      "Confirm the fee band — bay-side parks may be priced as beach parks.",
+      "Confirm crabbing pier access and whether a licence is needed."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "trap-pond",
@@ -79,15 +204,48 @@
     "kind": "Pond",
     "town": "Laurel",
     "blurb": "The northernmost natural stand of bald cypress in the United States, growing straight out of the water. Best seen from a canoe or kayak. Campground, cabins and a boardwalk trail through the swamp.",
-    "features": { "beach": null, "guardedSwimming": null, "surfFishing": false, "camping": true, "cabins": true, "trails": true, "boatLaunch": true, "pier": null, "discGolf": null },
+    "features": {
+      "beach": null,
+      "guardedSwimming": null,
+      "surfFishing": false,
+      "camping": true,
+      "cabins": true,
+      "trails": true,
+      "boatLaunch": true,
+      "pier": null,
+      "discGolf": null
+    },
     "feeBand": "inland",
-    "dogs": { "summary": "Leashed on the trails. Millpond water — read the bloom guidance before letting a dog swim in August or September.", "href": "/dogs/pond-safety/" },
-    "warnings": ["Millpond. Harmful algal blooms peak here in late summer.", "Mosquitoes at dusk."],
+    "dogs": {
+      "summary": "Leashed on the trails. Millpond water — read the bloom guidance before letting a dog swim in August or September.",
+      "href": "/dogs/pond-safety/"
+    },
+    "warnings": [
+      "Millpond. Harmful algal blooms peak here in late summer.",
+      "Mosquitoes at dusk."
+    ],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number.", "Confirm boat and paddle rental availability and season.", "Confirm whether DNREC posts bloom advisories on site."]
+    "outstanding": [
+      "Get the park office number.",
+      "Confirm boat and paddle rental availability and season.",
+      "Confirm whether DNREC posts bloom advisories on site."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "killens-pond",
@@ -97,15 +255,47 @@
     "kind": "Pond",
     "town": "Felton",
     "blurb": "A 66-acre millpond with a trail all the way round it, plus the state's only water park, a campground and cabins. The most family-oriented park in the system.",
-    "features": { "beach": null, "guardedSwimming": null, "surfFishing": false, "camping": true, "cabins": true, "trails": true, "boatLaunch": true, "pier": null, "discGolf": true },
+    "features": {
+      "beach": null,
+      "guardedSwimming": null,
+      "surfFishing": false,
+      "camping": true,
+      "cabins": true,
+      "trails": true,
+      "boatLaunch": true,
+      "pier": null,
+      "discGolf": true
+    },
     "feeBand": "inland",
-    "dogs": { "summary": "Leashed on the trails and in the campground. Not in the water park.", "href": "/dogs/pond-safety/" },
-    "warnings": ["Millpond. Bloom season is August and September."],
+    "dogs": {
+      "summary": "Leashed on the trails and in the campground. Not in the water park.",
+      "href": "/dogs/pond-safety/"
+    },
+    "warnings": [
+      "Millpond. Bloom season is August and September."
+    ],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number.", "Confirm water park season, hours and separate admission.", "Confirm where dogs are and are not allowed on site."]
+    "outstanding": [
+      "Get the park office number.",
+      "Confirm water park season, hours and separate admission.",
+      "Confirm where dogs are and are not allowed on site."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "lums-pond",
@@ -115,15 +305,48 @@
     "kind": "Pond",
     "town": "Bear",
     "blurb": "The largest freshwater pond in Delaware, formed to feed the Chesapeake and Delaware Canal. Campground, a long shoreline trail, an aerial ropes course, and the best-reviewed dog area in the state.",
-    "features": { "beach": null, "guardedSwimming": null, "surfFishing": false, "camping": true, "cabins": null, "trails": true, "boatLaunch": true, "pier": null, "discGolf": true },
+    "features": {
+      "beach": null,
+      "guardedSwimming": null,
+      "surfFishing": false,
+      "camping": true,
+      "cabins": null,
+      "trails": true,
+      "boatLaunch": true,
+      "pier": null,
+      "discGolf": true
+    },
     "feeBand": "inland",
-    "dogs": { "summary": "Has the highest-rated off-leash area in Delaware — and it is NOT fenced, and park entry is charged to reach it.", "href": "/dogs/dog-parks/lums-pond-dog-park/" },
-    "warnings": ["The off-leash area is not fenced. Reliable recall required.", "Millpond conditions — check the water before letting a dog swim."],
+    "dogs": {
+      "summary": "Has the highest-rated off-leash area in Delaware — and it is NOT fenced, and park entry is charged to reach it.",
+      "href": "/dogs/dog-parks/lums-pond-dog-park/"
+    },
+    "warnings": [
+      "The off-leash area is not fenced. Reliable recall required.",
+      "Millpond conditions — check the water before letting a dog swim."
+    ],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number.", "Confirm the fee band for 2026 — inland ($5/$10) or beach ($10/$20).", "Confirm the off-leash area hours separately from park hours."]
+    "outstanding": [
+      "Get the park office number.",
+      "Confirm the fee band for 2026 — inland ($5/$10) or beach ($10/$20).",
+      "Confirm the off-leash area hours separately from park hours."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "white-clay-creek",
@@ -133,15 +356,47 @@
     "kind": "Creek and woodland",
     "town": "Newark",
     "blurb": "Thirty-odd miles of trail along a designated Wild and Scenic river, running up into Pennsylvania. The best hiking in the state, and the closest thing Delaware has to a proper woodland walk.",
-    "features": { "beach": false, "guardedSwimming": false, "surfFishing": false, "camping": false, "cabins": false, "trails": true, "boatLaunch": null, "pier": null, "discGolf": true },
+    "features": {
+      "beach": false,
+      "guardedSwimming": false,
+      "surfFishing": false,
+      "camping": false,
+      "cabins": false,
+      "trails": true,
+      "boatLaunch": null,
+      "pier": null,
+      "discGolf": true
+    },
     "feeBand": "inland",
-    "dogs": { "summary": "Leashed on the trails. No off-leash area.", "href": "/dogs/state-parks/" },
-    "warnings": ["Ticks, through the whole warm season."],
+    "dogs": {
+      "summary": "Leashed on the trails. No off-leash area.",
+      "href": "/dogs/state-parks/"
+    },
+    "warnings": [
+      "Ticks, through the whole warm season."
+    ],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number.", "Confirm total trail mileage and which trailheads charge entry.", "Confirm whether the Pennsylvania section is contiguous and freely walkable."]
+    "outstanding": [
+      "Get the park office number.",
+      "Confirm total trail mileage and which trailheads charge entry.",
+      "Confirm whether the Pennsylvania section is contiguous and freely walkable."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "brandywine-creek",
@@ -151,15 +406,46 @@
     "kind": "Creek and woodland",
     "town": "Wilmington",
     "blurb": "A former du Pont dairy farm, fifteen minutes from downtown Wilmington. Stone walls, tulip poplars, and an autumn hawk watch. Rolling meadow rather than woodland.",
-    "features": { "beach": false, "guardedSwimming": false, "surfFishing": false, "camping": false, "cabins": false, "trails": true, "boatLaunch": null, "pier": null, "discGolf": null },
+    "features": {
+      "beach": false,
+      "guardedSwimming": false,
+      "surfFishing": false,
+      "camping": false,
+      "cabins": false,
+      "trails": true,
+      "boatLaunch": null,
+      "pier": null,
+      "discGolf": null
+    },
     "feeBand": "inland",
-    "dogs": { "summary": "Leashed on the trails.", "href": "/dogs/state-parks/" },
-    "warnings": ["Ticks."],
+    "dogs": {
+      "summary": "Leashed on the trails.",
+      "href": "/dogs/state-parks/"
+    },
+    "warnings": [
+      "Ticks."
+    ],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number.", "Confirm hawk watch season and the nature centre's hours."]
+    "outstanding": [
+      "Get the park office number.",
+      "Confirm hawk watch season and the nature centre's hours."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "bellevue",
@@ -169,15 +455,44 @@
     "kind": "Estate and woodland",
     "town": "Wilmington",
     "blurb": "Another former du Pont estate, with a mansion, a track, and a bandstand. More of a neighbourhood park than a wilderness one, and used that way.",
-    "features": { "beach": false, "guardedSwimming": false, "surfFishing": false, "camping": false, "cabins": false, "trails": true, "boatLaunch": null, "pier": null, "discGolf": null },
+    "features": {
+      "beach": false,
+      "guardedSwimming": false,
+      "surfFishing": false,
+      "camping": false,
+      "cabins": false,
+      "trails": true,
+      "boatLaunch": null,
+      "pier": null,
+      "discGolf": null
+    },
     "feeBand": "inland",
-    "dogs": { "summary": "Leashed.", "href": "/dogs/state-parks/" },
+    "dogs": {
+      "summary": "Leashed.",
+      "href": "/dogs/state-parks/"
+    },
     "warnings": [],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number.", "Confirm track access and whether the mansion grounds are open."]
+    "outstanding": [
+      "Get the park office number.",
+      "Confirm track access and whether the mansion grounds are open."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "alapocas-run",
@@ -187,15 +502,44 @@
     "kind": "Creek and woodland",
     "town": "Wilmington",
     "blurb": "A wooded gorge on the Brandywine with a blue rock quarry face used for climbing, plus the Blue Ball Barn. Sits on the Northern Delaware Greenway.",
-    "features": { "beach": false, "guardedSwimming": false, "surfFishing": false, "camping": false, "cabins": false, "trails": true, "boatLaunch": null, "pier": null, "discGolf": null },
+    "features": {
+      "beach": false,
+      "guardedSwimming": false,
+      "surfFishing": false,
+      "camping": false,
+      "cabins": false,
+      "trails": true,
+      "boatLaunch": null,
+      "pier": null,
+      "discGolf": null
+    },
     "feeBand": "inland",
-    "dogs": { "summary": "Leashed on the trails and greenway.", "href": "/dogs/state-parks/" },
+    "dogs": {
+      "summary": "Leashed on the trails and greenway.",
+      "href": "/dogs/state-parks/"
+    },
     "warnings": [],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number.", "Confirm whether rock climbing needs a permit."]
+    "outstanding": [
+      "Get the park office number.",
+      "Confirm whether rock climbing needs a permit."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "fox-point",
@@ -205,15 +549,44 @@
     "kind": "Riverfront",
     "town": "Wilmington",
     "blurb": "A small strip on the Delaware River north of Wilmington, built on reclaimed land. Flat paved walking with big open river views and a lot of ship traffic.",
-    "features": { "beach": false, "guardedSwimming": false, "surfFishing": null, "camping": false, "cabins": false, "trails": true, "boatLaunch": null, "pier": null, "discGolf": null },
+    "features": {
+      "beach": false,
+      "guardedSwimming": false,
+      "surfFishing": null,
+      "camping": false,
+      "cabins": false,
+      "trails": true,
+      "boatLaunch": null,
+      "pier": null,
+      "discGolf": null
+    },
     "feeBand": "inland",
-    "dogs": { "summary": "Leashed. Flat paved loop — easy walking for an older dog.", "href": "/dogs/state-parks/" },
+    "dogs": {
+      "summary": "Leashed. Flat paved loop — easy walking for an older dog.",
+      "href": "/dogs/state-parks/"
+    },
     "warnings": [],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number.", "Confirm whether entry is charged here at all."]
+    "outstanding": [
+      "Get the park office number.",
+      "Confirm whether entry is charged here at all."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "fort-delaware",
@@ -223,15 +596,47 @@
     "kind": "Historic island",
     "town": "Delaware City",
     "blurb": "A Civil War fortress on Pea Patch Island, reached only by ferry from Delaware City. The island also holds one of the largest wading bird nesting grounds on the east coast.",
-    "features": { "beach": false, "guardedSwimming": false, "surfFishing": false, "camping": false, "cabins": false, "trails": true, "boatLaunch": null, "pier": null, "discGolf": null },
+    "features": {
+      "beach": false,
+      "guardedSwimming": false,
+      "surfFishing": false,
+      "camping": false,
+      "cabins": false,
+      "trails": true,
+      "boatLaunch": null,
+      "pier": null,
+      "discGolf": null
+    },
     "feeBand": null,
-    "dogs": { "summary": "Ferry access only — confirm the ferry's pet policy before planning around it.", "href": null },
-    "warnings": ["Ferry-only access. Seasonal, and the last boat back is the last boat back."],
+    "dogs": {
+      "summary": "Ferry access only — confirm the ferry's pet policy before planning around it.",
+      "href": null
+    },
+    "warnings": [
+      "Ferry-only access. Seasonal, and the last boat back is the last boat back."
+    ],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number.", "Confirm ferry season, schedule, fare and PET POLICY — a dog on the wrong boat is a stranded dog.", "Confirm admission pricing, which is separate from the standard park fee."]
+    "outstanding": [
+      "Get the park office number.",
+      "Confirm ferry season, schedule, fare and PET POLICY — a dog on the wrong boat is a stranded dog.",
+      "Confirm admission pricing, which is separate from the standard park fee."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "fort-dupont",
@@ -241,15 +646,44 @@
     "kind": "Historic",
     "town": "Delaware City",
     "blurb": "A former coastal defence installation and later a hospital site on the Delaware River at Delaware City, now partly redeveloped. Trails, remnant batteries, and a view across to Pea Patch Island.",
-    "features": { "beach": false, "guardedSwimming": false, "surfFishing": null, "camping": false, "cabins": false, "trails": true, "boatLaunch": null, "pier": null, "discGolf": null },
+    "features": {
+      "beach": false,
+      "guardedSwimming": false,
+      "surfFishing": null,
+      "camping": false,
+      "cabins": false,
+      "trails": true,
+      "boatLaunch": null,
+      "pier": null,
+      "discGolf": null
+    },
     "feeBand": "inland",
-    "dogs": { "summary": "Leashed on the trails.", "href": "/dogs/state-parks/" },
+    "dogs": {
+      "summary": "Leashed on the trails.",
+      "href": "/dogs/state-parks/"
+    },
     "warnings": [],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number.", "Confirm which areas are open — the site is partly under redevelopment."]
+    "outstanding": [
+      "Get the park office number.",
+      "Confirm which areas are open — the site is partly under redevelopment."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "auburn-valley",
@@ -259,15 +693,46 @@
     "kind": "Estate and woodland",
     "town": "Yorklyn",
     "blurb": "The Marshall family's Auburn Heights estate, with a steam car museum and a working miniature railroad. Open on a limited schedule, so check before driving out.",
-    "features": { "beach": false, "guardedSwimming": false, "surfFishing": false, "camping": false, "cabins": false, "trails": true, "boatLaunch": null, "pier": null, "discGolf": null },
+    "features": {
+      "beach": false,
+      "guardedSwimming": false,
+      "surfFishing": false,
+      "camping": false,
+      "cabins": false,
+      "trails": true,
+      "boatLaunch": null,
+      "pier": null,
+      "discGolf": null
+    },
     "feeBand": "inland",
-    "dogs": { "summary": "Leashed on the grounds and trails. Not in the museum.", "href": "/dogs/state-parks/" },
-    "warnings": ["Limited opening. Confirm before going."],
+    "dogs": {
+      "summary": "Leashed on the grounds and trails. Not in the museum.",
+      "href": "/dogs/state-parks/"
+    },
+    "warnings": [
+      "Limited opening. Confirm before going."
+    ],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number.", "Confirm museum and railroad operating days — this is the park most likely to be shut when you arrive."]
+    "outstanding": [
+      "Get the park office number.",
+      "Confirm museum and railroad operating days — this is the park most likely to be shut when you arrive."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "first-state-heritage",
@@ -277,15 +742,47 @@
     "kind": "Urban heritage",
     "town": "Dover",
     "blurb": "Delaware's \"park without boundaries\" — not a single site but a linked set of historic buildings and green spaces around Dover's Green, run with other state and city agencies.",
-    "features": { "beach": false, "guardedSwimming": false, "surfFishing": false, "camping": false, "cabins": false, "trails": null, "boatLaunch": false, "pier": false, "discGolf": false },
+    "features": {
+      "beach": false,
+      "guardedSwimming": false,
+      "surfFishing": false,
+      "camping": false,
+      "cabins": false,
+      "trails": null,
+      "boatLaunch": false,
+      "pier": false,
+      "discGolf": false
+    },
     "feeBand": null,
-    "dogs": { "summary": "Outdoor spaces only, leashed. Not inside the historic buildings.", "href": null },
-    "warnings": ["Not a conventional park — it's a set of separate sites, so plan around individual building hours."],
+    "dogs": {
+      "summary": "Outdoor spaces only, leashed. Not inside the historic buildings.",
+      "href": null
+    },
+    "warnings": [
+      "Not a conventional park — it's a set of separate sites, so plan around individual building hours."
+    ],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the visitor centre number.", "List the individual sites and their hours.", "Confirm whether any entry fee applies."]
+    "outstanding": [
+      "Get the visitor centre number.",
+      "List the individual sites and their hours.",
+      "Confirm whether any entry fee applies."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "wilmington-state-parks",
@@ -295,14 +792,44 @@
     "kind": "Urban",
     "town": "Wilmington",
     "blurb": "The linked city parks along the Brandywine — Brandywine Park, Rockford Park with its tower, H. Fletcher Brown Park and the Riverfront. Urban walking rather than wilderness, and the closest state parkland to downtown.",
-    "features": { "beach": false, "guardedSwimming": false, "surfFishing": false, "camping": false, "cabins": false, "trails": true, "boatLaunch": null, "pier": null, "discGolf": null },
+    "features": {
+      "beach": false,
+      "guardedSwimming": false,
+      "surfFishing": false,
+      "camping": false,
+      "cabins": false,
+      "trails": true,
+      "boatLaunch": null,
+      "pier": null,
+      "discGolf": null
+    },
     "feeBand": "inland",
-    "dogs": { "summary": "Leashed. Brandywine Park holds a designated off-leash area — which is NOT fenced.", "href": "/dogs/dog-parks/brandywine-off-leash-dog-park/" },
+    "dogs": {
+      "summary": "Leashed. Brandywine Park holds a designated off-leash area — which is NOT fenced.",
+      "href": "/dogs/dog-parks/brandywine-off-leash-dog-park/"
+    },
     "warnings": [],
     "phone": null,
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": ["Get the park office number.", "Confirm which of the linked parks charge entry, if any.", "Confirm Rockford Tower opening season."]
+    "outstanding": [
+      "Get the park office number.",
+      "Confirm which of the linked parks charge entry, if any.",
+      "Confirm Rockford Tower opening season."
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks",
+        "url": "https://www.destateparks.com/park-finder/",
+        "note": "Park roster and facilities."
+      },
+      {
+        "label": "Delaware State Parks — passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   }
 ]

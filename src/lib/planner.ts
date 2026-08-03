@@ -30,7 +30,7 @@ import dogParksData from "../data/parks.json";
 import placesData from "../data/places.json";
 
 import { formatWindow, resolveRule, type Rule, type Status, type Town } from "./rules";
-import { isVerified } from "./verification";
+import { isPublishable } from "./verification";
 import type { StatePark } from "./state-parks";
 import type { CommunityPark } from "./community-parks";
 import type { Park as DogPark } from "./parks";
@@ -114,7 +114,7 @@ export function buildIndex(): PlannerPlace[] {
       county: t.county,
       town: t.name,
       blurb: (t as any).profile?.blurb ?? t.answer,
-      verified: isVerified(t),
+      verified: isPublishable(t),
       f: { ...EMPTY, beach: true, restrooms: null, free: null },
       dogWindows: resolveWindows(t.rules),
     });
@@ -129,7 +129,7 @@ export function buildIndex(): PlannerPlace[] {
       county: p.county,
       town: p.town,
       blurb: p.blurb,
-      verified: isVerified(p),
+      verified: isPublishable(p),
       f: {
         ...EMPTY,
         beach: p.features.beach,
@@ -151,7 +151,7 @@ export function buildIndex(): PlannerPlace[] {
       county: p.county,
       town: p.town,
       blurb: p.blurb,
-      verified: isVerified(p),
+      verified: isPublishable(p),
       f: {
         ...EMPTY,
         restrooms: p.restrooms.present,
@@ -180,7 +180,7 @@ export function buildIndex(): PlannerPlace[] {
       county: p.county,
       town: p.address.split(",")[1]?.trim() ?? p.county,
       blurb: p.notes ?? "",
-      verified: isVerified(p),
+      verified: isPublishable(p),
       f: {
         ...EMPTY,
         water: p.water,
@@ -203,7 +203,7 @@ export function buildIndex(): PlannerPlace[] {
       county: p.county,
       town: p.county,
       blurb: p.headline,
-      verified: isVerified(p),
+      verified: isPublishable(p),
       f: { ...EMPTY, beach: true },
       dogs: {
         allowed: p.openInSummer === "yes" ? "yes" : "hours",

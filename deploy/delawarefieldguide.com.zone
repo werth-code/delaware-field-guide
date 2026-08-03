@@ -1,0 +1,47 @@
+;; Delaware Field Guide — DNS zone file
+;; Import at: Cloudflare dashboard → delawarefieldguide.com → DNS → Records
+;;             → Import and Export → Import DNS records → upload this file
+;;
+;; IMPORTANT, in this order:
+;;
+;;   1. Import this file. Cloudflare imports records PROXIED (orange cloud) by
+;;      default — you must switch all five to DNS only (grey cloud) before
+;;      going further. Proxying before GitHub has issued its certificate is
+;;      what causes the infinite redirect loop.
+;;
+;;   2. GitHub → repo Settings → Pages → Custom domain →
+;;      enter  delawarefieldguide.com  → Save. Wait for the certificate to
+;;      provision; the page shows a green tick. This usually takes a few
+;;      minutes and can take up to an hour.
+;;
+;;   3. Tick "Enforce HTTPS" on that same GitHub Pages page. It stays greyed
+;;      out until the certificate exists.
+;;
+;;   4. Only now, if you want Cloudflare's CDN and analytics, switch the four
+;;      apex A records and the www CNAME back to Proxied (orange).
+;;      Then set SSL/TLS → Overview → mode to FULL (STRICT). Not Flexible.
+;;      Flexible + GitHub Pages = infinite redirect loop.
+;;
+;;   5. Cloudflare will serve stale HTML after each deploy. Either purge the
+;;      cache on deploy, or add a Cache Rule bypassing cache for *.html.
+;;      Also turn OFF Auto Minify and Rocket Loader — they break the planner.
+;;
+;; The four A records are GitHub Pages' published apex addresses.
+;; https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site
+
+$ORIGIN delawarefieldguide.com.
+$TTL 3600
+
+;; Apex → GitHub Pages
+@	3600	IN	A	185.199.108.153
+@	3600	IN	A	185.199.109.153
+@	3600	IN	A	185.199.110.153
+@	3600	IN	A	185.199.111.153
+
+;; www → the GitHub Pages host (NOT the apex, and not the repo path)
+www	3600	IN	CNAME	werth-code.github.io.
+
+;; No mail on this domain. These two tell the world so, which stops the domain
+;; being used to spoof mail from you. Remove them if you ever add email.
+@	3600	IN	TXT	"v=spf1 -all"
+_dmarc	3600	IN	TXT	"v=DMARC1; p=reject; rua=mailto:matthewwerth@gmail.com"

@@ -17,7 +17,7 @@ import stateParksData from "../data/state-parks.json";
 import communityParksData from "../data/community-parks.json";
 import dogParksData from "../data/parks.json";
 import surfData from "../data/surf-fishing.json";
-import { isVerified } from "../lib/verification";
+import { isPublishable } from "../lib/verification";
 
 const towns = townsData as { slug: string; name: string; verifiedDate: string | null; verifiedSource: string | null }[];
 const stateParks = stateParksData as { county: string; verifiedDate: string | null; verifiedSource: string | null }[];
@@ -26,7 +26,7 @@ const dogParks = dogParksData as { verifiedDate: string | null; verifiedSource: 
 
 const count = (rows: { verifiedDate: string | null; verifiedSource: string | null }[]) => ({
   total: rows.length,
-  live: rows.filter(isVerified).length,
+  live: rows.filter(isPublishable).length,
 });
 
 const sections = [

@@ -10,10 +10,10 @@ import FlagIcon from "../../components/FlagIcon.astro";
 import townsData from "../../data/towns.json";
 import type { Town } from "../../lib/rules";
 import { STATUS_META, formatLongDate, formatRange, ruleFor, statusOn } from "../../lib/rules";
-import { isVerified } from "../../lib/verification";
+import { isPublishable } from "../../lib/verification";
 
-const towns = (townsData as Town[]).filter(isVerified);
-const drafts = (townsData as Town[]).filter((t) => !isVerified(t));
+const towns = (townsData as Town[]).filter(isPublishable);
+const drafts = (townsData as Town[]).filter((t) => !isPublishable(t));
 
 const today = new Date();
 const asOf = formatLongDate(today);

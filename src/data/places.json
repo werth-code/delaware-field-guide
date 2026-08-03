@@ -8,15 +8,25 @@
     "openInSummer": "hours",
     "headline": "Ocean beach, ten minutes from Rehoboth, open every day of the year.",
     "detail": "Dogs are legal all summer — just not in the middle of the day. Before 9:30am and after 5:30pm from Memorial Day weekend through the Sunday after Labor Day, all day the rest of the year. This is the nearest legal summer ocean beach to Rehoboth by a wide margin, and almost nothing published tells you it exists.",
-    "conditions": ["Leashed during the summer window", "Town dog license required, visitors included"],
-    "hazards": ["Hot sand between 10am and 4pm — if you would not walk it barefoot, neither should the dog"],
+    "conditions": [
+      "Leashed during the summer window",
+      "Town dog license required, visitors included"
+    ],
+    "hazards": [
+      "Hot sand between 10am and 4pm — if you would not walk it barefoot, neither should the dog"
+    ],
     "feeNote": "No beach fee. The dog license is the cost — 3-day, 8-day and lifetime terms.",
     "driveFromRehoboth": "10 minutes",
     "sources": [
-      { "label": "Town of Dewey Beach — ordinances", "url": "https://www.townofdeweybeach.gov/Ordinances/", "note": null }
+      {
+        "label": "Town of Dewey Beach — ordinances",
+        "url": "https://www.townofdeweybeach.gov/Ordinances/",
+        "note": null
+      }
     ],
     "verifiedDate": null,
-    "verifiedSource": null
+    "verifiedSource": null,
+    "sourcedOn": "2026-08-01"
   },
   {
     "slug": "state-park-surf-fishing-beaches",
@@ -42,11 +52,20 @@
     "feeNote": "Park entry applies March 1 – November 30. From 2026 the beach parks are $10 for a Delaware-registered vehicle and $20 out-of-state. Annual passes are $50 and $100.",
     "driveFromRehoboth": "5–25 minutes",
     "sources": [
-      { "label": "Delaware State Parks — Pets in the Parks", "url": "https://www.destateparks.com/pets-in-the-parks/", "note": "Lifeguarded beaches closed to pets May 1 – September 30; non-guarded open year-round." },
-      { "label": "Delaware State Parks — Passes, Permits and Fees", "url": "https://www.destateparks.com/passes-permits-and-fees/", "note": "2026 fee schedule, effective 1 March 2026." }
+      {
+        "label": "Delaware State Parks — Pets in the Parks",
+        "url": "https://www.destateparks.com/pets-in-the-parks/",
+        "note": "Lifeguarded beaches closed to pets May 1 – September 30; non-guarded open year-round."
+      },
+      {
+        "label": "Delaware State Parks — Passes, Permits and Fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "2026 fee schedule, effective 1 March 2026."
+      }
     ],
     "verifiedDate": null,
-    "verifiedSource": null
+    "verifiedSource": null,
+    "sourcedOn": "2026-08-01"
   },
   {
     "slug": "slaughter-beach",
@@ -57,7 +76,11 @@
     "openInSummer": "yes",
     "headline": "Bay beach, dogs every day of the year, and almost nobody there.",
     "detail": "Leashed dogs are welcome year-round. It is a quiet Delaware Bay beach about forty minutes north of Rehoboth, and it appears in most aggregator lists as one bullet among twelve, if at all. Calm shallow water rather than surf, which suits an older or nervous dog better than the ocean does.",
-    "conditions": ["Leash under 6 feet", "Dogs off the dunes", "Clean up after your dog"],
+    "conditions": [
+      "Leash under 6 feet",
+      "Dogs off the dunes",
+      "Clean up after your dog"
+    ],
     "hazards": [
       "Horseshoe crabs. This is a designated sanctuary and in May and June the beach is carpeted with spawning crabs and their molts. Dogs eat the molts. Disturbing spawning crabs or the shorebirds feeding on their eggs is also a genuine conservation problem.",
       "Biting flies in high summer"
@@ -65,10 +88,15 @@
     "feeNote": "Free.",
     "driveFromRehoboth": "40 minutes",
     "sources": [
-      { "label": "Town of Slaughter Beach", "url": "https://slaughterbeach.delaware.gov/", "note": "Confirm the leash length and dune rule with the town." }
+      {
+        "label": "Town of Slaughter Beach",
+        "url": "https://slaughterbeach.delaware.gov/",
+        "note": "Confirm the leash length and dune rule with the town."
+      }
     ],
     "verifiedDate": null,
-    "verifiedSource": null
+    "verifiedSource": null,
+    "sourcedOn": "2026-08-01"
   },
   {
     "slug": "assateague-island-national-seashore",
@@ -95,10 +123,15 @@
     "feeNote": "National Seashore entrance fee applies. Confirm the current rate with the park.",
     "driveFromRehoboth": "About 1 hour 15 minutes",
     "sources": [
-      { "label": "Assateague Island National Seashore — pet regulations", "url": "https://www.nps.gov/asis/planyourvisit/pets.htm", "note": "Park phone 410-641-3030." }
+      {
+        "label": "Assateague Island National Seashore — pet regulations",
+        "url": "https://www.nps.gov/asis/planyourvisit/pets.htm",
+        "note": "Park phone 410-641-3030."
+      }
     ],
     "verifiedDate": null,
-    "verifiedSource": null
+    "verifiedSource": null,
+    "sourcedOn": "2026-08-01"
   },
   {
     "slug": "lewes-beach-summer",
@@ -109,14 +142,24 @@
     "openInSummer": "hours",
     "headline": "Bay beach with an early-morning and evening window.",
     "detail": "Leashed dogs before 8am and after 6:30pm from May 1 to September 30. Calm bay water, walkable from town. Treat this one as provisional: a city committee met in December 2025 to consider banning dogs outright at the guarded beaches in summer, and we have found no record of the outcome.",
-    "conditions": ["Leashed at all times", "Only outside the posted hours in season"],
-    "hazards": ["Rule may have changed — confirm with the city before making the trip"],
+    "conditions": [
+      "Leashed at all times",
+      "Only outside the posted hours in season"
+    ],
+    "hazards": [
+      "Rule may have changed — confirm with the city before making the trip"
+    ],
     "feeNote": "Beach parking fees apply in season.",
     "driveFromRehoboth": "20 minutes",
     "sources": [
-      { "label": "City of Lewes — are dogs allowed on the beach?", "url": "https://www.ci.lewes.de.us/FAQ.aspx?QID=167", "note": null }
+      {
+        "label": "City of Lewes — are dogs allowed on the beach?",
+        "url": "https://www.ci.lewes.de.us/FAQ.aspx?QID=167",
+        "note": null
+      }
     ],
     "verifiedDate": null,
-    "verifiedSource": null
+    "verifiedSource": null,
+    "sourcedOn": "2026-08-01"
   }
 ]

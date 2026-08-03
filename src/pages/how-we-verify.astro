@@ -36,7 +36,7 @@ const schema = [
         name: "What does the verification date mean?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "It is the date we last confirmed that fact with its source. It is not the date the page was published or edited. If a page has no verification stamp, it has not been confirmed and it is not indexed.",
+          text: "It is the date we last read or confirmed that fact with its source. It is not the date the page was published or edited. Pages are labelled either Confirmed, meaning we called or visited, or Read from the source, meaning it came from a named primary source but has not yet been confirmed by phone.",
         },
       },
       {
@@ -103,23 +103,62 @@ const schema = [
       have one.
     </p>
 
-    <h3>3. Unverified means unpublished</h3>
+    <h3>3. Every page tells you which kind of fact it is</h3>
     <p>
-      A page whose facts we haven't confirmed doesn't get a stamp, doesn't get
-      indexed, and doesn't appear in the section list. This is enforced by the
-      site's build, not by our good intentions: pages with no verification date
-      and no named source are automatically marked <code class="stamp">noindex</code>
-      and dropped from the sitemap. We can't accidentally ship a draft as fact.
+      There are two honest answers to "how do you know that", and they are not
+      the same, so we label them separately rather than blurring them into one
+      word.
     </p>
 
-    <h3>4. "Not confirmed" is a real answer</h3>
+    <dl class="sign breakout my-6 divide-y-2 divide-tide/30">
+      <div class="px-4 sm:px-5 py-4">
+        <dt class="label text-flag-green-bearing">Confirmed</dt>
+        <dd class="m-0 mt-1.5 text-[0.95rem] leading-[1.55] max-w-[58ch]">
+          We called, visited, or asked the body that sets the rule. The page
+          carries a stamp with the date and the name of whoever told us.
+        </dd>
+      </div>
+      <div class="px-4 sm:px-5 py-4">
+        <dt class="label">Read from the source</dt>
+        <dd class="m-0 mt-1.5 text-[0.95rem] leading-[1.55] max-w-[58ch]">
+          Taken from a named primary source — the city's own notice, DNREC's
+          published fee schedule, the county's own park listing — but not yet
+          confirmed by phone. The page says so, names the source, and gives you
+          the number to check it yourself.
+        </dd>
+      </div>
+    </dl>
+
+    <p>
+      Both get published. The difference is stated on the page, because
+      "the city publishes this" and "we rang the city and asked" are different
+      claims and you deserve to know which one you're reading.
+    </p>
+
+    <h3>4. What we will not publish</h3>
+    <p>
+      A fact whose only origin is another guide, a review site or an aggregator
+      does not go in. It gets no stamp, it is marked
+      <code class="stamp">noindex</code>, and it stays out of the sitemap and
+      off the lists until someone has actually checked it.
+    </p>
+    <p>
+      That rule has teeth. It is why our dog park pages — the seven fields for
+      each park — are still not in search: the underlying details came from
+      review sites, and until someone stands in each park with a notebook they
+      are not something we're willing to publish as fact. It's enforced by the
+      site's build rather than by our good intentions, so a draft can't be
+      shipped as a fact by accident.
+    </p>
+
+    <h3>5. "Not confirmed" is a real answer</h3>
     <p>
       Where we don't know something, the page says "not confirmed" rather than
       guessing or quietly omitting it. An empty field on a park listing means we
       haven't checked it — it does not mean the park lacks the thing.
     </p>
 
-    <h3 id="corrections">5. Corrections are published, not buried</h3>
+    <h3 id="corrections">6. Corrections are published, not buried</h3>
     <p>
       When we get something wrong, we fix it, re-date it, and note on the page
       that it was corrected and when. A site that claims to be verified and

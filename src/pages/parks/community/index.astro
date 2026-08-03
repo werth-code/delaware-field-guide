@@ -20,10 +20,10 @@ import {
   restroomAnswer,
   type CommunityPark,
 } from "../../../lib/community-parks";
-import { isVerified, robotsFor } from "../../../lib/verification";
+import { isPublishable, robotsFor } from "../../../lib/verification";
 
 const parks = parksData as CommunityPark[];
-const verified = parks.filter(isVerified);
+const verified = parks.filter(isPublishable);
 const pageGate = {
   verifiedDate: verified.length ? "confirmed" : null,
   verifiedSource: verified.length ? "confirmed" : null,

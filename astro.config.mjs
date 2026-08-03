@@ -21,7 +21,13 @@ const communityParks = read('./src/data/community-parks.json');
 const surf = read('./src/data/surf-fishing.json');
 const lodging = read('./src/data/lodging.json').filter((l) => typeof l.name === 'string');
 
-const confirmed = (r) => r.verifiedDate !== null && r.verifiedSource !== null;
+/*
+ * Mirrors tierOf() in src/lib/verification.ts. A record publishes if it was
+ * confirmed first-hand OR read from a named primary source. Records whose only
+ * origin is an aggregator stay out of the sitemap, same as they stay noindex.
+ */
+const confirmed = (r) =>
+  Boolean((r.verifiedDate && r.verifiedSource) || (r.sources?.length && r.sourcedOn));
 const placeOf = (slug) => places.find((p) => p.slug === slug);
 
 const unverified = [

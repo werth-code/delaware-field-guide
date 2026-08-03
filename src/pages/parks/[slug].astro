@@ -20,7 +20,7 @@ import {
   feeText,
   type StatePark,
 } from "../../lib/state-parks";
-import { isVerified, reportOutstanding, robotsFor } from "../../lib/verification";
+import { isPublishable, isVerified, reportOutstanding, robotsFor } from "../../lib/verification";
 
 export const getStaticPaths = (() =>
   (parksData as StatePark[]).map((park) => ({
@@ -34,6 +34,7 @@ reportOutstanding(`parks/${park.slug}`, park);
 const { known, total } = completeness(park);
 const fee = feeText(park);
 const verified = isVerified(park);
+const publishable = isPublishable(park);
 
 const others = (parksData as StatePark[]).filter(
   (p) => p.county === park.county && p.slug !== park.slug,
@@ -46,7 +47,7 @@ const tri = (v: boolean | null) =>
       ? { text: "Yes", state: "yes" as const }
       : { text: "No", state: "no" as const };
 
-const schema = verified
+const schema = publishable
   ? [
       {
         "@context": "https://schema.org",

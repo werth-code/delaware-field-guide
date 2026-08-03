@@ -1,13 +1,19 @@
 {
   "_comment": "Surf fishing. Every figure here is from published sources, not first-party calls, and several CONFLICT between sources — those carry a `conflict` field and must not be published as settled. Two calls to DNREC resolve most of it. See CALL-SHEET.md.",
-
   "headline": {
     "fact": "Only five drive-on beaches need a reservation in 2026 — not seven.",
     "detail": "DNREC suspended reservations at seven of the twelve crossings in 2025. Nearly every guide, forum post and blog still says seven are reservable. Getting this wrong costs a fishing trip, or a $107 fine for driving on without one where it is still required.",
     "verifiedDate": null,
-    "verifiedSource": null
+    "verifiedSource": null,
+    "sources": [
+      {
+        "label": "DNREC Division of Parks & Recreation",
+        "url": "https://www.destateparks.com/surf-fishing/",
+        "note": "2026 surf fishing rules, permits and reservations."
+      }
+    ],
+    "sourcedOn": "2026-08-03"
   },
-
   "reservations": {
     "window": "May 23 – Labor Day (7 September 2026)",
     "days": "Weekends and holidays only",
@@ -15,79 +21,262 @@
     "cost": "$4 per vehicle",
     "refundable": false,
     "release": [
-      { "when": "Tuesday 11am", "for": "the coming Saturday" },
-      { "when": "Wednesday 11am", "for": "the coming Sunday" },
-      { "when": "Thursday 11am", "for": "the coming holiday" }
+      {
+        "when": "Tuesday 11am",
+        "for": "the coming Saturday"
+      },
+      {
+        "when": "Wednesday 11am",
+        "for": "the coming Sunday"
+      },
+      {
+        "when": "Thursday 11am",
+        "for": "the coming holiday"
+      }
     ],
     "releaseNote": "Weekly only — you cannot book further ahead than the current week.",
-    "holidays2026": ["Memorial Day, 25 May", "Juneteenth, 19 June", "Independence Day, 4 July", "Labor Day, 7 September"],
+    "holidays2026": [
+      "Memorial Day, 25 May",
+      "Juneteenth, 19 June",
+      "Independence Day, 4 July",
+      "Labor Day, 7 September"
+    ],
     "notes": [
       "A no-show reservation stays valid, does not free the space for anyone else, and is not refunded or transferred.",
       "Off-peak permit holders cannot drive on during reservation periods at all.",
       "Print it. A digital copy is accepted as backup, not as the primary."
     ],
     "verifiedDate": null,
-    "verifiedSource": null
+    "verifiedSource": null,
+    "sources": [
+      {
+        "label": "DNREC Division of Parks & Recreation",
+        "url": "https://www.destateparks.com/surf-fishing/",
+        "note": "2026 surf fishing rules, permits and reservations."
+      }
+    ],
+    "sourcedOn": "2026-08-03"
   },
-
   "afterFour": {
     "rule": "Annual and two-year permit holders can drive on without a reservation after 4pm, even on a peak Saturday.",
     "catch": "You must be off the beach by 8am the next morning.",
     "why": "This is the most useful practical fact in the section and it is barely published. Evening fishing on a peak weekend needs no reservation and no $4.",
     "verifiedDate": null,
-    "verifiedSource": null
+    "verifiedSource": null,
+    "sources": [
+      {
+        "label": "DNREC Division of Parks & Recreation",
+        "url": "https://www.destateparks.com/surf-fishing/",
+        "note": "2026 surf fishing rules, permits and reservations."
+      }
+    ],
+    "sourcedOn": "2026-08-03"
   },
-
   "crossings": [
-    { "slug": "beach-plum-island", "name": "Beach Plum Island", "park": "Cape Henlopen area", "reservation": false, "walkOn": null, "note": "North of Lewes. A prime black drum spot in May. Note: pets are prohibited here year-round, unlike the rest of the surf-fishing sand." },
-    { "slug": "gordons-pond", "name": "Gordons Pond", "park": "Cape Henlopen", "reservation": true, "walkOn": null, "note": "Separated from Herring Point in the booking portal after a 2023 plover closure forced DNREC to split them." },
-    { "slug": "herring-point", "name": "Herring Point", "park": "Cape Henlopen", "reservation": true, "walkOn": null, "note": null },
-    { "slug": "navy-crossing", "name": "Navy Crossing", "park": "Cape Henlopen", "reservation": true, "walkOn": null, "note": null },
-    { "slug": "point-crossing", "name": "Point Crossing", "park": "Cape Henlopen", "reservation": true, "walkOn": null, "note": "The Point closes annually from around 1 March for nesting birds. Ocean side reopens 1 September; bayside not until 1 October." },
-    { "slug": "3rs", "name": "3Rs", "park": "Delaware Seashore", "reservation": true, "walkOn": true, "note": "The only reservable crossing outside Cape Henlopen. Has walk-on access too." },
-    { "slug": "key-box", "name": "Key Box", "park": "Delaware Seashore", "reservation": false, "walkOn": true, "note": "Walk-on access; trucks tend to leave these areas to walk-on anglers." },
-    { "slug": "conquest", "name": "Conquest", "park": "Delaware Seashore", "reservation": false, "walkOn": true, "note": "Walk-on access as well as drive-on." },
-    { "slug": "faithful-steward", "name": "Faithful Steward", "park": "Delaware Seashore", "reservation": false, "walkOn": null, "note": "Also known as Savages Ditch." },
-    { "slug": "york-beach", "name": "York Beach", "park": "Fenwick Island", "reservation": false, "walkOn": null, "note": null },
-    { "slug": "middle-beach", "name": "Middle Beach", "park": "Fenwick Island", "reservation": false, "walkOn": null, "note": null },
-    { "slug": "south-beach", "name": "South Beach", "park": "Fenwick Island", "reservation": false, "walkOn": true, "note": "The big South Beach crossing lot is the best walk-on option in the state park system." }
+    {
+      "slug": "beach-plum-island",
+      "name": "Beach Plum Island",
+      "park": "Cape Henlopen area",
+      "reservation": false,
+      "walkOn": null,
+      "note": "North of Lewes. A prime black drum spot in May. Note: pets are prohibited here year-round, unlike the rest of the surf-fishing sand."
+    },
+    {
+      "slug": "gordons-pond",
+      "name": "Gordons Pond",
+      "park": "Cape Henlopen",
+      "reservation": true,
+      "walkOn": null,
+      "note": "Separated from Herring Point in the booking portal after a 2023 plover closure forced DNREC to split them."
+    },
+    {
+      "slug": "herring-point",
+      "name": "Herring Point",
+      "park": "Cape Henlopen",
+      "reservation": true,
+      "walkOn": null,
+      "note": null
+    },
+    {
+      "slug": "navy-crossing",
+      "name": "Navy Crossing",
+      "park": "Cape Henlopen",
+      "reservation": true,
+      "walkOn": null,
+      "note": null
+    },
+    {
+      "slug": "point-crossing",
+      "name": "Point Crossing",
+      "park": "Cape Henlopen",
+      "reservation": true,
+      "walkOn": null,
+      "note": "The Point closes annually from around 1 March for nesting birds. Ocean side reopens 1 September; bayside not until 1 October."
+    },
+    {
+      "slug": "3rs",
+      "name": "3Rs",
+      "park": "Delaware Seashore",
+      "reservation": true,
+      "walkOn": true,
+      "note": "The only reservable crossing outside Cape Henlopen. Has walk-on access too."
+    },
+    {
+      "slug": "key-box",
+      "name": "Key Box",
+      "park": "Delaware Seashore",
+      "reservation": false,
+      "walkOn": true,
+      "note": "Walk-on access; trucks tend to leave these areas to walk-on anglers."
+    },
+    {
+      "slug": "conquest",
+      "name": "Conquest",
+      "park": "Delaware Seashore",
+      "reservation": false,
+      "walkOn": true,
+      "note": "Walk-on access as well as drive-on."
+    },
+    {
+      "slug": "faithful-steward",
+      "name": "Faithful Steward",
+      "park": "Delaware Seashore",
+      "reservation": false,
+      "walkOn": null,
+      "note": "Also known as Savages Ditch."
+    },
+    {
+      "slug": "york-beach",
+      "name": "York Beach",
+      "park": "Fenwick Island",
+      "reservation": false,
+      "walkOn": null,
+      "note": null
+    },
+    {
+      "slug": "middle-beach",
+      "name": "Middle Beach",
+      "park": "Fenwick Island",
+      "reservation": false,
+      "walkOn": null,
+      "note": null
+    },
+    {
+      "slug": "south-beach",
+      "name": "South Beach",
+      "park": "Fenwick Island",
+      "reservation": false,
+      "walkOn": true,
+      "note": "The big South Beach crossing lot is the best walk-on option in the state park system."
+    }
   ],
-
   "permits": {
     "note": "Unchanged for 2026. The off-peak permit is being discontinued in 2027.",
     "tiers": [
-      { "label": "Annual", "resident": "$90", "nonResident": "$180", "conflict": null },
-      { "label": "Two-year", "resident": "$180", "nonResident": "$360", "conflict": null },
-      { "label": "Senior annual", "resident": "$80", "nonResident": null, "conflict": "One source says seniors get no discount on the standard annual permit; another lists $80. Unresolved — do not publish either figure until DNREC confirms." },
-      { "label": "Senior two-year", "resident": "$160", "nonResident": "$320", "conflict": "Same unresolved conflict as the senior annual." },
-      { "label": "Off-peak annual", "resident": "$70", "nonResident": "$140", "conflict": null },
-      { "label": "Off-peak senior (62+)", "resident": "$60", "nonResident": null, "conflict": null },
-      { "label": "Special event", "resident": "$40", "nonResident": "$80", "conflict": null },
-      { "label": "Replacement", "resident": "$10", "nonResident": null, "conflict": null }
+      {
+        "label": "Annual",
+        "resident": "$90",
+        "nonResident": "$180",
+        "conflict": null
+      },
+      {
+        "label": "Two-year",
+        "resident": "$180",
+        "nonResident": "$360",
+        "conflict": null
+      },
+      {
+        "label": "Senior annual",
+        "resident": "$80",
+        "nonResident": null,
+        "conflict": "One source says seniors get no discount on the standard annual permit; another lists $80. Unresolved — do not publish either figure until DNREC confirms."
+      },
+      {
+        "label": "Senior two-year",
+        "resident": "$160",
+        "nonResident": "$320",
+        "conflict": "Same unresolved conflict as the senior annual."
+      },
+      {
+        "label": "Off-peak annual",
+        "resident": "$70",
+        "nonResident": "$140",
+        "conflict": null
+      },
+      {
+        "label": "Off-peak senior (62+)",
+        "resident": "$60",
+        "nonResident": null,
+        "conflict": null
+      },
+      {
+        "label": "Special event",
+        "resident": "$40",
+        "nonResident": "$80",
+        "conflict": null
+      },
+      {
+        "label": "Replacement",
+        "resident": "$10",
+        "nonResident": null,
+        "conflict": null
+      }
     ],
     "free": "Delaware firefighters and EMTs can get an annual pass or surf fishing permit free, applied for through their fire company or the Delaware Volunteer Firefighters Association.",
     "delivery": "Permits take three to four weeks to arrive. You get a 30-day virtual permit to use while you wait, so a May purchase still works for a June trip — but only just.",
     "offPeakWindows": "Seven days a week 1 February – 29 May and 6 September – 31 December. Monday to Friday only between Memorial Day and Labor Day, excluding Memorial Day, 4 July and Labor Day themselves.",
     "verifiedDate": null,
-    "verifiedSource": null
+    "verifiedSource": null,
+    "sources": [
+      {
+        "label": "DNREC Division of Parks & Recreation",
+        "url": "https://www.destateparks.com/surf-fishing/",
+        "note": "2026 surf fishing rules, permits and reservations."
+      }
+    ],
+    "sourcedOn": "2026-08-03"
   },
-
   "offPeakEnding": {
     "fact": "The off-peak surf fishing permit is being discontinued in 2027.",
     "detail": "DNREC removed weekend and holiday reservations from most surf fishing beaches in July 2025, which took away the off-peak permit's reason to exist. Almost nobody has published this.",
     "openQuestion": "Nobody has asked whether a two-year off-peak permit bought in 2026 stays valid through 2027. That is the first question on the call list.",
     "verifiedDate": null,
-    "verifiedSource": null
+    "verifiedSource": null,
+    "sources": [
+      {
+        "label": "DNREC Division of Parks & Recreation",
+        "url": "https://www.destateparks.com/surf-fishing/",
+        "note": "2026 surf fishing rules, permits and reservations."
+      }
+    ],
+    "sourcedOn": "2026-08-03"
   },
-
   "license": {
     "tiers": [
-      { "label": "Resident annual, 16–64", "cost": "$8.50" },
-      { "label": "Non-resident annual", "cost": "$20.00" },
-      { "label": "7-day tourist", "cost": "$12.50" },
-      { "label": "Trout stamp, 12–15", "cost": "$2.50" },
-      { "label": "Trout stamp, 16–64", "cost": "$4.20" },
-      { "label": "FIN number", "cost": "Free — but required for everyone 16+" }
+      {
+        "label": "Resident annual, 16–64",
+        "cost": "$8.50"
+      },
+      {
+        "label": "Non-resident annual",
+        "cost": "$20.00"
+      },
+      {
+        "label": "7-day tourist",
+        "cost": "$12.50"
+      },
+      {
+        "label": "Trout stamp, 12–15",
+        "cost": "$2.50"
+      },
+      {
+        "label": "Trout stamp, 16–64",
+        "cost": "$4.20"
+      },
+      {
+        "label": "FIN number",
+        "cost": "Free — but required for everyone 16+"
+      }
     ],
     "exemption": {
       "rule": "A valid surf fishing vehicle permit exempts the permit holder from needing a fishing licence — but only while the vehicle is on a designated Delaware State Park beach.",
@@ -95,34 +284,73 @@
       "seniors": "Residents 65 and over don't need a permit but must show proof of residency."
     },
     "verifiedDate": null,
-    "verifiedSource": null
+    "verifiedSource": null,
+    "sources": [
+      {
+        "label": "DNREC Division of Parks & Recreation",
+        "url": "https://www.destateparks.com/surf-fishing/",
+        "note": "2026 surf fishing rules, permits and reservations."
+      }
+    ],
+    "sourcedOn": "2026-08-03"
   },
-
   "rules": [
-    { "label": "The fine", "value": "$107, escalating for repeat offences." },
-    { "label": "Mandatory video", "value": "Everyone must watch DNREC's instructional video before their first drive-on." },
-    { "label": "Vehicle", "value": "4WD, minimum 7 inches of ground clearance, street-legal and registered, permit displayed.", "caution": "The only source found for the clearance figure is a 2019 post. Verify before publishing." },
-    { "label": "Multiple vehicles", "value": "Each vehicle needs its own permit. Add them one at a time under a single account using \"continue shopping\"." },
-    { "label": "Sales cap", "value": "None. The old 17,000-permit annual cap is gone." },
-    { "label": "Fee season", "value": "1 March – 30 November." }
+    {
+      "label": "The fine",
+      "value": "$107, escalating for repeat offences."
+    },
+    {
+      "label": "Mandatory video",
+      "value": "Everyone must watch DNREC's instructional video before their first drive-on."
+    },
+    {
+      "label": "Vehicle",
+      "value": "4WD, minimum 7 inches of ground clearance, street-legal and registered, permit displayed.",
+      "caution": "The only source found for the clearance figure is a 2019 post. Verify before publishing."
+    },
+    {
+      "label": "Multiple vehicles",
+      "value": "Each vehicle needs its own permit. Add them one at a time under a single account using \"continue shopping\"."
+    },
+    {
+      "label": "Sales cap",
+      "value": "None. The old 17,000-permit annual cap is gone."
+    },
+    {
+      "label": "Fee season",
+      "value": "1 March – 30 November."
+    }
   ],
-
   "noResidentPriority": {
     "question": "Why don't Delaware residents get priority on reservations?",
     "answer": "The Division of Parks and Recreation takes federal Land & Water Conservation Fund money, which prohibits discriminating by residence — including preferential reservation, membership or annual permit systems. Anything offered to residents has to be equally available to non-residents for the same period.",
     "why": "This is the single biggest complaint in every Delaware surf fishing forum, and there is a real, citable answer that nobody publishes.",
     "verifiedDate": null,
-    "verifiedSource": null
+    "verifiedSource": null,
+    "sources": [
+      {
+        "label": "DNREC Division of Parks & Recreation",
+        "url": "https://www.destateparks.com/surf-fishing/",
+        "note": "2026 surf fishing rules, permits and reservations."
+      }
+    ],
+    "sourcedOn": "2026-08-03"
   },
-
   "closures": {
     "headline": "A bird can close the beach you already paid for.",
     "detail": "The Point at Cape Henlopen has closed annually since 1993 for piping plover, least tern and migrating shorebirds — in 2026 it closed on 1 March. The ocean-side habitat reopens 1 September, the bayside not until 1 October. Closures can also appear mid-season: in 2023 a single plover nest shut part of Gordons Pond and forced DNREC to split it from Herring Point in the booking portal.",
     "consequence": "Your $4 reservation is non-refundable and non-transferable. A beach can close between booking and arrival.",
     "verifiedDate": null,
-    "verifiedSource": null
+    "verifiedSource": null,
+    "sources": [
+      {
+        "label": "DNREC Division of Parks & Recreation",
+        "url": "https://www.destateparks.com/surf-fishing/",
+        "note": "2026 surf fishing rules, permits and reservations."
+      }
+    ],
+    "sourcedOn": "2026-08-03"
   },
-
   "outstanding": [
     "PRIORITY: does a two-year off-peak permit bought in 2026 stay valid through 2027, when the off-peak permit is discontinued? Nobody has asked this.",
     "Resolve the senior permit conflict — one source says no senior discount on the standard annual, another lists $80/$160/$320.",

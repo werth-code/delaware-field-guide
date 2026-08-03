@@ -134,7 +134,8 @@
         "note": "Loose dog, a dispute, anything not an emergency. Confirm this is the right non-emergency line.",
         "verified": false
       }
-    ]
+    ],
+    "sourcedOn": "2026-08-01"
   },
   {
     "slug": "dewey-beach",
@@ -248,7 +249,8 @@
         "note": null,
         "verified": false
       }
-    ]
+    ],
+    "sourcedOn": "2026-08-01"
   },
   {
     "slug": "bethany-beach",
@@ -389,7 +391,8 @@
         "note": null,
         "verified": false
       }
-    ]
+    ],
+    "sourcedOn": "2026-08-01"
   },
   {
     "slug": "lewes",
@@ -517,7 +520,8 @@
         "note": null,
         "verified": false
       }
-    ]
+    ],
+    "sourcedOn": "2026-08-01"
   },
   {
     "slug": "fenwick-island",
@@ -634,6 +638,7 @@
         "note": null,
         "verified": false
       }
-    ]
+    ],
+    "sourcedOn": "2026-08-01"
   }
 ]

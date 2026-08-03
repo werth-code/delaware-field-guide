@@ -43,7 +43,14 @@
       "Confirm drinking water.",
       "Get the county parks number.",
       "Confirm farmers market day and season."
-    ]
+    ],
+    "sources": [
+      {
+        "label": "New Castle County Parks",
+        "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "carousel-park",
@@ -89,7 +96,14 @@
       "⚑ The off-leash dog area here is NOT in our dog-park dataset. Visit it, run the seven fields, and add it — this is a real coverage gap.",
       "Get a street number for the address.",
       "Confirm hours."
-    ]
+    ],
+    "sources": [
+      {
+        "label": "New Castle County Parks",
+        "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "rockwood-park",
@@ -134,7 +148,14 @@
       "Restrooms confirmed present — establish whether they run on museum hours or park hours.",
       "Confirm the address.",
       "Confirm whether dogs are allowed on the mansion grounds."
-    ]
+    ],
+    "sources": [
+      {
+        "label": "New Castle County Parks",
+        "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "banning-park",
@@ -179,7 +200,14 @@
       "RESTROOMS — confirm.",
       "CONFIRM WHETHER THE DOG PARK EXISTS. This is the same open question sitting in parks.json.",
       "Confirm the address and hours."
-    ]
+    ],
+    "sources": [
+      {
+        "label": "New Castle County Parks",
+        "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "brandywine-springs-park",
@@ -221,7 +249,14 @@
     "outstanding": [
       "RESTROOMS — confirm.",
       "Confirm hours and whether the historical site tours are seasonal."
-    ]
+    ],
+    "sources": [
+      {
+        "label": "New Castle County Parks",
+        "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "iron-hill-park",
@@ -264,7 +299,14 @@
       "RESTROOMS — confirm.",
       "Confirm drinking water.",
       "Confirm disc golf course access and whether it's free."
-    ]
+    ],
+    "sources": [
+      {
+        "label": "New Castle County Parks",
+        "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "talley-day-park",
@@ -308,7 +350,14 @@
     "outstanding": [
       "Restrooms confirmed present — establish whether they are the park’s own or the library’s, and whether they are usable when the library is shut.",
       "Confirm the water fountains are dog-fillable."
-    ]
+    ],
+    "sources": [
+      {
+        "label": "New Castle County Parks",
+        "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "river-road-park",
@@ -350,7 +399,14 @@
     "outstanding": [
       "RESTROOMS — confirm.",
       "HOURS — not published anywhere. Same gap as the dog-park record."
-    ]
+    ],
+    "sources": [
+      {
+        "label": "New Castle County Parks",
+        "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "brecknock-park",
@@ -393,7 +449,14 @@
       "Confirm restroom season and hours — 'has restrooms' and 'restrooms open in February' are different facts.",
       "Confirm the address.",
       "Confirm pavilion booking and whether it costs."
-    ]
+    ],
+    "sources": [
+      {
+        "label": "Kent County Levy Court — Parks",
+        "url": "https://www.kentcountyde.gov/Parks"
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "tidbury-creek-park",
@@ -438,7 +501,14 @@
       "RESTROOMS — confirm.",
       "Confirm whether the Sunday closure covers the whole park or just the dog run.",
       "Get a street address."
-    ]
+    ],
+    "sources": [
+      {
+        "label": "Kent County Levy Court — Parks",
+        "url": "https://www.kentcountyde.gov/Parks"
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "hunn-nature-park",
@@ -481,7 +551,14 @@
       "RESTROOMS — confirm whether there are any at all.",
       "Confirm the trail surface — 'accessible for all skill levels' is not the same as wheelchair accessible.",
       "Get a street address."
-    ]
+    ],
+    "sources": [
+      {
+        "label": "Kent County Levy Court — Parks",
+        "url": "https://www.kentcountyde.gov/Parks"
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   },
   {
     "slug": "big-oak-park",
@@ -691,6 +768,13 @@
       "RESTROOMS — confirm, this is a busy sports park.",
       "HOURS — not published.",
       "Get a street address."
-    ]
+    ],
+    "sources": [
+      {
+        "label": "City of Dover — Parks and Recreation",
+        "url": "https://www.cityofdover.com/"
+      }
+    ],
+    "sourcedOn": "2026-08-02"
   }
 ]

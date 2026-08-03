@@ -17,13 +17,13 @@ import Layout from "../../layouts/Layout.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
 
 import data from "../../data/surf-fishing.json";
-import { isVerified, robotsFor } from "../../lib/verification";
+import { isPublishable, robotsFor } from "../../lib/verification";
 
 const { permits, offPeakEnding, license, rules } = data;
 
 const pageGate = {
-  verifiedDate: isVerified(permits) ? "confirmed" : null,
-  verifiedSource: isVerified(permits) ? "confirmed" : null,
+  verifiedDate: isPublishable(permits) ? "confirmed" : null,
+  verifiedSource: isPublishable(permits) ? "confirmed" : null,
 };
 ---
 

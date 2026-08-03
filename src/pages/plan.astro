@@ -27,7 +27,7 @@ import Layout from "../layouts/Layout.astro";
 import FlagIcon from "../components/FlagIcon.astro";
 
 import { NEED_LABELS, buildIndex } from "../lib/planner";
-import { isVerified } from "../lib/verification";
+import { isPublishable } from "../lib/verification";
 
 const index = buildIndex();
 const anyVerified = index.some((p) => p.verified);

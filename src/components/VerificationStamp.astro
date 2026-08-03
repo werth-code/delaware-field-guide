@@ -21,7 +21,7 @@
  * verification.ts, not here.
  */
 import type { Verifiable } from "../lib/verification";
-import { isVerified, stampText } from "../lib/verification";
+import { isVerified, sourcedText, stampText, tierOf } from "../lib/verification";
 
 interface Props {
   item: Verifiable & {
@@ -32,21 +32,31 @@ interface Props {
 
 const { item } = Astro.props;
 const verified = isVerified(item);
+const tier = tierOf(item);
 const sources = item.sources ?? [];
 const tel = item.callTo?.phone.replace(/[^0-9+]/g, "");
+
+/* Ochre for sourced, green for confirmed. The colour is doing semantic work —
+   a reader shouldn't have to read the stamp to tell the two apart. */
+const edge = verified ? "border-l-flag-green" : "border-l-ochre";
 ---
 
 <aside
-  class={`sign breakout my-10 px-4 sm:px-5 py-5 ${verified ? "border-l-[9px] border-l-flag-green" : "border-l-[9px] border-l-ochre"}`}
+  class={`sign breakout my-10 px-4 sm:px-5 py-5 border-l-[9px] ${edge}`}
 >
   {
     verified ? (
       <p class="m-0">
         <span class="stamp stamp-struck">{stampText(item)}</span>
       </p>
+    ) : tier === "sourced" ? (
+      <>
+        <p class="label text-ochre-deep m-0">Read from the source — not yet confirmed by phone</p>
+        <p class="stamp text-ink-soft mt-1.5 mb-0">{sourcedText(item)}</p>
+      </>
     ) : (
       <p class="stamp text-ink-soft m-0">
-        Drafted from the source below. Not yet confirmed first-hand.
+        Not yet checked against a primary source.
       </p>
     )
   }
