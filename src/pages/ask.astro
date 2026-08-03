@@ -1,0 +1,508 @@
+---
+/**
+ * Ask — the conversational front end to the planner.
+ *
+ * /plan/ is the form: pick a date, tick boxes, get results. This is the same
+ * engine reached by typing a sentence, which is how most people actually
+ * arrive ("can I take the dog to Rehoboth in July").
+ *
+ * THE RULE IS UNCHANGED FROM /plan/: no language model touches a fact. The
+ * matcher below is deterministic and decides which places are true answers,
+ * including the dog-legality maths, which is resolved server-side per year in
+ * planner.ts and only compared here. A model is used for one thing — writing
+ * the summary sentence and ordering the results it was handed — and it is
+ * never given the data. See the note in src/lib/planner.ts.
+ *
+ * Dogs are the reason this page earns its place. The rule moves with the date
+ * and the town, most published answers are stale, and "can I bring the dog on
+ * the 4th of July" is a question a form makes you translate and a sentence
+ * does not.
+ */
+import Layout from "../layouts/Layout.astro";
+import { buildIndex, NEED_LABELS } from "../lib/planner";
+
+const INDEX = buildIndex();
+const endpoint = import.meta.env.PUBLIC_CHAT_ENDPOINT ?? "";
+
+const examples = [
+  "Dog on the beach in July",
+  "Can I bring my dog to Rehoboth today?",
+  "Playground and restrooms in Sussex",
+  "Fenced dog park near Wilmington",
+  "Free beach with parking",
+  "Somewhere shady to walk the dog",
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Delaware Field Guide — ask",
+    applicationCategory: "TravelApplication",
+    operatingSystem: "Any",
+    url: "https://delawarefieldguide.com/ask/",
+    description:
+      "Ask in a sentence — dogs on the beach in July, a playground with restrooms — and get Delaware places that confirm it, with the date each fact was checked.",
+  },
+];
+---
+
+<Layout
+  title="Ask — Delaware dog rules and places, in a sentence"
+  description="Type what you need — dogs on the beach in July, a fenced dog park, a playground with restrooms — and get the Delaware places that confirm it, with dates."
+  schema={schema}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">Ask</p>
+    <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[14ch] text-marsh">
+      Just ask it
+    </h1>
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
+      Say it the way you'd say it out loud — "dog on the beach in July". It
+      works out the date, checks the rule for that town on that day, and shows
+      you the source. Prefer boxes to tick? <a href="/plan/">The planner's here</a>.
+    </p>
+  </div>
+
+  <div class="wrap pb-6">
+    <form id="ask-form" class="sign breakout p-4 sm:p-6" autocomplete="off">
+      <label for="ask-input" class="label block">What do you need?</label>
+      <input
+        id="ask-input"
+        name="q"
+        type="text"
+        required
+        maxlength="200"
+        placeholder="Can I take the dog to Dewey in July?"
+        class="sign-quiet w-full mt-1.5 px-3 py-3 text-[1rem] bg-shell text-ink min-h-[48px]"
+      />
+      <div class="flex flex-wrap gap-3 mt-4">
+        <button
+          type="submit"
+          class="tap sign-quiet px-4 font-mono text-[0.72rem] font-medium uppercase tracking-[0.09em] bg-marsh text-cream border-marsh cursor-pointer"
+        >
+          Ask
+        </button>
+      </div>
+
+      <p class="label mt-5 mb-2">Or try</p>
+      <ul class="list-none p-0 m-0 flex flex-wrap gap-1.5">
+        {
+          examples.map((e) => (
+            <li>
+              <button
+                type="button"
+                data-example={e}
+                class="tap sign-quiet px-3 gap-2 cursor-pointer text-[0.86rem] text-marsh"
+              >
+                {e}
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+    </form>
+  </div>
+
+  <div class="wrap pb-4">
+    <div id="ask-out" aria-live="polite"></div>
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    <h2>How this answers</h2>
+    <p class="max-w-[58ch]">
+      Your sentence is turned into a checklist — a date, a county, what you need
+      — and matched against the data by plain comparison. Dog rules are resolved
+      from the town's actual published windows for the year in question, which
+      is why the answer changes if you say July instead of October.
+    </p>
+    <p class="max-w-[58ch]">
+      Anything we haven't confirmed is shown separately and labelled. A blank in
+      our data means nobody has checked, not that the answer is no — treating
+      those as "no" would invent facts at scale.
+    </p>
+    <p class="max-w-[58ch]">
+      There's an AI here and it's kept on a short lead: it writes the summary
+      line and orders the results. It is never given the underlying data and
+      cannot state a fact about a place. Everything below the summary is
+      rendered from the checked dataset.
+      <a href="/how-we-verify/">The full method is here</a>.
+    </p>
+  </div>
+</Layout>
+
+<script define:vars={{ INDEX, ENDPOINT: endpoint, NEED_LABELS }}>
+  /* ---- vocabulary ------------------------------------------------------ */
+  const NEED_WORDS = {
+    restrooms: ["toilet","toilets","restroom","restrooms","bathroom","bathrooms","loo","wc"],
+    playground: ["playground","swings","slide","play area","kids","children"],
+    water: ["drinking water","water fountain","fountain","drink"],
+    shade: ["shade","shady","out of the sun"],
+    trails: ["trail","trails","walk","walking","hike","hiking","stroll"],
+    beach: ["beach","sand","ocean","surf","swim","swimming","seaside"],
+    camping: ["camp","camping","campground","tent","rv"],
+    fenced: ["fenced","fence","enclosed","off-leash","offleash","off leash","run around"],
+    free: ["free","no fee","cheap","budget","no charge"],
+    paved: ["paved","stroller","wheelchair","accessible","pram","buggy"],
+    sports: ["court","courts","field","fields","basketball","tennis","ball"],
+    dogPark: ["dog park","dog parks"],
+  };
+  const NEED_SAYS = Object.fromEntries(NEED_LABELS.map(([k, l]) => [k, l.toLowerCase()]));
+  NEED_SAYS.dogPark = "a dog park";
+
+  const DOG_WORDS = ["dog","dogs","puppy","pup","pet","pets","leash","leashed","off-leash"];
+  const KINDS = [
+    [["beach town","beach towns","the beach","boardwalk"], "beach town"],
+    [["state park","state parks"], "state park"],
+    [["community park","community parks","local park","town park","municipal"], "community park"],
+    [["dog park","dog parks","dog run"], "dog park"],
+  ];
+  const MONTHS = ["january","february","march","april","may","june","july","august","september","october","november","december"];
+  const COUNTIES = [...new Set(INDEX.map(p => p.county).filter(Boolean))];
+  const TOWN_NAMES = [...new Set(INDEX.map(p => p.town).filter(Boolean))];
+
+  /* Nobody types "Rehoboth Beach" — they type "Rehoboth". So each town also
+     matches on any distinctive word of its own: one long enough to be
+     meaningful and belonging to exactly one town. "Beach" is shared by five,
+     so it never becomes a needle; "Rehoboth" is unique, so it does.
+     This is the same bug the /plan/ matcher had, reintroduced here by
+     copying the simpler Deep Creek version, where every town is one word. */
+  const TOWN_NEEDLES = (() => {
+    const freq = {};
+    for (const t of TOWN_NAMES)
+      for (const w of t.toLowerCase().split(/\s+/)) freq[w] = (freq[w] ?? 0) + 1;
+    const out = [];
+    for (const t of TOWN_NAMES) {
+      out.push([t.toLowerCase(), t]);
+      for (const w of t.toLowerCase().split(/\s+/))
+        if (w.length >= 5 && freq[w] === 1) out.push([w, t]);
+    }
+    return out.sort((a, b) => b[0].length - a[0].length);   // longest needle wins
+  })();
+  const NAMES = INDEX.map(p => [p.name.toLowerCase(), p.id]).sort((a,b)=>b[0].length-a[0].length);
+
+  const norm = s => s.toLowerCase().replace(/[^a-z0-9\s'-]/g," ").replace(/\s+/g," ").trim();
+  function has(hay, needle) {
+    const i = hay.indexOf(needle);
+    if (i === -1) return false;
+    const b = i === 0 ? " " : hay[i-1];
+    const a = i + needle.length >= hay.length ? " " : hay[i+needle.length];
+    return !/[a-z0-9]/.test(b) && !/[a-z0-9]/.test(a);
+  }
+  const iso = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+
+  /* ---- date out of a sentence ------------------------------------------ */
+  // Returns { date, label, explicit }. Falls back to today, flagged as not
+  // explicit, so the UI can say which date it answered for.
+  function parseDate(q) {
+    const today = new Date(); today.setHours(12,0,0,0);
+    const y = today.getFullYear();
+
+    if (has(q, "today") || has(q, "right now") || has(q, "this afternoon"))
+      return { date: today, label: "today", explicit: true };
+    if (has(q, "tomorrow")) {
+      const d = new Date(today); d.setDate(d.getDate()+1);
+      return { date: d, label: "tomorrow", explicit: true };
+    }
+    if (has(q, "this weekend") || has(q, "the weekend") || has(q, "saturday") || has(q, "sunday")) {
+      const d = new Date(today);
+      const target = has(q, "sunday") ? 0 : 6;
+      while (d.getDay() !== target) d.setDate(d.getDate()+1);
+      return { date: d, label: has(q,"sunday") ? "this Sunday" : "this Saturday", explicit: true };
+    }
+    if (has(q, "fourth of july") || has(q, "4th of july") || has(q, "july 4"))
+      return { date: new Date(y, 6, 4), label: `4 July ${y}`, explicit: true };
+    if (has(q, "memorial day")) return { date: new Date(y, 4, 25), label: "Memorial Day week", explicit: true };
+    if (has(q, "labor day")) return { date: new Date(y, 8, 1), label: "Labor Day week", explicit: true };
+
+    for (let i = 0; i < 12; i++) {
+      const m = MONTHS[i];
+      if (!has(q, m) && !has(q, m.slice(0,3))) continue;
+      // "july 15" → that day; bare "july" → mid-month, which is representative
+      const dm = q.match(new RegExp(`${m}\\w*\\s+(\\d{1,2})`)) || q.match(new RegExp(`(\\d{1,2})\\s+${m}`));
+      const day = dm ? Math.min(31, Math.max(1, +dm[1])) : 15;
+      const date = new Date(y, i, day);
+      if (date < today && !dm) date.setFullYear(y + 1);   // "in March" said in Nov means next March
+      return { date, label: dm ? `${day} ${m[0].toUpperCase()+m.slice(1)} ${date.getFullYear()}` : `mid-${m[0].toUpperCase()+m.slice(1)} ${date.getFullYear()}`, explicit: true };
+    }
+    if (has(q, "summer")) return { date: new Date(y, 6, 15), label: `mid-July ${y}`, explicit: true };
+    if (has(q, "winter")) return { date: new Date(y, 0, 15), label: `mid-January ${y}`, explicit: true };
+
+    return { date: today, label: "today", explicit: false };
+  }
+
+  /* ---- dog legality, from the server-resolved windows ------------------- */
+  const ordOf = mmdd => { const [m,d] = mmdd.split("-").map(Number); return m*100 + d; };
+  function dogStatus(place, date) {
+    if (place.dogWindows) {
+      const wins = place.dogWindows[String(date.getFullYear())] || Object.values(place.dogWindows)[0];
+      const t = (date.getMonth()+1)*100 + date.getDate();
+      for (const w of wins || []) {
+        const a = ordOf(w.from), b = ordOf(w.to);
+        const hit = a <= b ? (t >= a && t <= b) : (t >= a || t <= b);
+        if (hit) {
+          if (w.status === "prohibited") return { ok: false, why: "Closed to dogs on this date" };
+          if (w.status === "restricted") return { ok: true, why: w.hours ? `Dogs OK ${w.hours}` : "Dogs OK, with limits" };
+          return { ok: true, why: "Dogs OK all day" };
+        }
+      }
+      return { ok: null, why: "Dog rule not confirmed for this date" };
+    }
+    if (!place.dogs) return { ok: null, why: "Dog rule not confirmed" };
+    if (place.dogs.allowed === "no") return { ok: false, why: "No dogs" };
+    if (place.dogs.allowed === null) return { ok: null, why: "Dog rule not confirmed" };
+    if (place.dogs.allowed === "hours") return { ok: true, why: "Dogs OK, with limits" };
+    return { ok: true, why: "Dogs welcome" };
+  }
+
+  /* ---- parse ------------------------------------------------------------ */
+  function parse(raw) {
+    const q = ` ${norm(raw)} `;
+    const needs = [];
+    for (const [key, words] of Object.entries(NEED_WORDS))
+      if (words.some(w => has(q, w))) needs.push(key);
+
+    const wantsDog = DOG_WORDS.some(w => has(q, w));
+    let kind = null;
+    for (const [words, k] of KINDS) if (words.some(w => has(q, w))) { kind = k; break; }
+    // "dog park" is both a need and a kind; the kind is the stronger signal.
+    if (kind === "dog park" && !needs.includes("dogPark")) needs.push("dogPark");
+
+    const county = COUNTIES.find(c => has(q, c.toLowerCase())) ?? null;
+    const town = (TOWN_NEEDLES.find(([needle]) => has(q, needle)) ?? [])[1] ?? null;
+    const named = (NAMES.find(([n]) => has(q, n)) ?? [])[1] ?? null;
+    const when = parseDate(q);
+
+    return { raw, needs, wantsDog, kind, county, town, named, when };
+  }
+
+  function match(raw) {
+    const query = parse(raw);
+    const scored = [];
+    /* Places ruled out by a CONFIRMED "no dogs" on the date asked about.
+       Dropping these silently would answer "can I take the dog to Rehoboth
+       today?" with a different town's beach and no mention of Rehoboth — a
+       true list that reads as a false answer. When the question named the
+       place, the refusal IS the answer. */
+    const blocked = [];
+    for (const p of INDEX) {
+      if (query.kind && p.kind !== query.kind) continue;
+      if (query.county && p.county !== query.county) continue;
+      if (query.town && p.town !== query.town) continue;
+
+      const met = query.needs.filter(k => p.f[k] === true);
+      const unknown = query.needs.filter(k => p.f[k] === null || p.f[k] === undefined);
+      if (query.needs.some(k => p.f[k] === false)) continue;
+
+      let dog = null;
+      if (query.wantsDog) {
+        dog = dogStatus(p, query.when.date);
+        if (dog.ok === false) { blocked.push({ p, dog }); continue; }
+      }
+
+      let score = met.length * 10 + (query.named === p.id ? 100 : 0);
+      if (dog && dog.ok === true) score += 12;
+      for (const w of norm(raw).split(" "))
+        if (w.length > 3 && (p.name + " " + p.blurb + " " + p.town).toLowerCase().includes(w)) score += 1;
+      if (p.verified) score += 3;
+
+      const dogUnknown = Boolean(dog && dog.ok === null);
+      scored.push({ p, met, unknown, dog, dogUnknown, score });
+    }
+    scored.sort((a,b) => b.score - a.score || a.p.name.localeCompare(b.p.name));
+
+    const empty = !query.needs.length && !query.wantsDog && !query.kind && !query.county && !query.town && !query.named;
+    return {
+      query,
+      matches: scored.filter(s => !s.unknown.length && !s.dogUnknown),
+      unconfirmed: scored.filter(s => s.unknown.length || s.dogUnknown),
+      /* Only surfaced when the visitor pointed at somewhere specific.
+         Otherwise it's noise: "here are 12 beaches that say no". */
+      blocked: (query.town || query.named) ? blocked : [],
+      empty,
+    };
+  }
+
+  /* ---- deterministic lead (fallback AND safety net) --------------------- */
+  const listOf = a => !a.length ? "" : a.length === 1 ? a[0] : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
+  const pl = (n,o,m) => n === 1 ? o : m;
+  const says = k => NEED_SAYS[k] ?? k;
+
+  function deterministicLead(r) {
+    const q = r.query;
+    if (r.empty)
+      return "Tell me what you need — a dog on the beach in July, a playground with restrooms, a fenced dog park — and I'll show you what's confirmed.";
+
+    const bits = [];
+    if (q.wantsDog) bits.push("dogs");
+    bits.push(...q.needs.map(says));
+    const asked = listOf(bits);
+    const where = q.town ? ` in ${q.town}` : q.county ? ` in ${q.county}` : "";
+    /* "on today" and "on tomorrow" are wrong; those labels are already adverbs. */
+    const when = !q.wantsDog ? ""
+      : /^(today|tomorrow|this )/.test(q.when.label) ? ` ${q.when.label}`
+      : ` on ${q.when.label}`;
+
+    /* A named place that says no is the answer to the question asked, so it
+       leads — before any alternatives. */
+    if (r.blocked.length) {
+      const names = listOf(r.blocked.map(b => b.p.name));
+      const alt = r.matches.length
+        ? ` ${r.matches.length} other ${pl(r.matches.length,"place","places")} ${pl(r.matches.length,"allows","allow")} dogs then — ${pl(r.matches.length,"it's","they're")} below.`
+        : "";
+      return `No — ${names} ${pl(r.blocked.length,"does not allow","do not allow")} dogs${when || " then"}.${alt}`;
+    }
+
+    if (!r.matches.length && !r.unconfirmed.length)
+      return `Nothing confirmed for ${asked}${where}${when}. That may mean it isn't allowed, or that we haven't checked it yet — nothing here is a guess either way.`;
+
+    const gaps = listOf([...new Set(r.unconfirmed.flatMap(s => [...s.unknown.map(says), ...(s.dogUnknown ? ["the dog rule"] : [])]))]);
+
+    if (!r.matches.length)
+      return `Nothing is confirmed for ${asked}${where}${when} yet, but ${r.unconfirmed.length} ${pl(r.unconfirmed.length,"place","places")} could still work — the unchecked gaps among them are ${gaps}. They're below so you can call and ask.`;
+
+    const head = `${r.matches.length} ${pl(r.matches.length,"place","places")}${where} ${pl(r.matches.length,"confirms","confirm")} ${asked}${when}.`;
+    if (!r.unconfirmed.length) return head;
+    return `${head} Another ${r.unconfirmed.length} could work — the gaps among them are ${gaps}, which nobody has checked yet.`;
+  }
+
+  function leadIsSafe(lead, r) {
+    if (!lead || lead.length > 400) return false;
+    const ok = new Set([r.matches.length, r.unconfirmed.length, r.matches.length + r.unconfirmed.length].map(String));
+    // Dates in the lead are legitimate, so allow anything already in the label.
+    const labelNums = new Set((r.query.when.label.match(/\d+/g) ?? []));
+    for (const n of lead.match(/\d+/g) ?? []) if (!ok.has(n) && !labelNums.has(n)) return false;
+    const offered = [...r.matches, ...r.unconfirmed].map(s => s.p.name.toLowerCase());
+    const known = new Set([...offered, ...offered.flatMap(n => n.split(/\s+/)), ...MONTHS, "delaware"]);
+    for (const m of lead.match(/\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)+/g) ?? []) {
+      const low = m.toLowerCase();
+      if (offered.some(n => n.includes(low) || low.includes(n))) continue;
+      if (low.split(/\s+/).every(w => known.has(w))) continue;
+      return false;
+    }
+    return true;
+  }
+
+  /* ---- render ----------------------------------------------------------- */
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+  function card(s) {
+    const p = s.p;
+    const chips = NEED_LABELS.filter(([k]) => p.f[k] === true).slice(0,6)
+      .map(([,l]) => `<li class="sign-quiet px-2 py-0.5 stamp text-[0.68rem] text-marsh">${esc(l)}</li>`).join("");
+    const dog = s.dog
+      ? `<p class="stamp mt-2 mb-0 ${s.dog.ok === true ? "text-flag-green-bearing" : s.dog.ok === false ? "text-flag-red-bearing" : "text-ink-soft"}">${esc(s.dog.why)}</p>`
+      : "";
+    const gaps = s.unknown.length || s.dogUnknown
+      ? `<p class="mt-2 mb-0 text-[0.84rem] leading-snug text-ink-soft">Not checked here: ${esc([...s.unknown.map(says), ...(s.dogUnknown ? ["the dog rule"] : [])].join(", "))}.</p>`
+      : "";
+    return `<article class="sign px-4 py-3.5">
+      <div class="flex items-start justify-between gap-3">
+        <h3 class="font-display text-[1.05rem] font-bold text-marsh m-0"><a href="${esc(p.href)}">${esc(p.name)}</a></h3>
+        <span class="stamp text-ink-soft shrink-0">${esc(p.kind)}</span>
+      </div>
+      <p class="stamp text-ink-soft mt-0.5 mb-0">${esc([p.town, p.county].filter(Boolean).join(" · "))}</p>
+      ${dog}
+      ${chips ? `<ul class="list-none p-0 m-0 mt-2.5 flex flex-wrap gap-1.5">${chips}</ul>` : ""}
+      ${gaps}
+      <p class="stamp mt-2 mb-0 ${p.verified ? "text-flag-green-bearing" : "text-ink-soft"}">${p.verified ? "Verified" : "Read from source — not phone-confirmed"}</p>
+    </article>`;
+  }
+
+  const form = document.getElementById("ask-form");
+  const input = document.getElementById("ask-input");
+  const out = document.getElementById("ask-out");
+
+  function render(r, lead, followUps, pending) {
+    const grid = a => a.length ? `<div class="grid sm:grid-cols-2 gap-3 mt-3">${a.map(card).join("")}</div>` : "";
+    const bare = r.empty;
+    /* Only worth saying where the answer actually moves with the date — the
+       beach towns. A fenced dog park's rule is the same in January and July,
+       and "answered for today" there just implies a volatility that isn't
+       real. */
+    const dateMatters = [...r.matches, ...r.unconfirmed].some(s => s.p.dogWindows);
+    const dated = r.query.wantsDog && dateMatters
+      ? `<p class="stamp text-ink-soft mt-2 mb-0">Answered for ${esc(r.query.when.label)}${r.query.when.explicit ? "" : " — say a month or a date to change it"}</p>` : "";
+    const fu = followUps.length
+      ? `<div class="mt-6"><p class="label mb-2">Ask next</p><ul class="list-none p-0 m-0 flex flex-wrap gap-1.5">${
+          followUps.map(f => `<button type="button" data-example="${esc(f)}" class="tap sign-quiet px-3 gap-2 cursor-pointer text-[0.86rem] text-marsh">${esc(f)}</button>`).join("")
+        }</ul></div>` : "";
+
+    out.innerHTML = `<section class="sign breakout p-4 sm:p-6">
+      <p class="label m-0">Answer${pending ? ' <span class="text-ink-soft normal-case tracking-normal">— refining…</span>' : ""}</p>
+      <p class="mt-2 mb-0 text-[1.05rem] leading-[1.5] max-w-[58ch]">${esc(lead)}</p>
+      ${dated}
+      ${r.blocked.length ? `<p class="label mt-6 mb-0 text-flag-red-bearing">Not on this date</p>${
+        `<div class="grid sm:grid-cols-2 gap-3 mt-3">${r.blocked.map(b => card({ ...b, met: [], unknown: [], dogUnknown: false })).join("")}</div>`
+      }` : ""}
+      ${bare ? "" : r.matches.length ? `<p class="label mt-6 mb-0 text-flag-green-bearing">${r.blocked.length ? "Allowed instead" : "Confirmed"}</p>${grid(r.matches)}` : ""}
+      ${!bare && r.unconfirmed.length ? `<p class="label mt-6 mb-0">Might work — not checked</p>
+        <p class="mt-1.5 mb-0 text-[0.86rem] leading-snug text-ink-soft max-w-[58ch]">A blank in our data means nobody has asked yet, not that the answer is no.</p>
+        ${grid(r.unconfirmed)}` : ""}
+      ${fu}
+    </section>`;
+  }
+
+  async function ask(q) {
+    const r = match(q);
+    render(r, deterministicLead(r), [], Boolean(ENDPOINT));   // correct answer first, no network
+    out.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!ENDPOINT) return;
+
+    const all = [...r.matches, ...r.unconfirmed].slice(0, 24);
+    let data;
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          question: q.slice(0, 200),
+          site: "delaware",
+          attributes: [...Object.values(NEED_SAYS), "dogs allowed"],
+          candidates: all.map(s => ({
+            slug: s.p.id, name: s.p.name, kind: s.p.kind, town: s.p.town,
+            met: [...s.met, ...(s.dog && s.dog.ok === true ? ["dogs"] : [])],
+            unknown: [...s.unknown, ...(s.dogUnknown ? ["dogs"] : [])],
+            confirmed: s.p.verified,
+          })),
+        }),
+      });
+      if (!res.ok) throw new Error("bad status");
+      data = await res.json();
+    } catch {
+      render(r, deterministicLead(r), [], false);
+      return;
+    }
+
+    /* The model is never told about blocked places — only the candidates that
+       survived. So when the real answer is "no, not there", its lead would
+       cheerfully describe the alternatives as though they were the answer.
+       The refusal is deterministic and it wins. */
+    const lead = (!r.blocked.length && leadIsSafe(data?.lead, r))
+      ? data.lead
+      : deterministicLead(r);
+    const byId = new Map(all.map(s => [s.p.id, s]));
+    const order = Array.isArray(data?.order) ? data.order.filter(s => byId.has(s)) : [];
+    if (order.length) {
+      const rank = new Map(order.map((s,i) => [s,i]));
+      const by = (a,b) => (rank.get(a.p.id) ?? 999) - (rank.get(b.p.id) ?? 999);
+      r.matches = [...r.matches].sort(by);
+      r.unconfirmed = [...r.unconfirmed].sort(by);
+    }
+    // Only offer a suggestion the matcher can actually parse.
+    const followUps = (Array.isArray(data?.followUps) ? data.followUps : [])
+      .filter(f => typeof f === "string" && f.length > 2 && f.length < 80)
+      .filter(f => { const p = parse(f); return p.needs.length || p.wantsDog || p.kind || p.county || p.town; })
+      .slice(0, 3);
+
+    render(r, lead, followUps, false);
+  }
+
+  form.addEventListener("submit", e => { e.preventDefault(); const q = input.value.trim(); if (q) ask(q); });
+  document.addEventListener("click", e => {
+    const b = e.target.closest("[data-example]");
+    if (!b) return;
+    input.value = b.dataset.example;
+    ask(b.dataset.example);
+  });
+</script>
