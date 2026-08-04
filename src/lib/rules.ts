@@ -7,6 +7,8 @@
  * a rule says.
  */
 
+import type { Photo } from "./state-parks";
+
 export type Status = "allowed" | "restricted" | "prohibited";
 export type Area = "beach" | "boardwalk";
 
@@ -113,6 +115,15 @@ export interface Town {
   verifiedSource: string | null;
   callTo: { name: string; phone: string } | null;
   outstanding: string[];
+  /**
+   * Pictures of the beach the rule applies to.
+   *
+   * These pages have been pure text since they were built, which suited a page
+   * whose job is to answer one question about a leash. It is still a page about
+   * a beach, and a reader deciding where to take a dog on a Tuesday in October
+   * is better served seeing what the place looks like out of season than not.
+   */
+  photos?: Photo[];
 }
 
 /* ---------------------------------------------------------------- dates -- */

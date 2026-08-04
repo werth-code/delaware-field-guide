@@ -27,6 +27,7 @@ import FlagMark from "../../components/FlagMark.astro";
 import Plate from "../../components/Plate.astro";
 import BeachScene from "../../components/BeachScene.astro";
 import TownContacts from "../../components/TownContacts.astro";
+import Photo from "../../components/Photo.astro";
 
 import townsData from "../../data/towns.json";
 import type { Town } from "../../lib/rules";
@@ -209,6 +210,8 @@ const schema = publishable ? [articleSchema, faqSchema] : [];
         <BeachScene flag={status === "prohibited" ? "closed" : "none"} />
       </Plate>
 
+      {town.photos && town.photos.length > 0 && <Photo {...town.photos[0]} hero />}
+
       <h2>The dates</h2>
       <RuleTable rules={town.rules} caption={`${town.name} — dog rules by season`} />
 
@@ -294,6 +297,15 @@ const schema = publishable ? [articleSchema, faqSchema] : [];
       <TownContacts town={town} />
 
       <VerificationStamp item={town} />
+
+      {
+        town.photos && town.photos.length > 1 && (
+          <>
+            <h2>More photographs</h2>
+            {town.photos.slice(1).map((q) => <Photo {...q} />)}
+          </>
+        )
+      }
 
       <h2>Where it is</h2>
       <MapEmbed name={`${town.name} public beach`} town={town.name} address={null} />
