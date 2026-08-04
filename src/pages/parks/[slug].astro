@@ -79,9 +79,12 @@ const description =
 ---
 
 <Layout
-  title={`${park.name} State Park — what's there and what it costs`.length > 60
-    ? `${park.name} State Park, Delaware`
-    : `${park.name} State Park — what's there and what it costs`}
+  title={[
+    `${park.name} State Park, Delaware — fees and facilities`,
+    `${park.name} State Park, Delaware — entry fees`,
+    `${park.name} State Park, Delaware`,
+    `${park.name} State Park`,
+  ].find((t) => t.length >= 25 && t.length <= 60) ?? `${park.name} State Park`}
   description={description.slice(0, 157)}
   robots={robotsFor(park)}
   dateModified={park.verifiedDate}

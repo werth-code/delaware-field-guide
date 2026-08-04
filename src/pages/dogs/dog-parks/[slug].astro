@@ -84,8 +84,17 @@ const description = `${park.name} in ${park.county} County, Delaware — ${
 }. Fenced, water, shade, surface, fee and hours, checked and dated.`;
 
 // Only append the qualifier when the result still fits inside the SERP cut.
+/* "dog park delaware" is a live query and it appeared in none of these
+   titles. Make sure both words survive, then spend what's left on the
+   detail people actually want. */
+const named = /dog\s*park/i.test(park.name);
 const title =
-  park.name.length > 36 ? park.name : `${park.name} — fenced, water, hours`;
+  [
+    named ? `${park.name}, Delaware — fenced, water, hours` : `${park.name} Dog Park, Delaware — fenced, water`,
+    named ? `${park.name}, Delaware — fenced and water` : `${park.name} Dog Park, Delaware`,
+    named ? `${park.name}, Delaware` : `${park.name} Dog Park`,
+    park.name,
+  ].find((t) => t.length >= 25 && t.length <= 60) ?? park.name;
 ---
 
 <Layout
