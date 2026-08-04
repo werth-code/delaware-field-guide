@@ -17,6 +17,16 @@ export interface Photo {
   credit: string;
   takenOn: string;
   portrait?: boolean;
+  /**
+   * Where to anchor the crop on a listing thumbnail, as a CSS object-position.
+   * Defaults to centre.
+   *
+   * Thumbnails are a fixed 16:9 box and most of these photos are 4:3, so a
+   * centre crop throws away the top and bottom eighth. Usually that is sky and
+   * sand. Occasionally it is the thing the photo is of. Only set this when the
+   * default actually loses the subject.
+   */
+  focus?: string;
 }
 
 /**
