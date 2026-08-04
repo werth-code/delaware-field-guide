@@ -15,6 +15,7 @@
       "cabins": null,
       "trails": true,
       "boatLaunch": null,
+      "boatRentals": null,
       "pier": true,
       "discGolf": true,
       "restrooms": null
@@ -67,6 +68,7 @@
       "cabins": null,
       "trails": null,
       "boatLaunch": true,
+      "boatRentals": null,
       "pier": null,
       "discGolf": null,
       "restrooms": null
@@ -118,6 +120,7 @@
       "cabins": false,
       "trails": null,
       "boatLaunch": null,
+      "boatRentals": null,
       "pier": null,
       "discGolf": null,
       "restrooms": null
@@ -167,6 +170,7 @@
       "cabins": null,
       "trails": true,
       "boatLaunch": true,
+      "boatRentals": null,
       "pier": true,
       "discGolf": null,
       "restrooms": null
@@ -216,6 +220,7 @@
       "cabins": true,
       "trails": true,
       "boatLaunch": true,
+      "boatRentals": null,
       "pier": null,
       "discGolf": null,
       "restrooms": null
@@ -268,6 +273,7 @@
       "cabins": true,
       "trails": true,
       "boatLaunch": true,
+      "boatRentals": null,
       "pier": null,
       "discGolf": true,
       "restrooms": null
@@ -319,6 +325,7 @@
       "cabins": null,
       "trails": true,
       "boatLaunch": true,
+      "boatRentals": true,
       "pier": null,
       "discGolf": true,
       "restrooms": true
@@ -343,6 +350,8 @@
       "Confirm whether the beach is guarded, and when.",
       "Get the pavilion rental prices and booking lead time.",
       "Get the ranger station's hours — the restrooms may depend on them.",
+      "Get the boat rental prices, what's rentable, and the season.",
+      "Confirm whether the dock in these photos is a fishing pier or just moorings.",
       "Confirm the boardwalk trail's length and whether it's step-free."
     ],
     "sources": [
@@ -368,12 +377,24 @@
         "note": "There is one."
       },
       {
+        "label": "Boat launch",
+        "note": "A concrete ramp with a handrail, straight into the pond."
+      },
+      {
+        "label": "Boat rentals",
+        "note": "You can rent one here — you don't need to own a boat."
+      },
+      {
+        "label": "Beach",
+        "note": "There's a beach."
+      },
+      {
         "label": "Pavilions",
         "note": "Rentable."
       },
       {
         "label": "The boardwalk",
-        "note": "There's a boardwalk trail as well as the shoreline loop."
+        "note": "A boardwalk trail as well as the long shoreline loop."
       }
     ],
     "fieldNotes": [
@@ -381,6 +402,45 @@
         "date": "2026-08-04",
         "author": "Site maintainer",
         "body": "Beach, restrooms, rentable pavilions, a boardwalk trail and a ranger station. The boardwalk is a separate thing from the long shoreline trail."
+      },
+      {
+        "date": "2026-08-04",
+        "author": "Site maintainer",
+        "body": "Restrooms, boat rental and a launch ramp, a beach, and the trails. The rental matters more than the launch for most people — it means you can get on the water without owning anything."
+      }
+    ],
+    "photos": [
+      {
+        "file": "lums-pond-dock",
+        "alt": "The end of a weathered wooden dock, looking straight down a wide wooded pond under a grey overcast sky.",
+        "caption": "From the end of one of the docks, looking down the pond. Overcast summer day.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      },
+      {
+        "file": "lums-pond-boat-ramp",
+        "alt": "A concrete boat ramp with a galvanised handrail running down into still water, with a wooded far bank beyond.",
+        "caption": "The launch ramp. Concrete, with a rail along the side.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      },
+      {
+        "file": "lums-pond-docks",
+        "alt": "Floating dock sections meeting at a right angle on flat water that mirrors the clouds, backed by a solid wall of green trees.",
+        "caption": "The floating docks, on water flat enough to hold the sky.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      },
+      {
+        "file": "lums-pond-railing",
+        "alt": "A view across a still pond from behind a weathered wooden railing, with willows on the far bank.",
+        "caption": "Across the water from a railing on the far side, willows opposite.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
       }
     ]
   },
@@ -400,9 +460,10 @@
       "cabins": false,
       "trails": true,
       "boatLaunch": null,
+      "boatRentals": null,
       "pier": null,
       "discGolf": true,
-      "restrooms": null
+      "restrooms": true
     },
     "feeBand": "inland",
     "dogs": {
@@ -419,7 +480,9 @@
     "outstanding": [
       "Get the park office number.",
       "Confirm total trail mileage and which trailheads charge entry.",
-      "Confirm whether the Pennsylvania section is contiguous and freely walkable."
+      "Confirm whether the Pennsylvania section is contiguous and freely walkable.",
+      "Get the nature center's hours and whether it's open year round.",
+      "Find out which trailheads have the restrooms — a park this size, it matters."
     ],
     "sources": [
       {
@@ -433,7 +496,54 @@
         "note": "2026 fee schedule, effective 1 March 2026."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "onSite": [
+      {
+        "label": "Restrooms",
+        "note": "There are some."
+      },
+      {
+        "label": "Nature center",
+        "note": "The park has one."
+      },
+      {
+        "label": "Trails",
+        "note": "A large trail system, and the reason most people come."
+      }
+    ],
+    "fieldNotes": [
+      {
+        "date": "2026-08-04",
+        "author": "Site maintainer",
+        "body": "Restrooms, a nature center, and the trails."
+      }
+    ],
+    "photos": [
+      {
+        "file": "white-clay-creek-water",
+        "alt": "Dark, still creek water in deep shade, mirroring the trunks and branches of the wooded bank above it, with a fallen limb reaching out over the surface.",
+        "caption": "The creek in shade, flat enough to hold the whole bank upside down.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      },
+      {
+        "file": "white-clay-creek-meadow",
+        "alt": "A wide meadow of tall seed-headed autumn grasses running to a dark tree line, under a blue sky with high cloud and low sun.",
+        "caption": "One of the meadows in autumn, grasses gone to seed.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      },
+      {
+        "file": "white-clay-creek-clearing",
+        "alt": "A green clearing seen through a gap between trees in early autumn, with the first yellow leaves in the foreground and woods closing in on both sides.",
+        "caption": "A clearing through a gap in the trees, first of the yellow leaves showing.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      }
+    ]
   },
   {
     "slug": "brandywine-creek",
@@ -451,6 +561,7 @@
       "cabins": false,
       "trails": true,
       "boatLaunch": true,
+      "boatRentals": null,
       "pier": null,
       "discGolf": true,
       "restrooms": true
@@ -571,6 +682,7 @@
       "cabins": false,
       "trails": true,
       "boatLaunch": null,
+      "boatRentals": null,
       "pier": null,
       "discGolf": true,
       "restrooms": null
@@ -638,6 +750,7 @@
       "cabins": false,
       "trails": true,
       "boatLaunch": null,
+      "boatRentals": null,
       "pier": null,
       "discGolf": null,
       "restrooms": true
@@ -718,6 +831,7 @@
       "cabins": false,
       "trails": true,
       "boatLaunch": null,
+      "boatRentals": null,
       "pier": null,
       "discGolf": null,
       "restrooms": null
@@ -766,6 +880,7 @@
       "cabins": false,
       "trails": true,
       "boatLaunch": null,
+      "boatRentals": null,
       "pier": null,
       "discGolf": null,
       "restrooms": null
@@ -817,6 +932,7 @@
       "cabins": false,
       "trails": true,
       "boatLaunch": null,
+      "boatRentals": null,
       "pier": null,
       "discGolf": null,
       "restrooms": null
@@ -865,6 +981,7 @@
       "cabins": false,
       "trails": true,
       "boatLaunch": null,
+      "boatRentals": null,
       "pier": null,
       "discGolf": null,
       "restrooms": null
@@ -915,6 +1032,7 @@
       "cabins": false,
       "trails": null,
       "boatLaunch": false,
+      "boatRentals": null,
       "pier": false,
       "discGolf": false,
       "restrooms": null
@@ -966,6 +1084,7 @@
       "cabins": false,
       "trails": true,
       "boatLaunch": null,
+      "boatRentals": null,
       "pier": null,
       "discGolf": null,
       "restrooms": null

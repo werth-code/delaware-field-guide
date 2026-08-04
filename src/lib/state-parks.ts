@@ -68,6 +68,15 @@ export interface StateParkFeatures {
   cabins: boolean | null;
   trails: boolean | null;
   boatLaunch: boolean | null;
+  /**
+   * Renting a boat AT the park. Fifth schema gap a field report has opened.
+   *
+   * Deep Creek's dataset grew this field months ago and this one never did,
+   * which is the same failure in a new place: both were built from what the
+   * agency publishes. A launch and a rental counter are not the same fact and
+   * only one of them helps somebody who doesn't own a kayak.
+   */
+  boatRentals: boolean | null;
   pier: boolean | null;
   discGolf: boolean | null;
   /**
@@ -165,6 +174,7 @@ export const FEATURE_LABELS: [keyof StateParkFeatures, string][] = [
   ["cabins", "Cabins"],
   ["trails", "Trails"],
   ["boatLaunch", "Boat launch"],
+  ["boatRentals", "Boat rentals"],
   ["pier", "Pier"],
   ["discGolf", "Disc golf"],
   ["restrooms", "Restrooms"],
