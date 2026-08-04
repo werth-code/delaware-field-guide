@@ -51,11 +51,11 @@ const kinds = ["beach town", "state park", "community park", "dog park", "summer
   <div class="wrap pt-11 pb-6">
     <p class="label m-0">Planner</p>
     <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[14ch] text-marsh">
-      What should we do today?
+      What should I do today?
     </h1>
     <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
       Tell it who's coming and what you need. It checks the dog rules for your
-      actual date and matches everything we've got on facilities — then shows you
+      actual date and matches everything I've got on facilities — then shows you
       what's confirmed and what still needs checking.
     </p>
   </div>
@@ -144,7 +144,7 @@ const kinds = ["beach town", "state park", "community park", "dog park", "summer
 
     <noscript>
       <div class="sign px-4 sm:px-5 py-4 my-6">
-        <p class="label m-0">Everything we have</p>
+        <p class="label m-0">Everything I have</p>
         <p class="mt-2 mb-0 text-[0.93rem] max-w-[56ch]">
           The planner needs JavaScript to match on your date. Here's the full
           list instead — every place is on its own page with the same facts.
@@ -168,13 +168,13 @@ const kinds = ["beach town", "state park", "community park", "dog park", "summer
     <p class="max-w-[58ch]">
       Dog rules are checked against the real date you pick, using the same rule
       windows the town pages publish — including the ones that move with
-      Memorial Day and Labor Day. Everything else is matched on facilities we've
+      Memorial Day and Labor Day. Everything else is matched on facilities I've
       recorded.
     </p>
     <p class="max-w-[58ch]">
       <strong>Nothing here is generated.</strong> Every fact in a result comes
       from the same records the pages render from, and every result links back to
-      the page where you can see who confirmed it and when. Where we haven't
+      the page where you can see who confirmed it and when. Where I haven't
       checked something, it says so instead of guessing —
       <a href="/how-we-verify/">that's the whole method</a>.
     </p>
@@ -363,7 +363,7 @@ const kinds = ["beach town", "state park", "community park", "dog park", "summer
       }
 
       if (unchecked.length) {
-        html += `<p class="label mb-1">Might match — we haven't checked</p>
+        html += `<p class="label mb-1">Might match — I haven't checked</p>
           <p class="text-[0.88rem] text-ink-soft mt-0 mb-2.5 max-w-[54ch]">These aren't ruled out. We just don't have the answer yet, and we'd rather say so than guess.</p>
           <ul class="list-none p-0 m-0 space-y-2.5 mb-7">${unchecked.slice(0, 12).map((r) => card(r)).join("")}</ul>`;
       }

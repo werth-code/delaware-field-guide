@@ -169,7 +169,7 @@ const faqSchema = {
 };
 
 // Unverified pages are noindex — don't hand a crawler structured data for
-// something we've told it not to index.
+// something I've told it not to index.
 const schema = publishable ? [articleSchema, faqSchema] : [];
 ---
 
@@ -215,7 +215,7 @@ const schema = publishable ? [articleSchema, faqSchema] : [];
       {
         boardwalkRule?.note && boardwalkRule.status !== beachRule?.status && (
           <p class="text-[0.95rem]">
-            <strong>Note the split:</strong> the beach and the boardwalk are not
+            <strong>Note the split:</strong> the beach and the boardwalk aren't
             always on the same rule today. Check both rows above.
           </p>
         )
@@ -315,7 +315,7 @@ const schema = publishable ? [articleSchema, faqSchema] : [];
           ))
         }
         <li><a href="/dogs/">All five, side by side</a></li>
-        <li><a href="/how-we-verify/">How we check this, and what we do when we're wrong</a></li>
+        <li><a href="/how-we-verify/">How I check this, and what I do when I'm wrong</a></li>
       </ul>
     </div>
   </article>

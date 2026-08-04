@@ -117,14 +117,14 @@ const schema = [
       is why the answer changes if you say July instead of October.
     </p>
     <p class="max-w-[58ch]">
-      Anything we haven't confirmed is shown separately and labelled. A blank in
-      our data means nobody has checked, not that the answer is no — treating
+      Anything I haven't confirmed is shown separately and labelled. A blank in
+      my data means nobody has checked, not that the answer is no — treating
       those as "no" would invent facts at scale.
     </p>
     <p class="max-w-[58ch]">
       There's an AI here and it's kept on a short lead: it writes the summary
       line and orders the results. It is never given the underlying data and
-      cannot state a fact about a place. Everything below the summary is
+      can't state a fact about a place. Everything below the summary is
       rendered from the checked dataset.
       <a href="/how-we-verify/">The full method is here</a>.
     </p>
@@ -354,7 +354,7 @@ const schema = [
     }
 
     if (!r.matches.length && !r.unconfirmed.length)
-      return `Nothing confirmed for ${asked}${where}${when}. That may mean it isn't allowed, or that we haven't checked it yet — nothing here is a guess either way.`;
+      return `Nothing confirmed for ${asked}${where}${when}. That may mean it isn't allowed, or that I haven't checked it yet — nothing here is a guess either way.`;
 
     const gaps = listOf([...new Set(r.unconfirmed.flatMap(s => [...s.unknown.map(says), ...(s.dogUnknown ? ["the dog rule"] : [])]))]);
 
@@ -437,7 +437,7 @@ const schema = [
       }` : ""}
       ${bare ? "" : r.matches.length ? `<p class="label mt-6 mb-0 text-flag-green-bearing">${r.blocked.length ? "Allowed instead" : "Confirmed"}</p>${grid(r.matches)}` : ""}
       ${!bare && r.unconfirmed.length ? `<p class="label mt-6 mb-0">Might work — not checked</p>
-        <p class="mt-1.5 mb-0 text-[0.86rem] leading-snug text-ink-soft max-w-[58ch]">A blank in our data means nobody has asked yet, not that the answer is no.</p>
+        <p class="mt-1.5 mb-0 text-[0.86rem] leading-snug text-ink-soft max-w-[58ch]">A blank in my data means nobody has asked yet, not that the answer is no.</p>
         ${grid(r.unconfirmed)}` : ""}
       ${fu}
     </section>`;

@@ -165,7 +165,7 @@
     "town": "Wilmington",
     "address": "Middleboro Rd, Wilmington, DE 19804",
     "acres": null,
-    "blurb": "A large county park south-west of Wilmington with ponds, ball fields and picnic areas. Other guides list a dog park here; we have not been able to confirm it exists as described.",
+    "blurb": "A large county park south-west of Wilmington with ponds, ball fields and picnic areas. Other guides list a dog park here; I have not been able to confirm it exists as described.",
     "restrooms": {
       "present": null,
       "type": null,
@@ -737,7 +737,7 @@
       "present": null,
       "type": null,
       "seasonal": null,
-      "note": "Not confirmed. A park with this many courts and fields would normally have them, but we haven't checked."
+      "note": "Not confirmed. A park with this many courts and fields would normally have them, but I haven't checked."
     },
     "facilities": {
       "playground": true,
