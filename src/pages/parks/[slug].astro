@@ -14,6 +14,7 @@ import FlagIcon from "../../components/FlagIcon.astro";
 import MapLink from "../../components/MapLink.astro";
 import MapEmbed from "../../components/MapEmbed.astro";
 import Photo from "../../components/Photo.astro";
+import FieldNotes from "../../components/FieldNotes.astro";
 import ReportBox from "../../components/ReportBox.astro";
 
 import parksData from "../../data/state-parks.json";
@@ -253,6 +254,8 @@ const description =
 
       <h2>Where it is</h2>
       <MapEmbed name={`${park.name} State Park`} town={park.town} address={null} />
+
+      {park.fieldNotes && park.fieldNotes.length > 0 && <FieldNotes notes={park.fieldNotes} />}
 
       <ReportBox subject={`${park.name} State Park`} path={`/parks/${park.slug}/`} asks={asksForStatePark(park)} />
 

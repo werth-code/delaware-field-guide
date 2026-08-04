@@ -19,6 +19,22 @@ export interface Photo {
   portrait?: boolean;
 }
 
+/**
+ * A field note. Not a fact and not a correction: one person, one day, the
+ * things a database can't hold. Rendered distinctly so an impression can never
+ * harden into a checked claim.
+ *
+ * `date` is required and is the date I was THERE, not the date I typed it up.
+ * A note without one is worthless here, which is why the three the voice audit
+ * quoted are not on the site yet.
+ */
+export interface FieldNote {
+  date: string;
+  author: string;
+  body: string;
+  photo?: string | null;
+}
+
 export interface StateParkFeatures {
   beach: boolean | null;
   guardedSwimming: boolean | null;
@@ -50,6 +66,7 @@ export interface StatePark {
   verifiedSource: string | null;
   outstanding?: string[];
   photos?: Photo[];
+  fieldNotes?: FieldNote[];
 }
 
 /** Fees effective 1 March 2026. Entry is charged 1 March – 30 November. */
