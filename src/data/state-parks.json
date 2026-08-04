@@ -16,7 +16,8 @@
       "trails": true,
       "boatLaunch": null,
       "pier": true,
-      "discGolf": true
+      "discGolf": true,
+      "restrooms": null
     },
     "feeBand": "beach",
     "dogs": {
@@ -67,7 +68,8 @@
       "trails": null,
       "boatLaunch": true,
       "pier": null,
-      "discGolf": null
+      "discGolf": null,
+      "restrooms": null
     },
     "feeBand": "beach",
     "dogs": {
@@ -117,7 +119,8 @@
       "trails": null,
       "boatLaunch": null,
       "pier": null,
-      "discGolf": null
+      "discGolf": null,
+      "restrooms": null
     },
     "feeBand": "beach",
     "dogs": {
@@ -165,7 +168,8 @@
       "trails": true,
       "boatLaunch": true,
       "pier": true,
-      "discGolf": null
+      "discGolf": null,
+      "restrooms": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -213,7 +217,8 @@
       "trails": true,
       "boatLaunch": true,
       "pier": null,
-      "discGolf": null
+      "discGolf": null,
+      "restrooms": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -264,7 +269,8 @@
       "trails": true,
       "boatLaunch": true,
       "pier": null,
-      "discGolf": true
+      "discGolf": true,
+      "restrooms": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -314,7 +320,8 @@
       "trails": true,
       "boatLaunch": true,
       "pier": null,
-      "discGolf": true
+      "discGolf": true,
+      "restrooms": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -365,7 +372,8 @@
       "trails": true,
       "boatLaunch": null,
       "pier": null,
-      "discGolf": true
+      "discGolf": true,
+      "restrooms": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -415,7 +423,8 @@
       "trails": true,
       "boatLaunch": null,
       "pier": null,
-      "discGolf": null
+      "discGolf": true,
+      "restrooms": true
     },
     "feeBand": "inland",
     "dogs": {
@@ -423,7 +432,8 @@
       "href": "/dogs/state-parks/"
     },
     "warnings": [
-      "Ticks."
+      "Ticks.",
+      "Multiple entrances, and only the main one has the ranger station, restrooms and gift shop. Pick that one unless you know otherwise."
     ],
     "phone": null,
     "hours": null,
@@ -431,7 +441,11 @@
     "verifiedSource": null,
     "outstanding": [
       "Get the park office number.",
-      "Confirm hawk watch season and the nature center's hours."
+      "Confirm hawk watch season and the nature center's hours.",
+      "Get the disc golf hole count and whether it costs anything.",
+      "Name the other entrances and what is and isn't at each.",
+      "Get the pavilion rental prices and how far ahead you have to book.",
+      "Confirm the ranger station's hours — the restrooms are there."
     ],
     "sources": [
       {
@@ -455,6 +469,31 @@
         "takenOn": null,
         "portrait": false
       }
+    ],
+    "onSite": [
+      {
+        "label": "Which entrance",
+        "note": "There's more than one way in, and they are not equivalent. The main entrance is the one with the ranger station."
+      },
+      {
+        "label": "Restrooms",
+        "note": "At the ranger station, by the main entrance."
+      },
+      {
+        "label": "Gift shop",
+        "note": "At the ranger station."
+      },
+      {
+        "label": "Pavilions",
+        "note": "Rentable, booked through the main entrance."
+      }
+    ],
+    "fieldNotes": [
+      {
+        "date": "2026-08-04",
+        "author": "Site maintainer",
+        "body": "Disc golf here, and it's the better of the two county courses I've played. The park has several entrances — the main one has the ranger station, and that's where the restrooms, the gift shop and the pavilion rentals are."
+      }
     ]
   },
   {
@@ -474,7 +513,8 @@
       "trails": true,
       "boatLaunch": null,
       "pier": null,
-      "discGolf": null
+      "discGolf": true,
+      "restrooms": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -488,7 +528,8 @@
     "verifiedSource": null,
     "outstanding": [
       "Get the park office number.",
-      "Confirm track access and whether the mansion grounds are open."
+      "Confirm track access and whether the mansion grounds are open.",
+      "Confirm the disc golf hole count and whether there's a fee."
     ],
     "sources": [
       {
@@ -513,6 +554,13 @@
         "portrait": true,
         "focus": "50% 45%"
       }
+    ],
+    "fieldNotes": [
+      {
+        "date": "2026-08-04",
+        "author": "Site maintainer",
+        "body": "Disc golf here too."
+      }
     ]
   },
   {
@@ -532,7 +580,8 @@
       "trails": true,
       "boatLaunch": null,
       "pier": null,
-      "discGolf": null
+      "discGolf": null,
+      "restrooms": true
     },
     "feeBand": "inland",
     "dogs": {
@@ -546,7 +595,8 @@
     "verifiedSource": null,
     "outstanding": [
       "Get the park office number.",
-      "Confirm whether rock climbing needs a permit."
+      "Confirm whether rock climbing needs a permit.",
+      "Confirm the Blue Ball Barn's opening hours — the restrooms are inside it."
     ],
     "sources": [
       {
@@ -570,6 +620,27 @@
         "takenOn": null,
         "portrait": true
       }
+    ],
+    "onSite": [
+      {
+        "label": "Parking",
+        "note": "Park at the Blue Ball Barn. That's the lot."
+      },
+      {
+        "label": "Restrooms",
+        "note": "Inside the Blue Ball Barn, along with the ranger station."
+      },
+      {
+        "label": "The paved trail",
+        "note": "Starts across the street from the barn, not behind it."
+      }
+    ],
+    "fieldNotes": [
+      {
+        "date": "2026-08-04",
+        "author": "Site maintainer",
+        "body": "Restrooms, parking and the ranger station are all at the Blue Ball Barn. The paved trail is across the street from the barn."
+      }
     ]
   },
   {
@@ -589,7 +660,8 @@
       "trails": true,
       "boatLaunch": null,
       "pier": null,
-      "discGolf": null
+      "discGolf": null,
+      "restrooms": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -636,7 +708,8 @@
       "trails": true,
       "boatLaunch": null,
       "pier": null,
-      "discGolf": null
+      "discGolf": null,
+      "restrooms": null
     },
     "feeBand": null,
     "dogs": {
@@ -686,7 +759,8 @@
       "trails": true,
       "boatLaunch": null,
       "pier": null,
-      "discGolf": null
+      "discGolf": null,
+      "restrooms": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -733,7 +807,8 @@
       "trails": true,
       "boatLaunch": null,
       "pier": null,
-      "discGolf": null
+      "discGolf": null,
+      "restrooms": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -782,7 +857,8 @@
       "trails": null,
       "boatLaunch": false,
       "pier": false,
-      "discGolf": false
+      "discGolf": false,
+      "restrooms": null
     },
     "feeBand": null,
     "dogs": {
@@ -832,7 +908,8 @@
       "trails": true,
       "boatLaunch": null,
       "pier": null,
-      "discGolf": null
+      "discGolf": null,
+      "restrooms": null
     },
     "feeBand": "inland",
     "dogs": {

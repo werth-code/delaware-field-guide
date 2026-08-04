@@ -65,6 +65,19 @@ export interface StateParkFeatures {
   boatLaunch: boolean | null;
   pier: boolean | null;
   discGolf: boolean | null;
+  /**
+   * Added late, and that is the point.
+   *
+   * The other nine features are the ones DNREC publishes, which is why they
+   * were here first — the dataset got modelled on what the agency lists rather
+   * than on what anybody asks before loading a car. "Are there toilets" is the
+   * single most-asked question about a park and it was not in this type at all.
+   *
+   * Every record starts null, which drops the completeness score across all
+   * seventeen parks. That drop is real and it was always there; it just wasn't
+   * being counted.
+   */
+  restrooms: boolean | null;
 }
 
 export interface StatePark {
@@ -87,6 +100,15 @@ export interface StatePark {
   outstanding?: string[];
   photos?: Photo[];
   fieldNotes?: FieldNote[];
+  /**
+   * Located facts — the ones whose answer is a place, not a yes.
+   *
+   * "Restrooms: yes" is true of Alapocas Run and useless on its own, because
+   * they're in the Blue Ball Barn and the trail people come for starts across
+   * the road from it. A boolean can say a thing exists; it can't say where to
+   * put the car. Same shape the Deep Creek nearby records use.
+   */
+  onSite?: { label: string; note: string }[] | null;
 }
 
 /** Fees effective 1 March 2026. Entry is charged 1 March – 30 November. */
@@ -131,6 +153,7 @@ export const FEATURE_LABELS: [keyof StateParkFeatures, string][] = [
   ["boatLaunch", "Boat launch"],
   ["pier", "Pier"],
   ["discGolf", "Disc golf"],
+  ["restrooms", "Restrooms"],
 ];
 
 /** Features that are confirmed present — the quick "what's here" line. */

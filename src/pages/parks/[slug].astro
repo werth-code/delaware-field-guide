@@ -160,6 +160,26 @@ const description =
         </dl>
       </div>
 
+      {
+        /* Located facts sit right under the feature grid, because the grid
+           says a thing exists and this says where it is. "Restrooms: yes" is
+           true of Alapocas Run and no use on its own — they're inside the
+           Blue Ball Barn, and the trail starts across the road from it. */
+        park.onSite && park.onSite.length > 0 && (
+          <>
+            <h2>Where things are</h2>
+            <dl class="sign breakout my-6 divide-y-2 divide-tide/30">
+              {park.onSite.map((r) => (
+                <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
+                  <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">{r.label}</dt>
+                  <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem] leading-[1.55] max-w-[52ch]">{r.note}</dd>
+                </div>
+              ))}
+            </dl>
+          </>
+        )
+      }
+
       <h2>Getting in</h2>
       <dl class="sign breakout my-6 divide-y-2 divide-tide/30">
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
