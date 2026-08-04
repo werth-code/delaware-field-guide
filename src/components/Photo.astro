@@ -45,13 +45,27 @@ const {
   hero = false, class: klass = "",
 } = Astro.props;
 
-const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-/* A photo with no date still publishes, but it says so. Same treatment as a
-   field report with no visit date — the gap is the information. */
+const SHORT = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const LONG = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+/**
+ * THREE PRECISIONS, AND THE STAMP SHOWS WHICH ONE YOU'RE GETTING.
+ *
+ *   2026-08-04  →  "4 Aug 2026"     someone knows the day
+ *   2026-07     →  "July 2026"      someone remembers the month
+ *   null        →  "date not given" nobody knows
+ *
+ * The middle one exists because the honest answer to "when was this taken"
+ * is often a month. Storing 2026-07-01 to make the format happy would invent
+ * a day that nobody claimed, and a made-up day is indistinguishable from a
+ * checked one once it's rendered. A site that stamps dates on everything
+ * cannot be casual about how precise a stamp is.
+ */
 const when = (() => {
   if (!takenOn) return "date not given";
   const [y, m, d] = takenOn.split("-").map(Number);
-  return `${d} ${MONTHS[m - 1]} ${y}`;
+  if (!d) return `${LONG[m - 1]} ${y}`;
+  return `${d} ${SHORT[m - 1]} ${y}`;
 })();
 
 const w = portrait ? 1400 : 1400;

@@ -16,7 +16,7 @@ export interface Photo {
   caption?: string | null;
   credit: string;
   /**
-   * ISO date it was taken, or null when that is genuinely not known.
+   * When it was taken: `YYYY-MM-DD`, `YYYY-MM`, or null.
    *
    * Null is here for the same reason it is everywhere else on this site: the
    * alternative is a guess that looks like a fact. These came off a phone via
@@ -24,6 +24,11 @@ export interface Photo {
    * going to reconstruct one from what season the leaves look like. It renders
    * as "date not given", the same wording a field report gets when someone
    * doesn't say when they were there.
+   *
+   * `YYYY-MM` is the middle case and it earns its place: "July 2026" is what
+   * a person actually remembers. Padding it to the first of the month would
+   * manufacture a day nobody claimed, and once rendered an invented day looks
+   * exactly like a checked one.
    */
   takenOn: string | null;
   portrait?: boolean;
