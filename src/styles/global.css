@@ -488,3 +488,64 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-inline-start: auto;
   flex-shrink: 0;
 }
+
+
+/* ------------------------------------------------- load choreography ---- */
+/*
+ * Registration, not animation.
+ *
+ * This is a WPA screen print. A poster is made by laying one ink at a time and
+ * lining each up with the last, and that is what the load should feel like:
+ * the colour arrives, then snaps into register. Sharp, mechanical, over fast.
+ *
+ * Nothing eases out slowly and nothing floats. A press does not float.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .field-deep { animation: ink-down 0.36s cubic-bezier(0.2, 0.9, 0.3, 1) both; }
+  @keyframes ink-down {
+    from { transform: translateY(-5px); }
+    to   { transform: none; }
+  }
+
+  /* The ochre rule under the masthead is the second colour going down. */
+  .field-deep + div[class*="bg-ochre"] {
+    transform-origin: left center;
+    animation: register 0.5s 0.08s cubic-bezier(0.2, 1, 0.3, 1) both;
+  }
+  @keyframes register {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+
+  main h1 { animation: press 0.4s 0.06s cubic-bezier(0.2, 0.9, 0.3, 1) both; }
+  main h1 + p { animation: press 0.4s 0.14s cubic-bezier(0.2, 0.9, 0.3, 1) both; }
+  @keyframes press {
+    from { transform: translateY(6px); }
+    to   { transform: none; }
+  }
+
+  [data-reveal] { transition-delay: calc(var(--stagger, 0) * 45ms); }
+
+  /* A poster card lifts off the sheet and casts a hard-edged shadow, the way
+     a second colour sits proud of the first. No blur: this is print. */
+  .sign-action { transition: transform 0.13s ease-out, box-shadow 0.13s ease-out; }
+  .sign-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 0 0 var(--color-ochre);
+  }
+  .sign-action:active { transform: translateY(0); box-shadow: none; }
+
+  button.tap:active, a.tap:active { transform: translateY(1px); }
+  .sign-quiet { transition: background-color 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out; }
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-ochre-deep);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field-deep, main h1, main h1 + p, .field-deep + div[class*="bg-ochre"] {
+    animation: none !important;
+  }
+}
