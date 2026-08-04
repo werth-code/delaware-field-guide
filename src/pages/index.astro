@@ -40,7 +40,7 @@ const sections = [
     contents: [
       "Beach and boardwalk rules, by town",
       "Where a dog is legal in July",
-      "Dog parks — fenced, water, shade, surface",
+      "Dog parks: fenced, water, shade, surface",
       "Pet fees, weight limits, dog counts",
       "Blue-green algae and pond safety",
     ],
@@ -57,7 +57,7 @@ const sections = [
       "From Cape Henlopen's 5,451 acres to a Civil War fort you can only reach by ferry. Camping, trails, surf fishing, and where dogs are allowed.",
     contents: [
       "Facilities, park by park",
-      "2026 entry fees — the beach parks doubled",
+      "2026 entry fees, and why the beach parks doubled",
       "Camping, cabins and trails",
       "Dog rules per park",
     ],
@@ -69,11 +69,11 @@ const sections = [
     href: "/parks/community/",
     n: "03",
     title: "Community parks",
-    lede: "County and town parks. Starting with: are there restrooms?",
+    lede: "The local ones. Is there a toilet, and is it open?",
     detail:
-      "The questions you ask before loading the car — toilets, playground, drinking water, shade, and whether the dog can come.",
+      "What you want to know before loading the car. Toilets, playground, drinking water, shade, and whether the dog can come.",
     contents: [
-      "Restrooms — permanent, portable or seasonal",
+      "Restrooms: permanent, portable or seasonal",
       "Playgrounds and accessibility",
       "Water, shade and pavilions",
       "Which ones contain a dog park",
@@ -94,7 +94,7 @@ const sections = [
       "Permit tiers and the 3-week delivery",
       "The licence exemption that covers only you",
       "The off-peak permit ending in 2027",
-      "Walk-on access — free, no permit",
+      "Walk-on access, free, no permit",
     ],
     total: surfData.crossings.length,
     live: 0,
@@ -124,8 +124,8 @@ const schema = [
 ---
 
 <Layout
-  title="Delaware Field Guide — parks and dog rules, verified"
-  description="A reference for outdoor Delaware: dog rules by town, all 17 state parks, and the county parks. Every fact carries the date we checked it and who told us."
+  title="Delaware Field Guide: dog rules and parks, verified"
+  description="Which Delaware beaches allow dogs, on what date. Plus all 17 state parks, the county parks and surf fishing. Every fact carries the date I checked it."
   schema={schema}
   share={false}
 >
@@ -137,22 +137,27 @@ const schema = [
       A reference for outdoor Delaware
     </p>
 
-    <h1 class="text-[2.7rem] sm:text-[3.9rem] mt-3.5 mb-0 max-w-[14ch] text-marsh">
-      Outdoor Delaware, checked and dated.
+    <h1 class="text-[2.7rem] sm:text-[3.9rem] mt-3.5 mb-0 max-w-[13ch] text-marsh">
+      Can my dog go on the beach?
     </h1>
 
     <p class="mt-6 mb-0 text-[1.2rem] leading-[1.5] max-w-[54ch]">
-      You can cross Delaware in two hours and still spend a decade finding
-      everything in it. Twenty-five miles of Atlantic coast, seventeen state
-      parks, bald cypress swamps in the south and creek valleys in the north —
-      and a bay that hosts the largest horseshoe crab spawning on earth.
+      Depends which beach, and it depends what today's date is. Rehoboth bans
+      dogs from 15 May. Dewey's dates are different. Bethany's are different
+      again. Any guide that gives you one answer for "the Delaware beaches" is
+      wrong about at least three of them.
     </p>
 
     <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
-      This is the guide that tells you what's actually there today: which beach
-      your dog can walk on this week, what a park costs this season, and whether
-      there's a toilet when you arrive. Every fact carries the date we confirmed
-      it and who told us. <a href="/how-we-verify/">Here's how that works</a>.
+      Rehoboth moved its dates in January 2026 and most of the internet is still
+      printing the old ones. So I started ringing the towns and writing down who
+      told me what, and when. That turned into this.
+    </p>
+
+    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
+      It covers dogs, all seventeen state parks, the county parks, and surf
+      fishing. Everything carries the date I checked it.
+      <a href="/how-we-verify/">What that means</a>.
     </p>
   </div>
 
@@ -213,25 +218,23 @@ const schema = [
   </div>
 
   <div class="wrap prose-field pb-6">
-    <h2>Every fact here is dated</h2>
+    <h2>Two things changed this year and nobody noticed</h2>
     <p class="max-w-[58ch]">
-      Delaware changes its rules more often than you'd expect. Rehoboth gave
-      dogs two extra weeks of beach in January. The state parks reset their fees
-      in March. Good news travels slowly, so we go and ask — the city, the park,
-      the property — and then we write down the date and who said it.
+      Rehoboth gave dogs two extra weeks of beach in January. State park entry
+      fees roughly doubled in March. Both were published properly. Neither made
+      it into the guides people actually read, which is most of the reason this
+      site exists.
     </p>
     <p class="max-w-[58ch]">
-      It means you can see exactly how fresh an answer is before you drive
-      anywhere. And a page we haven't confirmed first-hand simply doesn't
-      publish itself: no stamp, no listing, no search.
-      <a href="/how-we-verify/">That's built into the site</a>, so what you're
-      reading has always been checked by a person.
+      So every answer here carries the date I got it and the name of whoever
+      gave it to me. You can see how stale a fact is before you drive an hour on
+      it.
     </p>
 
-    <h2>Still to come</h2>
+    <h2>What I haven't done yet</h2>
     <p class="max-w-[58ch]">
-      Crabbing, the trails, and Delaware's 48 breweries and wineries are next.
-      One section at a time, each one checked before it goes up.
+      Crabbing. The trails. The 48 breweries and wineries, which is a bigger job
+      than it sounds. I'd rather say that plainly than have you go looking.
     </p>
   </div>
 </Layout>

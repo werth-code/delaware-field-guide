@@ -6,13 +6,16 @@
     "town": "Harrington",
     "venue": "Delaware State Fairgrounds",
     "address": "18500 S. DuPont Hwy, Harrington, DE 19952",
-    "blurb": "Ten days at the Harrington fairgrounds at the turn of July into August — livestock, 4-H, grandstand concerts and rides. It is the largest annual event in the state and it fills Kent County accommodation for the duration.",
+    "blurb": "Ten days at the Harrington fairgrounds at the turn of July into August. Livestock, 4-H, grandstand concerts and rides. It's the largest annual event in the state and it fills Kent County accommodation for the duration.",
     "rule": {
       "kind": "announced",
       "hint": "Late July into early August — the fair publishes dates a year at a time and states no recurring rule"
     },
     "confirmed": {
-      "2026": { "start": "2026-07-23", "end": "2026-08-01" }
+      "2026": {
+        "start": "2026-07-23",
+        "end": "2026-08-01"
+      }
     },
     "admission": {
       "note": "Admission and parking are charged; the amounts are not stated on the fair's own front page and are not confirmed here.",
@@ -27,7 +30,7 @@
     ],
     "sources": [
       {
-        "label": "Delaware State Fair — official site",
+        "label": "Delaware State Fair: official site",
         "url": "https://www.delawarestatefair.com/",
         "note": "States \"JULY 23 - August 1, 2026\" and the fairgrounds address. Publishes no recurring rule, so future years are not computed."
       }
@@ -49,20 +52,23 @@
     "town": "Rehoboth Beach",
     "venue": "Downtown Rehoboth Beach and the boardwalk",
     "address": "Rehoboth Beach, DE",
-    "blurb": "Rehoboth's Halloween weekend — a costume parade, fiddlers, and the town at its busiest outside high summer. It lands after the beach dog ban lifts on 16 September, which makes it one of the few big weekends where dogs are legal on the sand.",
+    "blurb": "Rehoboth's Halloween weekend, with a costume parade, fiddlers, and the town at its busiest outside high summer. It lands after the beach dog ban lifts on 16 September, which makes it one of the few big weekends where dogs are legal on the sand.",
     "rule": {
       "kind": "announced",
       "hint": "Late October — the Chamber publishes dates a year at a time and states no recurring rule"
     },
     "confirmed": {
-      "2026": { "start": "2026-10-23", "end": "2026-10-25" }
+      "2026": {
+        "start": "2026-10-23",
+        "end": "2026-10-25"
+      }
     },
     "admission": {
       "note": "The festival is free to attend; individual events within it may be ticketed. Not confirmed.",
       "amount": null
     },
     "website": {
-      "label": "Sea Witch Festival — Rehoboth Beach-Dewey Beach Chamber of Commerce",
+      "label": "Sea Witch Festival: Rehoboth Beach-Dewey Beach Chamber of Commerce",
       "url": "https://www.beach-fun.com/sea-witch-halloween-fiddlers-festival.html"
     },
     "warnings": [
@@ -71,12 +77,12 @@
     ],
     "sources": [
       {
-        "label": "Sea Witch Festival — Rehoboth Beach-Dewey Beach Chamber of Commerce",
+        "label": "Sea Witch Festival: Rehoboth Beach-Dewey Beach Chamber of Commerce",
         "url": "https://www.beach-fun.com/sea-witch-halloween-fiddlers-festival.html",
         "note": "The organising Chamber. Gives 23–25 October 2026 and states that programmes are mailed in early October, so no rule is published."
       },
       {
-        "label": "City of Rehoboth Beach — Sea Witch Festival",
+        "label": "City of Rehoboth Beach: Sea Witch Festival",
         "url": "https://www.cityofrehoboth.com/events/convention-center/sea-witch-festival",
         "note": "The town's own listing."
       }

@@ -43,7 +43,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -93,7 +93,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -141,7 +141,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -155,7 +155,7 @@
     "acres": 206,
     "kind": "Bay",
     "town": "Dagsboro",
-    "blurb": "Small and quiet on the south shore of Indian River Bay. Known for crabbing and clamming off the pier rather than for swimming — the bay here is shallow and warm.",
+    "blurb": "Small and quiet on the south shore of Indian River Bay. Known for crabbing and clamming off the pier rather than for swimming. The bay here is shallow and warm.",
     "features": {
       "beach": null,
       "guardedSwimming": false,
@@ -189,7 +189,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -240,7 +240,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -290,7 +290,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -341,7 +341,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -391,7 +391,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -440,7 +440,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -487,7 +487,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -534,7 +534,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -581,7 +581,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -631,7 +631,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -678,7 +678,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -727,7 +727,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -741,7 +741,7 @@
     "acres": null,
     "kind": "Urban heritage",
     "town": "Dover",
-    "blurb": "Delaware's \"park without boundaries\" — not a single site but a linked set of historic buildings and green spaces around Dover's Green, run with other state and city agencies.",
+    "blurb": "Delaware's “park without boundaries”. Not a single site but a linked set of historic buildings and green spaces around Dover's Green, run with other state and city agencies.",
     "features": {
       "beach": false,
       "guardedSwimming": false,
@@ -777,7 +777,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -791,7 +791,7 @@
     "acres": 576,
     "kind": "Urban",
     "town": "Wilmington",
-    "blurb": "The linked city parks along the Brandywine — Brandywine Park, Rockford Park with its tower, H. Fletcher Brown Park and the Riverfront. Urban walking rather than wilderness, and the closest state parkland to downtown.",
+    "blurb": "The linked city parks along the Brandywine: Brandywine Park, Rockford Park with its tower, H. Fletcher Brown Park and the Riverfront. Urban walking rather than wilderness, and the closest state parkland to downtown.",
     "features": {
       "beach": false,
       "guardedSwimming": false,
@@ -825,7 +825,7 @@
         "note": "Park roster and facilities."
       },
       {
-        "label": "Delaware State Parks — passes, permits and fees",
+        "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }

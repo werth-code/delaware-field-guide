@@ -19,7 +19,7 @@
     "driveFromRehoboth": "10 minutes",
     "sources": [
       {
-        "label": "Town of Dewey Beach — ordinances",
+        "label": "Town of Dewey Beach: ordinances",
         "url": "https://www.townofdeweybeach.gov/Ordinances/",
         "note": null
       }
@@ -53,12 +53,12 @@
     "driveFromRehoboth": "5–25 minutes",
     "sources": [
       {
-        "label": "Delaware State Parks — Pets in the Parks",
+        "label": "Delaware State Parks: Pets in the Parks",
         "url": "https://www.destateparks.com/pets-in-the-parks/",
         "note": "Lifeguarded beaches closed to pets May 1 – September 30; non-guarded open year-round."
       },
       {
-        "label": "Delaware State Parks — Passes, Permits and Fees",
+        "label": "Delaware State Parks: Passes, Permits and Fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
       }
@@ -124,7 +124,7 @@
     "driveFromRehoboth": "About 1 hour 15 minutes",
     "sources": [
       {
-        "label": "Assateague Island National Seashore — pet regulations",
+        "label": "Assateague Island National Seashore: pet regulations",
         "url": "https://www.nps.gov/asis/planyourvisit/pets.htm",
         "note": "Park phone 410-641-3030."
       }
@@ -153,7 +153,7 @@
     "driveFromRehoboth": "20 minutes",
     "sources": [
       {
-        "label": "City of Lewes — are dogs allowed on the beach?",
+        "label": "City of Lewes: are dogs allowed on the beach?",
         "url": "https://www.ci.lewes.de.us/FAQ.aspx?QID=167",
         "note": null
       }

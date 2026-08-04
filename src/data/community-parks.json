@@ -113,7 +113,7 @@
     "town": "Wilmington",
     "address": "4651 Washington St Ext, Wilmington, DE 19809",
     "acres": null,
-    "blurb": "A Gothic Revival mansion and its grounds, with gardens, lawns and walking paths. Hosts a farmers market. More formal than the county's other parks — this is a stroll rather than a hike.",
+    "blurb": "A Gothic Revival mansion and its grounds, with gardens, lawns and walking paths. Hosts a farmers market. More formal than the county's other parks. This is a stroll rather than a hike.",
     "restrooms": {
       "present": true,
       "type": null,
@@ -416,7 +416,7 @@
     "town": "Camden",
     "address": "80 Old Camden Rd, Camden, DE 19934",
     "acres": 86,
-    "blurb": "Eighty-six acres with the fullest facility list of any county park in Kent — sand volleyball, horseshoes, multiple trails, pavilions with grills, sports and multipurpose fields, a nature centre and a stage. Historic buildings on site.",
+    "blurb": "Eighty-six acres with the fullest facility list of any county park in Kent. Sand volleyball, horseshoes, multiple trails, pavilions with grills, sports fields, a nature centre and a stage. Historic buildings on site.",
     "restrooms": {
       "present": true,
       "type": "permanent",
@@ -452,7 +452,7 @@
     ],
     "sources": [
       {
-        "label": "Kent County Levy Court — Parks",
+        "label": "Kent County Levy Court: Parks",
         "url": "https://www.kentcountyde.gov/Parks"
       }
     ],
@@ -504,7 +504,7 @@
     ],
     "sources": [
       {
-        "label": "Kent County Levy Court — Parks",
+        "label": "Kent County Levy Court: Parks",
         "url": "https://www.kentcountyde.gov/Parks"
       }
     ],
@@ -518,7 +518,7 @@
     "town": "Dover",
     "address": "Dover, DE 19901",
     "acres": null,
-    "blurb": "A 1.5-mile nature trail, flat and easy, used mostly for walking and dog-walking. Nature preserve rather than a facilities park — come for the walk, not the amenities.",
+    "blurb": "A 1.5-mile nature trail, flat and easy, used mostly for walking and dog-walking. A nature preserve rather than a facilities park. Come for the walk, not the amenities.",
     "restrooms": {
       "present": null,
       "type": null,
@@ -554,7 +554,7 @@
     ],
     "sources": [
       {
-        "label": "Kent County Levy Court — Parks",
+        "label": "Kent County Levy Court: Parks",
         "url": "https://www.kentcountyde.gov/Parks"
       }
     ],
@@ -568,7 +568,7 @@
     "town": "Smyrna",
     "address": "Smyrna, DE 19977",
     "acres": null,
-    "blurb": "A Kent County park in the Smyrna area. Facilities not yet confirmed — this record exists so the gap is visible rather than hidden.",
+    "blurb": "A Kent County park in the Smyrna area. Facilities not yet confirmed. This record exists so the gap is visible rather than hidden.",
     "restrooms": {
       "present": null,
       "type": null,
@@ -650,7 +650,7 @@
     "town": "Dover",
     "address": "Kent County, DE",
     "acres": null,
-    "blurb": "A Kent County landing on the St Jones River. What is actually there has not been checked — the name suggests boat access, and that is a guess, not a fact.",
+    "blurb": "A Kent County landing on the St Jones River. What's actually there hasn't been checked. The name suggests boat access, and that's a guess, not a fact.",
     "restrooms": {
       "present": null,
       "type": null,
@@ -771,7 +771,7 @@
     ],
     "sources": [
       {
-        "label": "City of Dover — Parks and Recreation",
+        "label": "City of Dover: Parks and Recreation",
         "url": "https://www.cityofdover.com/"
       }
     ],

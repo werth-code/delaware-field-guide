@@ -1,13 +1,11 @@
 {
   "_comment": "Emergency contacts. The most safety-critical data on this site — a wrong number here costs a dog. Nothing in this file may be inferred, rounded, or carried over from a listing site. Every number needs a first-party confirmation call before verifiedDate is set, and the hours need re-checking seasonally because urgent-care hours at coastal practices move with the season.",
-
   "headline": {
     "fact": "There is no 24-hour emergency vet in Sussex County.",
     "detail": "That is the single most important thing on this page and almost nobody tells visitors. If your dog is in trouble at 11pm at Rehoboth, the nearest round-the-clock option is an hour or more away. Know which one you're driving to BEFORE you need it — pick one now and put it in your phone.",
     "verifiedDate": null,
     "verifiedSource": null
   },
-
   "vets": [
     {
       "slug": "delmarva-animal-emergency-center",
@@ -58,10 +56,9 @@
       "verifiedSource": null
     }
   ],
-
   "statewide": [
     {
-      "label": "Emergency — people",
+      "label": "Emergency: people",
       "value": "911",
       "dial": false,
       "note": "Always. Beach emergencies, injuries, anything time-critical."
@@ -77,7 +74,6 @@
       "note": "24 hours. A consultation fee usually applies. Useful for a swallowed bait, a bloom exposure, or anything eaten off the sand."
     }
   ],
-
   "outstanding": [
     "Call every number in this file and confirm it rings the right place. This is the one dataset where a stale number does real harm.",
     "Confirm Delmarva's weekday 6pm–8am window and the Fri–Sun 24-hour claim.",
