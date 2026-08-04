@@ -1,0 +1,123 @@
+---
+/**
+ * Who writes this.
+ *
+ * Written separately from Deep Creek's version, not adapted from it. The first
+ * attempt was a find-and-replace and shared eighteen sentences with the other
+ * site, which is the exact failure the voice audit flagged. Same person, two
+ * different relationships to two different places, so the pages should have
+ * nothing in common but the name.
+ */
+import Layout from "../layouts/Layout.astro";
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    mainEntity: {
+      "@type": "Person",
+      name: "Matt Werth",
+      jobTitle: "Software engineer",
+      worksFor: { "@type": "Organization", name: "Werth Design", url: "https://werth.design" },
+      description: "Writes and checks the Delaware Field Guide. Lives in north Wilmington.",
+    },
+  },
+];
+---
+
+<Layout
+  title="Who writes this — Delaware Field Guide"
+  description="Matt Werth writes and checks this site. North Wilmington, drives south constantly, rings the town clerk before writing anything down."
+  schema={schema}
+>
+  <div class="wrap pt-11 pb-2">
+    <p class="label m-0">About</p>
+    <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[14ch] text-marsh">Who writes this</h1>
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    <p class="text-[1.2rem] leading-[1.5] font-medium max-w-[56ch]">
+      Matt Werth. I live in north Wilmington and I drive south a lot.
+    </p>
+
+    <p class="max-w-[58ch]">
+      Most of this site was checked with children in the back of the car and a
+      boot full of their things. That shapes it. Restrooms get more attention
+      here than scenery, because on the day you need one, scenery is not the
+      problem you have.
+    </p>
+
+    <h2>It started with the dog</h2>
+
+    <p class="max-w-[58ch]">
+      I wanted to know which beach the dog could walk on. I got three answers.
+      Two were out of date.
+    </p>
+
+    <p class="max-w-[58ch]">
+      Rehoboth had moved its dates in January 2026 and most of the internet
+      hadn't caught up. That isn't carelessness. The city published the change
+      properly. It's that nobody goes back to a page they wrote three years ago,
+      and almost nobody wrote down where the fact came from, so there's no way
+      to tell a fresh answer from a stale one by looking at it.
+    </p>
+
+    <p class="max-w-[58ch]">
+      Once I started checking I found two more of the same shape. State park
+      entry fees roughly doubled in March 2026. Seven surf fishing crossings
+      dropped their reservation requirement in 2025. Both properly announced.
+      Both still printed the old way in plenty of places.
+    </p>
+
+    <h2>What I do about it</h2>
+
+    <p class="max-w-[58ch]">
+      I ring whoever sets the rule. For a beach ordinance that's the city clerk.
+      For a state park it's DNREC. For a county park it's the county. Then I
+      write down the date I asked and the name of who answered, and both go on
+      the page.
+    </p>
+
+    <p class="max-w-[58ch]">
+      Where I've only read something off an official page rather than asking a
+      person, the page says that instead. They're different claims and you
+      should get to see which one you're holding.
+    </p>
+
+    <p class="max-w-[58ch]">
+      Anything I haven't checked is marked unchecked. It makes the site look
+      thinner than the guides it competes with, which is fine.
+    </p>
+
+    <h2>The day job</h2>
+
+    <p class="max-w-[58ch]">
+      I'm a software engineer, which is why this is mostly tables and dates
+      rather than travel writing. I run
+      <a href="https://werth.design" rel="noopener">Werth Design</a> in
+      Wilmington, and Werth Design pays for this. No sponsors, no affiliate
+      links, nothing here is a paid placement.
+    </p>
+
+    <h2>Corrections</h2>
+
+    <p class="max-w-[58ch]">
+      When I get something wrong I leave the mistake up with the date and what
+      it used to say. <a href="/changed/">There's a log of what's changed</a>.
+    </p>
+
+    <p class="max-w-[58ch]">
+      If you spot one, the report box at the foot of every page takes about ten
+      seconds. People who live in these towns know them better than I do, and a
+      note from someone standing there yesterday is worth more to me than
+      another phone call.
+    </p>
+
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/how-we-verify/">How I check things</a></li>
+      <li><a href="/changed/">What's changed, and when</a></li>
+      <li><a href="/verified/">Every fact on the site, with its source and age</a></li>
+    </ul>
+  </div>
+</Layout>
