@@ -431,7 +431,7 @@
     "verifiedSource": null,
     "outstanding": [
       "Get the park office number.",
-      "Confirm hawk watch season and the nature centre's hours."
+      "Confirm hawk watch season and the nature center's hours."
     ],
     "sources": [
       {
@@ -454,7 +454,7 @@
     "acres": 331,
     "kind": "Estate and woodland",
     "town": "Wilmington",
-    "blurb": "Another former du Pont estate, with a mansion, a track, and a bandstand. More of a neighbourhood park than a wilderness one, and used that way.",
+    "blurb": "Another former du Pont estate, with a mansion, a track, and a bandstand. More of a neighborhood park than a wilderness one, and used that way.",
     "features": {
       "beach": false,
       "guardedSwimming": false,
@@ -766,7 +766,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the visitor centre number.",
+      "Get the visitor center number.",
       "List the individual sites and their hours.",
       "Confirm whether any entry fee applies."
     ],

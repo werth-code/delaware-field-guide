@@ -36,7 +36,7 @@ const tier = tierOf(item);
 const sources = item.sources ?? [];
 const tel = item.callTo?.phone.replace(/[^0-9+]/g, "");
 
-/* Ochre for sourced, green for confirmed. The colour is doing semantic work —
+/* Ochre for sourced, green for confirmed. The color is doing semantic work —
    a reader shouldn't have to read the stamp to tell the two apart. */
 const edge = verified ? "border-l-flag-green" : "border-l-ochre";
 ---
