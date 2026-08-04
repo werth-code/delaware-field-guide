@@ -208,7 +208,10 @@ const description =
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
           <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Hours</dt>
           <dd class={`m-0 mt-1 sm:mt-0 text-[0.95rem] ${park.hours ? "" : "text-ink-soft italic"}`}>
-            {park.hours ?? "Not confirmed"}
+            {park.hours ?? "Daily hours not confirmed"}
+            {park.hoursNote && (
+              <span class="block mt-1 not-italic text-ink stamp">{park.hoursNote}</span>
+            )}
           </dd>
         </div>
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">

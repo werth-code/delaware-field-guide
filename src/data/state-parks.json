@@ -442,7 +442,7 @@
     "acres": 951,
     "kind": "Creek and woodland",
     "town": "Wilmington",
-    "blurb": "A former du Pont dairy farm, fifteen minutes from downtown Wilmington. Stone walls, tulip poplars, and an autumn hawk watch. Rolling meadow rather than woodland.",
+    "blurb": "A big former du Pont dairy farm fifteen minutes from downtown Wilmington, open year round. A large trail system, including a paved walking path that runs through the woods along the creek. Stone walls, tulip poplars, an autumn hawk watch, a boat launch and disc golf. Several entrances and more than one set of restrooms.",
     "features": {
       "beach": false,
       "guardedSwimming": false,
@@ -450,7 +450,7 @@
       "camping": false,
       "cabins": false,
       "trails": true,
-      "boatLaunch": null,
+      "boatLaunch": true,
       "pier": null,
       "discGolf": true,
       "restrooms": true
@@ -462,7 +462,7 @@
     },
     "warnings": [
       "Ticks.",
-      "Multiple entrances, and only the main one has the ranger station, restrooms and gift shop. Pick that one unless you know otherwise."
+      "Several entrances, and they aren't equivalent. The ranger station, gift shop and pavilion bookings are all at the main one."
     ],
     "phone": null,
     "hours": null,
@@ -472,9 +472,12 @@
       "Get the park office number.",
       "Confirm hawk watch season and the nature center's hours.",
       "Get the disc golf hole count and whether it costs anything.",
-      "Name the other entrances and what is and isn't at each.",
       "Get the pavilion rental prices and how far ahead you have to book.",
-      "Confirm the ranger station's hours — the restrooms are there."
+      "Confirm the ranger station's hours — the restrooms are there.",
+      "Name every entrance and say which has restrooms and which doesn't.",
+      "Get the paved path's length and whether it's a loop.",
+      "Confirm the boat launch location and whether it takes trailers.",
+      "Get the daily opening hours. 'Open year round' is the season, not the hours."
     ],
     "sources": [
       {
@@ -493,7 +496,7 @@
       {
         "file": "brandywine-creek-meadow",
         "alt": "A wide meadow of tall summer grass and white wildflowers with a mown path running through it, backed by a dense tree line and a wooded ridge.",
-        "caption": "The meadows in high summer, with a mown path cut through the grass. This is most of what the park is — the creek is the name, not the view.",
+        "caption": "One of the meadows in high summer, with a mown path through the grass. There are meadows here, but the walk most people come for is the paved path through the woods along the creek.",
         "credit": "Site maintainer",
         "takenOn": "2026-07",
         "portrait": false,
@@ -511,19 +514,31 @@
     "onSite": [
       {
         "label": "Which entrance",
-        "note": "There's more than one way in, and they are not equivalent. The main entrance is the one with the ranger station."
+        "note": "Several ways in, and they aren't equivalent. The main entrance is the one with the ranger station."
+      },
+      {
+        "label": "The paved path",
+        "note": "A paved walking path runs through the woods following the creek. It's the one most people come for."
+      },
+      {
+        "label": "Trails",
+        "note": "A large system beyond the paved path."
       },
       {
         "label": "Restrooms",
-        "note": "At the ranger station, by the main entrance."
+        "note": "More than one set. The ranger station at the main entrance has them; they are not the only ones."
       },
       {
         "label": "Gift shop",
-        "note": "At the ranger station."
+        "note": "At the ranger station, main entrance."
       },
       {
         "label": "Pavilions",
         "note": "Rentable, booked through the main entrance."
+      },
+      {
+        "label": "Boat launch",
+        "note": "There's one."
       }
     ],
     "fieldNotes": [
@@ -531,8 +546,14 @@
         "date": "2026-08-04",
         "author": "Site maintainer",
         "body": "Disc golf here, and it's the better of the two county courses I've played. The park has several entrances — the main one has the ranger station, and that's where the restrooms, the gift shop and the pavilion rentals are."
+      },
+      {
+        "date": "2026-08-04",
+        "author": "Site maintainer",
+        "body": "Correcting this page. It used to say 'rolling meadow rather than woodland', and the photo caption claimed the meadows were most of what the park is. Both wrong. It's a large park with a big trail system, and the path people come for is paved, wooded, and follows the creek. There's a boat launch, more than one set of restrooms, and it's open year round."
       }
-    ]
+    ],
+    "hoursNote": "Open year round."
   },
   {
     "slug": "bellevue",

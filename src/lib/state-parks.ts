@@ -100,6 +100,15 @@ export interface StatePark {
   warnings: string[];
   phone: string | null;
   hours: string | null;
+  /**
+   * The season, which is a different question from the daily hours.
+   *
+   * "Open year round" and "8am to sunset" are both answers to "when can I go"
+   * and neither substitutes for the other. Brandywine Creek is open all year
+   * and its daily hours are still unchecked — without this field the page had
+   * to render a flat "Not confirmed" and throw away a fact somebody gave me.
+   */
+  hoursNote?: string | null;
   verifiedDate: string | null;
   verifiedSource: string | null;
   outstanding?: string[];
