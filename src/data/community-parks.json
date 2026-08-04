@@ -786,5 +786,127 @@
       }
     ],
     "sourcedOn": "2026-08-02"
+  },
+  {
+    "slug": "valley-garden-park",
+    "name": "Valley Garden Park",
+    "operator": "Wilmington Park Trust Fund Commission",
+    "county": "New Castle",
+    "town": "Greenville",
+    "address": "500 Campbell Road, Wilmington, DE 19807",
+    "acres": 102.0,
+    "blurb": "A hundred-acre du Pont estate garden given to the city in 1942, sitting outside the city limits near Hoopes Reservoir. Paved and unpaved paths along a landscaped stream. In early spring the magnolias and the daffodil bank are the reason to come.",
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "The city's own amenity list for this park is parking, benches and trails. Restrooms are not on it — which is a hint, not an answer, so this stays unconfirmed rather than becoming a “no”.",
+      "confirmedOn": null,
+      "confirmedBy": null
+    },
+    "facilities": {
+      "playground": false,
+      "water": null,
+      "shade": true,
+      "pavilion": null,
+      "grills": null,
+      "trails": true,
+      "pavedPath": true,
+      "sports": null,
+      "fishing": null,
+      "discGolf": false,
+      "skate": false,
+      "dogPark": false
+    },
+    "accessibility": null,
+    "dogParkSlug": null,
+    "hours": null,
+    "hoursNote": "The city publishes no hours for this park.",
+    "phone": null,
+    "warnings": [
+      "Outside Wilmington city limits despite being a city park. It's in Greenville.",
+      "No restrooms on the city's amenity list. Assume none until someone confirms."
+    ],
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get opening hours. The city publishes none.",
+      "Confirm whether there are restrooms anywhere on site.",
+      "Get a phone number for the Park Trust Fund Commission.",
+      "Confirm how much of the path network is paved and step-free.",
+      "Confirm the usual peak week for the magnolias and daffodils."
+    ],
+    "sources": [
+      {
+        "label": "City of Wilmington: Valley Garden Park",
+        "url": "https://www.wilmingtonde.gov/Home/Components/FacilityDirectory/FacilityDirectory/217/118",
+        "note": "The operator's own facility directory entry. Gives the Campbell Road address, 102 acres, established 1943, donated to the city in 1942 by Mrs. Robert Wheelwright on behalf of Mrs. Alice du Pont, ownership and management by the Wilmington Park Trust Fund Commission, that it sits outside city limits, and an amenity list of off-street parking, park benches and walking/hiking trails."
+      }
+    ],
+    "sourcedOn": "2026-08-04",
+    "photos": [
+      {
+        "file": "valley-garden-magnolias",
+        "alt": "Saucer magnolias in pink bloom and a white star magnolia beside a narrow stream, with a bench, mown grass and a bank of daffodils behind.",
+        "caption": "The magnolias over the stream, with the daffodil bank behind. Early spring, which is the week this park is famous for.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      }
+    ]
+  },
+  {
+    "slug": "delcastle-recreational-park",
+    "name": "Delcastle Recreational Park",
+    "operator": "New Castle County",
+    "county": "New Castle",
+    "town": "Wilmington",
+    "address": "2920 Duncan Road, Wilmington, DE 19808",
+    "acres": null,
+    "blurb": "The county's big playing-field park off Duncan Road: baseball, soccer, football, tennis, basketball and street hockey, with paved trails, a fitness circuit and woods around the edge. Free to walk into; you only pay if you're booking a field.",
+    "restrooms": {
+      "present": true,
+      "type": null,
+      "seasonal": null,
+      "note": "Listed on the county's own amenity list for this park.",
+      "confirmedOn": "2026-08-04",
+      "confirmedBy": "New Castle County facility listing"
+    },
+    "facilities": {
+      "playground": true,
+      "water": null,
+      "shade": true,
+      "pavilion": null,
+      "grills": true,
+      "trails": true,
+      "pavedPath": true,
+      "sports": true,
+      "fishing": null,
+      "discGolf": false,
+      "skate": false,
+      "dogPark": false
+    },
+    "accessibility": "The county lists this park as ADA accessible. What that covers specifically isn't published.",
+    "dogParkSlug": null,
+    "hours": "dawn-dusk",
+    "hoursNote": "New Castle County parks are open dawn to dusk.",
+    "phone": "302-395-5606",
+    "warnings": [],
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Confirm what the ADA accessible listing actually covers.",
+      "Get field and pavilion rental prices.",
+      "Confirm whether the restrooms are open year round or only in season.",
+      "Confirm whether there's drinking water."
+    ],
+    "sources": [
+      {
+        "label": "New Castle County: Delcastle Recreational Park",
+        "url": "https://www.newcastlede.gov/facilities/facility/details/Delcastle-Recreational-Park-66",
+        "note": "The operator's own facility listing. Gives the Duncan Road address, the parks permit office number, dawn-to-dusk hours, and an amenity list of ADA accessible, baseball/softball, basketball, fitness circuit, football, grills, open space, parking, paved trails, playground, restrooms, soccer, street hockey, tennis and wooded area. States there is no admission fee for any county park and that fees apply only to court, field and pavilion rentals."
+      }
+    ],
+    "sourcedOn": "2026-08-04"
   }
 ]
