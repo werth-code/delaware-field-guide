@@ -312,7 +312,7 @@
     "town": "Bear",
     "blurb": "The largest freshwater pond in Delaware, formed to feed the Chesapeake and Delaware Canal. Campground, a long shoreline trail, an aerial ropes course, and the best-reviewed dog area in the state.",
     "features": {
-      "beach": null,
+      "beach": true,
       "guardedSwimming": null,
       "surfFishing": false,
       "camping": true,
@@ -321,7 +321,7 @@
       "boatLaunch": true,
       "pier": null,
       "discGolf": true,
-      "restrooms": null
+      "restrooms": true
     },
     "feeBand": "inland",
     "dogs": {
@@ -339,7 +339,11 @@
     "outstanding": [
       "Get the park office number.",
       "Confirm the fee band for 2026 — inland ($5/$10) or beach ($10/$20).",
-      "Confirm the off-leash area hours separately from park hours."
+      "Confirm the off-leash area hours separately from park hours.",
+      "Confirm whether the beach is guarded, and when.",
+      "Get the pavilion rental prices and booking lead time.",
+      "Get the ranger station's hours — the restrooms may depend on them.",
+      "Confirm the boardwalk trail's length and whether it's step-free."
     ],
     "sources": [
       {
@@ -353,7 +357,32 @@
         "note": "2026 fee schedule, effective 1 March 2026."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "onSite": [
+      {
+        "label": "Restrooms",
+        "note": "Yes. Confirmed on site."
+      },
+      {
+        "label": "Ranger station",
+        "note": "There is one."
+      },
+      {
+        "label": "Pavilions",
+        "note": "Rentable."
+      },
+      {
+        "label": "The boardwalk",
+        "note": "There's a boardwalk trail as well as the shoreline loop."
+      }
+    ],
+    "fieldNotes": [
+      {
+        "date": "2026-08-04",
+        "author": "Site maintainer",
+        "body": "Beach, restrooms, rentable pavilions, a boardwalk trail and a ranger station. The boardwalk is a separate thing from the long shoreline trail."
+      }
+    ]
   },
   {
     "slug": "white-clay-creek",
