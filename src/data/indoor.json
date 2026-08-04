@@ -1,0 +1,588 @@
+[
+  {
+    "slug": "delaware-museum-nature-science",
+    "name": "Delaware Museum of Nature & Science",
+    "kind": "Nature center",
+    "operator": "Delaware Museum of Nature & Science",
+    "town": "Wilmington",
+    "county": "New Castle",
+    "address": "4840 Kennett Pike, Wilmington, DE 19807",
+    "blurb": "The state's natural history museum, on Kennett Pike north of Wilmington. Four galleries, a dinosaur hall, live animal presentations and a Star Lab. It's built for children and doesn't pretend otherwise — under-16s have to have an adult with them the whole way round.",
+    "hours": {
+      "lines": [{ "days": "Every day", "text": "9:30am – 4:00pm" }],
+      "season": null,
+      "note": "Online tickets stop selling at 9am each day. Walk-ins are fine. The Nature Nook keeps shorter hours Tuesday to Thursday, 10am to 3:30pm."
+    },
+    "admission": {
+      "note": "$15.50 for anyone 3 and over, $5.50 for toddlers 1 to 2, free under 12 months. Members free. There's a 5% discount for paying cash.",
+      "free": false,
+      "amount": 15.5
+    },
+    "phone": "302-658-9111",
+    "website": {
+      "label": "Delaware Museum of Nature & Science",
+      "url": "https://delmns.org/"
+    },
+    "restrooms": null,
+    "giftShop": true,
+    "accessibility": null,
+    "parking": null,
+    "inside": [
+      "Regional Journey and Global Journey galleries",
+      "PaleoZone — the dinosaur hall",
+      "The Discovery Gallery",
+      "Live animal presentations, Star Lab shows and storytelling",
+      "The Rest, Relax & Recharge cafe"
+    ],
+    "branches": null,
+    "warnings": [
+      "Everyone under 16 must be with an adult for the whole visit.",
+      "Online ticket sales close at 9am. After that it's walk-in only."
+    ],
+    "sources": [
+      {
+        "label": "Delaware Museum of Nature & Science: visit",
+        "url": "https://delmns.org/",
+        "note": "The operator. Gives the 9:30am to 4pm hours, the full admission table including the cash discount, the Kennett Pike address, the phone number, the four galleries, the cafe and the under-16 rule. Note the old delmnh.org domain now redirects here."
+      }
+    ],
+    "sourcedOn": "2026-08-04",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Confirm whether it's open seven days or closes one day a week.",
+      "Confirm parking and whether it costs anything.",
+      "Ask about step-free access and accessible restrooms.",
+      "Confirm holiday closures."
+    ],
+    "verdict": null
+  },
+  {
+    "slug": "delaware-art-museum",
+    "name": "Delaware Art Museum",
+    "kind": "Museum",
+    "operator": "Delaware Art Museum",
+    "town": "Wilmington",
+    "county": "New Castle",
+    "address": "2301 Kentmere Parkway, Wilmington, DE 19806",
+    "blurb": "Pre-Raphaelites, Howard Pyle and the Brandywine illustrators, and a sculpture garden, on Kentmere Parkway. Free parking behind the building, which in Wilmington is worth saying. Thursday evenings are free from April to December.",
+    "hours": {
+      "lines": [{ "days": "Wednesday – Sunday", "text": "10:00am – 4:00pm" }],
+      "season": null,
+      "note": "Thursdays run to 8pm from April through December. Closed Monday and Tuesday, and closed New Year's Day, Independence Day, Thanksgiving and Christmas."
+    },
+    "admission": {
+      "note": "Adults $18, seniors 65+ $16, students with ID $7, ages 7 to 18 $6. Free for members and under-7s. Free for everyone Thursday evenings 4pm to 8pm, April through December.",
+      "free": false,
+      "amount": 18
+    },
+    "phone": "302-571-9590",
+    "website": {
+      "label": "Delaware Art Museum: visit",
+      "url": "https://delart.org/visit/"
+    },
+    "restrooms": null,
+    "giftShop": true,
+    "accessibility": null,
+    "parking": "Free on-site parking behind the building.",
+    "inside": [
+      "The Pre-Raphaelite collection",
+      "Howard Pyle and the Brandywine illustrators",
+      "American art and rotating exhibitions",
+      "A cafe and a gift shop"
+    ],
+    "branches": null,
+    "warnings": [
+      "Closed Monday and Tuesday.",
+      "The free Thursday evening only runs April to December. In winter you pay."
+    ],
+    "sources": [
+      {
+        "label": "Delaware Art Museum: visit",
+        "url": "https://delart.org/visit/",
+        "note": "The operator. Gives Wednesday to Sunday 10am to 4pm, the extended April-to-December Thursdays to 8pm, the full admission table, the free Thursday evening, the Kentmere Parkway address, free on-site parking, the cafe and shop, and the four annual holiday closures."
+      }
+    ],
+    "sourcedOn": "2026-08-04",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask about step-free access and accessible restrooms.",
+      "Confirm whether the sculpture garden is open outside museum hours.",
+      "Confirm whether the free Thursday needs a booking."
+    ],
+    "verdict": null
+  },
+  {
+    "slug": "hagley-museum",
+    "name": "Hagley Museum and Library",
+    "kind": "Museum",
+    "operator": "Hagley Museum and Library",
+    "town": "Wilmington",
+    "county": "New Castle",
+    "address": "200 Hagley Creek Road, Wilmington, DE 19807",
+    "blurb": "The original du Pont black powder works on the Brandywine, plus the family's first house and gardens, spread over a couple of hundred acres. Most people spend two to three hours. It's outdoors as much as in, on gravel and uneven ground.",
+    "hours": {
+      "lines": [{ "days": "Every day except Wednesday", "text": "10:00am – 5:00pm" }],
+      "season": null,
+      "note": "Last admission 4pm, and they push you to arrive before 3pm. Wednesdays are pre-booked groups and members only."
+    },
+    "admission": {
+      "note": "Adults $22. Students, seniors 62+, veterans and military retirees $18. Ages 6 to 14 $12. Free for under-6s, active military and their families, and members.",
+      "free": false,
+      "amount": 22
+    },
+    "phone": "302-658-2400",
+    "website": {
+      "label": "Hagley Museum and Library: hours and tickets",
+      "url": "https://www.hagley.org/hours-tickets"
+    },
+    "restrooms": null,
+    "giftShop": true,
+    "accessibility": "A wheelchair-accessible shuttle runs between the main areas. The grounds themselves are uneven with gravel paths, and Hagley says to wear proper shoes.",
+    "parking": "Free parking by the Visitor Center. You can't drive into the rest of the site.",
+    "inside": [
+      "Nation of Inventors, about 30 to 40 minutes",
+      "The Powder Yard along the Brandywine, 40 to 60 minutes",
+      "Eleutherian Mills, the du Pont residence, about 45 minutes to an hour",
+      "The gardens",
+      "A museum store and a cafe by the Visitor Center"
+    ],
+    "branches": null,
+    "warnings": [
+      "The powder yard is closed 24 August to 4 September 2026. Everything else stays open and general admission is half price for those two weeks.",
+      "Closed Wednesdays to general visitors.",
+      "Last admission is 4pm for a site that takes two to three hours."
+    ],
+    "sources": [
+      {
+        "label": "Hagley Museum and Library: hours and tickets",
+        "url": "https://www.hagley.org/hours-tickets",
+        "note": "The operator. Gives six days a week 10am to 5pm with Wednesday closed, the 4pm last admission, the full admission table, and the 24 August to 4 September 2026 powder yard closure with half-price admission."
+      },
+      {
+        "label": "Hagley Museum and Library: visit",
+        "url": "https://www.hagley.org/visit",
+        "note": "Gives the Hagley Creek Road address, the phone number, free Visitor Center parking, the wheelchair-accessible shuttle, the warning about uneven gravel terrain, the store and cafe, and the two-to-three-hour visit estimate."
+      }
+    ],
+    "sourcedOn": "2026-08-04",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Confirm the powder yard reopens 5 September 2026.",
+      "Confirm how much of the site a wheelchair user can actually reach beyond the shuttle stops.",
+      "Ask whether tickets are good for a second day."
+    ],
+    "verdict": null
+  },
+  {
+    "slug": "winterthur",
+    "name": "Winterthur Museum, Garden & Library",
+    "kind": "Museum",
+    "operator": "Winterthur",
+    "town": "Winterthur",
+    "county": "New Castle",
+    "address": "5105 Kennett Pike, Winterthur, DE 19735",
+    "blurb": "Henry Francis du Pont's house and his American decorative arts collection, wrapped in a 60-acre garden inside a thousand acres of meadow and woods. Enchanted Woods is the children's garden and is the reason a lot of families come at all.",
+    "hours": {
+      "lines": [{ "days": "Tuesday – Sunday", "text": "10:00am – 5:00pm" }],
+      "season": null,
+      "note": "The research library keeps its own hours: Monday to Friday 9am to 4pm for drop-ins, special collections by appointment. Yuletide adds some Friday and Saturday evenings."
+    },
+    "admission": {
+      "note": "Not confirmed. Winterthur sells tickets online and by phone but doesn't publish a price table on its visit page.",
+      "free": false,
+      "amount": null
+    },
+    "phone": "800-448-3883",
+    "website": {
+      "label": "Winterthur: visit",
+      "url": "https://www.winterthur.org/visit/"
+    },
+    "restrooms": null,
+    "giftShop": true,
+    "accessibility": null,
+    "parking": null,
+    "inside": [
+      "The house and the American decorative arts collection",
+      "A 60-acre garden with 25 miles of paths",
+      "Enchanted Woods, the children's garden",
+      "A thousand acres of meadow and woodland",
+      "A gift shop and somewhere to eat"
+    ],
+    "branches": null,
+    "warnings": [
+      "Closed Mondays.",
+      "No admission prices are published on the visit page. You find out at checkout."
+    ],
+    "sources": [
+      {
+        "label": "Winterthur: visit",
+        "url": "https://www.winterthur.org/visit/",
+        "note": "The operator. Gives Tuesday to Sunday 10am to 5pm, the separate library hours, the Kennett Pike address, the phone number, the 60-acre garden and 25 miles of paths, Enchanted Woods, the gift shop and dining. Publishes no admission price table."
+      }
+    ],
+    "sourcedOn": "2026-08-04",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the admission prices. They aren't on the visit page.",
+      "Confirm whether a garden-only ticket exists and what it costs.",
+      "Ask about parking and step-free routes through the garden.",
+      "Confirm the Yuletide dates for 2026."
+    ],
+    "verdict": null
+  },
+  {
+    "slug": "new-castle-court-house-museum",
+    "name": "New Castle Court House Museum",
+    "kind": "Museum",
+    "operator": "Delaware Division of Historical and Cultural Affairs",
+    "town": "New Castle",
+    "county": "New Castle",
+    "address": "211 Delaware Street, New Castle, DE 19720",
+    "blurb": "Delaware's first courthouse and first capitol, built in 1732, in the middle of old New Castle. Free, and guided only — you can't wander it on your own. Tours run every hour or so and take about 45 minutes.",
+    "hours": {
+      "lines": [
+        { "days": "Wednesday – Saturday", "text": "10:00am – 4:00pm" },
+        { "days": "Sunday", "text": "1:30pm – 4:30pm" }
+      ],
+      "season": null,
+      "note": "Guided tours only. Wednesday to Saturday at 10, 11, 1, 2 and 3; Sunday at 1:30, 2:30 and 3:30. Groups over 10 need to book. Open on Labor Day."
+    },
+    "admission": {
+      "note": "Free. Donations welcome.",
+      "free": true,
+      "amount": 0
+    },
+    "phone": "302-323-4453",
+    "website": {
+      "label": "Delaware Division of Historical and Cultural Affairs: New Castle Court House Museum",
+      "url": "https://history.delaware.gov/new-castle-court-house-museum/"
+    },
+    "restrooms": true,
+    "giftShop": null,
+    "accessibility": "The first floor is accessible to people with mobility concerns. Nothing published about the upper floors.",
+    "parking": "Street parking in downtown New Castle.",
+    "inside": [
+      "The 1732 courthouse, a National Historic Landmark",
+      "Your Vote, Your Choice",
+      "The Path to Freedom, on the Underground Railroad",
+      "Three Forts, One Community, on the Swedish, Dutch and English settlements",
+      "National Parks Passport stamps"
+    ],
+    "branches": null,
+    "warnings": [
+      "Guided tours only, on a fixed timetable. Turn up between tours and you wait.",
+      "Closed Monday and Tuesday."
+    ],
+    "sources": [
+      {
+        "label": "Delaware Division of Historical and Cultural Affairs: New Castle Court House Museum",
+        "url": "https://history.delaware.gov/new-castle-court-house-museum/",
+        "note": "The operator, a state division. Gives the day-by-day hours including the different Sunday times, the full tour timetable, free admission, the Delaware Street address, the phone number, restrooms, first-floor accessibility, street parking and the exhibit list."
+      }
+    ],
+    "sourcedOn": "2026-08-04",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Confirm whether the last tour of the day ever fills up.",
+      "Ask whether there's a gift shop.",
+      "Confirm winter and holiday closures."
+    ],
+    "verdict": null
+  },
+  {
+    "slug": "new-castle-county-libraries",
+    "name": "New Castle County Libraries",
+    "kind": "Library",
+    "operator": "New Castle County",
+    "town": "Wilmington",
+    "county": "New Castle",
+    "address": "Fifteen branches across New Castle County",
+    "blurb": "Fifteen branches from Claymont down to Odessa, free to walk into. On a wet afternoon it's the most reliable indoor room in the county — warm, quiet, has a bathroom, nobody minds how long you stay. Hours differ branch to branch and change with the season.",
+    "hours": {
+      "lines": null,
+      "season": "Summer hours run 29 June to 6 September 2026 at most branches. They change after that.",
+      "note": "Every branch keeps its own timetable and the county publishes them per branch. Rather than print a partial week here and have you plan around it, the table below gives you the branch, the address and the number to ring."
+    },
+    "admission": {
+      "note": "Free. It's a public library.",
+      "free": true,
+      "amount": 0
+    },
+    "phone": null,
+    "website": {
+      "label": "New Castle County: all branches and hours",
+      "url": "https://www.newcastlede.gov/287/Branches"
+    },
+    "restrooms": null,
+    "giftShop": null,
+    "accessibility": null,
+    "parking": null,
+    "inside": [
+      "Fifteen branches, including the Route 9 Library & Innovation Center",
+      "Wilmington Library and Woodlawn Library in the city"
+    ],
+    "branches": [
+      { "name": "Appoquinimink Community Library", "town": "Middletown", "address": "204 E. Main Street, Middletown, DE 19709", "phone": "302-378-5588", "hours": { "lines": null, "season": null, "note": null }, "note": null },
+      { "name": "Bear Library", "town": "Bear", "address": "101 Governors Plaza, Bear, DE 19701", "phone": "302-838-3300", "hours": { "lines": null, "season": null, "note": null }, "note": null },
+      { "name": "Brandywine Hundred Library", "town": "Wilmington", "address": "1300 Foulk Road, Wilmington, DE 19803", "phone": "302-477-3150", "hours": { "lines": null, "season": null, "note": null }, "note": "Same site as Talley Day Park, so it pairs with a playground and a dog park." },
+      { "name": "Claymont Library", "town": "Claymont", "address": "400 Lenape Way, Claymont, DE 19703", "phone": "302-798-4164", "hours": { "lines": null, "season": null, "note": null }, "note": null },
+      { "name": "Corbit-Calloway Memorial Library", "town": "Odessa", "address": "115 High Street, Odessa, DE 19730", "phone": "302-378-8838", "hours": { "lines": null, "season": null, "note": null }, "note": null },
+      { "name": "Delaware City Library", "town": "Delaware City", "address": "250 5th Street, Delaware City, DE 19706", "phone": "302-834-4148", "hours": { "lines": null, "season": null, "note": null }, "note": null },
+      { "name": "Elsmere Library", "town": "Wilmington", "address": "30 Spruce Ave, Wilmington, DE 19805", "phone": "302-892-2210", "hours": { "lines": null, "season": null, "note": null }, "note": null },
+      { "name": "Hockessin Library", "town": "Hockessin", "address": "1023 Valley Road, Hockessin, DE 19707", "phone": "302-239-5160", "hours": { "lines": null, "season": null, "note": null }, "note": null },
+      { "name": "Kirkwood Library", "town": "Wilmington", "address": "6000 Kirkwood Hwy, Wilmington, DE 19808", "phone": "302-995-7663", "hours": { "lines": null, "season": null, "note": null }, "note": null },
+      { "name": "New Castle Public Library", "town": "New Castle", "address": "424 Delaware Street, New Castle, DE 19720", "phone": "302-328-1995", "hours": { "lines": null, "season": null, "note": null }, "note": null },
+      { "name": "Newark Free Library", "town": "Newark", "address": "750 Library Ave, Newark, DE 19711", "phone": null, "hours": { "lines": null, "season": null, "note": null }, "note": "Closed for a construction project. Don't drive there." },
+      { "name": "North Wilmington Library", "town": "Wilmington", "address": "3400 N Market Street, Wilmington, DE 19802", "phone": "302-761-4290", "hours": { "lines": null, "season": null, "note": null }, "note": null },
+      { "name": "Route 9 Library & Innovation Center", "town": "New Castle", "address": "3022 New Castle Ave, New Castle, DE 19720", "phone": "302-657-8020", "hours": { "lines": null, "season": null, "note": null }, "note": null },
+      { "name": "Wilmington Library", "town": "Wilmington", "address": "10 E 10th Street, Wilmington, DE 19801", "phone": "302-571-7400", "hours": { "lines": null, "season": null, "note": null }, "note": null },
+      { "name": "Woodlawn Library", "town": "Wilmington", "address": "2020 W 9th Street, Wilmington, DE 19805", "phone": "302-571-7425", "hours": { "lines": null, "season": null, "note": null }, "note": null }
+    ],
+    "warnings": [
+      "Newark Free Library is closed for construction. It still shows as open on maps.",
+      "Summer hours run to 6 September 2026 and change after. Ring the branch rather than trust a listing.",
+      "Per-branch hours aren't in this record yet. The branch table gives you the number to call."
+    ],
+    "sources": [
+      {
+        "label": "New Castle County: all branches and hours",
+        "url": "https://www.newcastlede.gov/287/Branches",
+        "note": "The operator. Gives all fifteen branches with addresses and phone numbers, notes the summer hours period of 29 June to 6 September 2026, and states that Newark Free Library is closed during a construction project."
+      }
+    ],
+    "sourcedOn": "2026-08-04",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the full week of hours for every branch, and the post-6-September timetable.",
+      "Confirm when Newark Free Library reopens.",
+      "Ask whether the system lends Delaware state park passes.",
+      "Confirm public restrooms and wifi per branch."
+    ],
+    "verdict": null
+  },
+  {
+    "slug": "old-state-house",
+    "name": "The Old State House",
+    "kind": "Museum",
+    "operator": "Delaware Division of Historical and Cultural Affairs",
+    "town": "Dover",
+    "county": "Kent",
+    "address": "25 The Green, Dover, DE 19901",
+    "blurb": "Delaware's statehouse from 1791, on The Green in Dover. An 18th-century courtroom downstairs and the old legislative chambers upstairs. Free, guided, and about 45 minutes. There are no restrooms in the building.",
+    "hours": {
+      "lines": [{ "days": "Wednesday – Saturday", "text": "10:00am – 4:00pm" }],
+      "season": null,
+      "note": "Guided tours at 10, 11, 1, 2 and 3, running no more than 45 minutes. Large groups book ahead on 302-739-9194."
+    },
+    "admission": {
+      "note": "Free. Donations appreciated.",
+      "free": true,
+      "amount": 0
+    },
+    "phone": "302-744-5054",
+    "website": {
+      "label": "Delaware Division of Historical and Cultural Affairs: The Old State House",
+      "url": "https://history.delaware.gov/old-state-house/"
+    },
+    "restrooms": false,
+    "giftShop": null,
+    "accessibility": "The first floor is accessible to people with disabilities. The second floor is up stairs.",
+    "parking": "Free street parking around The Green, but limited.",
+    "inside": [
+      "An 18th-century-style courtroom on the ground floor",
+      "The former state legislative chambers upstairs",
+      "Portraits of Delaware figures from the War of 1812, and a George Washington"
+    ],
+    "branches": null,
+    "warnings": [
+      "No restrooms in the building. Plan for that before a tour with children.",
+      "Closed Sunday, Monday and Tuesday."
+    ],
+    "sources": [
+      {
+        "label": "Delaware Division of Historical and Cultural Affairs: The Old State House",
+        "url": "https://history.delaware.gov/old-state-house/",
+        "note": "The operator, a state division. Gives Wednesday to Saturday 10am to 4pm, the tour timetable and 45-minute length, free admission, the address on The Green, the phone number, first-floor accessibility, limited free street parking, and states plainly that restrooms are not available on site."
+      }
+    ],
+    "sourcedOn": "2026-08-04",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Confirm the nearest public restrooms on The Green.",
+      "Ask whether the upstairs chamber can be reached any other way.",
+      "Confirm holiday closures."
+    ],
+    "verdict": null
+  },
+  {
+    "slug": "johnson-victrola-museum",
+    "name": "Johnson Victrola Museum",
+    "kind": "Museum",
+    "operator": "Delaware Division of Historical and Cultural Affairs",
+    "town": "Dover",
+    "county": "Kent",
+    "address": "375 S. New Street, Dover, DE 19904",
+    "blurb": "Eldridge Reeves Johnson, the Victor Talking Machine Company, and Nipper the dog. Phonographs, recordings and Johnson's posthumous Grammy. It is shut right now for renovation and does not reopen until autumn 2026.",
+    "hours": {
+      "lines": null,
+      "season": "Closed for renovation. The division says it reopens in autumn 2026.",
+      "note": "There is nothing to visit at the moment. The Delaware Digital History Museum has material online in the meantime."
+    },
+    "admission": {
+      "note": "Free when open. Donations accepted.",
+      "free": true,
+      "amount": 0
+    },
+    "phone": "302-739-3262",
+    "website": {
+      "label": "Delaware Division of Historical and Cultural Affairs: Johnson Victrola Museum",
+      "url": "https://history.delaware.gov/johnson-victrola-museum/"
+    },
+    "restrooms": false,
+    "giftShop": null,
+    "accessibility": "The first floor is wheelchair accessible.",
+    "parking": "Free adjacent lot.",
+    "inside": [
+      "Phonographs, recordings and Victor company memorabilia",
+      "Eldridge Reeves Johnson's posthumous Grammy Award",
+      "Displays on Nipper, the His Master's Voice dog"
+    ],
+    "branches": null,
+    "warnings": [
+      "Closed for renovation until autumn 2026. Maps and listings still show it as open.",
+      "No restrooms on site."
+    ],
+    "sources": [
+      {
+        "label": "Delaware Division of Historical and Cultural Affairs: Johnson Victrola Museum",
+        "url": "https://history.delaware.gov/johnson-victrola-museum/",
+        "note": "The operator, a state division. States the museum is closed for renovations and reopens in the autumn of 2026, and gives free admission, the S. New Street address, the phone number, first-floor wheelchair access, the free adjacent lot, and no restrooms on site."
+      }
+    ],
+    "sourcedOn": "2026-08-04",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get an actual reopening date rather than \"autumn 2026\".",
+      "Confirm whether hours change when it reopens."
+    ],
+    "verdict": null
+  },
+  {
+    "slug": "biggs-museum",
+    "name": "Biggs Museum of American Art",
+    "kind": "Museum",
+    "operator": "Biggs Museum of American Art",
+    "town": "Dover",
+    "county": "Kent",
+    "address": "406 Federal Street, Dover, DE 19901",
+    "blurb": "American fine and decorative arts on Federal Street in Dover — the Peales, Bierstadt, Gilbert Stuart, Brandywine School illustration, early American furniture and regional silver. Open four days a week, Thursday to Sunday.",
+    "hours": {
+      "lines": [{ "days": "Thursday – Sunday", "text": "10:00am – 5:00pm" }],
+      "season": null,
+      "note": null
+    },
+    "admission": {
+      "note": "Not confirmed. The museum publishes no admission price on its visit page.",
+      "free": null,
+      "amount": null
+    },
+    "phone": "302-674-2111",
+    "website": {
+      "label": "Biggs Museum of American Art: visit",
+      "url": "https://www.biggsmuseum.org/visit"
+    },
+    "restrooms": null,
+    "giftShop": true,
+    "accessibility": null,
+    "parking": null,
+    "inside": [
+      "Paintings by the Peale family, Albert Bierstadt and Gilbert Stuart",
+      "Brandywine School illustration",
+      "Early American furniture and regional silver",
+      "Sculpture and changing exhibitions"
+    ],
+    "branches": null,
+    "warnings": [
+      "Closed Monday through Wednesday."
+    ],
+    "sources": [
+      {
+        "label": "Biggs Museum of American Art: visit",
+        "url": "https://www.biggsmuseum.org/visit",
+        "note": "The operator. Gives Thursday to Sunday 10am to 5pm, the Federal Street address, the phone number and the collection description. Publishes no admission price on the visit page."
+      }
+    ],
+    "sourcedOn": "2026-08-04",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask what it costs to get in.",
+      "Ask about parking on Federal Street.",
+      "Ask about step-free access and restrooms."
+    ],
+    "verdict": null
+  },
+  {
+    "slug": "zwaanendael-museum",
+    "name": "Zwaanendael Museum",
+    "kind": "Museum",
+    "operator": "Delaware Division of Historical and Cultural Affairs",
+    "town": "Lewes",
+    "county": "Sussex",
+    "address": "102 Kings Highway, Lewes, DE 19958",
+    "blurb": "The Dutch-gabled building on Kings Highway in Lewes, built for the 300th anniversary of the 1631 Swanendael colony. Free, self-guided, and small enough to do properly in half an hour. There are no restrooms inside — they're in the park next door.",
+    "hours": {
+      "lines": [{ "days": "Tuesday – Saturday", "text": "10:00am – 4:15pm" }],
+      "season": null,
+      "note": "Closed Sunday and Monday. Self-guided, with staff around to answer questions."
+    },
+    "admission": {
+      "note": "Free. Donations appreciated.",
+      "free": true,
+      "amount": 0
+    },
+    "phone": "302-645-1148",
+    "website": {
+      "label": "Delaware Division of Historical and Cultural Affairs: Zwaanendael Museum",
+      "url": "https://history.delaware.gov/zwaanendael-museum/"
+    },
+    "restrooms": false,
+    "giftShop": null,
+    "accessibility": "The first floor is wheelchair accessible.",
+    "parking": "Street parking in downtown Lewes.",
+    "inside": [
+      "The story of Swanendael, the Dutch colony of 1631",
+      "Segregated Sands, on Black beachgoing in Jim Crow Delaware",
+      "Shared Truths, on people who document Delaware history, including LGBTQ+ advocacy material"
+    ],
+    "branches": null,
+    "warnings": [
+      "No restrooms in the museum. Public ones are in Zwaanendael Park next door.",
+      "Closed Sunday and Monday, which is half of a beach weekend."
+    ],
+    "sources": [
+      {
+        "label": "Delaware Division of Historical and Cultural Affairs: Zwaanendael Museum",
+        "url": "https://history.delaware.gov/zwaanendael-museum/",
+        "note": "The operator, a state division. Gives Tuesday to Saturday 10am to 4:15pm with Sunday and Monday closed, free admission, the Kings Highway address, the phone number, first-floor wheelchair access, downtown street parking, the current exhibits, and states that restrooms are not available at the museum but are in the adjacent Zwaanendael Park."
+      }
+    ],
+    "sourcedOn": "2026-08-04",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Confirm the Zwaanendael Park restrooms are open year round.",
+      "Confirm holiday closures.",
+      "Ask roughly how long a full visit takes."
+    ],
+    "verdict": null
+  }
+]

@@ -29,7 +29,7 @@ export interface PhotoData {
   /** Who took it. */
   credit: string;
   /** ISO date it was taken. The whole point. */
-  takenOn: string;
+  takenOn: string | null;
   /** Portrait shots need a different aspect box from landscape. */
   portrait?: boolean;
 }
@@ -46,8 +46,13 @@ const {
 } = Astro.props;
 
 const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-const [y, m, d] = takenOn.split("-").map(Number);
-const when = `${d} ${MONTHS[m - 1]} ${y}`;
+/* A photo with no date still publishes, but it says so. Same treatment as a
+   field report with no visit date — the gap is the information. */
+const when = (() => {
+  if (!takenOn) return "date not given";
+  const [y, m, d] = takenOn.split("-").map(Number);
+  return `${d} ${MONTHS[m - 1]} ${y}`;
+})();
 
 const w = portrait ? 1400 : 1400;
 const h = portrait ? 1866 : 1050;

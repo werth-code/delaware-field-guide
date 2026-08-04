@@ -11,6 +11,7 @@
  */
 import Layout from "../../../layouts/Layout.astro";
 import FlagIcon from "../../../components/FlagIcon.astro";
+import CardPhoto from "../../../components/CardPhoto.astro";
 
 import parksData from "../../../data/community-parks.json";
 import {
@@ -21,6 +22,7 @@ import {
   type CommunityPark,
 } from "../../../lib/community-parks";
 import { isPublishable, robotsFor } from "../../../lib/verification";
+import { byPhotoThen } from "../../../lib/order";
 
 const parks = parksData as CommunityPark[];
 const verified = parks.filter(isPublishable);
@@ -31,7 +33,7 @@ const pageGate = {
 
 const byCounty = COUNTY_ORDER.map((county) => ({
   county,
-  parks: parks.filter((p) => p.county === county),
+  parks: byPhotoThen(parks.filter((p) => p.county === county)),
 })).filter((g) => g.parks.length);
 
 const withRestrooms = parks.filter((p) => p.restrooms.present === true).length;
@@ -108,10 +110,12 @@ const withDogPark = parks.filter((p) => p.facilities.dogPark === true).length;
             const wc = restroomAnswer(park.restrooms);
             const has = present(park).filter((f) => f !== "Dog park");
             return (
-              <article data-reveal class="sign sign-action relative group">
+              <article data-reveal class="sign sign-action relative group overflow-hidden">
                 <a href={`/parks/community/${park.slug}/`} class="absolute inset-0 z-10 no-underline">
                   <span class="sr-only">{park.name}</span>
                 </a>
+
+                {park.photos?.[0] && <CardPhoto {...park.photos[0]} />}
 
                 <div class="p-4 sm:p-5">
                   <header class="flex items-start justify-between gap-3">

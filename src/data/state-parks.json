@@ -445,7 +445,17 @@
         "note": "2026 fee schedule, effective 1 March 2026."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "photos": [
+      {
+        "file": "brandywine-creek-rocks",
+        "alt": "A wide, shallow rocky creek bed in bare winter woods, with a small child in a green coat standing on the stones at the edge.",
+        "caption": "The creek at low water in late winter. Shallow enough to walk out on the stones, which is most of the appeal if you are four.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      }
+    ]
   },
   {
     "slug": "bellevue",
@@ -492,7 +502,18 @@
         "note": "2026 fee schedule, effective 1 March 2026."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "photos": [
+      {
+        "file": "bellevue-turtle",
+        "alt": "A small turtle with yellow throat markings resting on wet gravel at the edge of shallow water, among fallen autumn leaves.",
+        "caption": "A turtle at the pond edge in autumn. Not a promise — but you do see them here.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": true,
+        "focus": "50% 45%"
+      }
+    ]
   },
   {
     "slug": "alapocas-run",
@@ -539,7 +560,17 @@
         "note": "2026 fee schedule, effective 1 March 2026."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "photos": [
+      {
+        "file": "alapocas-run-greenway",
+        "alt": "A paved trail curving through tall beech woods toward a wooden footbridge, with a post-and-rail fence alongside and low morning sun through the canopy.",
+        "caption": "The paved Northern Delaware Greenway through the beech woods, heading for one of the footbridges over the run. Early morning, which is when it looks like this.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": true
+      }
+    ]
   },
   {
     "slug": "fox-point",

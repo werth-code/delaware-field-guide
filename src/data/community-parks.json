@@ -357,7 +357,17 @@
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "photos": [
+      {
+        "file": "talley-day-playground",
+        "alt": "A large blue and green play structure with tube slides and climbing nets, in a clearing surrounded by tall mature trees, with a paved path and benches in front.",
+        "caption": "The main playground, set back in the trees. Benches and a water fountain right there, which is not a given.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      }
+    ]
   },
   {
     "slug": "river-road-park",

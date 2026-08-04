@@ -12,6 +12,7 @@ import FlagIcon from "../../../components/FlagIcon.astro";
 import MapLink from "../../../components/MapLink.astro";
 import MapEmbed from "../../../components/MapEmbed.astro";
 import ReportBox from "../../../components/ReportBox.astro";
+import Photo from "../../../components/Photo.astro";
 
 import parksData from "../../../data/community-parks.json";
 import dogParksData from "../../../data/parks.json";
@@ -140,6 +141,8 @@ const description = base.length < 118 ? `${base} Run by ${park.operator}.` : bas
     <div class="wrap prose-field pt-6">
       <p class="text-[1.15rem] leading-[1.5] max-w-[56ch]">{park.blurb}</p>
 
+      {park.photos && park.photos.length > 0 && <Photo {...park.photos[0]} hero />}
+
       <h2>What's there</h2>
       <div class="sign breakout my-6 p-4 sm:p-5">
         <div class="flex items-baseline justify-between gap-4">
@@ -246,6 +249,15 @@ const description = base.length < 118 ? `${base} Run by ${park.operator}.` : bas
 
       <h2>Where it is</h2>
       <MapEmbed name={park.name} town={park.town} address={park.address} />
+
+      {
+        park.photos && park.photos.length > 1 && (
+          <>
+            <h2>More photographs</h2>
+            {park.photos.slice(1).map((ph) => <Photo {...ph} />)}
+          </>
+        )
+      }
 
       <ReportBox subject={park.name} path={`/parks/community/${park.slug}/`} gaps={park.outstanding ?? []} />
 

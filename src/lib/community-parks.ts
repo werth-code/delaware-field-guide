@@ -1,3 +1,5 @@
+import type { Photo } from "./state-parks";
+
 /**
  * Community parks — county and town parks, as opposed to the 17 state parks.
  *
@@ -68,6 +70,9 @@ export interface CommunityPark {
   verifiedDate: string | null;
   verifiedSource: string | null;
   outstanding?: string[];
+  /** Same shape the state parks use. Imported rather than redeclared so the
+      caption and crop rules can never drift apart between the two datasets. */
+  photos?: Photo[];
 }
 
 /** Ordered by how often they decide whether a trip works. */

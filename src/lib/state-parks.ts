@@ -15,7 +15,17 @@ export interface Photo {
   alt: string;
   caption?: string | null;
   credit: string;
-  takenOn: string;
+  /**
+   * ISO date it was taken, or null when that is genuinely not known.
+   *
+   * Null is here for the same reason it is everywhere else on this site: the
+   * alternative is a guess that looks like a fact. These came off a phone via
+   * an upload that stripped EXIF, so the capture date is gone and I am not
+   * going to reconstruct one from what season the leaves look like. It renders
+   * as "date not given", the same wording a field report gets when someone
+   * doesn't say when they were there.
+   */
+  takenOn: string | null;
   portrait?: boolean;
   /**
    * Where to anchor the crop on a listing thumbnail, as a CSS object-position.
