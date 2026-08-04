@@ -1,4 +1,4 @@
-import type { Photo } from "./state-parks";
+import type { FieldNote, Photo } from "./state-parks";
 
 /**
  * Community parks — county and town parks, as opposed to the 17 state parks.
@@ -73,6 +73,15 @@ export interface CommunityPark {
   /** Same shape the state parks use. Imported rather than redeclared so the
       caption and crop rules can never drift apart between the two datasets. */
   photos?: Photo[];
+  /**
+   * First-hand observations, dated and attributed.
+   *
+   * State parks have had these since the beginning and community parks never
+   * did, which is backwards: these are the records where the agency publishes
+   * least and standing in the place is worth most. Valley Garden's only toilet
+   * is a portable unit that appears on no official list anywhere.
+   */
+  fieldNotes?: FieldNote[];
 }
 
 /** Ordered by how often they decide whether a trip works. */

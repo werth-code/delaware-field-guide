@@ -795,25 +795,25 @@
     "town": "Greenville",
     "address": "500 Campbell Road, Wilmington, DE 19807",
     "acres": 102.0,
-    "blurb": "A hundred-acre du Pont estate garden given to the city in 1942, sitting outside the city limits near Hoopes Reservoir. Paved and unpaved paths along a landscaped stream. In early spring the magnolias and the daffodil bank are the reason to come.",
+    "blurb": "A hundred-acre du Pont estate garden given to the city in 1942, sitting outside the city limits near Hoopes Reservoir. A paved path along a creek, and in early spring the magnolias and the daffodil bank. That's genuinely it — no playground, no pavilion, no plumbing. Come for a walk and the flowering trees, not for an afternoon.",
     "restrooms": {
-      "present": null,
-      "type": null,
+      "present": true,
+      "type": "portable",
       "seasonal": null,
-      "note": "The city's own amenity list for this park is parking, benches and trails. Restrooms are not on it — which is a hint, not an answer, so this stays unconfirmed rather than becoming a “no”.",
-      "confirmedOn": null,
-      "confirmedBy": null
+      "note": "A portable unit. Not a plumbed block — the city's amenity list doesn't mention restrooms at all, so this is only here because someone stood in front of it.",
+      "confirmedOn": "2026-08-04",
+      "confirmedBy": "Site maintainer, in person"
     },
     "facilities": {
       "playground": false,
-      "water": null,
+      "water": false,
       "shade": true,
-      "pavilion": null,
-      "grills": null,
+      "pavilion": false,
+      "grills": false,
       "trails": true,
       "pavedPath": true,
-      "sports": null,
-      "fishing": null,
+      "sports": false,
+      "fishing": false,
       "discGolf": false,
       "skate": false,
       "dogPark": false
@@ -825,15 +825,14 @@
     "phone": null,
     "warnings": [
       "Outside Wilmington city limits despite being a city park. It's in Greenville.",
-      "No restrooms on the city's amenity list. Assume none until someone confirms."
+      "The only toilet is a portable unit, and no drinking water. Fine for an hour, not for a day out."
     ],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
       "Get opening hours. The city publishes none.",
-      "Confirm whether there are restrooms anywhere on site.",
+      "Confirm whether the portable unit is there year round or only in spring.",
       "Get a phone number for the Park Trust Fund Commission.",
-      "Confirm how much of the path network is paved and step-free.",
       "Confirm the usual peak week for the magnolias and daffodils."
     ],
     "sources": [
@@ -852,6 +851,13 @@
         "credit": "Site maintainer",
         "takenOn": null,
         "portrait": false
+      }
+    ],
+    "fieldNotes": [
+      {
+        "date": "2026-08-04",
+        "author": "Site maintainer",
+        "body": "There's a porta potty, a paved path and the creek. Little else — no playground, no pavilion, nothing to fill a bottle from."
       }
     ]
   },
