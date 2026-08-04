@@ -17,12 +17,12 @@
   actual origin of American park signage: flat screen-printed shapes, hard
   edges, no gradients, and a small but deeply saturated palette. That is the
   reference — institutional and credible, but not colourless. Panels sit on
-  the sheet with a hard offset shadow, the way a two-colour screen print sits
+  the sheet with a hard offset shadow, the way a two-color screen print sits
   slightly out of registration.
 
   Chrome is a deep marsh green that anchors the top and bottom of every page.
   The reading field is warm dune sand, not the cold grey it started as. Teal
-  and ochre do the decorative work so the three flag colours stay reserved.
+  and ochre do the decorative work so the three flag colors stay reserved.
 
   WHY IT LOOKS LIKE THIS
   The reader is on a phone, outdoors, in bright sun, one-handed on a leash,
@@ -32,12 +32,12 @@
   flare. This should look like a thing the state posted.
 
   STATUS IS ENCODED FOUR WAYS
-  Colour + icon + word + BAR TEXTURE. Solid = allowed, dashed = limits apply,
+  Color + icon + word + BAR TEXTURE. Solid = allowed, dashed = limits apply,
   diagonal hazard = closed. Three of four survive grayscale. Roughly 1 in 12
-  men has a colour vision deficiency and this audience skews that way.
+  men has a color vision deficiency and this audience skews that way.
 
   FLAG COLOUR RULE
-  The three flag colours appear only in STATUS contexts in the UI — never as
+  The three flag colors appear only in STATUS contexts in the UI — never as
   decoration, never in a heading or a link. The poster illustration is exempt:
   it is a picture, not an interface, and its sun is allowed to be ochre.
 */
@@ -239,7 +239,7 @@
   }
 
   /* ---- Status bar textures ---------------------------------------------
-     The fourth redundant channel. Reads with zero colour information. */
+     The fourth redundant channel. Reads with zero color information. */
   .bar-solid {
     background-color: var(--color-flag-green);
   }
