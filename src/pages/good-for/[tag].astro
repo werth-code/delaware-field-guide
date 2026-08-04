@@ -1,0 +1,67 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "../../layouts/Layout.astro";
+import stateParksData from "../../data/state-parks.json";
+import communityParksData from "../../data/community-parks.json";
+import { allGoodFor } from "../../lib/good-for";
+
+export const getStaticPaths = (() => {
+  const tags = allGoodFor(stateParksData as any[], communityParksData as any[]);
+  return tags.map((t) => ({ params: { tag: t.slug }, props: { tag: t, all: tags } }));
+}) satisfies GetStaticPaths;
+
+const { tag, all } = Astro.props;
+const others = all.filter((t) => t.slug !== tag.slug);
+---
+
+<Layout
+  title={`${tag.label} — Delaware parks`}
+  description={`Delaware parks good for one thing: ${tag.label.toLowerCase()}. ${tag.parks.length} of them, each one confirmed rather than assumed, with the date it was checked.`}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0"><a href="/good-for/" class="no-underline hover:underline">Good for</a></p>
+    <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">{tag.label}</h1>
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">{tag.lede}</p>
+  </div>
+
+  <div class="wrap pb-8">
+    <ul class="list-none p-0 m-0 grid gap-3 sm:grid-cols-2 breakout">
+      {
+        tag.parks.map((p, i) => (
+          <li data-reveal style={`--stagger:${Math.min(i, 7)}`}>
+            <a href={p.href} class="sign sign-action block p-4 sm:p-5 no-underline h-full">
+              <p class="font-display text-[1.1rem] font-bold m-0 text-marsh">{p.name}</p>
+              <p class="stamp text-ink-soft mt-1 mb-0">{p.kind} · {p.town}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    <h2>Other situations</h2>
+    <ul class="list-none p-0 m-0 flex flex-wrap gap-1.5 not-prose">
+      {
+        others.map((t) => (
+          <li>
+            <a href={`/good-for/${t.slug}/`} class="tap sign-quiet px-3 py-1.5 stamp text-marsh no-underline hover:bg-marsh hover:text-cream">
+              {t.label} <span class="text-ink-soft">{t.parks.length}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2>How a park earns a tag</h2>
+    <p class="max-w-[58ch]">
+      Every tag here is worked out from the facts rather than typed in by hand.
+      A park lands on a list the moment the underlying fact is confirmed, and
+      drops off if that fact turns out to be wrong.
+    </p>
+    <p class="max-w-[58ch]">
+      Nothing earns a tag on an unknown. If I haven't checked whether a park has
+      restrooms, it isn't on the restrooms list.
+    </p>
+  </div>
+</Layout>
