@@ -50,7 +50,26 @@
         "note": "2026 fee schedule, effective 1 March 2026."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "photos": [
+      {
+        "file": "cape-henlopen-bay",
+        "alt": "Still bay water at dusk under a heavy grey and cream cloudscape, with low marsh islands topped by pines in the middle distance and marsh grass in the foreground.",
+        "caption": "The bay side at dusk, flat calm. A tower breaks the treeline on the far right of the horizon.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false,
+        "focus": "50% 55%"
+      },
+      {
+        "file": "cape-henlopen-marsh",
+        "alt": "A wide flat salt marsh of green and gold grass under an overcast sky, tall pale reed heads in the foreground and a narrow tidal creek winding away to the left.",
+        "caption": "Salt marsh under cloud, with a tidal creek winding off to the left. Reeds up close, low woods on the horizon.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      }
+    ]
   },
   {
     "slug": "delaware-seashore",
@@ -102,7 +121,17 @@
         "note": "2026 fee schedule, effective 1 March 2026."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "photos": [
+      {
+        "file": "delaware-seashore-surf",
+        "alt": "Three figures in silhouette standing at the edge of the surf with their backs to the camera, facing a line of breaking waves under a wide cloudy sky, sun glare on the water to the right.",
+        "caption": "At the surf line, late in the day with the sun off to one side. Waves breaking a fair way out.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      }
+    ]
   },
   {
     "slug": "fenwick-island",
@@ -438,6 +467,14 @@
         "file": "lums-pond-railing",
         "alt": "A view across a still pond from behind a weathered wooden railing, with willows on the far bank.",
         "caption": "Across the water from a railing on the far side, willows opposite.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      },
+      {
+        "file": "lums-pond-shoreline",
+        "alt": "An adult and a small child standing at a bare earth shoreline at the edge of a wide pond, framed by tall trees in new spring leaf, with wooded far bank beyond.",
+        "caption": "The shoreline in spring, framed by the trees. You can get right down to the water in places.",
         "credit": "Site maintainer",
         "takenOn": null,
         "portrait": false
@@ -791,6 +828,14 @@
         "credit": "Site maintainer",
         "takenOn": null,
         "portrait": true
+      },
+      {
+        "file": "alapocas-run-bridge",
+        "alt": "Looking along a rust-coloured steel truss footbridge with a wet timber deck scattered with pale fallen leaves, the paved trail continuing into dense green woods beyond.",
+        "caption": "One of the steel footbridges over the run, wet and leaf-covered. The paved trail carries straight on the other side.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
       }
     ],
     "onSite": [
