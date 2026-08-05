@@ -12,6 +12,7 @@
 import Layout from "../../../layouts/Layout.astro";
 import FlagIcon from "../../../components/FlagIcon.astro";
 import CardPhoto from "../../../components/CardPhoto.astro";
+import Tag from "../../../components/Tag.astro";
 
 import parksData from "../../../data/community-parks.json";
 import {
@@ -122,7 +123,7 @@ const withDogPark = parks.filter((p) => p.facilities.dogPark === true).length;
           {group.map((park) => {
             const { known, total } = completeness(park);
             const wc = restroomAnswer(park.restrooms);
-            const has = present(park).filter((f) => f !== "Dog park");
+            const has = present(park).filter((f) => f.key !== "dogPark");
             return (
               <article data-reveal class="sign sign-action relative group overflow-hidden">
                 <a href={`/parks/community/${park.slug}/`} class="absolute inset-0 z-10 no-underline">
@@ -161,8 +162,8 @@ const withDogPark = parks.filter((p) => p.facilities.dogPark === true).length;
                   {has.length > 0 && (
                     <ul class="list-none p-0 m-0 mt-3.5 flex flex-wrap gap-1.5">
                       {has.map((f) => (
-                        <li class="sign-quiet px-2 py-0.5 stamp text-[0.68rem] text-marsh">{f}</li>
-                      ))}
+                      <Tag icon={f.key as any} label={f.label} emphasis={f.emphasis} />
+                    ))}
                     </ul>
                   )}
 

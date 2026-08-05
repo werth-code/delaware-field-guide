@@ -122,8 +122,17 @@ export function restroomAnswer(r: Restrooms): Answer {
   return { text: bits.join(" — "), state: "yes" };
 }
 
-export function present(park: CommunityPark): string[] {
-  return FACILITY_LABELS.filter(([k]) => park.facilities[k] === true).map(([, l]) => l);
+const EMPHASIS = new Set(["restrooms", "water", "showers"]);
+
+export interface Tag {
+  key: string;
+  label: string;
+  emphasis: boolean;
+}
+
+export function present(park: CommunityPark): Tag[] {
+  return FACILITY_LABELS.filter(([k]) => park.facilities[k] === true)
+    .map(([key, label]) => ({ key, label, emphasis: EMPHASIS.has(key) }));
 }
 
 /** Restrooms count as one of the fields, because it's the one people ask about. */

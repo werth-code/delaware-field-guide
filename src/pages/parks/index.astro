@@ -14,6 +14,7 @@ import Layout from "../../layouts/Layout.astro";
 import CoastBand from "../../components/CoastBand.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
 import CardPhoto from "../../components/CardPhoto.astro";
+import Tag from "../../components/Tag.astro";
 
 import parksData from "../../data/state-parks.json";
 import { COUNTY_ORDER, completeness, feeText, present, type StatePark } from "../../lib/state-parks";
@@ -153,8 +154,8 @@ const schema = verified.length
                   {has.length > 0 && (
                     <ul class="list-none p-0 m-0 mt-3.5 flex flex-wrap gap-1.5">
                       {has.map((f) => (
-                        <li class="sign-quiet px-2 py-0.5 stamp text-[0.68rem] text-marsh">{f}</li>
-                      ))}
+                      <Tag icon={f.key as any} label={f.label} emphasis={f.emphasis} />
+                    ))}
                     </ul>
                   )}
 

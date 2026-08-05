@@ -180,9 +180,29 @@ export const FEATURE_LABELS: [keyof StateParkFeatures, string][] = [
   ["restrooms", "Restrooms"],
 ];
 
+
+/**
+ * The three that decide whether an outing works, and the reason this site
+ * leads with restrooms everywhere. Marked in the data rather than at each
+ * render site, so a chip can't be emphasised on one page and not another.
+ */
+const EMPHASIS = new Set(["restrooms", "water", "showers"]);
+
+export interface Tag {
+  key: string;
+  label: string;
+  emphasis: boolean;
+}
+
+const tag = ([key, label]: [string, string]): Tag => ({
+  key,
+  label,
+  emphasis: EMPHASIS.has(key),
+});
+
 /** Features that are confirmed present — the quick "what's here" line. */
-export function present(park: StatePark): string[] {
-  return FEATURE_LABELS.filter(([k]) => park.features[k] === true).map(([, label]) => label);
+export function present(park: StatePark): Tag[] {
+  return FEATURE_LABELS.filter(([k]) => park.features[k] === true).map((e) => tag(e as [string, string]));
 }
 
 export function completeness(park: StatePark): { known: number; total: number } {
