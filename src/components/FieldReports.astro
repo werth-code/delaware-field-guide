@@ -23,7 +23,9 @@
  * SUBMISSION
  * Static site, so the form posts to a third-party endpoint set in
  * PUBLIC_REPORT_ENDPOINT (Formspree-shaped: POST, form-encoded, `_subject`
- * honored). Until it's set this renders a labeled placeholder rather than a
+ * honored). Until it's set this renders nothing — a note to the maintainer
+ * about an environment variable is not something a reader should ever see. It
+ * used to render a labeled placeholder rather than a
  * form that silently drops what people write — same rule as the newsletter
  * embed.
  */
@@ -194,16 +196,7 @@ const live = reports
             publish an email address.
           </p>
         </form>
-      ) : (
-        <div class="sign-quiet px-3 py-3">
-          <p class="label m-0">Report form not configured</p>
-          <p class="mt-1 mb-0 text-[0.86rem] text-ink-soft max-w-[54ch]">
-            Set <code class="stamp">PUBLIC_REPORT_ENDPOINT</code> to a form endpoint
-            to switch this on. Showing a placeholder rather than a form that
-            drops what people write.
-          </p>
-        </div>
-      )
+      ) : null
     }
   </div>
 </section>

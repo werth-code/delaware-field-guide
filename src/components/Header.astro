@@ -8,16 +8,45 @@
  */
 import Logo from "./Logo.astro";
 import SectionNav from "./SectionNav.astro";
-import { SECTIONS, sectionFor } from "../lib/sections";
+import NavLinks from "./NavLinks.astro";
 
-const { pathname } = Astro.url;
-const current = sectionFor(pathname);
 ---
 
 <header class="field-deep">
-  {/* Stacks on mobile. Four sections plus the wordmark cannot share a 375px
-      row without the wordmark breaking to three lines. */}
-  <div class="wrap flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 py-2.5 sm:py-3">
+  {/* MOBILE IS A DISCLOSURE, DESKTOP IS A ROW.
+      Nine links wrapped to two rows at 375px, and with the section bar under
+      them the masthead took half the viewport before any content. A reader on
+      a phone met the navigation instead of the page.
+
+      No JavaScript in either. A nav that needs a script to open is a nav that
+      can fail shut, and this site does not put content behind a script. */}
+
+  {/* Phone. */}
+  <details class="nav-disclosure wrap sm:hidden py-2.5">
+    <summary class="list-none flex items-center justify-between gap-3 cursor-pointer text-cream min-h-[44px]">
+      <span class="flex items-center gap-2.5">
+        <Logo id="masthead-m" class="w-[2.1rem] h-[2.1rem] shrink-0" />
+        <span class="font-display text-[1.2rem] font-bold tracking-[-0.026em] leading-none whitespace-nowrap">
+          Delaware Field Guide
+        </span>
+      </span>
+      {/* .label carries its own ink-soft colour, which is 1.4:1 on the deep
+          field. Forced to cream, which clears 14:1. */}
+      <span class="label text-cream flex items-center gap-1.5 shrink-0">
+        Menu
+        <svg viewBox="0 0 24 24" class="nav-chevron w-[0.9em] h-[0.9em]" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true">
+          <path d="M4 8l8 8 8-8" />
+        </svg>
+      </span>
+    </summary>
+
+    <nav aria-label="Sections" class="flex flex-col items-start pt-1.5 pb-1">
+      <NavLinks />
+    </nav>
+  </details>
+
+  {/* Everything else. */}
+  <div class="wrap hidden sm:flex sm:items-center sm:justify-between gap-4 py-3">
     <a href="/" class="tap no-underline gap-2.5 text-cream self-start">
       <Logo id="masthead" class="w-[2.1rem] h-[2.1rem] shrink-0" />
       <span class="font-display text-[1.2rem] font-bold tracking-[-0.026em] leading-none whitespace-nowrap">
@@ -25,40 +54,8 @@ const current = sectionFor(pathname);
       </span>
     </a>
 
-    <nav aria-label="Sections" class="flex flex-wrap gap-x-3.5 gap-y-0 sm:gap-x-5 items-center justify-end">
-      {/* Ask and Plan span every section, so they sit outside the list. */}
-      {
-        [
-          ["/ask/", "Ask"],
-          ["/plan/", "Plan"],
-        ].map(([href, label]) => (
-          <a
-            href={href}
-            class={`tap label no-underline ${pathname === href ? "text-cream" : "text-cream-soft hover:text-cream"}`}
-            aria-current={pathname === href ? "page" : undefined}
-            style={pathname === href ? "box-shadow: inset 0 -3px 0 var(--color-ochre);" : ""}
-          >
-            {label}
-          </a>
-        ))
-      }
-      {
-        SECTIONS.map((s) => {
-          const here = current?.slug === s.slug;
-          return (
-            <a
-              href={`/${s.slug}/`}
-              {/* cream-soft, not surf: surf is 6.3:1 on the deep field and
-                  these are 11px. cream-soft clears 7.8:1. */}
-              class={`tap label no-underline ${here ? "text-cream" : "text-cream-soft hover:text-cream"}`}
-              aria-current={here ? "page" : undefined}
-              style={here ? "box-shadow: inset 0 -3px 0 var(--color-ochre);" : ""}
-            >
-              {s.label}
-            </a>
-          );
-        })
-      }
+    <nav aria-label="Sections" class="flex flex-wrap gap-x-5 gap-y-0 items-center justify-end">
+      <NavLinks />
     </nav>
   </div>
 

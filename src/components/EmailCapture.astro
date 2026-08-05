@@ -11,13 +11,24 @@
  * provider already in use elsewhere. Do not build a custom form endpoint.
  *
  * SETUP: create the publication, then put the embed URL in
- * PUBLIC_BEEHIIV_EMBED_URL (.env locally, repo variable in CI). Until it's
- * set this renders a disabled, clearly-labeled placeholder rather than a
- * form that silently drops addresses.
+ * PUBLIC_BEEHIIV_EMBED_URL (.env locally, repo variable in CI).
+ *
+ * Until it is set, this renders NOTHING.
+ *
+ * It used to render a labeled placeholder reading "Beehiiv embed not
+ * configured — set PUBLIC_BEEHIIV_EMBED_URL to switch this on". That was
+ * written for me and shipped to readers: a note to the maintainer, sitting in
+ * the footer of every page, telling visitors about an environment variable.
+ * A site whose whole claim is that it doesn't publish things it hasn't
+ * finished should not have its own scaffolding on display.
+ *
+ * The heading goes with it. "Get the rule changes when they happen" above no
+ * form is a promise with nothing behind it.
  */
 const embedUrl = import.meta.env.PUBLIC_BEEHIIV_EMBED_URL;
 ---
 
+{embedUrl && (
 <div class="max-w-[34rem]">
   <p class="font-display text-[1.15rem] font-semibold m-0">
     Get the rule changes when they happen.
@@ -27,23 +38,12 @@ const embedUrl = import.meta.env.PUBLIC_BEEHIIV_EMBED_URL;
     noticed. When a town changes a rule, you'll hear it here. Nothing else.
   </p>
 
-  {
-    embedUrl ? (
-      <iframe
-        src={embedUrl}
-        title="Subscribe for Delaware dog rule changes"
-        loading="lazy"
-        class="w-full h-[62px] border-0 bg-transparent"
-        scrolling="no"
-      />
-    ) : (
-      <div class="sign px-3 py-3 text-ink">
-        <p class="label m-0">Beehiiv embed not configured</p>
-        <p class="mt-1 mb-0 text-[0.85rem] text-ink-soft">
-          Set <code class="stamp">PUBLIC_BEEHIIV_EMBED_URL</code> to switch this on.
-          Showing a placeholder rather than a form that drops addresses.
-        </p>
-      </div>
-    )
-  }
+  <iframe
+    src={embedUrl}
+    title="Subscribe for Delaware dog rule changes"
+    loading="lazy"
+    class="w-full h-[62px] border-0 bg-transparent"
+    scrolling="no"
+  />
 </div>
+)}

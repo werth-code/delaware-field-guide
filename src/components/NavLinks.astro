@@ -1,0 +1,56 @@
+---
+/**
+ * The masthead link list, rendered twice: once inside the mobile disclosure
+ * and once in the wide row.
+ *
+ * WHY TWICE
+ *
+ * The first attempt kept one copy inside a <details> and forced it visible
+ * from `sm` up with CSS. The links painted — but a closed <details> takes its
+ * children out of its own layout box, so the masthead collapsed to 27px with
+ * the nav overhanging it. Setting `display` on the child is not enough; the
+ * parent still measures as closed.
+ *
+ * So: two copies, exactly one of them `display:none` at any width. Hidden
+ * elements are out of the accessibility tree too, so nothing is announced
+ * twice. The list itself lives here so the two can never drift.
+ */
+import { SECTIONS, sectionFor } from "../lib/sections";
+
+const { pathname } = Astro.url;
+const current = sectionFor(pathname);
+---
+
+{/* Ask and Plan span every section, so they sit outside the list. */}
+  {
+    [
+      ["/ask/", "Ask"],
+      ["/plan/", "Plan"],
+    ].map(([href, label]) => (
+      <a
+        href={href}
+        class={`tap label no-underline ${pathname === href ? "text-cream" : "text-cream-soft hover:text-cream"}`}
+        aria-current={pathname === href ? "page" : undefined}
+        style={pathname === href ? "box-shadow: inset 0 -3px 0 var(--color-ochre);" : ""}
+      >
+        {label}
+      </a>
+    ))
+  }
+  {
+    SECTIONS.map((s) => {
+      const here = current?.slug === s.slug;
+      return (
+        <a
+          href={`/${s.slug}/`}
+          {/* cream-soft, not surf: surf is 6.3:1 on the deep field and
+              these are 11px. cream-soft clears 7.8:1. */}
+          class={`tap label no-underline ${here ? "text-cream" : "text-cream-soft hover:text-cream"}`}
+          aria-current={here ? "page" : undefined}
+          style={here ? "box-shadow: inset 0 -3px 0 var(--color-ochre);" : ""}
+        >
+          {s.label}
+        </a>
+      );
+    })
+  }
