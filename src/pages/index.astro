@@ -17,12 +17,28 @@ import stateParksData from "../data/state-parks.json";
 import communityParksData from "../data/community-parks.json";
 import dogParksData from "../data/parks.json";
 import surfData from "../data/surf-fishing.json";
+import indoorData from "../data/indoor.json";
+import drinkData from "../data/drink.json";
+import eventsData from "../data/events.json";
+import nearbyData from "../data/nearby.json";
 import { isPublishable } from "../lib/verification";
 
 const towns = townsData as { slug: string; name: string; verifiedDate: string | null; verifiedSource: string | null }[];
 const stateParks = stateParksData as { county: string; verifiedDate: string | null; verifiedSource: string | null }[];
 const communityParks = communityParksData as { county: string; verifiedDate: string | null; verifiedSource: string | null }[];
 const dogParks = dogParksData as { verifiedDate: string | null; verifiedSource: string | null }[];
+
+type Row = { verifiedDate: string | null; verifiedSource: string | null };
+const indoorAll = indoorData as unknown as (Row & { kind: string })[];
+const indoors = indoorAll.filter((r) => r.kind !== "Zoo");
+const attractions = indoorAll.filter((r) => r.kind === "Zoo");
+const drink = drinkData as unknown as Row[];
+const events = eventsData as unknown as Row[];
+const nearby = nearbyData as unknown as Row[];
+const discGolf = [
+  ...(stateParksData as unknown as (Row & { features: { discGolf: boolean | null } })[]).filter((p) => p.features.discGolf === true),
+  ...(communityParksData as unknown as (Row & { facilities: { discGolf: boolean | null } })[]).filter((p) => p.facilities.discGolf === true),
+];
 
 const count = (rows: { verifiedDate: string | null; verifiedSource: string | null }[]) => ({
   total: rows.length,
@@ -101,13 +117,109 @@ const sections = [
     unit: "crossings",
     figure: false,
   },
+  {
+    href: "/indoors/",
+    n: "05",
+    title: "Indoors",
+    lede: "Museums, science centers and libraries — for when it rains.",
+    detail:
+      "Hagley, Winterthur, the Biggs, the state's natural history museum, and fifteen library branches. Hours lead every card, because most of these shut two or three days a week.",
+    contents: [
+      "Opening hours, checked against the operator",
+      "What admission actually costs",
+      "Which are shut for building work right now",
+      "Fifteen library branches in one table",
+    ],
+    ...count(indoors),
+    unit: "places",
+    figure: false,
+  },
+  {
+    href: "/wineries-and-breweries/",
+    n: "06",
+    title: "Wine and beer",
+    lede: "Which wineries and breweries actually allow dogs.",
+    detail:
+      "Every guide calls these dog friendly. Almost none of them asked the business. This page prints the policy only where the winery or brewery publishes one itself.",
+    contents: [
+      "The dog answer, from the operator or not at all",
+      "Hours and tasting fees",
+      "Which publish no policy at all",
+    ],
+    ...count(drink),
+    unit: "listed",
+    figure: false,
+  },
+  {
+    href: "/disc-golf/",
+    n: "07",
+    title: "Disc golf",
+    lede: "Nine courses. The round is free; the gate isn't.",
+    detail:
+      "Seven in state parks and two in county parks. Playing costs nothing anywhere — seven of the nine sit behind a park entrance fee, and that is the number worth knowing.",
+    contents: [
+      "Every course in a public park",
+      "What entry costs at each",
+      "Which two are free to walk into",
+    ],
+    total: discGolf.length,
+    live: discGolf.filter(isPublishable).length,
+    unit: "courses",
+    figure: false,
+  },
+  {
+    href: "/events/",
+    n: "08",
+    title: "Events",
+    lede: "Annual fairs and festivals, with dates worked out rather than guessed.",
+    detail:
+      "The fixtures, with the year I have actually confirmed. Where next year's dates are not published, this says so instead of computing one that might be wrong.",
+    contents: [
+      "Confirmed dates, per year",
+      "What is on right now",
+      "Which publish no recurring rule",
+    ],
+    ...count(events),
+    unit: "events",
+    figure: false,
+  },
+  {
+    href: "/attractions/",
+    n: "09",
+    title: "Places to go",
+    lede: "Days out that aren't parks. You pay in, they shut at a time.",
+    detail:
+      "Ticketed days out with the hours and the price up front. Mostly outdoors, so check the forecast before you drive.",
+    contents: [
+      "Hours and admission",
+      "Free winter days where they apply",
+    ],
+    ...count(attractions),
+    unit: "listed",
+    figure: false,
+  },
+  {
+    href: "/nearby/",
+    n: "10",
+    title: "Just over the line",
+    lede: "Worth the drive, and not in Delaware.",
+    detail:
+      "The state is forty miles wide. Half of New Castle County lives closer to somewhere in Maryland or Pennsylvania than to Sussex, and every record here says plainly that it is out of state.",
+    contents: [
+      "Clearly marked as out of state",
+      "Same sourcing as everything else",
+    ],
+    ...count(nearby),
+    unit: "listed",
+    figure: false,
+  },
 ];
 
 const facts = [
-  { n: "3", label: "counties" },
   { n: String(stateParks.length), label: "state parks" },
-  { n: String(towns.length), label: "beach towns" },
   { n: String(dogParks.length + communityParks.length), label: "local parks" },
+  { n: String(towns.length), label: "beach towns" },
+  { n: String(indoors.length + drink.length + attractions.length), label: "museums, bars, days out" },
 ];
 
 const schema = [
@@ -124,8 +236,8 @@ const schema = [
 ---
 
 <Layout
-  title="Delaware Field Guide: dog rules and parks, verified"
-  description="Which Delaware beaches allow dogs, on what date. Plus all 17 state parks, the county parks and surf fishing. Every fact carries the date I checked it."
+  title="Delaware Field Guide — parks, beaches and dog rules, dated"
+  description="A verified reference for outdoor Delaware: 17 state parks, dog rules by town, museums, disc golf, breweries and surf fishing. Every fact carries the date it was checked."
   schema={schema}
   share={false}
 >
@@ -138,14 +250,15 @@ const schema = [
     </p>
 
     <h1 class="text-[2.7rem] sm:text-[3.9rem] mt-3.5 mb-0 max-w-[13ch] text-marsh">
-      Can my dog go on the beach?
+      Delaware, checked and dated
     </h1>
 
     <p class="mt-6 mb-0 text-[1.2rem] leading-[1.5] max-w-[54ch]">
-      Depends which beach, and it depends what today's date is. Rehoboth bans
-      dogs from 15 May. Dewey's dates are different. Bethany's are different
-      again. So any guide that gives you one answer for "the Delaware beaches"
-      is wrong about at least three of them.
+      Ten sections covering the outdoor half of this state: the parks, the
+      beaches, the dog rules, the museums, the breweries, the disc golf. Every
+      fact on every page carries the date I checked it and the source it came
+      from — and where I haven't checked something, it says so rather than
+      guessing.
     </p>
 
     <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
@@ -155,9 +268,11 @@ const schema = [
     </p>
 
     <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
-      It covers dog rules, all seventeen Delaware state parks, the county parks
-      and surf fishing. Everything carries the date I checked it.
-      <a href="/how-we-verify/">What that means</a>.
+      Most guides to any of this are written once and never touched. Rehoboth
+      moved its dog dates in January 2026 and state park fees roughly doubled
+      in March; both were published properly and neither reached the pages
+      people actually read. <a href="/how-we-verify/">Here's how I check</a>,
+      including the ones I've got wrong.
     </p>
   </div>
 
@@ -209,8 +324,12 @@ const schema = [
             ))}
           </ul>
 
+          {/* "published", not "confirmed". This counts isPublishable, which
+              is confirmed OR sourced — and on a site whose whole point is that
+              those are different claims, calling a sourced record confirmed on
+              the front page is the exact overclaim it exists to avoid. */}
           <p class="stamp text-ink-soft mt-4 mb-0">
-            {s.live} of {s.total} {s.unit} confirmed
+            {s.live} of {s.total} {s.unit} published
           </p>
         </a>
       ))
