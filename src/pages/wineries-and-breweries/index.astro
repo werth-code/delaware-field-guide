@@ -1,0 +1,169 @@
+---
+/**
+ * Wineries and breweries.
+ *
+ * DOGS LEAD, the way restrooms lead the community parks. It is the question,
+ * and it is the one every other guide answers without asking the business.
+ *
+ * The stat block puts the gap on the page rather than hiding it: how many of
+ * these publish a dog policy at all. Right now it is one in four, and that
+ * number IS the reason to read this page instead of a magazine listicle.
+ */
+import Layout from "../../layouts/Layout.astro";
+import Tag from "../../components/Tag.astro";
+import CardShare from "../../components/CardShare.astro";
+import ShareRow from "../../components/ShareRow.astro";
+
+import drinkData from "../../data/drink.json";
+import { COUNTY_ORDER, completeness, dogAnswer, present, type DrinkPlace } from "../../lib/drink";
+import { isPublishable, robotsFor } from "../../lib/verification";
+
+const places = drinkData as unknown as DrinkPlace[];
+const live = places.filter(isPublishable);
+const gate = {
+  verifiedDate: null,
+  verifiedSource: null,
+  sources: live.length ? [{ label: "x", url: "x" }] : null,
+  sourcedOn: live.length ? "2026-08-05" : null,
+};
+
+const publishDogs = places.filter((p) => p.dogs.source === "operator").length;
+const noHours = places.filter((p) => !p.hours).length;
+
+const byCounty = COUNTY_ORDER.map((county) => ({
+  county,
+  places: places.filter((p) => p.county === county),
+})).filter((g) => g.places.length > 0);
+---
+
+<Layout
+  title="Delaware wineries and breweries — which allow dogs"
+  description="Delaware wineries and breweries by county, with hours, tasting fees and the dog policy taken from the business itself rather than a review site."
+  robots={robotsFor(gate)}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">Wineries and breweries</p>
+    <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[17ch] text-marsh">
+      Can the dog come?
+    </h1>
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
+      Wineries and breweries across Delaware, with the dog answer first. Where
+      the business hasn't said, this page doesn't say either.
+    </p>
+  </div>
+
+  {
+    byCounty.map(({ county, places: group }) => (
+      <div class="wrap pb-8" data-filter-group>
+        <h2 class="font-display text-[1.5rem] font-bold text-marsh border-b-[3px] border-marsh pb-2 mb-5 mt-8">
+          {county} County
+          <span class="stamp text-ink-soft ms-2">{group.length}</span>
+        </h2>
+
+        <div class="grid gap-4 sm:grid-cols-2 breakout">
+          {group.map((place) => {
+            const { known, total } = completeness(place);
+            const dogs = dogAnswer(place.dogs);
+            const has = present(place);
+            return (
+              <article data-reveal class="sign sign-action relative group overflow-hidden">
+                <a href={`/wineries-and-breweries/${place.slug}/`} class="absolute inset-0 z-10 no-underline">
+                  <span class="sr-only">{place.name}</span>
+                </a>
+                <CardShare path={`/wineries-and-breweries/${place.slug}/`} title={place.name} />
+
+                <div class="p-4 sm:p-5">
+                  <header class="flex items-start justify-between pr-12 gap-3">
+                    <div>
+                      <h3 class="font-display text-[1.2rem] font-bold tracking-[-0.018em] m-0 text-marsh underline decoration-ochre decoration-2 underline-offset-[0.16em] group-hover:decoration-marsh">
+                        {place.name}
+                      </h3>
+                      <p class="stamp text-ink-soft mt-1 mb-0">{place.kind} · {place.town}</p>
+                    </div>
+                    <span class="stamp text-ink-soft shrink-0">{known}/{total}</span>
+                  </header>
+
+                  {/* Dogs first, always, and visually separated. */}
+                  <div class="mt-3.5 border-y-2 border-marsh py-2.5 flex items-baseline justify-between gap-3">
+                    <span class="label">Dogs</span>
+                    <span
+                      class={`text-[0.92rem] text-right ${
+                        dogs.state === "unknown" ? "text-ink-soft italic" : "text-ink font-medium"
+                      }`}
+                    >
+                      {dogs.text}
+                    </span>
+                  </div>
+
+                  <p class="mt-3 mb-0 text-[0.9rem] leading-[1.55]">{place.blurb}</p>
+
+                  {has.length > 0 && (
+                    <ul class="list-none p-0 m-0 mt-3.5 flex flex-wrap gap-1.5">
+                      {has.map((t) => (
+                        <Tag icon={t.key as any} label={t.label} emphasis={t.emphasis} />
+                      ))}
+                    </ul>
+                  )}
+
+                  <p class="stamp text-ink-soft mt-3.5 mb-0 flex items-center justify-between gap-3">
+                    <span>{place.hours ? place.hours[0].days + " " + place.hours[0].text : "Hours not published"}</span>
+                    <span class="text-ochre-deep group-hover:translate-x-0.5 transition-transform duration-100">→</span>
+                  </p>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    ))
+  }
+
+  <div class="wrap prose-field pb-4">
+    <h2>Why so many of these say "not confirmed"</h2>
+    <p class="max-w-[58ch]">
+      Search for a dog-friendly brewery in Delaware and you will find
+      magazines, an inn's blog and a dog trainer's marketing page, all stating
+      policies confidently. Not one of them is the business whose policy it is.
+    </p>
+    <p class="max-w-[58ch]">
+      So this page only prints what the winery or brewery says itself. Of the
+      {places.length} here, {publishDogs} publishes a dog policy on its own
+      site and {noHours} doesn't publish opening hours at all. Turning up at
+      the others with a dog in the car means trusting a stranger's blog post —
+      which you can still do, but at least now you know that's what it is.
+    </p>
+
+    <div class="sign breakout my-6 px-4 sm:px-5 py-4 not-prose">
+      <p class="label m-0">Where this stands</p>
+      <dl class="grid grid-cols-3 gap-4 mt-3 mb-0">
+        {
+          [
+            { n: places.length, label: "listed" },
+            { n: publishDogs, label: "publish a dog policy" },
+            { n: noHours, label: "publish no hours" },
+          ].map((s) => (
+            <div>
+              <dt class="font-display text-[2rem] font-bold text-marsh leading-none">{s.n}</dt>
+              <dd class="m-0 mt-1 stamp text-ink-soft">{s.label}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+
+    <ShareRow
+      title={"Delaware wineries and breweries"}
+      summary={"Which ones actually allow dogs, from the business rather than a review site."}
+      heading={"Send this before someone drives out"}
+      pitch={"Most guides say dog friendly. Most of these have never said it themselves."}
+      class="breakout my-8"
+    />
+
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/dogs/">Dog rules by town</a></li>
+      <li><a href="/attractions/">Places to go</a></li>
+      <li><a href="/events/">Fairs and events</a></li>
+    </ul>
+  </div>
+</Layout>

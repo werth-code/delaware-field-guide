@@ -1,0 +1,196 @@
+[
+  {
+    "slug": "harvest-ridge-winery",
+    "name": "Harvest Ridge Winery",
+    "kind": "Winery",
+    "town": "Marydel",
+    "county": "Kent",
+    "address": "447 Westville Road, Marydel, DE 19964",
+    "blurb": "A winery on the Maryland line at Marydel, open seven days with a tasting room and outdoor space. The only one of these that publishes what it does about dogs, and it's a yes.",
+    "dogs": {
+      "outdoor": true,
+      "indoor": null,
+      "note": "The winery's own wording: \"Friendly, leashed dogs are always welcome in our outdoor areas.\" It says nothing about the tasting room, so assume outside.",
+      "source": "operator"
+    },
+    "hours": [
+      { "days": "Sunday – Thursday", "text": "12pm – 5pm" },
+      { "days": "Friday & Saturday", "text": "12pm – 8pm" }
+    ],
+    "hoursNote": null,
+    "tasting": "$25 for a tasting with a tour, six wines. $15 for a flight of four you choose.",
+    "phone": "302-343-9437",
+    "website": {
+      "label": "Harvest Ridge Winery: visit",
+      "url": "https://harvestridgewinery.com/visit/"
+    },
+    "onSite": [
+      {
+        "label": "Outdoor areas",
+        "note": "Where the dogs go. The winery names them as the dog-friendly part without describing them further."
+      },
+      {
+        "label": "A second site",
+        "note": "There's a Pennsylvania tasting room at Toughkenamon with its own hours. Don't drive to the wrong one."
+      }
+    ],
+    "warnings": [
+      "Marydel straddles the state line. The winery is on the Delaware side; the town name belongs to both."
+    ],
+    "sources": [
+      {
+        "label": "Harvest Ridge Winery: visit",
+        "url": "https://harvestridgewinery.com/visit/",
+        "note": "The operator. Gives the Westville Road address, the phone number, tasting room hours for both locations, the $25 tour-and-tasting and $15 flight prices, and the dog policy quoted above."
+      }
+    ],
+    "sourcedOn": "2026-08-05",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask whether dogs are allowed in the tasting room itself, or outdoor areas only.",
+      "Confirm whether the outdoor area is covered — it decides the answer on a wet day.",
+      "Confirm whether food is served or whether it's wine only."
+    ],
+    "verdict": null
+  },
+  {
+    "slug": "thompson-island-brewing",
+    "name": "Thompson Island Brewing Company",
+    "kind": "Brewery",
+    "town": "Rehoboth Beach",
+    "county": "Sussex",
+    "address": "30133 Veterans Way, Rehoboth Beach, DE 19971",
+    "blurb": "A brewery with a fifteen-barrel brewhouse, wood-fired food and a large beer garden, minutes from the Rehoboth beach. Open every day, late.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The brewery publishes no dog policy. Several guides say the outdoor tables are dog friendly; none of them is the brewery.",
+      "source": null
+    },
+    "hours": [{ "days": "Every day", "text": "11:30am – 10pm" }],
+    "hoursNote": "Happy hour 4pm to 6pm, daily.",
+    "tasting": null,
+    "phone": "302-226-4677",
+    "website": {
+      "label": "Thompson Island Brewing Company",
+      "url": "https://www.thompsonislandbrewing.com/"
+    },
+    "onSite": [
+      { "label": "Beer garden", "note": "The brewery calls it spacious. There's a fire pit." },
+      { "label": "Food", "note": "Wood-fired, with seasonal specials. This is a restaurant as much as a taproom." },
+      { "label": "Music", "note": "Live, on the brewery's own account." }
+    ],
+    "warnings": [
+      "No published dog policy. If the dog is the reason you're going, ring 302-226-4677 first."
+    ],
+    "sources": [
+      {
+        "label": "Thompson Island Brewing Company",
+        "url": "https://www.thompsonislandbrewing.com/",
+        "note": "The operator. Gives the Veterans Way address, the phone number, daily 11:30am to 10pm, the 4-6pm happy hour, the beer garden, fire pit, wood-fired food and live music. States no dog policy anywhere."
+      }
+    ],
+    "sourcedOn": "2026-08-05",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ring and get the dog policy. Every aggregator asserts one and the brewery publishes none.",
+      "Confirm whether the beer garden is covered or heated out of season."
+    ],
+    "verdict": null
+  },
+  {
+    "slug": "mispillion-river-brewing",
+    "name": "Mispillion River Brewing",
+    "kind": "Brewery",
+    "town": "Milford",
+    "county": "Kent",
+    "address": "255 Mullet Run Street, Milford, DE 19963",
+    "blurb": "A Milford taproom open seven days and late on weekends — midnight-ish on a Friday, which almost nothing else in Kent County manages.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The brewery publishes no dog policy.",
+      "source": null
+    },
+    "hours": [
+      { "days": "Sunday", "text": "12pm – 8pm" },
+      { "days": "Monday – Thursday", "text": "12pm – 10pm" },
+      { "days": "Friday & Saturday", "text": "12pm – 11pm" }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": "302-491-6623",
+    "website": {
+      "label": "Mispillion River Brewing",
+      "url": "https://www.mispillionriverbrewing.com/"
+    },
+    "onSite": null,
+    "warnings": [
+      "No published dog policy. Ring 302-491-6623 before you bring one."
+    ],
+    "sources": [
+      {
+        "label": "Mispillion River Brewing",
+        "url": "https://www.mispillionriverbrewing.com/",
+        "note": "The operator. Gives the Mullet Run Street address, the phone number and the full week of taproom hours. States no dog policy."
+      }
+    ],
+    "sourcedOn": "2026-08-05",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ring and get the dog policy.",
+      "Confirm whether there's outdoor seating at all.",
+      "Confirm whether food is served or whether it's beer only."
+    ],
+    "verdict": null
+  },
+  {
+    "slug": "nassau-valley-vineyards",
+    "name": "Nassau Valley Vineyards",
+    "kind": "Winery",
+    "town": "Lewes",
+    "county": "Sussex",
+    "address": "32165 Winery Way, Lewes, DE 19958",
+    "blurb": "Delaware's first winery, in the fields behind Lewes. Tastings, tours, and a farmers' market on the site. It publishes almost nothing else about visiting, including its hours.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The winery publishes no dog policy.",
+      "source": null
+    },
+    "hours": null,
+    "hoursNote": "The winery does not publish opening hours on its own site. Ring 302-645-9463.",
+    "tasting": null,
+    "phone": "302-645-9463",
+    "website": {
+      "label": "Nassau Valley Vineyards",
+      "url": "http://www.nassauvalley.com/"
+    },
+    "onSite": [
+      { "label": "Farmers' market", "note": "Run on the winery's own site. Days not published." }
+    ],
+    "warnings": [
+      "No published hours and no published dog policy. This is a ring-ahead, not a turn-up."
+    ],
+    "sources": [
+      {
+        "label": "Nassau Valley Vineyards",
+        "url": "http://www.nassauvalley.com/",
+        "note": "The operator. Gives the Winery Way address and the phone number, describes tastings, tours, event hire and a farmers' market, and calls itself Delaware's first winery. Publishes no opening hours, no tasting fee and no dog policy. Note the https address redirects to http."
+      }
+    ],
+    "sourcedOn": "2026-08-05",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the opening hours. They are not on the site at all.",
+      "Get the tasting fee.",
+      "Ring and get the dog policy.",
+      "Confirm which days the farmers' market runs."
+    ],
+    "verdict": null
+  }
+]
