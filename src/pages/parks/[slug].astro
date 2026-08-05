@@ -16,6 +16,7 @@ import MapEmbed from "../../components/MapEmbed.astro";
 import Photo from "../../components/Photo.astro";
 import FieldNotes from "../../components/FieldNotes.astro";
 import ReportBox from "../../components/ReportBox.astro";
+import FeatureIcon from "../../components/FeatureIcon.astro";
 
 import parksData from "../../data/state-parks.json";
 import {
@@ -29,6 +30,7 @@ import {
   type StatePark,
 } from "../../lib/state-parks";
 import { isPublishable, isVerified, reportOutstanding, robotsFor } from "../../lib/verification";
+import { colorFor } from "../../lib/feature-colors";
 
 export const getStaticPaths = (() =>
   (parksData as StatePark[]).map((park) => ({
@@ -145,7 +147,19 @@ const description =
               const v = tri(park.features[key]);
               return (
                 <div class="border-b border-tide/30 py-2.5">
-                  <dt class="label">{label}</dt>
+                  {/* Colour ONLY on a confirmed yes — a feature confirmed
+                      ABSENT was getting its identity colour, so "No" looked
+                      like a yes at a glance. Otherwise the same glyph and
+                      colour the chip uses on the index, so a reader meets the
+                      feature twice in the same clothes. */}
+                  <dt class="label flex items-center gap-1.5">
+                    <FeatureIcon
+                      icon={key as any}
+                      class="w-[1.15em] h-[1.15em] shrink-0"
+                      style={v.state === "yes" ? `color:${colorFor(key)}` : "color:var(--color-ink-soft);opacity:.4"}
+                    />
+                    {label}
+                  </dt>
                   <dd
                     class={`m-0 mt-0.5 text-[0.93rem] ${
                       v.state === "unknown" ? "text-ink-soft italic" : "text-ink"
