@@ -2,11 +2,12 @@
 /**
  * Ask — the conversational front end to the planner.
  *
- * /plan/ is the form: pick a date, tick boxes, get results. This is the same
+ * There used to be a /plan/ form beside this — pick a date, tick boxes, get
+ * results. It was the same
  * engine reached by typing a sentence, which is how most people actually
  * arrive ("can I take the dog to Rehoboth in July").
  *
- * THE RULE IS UNCHANGED FROM /plan/: no language model touches a fact. The
+ * THE RULE IS UNCHANGED FROM THAT FORM: no language model touches a fact. The
  * matcher below is deterministic and decides which places are true answers,
  * including the dog-legality maths, which is resolved server-side per year in
  * planner.ts and only compared here. A model is used for one thing — writing
@@ -60,7 +61,7 @@ const schema = [
     <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
       Say it the way you'd say it out loud — "dog on the beach in July". It
       works out the date, checks the rule for that town on that day, and shows
-      you the source. Prefer boxes to tick? <a href="/plan/">The planner's here</a>.
+      you the source.
     </p>
   </div>
 
@@ -165,7 +166,7 @@ const schema = [
      matches on any distinctive word of its own: one long enough to be
      meaningful and belonging to exactly one town. "Beach" is shared by five,
      so it never becomes a needle; "Rehoboth" is unique, so it does.
-     This is the same bug the /plan/ matcher had, reintroduced here by
+     This is the same bug the old planner matcher had, reintroduced here by
      copying the simpler Deep Creek version, where every town is one word. */
   const TOWN_NEEDLES = (() => {
     const freq = {};

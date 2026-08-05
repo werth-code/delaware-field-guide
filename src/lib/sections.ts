@@ -56,11 +56,6 @@ export const SECTIONS: Section[] = [
     nav: [{ href: "/disc-golf/", label: "Every course, and what entry costs" }],
   },
   {
-    slug: "good-for",
-    label: "Good for",
-    nav: [{ href: "/good-for/", label: "Pick the afternoon" }],
-  },
-  {
     slug: "dogs",
     label: "Dogs",
     nav: [

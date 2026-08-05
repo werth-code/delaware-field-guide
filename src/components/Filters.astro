@@ -58,6 +58,7 @@ const { tags, noun, class: className = "" } = Astro.props;
               type="button"
               data-filter-tag={t.key}
               aria-pressed="false"
+              data-fc={colorFor(t.key)}
               style={`color:${colorFor(t.key)};border-color:${colorFor(t.key)}`}
               class="filter-chip tap inline-flex items-center gap-1.5 px-2.5 py-1.5 stamp text-[0.68rem] leading-none border rounded-[var(--radius-sign)] bg-shell cursor-pointer"
             >
@@ -81,19 +82,13 @@ const { tags, noun, class: className = "" } = Astro.props;
   )
 }
 
-<style>
-  /* Pressed chips invert to their own feature color. Set here rather than
-     inline because the color is only known at runtime — see Tag.astro. */
-  .filter-chip[aria-pressed="true"] {
-    background: currentColor;
-  }
-  .filter-chip[aria-pressed="true"] :global(svg),
-  .filter-chip[aria-pressed="true"] {
-    color: var(--color-cream);
-  }
-</style>
-
-<script is:inline>
+<!--
+  NOT is:inline. An inline script executes at the point it appears in the
+  document, and this component renders ABOVE the grid it filters — so the
+  cards did not exist yet and every query came back empty. The bar rendered
+  and did nothing. A hoisted module is deferred until the document is parsed.
+-->
+<script>
   (() => {
     const root = document.querySelector("[data-filters]");
     if (!root) return;
@@ -110,11 +105,25 @@ const { tags, noun, class: className = "" } = Astro.props;
     const noun = root.dataset.noun || "records";
     const active = new Set();
 
-    /* Chips are colored by their own feature hue; pressed inverts to a fill.
-       aria-pressed carries the state for assistive tech AND drives the CSS. */
+    /*
+     * Pressed chips fill with their own feature hue, set from JS rather than
+     * CSS.
+     *
+     * The colour is only known at runtime, so it arrives as an inline style —
+     * and an inline style beats any stylesheet rule. A scoped `[aria-pressed]`
+     * rule matched, sat in the stylesheet, and lost every time. Writing the
+     * pressed state inline too is the only version that can't be outranked.
+     *
+     * aria-pressed still carries the state for assistive tech.
+     */
     function paint() {
       for (const c of chips) {
-        c.setAttribute("aria-pressed", active.has(c.dataset.filterTag) ? "true" : "false");
+        const on = active.has(c.dataset.filterTag);
+        const fc = c.dataset.fc;
+        c.setAttribute("aria-pressed", on ? "true" : "false");
+        c.style.background = on ? fc : "";
+        c.style.color = on ? "var(--color-cream)" : fc;
+        c.style.borderColor = fc;
       }
     }
 
