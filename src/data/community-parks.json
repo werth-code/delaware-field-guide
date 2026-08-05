@@ -50,7 +50,32 @@
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "photos": [
+      {
+        "file": "glasgow-park-a",
+        "alt": "Bare and just-budding trees standing in still floodwater in open woodland, the trunks doubled in the reflection, moss and leaf litter in the foreground.",
+        "caption": "Standing water through the woods in early spring, trees doubled in it.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      },
+      {
+        "file": "glasgow-park-b",
+        "alt": "A paved path running beside a stand of tall pale-trunked trees in early spring, moss and leaf litter along the verge.",
+        "caption": "The paved path along the treeline. Level, and wide enough to pass on.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      }
+    ],
+    "fieldNotes": [
+      {
+        "date": "2026-08-04",
+        "author": "Site maintainer",
+        "body": "There's a paved path, and the woods hold standing water in early spring — worth knowing if you're planning to leave the pavement in March."
+      }
+    ]
   },
   {
     "slug": "carousel-park",

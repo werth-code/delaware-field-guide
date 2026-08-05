@@ -1147,7 +1147,10 @@
     "outstanding": [
       "Get the park office number.",
       "Confirm which of the linked parks charge entry, if any.",
-      "Confirm Rockford Tower opening season."
+      "Confirm Rockford Tower opening season.",
+      "Establish who operates which piece here. The DEEC is Delaware Nature Society, the zoo is Delaware State Parks, and the city has its own parks — this record should not blur them.",
+      "Get the Riverwalk's length and whether it's a loop.",
+      "Confirm restrooms along the Riverwalk."
     ],
     "sources": [
       {
@@ -1161,6 +1164,82 @@
         "note": "2026 fee schedule, effective 1 March 2026."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "photos": [
+      {
+        "file": "brandywine-park-fountain",
+        "alt": "A tiered carved marble fountain with a statue on top playing into a scalloped basin, a small child watching from the rim, mown park lawn and mature trees behind.",
+        "caption": "The fountain in Brandywine Park. The inscription round the base reads in Latin.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false,
+        "focus": "50% 45%"
+      },
+      {
+        "file": "riverwalk-boardwalk",
+        "alt": "A weathered timber boardwalk curving through tall marsh grass and goldenrod, with a rail-line viaduct and power pylons on the skyline beyond.",
+        "caption": "The boardwalk out through the marsh. Freight line and pylons on the skyline — this is city marsh, not wilderness, and it's better for it.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      },
+      {
+        "file": "riverwalk-arch-bridge",
+        "alt": "Looking along a wide timber-decked footbridge with a laminated timber arch overhead and steel cables, marsh and power lines on both sides.",
+        "caption": "The arched footbridge over the marsh. Wide enough for bikes and pushchairs both ways.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      },
+      {
+        "file": "riverwalk-deec",
+        "alt": "A four-storey building clad in dark shingles and timber slats with a tall open stair tower beside it, seen from below across tall marsh grass.",
+        "caption": "The DuPont Environmental Education Center from the marsh below, with its stair tower.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      },
+      {
+        "file": "riverwalk-deec-sign",
+        "alt": "A grey sign reading DuPont Environmental Education Center mounted on a slatted timber wall, with steel mesh walkway rails in front.",
+        "caption": "The sign on the building. The centre is run by the Delaware Nature Society, not by the park.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      },
+      {
+        "file": "riverwalk-refuge-sign",
+        "alt": "A dark metal sign on a dry stone wall reading The Russell W. Peterson Urban Wildlife Refuge, with a cut-out heron and cattails at its left end.",
+        "caption": "The refuge sign at the entrance, heron cut into the end of it.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      }
+    ],
+    "onSite": [
+      {
+        "label": "The Riverwalk",
+        "note": "A boardwalk and an arched footbridge run out through the marsh from the Riverfront."
+      },
+      {
+        "label": "DuPont Environmental Education Center",
+        "note": "A four-storey centre on the marsh, run by the Delaware Nature Society rather than by the park."
+      },
+      {
+        "label": "Russell W. Peterson Urban Wildlife Refuge",
+        "note": "The marsh the boardwalk crosses. Signed at the entrance."
+      },
+      {
+        "label": "Brandywine Park",
+        "note": "Has the marble fountain, lawns and the Brandywine Zoo."
+      }
+    ],
+    "fieldNotes": [
+      {
+        "date": "2026-08-04",
+        "author": "Site maintainer",
+        "body": "The Riverwalk boardwalk and the arched footbridge run out across the Peterson refuge marsh from the Riverfront, past the DuPont Environmental Education Center. Brandywine Park at the other end has the fountain and the zoo."
+      }
+    ]
   }
 ]

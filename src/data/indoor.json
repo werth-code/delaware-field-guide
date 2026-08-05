@@ -9,7 +9,12 @@
     "address": "4840 Kennett Pike, Wilmington, DE 19807",
     "blurb": "The state's natural history museum, on Kennett Pike north of Wilmington. Four galleries, a dinosaur hall, live animal presentations and a Star Lab. It's built for children and doesn't pretend otherwise — under-16s have to have an adult with them the whole way round.",
     "hours": {
-      "lines": [{ "days": "Every day", "text": "9:30am – 4:00pm" }],
+      "lines": [
+        {
+          "days": "Every day",
+          "text": "9:30am – 4:00pm"
+        }
+      ],
       "season": null,
       "note": "Online tickets stop selling at 9am each day. Walk-ins are fine. The Nature Nook keeps shorter hours Tuesday to Thursday, 10am to 3:30pm."
     },
@@ -67,7 +72,12 @@
     "address": "2301 Kentmere Parkway, Wilmington, DE 19806",
     "blurb": "Pre-Raphaelites, Howard Pyle and the Brandywine illustrators, and a sculpture garden, on Kentmere Parkway. Free parking behind the building, which in Wilmington is worth saying. Thursday evenings are free from April to December.",
     "hours": {
-      "lines": [{ "days": "Wednesday – Sunday", "text": "10:00am – 4:00pm" }],
+      "lines": [
+        {
+          "days": "Wednesday – Sunday",
+          "text": "10:00am – 4:00pm"
+        }
+      ],
       "season": null,
       "note": "Thursdays run to 8pm from April through December. Closed Monday and Tuesday, and closed New Year's Day, Independence Day, Thanksgiving and Christmas."
     },
@@ -123,7 +133,12 @@
     "address": "200 Hagley Creek Road, Wilmington, DE 19807",
     "blurb": "The original du Pont black powder works on the Brandywine, plus the family's first house and gardens, spread over a couple of hundred acres. Most people spend two to three hours. It's outdoors as much as in, on gravel and uneven ground.",
     "hours": {
-      "lines": [{ "days": "Every day except Wednesday", "text": "10:00am – 5:00pm" }],
+      "lines": [
+        {
+          "days": "Every day except Wednesday",
+          "text": "10:00am – 5:00pm"
+        }
+      ],
       "season": null,
       "note": "Last admission 4pm, and they push you to arrive before 3pm. Wednesdays are pre-booked groups and members only."
     },
@@ -186,7 +201,12 @@
     "address": "5105 Kennett Pike, Winterthur, DE 19735",
     "blurb": "Henry Francis du Pont's house and his American decorative arts collection, wrapped in a 60-acre garden inside a thousand acres of meadow and woods. Enchanted Woods is the children's garden and is the reason a lot of families come at all.",
     "hours": {
-      "lines": [{ "days": "Tuesday – Sunday", "text": "10:00am – 5:00pm" }],
+      "lines": [
+        {
+          "days": "Tuesday – Sunday",
+          "text": "10:00am – 5:00pm"
+        }
+      ],
       "season": null,
       "note": "The research library keeps its own hours: Monday to Friday 9am to 4pm for drop-ins, special collections by appointment. Yuletide adds some Friday and Saturday evenings."
     },
@@ -245,8 +265,14 @@
     "blurb": "Delaware's first courthouse and first capitol, built in 1732, in the middle of old New Castle. Free, and guided only — you can't wander it on your own. Tours run every hour or so and take about 45 minutes.",
     "hours": {
       "lines": [
-        { "days": "Wednesday – Saturday", "text": "10:00am – 4:00pm" },
-        { "days": "Sunday", "text": "1:30pm – 4:30pm" }
+        {
+          "days": "Wednesday – Saturday",
+          "text": "10:00am – 4:00pm"
+        },
+        {
+          "days": "Sunday",
+          "text": "1:30pm – 4:30pm"
+        }
       ],
       "season": null,
       "note": "Guided tours only. Wednesday to Saturday at 10, 11, 1, 2 and 3; Sunday at 1:30, 2:30 and 3:30. Groups over 10 need to book. Open on Labor Day."
@@ -327,21 +353,186 @@
       "Wilmington Library and Woodlawn Library in the city"
     ],
     "branches": [
-      { "name": "Appoquinimink Community Library", "town": "Middletown", "address": "204 E. Main Street, Middletown, DE 19709", "phone": "302-378-5588", "hours": { "lines": null, "season": null, "note": null }, "note": null },
-      { "name": "Bear Library", "town": "Bear", "address": "101 Governors Plaza, Bear, DE 19701", "phone": "302-838-3300", "hours": { "lines": null, "season": null, "note": null }, "note": null },
-      { "name": "Brandywine Hundred Library", "town": "Wilmington", "address": "1300 Foulk Road, Wilmington, DE 19803", "phone": "302-477-3150", "hours": { "lines": null, "season": null, "note": null }, "note": "Same site as Talley Day Park, so it pairs with a playground and a dog park." },
-      { "name": "Claymont Library", "town": "Claymont", "address": "400 Lenape Way, Claymont, DE 19703", "phone": "302-798-4164", "hours": { "lines": null, "season": null, "note": null }, "note": null },
-      { "name": "Corbit-Calloway Memorial Library", "town": "Odessa", "address": "115 High Street, Odessa, DE 19730", "phone": "302-378-8838", "hours": { "lines": null, "season": null, "note": null }, "note": null },
-      { "name": "Delaware City Library", "town": "Delaware City", "address": "250 5th Street, Delaware City, DE 19706", "phone": "302-834-4148", "hours": { "lines": null, "season": null, "note": null }, "note": null },
-      { "name": "Elsmere Library", "town": "Wilmington", "address": "30 Spruce Ave, Wilmington, DE 19805", "phone": "302-892-2210", "hours": { "lines": null, "season": null, "note": null }, "note": null },
-      { "name": "Hockessin Library", "town": "Hockessin", "address": "1023 Valley Road, Hockessin, DE 19707", "phone": "302-239-5160", "hours": { "lines": null, "season": null, "note": null }, "note": null },
-      { "name": "Kirkwood Library", "town": "Wilmington", "address": "6000 Kirkwood Hwy, Wilmington, DE 19808", "phone": "302-995-7663", "hours": { "lines": null, "season": null, "note": null }, "note": null },
-      { "name": "New Castle Public Library", "town": "New Castle", "address": "424 Delaware Street, New Castle, DE 19720", "phone": "302-328-1995", "hours": { "lines": null, "season": null, "note": null }, "note": null },
-      { "name": "Newark Free Library", "town": "Newark", "address": "750 Library Ave, Newark, DE 19711", "phone": null, "hours": { "lines": null, "season": null, "note": null }, "note": "Closed for a construction project. Don't drive there." },
-      { "name": "North Wilmington Library", "town": "Wilmington", "address": "3400 N Market Street, Wilmington, DE 19802", "phone": "302-761-4290", "hours": { "lines": null, "season": null, "note": null }, "note": null },
-      { "name": "Route 9 Library & Innovation Center", "town": "New Castle", "address": "3022 New Castle Ave, New Castle, DE 19720", "phone": "302-657-8020", "hours": { "lines": null, "season": null, "note": null }, "note": null },
-      { "name": "Wilmington Library", "town": "Wilmington", "address": "10 E 10th Street, Wilmington, DE 19801", "phone": "302-571-7400", "hours": { "lines": null, "season": null, "note": null }, "note": null },
-      { "name": "Woodlawn Library", "town": "Wilmington", "address": "2020 W 9th Street, Wilmington, DE 19805", "phone": "302-571-7425", "hours": { "lines": null, "season": null, "note": null }, "note": null }
+      {
+        "name": "Appoquinimink Community Library",
+        "town": "Middletown",
+        "address": "204 E. Main Street, Middletown, DE 19709",
+        "phone": "302-378-5588",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Bear Library",
+        "town": "Bear",
+        "address": "101 Governors Plaza, Bear, DE 19701",
+        "phone": "302-838-3300",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Brandywine Hundred Library",
+        "town": "Wilmington",
+        "address": "1300 Foulk Road, Wilmington, DE 19803",
+        "phone": "302-477-3150",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": "Same site as Talley Day Park, so it pairs with a playground and a dog park."
+      },
+      {
+        "name": "Claymont Library",
+        "town": "Claymont",
+        "address": "400 Lenape Way, Claymont, DE 19703",
+        "phone": "302-798-4164",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Corbit-Calloway Memorial Library",
+        "town": "Odessa",
+        "address": "115 High Street, Odessa, DE 19730",
+        "phone": "302-378-8838",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Delaware City Library",
+        "town": "Delaware City",
+        "address": "250 5th Street, Delaware City, DE 19706",
+        "phone": "302-834-4148",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Elsmere Library",
+        "town": "Wilmington",
+        "address": "30 Spruce Ave, Wilmington, DE 19805",
+        "phone": "302-892-2210",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Hockessin Library",
+        "town": "Hockessin",
+        "address": "1023 Valley Road, Hockessin, DE 19707",
+        "phone": "302-239-5160",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Kirkwood Library",
+        "town": "Wilmington",
+        "address": "6000 Kirkwood Hwy, Wilmington, DE 19808",
+        "phone": "302-995-7663",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "New Castle Public Library",
+        "town": "New Castle",
+        "address": "424 Delaware Street, New Castle, DE 19720",
+        "phone": "302-328-1995",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Newark Free Library",
+        "town": "Newark",
+        "address": "750 Library Ave, Newark, DE 19711",
+        "phone": null,
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": "Closed for a construction project. Don't drive there."
+      },
+      {
+        "name": "North Wilmington Library",
+        "town": "Wilmington",
+        "address": "3400 N Market Street, Wilmington, DE 19802",
+        "phone": "302-761-4290",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Route 9 Library & Innovation Center",
+        "town": "New Castle",
+        "address": "3022 New Castle Ave, New Castle, DE 19720",
+        "phone": "302-657-8020",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Wilmington Library",
+        "town": "Wilmington",
+        "address": "10 E 10th Street, Wilmington, DE 19801",
+        "phone": "302-571-7400",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Woodlawn Library",
+        "town": "Wilmington",
+        "address": "2020 W 9th Street, Wilmington, DE 19805",
+        "phone": "302-571-7425",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      }
     ],
     "warnings": [
       "Newark Free Library is closed for construction. It still shows as open on maps.",
@@ -376,7 +567,12 @@
     "address": "25 The Green, Dover, DE 19901",
     "blurb": "Delaware's statehouse from 1791, on The Green in Dover. An 18th-century courtroom downstairs and the old legislative chambers upstairs. Free, guided, and about 45 minutes. There are no restrooms in the building.",
     "hours": {
-      "lines": [{ "days": "Wednesday – Saturday", "text": "10:00am – 4:00pm" }],
+      "lines": [
+        {
+          "days": "Wednesday – Saturday",
+          "text": "10:00am – 4:00pm"
+        }
+      ],
       "season": null,
       "note": "Guided tours at 10, 11, 1, 2 and 3, running no more than 45 minutes. Large groups book ahead on 302-739-9194."
     },
@@ -485,7 +681,12 @@
     "address": "406 Federal Street, Dover, DE 19901",
     "blurb": "American fine and decorative arts on Federal Street in Dover — the Peales, Bierstadt, Gilbert Stuart, Brandywine School illustration, early American furniture and regional silver. Open four days a week, Thursday to Sunday.",
     "hours": {
-      "lines": [{ "days": "Thursday – Sunday", "text": "10:00am – 5:00pm" }],
+      "lines": [
+        {
+          "days": "Thursday – Sunday",
+          "text": "10:00am – 5:00pm"
+        }
+      ],
       "season": null,
       "note": null
     },
@@ -540,7 +741,12 @@
     "address": "102 Kings Highway, Lewes, DE 19958",
     "blurb": "The Dutch-gabled building on Kings Highway in Lewes, built for the 300th anniversary of the 1631 Swanendael colony. Free, self-guided, and small enough to do properly in half an hour. There are no restrooms inside — they're in the park next door.",
     "hours": {
-      "lines": [{ "days": "Tuesday – Saturday", "text": "10:00am – 4:15pm" }],
+      "lines": [
+        {
+          "days": "Tuesday – Saturday",
+          "text": "10:00am – 4:15pm"
+        }
+      ],
       "season": null,
       "note": "Closed Sunday and Monday. Self-guided, with staff around to answer questions."
     },
@@ -582,6 +788,96 @@
       "Confirm the Zwaanendael Park restrooms are open year round.",
       "Confirm holiday closures.",
       "Ask roughly how long a full visit takes."
+    ],
+    "verdict": null
+  },
+  {
+    "slug": "brandywine-zoo",
+    "name": "Brandywine Zoo",
+    "kind": "Zoo",
+    "operator": "Delaware Division of Parks and Recreation, with the Delaware Zoological Society",
+    "town": "Wilmington",
+    "county": "New Castle",
+    "address": "1001 N Park Drive, Wilmington, DE 19802",
+    "blurb": "A small AZA-accredited zoo inside Brandywine Park, under five acres, run by Delaware State Parks. Wheelchair and stroller accessible throughout, free parking across the road, and free to walk into from December through February.",
+    "hours": {
+      "lines": [
+        {
+          "days": "Every day",
+          "text": "10:00am – 4:00pm"
+        }
+      ],
+      "season": null,
+      "note": "Last admission 3:30pm. Closed Christmas Day, and can close for weather or construction."
+    },
+    "admission": {
+      "note": "December to February it's free. April, November and March: $7 adults, $6 seniors 62+, $5 children 3 to 17. May through October: $9, $8, $7. Under-3s and members always free.",
+      "free": false,
+      "amount": 9
+    },
+    "phone": "302-571-7788",
+    "website": {
+      "label": "Brandywine Zoo: visit",
+      "url": "https://www.brandywinezoo.org/visit"
+    },
+    "restrooms": true,
+    "giftShop": true,
+    "accessibility": "The zoo says every exhibit is wheelchair and stroller accessible, though the ground slopes in places. KultureCity sensory-inclusive certified.",
+    "parking": "Free general parking in Brandywine Park across from the zoo. Accessible spaces by the Education Building.",
+    "inside": [
+      "Under five acres, from common species to highly endangered ones",
+      "A contact yard with goats",
+      "An observation beehive behind glass",
+      "The Zootique gift shop at the admissions building"
+    ],
+    "branches": null,
+    "warnings": [
+      "This one is outdoors. It's in this section because it has a gate, a ticket and closing time, not because it keeps the rain off.",
+      "Last admission is 3:30pm, half an hour before the gate shuts."
+    ],
+    "photos": [
+      {
+        "file": "brandywine-zoo-goats",
+        "alt": "A small child in a grey long-sleeved top reaching out to touch a black and white goat standing on straw in a walled contact yard, with a wooden ramp and platform behind.",
+        "caption": "The contact yard. The goats come to you, which is the entire point if you are three.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      },
+      {
+        "file": "brandywine-zoo-bees",
+        "alt": "A dense mass of honeybees covering honeycomb behind glass, hundreds of individuals with a few cells of capped comb visible at the edges.",
+        "caption": "The observation hive, behind glass. Worth standing at for longer than you'd think.",
+        "credit": "Site maintainer",
+        "takenOn": null,
+        "portrait": false
+      }
+    ],
+    "sources": [
+      {
+        "label": "Brandywine Zoo: visit",
+        "url": "https://www.brandywinezoo.org/visit",
+        "note": "The operator. Gives the North Park Drive address, the phone number, daily 10am to 4pm with a 3:30pm last admission, the Christmas Day closure, the full season-by-season admission table including free entry December through February, management by the Delaware Division of Parks and Recreation with the Delaware Zoological Society, AZA accreditation, free parking in Brandywine Park, wheelchair and stroller accessibility, KultureCity certification and the Zootique gift shop."
+      }
+    ],
+    "sourcedOn": "2026-08-04",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "reports": [
+      {
+        "receivedOn": "2026-08-04",
+        "visitedOn": null,
+        "from": "Site maintainer, first-hand",
+        "what": "There's a goat contact yard and an observation beehive behind glass. Both photographed on site.",
+        "affects": [
+          "what's inside"
+        ]
+      }
+    ],
+    "outstanding": [
+      "Confirm the December-to-February free entry holds for 2026-27, and which special events are excepted.",
+      "Confirm whether food is sold on site or only the gift shop.",
+      "Get a rough visit length for under five acres."
     ],
     "verdict": null
   }

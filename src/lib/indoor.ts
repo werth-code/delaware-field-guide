@@ -64,7 +64,15 @@ export type IndoorKind =
   | "Nature center"
   | "Library"
   | "Historic site"
-  | "Gallery";
+  | "Gallery"
+  /**
+   * A zoo is not indoors, and this section is called Indoors. It sits here
+   * anyway because it is the same SHAPE of record as everything else in it —
+   * a gate, a ticket, and hours that shut — and none of the park datasets can
+   * hold those. The index page says so out loud rather than quietly filing an
+   * outdoor place under a heading that promises shelter.
+   */
+  | "Zoo";
 
 /**
  * Opening hours, in the two shapes these actually come in.
