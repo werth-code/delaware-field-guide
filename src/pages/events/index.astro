@@ -9,6 +9,7 @@
 import Layout from "../../layouts/Layout.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
 import CardPhoto from "../../components/CardPhoto.astro";
+import CardShare from "../../components/CardShare.astro";
 
 import eventsData from "../../data/events.json";
 import { upcoming, datedCount, type FieldEvent } from "../../lib/events";
@@ -100,6 +101,7 @@ const STATE_CLASS = {
             <a href={`/events/${event.slug}/`} class="absolute inset-0 z-10 no-underline">
               <span class="sr-only">{event.name}</span>
             </a>
+            <CardShare path={`/events/${event.slug}/`} title={event.name} />
             <div class="sm:flex sm:items-stretch">
             {event.photos?.[0] && <CardPhoto {...event.photos[0]} variant="side" />}
 

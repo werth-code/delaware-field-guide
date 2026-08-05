@@ -15,6 +15,7 @@ import CoastBand from "../../components/CoastBand.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
 import CardPhoto from "../../components/CardPhoto.astro";
 import Tag from "../../components/Tag.astro";
+import CardShare from "../../components/CardShare.astro";
 
 import parksData from "../../data/state-parks.json";
 import { COUNTY_ORDER, completeness, feeText, present, type StatePark } from "../../lib/state-parks";
@@ -91,11 +92,12 @@ const schema = verified.length
                 <a href={`/parks/${park.slug}/`} class="absolute inset-0 z-10 no-underline">
                   <span class="sr-only">{park.name}</span>
                 </a>
+                <CardShare path={`/parks/${park.slug}/`} title={park.name} />
 
                 {park.photos?.[0] && <CardPhoto {...park.photos[0]} />}
 
                 <div class="p-4 sm:p-5">
-                  <header class="flex items-start justify-between gap-3">
+                  <header class="flex items-start justify-between pr-12 gap-3">
                     <div>
                       <h3 class="font-display text-[1.2rem] font-bold tracking-[-0.018em] m-0 text-marsh underline decoration-ochre decoration-2 underline-offset-[0.16em] group-hover:decoration-marsh">
                         {park.name}

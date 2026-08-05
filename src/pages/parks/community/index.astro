@@ -13,6 +13,7 @@ import Layout from "../../../layouts/Layout.astro";
 import FlagIcon from "../../../components/FlagIcon.astro";
 import CardPhoto from "../../../components/CardPhoto.astro";
 import Tag from "../../../components/Tag.astro";
+import CardShare from "../../../components/CardShare.astro";
 
 import parksData from "../../../data/community-parks.json";
 import {
@@ -80,11 +81,12 @@ const withDogPark = parks.filter((p) => p.facilities.dogPark === true).length;
                 <a href={`/parks/community/${park.slug}/`} class="absolute inset-0 z-10 no-underline">
                   <span class="sr-only">{park.name}</span>
                 </a>
+                <CardShare path={`/parks/community/${park.slug}/`} title={park.name} />
 
                 {park.photos?.[0] && <CardPhoto {...park.photos[0]} />}
 
                 <div class="p-4 sm:p-5">
-                  <header class="flex items-start justify-between gap-3">
+                  <header class="flex items-start justify-between pr-12 gap-3">
                     <div>
                       <h3 class="font-display text-[1.18rem] font-bold tracking-[-0.018em] m-0 text-marsh underline decoration-ochre decoration-2 underline-offset-[0.16em] group-hover:decoration-marsh">
                         {park.name}
