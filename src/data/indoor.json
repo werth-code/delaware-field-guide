@@ -880,5 +880,328 @@
       "Get a rough visit length for under five acres."
     ],
     "verdict": null
+  },
+  {
+    "slug": "sussex-county-libraries",
+    "name": "Sussex County Libraries",
+    "kind": "Library",
+    "operator": "Sussex County Libraries",
+    "town": "Georgetown",
+    "county": "Sussex",
+    "address": "22215 DuPont Boulevard, Georgetown, DE 19947",
+    "blurb": "Fourteen libraries from Delmar up to Bethany Beach, free to walk into. On a wet afternoon at the beach it's the most reliable indoor room in the county — warm, quiet, has a bathroom, and nobody minds how long you stay. There's a bookmobile too.",
+    "hours": {
+      "lines": null,
+      "season": null,
+      "note": "Each library sets its own hours and the county doesn't publish them in one place. The table below gives the address and the number to ring."
+    },
+    "admission": {
+      "note": "Free. They're public libraries.",
+      "free": true,
+      "amount": 0
+    },
+    "phone": "302-855-7890",
+    "website": {
+      "label": "Sussex County Libraries: locations and hours",
+      "url": "https://sussexcounty.lib.de.us/locations-hours/"
+    },
+    "restrooms": null,
+    "giftShop": null,
+    "accessibility": null,
+    "parking": null,
+    "inside": [
+      "14 libraries across Sussex County"
+    ],
+    "branches": [
+      {
+        "name": "Bridgeville Public Library",
+        "town": "Bridgeville",
+        "address": "600 South Cannon Street, Bridgeville, DE 19933",
+        "phone": "302-337-7401",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Delmar Public Library",
+        "town": "Delmar",
+        "address": "101 N. Bi-State Boulevard, Delmar, DE 19940",
+        "phone": "302-846-9894",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Frankford Public Library",
+        "town": "Frankford",
+        "address": "8 Main Street, Frankford, DE 19945",
+        "phone": "302-732-9351",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Georgetown Public Library",
+        "town": "Georgetown",
+        "address": "123 W. Pine Street, Georgetown, DE 19947",
+        "phone": "302-856-7958",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Greenwood Public Library",
+        "town": "Greenwood",
+        "address": "100 Mill Street, Greenwood, DE 19950",
+        "phone": "302-855-1242",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Laurel Public Library",
+        "town": "Laurel",
+        "address": "101 E. 4th Street, Laurel, DE 19956",
+        "phone": "302-875-3184",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Lewes Public Library",
+        "town": "Lewes",
+        "address": "111 Adams Avenue, Lewes, DE 19958",
+        "phone": "302-645-2733",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Millsboro Public Library",
+        "town": "Millsboro",
+        "address": "217 W. State Street, Millsboro, DE 19966",
+        "phone": "302-934-8743",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Milton Public Library",
+        "town": "Milton",
+        "address": "121 Union Street, Milton, DE 19968",
+        "phone": "302-855-1975",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Rehoboth Beach Public Library",
+        "town": "Rehoboth Beach",
+        "address": "227 Rehoboth Avenue, Rehoboth Beach, DE 19971",
+        "phone": "302-227-8044",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Seaford District Library",
+        "town": "Seaford",
+        "address": "600 N. Market Street Ext., Seaford, DE 19973",
+        "phone": "302-629-2524",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Selbyville Public Library",
+        "town": "Selbyville",
+        "address": "11 Main & McCabe Street, Selbyville, DE 19975",
+        "phone": "302-436-8195",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "South Coastal Public Library",
+        "town": "Bethany Beach",
+        "address": "43 Kent Avenue, Bethany Beach, DE 19930",
+        "phone": "302-858-5518",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Sussex County Mobile Library",
+        "town": "Countywide",
+        "address": null,
+        "phone": "302-855-7893",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": "A bookmobile. No fixed address — ring for the route."
+      }
+    ],
+    "warnings": [
+      "Opening hours aren't published per library on the county's own page. Ring before you drive.",
+      "The bookmobile has no fixed address. Ring 302-855-7893 for where it will be."
+    ],
+    "sources": [
+      {
+        "label": "Sussex County Libraries: locations and hours",
+        "url": "https://sussexcounty.lib.de.us/locations-hours/",
+        "note": "The county library department's own page. Lists all fourteen Sussex libraries with addresses and phone numbers, including the bookmobile. Links out for opening hours rather than publishing them here."
+      }
+    ],
+    "sourcedOn": "2026-08-05",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the opening hours for each library.",
+      "Confirm which have public restrooms and wifi.",
+      "Ask whether any of them lend Delaware state park passes."
+    ],
+    "verdict": null
+  },
+  {
+    "slug": "kent-county-libraries",
+    "name": "Kent County Libraries",
+    "kind": "Library",
+    "operator": "Kent County Libraries",
+    "town": "Dover",
+    "county": "Kent",
+    "address": "497 South Red Haven Lane, Dover, DE 19901",
+    "blurb": "Four public libraries across Kent County, free to walk into: Dover, the Duck Creek regional library at Smyrna, Harrington, and the county library itself on Red Haven Lane.",
+    "hours": {
+      "lines": null,
+      "season": null,
+      "note": "Each library sets its own hours and the county doesn't publish them in one place. The table below gives the address and the number to ring."
+    },
+    "admission": {
+      "note": "Free. They're public libraries.",
+      "free": true,
+      "amount": 0
+    },
+    "phone": "302-744-1919",
+    "website": {
+      "label": "Delaware Libraries: list of libraries",
+      "url": "https://lib.de.us/list-of-libraries/"
+    },
+    "restrooms": null,
+    "giftShop": null,
+    "accessibility": null,
+    "parking": null,
+    "inside": [
+      "4 libraries across Kent County"
+    ],
+    "branches": [
+      {
+        "name": "Dover Public Library",
+        "town": "Dover",
+        "address": "35 Loockerman Plaza, Dover, DE 19901",
+        "phone": "302-736-7030",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Duck Creek Regional Library",
+        "town": "Smyrna",
+        "address": "22 South Main Street, Smyrna, DE 19977",
+        "phone": "302-653-4579",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Harrington Public Library",
+        "town": "Harrington",
+        "address": "101 Little Mastens Corner Road, Harrington, DE 19952",
+        "phone": "302-398-4647",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      },
+      {
+        "name": "Kent County Public Library",
+        "town": "Dover",
+        "address": "497 South Red Haven Lane, Dover, DE 19901",
+        "phone": "302-744-1919",
+        "hours": {
+          "lines": null,
+          "season": null,
+          "note": null
+        },
+        "note": null
+      }
+    ],
+    "warnings": [
+      "Opening hours aren't published per library on the county's own page. Ring before you drive."
+    ],
+    "sources": [
+      {
+        "label": "Delaware Libraries: list of libraries",
+        "url": "https://lib.de.us/list-of-libraries/",
+        "note": "The Delaware Division of Libraries' own directory, which is the state body for all public libraries here. Gives each Kent County library with address and phone. Does not publish per-library opening hours."
+      }
+    ],
+    "sourcedOn": "2026-08-05",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the opening hours for each library.",
+      "Confirm which have public restrooms and wifi.",
+      "Ask whether any of them lend Delaware state park passes."
+    ],
+    "verdict": null
   }
 ]
