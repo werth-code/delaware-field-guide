@@ -162,7 +162,12 @@
         "takenOn": null,
         "portrait": false
       }
-    ]
+    ],
+    "coords": {
+      "lat": 38.721,
+      "lon": -75.076,
+      "precision": "town"
+    }
   },
   {
     "slug": "dewey-beach",
@@ -319,6 +324,11 @@
       ],
       "needed": "The month and year of your dog's last rabies vaccination. You enter it at purchase.",
       "note": "Buy a temporary one and the confirmation email IS the license — keep a screenshot or a printout on you. A lifetime license comes as a physical tag in the post, so it's no use for a trip this weekend. All purchases are non-refundable."
+    },
+    "coords": {
+      "lat": 38.687,
+      "lon": -75.075,
+      "precision": "town"
     }
   },
   {
@@ -461,7 +471,12 @@
         "verified": false
       }
     ],
-    "sourcedOn": "2026-08-01"
+    "sourcedOn": "2026-08-01",
+    "coords": {
+      "lat": 38.539,
+      "lon": -75.055,
+      "precision": "town"
+    }
   },
   {
     "slug": "lewes",
@@ -600,7 +615,12 @@
         "takenOn": null,
         "portrait": false
       }
-    ]
+    ],
+    "coords": {
+      "lat": 38.775,
+      "lon": -75.139,
+      "precision": "town"
+    }
   },
   {
     "slug": "fenwick-island",
@@ -718,6 +738,11 @@
         "verified": false
       }
     ],
-    "sourcedOn": "2026-08-01"
+    "sourcedOn": "2026-08-01",
+    "coords": {
+      "lat": 38.46,
+      "lon": -75.05,
+      "precision": "site"
+    }
   }
 ]

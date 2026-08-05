@@ -75,7 +75,12 @@
         "author": "Site maintainer",
         "body": "There's a paved path, and the woods hold standing water in early spring — worth knowing if you're planning to leave the pavement in March."
       }
-    ]
+    ],
+    "coords": {
+      "lat": 39.603,
+      "lon": -75.748,
+      "precision": "site"
+    }
   },
   {
     "slug": "carousel-park",
@@ -128,7 +133,12 @@
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 39.73,
+      "lon": -75.68,
+      "precision": "site"
+    }
   },
   {
     "slug": "rockwood-park",
@@ -180,7 +190,12 @@
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 39.759,
+      "lon": -75.517,
+      "precision": "site"
+    }
   },
   {
     "slug": "banning-park",
@@ -232,7 +247,12 @@
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 39.718,
+      "lon": -75.59,
+      "precision": "site"
+    }
   },
   {
     "slug": "brandywine-springs-park",
@@ -281,7 +301,12 @@
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 39.74,
+      "lon": -75.63,
+      "precision": "site"
+    }
   },
   {
     "slug": "iron-hill-park",
@@ -331,7 +356,12 @@
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 39.656,
+      "lon": -75.766,
+      "precision": "site"
+    }
   },
   {
     "slug": "talley-day-park",
@@ -392,7 +422,12 @@
         "takenOn": null,
         "portrait": false
       }
-    ]
+    ],
+    "coords": {
+      "lat": 39.81,
+      "lon": -75.523,
+      "precision": "site"
+    }
   },
   {
     "slug": "river-road-park",
@@ -441,7 +476,12 @@
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 39.748,
+      "lon": -75.506,
+      "precision": "town"
+    }
   },
   {
     "slug": "brecknock-park",
@@ -491,7 +531,12 @@
         "url": "https://www.kentcountyde.gov/Parks"
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 39.077,
+      "lon": -75.545,
+      "precision": "site"
+    }
   },
   {
     "slug": "tidbury-creek-park",
@@ -543,7 +588,12 @@
         "url": "https://www.kentcountyde.gov/Parks"
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 39.12,
+      "lon": -75.53,
+      "precision": "site"
+    }
   },
   {
     "slug": "hunn-nature-park",
@@ -593,7 +643,12 @@
         "url": "https://www.kentcountyde.gov/Parks"
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 39.135,
+      "lon": -75.5,
+      "precision": "town"
+    }
   },
   {
     "slug": "big-oak-park",
@@ -634,7 +689,12 @@
     "verifiedSource": null,
     "outstanding": [
       "Everything. Call Kent County Parks and fill this record in, or drop it."
-    ]
+    ],
+    "coords": {
+      "lat": 39.29,
+      "lon": -75.6,
+      "precision": "town"
+    }
   },
   {
     "slug": "browns-branch-park",
@@ -675,7 +735,12 @@
     "verifiedSource": null,
     "outstanding": [
       "Everything. Call Kent County Parks and fill this record in, or drop it."
-    ]
+    ],
+    "coords": {
+      "lat": 39.19,
+      "lon": -75.66,
+      "precision": "town"
+    }
   },
   {
     "slug": "lebanon-landing",
@@ -716,7 +781,12 @@
     "verifiedSource": null,
     "outstanding": [
       "Everything, including whether it's a boat launch rather than a park."
-    ]
+    ],
+    "coords": {
+      "lat": 39.09,
+      "lon": -75.44,
+      "precision": "town"
+    }
   },
   {
     "slug": "kesselring-park",
@@ -757,7 +827,12 @@
     "verifiedSource": null,
     "outstanding": [
       "Everything. Call Kent County Parks and fill this record in, or drop it."
-    ]
+    ],
+    "coords": {
+      "lat": 39.16,
+      "lon": -75.51,
+      "precision": "town"
+    }
   },
   {
     "slug": "schutte-park",
@@ -810,7 +885,12 @@
         "url": "https://www.cityofdover.com/"
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 39.156,
+      "lon": -75.547,
+      "precision": "site"
+    }
   },
   {
     "slug": "valley-garden-park",
@@ -884,7 +964,12 @@
         "author": "Site maintainer",
         "body": "There's a porta potty, a paved path and the creek. Little else — no playground, no pavilion, nothing to fill a bottle from."
       }
-    ]
+    ],
+    "coords": {
+      "lat": 39.797,
+      "lon": -75.616,
+      "precision": "site"
+    }
   },
   {
     "slug": "delcastle-recreational-park",
@@ -938,6 +1023,11 @@
         "note": "The operator's own facility listing. Gives the Duncan Road address, the parks permit office number, dawn-to-dusk hours, and an amenity list of ADA accessible, baseball/softball, basketball, fitness circuit, football, grills, open space, parking, paved trails, playground, restrooms, soccer, street hockey, tennis and wooded area. States there is no admission fee for any county park and that fees apply only to court, field and pavilion rentals."
       }
     ],
-    "sourcedOn": "2026-08-04"
+    "sourcedOn": "2026-08-04",
+    "coords": {
+      "lat": 39.718,
+      "lon": -75.654,
+      "precision": "site"
+    }
   }
 ]

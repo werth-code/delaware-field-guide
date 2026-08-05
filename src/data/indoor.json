@@ -60,7 +60,12 @@
       "Ask about step-free access and accessible restrooms.",
       "Confirm holiday closures."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 39.79,
+      "lon": -75.61,
+      "precision": "site"
+    }
   },
   {
     "slug": "delaware-art-museum",
@@ -121,7 +126,12 @@
       "Confirm whether the sculpture garden is open outside museum hours.",
       "Confirm whether the free Thursday needs a booking."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 39.76,
+      "lon": -75.568,
+      "precision": "site"
+    }
   },
   {
     "slug": "hagley-museum",
@@ -189,7 +199,12 @@
       "Confirm how much of the site a wheelchair user can actually reach beyond the shuttle stops.",
       "Ask whether tickets are good for a second day."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 39.771,
+      "lon": -75.59,
+      "precision": "site"
+    }
   },
   {
     "slug": "winterthur",
@@ -252,7 +267,12 @@
       "Ask about parking and step-free routes through the garden.",
       "Confirm the Yuletide dates for 2026."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 39.803,
+      "lon": -75.607,
+      "precision": "site"
+    }
   },
   {
     "slug": "new-castle-court-house-museum",
@@ -318,7 +338,12 @@
       "Ask whether there's a gift shop.",
       "Confirm winter and holiday closures."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 39.662,
+      "lon": -75.568,
+      "precision": "site"
+    }
   },
   {
     "slug": "new-castle-county-libraries",
@@ -555,7 +580,12 @@
       "Ask whether the system lends Delaware state park passes.",
       "Confirm public restrooms and wifi per branch."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 39.7,
+      "lon": -75.6,
+      "precision": "town"
+    }
   },
   {
     "slug": "old-state-house",
@@ -615,7 +645,12 @@
       "Ask whether the upstairs chamber can be reached any other way.",
       "Confirm holiday closures."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 39.158,
+      "lon": -75.52,
+      "precision": "site"
+    }
   },
   {
     "slug": "johnson-victrola-museum",
@@ -669,7 +704,12 @@
       "Get an actual reopening date rather than \"autumn 2026\".",
       "Confirm whether hours change when it reopens."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 39.155,
+      "lon": -75.523,
+      "precision": "site"
+    }
   },
   {
     "slug": "biggs-museum",
@@ -729,7 +769,12 @@
       "Ask about parking on Federal Street.",
       "Ask about step-free access and restrooms."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 39.159,
+      "lon": -75.521,
+      "precision": "site"
+    }
   },
   {
     "slug": "zwaanendael-museum",
@@ -789,7 +834,12 @@
       "Confirm holiday closures.",
       "Ask roughly how long a full visit takes."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 38.775,
+      "lon": -75.14,
+      "precision": "site"
+    }
   },
   {
     "slug": "brandywine-zoo",
@@ -879,7 +929,12 @@
       "Confirm whether food is sold on site or only the gift shop.",
       "Get a rough visit length for under five acres."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 39.762,
+      "lon": -75.559,
+      "precision": "site"
+    }
   },
   {
     "slug": "sussex-county-libraries",
@@ -1101,7 +1156,12 @@
       "Confirm which have public restrooms and wifi.",
       "Ask whether any of them lend Delaware state park passes."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 38.69,
+      "lon": -75.386,
+      "precision": "town"
+    }
   },
   {
     "slug": "kent-county-libraries",
@@ -1202,6 +1262,11 @@
       "Confirm which have public restrooms and wifi.",
       "Ask whether any of them lend Delaware state park passes."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 39.158,
+      "lon": -75.524,
+      "precision": "town"
+    }
   }
 ]

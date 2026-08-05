@@ -74,7 +74,12 @@
         "takenOn": null,
         "portrait": false
       }
-    ]
+    ],
+    "coords": {
+      "lat": 38.7845,
+      "lon": -75.093,
+      "precision": "site"
+    }
   },
   {
     "slug": "delaware-seashore",
@@ -136,7 +141,12 @@
         "takenOn": null,
         "portrait": false
       }
-    ]
+    ],
+    "coords": {
+      "lat": 38.61,
+      "lon": -75.065,
+      "precision": "site"
+    }
   },
   {
     "slug": "fenwick-island",
@@ -186,7 +196,12 @@
         "note": "2026 fee schedule, effective 1 March 2026."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 38.46,
+      "lon": -75.05,
+      "precision": "site"
+    }
   },
   {
     "slug": "holts-landing",
@@ -236,7 +251,12 @@
         "note": "2026 fee schedule, effective 1 March 2026."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 38.567,
+      "lon": -75.133,
+      "precision": "site"
+    }
   },
   {
     "slug": "trap-pond",
@@ -295,7 +315,12 @@
         "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 38.523,
+      "lon": -75.479,
+      "precision": "site"
+    }
   },
   {
     "slug": "killens-pond",
@@ -352,7 +377,12 @@
         "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 38.988,
+      "lon": -75.533,
+      "precision": "site"
+    }
   },
   {
     "slug": "lums-pond",
@@ -500,7 +530,12 @@
         "takenOn": null,
         "portrait": false
       }
-    ]
+    ],
+    "coords": {
+      "lat": 39.556,
+      "lon": -75.722,
+      "precision": "site"
+    }
   },
   {
     "slug": "white-clay-creek",
@@ -606,7 +641,12 @@
         "takenOn": null,
         "portrait": false
       }
-    ]
+    ],
+    "coords": {
+      "lat": 39.718,
+      "lon": -75.758,
+      "precision": "site"
+    }
   },
   {
     "slug": "brandywine-creek",
@@ -732,7 +772,12 @@
         "body": "Correcting this page. It used to say 'rolling meadow rather than woodland', and the photo caption claimed the meadows were most of what the park is. Both wrong. It's a large park with a big trail system, and the path people come for is paved, wooded, and follows the creek. There's a boat launch, more than one set of restrooms, and it's open year round."
       }
     ],
-    "hoursNote": "Open year round."
+    "hoursNote": "Open year round.",
+    "coords": {
+      "lat": 39.806,
+      "lon": -75.574,
+      "precision": "site"
+    }
   },
   {
     "slug": "bellevue",
@@ -805,7 +850,12 @@
         "author": "Site maintainer",
         "body": "Disc golf here too."
       }
-    ]
+    ],
+    "coords": {
+      "lat": 39.774,
+      "lon": -75.49,
+      "precision": "site"
+    }
   },
   {
     "slug": "alapocas-run",
@@ -894,7 +944,12 @@
         "author": "Site maintainer",
         "body": "Restrooms, parking and the ranger station are all at the Blue Ball Barn. The paved trail is across the street from the barn."
       }
-    ]
+    ],
+    "coords": {
+      "lat": 39.776,
+      "lon": -75.562,
+      "precision": "site"
+    }
   },
   {
     "slug": "fox-point",
@@ -943,7 +998,12 @@
         "note": "2026 fee schedule, effective 1 March 2026."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 39.753,
+      "lon": -75.493,
+      "precision": "site"
+    }
   },
   {
     "slug": "fort-delaware",
@@ -995,7 +1055,12 @@
         "note": "2026 fee schedule, effective 1 March 2026."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 39.588,
+      "lon": -75.571,
+      "precision": "site"
+    }
   },
   {
     "slug": "fort-dupont",
@@ -1044,7 +1109,12 @@
         "note": "2026 fee schedule, effective 1 March 2026."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 39.572,
+      "lon": -75.59,
+      "precision": "site"
+    }
   },
   {
     "slug": "auburn-valley",
@@ -1095,7 +1165,12 @@
         "note": "2026 fee schedule, effective 1 March 2026."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 39.76,
+      "lon": -75.69,
+      "precision": "town"
+    }
   },
   {
     "slug": "first-state-heritage",
@@ -1147,7 +1222,12 @@
         "note": "2026 fee schedule, effective 1 March 2026."
       }
     ],
-    "sourcedOn": "2026-08-02"
+    "sourcedOn": "2026-08-02",
+    "coords": {
+      "lat": 39.158,
+      "lon": -75.524,
+      "precision": "site"
+    }
   },
   {
     "slug": "wilmington-state-parks",
@@ -1276,6 +1356,11 @@
         "author": "Site maintainer",
         "body": "The Riverwalk boardwalk and the arched footbridge run out across the Peterson refuge marsh from the Riverfront, past the DuPont Environmental Education Center. Brandywine Park at the other end has the fountain and the zoo."
       }
-    ]
+    ],
+    "coords": {
+      "lat": 39.762,
+      "lon": -75.558,
+      "precision": "site"
+    }
   }
 ]

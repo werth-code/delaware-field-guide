@@ -9,6 +9,7 @@
  */
 import Layout from "../layouts/Layout.astro";
 import CoastBand from "../components/CoastBand.astro";
+import StateMap from "../components/StateMap.astro";
 import FlagMark from "../components/FlagMark.astro";
 import DogFigure from "../components/DogFigure.astro";
 
@@ -22,6 +23,7 @@ import drinkData from "../data/drink.json";
 import eventsData from "../data/events.json";
 import nearbyData from "../data/nearby.json";
 import { isPublishable } from "../lib/verification";
+import { colorFor } from "../lib/feature-colors";
 
 const towns = townsData as { slug: string; name: string; verifiedDate: string | null; verifiedSource: string | null }[];
 const stateParks = stateParksData as { county: string; verifiedDate: string | null; verifiedSource: string | null }[];
@@ -222,6 +224,33 @@ const facts = [
   { n: String(indoors.length + drink.length + attractions.length), label: "museums, bars, days out" },
 ];
 
+/* Everything with coordinates, on one map. Kinds are the section a record
+   belongs to, so the filters read the way the nav does. */
+type Geo = { slug: string; name: string; coords?: { lat: number; lon: number; precision: "site" | "town" } };
+const pin = (rows: unknown[], kind: string, href: (r: any) => string) =>
+  (rows as Geo[])
+    .filter((r) => r.coords)
+    .map((r) => ({ slug: r.slug, name: r.name, href: href(r), kind,
+                   lat: r.coords!.lat, lon: r.coords!.lon, precision: r.coords!.precision }));
+
+const mapPoints = [
+  ...pin(stateParksData as unknown[], "trails", (r) => `/parks/${r.slug}/`),
+  ...pin(communityParksData as unknown[], "playground", (r) => `/parks/community/${r.slug}/`),
+  ...pin(indoorAll.filter((r) => r.kind !== "Zoo") as unknown[], "free", (r) => `/indoors/${r.slug}/`),
+  ...pin(indoorAll.filter((r) => r.kind === "Zoo") as unknown[], "petsAllowed", (r) => `/attractions/${r.slug}/`),
+  ...pin(drinkData as unknown[], "giftShop", (r) => `/wineries-and-breweries/${r.slug}/`),
+  ...pin(townsData as unknown[], "beach", (r) => `/dogs/${r.slug}/`),
+];
+
+const mapKinds = [
+  { key: "trails", label: "State parks", color: colorFor("trails") },
+  { key: "playground", label: "Community parks", color: colorFor("playground") },
+  { key: "beach", label: "Dog beaches", color: colorFor("beach") },
+  { key: "free", label: "Museums & libraries", color: colorFor("free") },
+  { key: "giftShop", label: "Wine & beer", color: colorFor("giftShop") },
+  { key: "petsAllowed", label: "Places to go", color: colorFor("petsAllowed") },
+];
+
 const schema = [
   {
     "@context": "https://schema.org",
@@ -288,6 +317,10 @@ const schema = [
         ))
       }
     </dl>
+  </div>
+
+  <div class="wrap pb-9">
+    <StateMap points={mapPoints} kinds={mapKinds} />
   </div>
 
   <div class="wrap">

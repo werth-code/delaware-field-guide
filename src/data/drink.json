@@ -14,8 +14,14 @@
       "source": "operator"
     },
     "hours": [
-      { "days": "Sunday – Thursday", "text": "12pm – 5pm" },
-      { "days": "Friday & Saturday", "text": "12pm – 8pm" }
+      {
+        "days": "Sunday – Thursday",
+        "text": "12pm – 5pm"
+      },
+      {
+        "days": "Friday & Saturday",
+        "text": "12pm – 8pm"
+      }
     ],
     "hoursNote": null,
     "tasting": "$25 for a tasting with a tour, six wines. $15 for a flight of four you choose.",
@@ -52,7 +58,12 @@
       "Confirm whether the outdoor area is covered — it decides the answer on a wet day.",
       "Confirm whether food is served or whether it's wine only."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 39.105,
+      "lon": -75.745,
+      "precision": "site"
+    }
   },
   {
     "slug": "thompson-island-brewing",
@@ -68,7 +79,12 @@
       "note": "The brewery publishes no dog policy. Several guides say the outdoor tables are dog friendly; none of them is the brewery.",
       "source": null
     },
-    "hours": [{ "days": "Every day", "text": "11:30am – 10pm" }],
+    "hours": [
+      {
+        "days": "Every day",
+        "text": "11:30am – 10pm"
+      }
+    ],
     "hoursNote": "Happy hour 4pm to 6pm, daily.",
     "tasting": null,
     "phone": "302-226-4677",
@@ -77,9 +93,18 @@
       "url": "https://www.thompsonislandbrewing.com/"
     },
     "onSite": [
-      { "label": "Beer garden", "note": "The brewery calls it spacious. There's a fire pit." },
-      { "label": "Food", "note": "Wood-fired, with seasonal specials. This is a restaurant as much as a taproom." },
-      { "label": "Music", "note": "Live, on the brewery's own account." }
+      {
+        "label": "Beer garden",
+        "note": "The brewery calls it spacious. There's a fire pit."
+      },
+      {
+        "label": "Food",
+        "note": "Wood-fired, with seasonal specials. This is a restaurant as much as a taproom."
+      },
+      {
+        "label": "Music",
+        "note": "Live, on the brewery's own account."
+      }
     ],
     "warnings": [
       "No published dog policy. If the dog is the reason you're going, ring 302-226-4677 first."
@@ -98,7 +123,12 @@
       "Ring and get the dog policy. Every aggregator asserts one and the brewery publishes none.",
       "Confirm whether the beer garden is covered or heated out of season."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 38.718,
+      "lon": -75.093,
+      "precision": "site"
+    }
   },
   {
     "slug": "mispillion-river-brewing",
@@ -115,9 +145,18 @@
       "source": null
     },
     "hours": [
-      { "days": "Sunday", "text": "12pm – 8pm" },
-      { "days": "Monday – Thursday", "text": "12pm – 10pm" },
-      { "days": "Friday & Saturday", "text": "12pm – 11pm" }
+      {
+        "days": "Sunday",
+        "text": "12pm – 8pm"
+      },
+      {
+        "days": "Monday – Thursday",
+        "text": "12pm – 10pm"
+      },
+      {
+        "days": "Friday & Saturday",
+        "text": "12pm – 11pm"
+      }
     ],
     "hoursNote": null,
     "tasting": null,
@@ -145,7 +184,12 @@
       "Confirm whether there's outdoor seating at all.",
       "Confirm whether food is served or whether it's beer only."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 38.913,
+      "lon": -75.427,
+      "precision": "site"
+    }
   },
   {
     "slug": "nassau-valley-vineyards",
@@ -170,7 +214,10 @@
       "url": "http://www.nassauvalley.com/"
     },
     "onSite": [
-      { "label": "Farmers' market", "note": "Run on the winery's own site. Days not published." }
+      {
+        "label": "Farmers' market",
+        "note": "Run on the winery's own site. Days not published."
+      }
     ],
     "warnings": [
       "No published hours and no published dog policy. This is a ring-ahead, not a turn-up."
@@ -191,6 +238,11 @@
       "Ring and get the dog policy.",
       "Confirm which days the farmers' market runs."
     ],
-    "verdict": null
+    "verdict": null,
+    "coords": {
+      "lat": 38.762,
+      "lon": -75.156,
+      "precision": "site"
+    }
   }
 ]
