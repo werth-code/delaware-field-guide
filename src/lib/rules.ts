@@ -106,6 +106,25 @@ export interface Town {
   rules: Rule[];
   licenseRequired: boolean;
   licenseDetail: string | null;
+  /**
+   * WHERE you actually buy it, and what it costs.
+   *
+   * "You need a license" without this is half an answer — it tells someone
+   * they have a problem and not how to solve it. Dewey sells three ways, one
+   * of which is a kiosk in the Town Hall parking lot that appears on no map,
+   * and the prices differ by a factor of ten depending on which option fits
+   * the trip.
+   */
+  license?: {
+    /** Ordered cheapest-trip-first, because most readers are visiting. */
+    options: { label: string; price: string }[];
+    /** Each place you can buy one, with a link where there is one. */
+    where: { label: string; url?: string | null; note?: string | null }[];
+    /** What you have to bring or know at the point of purchase. */
+    needed: string | null;
+    /** Anything that bites afterwards. */
+    note: string | null;
+  } | null;
   alsoTrue: { label: string; value: string }[];
   correction: { heading: string; body: string } | null;
   alternatives: { name: string; detail: string; href: string | null; verified: boolean }[];

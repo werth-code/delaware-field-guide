@@ -245,6 +245,48 @@ const schema = publishable ? [articleSchema, faqSchema] : [];
           <>
             <h2>You need a license</h2>
             <p>{town.licenseDetail}</p>
+
+            {/* "You need a license" without the where and the how much is
+                half an answer: it tells someone they have a problem and not
+                how to solve it. */}
+            {town.license && (
+              <div class="sign breakout my-6 not-prose">
+                <div class="px-4 sm:px-5 py-4 border-b-2 border-marsh">
+                  <p class="label m-0">What it costs</p>
+                  <dl class="grid sm:grid-cols-2 gap-x-6 gap-y-0 mt-2.5 mb-0">
+                    {town.license.options.map((o) => (
+                      <div class="flex items-baseline justify-between gap-3 border-b border-tide/25 py-2">
+                        <dt class="text-[0.95rem]">{o.label}</dt>
+                        <dd class="m-0 font-display text-[1.05rem] font-semibold text-marsh whitespace-nowrap">{o.price}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+
+                <div class="px-4 sm:px-5 py-4">
+                  <p class="label m-0">Where to get one</p>
+                  <ul class="list-none p-0 m-0 mt-2.5 space-y-3">
+                    {town.license.where.map((w) => (
+                      <li>
+                        <p class="m-0 text-[0.98rem] font-medium">
+                          {w.url ? <a href={w.url} rel="nofollow">{w.label}</a> : w.label}
+                        </p>
+                        {w.note && <p class="mt-0.5 mb-0 text-[0.88rem] leading-snug text-ink-soft max-w-[54ch]">{w.note}</p>}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {town.license.needed && (
+                    <p class="mt-4 mb-0 text-[0.9rem] leading-snug max-w-[54ch]">
+                      <strong>Bring:</strong> {town.license.needed}
+                    </p>
+                  )}
+                  {town.license.note && (
+                    <p class="mt-2.5 mb-0 text-[0.9rem] leading-snug text-ink-soft max-w-[54ch]">{town.license.note}</p>
+                  )}
+                </div>
+              </div>
+            )}
           </>
         )
       }

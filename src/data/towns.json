@@ -208,7 +208,7 @@
       }
     ],
     "licenseRequired": true,
-    "licenseDetail": "Every dog in Dewey Beach needs a town dog license, whether you live there or are visiting for a weekend. Three-day, eight-day and lifetime licenses are sold online and at Town Hall. This is the single most common way visitors get fined here — the beach hours are widely repeated, the license almost never is.",
+    "licenseDetail": "Every dog in Dewey Beach needs a town license, whether you live there or are visiting for a weekend, and it is on top of any state license or rabies tag you already hold. This is the single most common way visitors get fined here — the beach hours are widely repeated, the license almost never is.",
     "alsoTrue": [
       {
         "label": "License",
@@ -237,6 +237,11 @@
         "label": "Town of Dewey Beach: ordinances",
         "url": "https://www.townofdeweybeach.gov/Ordinances/",
         "note": "Beach hours and license requirement. Confirm the current text by phone."
+      },
+      {
+        "label": "Town of Dewey Beach: purchase a dog license",
+        "url": "https://www.townofdeweybeach.gov/purchaseadoglicense",
+        "note": "The town's own purchase page. Gives the four license options and their prices, the three places to buy, that the town license is additional to any state license or rabies tag, that rabies vaccination month and year is required at purchase, that a temporary license's confirmation email serves as the license while a lifetime tag is mailed, that purchases are non-refundable, the Town Hall address and its full opening hours, and restates the summer beach window as before 9:30am and after 5:30pm from the Saturday of Memorial Day weekend through the Sunday following Labor Day."
       }
     ],
     "verifiedDate": null,
@@ -246,12 +251,10 @@
       "phone": "302-227-6363"
     },
     "outstanding": [
-      "Confirm the summer window is still before 9:30am / after 5:30pm and that the ordinance still keys off Memorial Day weekend and the Sunday after Labor Day.",
-      "License: confirm cost of the 3-day, 8-day and lifetime options, where to buy, and whether proof of rabies is required at purchase.",
       "Confirm the fine for an unlicensed dog — this is the number that makes the page useful.",
       "Confirm off-leash is still permitted off-season, and get the town's own wording for \"under full control\".",
       "Confirm whether the rules differ on the bay side.",
-      "Confirm Town Hall seasonal hours — the weekend opening is what makes a visitor license possible."
+      "Confirm the fine for an unlicensed dog. The town publishes the rule and not the penalty."
     ],
     "profile": {
       "water": "Ocean and bay",
@@ -277,7 +280,46 @@
         "verified": false
       }
     ],
-    "sourcedOn": "2026-08-01"
+    "sourcedOn": "2026-08-01",
+    "license": {
+      "options": [
+        {
+          "label": "3-day temporary",
+          "price": "$5"
+        },
+        {
+          "label": "8-day temporary",
+          "price": "$10"
+        },
+        {
+          "label": "Lifetime",
+          "price": "$37, plus $2 shipping"
+        },
+        {
+          "label": "Souvenir tag and lifetime license",
+          "price": "$52, plus $2 shipping"
+        }
+      ],
+      "where": [
+        {
+          "label": "Online, on the town's own page",
+          "url": "https://www.townofdeweybeach.gov/purchaseadoglicense",
+          "note": "Quickest if you're not there yet."
+        },
+        {
+          "label": "Town Hall, 105 Rodney Avenue",
+          "url": null,
+          "note": "Mon–Thu 8am–4:30pm, Fri 8am–6pm, Sat 9am–3pm, Sun 9am–2pm. It opens on weekends, which is what makes a visitor license possible."
+        },
+        {
+          "label": "The kiosk at the Town Hall parking lot entrance",
+          "url": null,
+          "note": "Temporary licenses only. It is automated, so it works outside office hours."
+        }
+      ],
+      "needed": "The month and year of your dog's last rabies vaccination. You enter it at purchase.",
+      "note": "Buy a temporary one and the confirmation email IS the license — keep a screenshot or a printout on you. A lifetime license comes as a physical tag in the post, so it's no use for a trip this weekend. All purchases are non-refundable."
+    }
   },
   {
     "slug": "bethany-beach",
