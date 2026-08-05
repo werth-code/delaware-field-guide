@@ -48,6 +48,11 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: disc golf",
+        "url": "https://www.destateparks.com/disc-golf/",
+        "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -251,7 +256,7 @@
       "boatLaunch": true,
       "boatRentals": null,
       "pier": null,
-      "discGolf": null,
+      "discGolf": true,
       "restrooms": null
     },
     "feeBand": "inland",
@@ -270,7 +275,8 @@
     "outstanding": [
       "Get the park office number.",
       "Confirm boat and paddle rental availability and season.",
-      "Confirm whether DNREC posts bloom advisories on site."
+      "Confirm whether DNREC posts bloom advisories on site.",
+      "Get the disc golf hole count and layout. The state names the parks and publishes nothing else."
     ],
     "sources": [
       {
@@ -282,6 +288,11 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: disc golf",
+        "url": "https://www.destateparks.com/disc-golf/",
+        "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
       }
     ],
     "sourcedOn": "2026-08-02"
@@ -334,6 +345,11 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: disc golf",
+        "url": "https://www.destateparks.com/disc-golf/",
+        "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
       }
     ],
     "sourcedOn": "2026-08-02"
@@ -393,6 +409,11 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: disc golf",
+        "url": "https://www.destateparks.com/disc-golf/",
+        "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -531,6 +552,11 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: disc golf",
+        "url": "https://www.destateparks.com/disc-golf/",
+        "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -637,6 +663,11 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: disc golf",
+        "url": "https://www.destateparks.com/disc-golf/",
+        "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -749,6 +780,11 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: disc golf",
+        "url": "https://www.destateparks.com/disc-golf/",
+        "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
       }
     ],
     "sourcedOn": "2026-08-02",

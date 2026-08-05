@@ -1,0 +1,199 @@
+---
+/**
+ * Disc golf.
+ *
+ * DERIVED, NOT AUTHORED.
+ *
+ * There is no disc-golf dataset. Every course on this page comes from a
+ * `discGolf: true` on a park record that already exists, which means the page
+ * cannot disagree with the park page it links to and cannot go stale on its
+ * own. Set the flag on a park and it appears here; clear it and it goes.
+ *
+ * WHAT THIS PAGE CAN AND CANNOT SAY
+ *
+ * Delaware State Parks names the seven parks with a course and publishes
+ * nothing else — no hole counts, no tee-pad detail, no maps. Every guide to
+ * this that I could find fills that in from somewhere, and none of them says
+ * where from. So this page states where the courses are, states plainly that
+ * the layouts aren't published, and puts the thing that actually costs money
+ * at the top: the round is free, the gate is not.
+ */
+import Layout from "../../layouts/Layout.astro";
+import Tag from "../../components/Tag.astro";
+import FeatureIcon from "../../components/FeatureIcon.astro";
+import ShareRow from "../../components/ShareRow.astro";
+
+import stateParksData from "../../data/state-parks.json";
+import communityParksData from "../../data/community-parks.json";
+import type { StatePark } from "../../lib/state-parks";
+import { feeText, present as presentState } from "../../lib/state-parks";
+import type { CommunityPark } from "../../lib/community-parks";
+import { present as presentCommunity } from "../../lib/community-parks";
+import { isPublishable, robotsFor } from "../../lib/verification";
+import { colorFor } from "../../lib/feature-colors";
+
+const stateParks = (stateParksData as StatePark[]).filter((p) => p.features.discGolf === true);
+const community = (communityParksData as CommunityPark[]).filter((p) => p.facilities.discGolf === true);
+
+const live = [...stateParks, ...community].filter(isPublishable);
+const gate = {
+  verifiedDate: null,
+  verifiedSource: null,
+  sources: live.length ? [{ label: "x", url: "x" }] : null,
+  sourcedOn: live.length ? "2026-08-05" : null,
+};
+
+const free = community.length;
+const total = stateParks.length + community.length;
+
+const courses = [
+  ...stateParks.map((p) => ({
+    name: p.name,
+    href: `/parks/${p.slug}/`,
+    kind: "State park",
+    where: `${p.town}, ${p.county} County`,
+    fee: feeText(p).text,
+    paid: true,
+    tags: presentState(p),
+    photo: p.photos?.[0] ?? null,
+  })),
+  ...community.map((p) => ({
+    name: p.name,
+    href: `/parks/community/${p.slug}/`,
+    kind: p.operator,
+    /* Town only. The operator is often the county, and "New Castle County ·
+       Newark, New Castle County" is the county twice in one line. */
+    where: p.town,
+    fee: "Free to enter",
+    paid: false,
+    tags: presentCommunity(p),
+    photo: p.photos?.[0] ?? null,
+  })),
+];
+---
+
+<Layout
+  title="Delaware disc golf courses — all 9, and what entry costs"
+  description="Every disc golf course in a Delaware state or county park, county by county, with the park entry fee that applies before you throw. Free courses marked."
+  robots={robotsFor(gate)}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">Disc golf</p>
+    <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[16ch] text-marsh">
+      The round is free. The gate isn't.
+    </h1>
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
+      Delaware has {total} courses in public parks, {stateParks.length} of them
+      in state parks. Nobody charges to play. Seven of them sit behind a park
+      entrance fee, and that's the number worth knowing before you drive.
+    </p>
+  </div>
+
+  <div class="wrap prose-field pb-2">
+    <h2>What the state publishes, and what it doesn't</h2>
+    <p class="max-w-[58ch]">
+      Delaware State Parks names the seven parks with a course. That is the
+      whole of it — no hole counts, no tee pads, no maps, nothing about which
+      is wooded and which is open.
+    </p>
+    <p class="max-w-[58ch]">
+      Every other guide to this fills that in, and not one of them says where
+      the numbers came from. So this page tells you where the courses are and
+      what getting in costs, and says plainly that the layouts aren't
+      published rather than inventing them.
+    </p>
+
+    <div class="sign breakout my-6 px-4 sm:px-5 py-4 not-prose">
+      <p class="label m-0">Where this stands</p>
+      <dl class="grid grid-cols-3 gap-4 mt-3 mb-0">
+        {
+          [
+            { n: total, label: "courses listed" },
+            { n: free, label: "free to walk into" },
+            { n: 0, label: "hole counts confirmed" },
+          ].map((s) => (
+            <div>
+              <dt class="font-display text-[2rem] font-bold text-marsh leading-none">{s.n}</dt>
+              <dd class="m-0 mt-1 stamp text-ink-soft">{s.label}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <p class="mt-3.5 mb-0 text-[0.9rem] leading-snug text-ink-soft max-w-[56ch]">
+        That last zero is honest. Everyone says the state courses are 18 holes
+        and the state doesn't say it anywhere I can point at, so it isn't here
+        yet.
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap pb-8">
+    <ul class="list-none p-0 m-0 grid gap-4 sm:grid-cols-2 breakout">
+      {
+        courses.map((c, i) => (
+          <li data-reveal style={`--stagger:${Math.min(i, 7)}`}>
+            <a href={c.href} class="sign sign-action block no-underline h-full group overflow-hidden">
+              <div class="p-4 sm:p-5">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="font-display text-[1.15rem] font-semibold tracking-[-0.03em] m-0 text-marsh underline decoration-ochre decoration-2 underline-offset-[0.16em] group-hover:decoration-marsh">
+                      {c.name}
+                    </p>
+                    <p class="stamp text-ink-soft mt-1 mb-0">{c.kind} · {c.where}</p>
+                  </div>
+                  <FeatureIcon
+                    icon="discGolf"
+                    class="w-[1.6rem] h-[1.6rem] shrink-0"
+                    style={`color:${colorFor("discGolf")}`}
+                  />
+                </div>
+
+                {/* The fee leads. It is the only thing about a round here
+                    that costs anything, and it varies by park. */}
+                <div class="mt-3.5 border-y-2 border-marsh py-2.5 flex items-baseline justify-between gap-3">
+                  <span class="label">To get in</span>
+                  <span class={`text-[0.92rem] text-right ${c.paid ? "text-ink font-medium" : "text-flag-green-bearing font-medium"}`}>
+                    {c.fee}
+                  </span>
+                </div>
+
+                {c.tags.length > 0 && (
+                  <ul class="list-none p-0 m-0 mt-3.5 flex flex-wrap gap-1.5">
+                    {c.tags.slice(0, 5).map((t) => (
+                      <Tag icon={t.key as any} label={t.label} emphasis={t.emphasis} />
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    <h2>If you're playing more than one</h2>
+    <p class="max-w-[58ch]">
+      Seven of these are state parks, and the annual pass covers entry to all
+      of them — $50 for a Delaware-registered vehicle, $100 out of state. Two
+      rounds a month through the season and it has paid for itself.
+      <a href="/parks/">The full fee table is on the parks page</a>.
+    </p>
+
+    <ShareRow
+      title={"Delaware disc golf courses"}
+      summary={"Every course in a public park, with the entry fee that applies before you throw."}
+      heading={"Send this to whoever has the discs"}
+      pitch={"The round is free everywhere. Seven of the nine sit behind a park gate."}
+      class="breakout my-8"
+    />
+
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/parks/">The 17 state parks</a></li>
+      <li><a href="/parks/community/">Community and county parks</a></li>
+      <li><a href="/good-for/">Pick the afternoon</a></li>
+    </ul>
+  </div>
+</Layout>
