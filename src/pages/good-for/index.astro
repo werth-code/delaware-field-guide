@@ -7,7 +7,6 @@ import { allGoodFor } from "../../lib/good-for";
 import { isPublishable } from "../../lib/verification";
 
 const tags = allGoodFor(stateParksData as any[], communityParksData as any[]);
-const dogParksHeld = (dogParksData as any[]).filter((p) => !isPublishable(p)).length;
 ---
 
 <Layout
@@ -43,19 +42,6 @@ const dogParksHeld = (dogParksData as any[]).filter((p) => !isPublishable(p)).le
   </div>
 
   <div class="wrap prose-field pb-4">
-    <h2>The tags that aren't here yet</h2>
-    <p class="max-w-[58ch]">
-      The most useful lists this site could carry are the dog park ones. Which
-      are actually fenced. Which have a separate small-dog side, which matters a
-      lot if your dog is reactive. Which have water in August.
-    </p>
-    <p class="max-w-[58ch]">
-      None of them can ship. All {dogParksHeld} dog parks are still unconfirmed,
-      because their details came off review sites rather than from anyone who
-      stood in them, and a tag built on that is a promise I can't keep. Confirm
-      the parks and the lists appear on their own.
-    </p>
-
     <h2>Related</h2>
     <ul>
       <li><a href="/parks/">All 17 state parks</a></li>

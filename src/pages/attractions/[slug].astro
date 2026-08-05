@@ -23,14 +23,14 @@ import {
   giftShopAnswer,
   hoursAnswer,
   restroomAnswer,
-  isIndoors,
+  OUTDOOR_KINDS,
   type IndoorPlace,
 } from "../../lib/indoor";
 import { isVerified, isPublishable, robotsFor, sourcedText, stampText, tierOf } from "../../lib/verification";
 import { formatStampDate } from "../../lib/rules";
 
 export const getStaticPaths = (() =>
-  (indoorData as unknown as IndoorPlace[]).filter(isIndoors).map((place) => ({
+  (indoorData as unknown as IndoorPlace[]).filter((p) => OUTDOOR_KINDS.includes(p.kind)).map((place) => ({
     params: { slug: place.slug },
     props: { place },
   }))) satisfies GetStaticPaths;
@@ -99,7 +99,7 @@ const rows: { label: string; text: string; state: "yes" | "no" | "unknown" }[] =
   <article>
     <div class="wrap pt-11 pb-5">
       <p class="label m-0">
-        <a href="/indoors/" class="no-underline hover:underline">Indoors</a>
+        <a href="/attractions/" class="no-underline hover:underline">Attractions</a>
         <span class="text-ink-soft"> · </span>{place.town}, {place.county} County
       </p>
       <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[18ch] text-marsh">{place.name}</h1>
@@ -332,11 +332,12 @@ const rows: { label: string; text: string; state: "yes" | "no" | "unknown" }[] =
         </ul>
       </aside>
 
-      <ReportBox subject={place.name} path={`/indoors/${place.slug}/`} asks={asks} />
+      <ReportBox subject={place.name} path={`/attractions/${place.slug}/`} asks={asks} />
 
       <h2>Related</h2>
       <ul>
-        <li><a href="/indoors/">Everything indoors in the county</a></li>
+        <li><a href="/attractions/">Every ticketed day out</a></li>
+        <li><a href="/indoors/">Museums, science centers and libraries</a></li>
         <li><a href="/parks/">The state parks</a></li>
         <li><a href="/events/">Fairs and events</a></li>
       </ul>

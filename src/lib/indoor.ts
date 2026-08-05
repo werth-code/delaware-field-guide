@@ -66,13 +66,27 @@ export type IndoorKind =
   | "Historic site"
   | "Gallery"
   /**
-   * A zoo is not indoors, and this section is called Indoors. It sits here
-   * anyway because it is the same SHAPE of record as everything else in it —
-   * a gate, a ticket, and hours that shut — and none of the park datasets can
-   * hold those. The index page says so out loud rather than quietly filing an
-   * outdoor place under a heading that promises shelter.
+   * Outdoor, but the same SHAPE of record as everything else here: a gate, a
+   * ticket, and hours that shut. No park dataset can hold those.
+   *
+   * It briefly sat on /indoors/ with a warning saying it wasn't indoors, on a
+   * page headed "When it rains". A caveat doesn't undo a recommendation — if
+   * a section's whole promise is shelter, listing something that offers none
+   * is wrong however honestly it's labeled. So the data is shared and the
+   * PAGES are split: see OUTDOOR_KINDS.
    */
   | "Zoo";
+
+/**
+ * Which kinds keep the rain off.
+ *
+ * One dataset, two sections. /indoors/ answers "it's raining, where do I take
+ * a seven-year-old" and may only contain places that actually answer it.
+ * /attractions/ takes the rest — same record shape, same template, no shelter
+ * promised.
+ */
+export const OUTDOOR_KINDS: IndoorKind[] = ["Zoo"];
+export const isIndoors = (p: { kind: IndoorKind }) => !OUTDOOR_KINDS.includes(p.kind);
 
 /**
  * Opening hours, in the two shapes these actually come in.

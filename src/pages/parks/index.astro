@@ -73,47 +73,6 @@ const schema = verified.length
     </p>
   </div>
 
-  <div class="wrap prose-field pb-2">
-    <h2>What it costs in 2026</h2>
-    <p class="max-w-[58ch]">
-      Entry fees rose on <strong>1 March 2026</strong> and the beach parks
-      roughly doubled. Most published guides still quote the old numbers, so
-      budget from this instead of from a blog post.
-    </p>
-
-    <dl class="sign breakout my-6 divide-y-2 divide-tide/30">
-      {
-        [
-          { label: "Beach parks — in-state vehicle", value: "$10 / day" },
-          { label: "Beach parks — out-of-state", value: "$20 / day" },
-          { label: "Inland parks — in-state", value: "$5 / day" },
-          { label: "Inland parks — out-of-state", value: "$10 / day" },
-          { label: "Annual pass — in-state", value: "$50" },
-          { label: "Annual pass — out-of-state", value: "$100" },
-          { label: "Lifetime pass — DE residents 65+", value: "$150" },
-        ].map((f) => (
-          <div class="px-4 sm:px-5 py-3 flex items-baseline justify-between gap-6">
-            <dt class="label">{f.label}</dt>
-            <dd class="m-0 stamp text-[0.95rem] text-ink shrink-0">{f.value}</dd>
-          </div>
-        ))
-      }
-    </dl>
-    <p class="stamp text-ink-soft mt-0 mb-0">
-      Charged 1 March – 30 November. Seniors and military get 50% off the annual
-      pass. Surf-fishing permits are priced separately.
-    </p>
-
-    <h2>Dogs, in one line</h2>
-    <p class="max-w-[58ch]">
-      Leashed, everywhere, all year — <em>except</em> on guarded swimming
-      beaches between 1 May and 30 September, and at Beach Plum Island, which is
-      closed to pets year-round. That exception is narrower than almost every
-      guide reports it.
-      <a href="/dogs/state-parks/">The full rule is in the dog section</a>.
-    </p>
-  </div>
-
   {
     byCounty.map(({ county, parks: group }) => (
       <div class="wrap pb-8">
@@ -178,6 +137,47 @@ const schema = verified.length
       </div>
     ))
   }
+
+  <div class="wrap prose-field pb-2">
+    <h2>What it costs in 2026</h2>
+    <p class="max-w-[58ch]">
+      Entry fees rose on <strong>1 March 2026</strong> and the beach parks
+      roughly doubled. Most published guides still quote the old numbers, so
+      budget from this instead of from a blog post.
+    </p>
+
+    <dl class="sign breakout my-6 divide-y-2 divide-tide/30">
+      {
+        [
+          { label: "Beach parks — in-state vehicle", value: "$10 / day" },
+          { label: "Beach parks — out-of-state", value: "$20 / day" },
+          { label: "Inland parks — in-state", value: "$5 / day" },
+          { label: "Inland parks — out-of-state", value: "$10 / day" },
+          { label: "Annual pass — in-state", value: "$50" },
+          { label: "Annual pass — out-of-state", value: "$100" },
+          { label: "Lifetime pass — DE residents 65+", value: "$150" },
+        ].map((f) => (
+          <div class="px-4 sm:px-5 py-3 flex items-baseline justify-between gap-6">
+            <dt class="label">{f.label}</dt>
+            <dd class="m-0 stamp text-[0.95rem] text-ink shrink-0">{f.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+    <p class="stamp text-ink-soft mt-0 mb-0">
+      Charged 1 March – 30 November. Seniors and military get 50% off the annual
+      pass. Surf-fishing permits are priced separately.
+    </p>
+
+    <h2>Dogs, in one line</h2>
+    <p class="max-w-[58ch]">
+      Leashed, everywhere, all year — <em>except</em> on guarded swimming
+      beaches between 1 May and 30 September, and at Beach Plum Island, which is
+      closed to pets year-round. That exception is narrower than almost every
+      guide reports it.
+      <a href="/dogs/state-parks/">The full rule is in the dog section</a>.
+    </p>
+  </div>
 
   <div class="wrap prose-field pb-4">
     <h2>How complete this is</h2>

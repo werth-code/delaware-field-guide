@@ -22,11 +22,11 @@ import CardPhoto from "../../components/CardPhoto.astro";
 import Tag from "../../components/Tag.astro";
 
 import indoorData from "../../data/indoor.json";
-import { COUNTY_ORDER, completeness, hoursAnswer, isIndoors, present, type IndoorPlace } from "../../lib/indoor";
+import { COUNTY_ORDER, completeness, hoursAnswer, OUTDOOR_KINDS, present, type IndoorPlace } from "../../lib/indoor";
 import { isPublishable, robotsFor } from "../../lib/verification";
 import { byPhotoThen } from "../../lib/order";
 
-const places = (indoorData as unknown as IndoorPlace[]).filter(isIndoors);
+const places = (indoorData as unknown as IndoorPlace[]).filter((p) => OUTDOOR_KINDS.includes(p.kind));
 const live = places.filter(isPublishable);
 const gate = {
   verifiedDate: null,
@@ -47,19 +47,19 @@ const byCounty = COUNTY_ORDER.map((county) => ({
 ---
 
 <Layout
-  title="Delaware museums and libraries — hours and admission"
-  description="Delaware museums, science centers and libraries by county: opening hours, what admission costs, what's inside. Where to take the kids when it rains at the beach."
+  title="Delaware attractions — hours, tickets and what's there"
+  description="Ticketed days out in Delaware that aren't parks and aren't indoors: opening hours, what admission costs and what's actually on site. Free winter days marked."
   robots={robotsFor(gate)}
 >
   <div class="wrap pt-11 pb-6">
-    <p class="label m-0">Indoors</p>
+    <p class="label m-0">Attractions</p>
     <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
-      When it rains
+      Days out with a gate
     </h1>
     <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
-      Museums, natural history, art and fifteen library branches, sorted by
-      county. Everywhere here is warm, dry and indoors. The rest of the site
-      covers <a href="/parks/">the days you can get outside</a>.
+      Places that charge admission and close at a time, and that aren't parks.
+      Mostly outdoors, so check the forecast first — for the warm and dry, see
+      <a href="/indoors/">museums and libraries</a>.
     </p>
   </div>
 
@@ -75,7 +75,7 @@ const byCounty = COUNTY_ORDER.map((county) => ({
           const has = present(place);
           return (
             <article data-reveal class="sign sign-action relative group overflow-hidden">
-              <a href={`/indoors/${place.slug}/`} class="absolute inset-0 z-10 no-underline">
+              <a href={`/attractions/${place.slug}/`} class="absolute inset-0 z-10 no-underline">
                 <span class="sr-only">{place.name}</span>
               </a>
 
@@ -141,72 +141,26 @@ const byCounty = COUNTY_ORDER.map((county) => ({
   }
 
   <div class="wrap prose-field pb-2">
-    <h2>Check the hours before you drive</h2>
+    <h2>Why these aren't in with the parks</h2>
     <p class="max-w-[58ch]">
-      This is the one section where turning up unannounced doesn't work. The
-      Delaware Art Museum and the Biggs are shut Monday and Tuesday. The Old
-      State House is shut Sunday through Tuesday. Hagley closes Wednesdays.
-      Zwaanendael is shut Sunday and Monday, which is half of a beach weekend.
+      A park is open. These have a gate, a ticket and a closing time, and no
+      park dataset on this site can hold those three things. So they share a
+      record shape with the museums even though they share a roof with nothing.
     </p>
-
     <p class="max-w-[58ch]">
-      Two are shut for building work right now and still show as open on maps:
-      the Johnson Victrola Museum until autumn, and the Newark Free Library for
-      a construction project. Hagley's powder yard closes 24 August to 4
-      September, and admission goes half price while it does.
+      The Brandywine Zoo sat on the Indoors page for a day with a warning
+      saying it wasn't indoors. That was wrong: a caveat doesn't undo a
+      recommendation, and a page headed <em>When it rains</em> shouldn't list
+      somewhere with no shelter however honestly it's labeled.
     </p>
-
-    <p class="max-w-[58ch]">
-      So hours sit at the top of every card and every page here, and where I
-      don't know them it says so instead of implying you're welcome.
-    </p>
-
-    <div class="sign breakout my-6 px-4 sm:px-5 py-4">
-      <p class="label m-0">Where this dataset stands</p>
-      <dl class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-3 mb-0">
-        {
-          [
-            { n: places.length, label: "places listed" },
-            { n: free, label: "free to walk into" },
-            { n: unknownAdmission, label: "price not published" },
-            { n: shut, label: "hours not published" },
-          ].map((s) => (
-            <div>
-              <dt class="font-display text-[2rem] font-semibold text-marsh leading-none">{s.n}</dt>
-              <dd class="m-0 mt-1 stamp text-ink-soft">{s.label}</dd>
-            </div>
-          ))
-        }
-      </dl>
-      <p class="mt-3.5 mb-0 text-[0.9rem] leading-snug text-ink-soft max-w-[56ch]">
-        Every free one here is state-run. Winterthur and the Biggs publish no
-        admission price on their visit pages at all — that's not an oversight on
-        my end, it's genuinely not published, and both are on the call list.
-      </p>
-    </div>
   </div>
 
   <div class="wrap prose-field pb-4">
-    <h2>Why a library is in here</h2>
-    <p class="max-w-[58ch]">
-      Because on a wet Tuesday it's the most reliable indoor room in the state.
-      Free, warm, has a bathroom, and nobody minds how long you stay. Fifteen
-      New Castle County branches keep fifteen different timetables, which is a
-      nuisance to look up fifteen times, so they're in one table with the
-      number to call beside each one.
-    </p>
-    <p class="max-w-[58ch]">
-      Kent and Sussex libraries aren't in here yet. That's a gap, not a
-      judgement — they're independent of the county systems and each publishes
-      separately, so it's a pass of its own.
-    </p>
-
     <h2>Related</h2>
     <ul>
+      <li><a href="/indoors/">Museums, science centers and libraries</a></li>
       <li><a href="/parks/">The 17 state parks</a></li>
-      <li><a href="/parks/community/">Community and county parks</a></li>
       <li><a href="/events/">Fairs and events</a></li>
-      <li><a href="/dogs/">Dog rules by town</a></li>
     </ul>
   </div>
 </Layout>

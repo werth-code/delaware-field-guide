@@ -71,6 +71,22 @@ const schema = verified.length
     </p>
   </div>
 
+  {
+    byCounty.map(({ county, parks: group }) => (
+      <div class="wrap pb-8">
+        <h2 class="font-display text-[1.5rem] font-bold text-marsh border-b-[3px] border-marsh pb-2 mb-5 mt-8">
+          {county} County
+          <span class="stamp text-ink-soft ms-2">{group.length}</span>
+        </h2>
+        <div class="grid gap-4 sm:grid-cols-2 breakout">
+          {group.map((park) => (
+            <ParkCard park={park} />
+          ))}
+        </div>
+      </div>
+    ))
+  }
+
   <div class="wrap prose-field pb-2">
     <h2>Read this first</h2>
     <p class="max-w-[58ch]">
@@ -111,22 +127,6 @@ const schema = verified.length
       these still say not confirmed.
     </p>
   </div>
-
-  {
-    byCounty.map(({ county, parks: group }) => (
-      <div class="wrap pb-8">
-        <h2 class="font-display text-[1.5rem] font-bold text-marsh border-b-[3px] border-marsh pb-2 mb-5 mt-8">
-          {county} County
-          <span class="stamp text-ink-soft ms-2">{group.length}</span>
-        </h2>
-        <div class="grid gap-4 sm:grid-cols-2 breakout">
-          {group.map((park) => (
-            <ParkCard park={park} />
-          ))}
-        </div>
-      </div>
-    ))
-  }
 
   <div class="wrap prose-field pb-4">
     <h2>What's missing</h2>
