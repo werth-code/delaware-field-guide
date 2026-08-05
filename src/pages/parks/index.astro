@@ -16,6 +16,7 @@ import FlagIcon from "../../components/FlagIcon.astro";
 import CardPhoto from "../../components/CardPhoto.astro";
 import Tag from "../../components/Tag.astro";
 import CardShare from "../../components/CardShare.astro";
+import Filters from "../../components/Filters.astro";
 
 import parksData from "../../data/state-parks.json";
 import { COUNTY_ORDER, completeness, feeText, present, type StatePark } from "../../lib/state-parks";
@@ -28,6 +29,18 @@ const pageGate = {
   verifiedDate: verified.length ? "confirmed" : null,
   verifiedSource: verified.length ? "confirmed" : null,
 };
+
+/* Filters are derived from the records, so a chip can never be empty and the
+   counts can never disagree with the grid. */
+const tagCounts = new Map<string, { key: string; label: string; count: number }>();
+for (const p of parks) {
+  for (const t of present(p)) {
+    const e = tagCounts.get(t.key) ?? { key: t.key, label: t.label, count: 0 };
+    e.count++;
+    tagCounts.set(t.key, e);
+  }
+}
+const filterTags = [...tagCounts.values()].sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
 
 const byCounty = COUNTY_ORDER.map((county) => ({
   county,
@@ -74,9 +87,13 @@ const schema = verified.length
     </p>
   </div>
 
+  <div class="wrap pb-4">
+    <Filters tags={filterTags} noun="parks" class="breakout" />
+  </div>
+
   {
     byCounty.map(({ county, parks: group }) => (
-      <div class="wrap pb-8">
+      <div class="wrap pb-8" data-filter-group>
         <h2 class="font-display text-[1.5rem] font-bold text-marsh border-b-[3px] border-marsh pb-2 mb-5 mt-8">
           {county} County
           <span class="stamp text-ink-soft ms-2">{group.length}</span>
@@ -88,7 +105,11 @@ const schema = verified.length
             const has = present(park);
             const fee = feeText(park);
             return (
-              <article data-reveal class="sign sign-action relative group">
+              <article
+                data-reveal
+                data-tags={has.map((t) => t.key).join(" ")}
+                class="sign sign-action relative group"
+              >
                 <a href={`/parks/${park.slug}/`} class="absolute inset-0 z-10 no-underline">
                   <span class="sr-only">{park.name}</span>
                 </a>
