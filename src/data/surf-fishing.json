@@ -279,8 +279,8 @@
       }
     ],
     "exemption": {
-      "rule": "A valid surf fishing vehicle permit exempts the permit holder from needing a fishing licence — but only while the vehicle is on a designated Delaware State Park beach.",
-      "catch": "Everyone else in the vehicle still needs their own licence. A father with a permit is covered; his adult son standing beside him is not. This is exactly what gets people ticketed, and nobody lays it out.",
+      "rule": "A valid surf fishing vehicle permit exempts the permit holder from needing a fishing license — but only while the vehicle is on a designated Delaware State Park beach.",
+      "catch": "Everyone else in the vehicle still needs their own license. A father with a permit is covered; his adult son standing beside him is not. This is exactly what gets people ticketed, and nobody lays it out.",
       "seniors": "Residents 65 and over don't need a permit but must show proof of residency."
     },
     "verifiedDate": null,
@@ -297,7 +297,7 @@
   "rules": [
     {
       "label": "The fine",
-      "value": "$107, escalating for repeat offences."
+      "value": "$107, escalating for repeat offenses."
     },
     {
       "label": "Mandatory video",

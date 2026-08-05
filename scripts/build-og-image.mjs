@@ -2,7 +2,7 @@
  * Generate the Open Graph share card.
  *
  * Every link someone texts or posts to r/DelawareBeaches renders as a card,
- * and without an image that card is a grey box — which is a real cost when
+ * and without an image that card is a gray box — which is a real cost when
  * word of mouth is the entire distribution plan.
  *
  * One static card rather than per-page images: per-page cards need a rendering

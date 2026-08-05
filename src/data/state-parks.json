@@ -54,7 +54,7 @@
     "photos": [
       {
         "file": "cape-henlopen-bay",
-        "alt": "Still bay water at dusk under a heavy grey and cream cloudscape, with low marsh islands topped by pines in the middle distance and marsh grass in the foreground.",
+        "alt": "Still bay water at dusk under a heavy gray and cream cloudscape, with low marsh islands topped by pines in the middle distance and marsh grass in the foreground.",
         "caption": "The bay side at dusk, flat calm. A tower breaks the treeline on the far right of the horizon.",
         "credit": "Site maintainer",
         "takenOn": null,
@@ -217,7 +217,7 @@
     "outstanding": [
       "Get the park office number.",
       "Confirm the fee band — bay-side parks may be priced as beach parks.",
-      "Confirm crabbing pier access and whether a licence is needed."
+      "Confirm crabbing pier access and whether a license is needed."
     ],
     "sources": [
       {
@@ -441,7 +441,7 @@
     "photos": [
       {
         "file": "lums-pond-dock",
-        "alt": "The end of a weathered wooden dock, looking straight down a wide wooded pond under a grey overcast sky.",
+        "alt": "The end of a weathered wooden dock, looking straight down a wide wooded pond under a gray overcast sky.",
         "caption": "From the end of one of the docks, looking down the pond. Overcast summer day.",
         "credit": "Site maintainer",
         "takenOn": null,
@@ -831,7 +831,7 @@
       },
       {
         "file": "alapocas-run-bridge",
-        "alt": "Looking along a rust-coloured steel truss footbridge with a wet timber deck scattered with pale fallen leaves, the paved trail continuing into dense green woods beyond.",
+        "alt": "Looking along a rust-colored steel truss footbridge with a wet timber deck scattered with pale fallen leaves, the paved trail continuing into dense green woods beyond.",
         "caption": "One of the steel footbridges over the run, wet and leaf-covered. The paved trail carries straight on the other side.",
         "credit": "Site maintainer",
         "takenOn": null,
@@ -968,7 +968,7 @@
     "acres": 296,
     "kind": "Historic",
     "town": "Delaware City",
-    "blurb": "A former coastal defence installation and later a hospital site on the Delaware River at Delaware City, now partly redeveloped. Trails, remnant batteries, and a view across to Pea Patch Island.",
+    "blurb": "A former coastal defense installation and later a hospital site on the Delaware River at Delaware City, now partly redeveloped. Trails, remnant batteries, and a view across to Pea Patch Island.",
     "features": {
       "beach": false,
       "guardedSwimming": false,
@@ -1186,14 +1186,14 @@
       {
         "file": "riverwalk-arch-bridge",
         "alt": "Looking along a wide timber-decked footbridge with a laminated timber arch overhead and steel cables, marsh and power lines on both sides.",
-        "caption": "The arched footbridge over the marsh. Wide enough for bikes and pushchairs both ways.",
+        "caption": "The arched footbridge over the marsh. Wide enough for bikes and strollers both ways.",
         "credit": "Site maintainer",
         "takenOn": null,
         "portrait": false
       },
       {
         "file": "riverwalk-deec",
-        "alt": "A four-storey building clad in dark shingles and timber slats with a tall open stair tower beside it, seen from below across tall marsh grass.",
+        "alt": "A four-story building clad in dark shingles and timber slats with a tall open stair tower beside it, seen from below across tall marsh grass.",
         "caption": "The DuPont Environmental Education Center from the marsh below, with its stair tower.",
         "credit": "Site maintainer",
         "takenOn": null,
@@ -1201,8 +1201,8 @@
       },
       {
         "file": "riverwalk-deec-sign",
-        "alt": "A grey sign reading DuPont Environmental Education Center mounted on a slatted timber wall, with steel mesh walkway rails in front.",
-        "caption": "The sign on the building. The centre is run by the Delaware Nature Society, not by the park.",
+        "alt": "A gray sign reading DuPont Environmental Education Center mounted on a slatted timber wall, with steel mesh walkway rails in front.",
+        "caption": "The sign on the building. The center is run by the Delaware Nature Society, not by the park.",
         "credit": "Site maintainer",
         "takenOn": null,
         "portrait": false
@@ -1223,7 +1223,7 @@
       },
       {
         "label": "DuPont Environmental Education Center",
-        "note": "A four-storey centre on the marsh, run by the Delaware Nature Society rather than by the park."
+        "note": "A four-story center on the marsh, run by the Delaware Nature Society rather than by the park."
       },
       {
         "label": "Russell W. Peterson Urban Wildlife Refuge",

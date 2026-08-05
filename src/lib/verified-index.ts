@@ -109,7 +109,7 @@ export function buildVerifiedIndex(today = new Date()): VerifiedRow[] {
     ["afterFour", "The after-4pm no-reservation rule", "/surf-fishing/"],
     ["permits", "Surf fishing permit prices", "/surf-fishing/permits/"],
     ["offPeakEnding", "Off-peak permit discontinued in 2027", "/surf-fishing/permits/"],
-    ["license", "Fishing licence tiers and the permit exemption", "/surf-fishing/permits/"],
+    ["license", "Fishing license tiers and the permit exemption", "/surf-fishing/permits/"],
     ["closures", "Nesting closures at The Point", "/surf-fishing/"],
     ["noResidentPriority", "Why residents get no reservation priority", "/surf-fishing/"],
   ];

@@ -21,7 +21,7 @@
   slightly out of registration.
 
   Chrome is a deep marsh green that anchors the top and bottom of every page.
-  The reading field is warm dune sand, not the cold grey it started as. Teal
+  The reading field is warm dune sand, not the cold gray it started as. Teal
   and ochre do the decorative work so the three flag colors stay reserved.
 
   WHY IT LOOKS LIKE THIS
@@ -59,7 +59,7 @@
   --color-foam: #a9d5cc; /* palest teal. hairlines on dark */
 
   /* ---- Reading field --------------------------------------------------- */
-  --color-sand: #f0e4ce; /* page ground — warm dune, not grey */
+  --color-sand: #f0e4ce; /* page ground — warm dune, not gray */
   --color-shell: #fbf5e9; /* raised panels */
   --color-shell-sunk: #e6dac2; /* table heads, inset rows */
 
@@ -496,7 +496,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
  *
  * This is a WPA screen print. A poster is made by laying one ink at a time and
  * lining each up with the last, and that is what the load should feel like:
- * the colour arrives, then snaps into register. Sharp, mechanical, over fast.
+ * the color arrives, then snaps into register. Sharp, mechanical, over fast.
  *
  * Nothing eases out slowly and nothing floats. A press does not float.
  */
@@ -507,7 +507,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     to   { transform: none; }
   }
 
-  /* The ochre rule under the masthead is the second colour going down. */
+  /* The ochre rule under the masthead is the second color going down. */
   .field-deep + div[class*="bg-ochre"] {
     transform-origin: left center;
     animation: register 0.5s 0.08s cubic-bezier(0.2, 1, 0.3, 1) both;
@@ -527,7 +527,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   [data-reveal] { transition-delay: calc(var(--stagger, 0) * 45ms); }
 
   /* A poster card lifts off the sheet and casts a hard-edged shadow, the way
-     a second colour sits proud of the first. No blur: this is print. */
+     a second color sits proud of the first. No blur: this is print. */
   .sign-action { transition: transform 0.13s ease-out, box-shadow 0.13s ease-out; }
   .sign-action:hover {
     transform: translateY(-2px);

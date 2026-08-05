@@ -34,10 +34,10 @@ export interface Photo {
   portrait?: boolean;
   /**
    * Where to anchor the crop on a listing thumbnail, as a CSS object-position.
-   * Defaults to centre.
+   * Defaults to center.
    *
    * Thumbnails are a fixed 16:9 box and most of these photos are 4:3, so a
-   * centre crop throws away the top and bottom eighth. Usually that is sky and
+   * center crop throws away the top and bottom eighth. Usually that is sky and
    * sand. Occasionally it is the thing the photo is of. Only set this when the
    * default actually loses the subject.
    */
@@ -83,7 +83,7 @@ export interface StateParkFeatures {
    * Added late, and that is the point.
    *
    * The other nine features are the ones DNREC publishes, which is why they
-   * were here first — the dataset got modelled on what the agency lists rather
+   * were here first — the dataset got modeled on what the agency lists rather
    * than on what anybody asks before loading a car. "Are there toilets" is the
    * single most-asked question about a park and it was not in this type at all.
    *

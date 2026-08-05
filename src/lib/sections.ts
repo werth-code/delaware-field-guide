@@ -80,7 +80,7 @@ export const SECTIONS: Section[] = [
     label: "Surf fishing",
     nav: [
       { href: "/surf-fishing/", label: "Reservations" },
-      { href: "/surf-fishing/permits/", label: "Permits & licences" },
+      { href: "/surf-fishing/permits/", label: "Permits & licenses" },
     ],
   },
 ];
