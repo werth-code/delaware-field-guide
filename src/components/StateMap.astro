@@ -24,6 +24,7 @@
  * of the dot. Each record carries which it is, and the key says so.
  */
 import { colorFor } from "../lib/feature-colors";
+import FeatureIcon from "./FeatureIcon.astro";
 
 export interface MapPoint {
   slug: string;
@@ -82,7 +83,7 @@ const vw = Math.ceil(W * SCALE);
           aria-pressed="true"
           class="map-chip tap inline-flex items-center gap-1.5 px-2.5 py-1.5 stamp text-[0.68rem] leading-none border rounded-[var(--radius-sign)] cursor-pointer"
         >
-          <span class="block w-2 h-2 rounded-full" style={`background:${k.color}`} />
+          <FeatureIcon icon={k.key as any} class="w-[1.15em] h-[1.15em] shrink-0" />
           {k.label}
         </button>
       </li>
@@ -92,7 +93,7 @@ const vw = Math.ceil(W * SCALE);
   <div class="px-3 sm:px-4 pb-4">
     <svg
       viewBox={`0 0 ${vw} 1000`}
-      class="w-full h-auto max-h-[70vh] block"
+      class="w-full h-auto max-w-[27rem] mx-auto block"
       role="img"
       aria-label={`Map of Delaware showing ${points.length} places`}
     >
@@ -110,20 +111,38 @@ const vw = Math.ceil(W * SCALE);
         stroke-linejoin="round"
       />
 
-      {points.map((p) => (
-        <a href={p.href} data-map-point data-kind={p.kind}>
-          <title>{p.name}{p.precision === "town" ? " (town center)" : ""}</title>
-          <circle
-            cx={x(p.lon).toFixed(1)}
-            cy={y(p.lat).toFixed(1)}
-            r={p.precision === "town" ? 7 : 8}
-            fill={colorFor(p.kind) === "#10201c" ? "var(--color-marsh)" : colorFor(p.kind)}
-            stroke="var(--color-shell)"
-            stroke-width="2.5"
-            opacity={p.precision === "town" ? 0.75 : 1}
-          />
-        </a>
-      ))}
+      {/* Each marker is the section's own glyph knocked out of a disc in the
+          section's own colour — the same pairing the listing chips use, so a
+          reader who learnt "blue slide = playground" on a card meets it again
+          here. Colour alone needs a legend; a glyph doesn't. */}
+      {points.map((p) => {
+        const cx = x(p.lon);
+        const cy = y(p.lat);
+        const R = 13;
+        return (
+          <a href={p.href} data-map-point data-kind={p.kind}>
+            <title>{p.name}{p.precision === "town" ? " (town center)" : ""}</title>
+            <circle
+              cx={cx.toFixed(1)}
+              cy={cy.toFixed(1)}
+              r={R}
+              fill={colorFor(p.kind)}
+              stroke="var(--color-shell)"
+              stroke-width="3"
+              opacity={p.precision === "town" ? 0.82 : 1}
+            />
+            <svg
+              x={(cx - R * 0.62).toFixed(1)}
+              y={(cy - R * 0.62).toFixed(1)}
+              width={(R * 1.24).toFixed(1)}
+              height={(R * 1.24).toFixed(1)}
+              viewBox="0 0 24 24"
+            >
+              <FeatureIcon icon={p.kind as any} style="color:var(--color-shell)" />
+            </svg>
+          </a>
+        );
+      })}
     </svg>
   </div>
 
