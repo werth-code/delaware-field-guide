@@ -23,10 +23,24 @@ interface Props {
   title: string;
   /** One line of why it's worth opening. */
   summary?: string;
+  /** Heading over the row. */
+  heading?: string;
+  /** One line telling the reader why to bother. Section-specific. */
+  pitch?: string;
   class?: string;
 }
 
-const { title, summary = "", class: className = "" } = Astro.props;
+const {
+  title,
+  summary = "",
+  heading = "Send this to someone",
+  pitch = "Most people find this out the hard way, standing in the wrong car park. Save someone the drive.",
+  class: className = "",
+} = Astro.props;
+
+/* Unique per instance. The id was hardcoded, which is fine for one row on a
+   page and produces duplicate ids the moment there are two. */
+const hid = `share-${Math.random().toString(36).slice(2, 8)}`;
 
 const url = new URL(Astro.url.pathname, Astro.site).href;
 const text = summary ? `${title} — ${summary}` : title;
@@ -68,12 +82,11 @@ const targets = [
 ];
 ---
 
-<section class={`no-print ${className}`} aria-labelledby="share-heading">
+<section class={`no-print ${className}`} aria-labelledby={hid}>
   <div class="sign px-4 sm:px-5 py-4">
-    <p id="share-heading" class="label m-0">Send this to someone</p>
+    <p id={hid} class="label m-0">{heading}</p>
     <p class="mt-1.5 mb-3.5 text-[0.9rem] leading-snug text-ink-soft max-w-[52ch]">
-      Most people find out these rules the hard way, standing on a beach. Save
-      someone the drive.
+      {pitch}
     </p>
 
     <div
@@ -158,7 +171,23 @@ const targets = [
           copy.setAttribute("aria-live", "polite");
           setTimeout(() => (label.textContent = "Copy link"), 2000);
         } catch {
-          label.textContent = url;
+          /* Clipboard refused — insecure context, or permission denied.
+             Putting the raw URL in the button label was the old fallback and
+             it stretched the row to the width of the link. Select it in an
+             off-screen field instead, so the keyboard shortcut works. */
+          const field = document.createElement("input");
+          field.value = url;
+          field.setAttribute("readonly", "");
+          field.style.cssText = "position:fixed;top:0;left:-9999px";
+          document.body.appendChild(field);
+          field.select();
+          field.setSelectionRange(0, url.length);
+          label.textContent = "Press \u2318C";
+          copy.setAttribute("aria-live", "polite");
+          setTimeout(() => {
+            field.remove();
+            label.textContent = "Copy link";
+          }, 4000);
         }
       });
     }
