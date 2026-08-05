@@ -48,19 +48,20 @@ const byCounty = COUNTY_ORDER.map((county) => ({
 ---
 
 <Layout
-  title="Delaware attractions — hours, tickets and what's there"
-  description="Ticketed days out in Delaware that aren't parks and aren't indoors: opening hours, what admission costs and what's actually on site. Free winter days marked."
+  title="Places to go in Delaware — hours, tickets and what's there"
+  description="Days out in Delaware that aren't parks: opening hours, what it costs to get in and what's actually there. Free winter admission marked where it applies."
   robots={robotsFor(gate)}
 >
   <div class="wrap pt-11 pb-6">
-    <p class="label m-0">Attractions</p>
+    <p class="label m-0">Places to go</p>
     <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
-      Days out with a gate
+      Places to go
     </h1>
     <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
-      Places that charge admission and close at a time, and that aren't parks.
-      Mostly outdoors, so check the forecast first — for the warm and dry, see
-      <a href="/indoors/">museums and libraries</a>.
+      Somewhere to spend an afternoon that isn't a park. You pay to get in and
+      they shut at a time, so check before you drive out. Most of it is
+      outside — if it's raining, try <a href="/indoors/">the museums and
+      libraries</a> instead.
     </p>
   </div>
 
@@ -143,17 +144,11 @@ const byCounty = COUNTY_ORDER.map((county) => ({
   }
 
   <div class="wrap prose-field pb-2">
-    <h2>Why these aren't in with the parks</h2>
+    <h2>Why these are separate from the parks</h2>
     <p class="max-w-[58ch]">
-      A park is open. These have a gate, a ticket and a closing time, and no
-      park dataset on this site can hold those three things. So they share a
-      record shape with the museums even though they share a roof with nothing.
-    </p>
-    <p class="max-w-[58ch]">
-      The Brandywine Zoo sat on the Indoors page for a day with a warning
-      saying it wasn't indoors. That was wrong: a caveat doesn't undo a
-      recommendation, and a page headed <em>When it rains</em> shouldn't list
-      somewhere with no shelter however honestly it's labeled.
+      A park is just open — you turn up. These have a gate and a ticket and a
+      closing time, and getting that wrong wastes a drive. So they get their
+      own page with the hours and the price up front.
     </p>
   </div>
 
