@@ -147,6 +147,14 @@ const schema = [
     paved: ["paved","stroller","wheelchair","accessible","pram","buggy"],
     sports: ["court","courts","field","fields","basketball","tennis","ball"],
     dogPark: ["dog park","dog parks"],
+    indoors: ["indoors","inside","out of the rain","rainy day","undercover","somewhere dry"],
+  };
+  /* Three tiers, three sentences. "Read from source" was being printed over
+     records with no source at all — see planner.ts. */
+  const TIER_SAYS = {
+    confirmed: { text: "Confirmed by phone or in person", cls: "text-flag-green-bearing" },
+    sourced:   { text: "Read from a named source — not phone-confirmed", cls: "text-ink-soft" },
+    reported:  { text: "Listed here, but not yet sourced", cls: "text-ink-soft italic" },
   };
   const NEED_SAYS = Object.fromEntries(NEED_LABELS.map(([k, l]) => [k, l.toLowerCase()]));
   NEED_SAYS.dogPark = "a dog park";
@@ -157,6 +165,9 @@ const schema = [
     [["state park","state parks"], "state park"],
     [["community park","community parks","local park","town park","municipal"], "community park"],
     [["dog park","dog parks","dog run"], "dog park"],
+    [["museum","museums","library","libraries","aquarium","nature center","indoors","inside","rainy day","rainy","when it rains","out of the rain","somewhere dry"], "indoors"],
+    [["winery","wineries","brewery","breweries","brewpub","taproom","tasting room","vineyard","beer","wine"], "winery or brewery"],
+    [["nearby","near by","over the line","out of state","just over the border","maryland","pennsylvania","new jersey","day trip"], "nearby"],
   ];
   const MONTHS = ["january","february","march","april","may","june","july","august","september","october","november","december"];
   const COUNTIES = [...new Set(INDEX.map(p => p.county).filter(Boolean))];
@@ -406,7 +417,7 @@ const schema = [
       ${dog}
       ${chips ? `<ul class="list-none p-0 m-0 mt-2.5 flex flex-wrap gap-1.5">${chips}</ul>` : ""}
       ${gaps}
-      <p class="stamp mt-2 mb-0 ${p.verified ? "text-flag-green-bearing" : "text-ink-soft"}">${p.verified ? "Verified" : "Read from source — not phone-confirmed"}</p>
+      <p class="stamp mt-2 mb-0 ${TIER_SAYS[p.tier].cls}">${TIER_SAYS[p.tier].text}</p>
     </article>`;
   }
 

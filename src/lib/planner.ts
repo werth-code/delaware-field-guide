@@ -28,14 +28,25 @@ import stateParksData from "../data/state-parks.json";
 import communityParksData from "../data/community-parks.json";
 import dogParksData from "../data/parks.json";
 import placesData from "../data/places.json";
+import indoorData from "../data/indoor.json";
+import nearbyData from "../data/nearby.json";
+import drinkData from "../data/drink.json";
 
 import { formatWindow, resolveRule, type Rule, type Status, type Town } from "./rules";
-import { isPublishable } from "./verification";
+import { isPublishable, tierOf, type Tier } from "./verification";
 import type { StatePark } from "./state-parks";
 import type { CommunityPark } from "./community-parks";
 import type { Park as DogPark } from "./parks";
 
-export type Kind = "beach town" | "state park" | "community park" | "dog park" | "summer beach";
+export type Kind =
+  | "beach town"
+  | "state park"
+  | "community park"
+  | "dog park"
+  | "summer beach"
+  | "indoors"
+  | "winery or brewery"
+  | "nearby";
 
 /** Tri-state. `null` means unconfirmed and must never be shown as "no". */
 export type Tri = boolean | null;
@@ -53,6 +64,8 @@ export interface Facilities {
   paved: Tri;
   sports: Tri;
   dogPark: Tri;
+  /** Somewhere to be when the weather rules the beach out. */
+  indoors: Tri;
 }
 
 /** A dog rule window with its anchors already resolved for a given year. */
@@ -73,6 +86,16 @@ export interface PlannerPlace {
   town: string;
   blurb: string;
   verified: boolean;
+  /**
+   * The real tier, not a boolean.
+   *
+   * `verified` collapsed three states into two, and the page rendered the
+   * false half as "Read from source — not phone-confirmed". Every dog park
+   * carries no `sources` array at all, so that label was claiming a source
+   * for seventeen records that have none — a false provenance claim on a site
+   * whose entire promise is provenance.
+   */
+  tier: Tier;
   f: Facilities;
   /** Beach towns: resolved rule windows keyed by year. */
   dogWindows?: Record<string, ResolvedWindow[]>;
@@ -83,6 +106,7 @@ export interface PlannerPlace {
 const EMPTY: Facilities = {
   restrooms: null, playground: null, water: null, shade: null, trails: null, beach: null,
   camping: null, fenced: null, free: null, paved: null, sports: null, dogPark: null,
+  indoors: null,
 };
 
 /* Resolve for this year and next — a trip booked in December lands in the
@@ -115,6 +139,7 @@ export function buildIndex(): PlannerPlace[] {
       town: t.name,
       blurb: (t as any).profile?.blurb ?? t.answer,
       verified: isPublishable(t),
+      tier: tierOf(t),
       f: { ...EMPTY, beach: true, restrooms: null, free: null },
       dogWindows: resolveWindows(t.rules),
     });
@@ -130,6 +155,7 @@ export function buildIndex(): PlannerPlace[] {
       town: p.town,
       blurb: p.blurb,
       verified: isPublishable(p),
+      tier: tierOf(p),
       f: {
         ...EMPTY,
         beach: p.features.beach,
@@ -152,6 +178,7 @@ export function buildIndex(): PlannerPlace[] {
       town: p.town,
       blurb: p.blurb,
       verified: isPublishable(p),
+      tier: tierOf(p),
       f: {
         ...EMPTY,
         restrooms: p.restrooms.present,
@@ -171,6 +198,72 @@ export function buildIndex(): PlannerPlace[] {
     });
   }
 
+  /*
+   * The three sections the planner never knew about.
+   *
+   * It indexed beaches, state parks, community parks and dog parks, so asking
+   * it for a museum, a brewery or anything over the state line returned
+   * nothing — from a site with a section for each. A planner that silently
+   * covers less than the site it plans for reads as "we don't have that".
+   */
+  for (const p of indoorData as any[]) {
+    places.push({
+      id: `in-${p.slug}`,
+      name: p.name,
+      href: `/indoors/${p.slug}/`,
+      kind: "indoors",
+      county: p.county,
+      town: p.town,
+      blurb: p.blurb,
+      verified: isPublishable(p),
+      tier: tierOf(p),
+      f: {
+        ...EMPTY,
+        indoors: true,
+        restrooms: p.restrooms ?? null,
+        free: p.admission?.free ?? null,
+      },
+      /* Almost none of these take a dog, and the ones that might have never
+         said so. Unknown, not no. */
+      dogs: { allowed: null, note: "Not confirmed — ring before you bring a dog inside." },
+    });
+  }
+
+  for (const p of drinkData as any[]) {
+    places.push({
+      id: `dr-${p.slug}`,
+      name: p.name,
+      href: `/wineries-and-breweries/${p.slug}/`,
+      kind: "winery or brewery",
+      county: p.county,
+      town: p.town,
+      blurb: p.blurb,
+      verified: isPublishable(p),
+      tier: tierOf(p),
+      f: { ...EMPTY, indoors: true },
+      dogs: {
+        allowed: p.dogs?.outdoor === true ? "yes" : p.dogs?.outdoor === false ? "no" : null,
+        note: p.dogs?.note ?? "No published dog policy.",
+      },
+    });
+  }
+
+  for (const p of nearbyData as any[]) {
+    places.push({
+      id: `nb-${p.slug}`,
+      name: p.name,
+      href: `/nearby/${p.slug}/`,
+      kind: "nearby",
+      county: p.county ?? p.state,
+      town: p.town,
+      blurb: p.blurb,
+      verified: isPublishable(p),
+      tier: tierOf(p),
+      f: { ...EMPTY, free: p.admission?.amount === 0 ? true : null },
+      dogs: { allowed: null, note: "Not confirmed." },
+    });
+  }
+
   for (const p of dogParksData as DogPark[]) {
     places.push({
       id: `dp-${p.slug}`,
@@ -181,6 +274,7 @@ export function buildIndex(): PlannerPlace[] {
       town: p.address.split(",")[1]?.trim() ?? p.county,
       blurb: p.notes ?? "",
       verified: isPublishable(p),
+      tier: tierOf(p),
       f: {
         ...EMPTY,
         water: p.water,
@@ -204,6 +298,7 @@ export function buildIndex(): PlannerPlace[] {
       town: p.county,
       blurb: p.headline,
       verified: isPublishable(p),
+      tier: tierOf(p),
       f: { ...EMPTY, beach: true },
       dogs: {
         allowed: p.openInSummer === "yes" ? "yes" : "hours",
@@ -228,4 +323,5 @@ export const NEED_LABELS: [keyof Facilities, string][] = [
   ["free", "Free to get in"],
   ["paved", "Paved paths"],
   ["sports", "Courts or fields"],
+  ["indoors", "Indoors, out of the weather"],
 ];
