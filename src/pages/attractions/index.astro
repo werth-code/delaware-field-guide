@@ -17,6 +17,7 @@
  * pretend otherwise.
  */
 import Layout from "../../layouts/Layout.astro";
+import NearMe from "../../components/NearMe.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
 import CardPhoto from "../../components/CardPhoto.astro";
 import Tag from "../../components/Tag.astro";
@@ -70,6 +71,8 @@ const byCounty = COUNTY_ORDER.map((county) => ({
     byCounty.map(({ county, places: group }) => (
       <div class="wrap pb-8">
         <h2 class="label m-0 pb-3">{county} County</h2>
+        <NearMe noun="places" class="breakout mb-4" />
+
         <div class="grid gap-4 sm:grid-cols-2 breakout">
       {
         group.map((place) => {
@@ -77,7 +80,9 @@ const byCounty = COUNTY_ORDER.map((county) => ({
           const hrs = hoursAnswer(place.hours);
           const has = present(place);
           return (
-            <article data-reveal class="sign sign-action relative group overflow-hidden">
+            <article data-reveal
+                data-lat={place.coords?.lat}
+                data-lon={place.coords?.lon} class="sign sign-action relative group overflow-hidden">
               <a href={`/attractions/${place.slug}/`} class="absolute inset-0 z-10 no-underline">
                 <span class="sr-only">{place.name}</span>
               </a>

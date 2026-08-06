@@ -152,6 +152,11 @@ const { tags, noun, class: className = "" } = Astro.props;
       clear.hidden = active.size === 0;
     }
 
+    /* NearMe reorders these cards and moves them between county groups. When
+       it does, "is this heading empty" has a new answer and only this
+       component knows how to work it out. */
+    document.addEventListener("cards:moved", apply);
+
     for (const c of chips) {
       c.addEventListener("click", () => {
         const k = c.dataset.filterTag;

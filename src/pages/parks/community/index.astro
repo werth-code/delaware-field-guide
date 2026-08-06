@@ -10,6 +10,7 @@
  * aggregator move.
  */
 import Layout from "../../../layouts/Layout.astro";
+import NearMe from "../../../components/NearMe.astro";
 import FlagIcon from "../../../components/FlagIcon.astro";
 import CardPhoto from "../../../components/CardPhoto.astro";
 import Tag from "../../../components/Tag.astro";
@@ -78,6 +79,7 @@ const withDogPark = parks.filter((p) => p.facilities.dogPark === true).length;
 
   <div class="wrap pb-4">
     <Filters tags={filterTags} noun="parks" class="breakout" />
+    <NearMe noun="parks" class="breakout mt-3" />
   </div>
 
   {
@@ -94,7 +96,9 @@ const withDogPark = parks.filter((p) => p.facilities.dogPark === true).length;
             const wc = restroomAnswer(park.restrooms);
             const has = present(park).filter((f) => f.key !== "dogPark");
             return (
-              <article data-reveal data-tags={has.map((t) => t.key).join(" ")} class="sign sign-action relative group overflow-hidden">
+              <article data-reveal
+                data-lat={park.coords?.lat}
+                data-lon={park.coords?.lon} data-tags={has.map((t) => t.key).join(" ")} class="sign sign-action relative group overflow-hidden">
                 <a href={`/parks/community/${park.slug}/`} class="absolute inset-0 z-10 no-underline">
                   <span class="sr-only">{park.name}</span>
                 </a>

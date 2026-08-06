@@ -11,6 +11,7 @@
  * almost nothing published has caught up.
  */
 import Layout from "../../layouts/Layout.astro";
+import NearMe from "../../components/NearMe.astro";
 import CoastBand from "../../components/CoastBand.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
 import CardPhoto from "../../components/CardPhoto.astro";
@@ -90,6 +91,7 @@ const schema = verified.length
 
   <div class="wrap pb-4">
     <Filters tags={filterTags} noun="parks" class="breakout" />
+    <NearMe noun="parks" class="breakout mt-3" />
   </div>
 
   {
@@ -108,6 +110,8 @@ const schema = verified.length
             return (
               <article
                 data-reveal
+                data-lat={park.coords?.lat}
+                data-lon={park.coords?.lon}
                 data-tags={has.map((t) => t.key).join(" ")}
                 class="sign sign-action relative group"
               >
