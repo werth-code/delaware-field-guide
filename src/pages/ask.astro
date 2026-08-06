@@ -20,18 +20,23 @@
  * does not.
  */
 import Layout from "../layouts/Layout.astro";
+import FeatureIcon from "../components/FeatureIcon.astro";
+import { colorFor } from "../lib/feature-colors";
 import { buildIndex, NEED_LABELS } from "../lib/planner";
 
 const INDEX = buildIndex();
 const endpoint = import.meta.env.PUBLIC_CHAT_ENDPOINT ?? "";
 
-const examples = [
-  "Dog on the beach in July",
-  "Can I bring my dog to Rehoboth today?",
-  "Playground and restrooms in Sussex",
-  "Fenced dog park near Wilmington",
-  "Free beach with parking",
-  "Somewhere shady to walk the dog",
+/* Each example wears the colour and glyph of the thing it asks for — the same
+   pair the filter chips use on every listing page, so the palette is already
+   learnt by the time anyone reaches this page. */
+const examples: { text: string; key: string }[] = [
+  { text: "Dog on the beach in July", key: "beach" },
+  { text: "Can I bring my dog to Rehoboth today?", key: "petsAllowed" },
+  { text: "Playground and restrooms in Sussex", key: "playground" },
+  { text: "Fenced dog park near Wilmington", key: "dogPark" },
+  { text: "Free beach with parking", key: "free" },
+  { text: "Somewhere shady to walk the dog", key: "shade" },
 ];
 
 const schema = [
@@ -93,10 +98,12 @@ const schema = [
             <li>
               <button
                 type="button"
-                data-example={e}
-                class="tap sign-quiet px-3 gap-2 cursor-pointer text-[0.86rem] text-marsh"
+                data-example={e.text}
+                style={`--fc:${colorFor(e.key)}`}
+                class="example-chip tap inline-flex items-center gap-1.5 px-3 py-1.5 cursor-pointer text-[0.82rem] leading-none border rounded-[var(--radius-sign)] bg-shell"
               >
-                {e}
+                <FeatureIcon icon={e.key as any} class="w-[1.15em] h-[1.15em] shrink-0" />
+                {e.text}
               </button>
             </li>
           ))
@@ -127,6 +134,21 @@ const schema = [
     </p>
   </div>
 </Layout>
+
+<style>
+  /* The hue arrives as --fc so hover can fill with it and still set a readable
+     label. `background: currentColor` paints the chip the colour of its own text. */
+  .example-chip {
+    color: var(--fc);
+    border-color: var(--fc);
+    transition: background-color 110ms ease, color 110ms ease;
+  }
+  .example-chip:hover,
+  .example-chip:focus-visible {
+    background: var(--fc);
+    color: var(--color-shell);
+  }
+</style>
 
 <script define:vars={{ INDEX, ENDPOINT: endpoint, NEED_LABELS }}>
   /* ---- vocabulary ------------------------------------------------------ */
