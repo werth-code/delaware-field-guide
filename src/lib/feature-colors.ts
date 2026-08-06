@@ -82,6 +82,7 @@ export const FEATURE_COLOR: Record<string, string> = {
   free: "#205e48",
   giftShop: "#7a3f5c",
   accessible: "#24577c",
+  parking: "#7e102e",
   branches: "#565058",
 };
 

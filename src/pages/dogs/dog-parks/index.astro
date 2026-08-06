@@ -14,13 +14,25 @@ import FlagIcon from "../../../components/FlagIcon.astro";
 
 import parksData from "../../../data/parks.json";
 import { COUNTY_ORDER, type Park } from "../../../lib/parks";
-import { isVerified, robotsFor } from "../../../lib/verification";
+import { isPublishable, isVerified, robotsFor } from "../../../lib/verification";
 
 const parks = parksData as Park[];
 const verified = parks.filter(isVerified);
 
-// The page is only indexable once at least one record has been confirmed.
-const pageGate = { verifiedDate: verified.length ? "confirmed" : null, verifiedSource: verified.length ? "confirmed" : null };
+/*
+ * Indexable once at least one record is PUBLISHABLE — confirmed first-hand or
+ * read from a named primary source. This gated on `confirmed` alone, while the
+ * sitemap gated on publishable, and the two disagreed silently for as long as
+ * no dog park had a source at all. The moment six of them gained one, the
+ * build check caught the page saying noindex while the sitemap listed it.
+ * Every other aggregate page uses the publishable rule; this one is now in
+ * step with them and with astro.config.mjs.
+ */
+const publishable = parks.filter(isPublishable);
+const pageGate = {
+  verifiedDate: publishable.length ? "publishable" : null,
+  verifiedSource: publishable.length ? "publishable" : null,
+};
 
 const byCounty = COUNTY_ORDER.map((county) => ({
   county,

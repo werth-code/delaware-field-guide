@@ -13,17 +13,27 @@
     "shade": null,
     "surface": "mulch",
     "fee": 0,
-    "hours": "07:00-20:00",
-    "hoursNote": "Sat/Sun opens 05:00. Google hours may reflect Glasgow Regional Park, not the dog run.",
+    "hours": null,
+    "hoursNote": "New Castle County publishes \"dawn until dusk\" for this park, not clock hours. The 7am-8pm previously shown here had no source behind it.",
     "notes": "Highest-traffic public dog park in the state. Two large enclosures, 8-ft fencing. Free tennis balls. Reviews flag inconsistent bag restocking.",
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
+      "Confirm the surface, and whether there is drinking water — both are shown here with no source behind them.",
       "Confirm dog-run hours separately from park hours",
       "Confirm shade",
       "Confirm bag restocking is still an issue"
-    ]
+    ],
+    "sources": [
+      {
+        "label": "New Castle County: Dog Parks",
+        "url": "https://www.newcastlede.gov/3105/Dog-Parks",
+        "primary": true,
+        "note": "The operator. Names this as the dog park at Glasgow Regional Park, 2275 Pulaski Hwy, \"open daily from dawn until dusk\", fenced with separate areas for large and small dogs. It does not publish clock hours, a surface, or whether there is water."
+      }
+    ],
+    "sourcedOn": "2026-08-06"
   },
   {
     "slug": "talley-day-dog-park",
@@ -39,15 +49,25 @@
     "shade": "mature",
     "surface": "mulch",
     "fee": 0,
-    "hours": "06:00-18:00",
-    "hoursNote": null,
+    "hours": null,
+    "hoursNote": "New Castle County publishes no hours for this park. The 6am-6pm previously shown here had no source behind it.",
     "notes": "Covered pavilions, benches, community toy bin. Adjacent to library and playground. Peak use right after work.",
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
+      "Confirm the surface, water and hours. The county publishes only the address and that this was the county's first fenced dog park.",
       "Confirm dog-run hours separately from park hours"
-    ]
+    ],
+    "sources": [
+      {
+        "label": "New Castle County: Dog Parks",
+        "url": "https://www.newcastlede.gov/3105/Dog-Parks",
+        "primary": true,
+        "note": "The operator. Lists Talley Day Park as a county dog park and gives the address, and says Talley Day was the first park in New Castle County with fenced dog parks. It publishes no hours, surface or water detail."
+      }
+    ],
+    "sourcedOn": "2026-08-06"
   },
   {
     "slug": "elsmere-dog-park",
@@ -148,11 +168,21 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
+      "Confirm the hours, the surface and whether there is drinking water — the welcome sheet covers none of the three.",
       "Confirm the fee and the months it applies",
       "PHOTOGRAPH the sight line showing it isn't fenced — this is the single highest-value photo on the list",
       "Confirm whether DNREC posts bloom advisories at the pond",
       "Confirm which 2026 fee band Lums Pond falls in — inland ($5/$10) or beach ($10/$20)."
-    ]
+    ],
+    "sources": [
+      {
+        "label": "Delaware State Parks: Lums Pond welcome sheet (PDF)",
+        "url": "https://destateparks.com/wp-content/uploads/2024/04/brochue_Lums_Pond.pdf",
+        "primary": true,
+        "note": "The operator. The park's own welcome sheet places the off-leash area about a quarter of a mile past the iron gate, states plainly that it is NOT fenced, and mentions a limited number of picnic tables and bags on site."
+      }
+    ],
+    "sourcedOn": "2026-08-06"
   },
   {
     "slug": "brandywine-off-leash-dog-park",
@@ -193,18 +223,28 @@
     "shade": null,
     "surface": null,
     "fee": 0,
-    "hours": "08:00-20:00",
-    "hoursNote": "Park hours — confirm the dog run separately.",
+    "hours": null,
+    "hoursNote": "New Castle County publishes no hours for this park. The 8am-8pm previously shown here had no source behind it.",
     "notes": "Small. Shares the park with a disc golf course. Trails and playground on site.",
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
+      "Confirm the fencing, hours, surface and water. The county publishes only the address.",
       "Confirm size split",
       "Confirm water",
       "Confirm shade",
       "Confirm surface"
-    ]
+    ],
+    "sources": [
+      {
+        "label": "New Castle County: Dog Parks",
+        "url": "https://www.newcastlede.gov/3105/Dog-Parks",
+        "primary": true,
+        "note": "The operator. Lists Iron Hill Park as a county dog park and gives the address. It publishes nothing else about it — no hours, no fencing, no surface."
+      }
+    ],
+    "sourcedOn": "2026-08-06"
   },
   {
     "slug": "banning-regional-dog-park",
@@ -227,9 +267,19 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
+      "Everything except the address is unconfirmed. The county publishes nothing else.",
       "CONFIRM THIS PARK EXISTS AS LISTED before publishing anything about it",
       "Get a street address"
-    ]
+    ],
+    "sources": [
+      {
+        "label": "New Castle County: Dog Parks",
+        "url": "https://www.newcastlede.gov/3105/Dog-Parks",
+        "primary": true,
+        "note": "The operator. Lists Banning Regional Park as a county dog park and gives the address. Nothing else is published about it."
+      }
+    ],
+    "sourcedOn": "2026-08-06"
   },
   {
     "slug": "skyline-off-leash-area",
@@ -270,14 +320,24 @@
     "surface": null,
     "fee": null,
     "hours": null,
-    "hoursNote": null,
+    "hoursNote": "New Castle County publishes \"dawn until dusk\" for this park.",
     "notes": "Open range. A single review is the only evidence it exists. Low confidence.",
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
+      "Confirm whether any part of this is fenced. The county describes an off-leash area, not a fence.",
       "CONFIRM IT STILL OPERATES before listing it at all"
-    ]
+    ],
+    "sources": [
+      {
+        "label": "New Castle County: Dog Parks",
+        "url": "https://www.newcastlede.gov/3105/Dog-Parks",
+        "primary": true,
+        "note": "The operator. Names this as the off-leash area at Carousel Park, 3700 Limestone Rd, \"open daily from dawn until dusk\", with a pond reachable by ramps and a mix of open field and wooded paths."
+      }
+    ],
+    "sourcedOn": "2026-08-06"
   },
   {
     "slug": "little-creek-dog-park",

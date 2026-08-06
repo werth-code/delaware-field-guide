@@ -131,8 +131,30 @@ export interface Tag {
 }
 
 export function present(park: CommunityPark): Tag[] {
-  return FACILITY_LABELS.filter(([k]) => park.facilities[k] === true)
-    .map(([key, label]) => ({ key, label, emphasis: EMPHASIS.has(key) }));
+  const out: Tag[] = [];
+
+  /*
+   * Restrooms first, and restrooms AT ALL.
+   *
+   * They live outside `facilities` because the answer is richer than a
+   * boolean, and the side effect was that the one question this site leads
+   * with everywhere was the one thing you could not filter a park list by. It
+   * was already counted in completeness; it just never became a chip.
+   */
+  if (park.restrooms.present === true) {
+    out.push({ key: "restrooms", label: "Restrooms", emphasis: true });
+  }
+  /* Free text, so its presence is the claim — somebody wrote down what the
+     access is actually like here. */
+  if (park.accessibility) {
+    out.push({ key: "accessible", label: "Accessibility noted", emphasis: false });
+  }
+
+  out.push(
+    ...FACILITY_LABELS.filter(([k]) => park.facilities[k] === true)
+      .map(([key, label]) => ({ key, label, emphasis: EMPHASIS.has(key) })),
+  );
+  return out;
 }
 
 /** Restrooms count as one of the fields, because it's the one people ask about. */

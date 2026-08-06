@@ -237,6 +237,8 @@ export function present(p: IndoorPlace): Tag[] {
   if (p.restrooms === true) t("restrooms", "Restrooms", true);
   if (p.giftShop === true) t("giftShop", "Gift shop");
   if (p.accessibility) t("accessible", "Accessibility noted");
+  /* Where you park decides the trip for anyone with a car full of children. */
+  if (p.parking) t("parking", "Parking noted");
   if (p.branches && p.branches.length > 1) t("branches", `${p.branches.length} branches`);
   return out;
 }
