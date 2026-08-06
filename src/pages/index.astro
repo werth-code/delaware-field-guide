@@ -297,6 +297,13 @@ const schema = [
 >
   <CoastBand />
 
+  {/*
+    A FRONT DOOR, NOT AN ESSAY.
+    This opened with four paragraphs — what the site covers, why it exists,
+    what other guides get wrong — before offering anywhere to go. All of it is
+    true and none of it is what someone arrives for. The argument now lives on
+    /how-we-verify/, which is where a reader who wants it goes looking.
+  */}
   <div class="wrap pt-9 pb-8">
     <p class="label m-0 flex items-center gap-2">
       <FlagMark class="w-[0.5rem] h-[0.62rem] shrink-0 text-ochre-deep" />
@@ -308,26 +315,25 @@ const schema = [
     </h1>
 
     <p class="mt-6 mb-0 text-[1.2rem] leading-[1.5] max-w-[54ch]">
-      Ten sections covering the outdoor half of this state: the parks, the
-      beaches, the dog rules, the museums, the breweries, the disc golf. Every
-      fact on every page carries the date I checked it and the source it came
-      from — and where I haven't checked something, it says so rather than
-      guessing.
+      Parks, beaches, dog rules by town, museums, breweries and disc golf.
+      Every fact carries the date I checked it and where it came from, and
+      where I haven't checked, it says so instead of guessing.
     </p>
 
-    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
-      Rehoboth moved its dates in January 2026 and most of the internet is still
-      printing the old ones. So I started calling the towns and writing down who
-      told me what, and when. That turned into this.
-    </p>
-
-    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
-      Most guides to any of this are written once and never touched. Rehoboth
-      moved its dog dates in January 2026 and state park fees roughly doubled
-      in March; both were published properly and neither reached the pages
-      people actually read. <a href="/how-we-verify/">Here's how I check</a>,
-      including the ones I've got wrong.
-    </p>
+    <div class="mt-7 flex flex-wrap gap-3">
+      <a
+        href="/ask/"
+        class="tap no-underline bg-marsh text-cream border-2 border-marsh px-5 py-3 font-mono text-[0.78rem] uppercase tracking-[0.1em] font-medium"
+      >
+        Find the right place →
+      </a>
+      <a
+        href="/parks/"
+        class="tap no-underline sign-quiet border-2 border-marsh text-marsh px-5 py-3 font-mono text-[0.78rem] uppercase tracking-[0.1em] font-medium"
+      >
+        The 17 state parks
+      </a>
+    </div>
   </div>
 
   {/* Orientation for someone who has never been. */}

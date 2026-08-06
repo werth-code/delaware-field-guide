@@ -21,6 +21,17 @@ const { pathname } = Astro.url;
 const current = sectionFor(pathname);
 ---
 
+{/* Home. The wordmark already goes here, but people reach for a link that
+    looks like a link. */}
+<a
+  href="/"
+  class={`tap label no-underline ${pathname === "/" ? "text-cream" : "text-cream-soft hover:text-cream"}`}
+  aria-current={pathname === "/" ? "page" : undefined}
+  style={pathname === "/" ? "box-shadow: inset 0 -3px 0 var(--color-ochre);" : ""}
+>
+  Home
+</a>
+
 {/* Ask and Plan span every section, so they sit outside the list. */}
   {
     [
@@ -36,7 +47,7 @@ const current = sectionFor(pathname);
       </a>
     ))
   }
-  {
+{
     SECTIONS.map((s) => {
       const here = current?.slug === s.slug;
       return (

@@ -79,8 +79,11 @@ const byCounty = COUNTY_ORDER.map((county) => ({
   </div>
 
   <div class="wrap pb-4">
-    <Filters tags={filterTags} noun="places" class="breakout" />
-    <NearMe noun="places" class="breakout mt-3" />
+    <Filters tags={filterTags} noun="places" class="breakout">
+
+      <NearMe noun="places" flat />
+
+    </Filters>
   </div>
 
   {
