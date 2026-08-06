@@ -1,0 +1,14 @@
+---
+/* Where a no-JavaScript submission lands. The scripted path never gets here —
+   it swaps the form out in place — but a plain form post needs somewhere to go,
+   and a redirect to nowhere is how you lose a report you already have. */
+import Layout from "../../layouts/Layout.astro";
+---
+<Layout title="That report didn't send — Delaware Field Guide" description="Field report outcome." robots="noindex, nofollow">
+  <div class="wrap pt-11 pb-8">
+    <p class="label m-0">Didn't send</p>
+    <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">That didn't go through</h1>
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">Usually it's a photo too large, or more than four of them. Try again with fewer, or email it and I'll take it that way.</p>
+    <p class="mt-4 mb-0"><a href="/report/">Back to the form</a></p>
+  </div>
+</Layout>
