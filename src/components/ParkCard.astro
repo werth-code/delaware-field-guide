@@ -13,6 +13,7 @@
 import type { Park } from "../lib/parks";
 import { completeness, feeText, formatHours, text, tri } from "../lib/parks";
 import FlagIcon from "./FlagIcon.astro";
+import CardShare from "./CardShare.astro";
 
 interface Props {
   park: Park;
@@ -41,8 +42,12 @@ const notes = [park.waterNote, park.hoursNote, park.notes].filter(Boolean) as st
     <span class="sr-only">{park.name}</span>
   </a>
 
+  <CardShare path={`/dogs/dog-parks/${park.slug}/`} title={park.name} />
+
   <div class="p-4 sm:p-5">
-    <header class="flex items-start justify-between gap-3">
+    {/* pr-12 keeps the completeness count clear of the share button, which is
+        pinned to the same corner. */}
+    <header class="flex items-start justify-between gap-3 pr-12">
       <div>
         <h3
           class="font-display text-[1.2rem] font-bold tracking-[-0.018em] m-0 text-marsh underline decoration-ochre decoration-2 underline-offset-[0.16em] group-hover:decoration-marsh"

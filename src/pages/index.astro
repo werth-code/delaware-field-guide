@@ -23,7 +23,7 @@ import drinkData from "../data/drink.json";
 import eventsData from "../data/events.json";
 import nearbyData from "../data/nearby.json";
 import { isPublishable } from "../lib/verification";
-import { colorFor } from "../lib/feature-colors";
+import { colorFor, COUNTY_COLOR } from "../lib/feature-colors";
 
 const towns = townsData as { slug: string; name: string; verifiedDate: string | null; verifiedSource: string | null }[];
 const stateParks = stateParksData as { county: string; verifiedDate: string | null; verifiedSource: string | null }[];
@@ -248,6 +248,7 @@ const pin = (rows: unknown[], kind: string, href: (r: any) => string) =>
       where: [r.town, r.county ? `${r.county} County` : null].filter(Boolean).join(", "),
       photo: r.photos?.[0]?.file ?? null,
       focus: r.photos?.[0]?.focus ?? null,
+      county: r.county ?? "",
     }));
 
 const mapPoints = [
@@ -258,6 +259,13 @@ const mapPoints = [
   ...pin(drinkData as unknown[], "giftShop", (r) => `/wineries-and-breweries/${r.slug}/`),
   ...pin(townsData as unknown[], "beach", (r) => `/dogs/${r.slug}/`),
 ];
+
+/* North to south, the way you'd drive it. */
+const mapCounties = ["New Castle", "Kent", "Sussex"].map((c) => ({
+  key: c,
+  label: c,
+  color: COUNTY_COLOR[c],
+}));
 
 const mapKinds = [
   { key: "trails", label: "State parks", color: colorFor("trails") },
@@ -337,7 +345,12 @@ const schema = [
   </div>
 
   <div class="wrap pb-9">
-    <StateMap points={mapPoints} kinds={mapKinds} />
+    <StateMap
+      points={mapPoints}
+      kinds={mapKinds}
+      counties={mapCounties}
+      startWith={["New Castle"]}
+    />
   </div>
 
   <div class="wrap">

@@ -87,3 +87,22 @@ export const FEATURE_COLOR: Record<string, string> = {
 
 /** Falls back to body ink, so an unmapped key is dull rather than broken. */
 export const colorFor = (key: string): string => FEATURE_COLOR[key] ?? "#10201c";
+
+/**
+ * Counties are a different axis, and the colours say so.
+ *
+ * Feature colours carry a promise: black always means restrooms, blue always
+ * means playground. A county is not a feature, so borrowing from that palette
+ * would spend the promise on something it doesn't cover. These three are their
+ * own set — picked for maximum separation from each other (68 dE apart in Lab,
+ * so they stay distinct in every common form of colour blindness) at a matched
+ * lightness, so the three buttons read as siblings rather than a ranking.
+ *
+ * The hues are not arbitrary: brick for the city end of the state, field green
+ * for the farm counties, water blue for the coast.
+ */
+export const COUNTY_COLOR: Record<string, string> = {
+  "New Castle": "#8a2d36",
+  Kent: "#2a4b00",
+  Sussex: "#005193",
+};

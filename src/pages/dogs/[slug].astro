@@ -24,8 +24,6 @@ import StatusBand from "../../components/StatusBand.astro";
 import RuleTable from "../../components/RuleTable.astro";
 import VerificationStamp from "../../components/VerificationStamp.astro";
 import FlagMark from "../../components/FlagMark.astro";
-import Plate from "../../components/Plate.astro";
-import BeachScene from "../../components/BeachScene.astro";
 import TownContacts from "../../components/TownContacts.astro";
 import Photo from "../../components/Photo.astro";
 
@@ -123,16 +121,6 @@ function summarise(t: Town): string {
   return "open all year";
 }
 
-/* The illustration is only worth its space if the caption says something true
-   about THIS town, so the claim it carries follows the rule shape. */
-const hasBoardwalkRule = town.rules.some((r) => r.area === "boardwalk");
-const plateCaption =
-  status === "prohibited"
-    ? `${town.name} in the closed season.${hasBoardwalkRule ? " The closure covers the boardwalk on the same dates as the beach — that's the part people miss." : ""} The guard stand matters too: where an off-season allowance exists, it usually doesn't apply on days lifeguards are working.`
-    : windowText
-      ? `${town.name}. Dogs are legal here right now, but only ${windowText} — the guard stand is the thing that decides it. Turn up in the middle of the day and you are in the wrong.`
-      : `${town.name} in the open season. Leashed, cleaned up after, and off the guarded swimming beach whenever lifeguards are working.`;
-
 /* --------------------------------------------------------------- schema -- */
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
@@ -206,9 +194,6 @@ const schema = publishable ? [articleSchema, faqSchema] : [];
         {town.answer}
       </p>
 
-      <Plate plate="01" class="breakout" caption={plateCaption}>
-        <BeachScene flag={status === "prohibited" ? "closed" : "none"} />
-      </Plate>
 
       {town.photos && town.photos.length > 0 && <Photo {...town.photos[0]} hero />}
 

@@ -2,14 +2,17 @@
 /**
  * The poster.
  *
- * A flat, screen-printed Delaware coast — deep sky, ochre sun, the bay, a
- * dune that resolves into the page ground, and a warning flag on its staff.
- * Built the way a WPA park poster is built: hard-edged bands, no gradients,
- * no cartoon, six colors and nothing else.
+ * A flat, screen-printed Delaware coast — deep sky, ochre sun, the bay, and a
+ * dune that resolves into the page ground. Built the way a WPA park poster is
+ * built: hard-edged bands, no gradients, no cartoon, six colors and nothing
+ * else.
  *
- * The staff and flag are drawn as a dark silhouette rather than in one of the
- * three flag colors. A red flag here would read as a status claim, and
- * status is never decorative on this site.
+ * IT IS LANDSCAPE ONLY, on purpose. A walker, a dog and a flag on a staff were
+ * drawn here and taken out again. At poster scale the figures read as clip art
+ * pasted onto a good background — they were the only cartoon thing on the site,
+ * and losing them costs nothing the bands weren't already doing. The flag went
+ * with them for a second reason: a flag is a status symbol on these pages, and
+ * status is never decorative.
  *
  * `slice` so it crops from the middle at any aspect — the horizon stays put.
  */
@@ -81,49 +84,5 @@ const grass = [
       }
     </g>
 
-    <!-- The staff. Silhouette, deliberately not flag-colored: a red flag here
-         would read as a status claim, and status is never decorative. -->
-    <g fill="var(--color-abyss)">
-      <rect x="188" y="150" width="5" height="140" />
-      <path d="M193 156h84l-22 24 22 24h-84z" />
-    </g>
-
-    <!-- A walker and a dog on the wet sand. Same geometric idiom as the mark:
-         circles and rounded bars, no cartoon, and the reason the poster is
-         about this site rather than about any coast. -->
-    <g fill="var(--color-abyss)">
-      <!-- Walker -->
-      <circle cx="726" cy="222" r="9" />
-      <rect x="719" y="232" width="15" height="30" rx="7" />
-      <rect x="719" y="258" width="6" height="26" rx="3" transform="rotate(9 722 258)" />
-      <rect x="729" y="258" width="6" height="26" rx="3" transform="rotate(-11 732 258)" />
-      <rect x="732" y="236" width="24" height="5" rx="2.5" transform="rotate(16 732 236)" />
-
-      <!-- Lead -->
-      <path
-        d="M756 244q16 6 30 12"
-        stroke="var(--color-abyss)"
-        stroke-width="2.5"
-        fill="none"
-        stroke-linecap="round"
-      />
-
-      <!-- Dog, mid-stride -->
-      <path
-        d="M789 258c-6-1-10-5-11-11"
-        stroke="var(--color-abyss)"
-        stroke-width="5"
-        stroke-linecap="round"
-        fill="none"
-      />
-      <rect x="786" y="256" width="38" height="16" rx="8" />
-      <rect x="790" y="266" width="6" height="19" rx="3" transform="rotate(20 793 266)" />
-      <rect x="801" y="266" width="6" height="18" rx="3" transform="rotate(-16 804 266)" />
-      <rect x="812" y="266" width="6" height="19" rx="3" transform="rotate(18 815 266)" />
-      <circle cx="831" cy="253" r="9" />
-      <rect x="834" y="252" width="15" height="7" rx="3.5" />
-      <path d="M823 245l10-3-3 11z" />
-      <rect x="822" y="255" width="4.5" height="12" rx="1.6" fill="var(--color-ochre)" />
-    </g>
   </svg>
 </div>

@@ -10,8 +10,6 @@
  * caught up with — beach parks doubled.
  */
 import Layout from "../../layouts/Layout.astro";
-import Plate from "../../components/Plate.astro";
-import BeachScene from "../../components/BeachScene.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
 
 import placesData from "../../data/places.json";
@@ -96,13 +94,6 @@ const schema = isPublishable(parks)
       the sentence everyone quotes as a ban.
     </p>
 
-    <Plate
-      plate="01"
-      class="breakout"
-      caption="A guarded swimming beach is the stretch with the stand on it. The ban follows the stand, not the park boundary — walk past the guarded section and you are on sand where a leashed dog is legal in July."
-    >
-      <BeachScene flag="none" />
-    </Plate>
 
     <h2>Where dogs are closed out</h2>
     <ul class="list-none p-0 m-0 my-5">
