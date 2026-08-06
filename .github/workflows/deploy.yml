@@ -17,11 +17,25 @@ permissions:
   pages: write
   id-token: write
 
-# Never cancel a running deploy — a half-published site is worse than a
-# slightly stale one. Queue instead.
+# Newest commit wins.
+#
+# This said `cancel-in-progress: false` with a note that a half-published site
+# is worse than a slightly stale one. The reasoning was wrong: a Pages deploy
+# publishes its artifact atomically, so a cancelled run publishes nothing — it
+# leaves the previous version up, which is the same outcome the queue was
+# protecting.
+#
+# What queuing actually bought was a backlog. Deploys have been taking eleven
+# minutes and timing out at the action's ten-minute ceiling, so eight pushes in
+# an afternoon became ninety minutes of queue, each run deploying a commit that
+# three newer commits had already superseded. The site sat hours behind main
+# while every run reported failure.
+#
+# For a static site the newest commit contains every earlier one. Superseding a
+# queued run costs nothing and skips straight to what's true now.
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
