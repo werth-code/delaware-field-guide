@@ -11,6 +11,7 @@
  * almost nothing published has caught up.
  */
 import Layout from "../../layouts/Layout.astro";
+import PhotoStrip, { type StripItem } from "../../components/PhotoStrip.astro";
 import NearMe from "../../components/NearMe.astro";
 import CoastBand from "../../components/CoastBand.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
@@ -42,6 +43,13 @@ for (const p of parks) {
     tagCounts.set(t.key, e);
   }
 }
+/* Every photograph in the section, flattened, each pointing back at its
+   record. Derived, so a photo added to a park appears here in the same
+   commit. */
+const stripItems: StripItem[] = (parks as any[]).flatMap((p) =>
+  (p.photos ?? []).map((photo: any) => ({ photo, href: `/parks/${p.slug}/`, name: p.name })),
+);
+
 const filterTags = [...tagCounts.values()].sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
 
 const byCounty = COUNTY_ORDER.map((county) => ({
@@ -87,6 +95,12 @@ const schema = verified.length
       cypress swamp in the country. What's actually at each one, what it costs,
       and whether the dog can come.
     </p>
+  </div>
+
+  <div class="wrap pb-7">
+
+    <PhotoStrip items={stripItems} accent="trails" class="breakout" />
+
   </div>
 
   <div class="wrap pb-4">
