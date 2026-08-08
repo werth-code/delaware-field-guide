@@ -77,7 +77,11 @@ const STATE_CLASS = {
         [
           { n: String(events.length), label: "annual events" },
           { n: String(withDates), label: "with dates we can point at" },
-          { n: "0", label: "publish a recurring rule" },
+          /* COUNTED, NOT TYPED. This was a hardcoded "0" and it was already
+             wrong when Arden went in: the Arden Club publishes its rule
+             outright, and so does the Brandywine Festival. A number that
+             can't move is a number that quietly rots. */
+          { n: String(events.filter((e) => e.rule.kind !== "announced").length), label: "publish a recurring rule" },
         ].map((s) => (
           <div class="px-4 py-4">
             <dt class="font-display text-[1.9rem] font-semibold text-marsh leading-none tracking-[-0.04em]">
@@ -89,10 +93,13 @@ const STATE_CLASS = {
       }
     </dl>
     <p class="mt-4 mb-0 text-[0.92rem] leading-[1.55] text-ink-soft max-w-[58ch]">
-      That last number is the interesting one. Not one of these publishes a
-      pattern like "the third weekend in August" — they all announce dates a
-      year at a time. So this page shows the year I've confirmed and goes
-      quiet afterwards, instead of working out a date that might be wrong.
+      That last number is the interesting one. Most organizers here announce
+      dates a year at a time and publish no pattern, so this page shows the
+      year I've confirmed and goes quiet afterwards rather than working out a
+      date that might be wrong. Two are different: the Arden Club states that
+      its fair is always the Saturday of Labor Day weekend, and the Brandywine
+      Festival that it's always the weekend after — so those two can be
+      computed years ahead, and the page says when it has.
     </p>
   </div>
 

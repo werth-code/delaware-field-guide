@@ -10,10 +10,10 @@
     "address": "1416 Telegraph Road, Rising Sun, MD 21911",
     "kind": "Nonprofit zoo",
     "blurb": "A small nonprofit zoo in Cecil County, close enough to Newark to be an easy morning. Giraffes, tigers, bears, wolves, zebras, macaws and tortoises, plus mini golf. Peacocks and chickens wander the paths rather than sitting behind wire.",
-    "season": null,
+    "season": "Memorial Day to Labor Day, 9am – 6pm daily, last admission 5pm",
     "admission": {
-      "note": "Not confirmed. The zoo publishes no admission prices on its own site — tickets go through a booking widget instead.",
-      "amount": null
+      "note": "Adults $21.95, children 2–12 $15.95. Published by the zoo, read 8 August 2026. Prices outside the summer season aren't published.",
+      "amount": 21.95
     },
     "onSite": [
       {
@@ -57,6 +57,12 @@
         "label": "Plumpton Park Zoo: official site",
         "url": "https://www.plumptonparkzoo.org/",
         "note": "The operator. Gives the Telegraph Road address, the phone number, 501(c)(3) nonprofit status, the species list including giraffes, tigers, bears, wolves, llamas, zebras, macaws, cockatoos, hawks, tortoises and snakes, a gift shop and miniature golf. States only \"Open 7 Days a Week. Hours Vary Between Summer and Winter\" and publishes no hours or admission prices."
+      },
+      {
+        "label": "Plumpton Park Zoo: hours and admission",
+        "url": "https://www.plumptonparkzoo.org/",
+        "primary": true,
+        "note": "Read 8 August 2026. Memorial Day to Labor Day, 9am to 6pm daily with last admission at 5pm; adults $21.95 and children 2–12 $15.95. This record previously said the zoo published neither, which was true when it was written and isn't now."
       }
     ],
     "sourcedOn": "2026-08-04",
@@ -74,8 +80,7 @@
       }
     ],
     "outstanding": [
-      "Get the summer hours and the winter hours. The zoo publishes neither.",
-      "Get the admission prices for every category.",
+      "Get the winter hours and the off-season admission — the zoo publishes the summer figures only.",
       "Confirm restrooms, food and parking.",
       "Confirm whether the paths take a stroller or a wheelchair.",
       "Confirm whether you can feed any of the animals, and what that costs."

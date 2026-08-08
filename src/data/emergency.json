@@ -46,14 +46,21 @@
     {
       "slug": "rehoboth-beach-animal-hospital",
       "name": "Rehoboth Beach Animal Hospital",
-      "phone": null,
+      "phone": "302-227-2009",
       "address": "Rehoboth Beach, DE",
-      "hours": "Urgent care, reported five days a week",
-      "hoursNote": "Nearest urgent care to the beach towns, but it is urgent care and not a 24-hour ER. Confirm the days, the hours, and whether they see non-clients.",
+      "hours": null,
+      "hoursNote": "Its own site describes an appointment-based full-service practice — not urgent care, not walk-in, and nothing about after-hours. This site previously said \"urgent care, reported five days a week\"; that came from a listing, not from the practice, and it is not repeated here. Useful for a different reason: it names pocket pets and exotics, which most practices don't.",
       "driveFromRehoboth": "In town",
       "coversWeekdayDaytime": null,
       "verifiedDate": null,
-      "verifiedSource": null
+      "verifiedSource": null,
+      "source": {
+        "label": "Rehoboth Beach Animal Hospital, its own site",
+        "url": "https://www.rehobothanimalhospital.com/",
+        "primary": true,
+        "note": "Read 8 August 2026. Describes a full-service practice for dogs, cats, pocket pets and exotics — wellness, dental, diagnostics, surgery, microchipping — and says to call 302-227-2009 or book online. It does not describe urgent care, walk-ins, or after-hours cover."
+      },
+      "isEmergency": false
     }
   ],
   "statewide": [
@@ -77,7 +84,7 @@
   "outstanding": [
     "Call every number in this file and confirm it rings the right place. This is the one dataset where a stale number does real harm.",
     "Confirm Delmarva's weekday 6pm–8am window and the Fri–Sun 24-hour claim.",
-    "Get Rehoboth Beach Animal Hospital's number and its actual urgent-care days and hours.",
+    "Ring Rehoboth Beach Animal Hospital on 302-227-2009 and ask the only question that matters here: do they take a dog in trouble the same day, and on which days and hours? Their own site describes appointments and nothing else.",
     "Confirm whether Pet's ER in Salisbury takes Delaware clients and what its hours are.",
     "Get the Delaware SPCA intake number for Sussex County.",
     "Confirm the ASPCA poison-control fee so the page can state it.",

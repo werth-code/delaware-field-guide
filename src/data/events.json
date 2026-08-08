@@ -251,7 +251,12 @@
       "offsetDays": 5,
       "days": 2
     },
-    "confirmed": {},
+    "confirmed": {
+      "2026": {
+        "start": "2026-09-12",
+        "end": "2026-09-13"
+      }
+    },
     "admission": {
       "note": "$5 a day, cash or Venmo. The festival doesn't say on its own site whether children get in free, so this page doesn't either.",
       "amount": 5
@@ -262,8 +267,7 @@
     },
     "warnings": [
       "Free shuttle buses run to the festival entrance from Incyte, 1815 Augustine Cut Off. The festival states the shuttles are pet friendly, \"for friendly pets\".",
-      "Only a very limited number of accessible spaces are on the park grounds themselves, and the festival asks you to show a placard to the police officers at the entrances.",
-      "This site has not confirmed a date directly with the festival. The dates above are worked out from the festival's own stated rule, not read off its calendar."
+      "Only a very limited number of accessible spaces are on the park grounds themselves, and the festival asks you to show a placard to the police officers at the entrances."
     ],
     "sources": [
       {
@@ -281,6 +285,12 @@
         "url": "https://www.openstreetmap.org/",
         "primary": false,
         "note": "Location only, not a fact about the event. Nominatim, Brandywine Park."
+      },
+      {
+        "label": "Brandywine Festival of the Arts: 2026 dates",
+        "url": "https://www.brandywinearts.com/",
+        "primary": true,
+        "note": "Saturday 12 and Sunday 13 September 2026, published for this year. The rule stays recorded too — the festival states it is always the weekend after Labor Day — so 2027 onward still computes."
       }
     ],
     "sourcedOn": "2026-08-08",
@@ -289,7 +299,6 @@
     "outstanding": [
       "PRIORITY: get the hours. Neither the home page nor the directions page states them.",
       "Confirm whether children are admitted free, and from what age.",
-      "Confirm the computed dates against the festival's own calendar once it publishes them — the rule is theirs, the arithmetic is ours.",
       "Ask what time the Incyte shuttle starts and stops."
     ],
     "coords": {
