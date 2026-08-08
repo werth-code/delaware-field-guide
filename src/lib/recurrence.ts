@@ -69,6 +69,15 @@ function nthWeekday(year: number, month: number, weekday: number, nth: number): 
   return new Date(year, month, 0 - shift);
 }
 
+/** The anchors that always land on the same weekday. The two dated ones —
+    Independence Day and Veterans Day — are deliberately absent. */
+const ANCHOR_WEEKDAY: Partial<Record<HolidayAnchor, Weekday>> = {
+  "memorial-day": 1,
+  "labor-day": 1,
+  "columbus-day": 1,
+  thanksgiving: 4,
+};
+
 export function resolveHoliday(anchor: HolidayAnchor, year: number): Date {
   switch (anchor) {
     case "memorial-day": return nthWeekday(year, 5, 1, -1);
@@ -167,6 +176,16 @@ export function describe(rec: Recurrence): string {
     case "anchor": {
       const name = rec.anchor.replace(/-/g, " ").replace(/\b[a-z]/g, (c) => c.toUpperCase());
       const off = rec.offsetDays ?? 0;
+      /* Four of the six anchors are always the same weekday, so an offset
+         inside a week has a name a person would use. The Arden Club doesn't
+         publish "Labor Day minus 2 days", it publishes "the Saturday of Labor
+         Day Weekend", and a rule the reader can't recognise as their own rule
+         is one they'll go and check somewhere else. */
+      const wd = ANCHOR_WEEKDAY[rec.anchor];
+      if (wd !== undefined && off !== 0 && Math.abs(off) <= 6) {
+        const day = DAYS[(wd + (off % 7) + 7) % 7];
+        return `${day} ${off < 0 ? "before" : "after"} ${name}${span(rec.days)}`;
+      }
       const shift = off === 0 ? "" : off > 0 ? ` plus ${off} day${off > 1 ? "s" : ""}` : ` minus ${-off} day${off < -1 ? "s" : ""}`;
       return `${name}${shift}${span(rec.days)}`;
     }

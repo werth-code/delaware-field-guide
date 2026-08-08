@@ -69,7 +69,13 @@ eq(toISO(next(thirdSatAug,null,new Date(2026,7,16)).start), "2026-08-15", "next(
 // descriptions
 eq(describe(thirdSatAug), "Third Saturday in August, 3 days", "describe nth");
 eq(describe(lastSunSep), "Last Sunday in September", "describe last");
-eq(describe(memWeekend), "Memorial Day minus 3 days, 4 days", "describe anchor");
+/* Named weekday rather than arithmetic: four of the six anchors are always
+   the same weekday, and an offset inside a week has a name people use. */
+eq(describe(memWeekend), "Friday before Memorial Day, 4 days", "describe anchor");
+eq(describe({ kind: "anchor", anchor: "labor-day", offsetDays: -2, days: 1 }),
+   "Saturday before Labor Day", "describe anchor names the weekday");
+eq(describe({ kind: "anchor", anchor: "independence-day", offsetDays: -2 }),
+   "Independence Day minus 2 days", "a dated anchor has no weekday to name");
 eq(formatOccurrence(resolve(thirdSatAug,2026)), "15–17 August 2026", "format same-month range");
 
 // labels

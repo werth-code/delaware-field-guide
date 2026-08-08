@@ -15,11 +15,17 @@
  *   2. Confirmed dates for a specific year always beat the rule. When we have
  *      rung the organizer or read their own calendar, that is what shows.
  *
- * In practice the research found something worth stating: of the events here,
- * NONE publishes a recurring rule. Every one announces dates a year at a time.
- * So most records are `announced` plus a confirmed year — which means the page
- * goes quiet rather than wrong once that year passes, and the call sheet grows
- * an item instead of the site growing a lie.
+ * In practice almost every organizer announces dates a year at a time and
+ * publishes no pattern at all, so most records here are `announced` plus a
+ * confirmed year. That means the page goes quiet rather than wrong once the
+ * year passes, and the call sheet grows an item instead of the site growing a
+ * lie.
+ *
+ * The Arden Fair is the exception, and it's the one that shows why the two
+ * claims are kept apart. The Arden Club states the rule itself — "Every year
+ * the Arden Fair and Antiques Market is held on the Saturday of Labor Day
+ * Weekend" — so this site can compute 2027 and 2028 and say out loud that it
+ * computed them. The Ice Cream Festival sitting next to it can't, and says so.
  */
 import { type Photo } from "./state-parks";
 import {
