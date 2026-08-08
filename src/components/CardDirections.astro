@@ -21,6 +21,12 @@
  * THE CARD'S LAYER ORDER, inherited from CardShare which learnt it the hard
  * way:  z-10 stretched link · z-20 gallery strip · z-30 these controls.
  * Anything added later goes above 30 or it vanishes behind the strip.
+ *
+ * THE THREE OFFSETS ARE ARITHMETIC, not eyeballing, and the first attempt got
+ * it wrong. Each button is 44px (2.75rem). Share sits at right-2 (0.5rem), so
+ * its left edge is at 3.25rem; Call at 3.4rem leaves a 0.15rem gap. This was
+ * at 6.6rem, which is 0.45rem from Call's left edge — three times the other
+ * gap, and visible. 6.3rem matches. A fourth control goes at 9.2rem.
  */
 interface Props {
   name: string;
@@ -41,7 +47,7 @@ const href = `https://www.google.com/maps/search/?api=1&query=${encodeURICompone
   rel="noopener nofollow"
   aria-label={`Directions to ${name} (opens Google Maps)`}
   title={`Directions to ${name}`}
-  class={`absolute top-2 right-[6.6rem] z-30 inline-flex items-center justify-center w-11 h-11 rounded-[var(--radius-sign)] no-underline text-marsh bg-shell/85 backdrop-blur-[2px] border border-marsh/25 hover:bg-shell hover:border-marsh ${className}`}
+  class={`absolute top-2 right-[6.3rem] z-30 inline-flex items-center justify-center w-11 h-11 rounded-[var(--radius-sign)] no-underline text-marsh bg-shell/85 backdrop-blur-[2px] border border-marsh/25 hover:bg-shell hover:border-marsh ${className}`}
 >
   <svg
     viewBox="0 0 16 16"

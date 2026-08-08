@@ -9,6 +9,13 @@
  * marker into "Museums & libraries" after both listing pages had been
  * corrected. It goes through isIndoors now, like everything else.
  *
+ * THE MARKERS USE THE SITUATION ICONS where the section is really a
+ * situation. Museums and libraries carried the "free" mark, which is a fact
+ * about admission and not about the section — they wear the umbrella now,
+ * because "somewhere dry when it rains" is what that group of pins is for.
+ * Attractions carried the dog mark for no reason at all and now carry the
+ * kid-friendly one.
+ *
  * THE KINDS ARE SECTIONS, not facilities. A marker's colour and glyph say
  * which part of the site it belongs to, so the filter row reads the way the
  * navigation does rather than introducing a second vocabulary for the same
@@ -68,8 +75,8 @@ export function buildMapPoints() {
   return [
     ...pin(stateParksData as unknown[], "trails", (r) => `/parks/${r.slug}/`),
     ...pin(communityParksData as unknown[], "playground", (r) => `/parks/community/${r.slug}/`),
-    ...pin(indoorAll.filter(isIndoors) as unknown[], "free", (r) => `/indoors/${r.slug}/`),
-    ...pin(indoorAll.filter((p) => !isIndoors(p)) as unknown[], "petsAllowed", (r) => `/attractions/${r.slug}/`),
+    ...pin(indoorAll.filter(isIndoors) as unknown[], "rainyDay", (r) => `/indoors/${r.slug}/`),
+    ...pin(indoorAll.filter((p) => !isIndoors(p)) as unknown[], "kidFriendly", (r) => `/attractions/${r.slug}/`),
     ...pin(drinkData as unknown[], "giftShop", (r) => `/wineries-and-breweries/${r.slug}/`),
     ...pin(townsData as unknown[], "beach", (r) => `/dogs/${r.slug}/`),
     ...pin(dogParksData as unknown[], "dogPark", (r) => `/dogs/dog-parks/${r.slug}/`),
@@ -81,9 +88,9 @@ export const MAP_KINDS = [
   { key: "trails", label: "State parks", color: colorFor("trails") },
   { key: "playground", label: "Community parks", color: colorFor("playground") },
   { key: "beach", label: "Dog beaches", color: colorFor("beach") },
-  { key: "free", label: "Museums & libraries", color: colorFor("free") },
+  { key: "rainyDay", label: "Museums & libraries", color: colorFor("rainyDay") },
   { key: "giftShop", label: "Wine & beer", color: colorFor("giftShop") },
-  { key: "petsAllowed", label: "Places to go", color: colorFor("petsAllowed") },
+  { key: "kidFriendly", label: "Places to go", color: colorFor("kidFriendly") },
   { key: "dogPark", label: "Dog parks", color: colorFor("dogPark") },
   { key: "pavilion", label: "Events", color: colorFor("pavilion") },
 ];

@@ -18,6 +18,8 @@ import FlagIcon from "../../components/FlagIcon.astro";
 import CardPhoto from "../../components/CardPhoto.astro";
 import Tag from "../../components/Tag.astro";
 import CardShare from "../../components/CardShare.astro";
+import FeatureIcon from "../../components/FeatureIcon.astro";
+import { colorFor } from "../../lib/feature-colors";
 import CardCall from "../../components/CardCall.astro";
 import CardDirections from "../../components/CardDirections.astro";
 import Filters from "../../components/Filters.astro";
@@ -176,7 +178,20 @@ const stripItems: StripItem[] = (parks as any[])
                   )}
 
                   <p class="stamp text-ink-soft mt-3.5 mb-0 flex items-center justify-between gap-3">
-                    <span class={fee.state === "unknown" ? "italic" : ""}>{fee.text}</span>
+                    {/* The money answer gets a mark like every other answer
+                        on this card. A ticket for "there's a gate fee", the
+                        green free mark for "there isn't" — the two ends of the
+                        same question, so they never read as unrelated. */}
+                    <span class={`inline-flex items-center gap-1.5 ${fee.state === "unknown" ? "italic" : ""}`}>
+                      {fee.state !== "unknown" && (
+                        <FeatureIcon
+                          icon={fee.free ? "free" : "feeCharged"}
+                          class="w-[1.05em] h-[1.05em] shrink-0"
+                          style={`color:${colorFor(fee.free ? "free" : "feeCharged")}`}
+                        />
+                      )}
+                      {fee.text}
+                    </span>
                     <span class="text-marsh group-hover:translate-x-0.5 transition-transform duration-100">→</span>
                   </p>
                 </div>

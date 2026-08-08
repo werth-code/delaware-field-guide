@@ -79,6 +79,31 @@ export const FEATURE_COLOR: Record<string, string> = {
   petsAllowed: "#77481b",
   dogPark: "#734b1a",
 
+  /**
+   * SITUATIONS, not facilities.
+   *
+   * The rest of this file answers "what is at this place". These five answer
+   * "does this place suit me today" — is it raining, have I got the kids, is
+   * it out of state, does it cost anything. They are the questions people
+   * actually arrive with, and they were the ones with no mark of their own:
+   * wet weather was borrowing the museum colour, out-of-state had nothing at
+   * all, and the two money answers were words on every card.
+   *
+   * They obey the same rule as everything else here, checked numerically
+   * rather than by eye: at least 7:1 against cream when the chip is filled,
+   * and legible as a stroke on the sand page ground.
+   *
+   * feeCharged and free are a deliberate pair — the same question answered two
+   * ways — so they take the two ends of the site's existing status language,
+   * green for yes-go and the parking red for it-will-cost-you. They are the
+   * one place in this palette where the colour is doing status work, and that
+   * is the point rather than an accident.
+   */
+  rainyDay: "#254367",
+  outOfState: "#4f3f61",
+  kidFriendly: "#6d3320",
+  feeCharged: "#6f2030",
+
   /* Indoors. */
   free: "#205e48",
   giftShop: "#7a3f5c",

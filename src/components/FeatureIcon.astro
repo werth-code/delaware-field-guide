@@ -36,7 +36,9 @@ export type FeatureKey =
   | "winterUse" | "petsAllowed" | "playground" | "water" | "shade" | "pavilion"
   | "grills" | "sports" | "pavedPath" | "discGolf" | "skate" | "dogPark"
   | "pier" | "guardedSwimming" | "surfFishing"
-  | "free" | "giftShop" | "accessible" | "branches" | "stables";
+  | "free" | "giftShop" | "accessible" | "branches" | "stables" | "parking"
+  /* Situations rather than facilities — see feature-colors.ts. */
+  | "rainyDay" | "outOfState" | "kidFriendly" | "feeCharged";
 
 interface Props {
   icon: FeatureKey;
@@ -91,6 +93,21 @@ const { icon, class: className = "", style } = Astro.props;
   {/* A horseshoe, open end down. The obvious alternative was a horse, and a
       horse at 16px is a blob — the shoe reads at any size and means one
       thing. */}
+  {/* A cloud with rain under it. The first draft of this was an umbrella and
+      it had to go: `beach` is a parasol, so on the map filter row "Dog
+      beaches" and "Museums & libraries" wore the same mark in two colours.
+      Colour alone carrying the difference is exactly what this icon set exists
+      to avoid. Nothing else on the site is a cloud. */}
+  {icon === "rainyDay" && (<><path d="M7 15a4 4 0 0 1 .5-8 5.5 5.5 0 0 1 10.4 1.6A3.4 3.4 0 0 1 17.5 15Z" /><path d="M8.5 18.5 7.5 21" /><path d="M12.5 18.5 11.5 21" /><path d="M16.5 18.5 15.5 21" /></>)}
+  {/* A state line with an arrow crossing it. A map pin would have said
+      "place", which is what every other pin on the site already says. */}
+  {icon === "outOfState" && (<><path d="M12 3v18" stroke-dasharray="3 3" /><path d="M4 12h6" /><path d="M7 9l3 3-3 3" /><path d="M20 12h-6" /></>)}
+  {/* Two figures, one small. A balloon or a teddy would have been cuter and
+      would also have meant "toys" rather than "the children will be fine". */}
+  {icon === "kidFriendly" && (<><circle cx="8" cy="6" r="2.4" /><path d="M8 9v7" /><path d="M5 12h6" /><path d="M6 21l2-5 2 5" /><circle cx="17" cy="11" r="1.8" /><path d="M17 13v4" /><path d="M15 15h4" /><path d="M15.5 21l1.5-4 1.5 4" /></>)}
+  {/* A ticket. Currency signs are national and this is the mark that has to
+      read the same to somebody from Maryland. */}
+  {icon === "feeCharged" && (<><path d="M3 8h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4Z" /><path d="M10 8v10" stroke-dasharray="2.5 2.5" /></>)}
   {icon === "stables" && (<><path d="M7 20v-6a5 5 0 0 1 10 0v6" /><path d="M5 20h4" /><path d="M15 20h4" /></>)}
   {icon === "playground" && (<><path d="M6 21V7" /><path d="M10 21V7" /><path d="M6 11h4" /><path d="M6 15h4" /><path d="M10 7c6 1 8 7 8 14" /><path d="M4 21h16" /></>)}
   {icon === "sports" && (<><circle cx="12" cy="12" r="8.5" /><path d="M12 3.5v17" /><path d="M3.5 12h17" /></>)}

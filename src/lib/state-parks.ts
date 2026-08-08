@@ -101,6 +101,15 @@ export interface StateParkFeatures {
    */
   playground: boolean | null;
   /**
+   * Fishing that isn't surf fishing.
+   *
+   * `surfFishing` is an ocean fact with its own permits and drive-on
+   * crossings; a pond you can drop a line into is a different thing entirely
+   * and there was nowhere to record it. Bellevue's lake found this one — the
+   * fifth field this week that existed at a park and not in the schema.
+   */
+  fishing: boolean | null;
+  /**
    * Riding stables. Same gap the playground was: DNREC's park pages list
    * paddling and camping and say nothing about the horses, and Bellevue has a
    * working stable and ring that is one of the main reasons people go.
@@ -188,10 +197,19 @@ export const PASSES = {
   whereUrl: "https://www.destateparks.com/passes-permits-and-fees/",
 } as const;
 
-export function feeText(park: StatePark): { text: string; state: "yes" | "unknown" } {
-  if (!park.feeBand) return { text: "Not confirmed", state: "unknown" };
+export function feeText(
+  park: StatePark,
+): { text: string; state: "yes" | "unknown"; free: boolean } {
+  if (!park.feeBand) return { text: "Not confirmed", state: "unknown", free: false };
   const f = FEES[park.feeBand];
-  return { text: `$${f.inState} in-state · $${f.outState} out-of-state`, state: "yes" };
+  /* `free` is reported rather than inferred at the render site, so a future
+     band priced at zero picks up the right mark without anybody remembering
+     to go and change a card. */
+  return {
+    text: `$${f.inState} in-state · $${f.outState} out-of-state`,
+    state: "yes",
+    free: f.inState === 0 && f.outState === 0,
+  };
 }
 
 /** Human labels for the feature flags, in the order they're worth reading. */
@@ -207,6 +225,7 @@ export const FEATURE_LABELS: [keyof StateParkFeatures, string][] = [
   ["pier", "Pier"],
   ["discGolf", "Disc golf"],
   ["playground", "Playground"],
+  ["fishing", "Fishing"],
   ["stables", "Riding stables"],
   ["restrooms", "Restrooms"],
 ];

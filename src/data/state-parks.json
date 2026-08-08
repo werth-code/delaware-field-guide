@@ -20,7 +20,8 @@
       "discGolf": true,
       "restrooms": null,
       "playground": null,
-      "stables": null
+      "stables": null,
+      "fishing": null
     },
     "feeBand": "beach",
     "dogs": {
@@ -109,7 +110,8 @@
       "discGolf": null,
       "restrooms": null,
       "playground": null,
-      "stables": null
+      "stables": null,
+      "fishing": null
     },
     "feeBand": "beach",
     "dogs": {
@@ -183,7 +185,8 @@
       "discGolf": null,
       "restrooms": null,
       "playground": null,
-      "stables": null
+      "stables": null,
+      "fishing": null
     },
     "feeBand": "beach",
     "dogs": {
@@ -245,7 +248,8 @@
       "discGolf": null,
       "restrooms": null,
       "playground": null,
-      "stables": null
+      "stables": null,
+      "fishing": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -307,7 +311,8 @@
       "discGolf": true,
       "restrooms": null,
       "playground": null,
-      "stables": null
+      "stables": null,
+      "fishing": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -378,7 +383,8 @@
       "discGolf": true,
       "restrooms": null,
       "playground": null,
-      "stables": null
+      "stables": null,
+      "fishing": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -447,7 +453,8 @@
       "discGolf": true,
       "restrooms": true,
       "playground": null,
-      "stables": null
+      "stables": null,
+      "fishing": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -607,7 +614,8 @@
       "discGolf": true,
       "restrooms": true,
       "playground": null,
-      "stables": null
+      "stables": null,
+      "fishing": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -725,7 +733,8 @@
       "discGolf": true,
       "restrooms": true,
       "playground": null,
-      "stables": null
+      "stables": null,
+      "fishing": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -863,14 +872,17 @@
       "discGolf": true,
       "restrooms": true,
       "playground": true,
-      "stables": true
+      "stables": true,
+      "fishing": true
     },
     "feeBand": "inland",
     "dogs": {
       "summary": "Leashed.",
       "href": "/dogs/state-parks/"
     },
-    "warnings": [],
+    "warnings": [
+      "Ticks, in numbers. Check yourself and the dog after the meadow and the wooded trails, not just after the long walks."
+    ],
     "phone": "302-761-6963",
     "hours": null,
     "verifiedDate": null,
@@ -980,6 +992,16 @@
         "author": "Site maintainer",
         "body": "The pond is the other half of this park: Canada geese year-round and turtles on the rocks, shallow and sandy at one end with sweetgum burrs the whole way along the waterline. There is a pavilion and picnic tables on the far bank in the winter photograph, which is another thing this dataset can't currently say about a state park.",
         "photo": "bellevue-pond-geese"
+      },
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "You can fish the big pond here. The dataset had surfFishing and nothing else, which is an ocean fact with its own permits — a pond you can drop a line into had nowhere to live. There's a fishing field now."
+      },
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "Ticks here are bad enough to be worth a warning of their own. Cape Henlopen's tick note came off campground reviews; this one is first-hand."
       }
     ],
     "coords": {
@@ -1015,7 +1037,8 @@
       "discGolf": false,
       "restrooms": true,
       "playground": true,
-      "stables": null
+      "stables": null,
+      "fishing": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -1229,7 +1252,8 @@
       "discGolf": null,
       "restrooms": null,
       "playground": null,
-      "stables": null
+      "stables": null,
+      "fishing": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -1290,7 +1314,8 @@
       "discGolf": null,
       "restrooms": null,
       "playground": null,
-      "stables": null
+      "stables": null,
+      "fishing": null
     },
     "feeBand": null,
     "dogs": {
@@ -1354,7 +1379,8 @@
       "discGolf": null,
       "restrooms": null,
       "playground": null,
-      "stables": null
+      "stables": null,
+      "fishing": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -1415,7 +1441,8 @@
       "discGolf": null,
       "restrooms": null,
       "playground": null,
-      "stables": null
+      "stables": null,
+      "fishing": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -1478,7 +1505,8 @@
       "discGolf": false,
       "restrooms": null,
       "playground": null,
-      "stables": null
+      "stables": null,
+      "fishing": null
     },
     "feeBand": null,
     "dogs": {
@@ -1542,7 +1570,8 @@
       "discGolf": false,
       "restrooms": true,
       "playground": true,
-      "stables": false
+      "stables": false,
+      "fishing": null
     },
     "feeBand": "inland",
     "dogs": {
