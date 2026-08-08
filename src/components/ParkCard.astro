@@ -1,7 +1,7 @@
 ---
 /**
- * One park, seven fields, in the order people actually ask them:
- * fenced → size split → water → shade → surface → fee → hours.
+ * One park, eight fields, in the order people actually ask them:
+ * fenced → size split → water → shade → surface → restrooms → fee → hours.
  *
  * That order is from the complaints, not from a schema. "Is it fenced" is the
  * question that ruins a trip when it's wrong (Lums Pond isn't, and its reviews
@@ -11,7 +11,7 @@
  * They are never rendered as "No".
  */
 import type { Park } from "../lib/parks";
-import { completeness, feeText, formatHours, text, tri } from "../lib/parks";
+import { completeness, RESTROOMS_SAYS, feeText, formatHours, text, tri } from "../lib/parks";
 import FlagIcon from "./FlagIcon.astro";
 import CardShare from "./CardShare.astro";
 
@@ -20,12 +20,20 @@ interface Props {
 }
 const { park } = Astro.props;
 
+/* Four states, so neither tri() nor text() fits: "elsewhere in the park" is
+   not a yes and is emphatically not a no. */
+const restroomsText = (p: Park) =>
+  p.restrooms
+    ? { text: RESTROOMS_SAYS[p.restrooms], state: p.restrooms === "none" ? "no" as const : "yes" as const }
+    : { text: "Not confirmed", state: "unknown" as const };
+
 const fields = [
   { label: "Fenced", ...tri(park.fenced, "Yes, enclosed", "No — open area") },
   { label: "Size split", ...tri(park.sizeSplit, "Yes", "No") },
   { label: "Water", ...tri(park.water, "Yes", "No") },
   { label: "Shade", ...text(park.shade) },
   { label: "Surface", ...text(park.surface) },
+  { label: "Restrooms", ...restroomsText(park) },
   { label: "Fee", ...feeText(park) },
   { label: "Hours", ...formatHours(park.hours) },
 ];
@@ -36,7 +44,7 @@ const notes = [park.waterNote, park.hoursNote, park.notes].filter(Boolean) as st
 
 <article class="sign sign-action relative group">
   {/* Stretched link: the whole box is the target, but the accessible name
-      stays on the heading and the seven fields below remain selectable text
+      stays on the heading and the eight fields below remain selectable text
       rather than becoming part of one enormous link. */}
   <a href={`/dogs/dog-parks/${park.slug}/`} class="absolute inset-0 z-10 no-underline">
     <span class="sr-only">{park.name}</span>

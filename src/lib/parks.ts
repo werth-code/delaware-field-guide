@@ -1,10 +1,19 @@
 /**
  * Dog parks and lodging.
  *
- * The seven fields on a park — fenced, size split, water, shade, surface, fee,
- * hours — are not an arbitrary schema. They are the six things reviewers
- * complain about across every state in the region, plus hours. Nobody
- * publishes them together, which is the entire reason this section exists.
+ * The eight fields on a park — fenced, size split, water, shade, surface,
+ * restrooms, fee, hours — are not an arbitrary schema. They are the things
+ * reviewers complain about across every state in the region, plus hours.
+ * Nobody publishes them together, which is the entire reason this section
+ * exists.
+ *
+ * RESTROOMS WAS THE EIGHTH, AND IT HAS FOUR STATES RATHER THAN TWO. A
+ * verification pass turned up the distinction: River Road's dog run has no
+ * toilet beside it and the parent park officially does; Carousel's county
+ * profile says Bathrooms: No for the Bark Park while the wider park has them
+ * elsewhere. Collapsing those into "yes" sends somebody with a three-year-old
+ * to a building half a mile away, and collapsing them into "no" is simply
+ * wrong. So the field says which.
  *
  * `null` means UNVERIFIED, never "no". A park with `water: null` has not been
  * checked; it does not lack water. Rendering those as "No" would invent facts
@@ -24,6 +33,14 @@ export interface Park {
   waterNote: string | null;
   shade: string | null;
   surface: string | null;
+  /**
+   * "at-dog-park"    — a toilet beside the run itself
+   * "elsewhere-in-park" — the parent park has them; not next to the dogs
+   * "none"           — checked, and there aren't any
+   * null             — nobody has checked
+   */
+  restrooms: "at-dog-park" | "elsewhere-in-park" | "none" | null;
+  restroomsNote?: string | null;
   fee: number | null;
   feeNote?: string | null;
   hours: string | null;
@@ -95,8 +112,15 @@ export function formatHours(hours: string | null): Tri {
  * "we haven't been yet".
  */
 export function completeness(park: Park): { known: number; total: number } {
-  const fields = [park.fenced, park.sizeSplit, park.water, park.shade, park.surface, park.fee, park.hours];
+  const fields = [park.fenced, park.sizeSplit, park.water, park.shade, park.surface, park.restrooms, park.fee, park.hours];
   return { known: fields.filter((f) => f !== null && f !== undefined).length, total: fields.length };
 }
 
 export const COUNTY_ORDER: Park["county"][] = ["Sussex", "Kent", "New Castle"];
+
+/** How the four restroom states read on a page. */
+export const RESTROOMS_SAYS: Record<string, string> = {
+  "at-dog-park": "Yes, at the dog park",
+  "elsewhere-in-park": "Elsewhere in the park, not at the run",
+  none: "No",
+};

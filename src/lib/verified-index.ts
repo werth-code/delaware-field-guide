@@ -89,7 +89,7 @@ export function buildVerifiedIndex(today = new Date()): VerifiedRow[] {
     add(`${p.name} — summer dog access`, "Dogs", p.href, p);
 
   for (const p of dogParksData as any[])
-    add(`${p.name} — the seven fields`, "Dogs", `/dogs/dog-parks/${p.slug}/`, p);
+    add(`${p.name} — the eight fields`, "Dogs", `/dogs/dog-parks/${p.slug}/`, p);
 
   for (const l of (lodgingData as any[]).filter((x) => typeof x.name === "string"))
     add(`${l.name} — pet fee and policy`, "Dogs", "/dogs/pet-fees/", l);

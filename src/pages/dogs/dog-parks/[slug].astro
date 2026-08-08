@@ -23,7 +23,7 @@ import type { Report } from "../../../components/FieldReports.astro";
 
 import parksData from "../../../data/parks.json";
 import reportsData from "../../../data/reports.json";
-import { completeness, feeText, formatHours, text, tri, type Park } from "../../../lib/parks";
+import { completeness, RESTROOMS_SAYS, feeText, formatHours, text, tri, type Park } from "../../../lib/parks";
 import { isVerified, robotsFor } from "../../../lib/verification";
 
 export const getStaticPaths = (() =>
@@ -38,12 +38,20 @@ const reports = (reportsData as unknown[]).filter(
   (r): r is Report => typeof (r as Report).parkSlug === "string",
 );
 
+/* Four states, so neither tri() nor text() fits: "elsewhere in the park" is
+   not a yes and is emphatically not a no. */
+const restroomsText = (p: Park) =>
+  p.restrooms
+    ? { text: RESTROOMS_SAYS[p.restrooms], state: p.restrooms === "none" ? "no" as const : "yes" as const }
+    : { text: "Not confirmed", state: "unknown" as const };
+
 const fields = [
   { label: "Fenced", hint: "The one that ruins a trip when it's wrong", ...tri(park.fenced, "Yes, enclosed", "No — open area") },
   { label: "Size split", hint: "Separate area for small dogs", ...tri(park.sizeSplit, "Yes", "No") },
   { label: "Water", hint: "On site, for the dog", ...tri(park.water, "Yes", "No") },
   { label: "Shade", hint: null, ...text(park.shade) },
   { label: "Surface", hint: null, ...text(park.surface) },
+  { label: "Restrooms", hint: "A toilet beside the run, or a walk across the park", ...restroomsText(park) },
   { label: "Fee", hint: null, ...feeText(park) },
   { label: "Hours", hint: null, ...formatHours(park.hours) },
 ];
@@ -81,7 +89,7 @@ const knownBits = [
 
 const description = `${park.name} in ${park.county} County, Delaware — ${
   knownBits.length ? knownBits.join(", ") : "details being confirmed"
-}. Fenced, water, shade, surface, fee and hours, checked and dated.`;
+}. Fenced, water, shade, surface, restrooms, fee and hours, checked and dated.`;
 
 // Only append the qualifier when the result still fits inside the SERP cut.
 /* "dog park delaware" is a live query and it appeared in none of these
@@ -143,7 +151,7 @@ const title =
     <div class="wrap pt-6">
       <div class="sign breakout p-4 sm:p-5">
         <div class="flex items-baseline justify-between gap-4">
-          <p class="label m-0">The seven fields</p>
+          <p class="label m-0">The eight fields</p>
           <span class="stamp text-ink-soft">{known}/{total} confirmed</span>
         </div>
 

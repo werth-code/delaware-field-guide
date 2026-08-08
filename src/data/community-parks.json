@@ -129,7 +129,6 @@
     "verifiedSource": null,
     "outstanding": [
       "Restrooms confirmed present — still need type (permanent vs portable) and whether they are seasonal.",
-      "⚑ The off-leash dog area here is NOT in our dog-park dataset. Visit it, run the seven fields, and add it — this is a real coverage gap.",
       "Confirm hours."
     ],
     "sources": [
@@ -173,6 +172,11 @@
         "date": "2026-08-08",
         "author": "Site maintainer",
         "body": "The climbing playground is cast concrete made to look like rock — boulders, pinnacles and a hollow one with a cave through it, on wood chips, with the equestrian center's white fencing right behind. Geese and goslings graze the meadow below the parking area, which is worth knowing if you are the sort of person a goose objects to."
+      },
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "The off-leash area here is in the dog-park dataset now, as Carousel Park Bark Park. It had been sitting there twice under two names — 'Skyline off-leash area' and 'Bark Park (Limestone)' — because 3100 Skyline Drive is the parking for the park at 3700 Limestone Road, and I had recorded the parking lot as a second dog park."
       }
     ],
     "phoneNote": "The park's own line, from the county directory."
