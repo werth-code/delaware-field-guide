@@ -46,15 +46,15 @@ no need for per-query-variation pages, no ideal page length.
 | 3. Dog-parks intro says 8 fields, names 7 | ✅ already fixed earlier |
 | 4. Disc-golf `including7` + "0 hole counts confirmed" | ✅ typo fixed. The 0 is **correct** — it means 0 *confirmed-tier*; counts came from state PDFs (`sourced`). Needs clearer labeling, not a new number. Move the long postmortem to /changed/. ◻ |
 | 5. **Rehoboth Beach Animal Hospital publishes urgent care** Mon–Fri curbside, Mon–Thu 8am–6:30pm, Fri 8am–5:30pm, closed weekends | ✅ shipped — I had read the wrong domain |
-| 6. Attribute the 24/7 claim to BluePearl rather than asserting a statewide negative | ◻ **blocked** — bluepearlvet.com 403s me. Headline stays held back. This is the right shape when it verifies. |
-| 7. Lewes "rule under review" is 8 months old — call the city, drop it from the title | ◻ needs your call: **302-645-7777** |
+| 6. Attribute the 24/7 claim to BluePearl rather than asserting a statewide negative | ◻ **blocked** — bluepearlvet.com 403s me, and you can't call yet. Headline stays held back behind the build gate. |
+| 7. Lewes "rule under review" is 8 months old — call the city, drop it from the title | ◻ **parked** — you said you can't call now. Left in `outstanding` so it resurfaces. **302-645-7777** |
 | 8. Dogs hub "Coming" for live pages | ✅ shipped |
 | 9. Banning dog-park conflict across datasets | ◻ |
 | 10. Kesselring duplicate locality | ✅ shipped (data was the cause, not the formatter) |
-| 11. Homepage eyebrow "outdoor Delaware" → "A practical reference for Delaware" | ◻ |
+| 11. Homepage eyebrow "outdoor Delaware" → "A practical reference for Delaware" | ✅ shipped |
 | 12. About photography claim | ✅ shipped |
 | 13. Nearby population claim | ✅ shipped |
-| 14. Attractions category definition too rigid for Ashland | ◻ |
+| 14. Attractions category definition too rigid for Ashland | ✅ shipped — now "structured places… with posted hours, visitor facilities or a defined program" |
 | 15. Pet-fees internal research language | ◻ — note it is **already** `noindex, nofollow` and out of the sitemap; the copy still needs cleaning |
 
 ---
@@ -179,10 +179,12 @@ Priority order, each only if it produces a genuinely useful result set:
 explanatory copy, a clear answer, useful decision info, and links to the records.
 Google warns explicitly against scaled query-variation pages.
 
-**This resolves the /good-for/ 404 question.** The old URLs are still indexed and
-currently dead. Rebuilding these as generated intent pages satisfies both the
-audit and open task #2 — the URLs come back as something better rather than being
-redirected away.
+**✅ SHIPPED Aug 8.** All seven built at `/good-for/<slug>/`, generated from
+`src/lib/intents.ts`, plus a `/good-for/` hub. Live counts: dog-friendly-drinks
+14 · rainy-day 12 · playground-restrooms 9 · shade 9 · free 8 · open-sunday 7 ·
+toddlers 4. All clear the 4-result indexing gate. All ten legacy slugs redirect —
+three to successors, seven to the listing holding those facts, none to the
+homepage. Reachable from the masthead under Days out.
 
 ---
 
