@@ -67,7 +67,11 @@ export default defineConfig({
   // now the one page for "where should I go". Redirecting rather than deleting,
   // because a URL that has been public at all may have been linked, and a 404
   // is a worse answer than the page the visitor actually wanted.
-  redirects: { '/map/': '/ask/' },
+  // Two pages that have been public and must not 404 for anyone holding a
+  // link: the map folded into /ask/, and /how-we-verify/ came down with its
+  // two irreplaceable parts — the corrections anchor and the AI disclosure —
+  // moved onto /about/.
+  redirects: { '/map/': '/ask/', '/how-we-verify/': '/about/' },
 
   integrations: [
     sitemap({

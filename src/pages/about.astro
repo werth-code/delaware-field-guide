@@ -104,7 +104,7 @@ const schema = [
       at the moment. If a page ever earns anything, that page will tell you.
     </p>
 
-    <h2>Corrections</h2>
+    <h2 id="corrections">Corrections</h2>
 
     <p class="max-w-[58ch]">
       When I get something wrong I leave the mistake up with the date and what
@@ -118,9 +118,34 @@ const schema = [
       another phone call.
     </p>
 
+    {/* MOVED HERE WHEN /how-we-verify/ CAME DOWN. This is the only page on the
+        site where a language model runs, and that page was the only place that
+        said so. A disclosure is not a paragraph you delete because the page it
+        was on got long. */}
+    <h2>Where the AI is, and what it's allowed to do</h2>
+
+    <p class="max-w-[58ch]">
+      One page on this site runs a language model: <a href="/ask/">Ask</a>. It
+      writes the sentence at the top of your answer and puts the results in
+      order. That is the whole job.
+    </p>
+
+    <p class="max-w-[58ch]">
+      It never sees the underlying data and it cannot state a fact about a
+      place. The matching is ordinary code — dates, town rules,
+      yes/no/unknown — and everything below that summary line comes straight
+      out of the checked dataset. If the model is unavailable the answer still
+      appears; you just get a plainer sentence over the same results.
+    </p>
+
+    <p class="max-w-[58ch]">
+      Nothing else on the site is generated. Every blurb, warning and field
+      note was written by hand, which is the point of a site that promises you
+      a date and a source.
+    </p>
+
     <h2>Related</h2>
     <ul>
-      <li><a href="/how-we-verify/">How I check things</a></li>
       <li><a href="/changed/">What's changed, and when</a></li>
       <li><a href="/verified/">Every fact on the site, with its source and age</a></li>
     </ul>
