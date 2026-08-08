@@ -16,6 +16,7 @@ import FlagIcon from "../../../components/FlagIcon.astro";
 import CardPhoto from "../../../components/CardPhoto.astro";
 import Tag from "../../../components/Tag.astro";
 import CardShare from "../../../components/CardShare.astro";
+import CardCall from "../../../components/CardCall.astro";
 import Filters from "../../../components/Filters.astro";
 import CardGallery from "../../../components/CardGallery.astro";
 
@@ -119,6 +120,7 @@ const stripItems: StripItem[] = (parks as any[])
                 <a href={`/parks/community/${park.slug}/`} class="absolute inset-0 z-10 no-underline">
                   <span class="sr-only">{park.name}</span>
                 </a>
+                <CardCall phone={park.phone} title={park.name} />
                 <CardShare path={`/parks/community/${park.slug}/`} title={park.name} />
 
                 {park.photos?.length && <CardGallery photos={park.photos} />}

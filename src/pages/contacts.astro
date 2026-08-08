@@ -77,33 +77,13 @@ const tel = (p: string) => `tel:+1${p.replace(/\D/g, "")}`;
   <div class="wrap pt-11 pb-6">
     <p class="label m-0">Contacts</p>
     <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
-      Who to call
+      State &amp; local contact
     </h1>
-    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
-      Half the answers on this site end in "ring first" — a fee nobody
-      publishes, hours that move, whether the restroom block is open yet. Here
-      is every number I have, on one page, so you can call from the car.
-    </p>
   </div>
 
-  <div class="wrap pb-6">
-    <dl class="sign breakout grid grid-cols-2 sm:grid-cols-3 divide-x divide-y sm:divide-y-0 divide-tide/30">
-      {
-        [
-          { n: String(withPhone), label: "numbers" },
-          { n: String(all.length - withPhone), label: "places with none yet" },
-          { n: String(groups.length), label: "sections" },
-        ].map((s) => (
-          <div class="px-4 py-4">
-            <dt class="font-display text-[1.9rem] font-semibold text-marsh leading-none tracking-[-0.04em]">
-              {s.n}
-            </dt>
-            <dd class="m-0 mt-1.5 stamp text-ink-soft">{s.label}</dd>
-          </div>
-        ))
-      }
-    </dl>
-  </div>
+  {/* The lede and the three-number box came off. Both were the page arguing
+      for itself before showing you a single number, and this is a page you
+      open in a parking lot. The numbers are the content. */}
 
   {
     groups.map((g) => (

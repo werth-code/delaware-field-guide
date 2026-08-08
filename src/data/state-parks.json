@@ -30,12 +30,11 @@
     "warnings": [
       "Ticks. Campground reviews flag them repeatedly, especially the wooded loops and dune scrub."
     ],
-    "phone": null,
+    "phone": "302-645-8983",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the park office number and seasonal hours.",
       "Confirm the fee band and the guarded-beach dates.",
       "Confirm which loops have shade and spigots.",
       "Confirm cabins and boat launch."
@@ -55,6 +54,12 @@
         "label": "Delaware State Parks: disc golf",
         "url": "https://www.destateparks.com/disc-golf/",
         "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -114,12 +119,11 @@
     "warnings": [
       "Discarded fishhooks and cut monofilament line on the drive-on beaches."
     ],
-    "phone": null,
+    "phone": "302-227-2800",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the park office number.",
       "Confirm where the drive-on access points are and what a surf-fishing permit costs in 2026.",
       "Confirm the guarded beach locations and dates."
     ],
@@ -133,6 +137,12 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -181,12 +191,11 @@
       "href": "/dogs/fenwick-island/"
     },
     "warnings": [],
-    "phone": null,
+    "phone": "302-227-2800",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the park office number.",
       "Confirm exactly where the town beach ends and the park begins — this is the fact that decides whether a dog is legal.",
       "Confirm watersports rentals on the bay side."
     ],
@@ -200,6 +209,12 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -238,12 +253,11 @@
       "href": "/dogs/state-parks/"
     },
     "warnings": [],
-    "phone": null,
+    "phone": "302-227-2800",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the park office number.",
       "Confirm the fee band — bay-side parks may be priced as beach parks.",
       "Confirm crabbing pier access and whether a license is needed."
     ],
@@ -257,6 +271,12 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -298,12 +318,11 @@
       "Millpond. Harmful algal blooms peak here in late summer.",
       "Mosquitoes at dusk."
     ],
-    "phone": null,
+    "phone": "302-875-5153",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the park office number.",
       "Confirm boat and paddle rental availability and season.",
       "Confirm whether DNREC posts bloom advisories on site.",
       "Get the disc golf hole count and layout. The state names the parks and publishes nothing else."
@@ -323,6 +342,12 @@
         "label": "Delaware State Parks: disc golf",
         "url": "https://www.destateparks.com/disc-golf/",
         "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -363,12 +388,11 @@
     "warnings": [
       "Millpond. Bloom season is August and September."
     ],
-    "phone": null,
+    "phone": "302-284-4526",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the park office number.",
       "Confirm water park season, hours and separate admission.",
       "Confirm where dogs are and are not allowed on site."
     ],
@@ -387,6 +411,12 @@
         "label": "Delaware State Parks: disc golf",
         "url": "https://www.destateparks.com/disc-golf/",
         "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -428,12 +458,11 @@
       "The off-leash area is not fenced. Reliable recall required.",
       "Millpond conditions — check the water before letting a dog swim."
     ],
-    "phone": null,
+    "phone": "302-368-6989",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the park office number.",
       "Confirm the fee band for 2026 — inland ($5/$10) or beach ($10/$20).",
       "Confirm the off-leash area hours separately from park hours.",
       "Confirm whether the beach is guarded, and when.",
@@ -458,6 +487,12 @@
         "label": "Delaware State Parks: disc golf",
         "url": "https://www.destateparks.com/disc-golf/",
         "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -582,12 +617,11 @@
     "warnings": [
       "Ticks, through the whole warm season."
     ],
-    "phone": null,
+    "phone": "302-368-6900",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the park office number.",
       "Confirm total trail mileage and which trailheads charge entry.",
       "Confirm whether the Pennsylvania section is contiguous and freely walkable.",
       "Get the nature center's hours and whether it's open year round.",
@@ -608,6 +642,12 @@
         "label": "Delaware State Parks: disc golf",
         "url": "https://www.destateparks.com/disc-golf/",
         "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -696,12 +736,11 @@
       "Ticks.",
       "Several entrances, and they aren't equivalent. The ranger station, gift shop and pavilion bookings are all at the main one."
     ],
-    "phone": null,
+    "phone": "302-577-3534",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the park office number.",
       "Confirm hawk watch season and the nature center's hours.",
       "Get the disc golf hole count and whether it costs anything.",
       "Get the pavilion rental prices and how far ahead you have to book.",
@@ -726,6 +765,12 @@
         "label": "Delaware State Parks: disc golf",
         "url": "https://www.destateparks.com/disc-golf/",
         "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -826,14 +871,12 @@
       "href": "/dogs/state-parks/"
     },
     "warnings": [],
-    "phone": null,
+    "phone": "302-761-6963",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "PRIORITY: get the Bellevue park office phone number. The office is confirmed on the ground; only the number is missing.",
       "Confirm who runs the Bellevue stables, what it costs, and whether you can book a lesson or a hack as a member of the public.",
-      "Get the park office number.",
       "Confirm track access and whether the mansion grounds are open.",
       "Confirm the disc golf hole count and whether there's a fee.",
       "The state parks type has no pavilion or picnic field, and Bellevue plainly has both. Decide whether to add one — it's the same gap the playground and the stables fell through."
@@ -853,6 +896,12 @@
         "label": "Delaware State Parks: disc golf",
         "url": "https://www.destateparks.com/disc-golf/",
         "note": "The operator's own disc golf page. Names all seven state parks with a course: Bellevue, Brandywine Creek, Cape Henlopen, Killens Pond, Lums Pond, Trap Pond and White Clay Creek. Publishes no hole counts, tee-pad detail or course maps."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -984,7 +1033,6 @@
       "Which parking lot is closest to the Can-Do Playground — the map shows C and D near it, but not which one you want.",
       "Confirm the Can-Do Playground's own opening hours — the park's and the playground's may differ.",
       "Does the pet ban cover the whole Blue Ball Barn day-use area, or only inside the playground fence? The sign says both things at once.",
-      "Get the park office number.",
       "Confirm whether rock climbing needs a permit.",
       "Confirm the Blue Ball Barn's opening hours — the restrooms are inside it."
     ],
@@ -1004,6 +1052,12 @@
         "url": "https://destateparks.com/Woods/AlapocasRun",
         "primary": true,
         "note": "The park's own printed map, photographed. Gives the Blue Ball Barn office at 1914 West Park Drive, Wilmington DE 19803 and 302-577-1164; names the Can-Do Playground as a mapped facility beside parking lots C and D with three athletic fields; and lists the hiking trails with lengths — Alapocas Woods 0.7 mi, Upper Reach 0.2 mi, Pawpaw Loop 0.3 mi, Copperhead Curve 0.3 mi, Forgotten Trail 0.3 mi — plus the Northern Delaware Greenway and the Bancroft Trail at 0.2 mi as shared-use."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-07",
@@ -1183,12 +1237,11 @@
       "href": "/dogs/state-parks/"
     },
     "warnings": [],
-    "phone": null,
+    "phone": "302-761-6963",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the park office number.",
       "Confirm whether entry is charged here at all."
     ],
     "sources": [
@@ -1201,6 +1254,12 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -1241,12 +1300,11 @@
     "warnings": [
       "Ferry-only access. Seasonal, and the last boat back is the last boat back."
     ],
-    "phone": null,
+    "phone": "302-834-7941",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the park office number.",
       "Confirm ferry season, schedule, fare and PET POLICY — a dog on the wrong boat is a stranded dog.",
       "Confirm admission pricing, which is separate from the standard park fee."
     ],
@@ -1260,6 +1318,12 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -1298,12 +1362,11 @@
       "href": "/dogs/state-parks/"
     },
     "warnings": [],
-    "phone": null,
+    "phone": "302-834-7941",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the park office number.",
       "Confirm which areas are open — the site is partly under redevelopment."
     ],
     "sources": [
@@ -1316,6 +1379,12 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -1356,12 +1425,11 @@
     "warnings": [
       "Limited opening. Confirm before going."
     ],
-    "phone": null,
+    "phone": "302-729-4280",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the park office number.",
       "Confirm museum and railroad operating days — this is the park most likely to be shut when you arrive."
     ],
     "sources": [
@@ -1374,6 +1442,12 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -1414,12 +1488,11 @@
     "warnings": [
       "Not a conventional park — it's a set of separate sites, so plan around individual building hours."
     ],
-    "phone": null,
+    "phone": "302-739-9194",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the visitor center number.",
       "List the individual sites and their hours.",
       "Confirm whether any entry fee applies."
     ],
@@ -1433,6 +1506,12 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -1457,13 +1536,13 @@
       "camping": false,
       "cabins": false,
       "trails": true,
-      "boatLaunch": null,
-      "boatRentals": null,
-      "pier": null,
-      "discGolf": null,
-      "restrooms": null,
+      "boatLaunch": false,
+      "boatRentals": false,
+      "pier": true,
+      "discGolf": false,
+      "restrooms": true,
       "playground": true,
-      "stables": null
+      "stables": false
     },
     "feeBand": "inland",
     "dogs": {
@@ -1471,12 +1550,11 @@
       "href": "/dogs/dog-parks/brandywine-off-leash-dog-park/"
     },
     "warnings": [],
-    "phone": null,
+    "phone": "302-577-7020",
     "hours": null,
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the park office number.",
       "Confirm which of the linked parks charge entry, if any.",
       "Confirm Rockford Tower opening season.",
       "Establish who operates which piece here. The DEEC is Delaware Nature Society, the zoo is Delaware State Parks, and the city has its own parks — this record should not blur them.",
@@ -1499,6 +1577,12 @@
         "url": "https://destateparks.com/Urban/WilmingtonStateParks",
         "primary": true,
         "note": "The reverse of the same printed sheet, photographed. Its legend carries an Off Leash Dog Area facility and a Playground facility, and it names the park office at Abessinio Stadium, the Brandywine Zoo and its education building, the Sugar Bowl Pavilion and the rose garden."
+      },
+      {
+        "label": "Delaware State Parks: park office phone numbers",
+        "url": "https://destateparks.com/Contact",
+        "primary": true,
+        "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
       }
     ],
     "sourcedOn": "2026-08-07",
@@ -1581,6 +1665,11 @@
         "date": "2026-08-07",
         "author": "Site maintainer",
         "body": "The printed Brandywine Park map carries both an Off Leash Dog Area and a Playground in its facilities legend, which confirms from the operator what the record already said about the off-leash area and adds the playground."
+      },
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "Restrooms yes and a pier yes; no boat launch, no boat rentals, no disc golf and no stables. That's the whole facilities block answered for this record in one visit, and six of the seven were sitting at \"Not confirmed\" — the fourth park in a week where the gap was DNREC listing what a park has and never what it hasn't."
       }
     ],
     "coords": {

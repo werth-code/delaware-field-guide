@@ -1,0 +1,68 @@
+---
+/**
+ * A call control on a single listing card.
+ *
+ * WHY IT'S ON THE CARD AND NOT ONLY ON THE PAGE
+ *
+ * Half of what this site says ends in "ring first" — a fee nobody publishes,
+ * hours that move, whether the restroom block is open yet. The number was on
+ * the record's own page, which means the person standing in a parking lot has
+ * to open the listing, open the park, find the number, and then dial. Three
+ * taps of tax on the one action the whole page is pushing them towards.
+ *
+ * A `tel:` link is the entire implementation. It needs no JavaScript, it
+ * works on a desktop that has a softphone and does nothing surprising on one
+ * that doesn't, and it ships nothing at all when the record has no number —
+ * which is most of them, and is why this renders null rather than a disabled
+ * button. A greyed-out Call is an invitation to tap something that can't work.
+ *
+ * THE LAYER ORDER, inherited from CardShare, which learnt it the hard way:
+ *   z-10  the stretched link that makes the whole card tappable
+ *   z-20  the photo gallery strip
+ *   z-30  the share button
+ *   z-30  this
+ * Anything added here later goes above 30 or it vanishes behind the strip.
+ *
+ * It sits LEFT of the share button rather than stacked under it, so the two
+ * read as one control group in the corner instead of a column creeping down
+ * the photograph.
+ */
+interface Props {
+  /** As published. Rendered as-is; only the tel: href is normalized. */
+  phone?: string | null;
+  /** Whose number it is, for the label a screen reader reads out. */
+  title: string;
+  class?: string;
+}
+const { phone, title, class: className = "" } = Astro.props;
+
+/* North American numbers on this site are published as 302-555-0100. Anything
+   already carrying a + is left alone rather than mangled. */
+const href = phone
+  ? `tel:${phone.trim().startsWith("+") ? phone.replace(/[^\d+]/g, "") : "+1" + phone.replace(/\D/g, "")}`
+  : null;
+---
+
+{
+  href && (
+    <a
+      href={href}
+      aria-label={`Call ${title} on ${phone}`}
+      title={`Call ${title} on ${phone}`}
+      class={`absolute top-2 right-[3.4rem] z-30 inline-flex items-center justify-center w-11 h-11 rounded-[var(--radius-sign)] no-underline text-marsh bg-shell/85 backdrop-blur-[2px] border border-marsh/25 hover:bg-shell hover:border-marsh ${className}`}
+    >
+      <svg
+        viewBox="0 0 24 24"
+        class="w-[1.15rem] h-[1.15rem]"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="square"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M6 3h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 4 5a2 2 0 0 1 2-2Z" />
+      </svg>
+    </a>
+  )
+}
