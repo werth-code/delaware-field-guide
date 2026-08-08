@@ -1,0 +1,129 @@
+---
+/**
+ * One intent page.
+ *
+ * The shape is the one the SEO brief argues for and disc golf already proved:
+ * literal title carries the query, human H1 carries the voice, the answer sits
+ * above the fold, the caveat sits under it, and the list is generated so it
+ * cannot drift from the records.
+ *
+ * A thin page is still built. An old indexed URL landing on an honest short
+ * list beats a 404, and the noindex keeps a short list out of search until it
+ * is worth finding.
+ */
+import Layout from "../../layouts/Layout.astro";
+import { INTENTS, MIN_TO_INDEX, type Intent, type Hit } from "../../lib/intents";
+
+import stateParks from "../../data/state-parks.json";
+import communityParks from "../../data/community-parks.json";
+import indoor from "../../data/indoor.json";
+import drink from "../../data/drink.json";
+
+export function getStaticPaths() {
+  return INTENTS.map((intent) => ({ params: { slug: intent.slug }, props: { intent } }));
+}
+
+const { intent } = Astro.props as { intent: Intent };
+const hits: Hit[] = intent.match({
+  state: stateParks as any[],
+  community: communityParks as any[],
+  indoor: indoor as any[],
+  drink: drink as any[],
+});
+
+const thin = hits.length < MIN_TO_INDEX;
+
+/* By county, the way every other listing on this site groups. Grouping by
+   town looked right until it ran: nine parks produced seven headings with one
+   card under each, which is an index of headings rather than of places.
+   Someone in Lewes is not driving to Wilmington for an afternoon, and county
+   is the grain at which that decision actually gets made. */
+const ORDER = ["New Castle", "Kent", "Sussex"];
+const byCounty = new Map<string, Hit[]>();
+for (const h of hits) {
+  const k = h.county ?? "Elsewhere";
+  byCounty.set(k, [...(byCounty.get(k) ?? []), h]);
+}
+const groups = [...byCounty.entries()]
+  .sort((a, b) => {
+    const ai = ORDER.indexOf(a[0]), bi = ORDER.indexOf(b[0]);
+    return (ai < 0 ? 99 : ai) - (bi < 0 ? 99 : bi);
+  })
+  .map(([c, rows]) => [
+    ORDER.includes(c) ? `${c} County` : c,
+    [...rows].sort((x, y) => x.name.localeCompare(y.name)),
+  ] as [string, Hit[]]);
+---
+
+<Layout
+  title={intent.title}
+  description={intent.description}
+  robots={thin ? "noindex, follow" : undefined}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">Good for</p>
+    <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[17ch] text-marsh">
+      {intent.h1}
+    </h1>
+
+    {/* The answer, before the explanation. */}
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">{intent.answer}</p>
+
+    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">{intent.caveat}</p>
+
+    <p class="stamp text-ink-soft mt-5 mb-0">
+      {hits.length} {hits.length === 1 ? "place" : "places"} on this list
+    </p>
+  </div>
+
+  <div class="wrap pb-8">
+    {
+      hits.length === 0 ? (
+        <div class="sign px-5 py-6 breakout">
+          <p class="label m-0">Nothing confirmed yet</p>
+          <p class="mt-2 mb-0 max-w-[56ch] text-[0.95rem]">
+            Nothing in the records meets this on confirmed facts. That is a gap in
+            my checking rather than a statement about Delaware — the page stays
+            here, out of search, and fills itself in as the facts land.
+          </p>
+        </div>
+      ) : (
+        groups.map(([place, rows]) => (
+          <div class="pb-6">
+            <h2 class="label m-0 pb-3">{place}</h2>
+            <ul class="list-none p-0 m-0 grid gap-3 sm:grid-cols-2 breakout">
+              {rows.map((h) => (
+                <li>
+                  <a href={h.href} class="sign sign-action block no-underline group px-4 py-4 h-full">
+                    <p class="font-display text-[1.08rem] font-semibold tracking-[-0.03em] m-0 text-marsh underline decoration-ochre decoration-2 underline-offset-[0.16em] group-hover:decoration-marsh">
+                      {h.name}
+                    </p>
+                    <p class="stamp text-ink-soft mt-1 mb-0">{[h.kind, h.town].filter(Boolean).join(" · ")}</p>
+                    {h.note && (
+                      <p class="mt-2 mb-0 text-[0.88rem] leading-snug text-ink-soft max-w-[46ch]">
+                        {h.note}
+                      </p>
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      )
+    }
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    <h2>Other things to look for</h2>
+    <ul>
+      {
+        INTENTS.filter((i) => i.slug !== intent.slug).map((i) => (
+          <li>
+            <a href={`/good-for/${i.slug}/`}>{i.h1}</a> — {i.title}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Layout>

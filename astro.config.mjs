@@ -71,7 +71,38 @@ export default defineConfig({
   // link: the map folded into /ask/, and /how-we-verify/ came down with its
   // two irreplaceable parts — the corrections anchor and the AI disclosure —
   // moved onto /about/.
-  redirects: { '/map/': '/ask/', '/how-we-verify/': '/about/' },
+  //
+  // THE OLD /good-for/ SLUGS.
+  //
+  // These ten were public, got indexed, and then 404'd for months after the
+  // section was deleted in favour of filter chips on the listings. The chips
+  // were the wrong replacement — a filter is for someone who has already
+  // arrived, and these URLs are what people type before they arrive — so the
+  // section is back, rebuilt from confirmed facts.
+  //
+  // The new slugs are written for what people search rather than for the
+  // internal field name, so every old one needs a home. Where an intent
+  // survived it goes to its successor; where it didn't, it goes to the listing
+  // that can actually answer it. Nothing gets swept to the homepage, which is
+  // the redirect that tells a visitor their link was worthless.
+  redirects: {
+    '/map/': '/ask/',
+    '/how-we-verify/': '/about/',
+
+    // Survived, renamed.
+    '/good-for/shade-in-august/': '/good-for/shade/',
+    '/good-for/stroller-friendly/': '/good-for/toddlers/',
+    '/good-for/restrooms-that-exist/': '/good-for/playground-restrooms/',
+
+    // No successor intent. Sent to the page holding those facts.
+    '/good-for/lifeguards-on-duty/': '/parks/',
+    '/good-for/stay-the-night/': '/parks/',
+    '/good-for/get-on-the-water/': '/parks/',
+    '/good-for/fish-from-the-beach/': '/surf-fishing/',
+    '/good-for/burn-off-an-hour/': '/parks/community/',
+    '/good-for/somewhere-to-sit/': '/parks/community/',
+    '/good-for/water-you-can-drink/': '/parks/community/',
+  },
 
   integrations: [
     sitemap({

@@ -51,6 +51,16 @@ const communityParks = communityParksData as { slug: string; name: string }[];
 
 export const SECTIONS: Section[] = [
   {
+    /* Sits with the sections rather than beside Ask, even though it's a way in
+       rather than a subject. Ask needs you to phrase the question; this is for
+       the reader who knows the constraint — rain, a bathroom, shade — and wants
+       the list. Both are entry points; only one of them is browsable. */
+    slug: "good-for",
+    label: "Good for",
+    icon: "kidFriendly",
+    nav: [{ href: "/good-for/", label: "Start from the problem" }],
+  },
+  {
     slug: "events",
     label: "Events",
     icon: "pavilion",
@@ -160,7 +170,7 @@ export interface NavGroup {
 
 export const NAV_GROUPS: NavGroup[] = [
   { label: "Parks", slugs: ["parks", "surf-fishing"] },
-  { label: "Days out", slugs: ["indoors", "attractions", "wineries-and-breweries", "disc-golf", "events", "nearby"] },
+  { label: "Days out", slugs: ["good-for", "indoors", "attractions", "wineries-and-breweries", "disc-golf", "events", "nearby"] },
 ];
 
 /** Sections that sit at the top level rather than inside a group. */
