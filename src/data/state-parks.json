@@ -902,6 +902,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
+      "Which parking lot is closest to the Can-Do Playground — the map shows C and D near it, but not which one you want.",
       "Confirm the Can-Do Playground's own opening hours — the park's and the playground's may differ.",
       "Are there restrooms at the playground itself, or only at the barn?",
       "Does the pet ban cover the whole Blue Ball Barn day-use area, or only inside the playground fence? The sign says both things at once.",
@@ -919,9 +920,15 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: Alapocas Run State Park map (printed, June 2023)",
+        "url": "https://destateparks.com/Woods/AlapocasRun",
+        "primary": true,
+        "note": "The park's own printed map, photographed. Gives the Blue Ball Barn office at 1914 West Park Drive, Wilmington DE 19803 and 302-577-1164; names the Can-Do Playground as a mapped facility beside parking lots C and D with three athletic fields; and lists the hiking trails with lengths — Alapocas Woods 0.7 mi, Upper Reach 0.2 mi, Pawpaw Loop 0.3 mi, Copperhead Curve 0.3 mi, Forgotten Trail 0.3 mi — plus the Northern Delaware Greenway and the Bancroft Trail at 0.2 mi as shared-use."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-07",
     "photos": [
       {
         "file": "alapocas-run-greenway",
@@ -972,6 +979,14 @@
         "portrait": false
       },
       {
+        "file": "cando-sandcastle",
+        "alt": "Two children crouched in the playground's sand area, seen from behind and above, one filling a bucket and one turning out a red sandcastle mould, with plastic spades scattered around.",
+        "caption": "The sand is the part that holds them longest. Buckets and moulds get left out here and stay out.",
+        "credit": "Site maintainer",
+        "takenOn": "2026-08-07",
+        "portrait": false
+      },
+      {
         "file": "cando-rules",
         "alt": "Two signs on a post: a white one reading No Pets Allowed In Playground Area with a crossed-out dog, a small black plaque reading Service Animals Welcome, and a brown one headed Welcome, Prohibited In Park: tobacco, glass containers, pets, bicycles, skateboards, rollerblades.",
         "caption": "The sign that decides whether the dog gets out of the car. Pets are barred, service animals are named as welcome, and the park office number is on it.",
@@ -1000,6 +1015,10 @@
       {
         "label": "Blue Ball Barn",
         "note": "The park office, and the number to ring: 302-577-1164. It's on the sign at the playground."
+      },
+      {
+        "label": "The trails, by name",
+        "note": "Alapocas Woods 0.7 miles, Upper Reach 0.2, Pawpaw Loop 0.3, Copperhead Curve 0.3, Forgotten Trail 0.3. The Northern Delaware Greenway and the Bancroft Trail run through as shared-use, which is why bicycles are normal on the greenway and barred at the playground."
       }
     ],
     "fieldNotes": [
@@ -1019,7 +1038,8 @@
       "lat": 39.776,
       "lon": -75.562,
       "precision": "site"
-    }
+    },
+    "address": "1914 West Park Drive, Wilmington, DE 19803"
   },
   {
     "slug": "fox-point",
@@ -1324,7 +1344,7 @@
       "pier": null,
       "discGolf": null,
       "restrooms": null,
-      "playground": null
+      "playground": true
     },
     "feeBand": "inland",
     "dogs": {
@@ -1354,9 +1374,15 @@
         "label": "Delaware State Parks: passes, permits and fees",
         "url": "https://www.destateparks.com/passes-permits-and-fees/",
         "note": "2026 fee schedule, effective 1 March 2026."
+      },
+      {
+        "label": "Delaware State Parks: Brandywine Park map (printed, June 2023)",
+        "url": "https://destateparks.com/Urban/WilmingtonStateParks",
+        "primary": true,
+        "note": "The reverse of the same printed sheet, photographed. Its legend carries an Off Leash Dog Area facility and a Playground facility, and it names the park office at Abessinio Stadium, the Brandywine Zoo and its education building, the Sugar Bowl Pavilion and the rose garden."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-07",
     "photos": [
       {
         "file": "brandywine-park-fountain",
@@ -1431,6 +1457,11 @@
         "date": "2026-08-04",
         "author": "Site maintainer",
         "body": "The Riverwalk boardwalk and the arched footbridge run out across the Peterson refuge marsh from the Riverfront, past the DuPont Environmental Education Center. Brandywine Park at the other end has the fountain and the zoo."
+      },
+      {
+        "date": "2026-08-07",
+        "author": "Site maintainer",
+        "body": "The printed Brandywine Park map carries both an Off Leash Dog Area and a Playground in its facilities legend, which confirms from the operator what the record already said about the off-leash area and adds the playground."
       }
     ],
     "coords": {
