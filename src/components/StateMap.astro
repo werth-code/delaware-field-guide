@@ -24,7 +24,7 @@
  * of the dot. Each record carries which it is, and the key says so.
  */
 import { colorFor } from "../lib/feature-colors";
-import { ROADS } from "../lib/map-geometry";
+import { ROADS, COUNTY_LINES } from "../lib/map-geometry";
 import FeatureIcon from "./FeatureIcon.astro";
 
 export interface MapPoint {
@@ -151,6 +151,36 @@ const vw = Math.ceil(W * SCALE);
       </defs>
 
       <path d={path} fill="var(--color-shell)" stroke="var(--color-marsh)" stroke-width="4" stroke-linejoin="round" />
+
+      {/*
+        The two county lines, under the roads so a road never appears to stop
+        at a county boundary. Dashed and thin: this is an administrative fact
+        about the filter buttons above, not a thing you can see from the car,
+        and it should not compete with the roads that are.
+
+        Each line takes the colour of the county on its SOUTHERN side, so a
+        line's colour names the county it opens onto as you read down the
+        state, in the same colours as the filter buttons above it: cross the
+        green line and you are in Kent, cross the blue one and you are in
+        Sussex. New Castle's red never appears, because nothing lies north of
+        New Castle to cross into it from — one colour cannot stand for both
+        sides of a boundary, and pretending otherwise would be the kind of
+        thing that needs a legend.
+      */}
+      <g clip-path={`url(#${clipId})`} fill="none" stroke-linecap="round" stroke-linejoin="round">
+        {COUNTY_LINES.map((line) => {
+          const d = line.pts.map((c, i) => `${i ? "L" : "M"}${x(c[0]).toFixed(1)} ${y(c[1]).toFixed(1)}`).join(" ");
+          return (
+            <path
+              d={d}
+              stroke={counties.find((c) => c.key === line.between[1])?.color ?? "var(--color-marsh)"}
+              stroke-width="2.5"
+              stroke-dasharray="9 7"
+              opacity="0.55"
+            />
+          );
+        })}
+      </g>
 
       {/*
         Major roads, clipped to the outline by the SVG rather than by
@@ -282,7 +312,7 @@ const vw = Math.ceil(W * SCALE);
   </div>
 
   <figcaption class="px-4 sm:px-5 pb-4 stamp text-ink-soft">
-    Roads and water from OpenStreetMap. Tap a marker to see what it is, and again to open it. Solid markers are the
+    Roads, water and county lines from OpenStreetMap. Tap a marker to see what it is, and again to open it. Solid markers are the
     place itself; paler ones are the town center, where I couldn't pin the
     building — about the width of the marker, at this scale.
   </figcaption>

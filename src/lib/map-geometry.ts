@@ -72,3 +72,30 @@ export const ROADS: { ref: string; pts: [number, number][] }[] = [
   { ref: "US 301", pts: [[-75.6894, 39.5212], [-75.6931, 39.5069], [-75.6882, 39.5219], [-75.6666, 39.5247], [-75.6894, 39.5212]] },
   { ref: "US 301", pts: [[-75.7019, 39.4967], [-75.6955, 39.5004], [-75.6928, 39.507], [-75.6974, 39.499], [-75.7177, 39.4884], [-75.7022, 39.4963]] },
 ];
+
+/**
+ * The two county lines, from OpenStreetMap.
+ *
+ * Delaware has three counties and the map already filters by them, with a
+ * colour per county on the buttons — but the shape itself was undivided, so
+ * pressing "Kent" changed which dots showed and told you nothing about where
+ * Kent is.
+ *
+ * These are the INTERNAL boundaries only: the ways that Kent County shares
+ * with New Castle to the north and Sussex to the south, found by intersecting
+ * the three relations' way lists rather than by tracing a county and hoping.
+ * The stretches that run along the state border are already the outline and
+ * aren't repeated here. Both lines follow watercourses, which is why they
+ * wander — the northern one is not the straight latitude it looks like on a
+ * road atlas.
+ *
+ * They run past the shoreline into Delaware Bay, because a county boundary
+ * legally does. The SVG clips them to the state outline, so what you see stops
+ * at the water.
+ *
+ * © OpenStreetMap contributors, ODbL. Credited on the map.
+ */
+export const COUNTY_LINES: { between: [string, string]; pts: [number, number][] }[] = [
+  { between: ["New Castle", "Kent"], pts: [[-75.7601, 39.2966], [-75.7146, 39.2994], [-75.6852, 39.2971], [-75.675, 39.2905], [-75.6666, 39.2902], [-75.6505, 39.2919], [-75.6418, 39.301], [-75.6327, 39.3012], [-75.6193, 39.3102], [-75.607, 39.308], [-75.6035, 39.3111], [-75.6007, 39.308], [-75.5903, 39.3117], [-75.5846, 39.3086], [-75.5738, 39.3144], [-75.5685, 39.3292], [-75.5559, 39.3358], [-75.5606, 39.3453], [-75.5573, 39.3492], [-75.5511, 39.3454], [-75.5527, 39.3535], [-75.5453, 39.3505], [-75.5417, 39.3544], [-75.5361, 39.3506], [-75.5285, 39.3534], [-75.5281, 39.359], [-75.5206, 39.3586], [-75.4801, 39.3864]] },
+  { between: ["Kent", "Sussex"], pts: [[-75.7228, 38.8299], [-75.555, 38.8356], [-75.5397, 38.8435], [-75.5362, 38.85], [-75.5203, 38.8558], [-75.5081, 38.879], [-75.4978, 38.8821], [-75.4895, 38.8905], [-75.4843, 38.9044], [-75.4653, 38.9113], [-75.434, 38.9108], [-75.4175, 38.9143], [-75.4161, 38.9181], [-75.4096, 38.9165], [-75.4086, 38.9199], [-75.4019, 38.9178], [-75.4034, 38.9231], [-75.3994, 38.9261], [-75.3979, 38.9362], [-75.4029, 38.9375], [-75.3983, 38.9411], [-75.401, 38.9474], [-75.3925, 38.9563], [-75.3828, 38.9557], [-75.3807, 38.9617], [-75.3684, 38.9598], [-75.3666, 38.954], [-75.3603, 38.9575], [-75.3515, 38.9471], [-75.3445, 38.9553], [-75.3437, 38.9473], [-75.3369, 38.9464], [-75.3315, 38.9509], [-75.3262, 38.9487], [-75.3198, 38.954], [-75.3117, 38.9456], [-75.137, 39.0008]] },
+];

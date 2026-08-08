@@ -803,12 +803,12 @@
       "camping": false,
       "cabins": false,
       "trails": true,
-      "boatLaunch": null,
-      "boatRentals": null,
-      "pier": null,
+      "boatLaunch": false,
+      "boatRentals": false,
+      "pier": false,
       "discGolf": true,
-      "restrooms": null,
-      "playground": null
+      "restrooms": true,
+      "playground": true
     },
     "feeBand": "inland",
     "dogs": {
@@ -821,6 +821,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
+      "PRIORITY: get the Bellevue park office phone number. The office is confirmed on the ground; only the number is missing.",
       "Get the park office number.",
       "Confirm track access and whether the mansion grounds are open.",
       "Confirm the disc golf hole count and whether there's a fee."
@@ -859,13 +860,24 @@
         "date": "2026-08-04",
         "author": "Site maintainer",
         "body": "Disc golf here too."
+      },
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "No boat launch, no boat rentals and no pier — the pond here isn't that kind of water. There is a playground, and there are restrooms. All five had been sitting at \"Not confirmed\" for the same reason they were at Alapocas: DNREC's roster lists what a park HAS, so nothing in it distinguishes a facility that's absent from one nobody has checked. There is a park office too, on the right immediately after the entrance — what's still missing there is its phone number, which is a different gap from the building not existing, and the page said \"Not confirmed\" for both."
       }
     ],
     "coords": {
       "lat": 39.774,
       "lon": -75.49,
       "precision": "site"
-    }
+    },
+    "onSite": [
+      {
+        "label": "Park office",
+        "note": "On the right, immediately after you come in the entrance."
+      }
+    ]
   },
   {
     "slug": "alapocas-run",
