@@ -1,0 +1,103 @@
+---
+/**
+ * The map, on its own page.
+ *
+ * It was two thirds of the way down the front page, under the counts and above
+ * the section cards — which meant the one control on this site that answers
+ * "what is near me" was the thing you had to scroll past everything else to
+ * reach, and on a phone most people never did.
+ *
+ * It is also the only page here that is a tool rather than a document, so it
+ * gets a page whose whole job is holding it: no cards under it competing for
+ * the scroll, and the filters are the first thing below the heading.
+ */
+import Layout from "../layouts/Layout.astro";
+import StateMap from "../components/StateMap.astro";
+import FeatureIcon from "../components/FeatureIcon.astro";
+import { buildMapPoints, MAP_KINDS, MAP_COUNTIES } from "../lib/map-points";
+
+const points = buildMapPoints();
+
+/* Counted from the markers themselves, so this can't drift from the map. */
+const perKind = MAP_KINDS.map((k) => ({
+  ...k,
+  n: points.filter((p) => p.kind === k.key).length,
+}));
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Map of Delaware — every place in this guide",
+    url: "https://delawarefieldguide.com/map/",
+    description:
+      "Every park, beach town, museum, winery and brewery in this guide, on one map of Delaware, filterable by county and by section.",
+  },
+];
+---
+
+<Layout
+  title="Map — every place in this guide, on Delaware"
+  description="Every state park, community park, dog beach, museum, winery and brewery in this guide on one map, filtered by county and by section. No third-party map tiles and no trackers."
+  schema={schema}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">Map</p>
+    <h1 class="text-[2.4rem] sm:text-[3.2rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
+      Everything, on the state
+    </h1>
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
+      Every place in this guide that I have coordinates for — {points.length} of
+      them. Start with a county, then switch off whatever you're not looking
+      for. Tap a marker to see the place before you commit to the page.
+    </p>
+  </div>
+
+  <div class="wrap pb-8">
+    <StateMap points={points} kinds={MAP_KINDS} counties={MAP_COUNTIES} startWith={["New Castle"]} heading={null} />
+  </div>
+
+  <div class="wrap pb-9">
+    <h2 class="font-display text-[1.5rem] font-bold text-marsh border-b-[3px] border-tide pb-2 mb-4">
+      What's on it
+    </h2>
+    <dl class="sign breakout grid grid-cols-2 sm:grid-cols-3 gap-0 divide-x-2 divide-y-2 sm:divide-y-0 divide-tide/30">
+      {
+        perKind.map((k) => (
+          <div class="px-4 py-4">
+            <dt class="label m-0 flex items-center gap-2" style={`color:${k.color}`}>
+              <FeatureIcon icon={k.key as any} class="w-[1em] h-[1em] shrink-0" />
+              {k.label}
+            </dt>
+            <dd class="m-0 mt-1.5 font-display text-[1.6rem] font-bold text-marsh leading-none">
+              {k.n}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+
+  <div class="wrap prose-field pb-6">
+    <h2>What isn't on it</h2>
+    <p class="max-w-[58ch]">
+      Anything I haven't pinned yet. A place with no coordinates in the data
+      simply isn't here, which is why the count above is smaller than the number
+      of pages on this site — it's a gap in what I've recorded, not a statement
+      that the place doesn't exist. Dog parks and the events aren't mapped at
+      all yet.
+    </p>
+    <p class="max-w-[58ch]">
+      The markers are honest about their own precision. A solid marker is the
+      place itself; a hollow one is the middle of the town, because I couldn't
+      pin the building. At this scale a mile is about six pixels, so a
+      town-center marker is right to within the size of the marker.
+    </p>
+    <p class="max-w-[58ch]">
+      This is a drawn SVG, not a map service. No tiles are fetched from anybody
+      and nothing here reports where you are. The outline is traced from real
+      coordinates; the roads, the water and the county lines come from
+      OpenStreetMap.
+    </p>
+  </div>
+</Layout>

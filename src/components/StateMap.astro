@@ -59,9 +59,15 @@ interface Props {
   counties?: { key: string; label: string; color: string }[];
   /** Which counties start switched on. Defaults to all of them. */
   startWith?: string[];
+  /**
+   * The label over the map. Pass null where the page's own h1 already says it
+   * — on /map/ the two sat one above the other saying the same words, which
+   * reads as a template that forgot it had been given a title.
+   */
+  heading?: string | null;
   class?: string;
 }
-const { points, kinds, counties = [], startWith, class: klass = "" } = Astro.props;
+const { points, kinds, counties = [], startWith, heading = "Everything, on the state", class: klass = "" } = Astro.props;
 
 /* Traced from real coordinates — see the header. */
 const OUTLINE: [number, number][] = [[-75.6931, 38.4515], [-75.7887, 39.58], [-75.7856, 39.6116], [-75.7891, 39.6222], [-75.7917, 39.6329], [-75.7934, 39.6437], [-75.7943, 39.6546], [-75.7942, 39.6656], [-75.7933, 39.6765], [-75.7914, 39.6873], [-75.7887, 39.698], [-75.7852, 39.7086], [-75.7807, 39.7189], [-75.7755, 39.7291], [-75.7694, 39.7389], [-75.7625, 39.7485], [-75.7549, 39.7577], [-75.7465, 39.7665], [-75.7374, 39.7749], [-75.7277, 39.7828], [-75.7173, 39.7903], [-75.7063, 39.7972], [-75.6948, 39.8036], [-75.6828, 39.8094], [-75.6704, 39.8146], [-75.6575, 39.8192], [-75.6443, 39.8232], [-75.6308, 39.8266], [-75.6171, 39.8292], [-75.6031, 39.8312], [-75.5891, 39.8326], [-75.5749, 39.8332], [-75.5607, 39.8332], [-75.5466, 39.8325], [-75.5325, 39.8311], [-75.5186, 39.829], [-75.5049, 39.8262], [-75.4914, 39.8228], [-75.4782, 39.8188], [-75.4654, 39.8141], [-75.453, 39.8088], [-75.4411, 39.8029], [-75.4296, 39.7964], [-75.416, 39.79], [-75.462, 39.73], [-75.51, 39.69], [-75.57, 39.66], [-75.59, 39.57], [-75.58, 39.47], [-75.5, 39.33], [-75.39, 39.22], [-75.42, 39.16], [-75.4, 39.06], [-75.3, 38.93], [-75.3, 38.86], [-75.17, 38.8], [-75.09, 38.79], [-75.076, 38.721], [-75.055, 38.61], [-75.049, 38.4515]];
@@ -89,7 +95,7 @@ const vw = Math.ceil(W * SCALE);
 
 <figure class={`sign breakout m-0 ${klass}`} data-statemap>
   <div class="px-4 sm:px-5 pt-4 pb-2 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-    <p class="label m-0">Everything, on the state</p>
+    {heading ? <p class="label m-0">{heading}</p> : <span />}
     <p class="stamp text-ink-soft m-0" data-map-count />
   </div>
 

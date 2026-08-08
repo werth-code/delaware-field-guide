@@ -9,7 +9,6 @@
  */
 import Layout from "../layouts/Layout.astro";
 import CoastBand from "../components/CoastBand.astro";
-import StateMap from "../components/StateMap.astro";
 import FlagMark from "../components/FlagMark.astro";
 import DogFigure from "../components/DogFigure.astro";
 
@@ -23,6 +22,7 @@ import drinkData from "../data/drink.json";
 import eventsData from "../data/events.json";
 import nearbyData from "../data/nearby.json";
 import { isPublishable } from "../lib/verification";
+import { buildMapPoints } from "../lib/map-points";
 import type { StatePark } from "../lib/state-parks";
 import { colorFor, COUNTY_COLOR } from "../lib/feature-colors";
 import FeatureIcon from "../components/FeatureIcon.astro";
@@ -291,47 +291,13 @@ const sections = [
   },
 ];
 
+const mapCount = buildMapPoints().length;
+
 const facts = [
   { n: String(stateParks.length), label: "state parks" },
   { n: String(dogParks.length + communityParks.length), label: "local parks" },
   { n: String(towns.length), label: "beach towns" },
   { n: String(indoors.length + drink.length + attractions.length), label: "museums, bars, days out" },
-];
-
-/* Everything with coordinates, on one map. Kinds are the section a record
-   belongs to, so the filters read the way the nav does. */
-type Geo = {
-  slug: string; name: string; town?: string; county?: string; kind?: string;
-  blurb?: string; answer?: string; photos?: { file: string; focus?: string | null }[];
-  coords?: { lat: number; lon: number; precision: "site" | "town" };
-};
-/* One line each, trimmed at a sentence so the card stays a card. */
-const oneLine = (t: string | undefined) => {
-  if (!t) return "";
-  const stop = t.indexOf(". ");
-  const line = stop > 40 ? t.slice(0, stop + 1) : t;
-  return line.length > 160 ? line.slice(0, 157).trimEnd() + "…" : line;
-};
-const pin = (rows: unknown[], kind: string, href: (r: any) => string) =>
-  (rows as Geo[])
-    .filter((r) => r.coords)
-    .map((r) => ({
-      slug: r.slug, name: r.name, href: href(r), kind,
-      lat: r.coords!.lat, lon: r.coords!.lon, precision: r.coords!.precision,
-      blurb: oneLine(r.blurb ?? r.answer),
-      where: [r.town, r.county ? `${r.county} County` : null].filter(Boolean).join(", "),
-      photo: r.photos?.[0]?.file ?? null,
-      focus: r.photos?.[0]?.focus ?? null,
-      county: r.county ?? "",
-    }));
-
-const mapPoints = [
-  ...pin(stateParksData as unknown[], "trails", (r) => `/parks/${r.slug}/`),
-  ...pin(communityParksData as unknown[], "playground", (r) => `/parks/community/${r.slug}/`),
-  ...pin(indoorAll.filter((r) => r.kind !== "Zoo") as unknown[], "free", (r) => `/indoors/${r.slug}/`),
-  ...pin(indoorAll.filter((r) => r.kind === "Zoo") as unknown[], "petsAllowed", (r) => `/attractions/${r.slug}/`),
-  ...pin(drinkData as unknown[], "giftShop", (r) => `/wineries-and-breweries/${r.slug}/`),
-  ...pin(townsData as unknown[], "beach", (r) => `/dogs/${r.slug}/`),
 ];
 
 /*
@@ -349,21 +315,6 @@ const heroAsks: { q: string; key: string }[] = [
 ];
 
 /* North to south, the way you'd drive it. */
-const mapCounties = ["New Castle", "Kent", "Sussex"].map((c) => ({
-  key: c,
-  label: c,
-  color: COUNTY_COLOR[c],
-}));
-
-const mapKinds = [
-  { key: "trails", label: "State parks", color: colorFor("trails") },
-  { key: "playground", label: "Community parks", color: colorFor("playground") },
-  { key: "beach", label: "Dog beaches", color: colorFor("beach") },
-  { key: "free", label: "Museums & libraries", color: colorFor("free") },
-  { key: "giftShop", label: "Wine & beer", color: colorFor("giftShop") },
-  { key: "petsAllowed", label: "Places to go", color: colorFor("petsAllowed") },
-];
-
 const schema = [
   {
     "@context": "https://schema.org",
@@ -524,13 +475,28 @@ const schema = [
     </dl>
   </div>
 
+  {/* The map used to sit here in full. It's the one thing on this site that
+      is a tool rather than a document, and burying it two thirds down a front
+      page meant most phones never reached it. It has its own page now, and
+      this is the door to it. */}
   <div class="wrap pb-9">
-    <StateMap
-      points={mapPoints}
-      kinds={mapKinds}
-      counties={mapCounties}
-      startWith={["New Castle"]}
-    />
+    <a
+      href="/map/"
+      class="sign sign-action no-underline block p-5 group flex items-center gap-4 justify-between"
+    >
+      <span class="block">
+        <span class="label block">Map</span>
+        <span class="font-display text-[1.6rem] font-bold mt-1.5 mb-0 block tracking-[-0.03em] text-marsh underline decoration-ochre decoration-[3px] underline-offset-[0.14em] group-hover:decoration-marsh">
+          Everything, on the state
+        </span>
+        <span class="mt-2 block text-[0.95rem] leading-[1.5] text-ink-soft max-w-[46ch]">
+          {mapCount} places on one map of Delaware, filtered by county and by
+          section. Tap a marker and it tells you what the place is before you
+          open it.
+        </span>
+      </span>
+      <span class="stamp text-ochre-deep shrink-0 text-[1.4rem]" aria-hidden="true">→</span>
+    </a>
   </div>
 
   <div class="wrap">
