@@ -86,5 +86,99 @@
       "Confirm whether you can feed any of the animals, and what that costs."
     ],
     "verdict": null
+  },
+  {
+    "slug": "newlin-grist-mill",
+    "name": "Newlin Grist Mill",
+    "alsoKnownAs": "Newlin Grist Mill Park",
+    "distance": "About half an hour north of Wilmington up Route 202 and over the Pennsylvania line, near Glen Mills.",
+    "town": "Glen Mills",
+    "state": "Pennsylvania",
+    "county": "Delaware County",
+    "address": "219 South Cheyney Road, Glen Mills, PA 19342",
+    "kind": "Working water-powered mill and 160-acre preserve",
+    "blurb": "A mill built in 1704 that still grinds with water, sitting in 160 acres of preserve with a stream, ponds and a mill race running through it. The grounds and the trails are free — the mill tour is the part you pay for, and the two are priced separately. Wooded creek walking rather than open park: shade, stone crossings and a lot of water.",
+    "season": null,
+    "admission": {
+      "note": "The grounds are free. The mill tour is $10 for adults and $6 for seniors and children 12 and under, with members and under-3s free. Both published by Newlin Grist Mill, read 8 August 2026.",
+      "amount": 0
+    },
+    "onSite": [
+      {
+        "label": "Grounds are free, the tour isn't",
+        "note": "Newlin says it makes \"our 160-acre preserve free to those who come to enjoy it\". The $10 buys the mill tour, not the gate. You can walk the trails all afternoon without paying anything."
+      },
+      {
+        "label": "Dogs on leash",
+        "note": "Newlin publishes it directly: \"Please pick up after your pets and make sure that all pets are on leashes.\" That's the operator's own wording, not a review site's."
+      },
+      {
+        "label": "Welcome Center has moved",
+        "note": "The visitor center is shut for flood mitigation work. Information and admissions are running out of the Archive building instead, Tuesday to Sunday, 9am to 4pm. Read 8 August 2026 — this one is temporary by definition, so check before you rely on it."
+      },
+      {
+        "label": "Trails",
+        "note": "There are trails and Newlin publishes a trail map PDF, but it doesn't publish mileage, surface or difficulty anywhere I can find."
+      }
+    ],
+    "phone": "610-459-2359",
+    "website": {
+      "label": "Newlin Grist Mill",
+      "url": "https://www.newlingristmill.org/"
+    },
+    "warnings": [
+      "This is in Pennsylvania, not Delaware. Everything else on this site except Plumpton Park Zoo is in-state.",
+      "Newlin publishes no opening hours for the grounds. The 9am–4pm Tuesday-to-Sunday window is the temporary Welcome Center in the Archive building, which is not the same thing as when the gate is open.",
+      "The visitor center is closed for flood mitigation construction. A mill on a creek closes for high water, and this one is actively working on flooding — ring ahead after heavy rain."
+    ],
+    "photos": [
+      {
+        "file": "newlin-creek-crossing",
+        "alt": "A wide, shallow, clear stream running through heavy summer tree cover, with a line of flat stones forming a crossing from the near bank.",
+        "caption": "The stream at the stone crossing. No mill in this frame — this is the preserve part, which is the free part.",
+        "credit": null,
+        "license": null,
+        "sourceUrl": null,
+        "takenOn": null
+      },
+      {
+        "file": "newlin-toad",
+        "alt": "A small toad sitting motionless in wet leaf litter, its mottled brown and grey skin almost indistinguishable from the dead leaves around it.",
+        "caption": "A toad on the bank, about as visible as it gets. I'm not naming the species off one photograph — American and Fowler's toads both live here and this frame doesn't settle it.",
+        "credit": null,
+        "license": null,
+        "sourceUrl": null,
+        "takenOn": null
+      }
+    ],
+    "sources": [
+      {
+        "label": "Newlin Grist Mill — the park",
+        "url": "https://www.newlingristmill.org/park",
+        "note": "160 acres, free grounds, and the leashed-dogs rule.",
+        "primary": true
+      },
+      {
+        "label": "Newlin Grist Mill — home",
+        "url": "https://www.newlingristmill.org/",
+        "note": "Tour prices and the 1704 date.",
+        "primary": true
+      },
+      {
+        "label": "Newlin Grist Mill — visit",
+        "url": "https://www.newlingristmill.org/visit",
+        "note": "Address, phone, and the temporary Welcome Center arrangement.",
+        "primary": true
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": "2026-08-08",
+    "verifiedSource": "Visited, and photographed on the visit. Prices, address and the dog rule read off Newlin's own site the same week.",
+    "outstanding": [
+      "Grounds opening hours. Newlin doesn't publish them.",
+      "Fishing. There's a Fly Fishing Club in the site navigation, but the pages behind it 404 and nothing published says whether the creek is open to a casual angler, whether it's stocked, or what a Pennsylvania licence buys you here.",
+      "Trail mileage and surface — whether any of it takes a pushchair.",
+      "Whether dogs are allowed inside the mill buildings, as distinct from on the grounds."
+    ]
   }
 ]
