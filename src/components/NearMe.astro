@@ -43,8 +43,25 @@ const { noun = "places", flat = false, class: klass = "" } = Astro.props;
 ---
 
 <div class={`near-me ${klass}`} data-near-me data-noun={noun} hidden>
+  {/*
+    SHUT ON ARRIVAL, like the filter panel it nests inside. Three controls, a
+    ZIP field and a two-line privacy note is a lot of furniture for a question
+    most readers don't have — and it sat between the heading and the first
+    card. One line now; the controls are one tap away.
+
+    It reopens itself once a sort is applied, further down, because a shut
+    panel silently reordering the list is the same failure as a shut filter
+    panel silently shortening it.
+  */}
+  <details data-near-panel>
+    <summary class={`${flat ? "" : "sign-quiet px-3 sm:px-4 py-3"} list-none cursor-pointer flex items-center gap-2`}>
+      <svg viewBox="0 0 24 24" class="near-caret w-[0.8em] h-[0.8em] shrink-0 text-ink-soft" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true">
+        <path d="M9 6l6 6-6 6" />
+      </svg>
+      <span class="label m-0">Sort by distance</span>
+    </summary>
+
   <div class={`${flat ? "" : "sign-quiet px-3 sm:px-4 py-3"} flex flex-wrap items-center gap-x-3 gap-y-2`}>
-    <p class="label m-0 shrink-0">Sort by distance</p>
 
     <button
       type="button"
@@ -90,6 +107,7 @@ const { noun = "places", flat = false, class: klass = "" } = Astro.props;
       Your location stays in this browser. Nothing is sent anywhere.
     </p>
   </div>
+  </details>
 </div>
 
 <script>
@@ -107,6 +125,11 @@ const { noun = "places", flat = false, class: klass = "" } = Astro.props;
     root.hidden = false;
 
     const status = root.querySelector("[data-near-status]");
+    /* A shut panel that has quietly reordered the list is the filter-panel
+       mistake again: a reader sees an order they didn't ask for and no control
+       explaining it. */
+    const panel = root.querySelector("[data-near-panel]");
+    const reveal = () => { if (panel) panel.open = true; };
     const reset = root.querySelector("[data-near-reset]");
     const zipInput = root.querySelector("[data-near-zip]");
     const noun = root.dataset.noun || "places";
@@ -180,6 +203,7 @@ const { noun = "places", flat = false, class: klass = "" } = Astro.props;
       for (const c of sorted) target.appendChild(c);
 
       reset.hidden = false;
+      reveal();
       document.dispatchEvent(new CustomEvent("cards:moved"));
       const nearest = say(Number(sorted[0].dataset.nearDist));
       status.textContent = `Nearest first from ${label}. The closest is ${nearest} away. Your location stayed in this browser.`;
@@ -275,3 +299,13 @@ const { noun = "places", flat = false, class: klass = "" } = Astro.props;
     } catch {}
   })();
 </script>
+
+<style>
+  /* The disclosure marker sits outside the flex row and breaks the alignment;
+     Safari needs the -webkit- form as well as the standard one. */
+  [data-near-panel] > summary::-webkit-details-marker { display: none; }
+  [data-near-panel] > summary::marker { content: ""; }
+  [data-near-panel][open] .near-caret { transform: rotate(90deg); }
+  .near-caret { transition: transform 140ms ease; }
+  @media (prefers-reduced-motion: reduce) { .near-caret { transition: none; } }
+</style>

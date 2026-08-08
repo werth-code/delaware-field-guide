@@ -83,9 +83,15 @@ const courses = [
       The round is free. The gate isn't.
     </h1>
     <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
-      Delaware has {total} courses in public parks, {stateParks.length} of them
-      in state parks. Nobody charges to play. Seven of them sit behind a park
-      entrance fee, and that's the number worth knowing before you drive.
+      Delaware has {total} disc golf courses in public parks, including
+      {stateParks.length} in state parks. Playing is free at all of them.
+    </p>
+
+    {/* Still counted rather than typed. "Seven" was written into this sentence
+        once and would have gone stale the day a course opened. */}
+    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
+      But {stateParks.length} are behind a park entrance fee. That's the part
+      worth knowing before you drive.
     </p>
   </div>
 

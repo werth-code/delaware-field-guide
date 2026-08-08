@@ -55,8 +55,18 @@ const stripItems: StripItem[] = (places as any[])
       Can the dog come?
     </h1>
     <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
-      Wineries and breweries across Delaware, with the dog answer first. Where
-      the business hasn't said, this page doesn't say either.
+      Looking for places around Delaware to enjoy local wine or craft beer?
+    </p>
+
+    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
+      Four of them, spread across the state, with tastings, tours and outdoor
+      seating between them. Hours vary, and only one publishes a dog policy —
+      so it's worth checking ahead before you visit.
+    </p>
+
+    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
+      Most have patio space. If the weather turns, there are indoor tasting
+      rooms, or try <a href="/indoors/">the museums and libraries</a> instead.
     </p>
   </div>
 
@@ -137,19 +147,11 @@ const stripItems: StripItem[] = (places as any[])
   }
 
   <div class="wrap prose-field pb-4">
-    <h2>Why so many of these say "not confirmed"</h2>
-    <p class="max-w-[58ch]">
-      Search for a dog-friendly brewery in Delaware and you will find
-      magazines, an inn's blog and a dog trainer's marketing page, all stating
-      policies confidently. Not one of them is the business whose policy it is.
-    </p>
-    <p class="max-w-[58ch]">
-      So this page only prints what the winery or brewery says itself. Of the
-      {places.length} here, {publishDogs} publishes a dog policy on its own
-      site and {noHours} doesn't publish opening hours at all. Turning up at
-      the others with a dog in the car means trusting a stranger's blog post —
-      which you can still do, but at least now you know that's what it is.
-    </p>
+    {/* The "why so many say not confirmed" section came off. The fact it
+        carried is now one clause in the intro — only one of the four publishes
+        a dog policy — because that is the actionable half. The argument about
+        magazines and dog-trainer blogs asserting policies they have no
+        standing to assert belongs on /about/, where the method lives. */}
 
     <div class="sign breakout my-6 px-4 sm:px-5 py-4 not-prose">
       <p class="label m-0">Where this stands</p>
