@@ -1088,8 +1088,8 @@
     },
     "accessibility": "Ramps to most of the upper decks rather than steps only, poured rubber under the swings, concrete paths right up to the equipment, and raised sand tables. Confirmed in person August 2026.",
     "dogParkSlug": null,
-    "hours": null,
-    "hoursNote": "Not published separately from the park's. Ring the Blue Ball Barn on 302-577-1164.",
+    "hours": "8am – sunset, daily",
+    "hoursNote": "First-hand, 8 August 2026. Covers the whole day-use area — the park, the Can-Do Playground and the Ninja Fit course all keep the same hours.",
     "phone": "302-577-1164",
     "warnings": [
       "NO DOGS. The sign at the entrance reads \"No pets allowed in playground area\", and the park's own board lists pets among the things prohibited. Service animals are named as welcome. You can walk the dog on the greenway; you cannot bring it in here.",
@@ -1113,9 +1113,9 @@
         "portrait": false
       },
       {
-        "file": "cando-ninja",
-        "alt": "A blue steel ninja obstacle course on a dark deck under a signboard reading Ninja Fit Playground, with a large timber picnic pavilion and mown grass in front.",
-        "caption": "The Ninja Fit course, in the same field as the playground, with the pavilion between them.",
+        "file": "cando-pavilion",
+        "alt": "A green-roofed timber picnic pavilion with picnic tables under it, on grass beside a paved path, with the ninja course visible in the distance behind.",
+        "caption": "The picnic pavilion between the Can-Do Playground and the Ninja Fit course. The dark line across the field behind it is the ninja run.",
         "credit": null,
         "takenOn": "2026-08-07",
         "portrait": false
@@ -1143,12 +1143,52 @@
         "credit": null,
         "takenOn": "2026-08-07",
         "portrait": true
+      },
+      {
+        "file": "cando-ninja-sign",
+        "alt": "A sign reading NINJA FIT PLAY GROUND in white on black, with cartoon ninja characters, standing at the end of a curved black warped wall on mown grass.",
+        "caption": "The sign at the end of the run. Built with Rotary and the Neighborhood Ninjas; the warped wall in front of it is the last obstacle.",
+        "credit": null,
+        "takenOn": null
+      },
+      {
+        "file": "cando-ninja-course",
+        "alt": "A long outdoor ninja obstacle course on black rubber surfacing: balance beams, angled boards, hanging rings and climbing frames, with two children on it and open playing fields either side.",
+        "caption": "The whole run, looking down it. Rubber underfoot the entire length, and benches along the edge for whoever isn't doing it.",
+        "credit": null,
+        "takenOn": null
+      },
+      {
+        "file": "cando-ninja-walls",
+        "alt": "Two tall angled climbing boards with green hand-holds in the foreground of a ninja obstacle course, with monkey bars and balance equipment behind and a child in the middle distance.",
+        "caption": "The climbing boards, from inside the course. This end is the harder half — the balance and hanging obstacles are down the other.",
+        "credit": null,
+        "takenOn": null
+      },
+      {
+        "file": "cando-ninja-field",
+        "alt": "A wide view across mown grass to a long ninja obstacle course silhouetted against a bright sky, with a small child walking towards it.",
+        "caption": "How it sits in the field. It's a long walk across open grass from the parking, and there is no shade on the course itself.",
+        "credit": null,
+        "takenOn": null
       }
     ],
     "coords": {
       "lat": 39.7756,
       "lon": -75.562,
       "precision": "site"
-    }
+    },
+    "fieldNotes": [
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "The Ninja Fit course has four photographs of its own now, including the sign. It had none — and worse, the file I had labeled `cando-ninja` and captioned as the course is a photograph of the picnic pavilion, with the course a thin dark line on the horizon behind it. I named it wrong and then wrote a caption that made the wrong name true. It's `cando-pavilion` now and says what it is."
+      },
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "8am to sunset, daily — the same hours as Alapocas Run around it, and the Ninja Fit course keeps them too. New Castle County publishes nothing for this playground; the hours came from being there."
+      }
+    ]
   }
 ]

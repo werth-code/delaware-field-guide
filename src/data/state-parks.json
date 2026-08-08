@@ -1049,12 +1049,11 @@
       "No dogs at the playground. The sign at the entrance says \"No pets allowed in playground area\", and the park's own board lists pets among the things prohibited — along with bicycles, skateboards, rollerblades, glass and tobacco. Service animals are explicitly welcome."
     ],
     "phone": "302-577-1164",
-    "hours": null,
+    "hours": "8am – sunset, daily",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
       "Which parking lot is closest to the Can-Do Playground — the map shows C and D near it, but not which one you want.",
-      "Confirm the Can-Do Playground's own opening hours — the park's and the playground's may differ.",
       "Does the pet ban cover the whole Blue Ball Barn day-use area, or only inside the playground fence? The sign says both things at once.",
       "Confirm whether rock climbing needs a permit.",
       "Confirm the Blue Ball Barn's opening hours — the restrooms are inside it."
@@ -1150,9 +1149,9 @@
         "portrait": true
       },
       {
-        "file": "cando-ninja",
-        "alt": "A blue steel ninja obstacle course on a dark deck under a signboard reading Ninja Fit Playground, with a large timber picnic pavilion and mown grass in front.",
-        "caption": "The Ninja Fit course sits in the same field as the Can-Do Playground, with the pavilion between them.",
+        "file": "cando-pavilion",
+        "alt": "A green-roofed timber picnic pavilion with picnic tables under it, on grass beside a paved path, with the ninja course visible in the distance behind.",
+        "caption": "The picnic pavilion between the Can-Do Playground and the Ninja Fit course. The dark line across the field behind it is the ninja run.",
         "credit": null,
         "takenOn": "2026-08-07",
         "portrait": false
@@ -1164,6 +1163,34 @@
         "credit": null,
         "takenOn": "2026-08-07",
         "portrait": false
+      },
+      {
+        "file": "cando-ninja-sign",
+        "alt": "A sign reading NINJA FIT PLAY GROUND in white on black, with cartoon ninja characters, standing at the end of a curved black warped wall on mown grass.",
+        "caption": "The sign at the end of the run. Built with Rotary and the Neighborhood Ninjas; the warped wall in front of it is the last obstacle.",
+        "credit": null,
+        "takenOn": null
+      },
+      {
+        "file": "cando-ninja-course",
+        "alt": "A long outdoor ninja obstacle course on black rubber surfacing: balance beams, angled boards, hanging rings and climbing frames, with two children on it and open playing fields either side.",
+        "caption": "The whole run, looking down it. Rubber underfoot the entire length, and benches along the edge for whoever isn't doing it.",
+        "credit": null,
+        "takenOn": null
+      },
+      {
+        "file": "cando-ninja-walls",
+        "alt": "Two tall angled climbing boards with green hand-holds in the foreground of a ninja obstacle course, with monkey bars and balance equipment behind and a child in the middle distance.",
+        "caption": "The climbing boards, from inside the course. This end is the harder half — the balance and hanging obstacles are down the other.",
+        "credit": null,
+        "takenOn": null
+      },
+      {
+        "file": "cando-ninja-field",
+        "alt": "A wide view across mown grass to a long ninja obstacle course silhouetted against a bright sky, with a small child walking towards it.",
+        "caption": "How it sits in the field. It's a long walk across open grass from the parking, and there is no shade on the course itself.",
+        "credit": null,
+        "takenOn": null
       }
     ],
     "onSite": [
@@ -1216,12 +1243,22 @@
         "date": "2026-08-07",
         "author": "Site maintainer",
         "body": "The Ninja Fit obstacle course is in the same field as the Can-Do Playground, not a separate park — I had them down as two places until the maintainer said otherwise. Picnic pavilion between the two, athletic fields beyond, all off the same paved path.",
-        "photo": "cando-ninja"
+        "photo": "cando-ninja-course"
       },
       {
         "date": "2026-08-08",
         "author": "Site maintainer",
         "body": "No boat launch, no boat rentals, no pier and no disc golf course. All four had been sitting at \"Not confirmed\" because DNREC's park finder only lists what a park HAS, so an absent facility and an unchecked one looked identical in this dataset. Alapocas Run is a wooded run and a greenway with no open water to launch anything into, which is exactly the kind of thing a visit settles and a roster never will."
+      },
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "The Ninja Fit course has four photographs of its own now, including the sign. It had none — and worse, the file I had labeled `cando-ninja` and captioned as the course is a photograph of the picnic pavilion, with the course a thin dark line on the horizon behind it. I named it wrong and then wrote a caption that made the wrong name true. It's `cando-pavilion` now and says what it is."
+      },
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "Hours are 8am to sunset, every day, and that's one answer for all three things here — the park, the Can-Do Playground and the Ninja Fit course. This record had three separate open questions about it: the park's daily hours, whether the playground kept its own, and the Blue Ball Barn's. The first two are answered; the barn is a building and still isn't."
       }
     ],
     "coords": {
