@@ -34,6 +34,7 @@ import drinkData from "../data/drink.json";
 
 import { formatWindow, resolveRule, type Rule, type Status, type Town } from "./rules";
 import { isPublishable, tierOf, type Tier } from "./verification";
+import { isIndoors } from "./indoor";
 import type { StatePark } from "./state-parks";
 import type { CommunityPark } from "./community-parks";
 import type { Park as DogPark } from "./parks";
@@ -45,6 +46,7 @@ export type Kind =
   | "dog park"
   | "summer beach"
   | "indoors"
+  | "attraction"
   | "winery or brewery"
   | "nearby";
 
@@ -207,11 +209,23 @@ export function buildIndex(): PlannerPlace[] {
    * covers less than the site it plans for reads as "we don't have that".
    */
   for (const p of indoorData as any[]) {
+    /*
+     * THE ZOO IS NOT A WET-WEATHER ANSWER.
+     *
+     * The listing pages already split these — /indoors/ filters on isIndoors
+     * and the outdoor kinds go to /attractions/ — because Brandywine Zoo is
+     * almost entirely open-air and putting it under "when it rains" sends a
+     * family out in the rain. The planner was indexing the same file without
+     * the split, so the finder answered "somewhere dry" with the zoo: the
+     * exact error the pages were corrected for, reappearing in search because
+     * the rule lived in the page rather than in the data layer.
+     */
+    const dry = isIndoors(p);
     places.push({
       id: `in-${p.slug}`,
       name: p.name,
-      href: `/indoors/${p.slug}/`,
-      kind: "indoors",
+      href: dry ? `/indoors/${p.slug}/` : `/attractions/${p.slug}/`,
+      kind: dry ? "indoors" : "attraction",
       county: p.county,
       town: p.town,
       blurb: p.blurb,
@@ -219,7 +233,7 @@ export function buildIndex(): PlannerPlace[] {
       tier: tierOf(p),
       f: {
         ...EMPTY,
-        indoors: true,
+        indoors: dry,
         restrooms: p.restrooms ?? null,
         free: p.admission?.free ?? null,
       },

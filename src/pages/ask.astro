@@ -184,6 +184,7 @@ const schema = [
     [["community park","community parks","local park","town park","municipal"], "community park"],
     [["dog park","dog parks","dog run"], "dog park"],
     [["museum","museums","library","libraries","aquarium","nature center","indoors","inside","rainy day","rainy","when it rains","out of the rain","somewhere dry"], "indoors"],
+    [["zoo","zoos","aquarium","animals"], "attraction"],
     [["winery","wineries","brewery","breweries","brewpub","taproom","tasting room","vineyard","beer","wine"], "winery or brewery"],
     [["nearby","near by","over the line","out of state","just over the border","maryland","pennsylvania","new jersey","day trip"], "nearby"],
   ];
@@ -529,6 +530,21 @@ const schema = [
   }
 
   form.addEventListener("submit", e => { e.preventDefault(); const q = input.value.trim(); if (q) ask(q); });
+  /*
+   * A question can arrive in the URL: /ask/?q=somewhere+dry+when+it+rains
+   *
+   * That is what makes the home page able to demonstrate this rather than
+   * describe it — each example there is a real question, linked, and it runs
+   * the moment you land. It also means an answer is shareable, which it wasn't
+   * before: the whole conversation lived in memory and a URL got you a blank
+   * box.
+   */
+  const asked = new URLSearchParams(location.search).get("q");
+  if (asked && asked.trim()) {
+    input.value = asked.trim().slice(0, 200);
+    ask(input.value);
+  }
+
   document.addEventListener("click", e => {
     const b = e.target.closest("[data-example]");
     if (!b) return;

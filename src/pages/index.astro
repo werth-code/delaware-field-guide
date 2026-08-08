@@ -24,6 +24,7 @@ import eventsData from "../data/events.json";
 import nearbyData from "../data/nearby.json";
 import { isPublishable } from "../lib/verification";
 import { colorFor, COUNTY_COLOR } from "../lib/feature-colors";
+import FeatureIcon from "../components/FeatureIcon.astro";
 
 const towns = townsData as { slug: string; name: string; verifiedDate: string | null; verifiedSource: string | null }[];
 const stateParks = stateParksData as { county: string; verifiedDate: string | null; verifiedSource: string | null }[];
@@ -260,6 +261,20 @@ const mapPoints = [
   ...pin(townsData as unknown[], "beach", (r) => `/dogs/${r.slug}/`),
 ];
 
+/*
+ * The questions people actually turn up with, each one a real query against
+ * the real index. They are questions, not section names: "somewhere dry when
+ * it rains" is what someone thinks, "/indoors/" is where we happen to file it.
+ */
+const heroAsks: { q: string; key: string }[] = [
+  { q: "Can the dog come to the beach?", key: "petsAllowed" },
+  { q: "Somewhere dry when it rains", key: "free" },
+  { q: "A playground with restrooms", key: "playground" },
+  { q: "A fenced dog park near me", key: "dogPark" },
+  { q: "Free beach with parking", key: "beach" },
+  { q: "Somewhere shady to walk", key: "shade" },
+];
+
 /* North to south, the way you'd drive it. */
 const mapCounties = ["New Castle", "Kent", "Sussex"].map((c) => ({
   key: c,
@@ -304,28 +319,65 @@ const schema = [
     true and none of it is what someone arrives for. The argument now lives on
     /how-we-verify/, which is where a reader who wants it goes looking.
   */}
+  {/*
+    THE HERO SELLS THE JOB, NOT THE METHOD.
+
+    It read "Delaware, checked and dated", which is a property of the site
+    rather than anything it does for you — and the paragraph under it listed
+    sections, which is the navigation saying itself out loud. Neither told a
+    stranger why they'd want this.
+
+    So it leads with the question people actually arrive with, and then it
+    DEMONSTRATES rather than describes: every example below is a live question
+    that runs the finder on the real data. Nothing sells a checked dataset like
+    watching it answer.
+  */}
   <div class="wrap pt-9 pb-8">
     <p class="label m-0 flex items-center gap-2">
       <FlagMark class="w-[0.5rem] h-[0.62rem] shrink-0 text-ochre-deep" />
       A reference for outdoor Delaware
     </p>
 
-    <h1 class="text-[2.7rem] sm:text-[3.9rem] mt-3.5 mb-0 max-w-[13ch] text-marsh">
-      Delaware, checked and dated
+    <h1 class="text-[2.7rem] sm:text-[3.6rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
+      Find the right place in Delaware
     </h1>
 
-    <p class="mt-6 mb-0 text-[1.2rem] leading-[1.5] max-w-[54ch]">
-      Parks, beaches, dog rules by town, museums, breweries and disc golf.
-      Every fact carries the date I checked it and where it came from, and
-      where I haven't checked, it says so instead of guessing.
+    <p class="mt-6 mb-0 text-[1.2rem] leading-[1.5] max-w-[52ch]">
+      Somewhere to take the dog. Somewhere dry when it rains. A park that
+      actually has restrooms, a beach the dog is allowed on this month, a
+      brewery that won't turn you away at the gate.
     </p>
+
+    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[52ch]">
+      Every answer here carries the date it was checked and who said so. Where
+      nobody has checked, it says that instead of guessing — which is the whole
+      reason this exists.
+    </p>
+
+    <p class="label mt-8 mb-0">Try one of these</p>
+    <ul class="list-none p-0 m-0 mt-2.5 flex flex-wrap gap-1.5">
+      {
+        heroAsks.map((a) => (
+          <li>
+            <a
+              href={`/ask/?q=${encodeURIComponent(a.q)}`}
+              style={`--fc:${colorFor(a.key)}`}
+              class="example-chip tap inline-flex items-center gap-1.5 px-3 py-2 no-underline text-[0.85rem] leading-none border-2 rounded-[var(--radius-sign)] bg-shell"
+            >
+              <FeatureIcon icon={a.key as any} class="w-[1.15em] h-[1.15em] shrink-0" />
+              {a.q}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
 
     <div class="mt-7 flex flex-wrap gap-3">
       <a
         href="/ask/"
         class="tap no-underline bg-marsh text-cream border-2 border-marsh px-5 py-3 font-mono text-[0.78rem] uppercase tracking-[0.1em] font-medium"
       >
-        Find the right place →
+        Ask it anything →
       </a>
       <a
         href="/parks/"
@@ -429,3 +481,19 @@ const schema = [
     </p>
   </div>
 </Layout>
+
+<style>
+  /* --fc rather than `color`, so hover can fill with the hue and still set a
+     readable label. `background: currentColor` paints the chip the colour of
+     its own text. */
+  .example-chip {
+    color: var(--fc);
+    border-color: var(--fc);
+    transition: background-color 110ms ease, color 110ms ease;
+  }
+  .example-chip:hover,
+  .example-chip:focus-visible {
+    background: var(--fc);
+    color: var(--color-shell);
+  }
+</style>
