@@ -14,54 +14,149 @@
  * So: two copies, exactly one of them `display:none` at any width. Hidden
  * elements are out of the accessibility tree too, so nothing is announced
  * twice. The list itself lives here so the two can never drift.
+ *
+ * SIX ITEMS, NOT THIRTEEN
+ *
+ * Home, Ask, Contacts and ten sections wrapped to three rows on a desktop and
+ * made the phone menu a wall of type. Two groups now carry eight of the
+ * sections between them; Dogs stays out on its own because it's what most
+ * people arrive for. The grouping lives in sections.ts with a build-time check
+ * that every section is in exactly one place — see the comment there.
+ *
+ * THE DROPDOWNS ARE <details>, so they open with no JavaScript, are announced
+ * as disclosures, and close on Escape for free. On a phone the panel pushes
+ * the menu down like an ordinary list; from `sm` up it floats over the page,
+ * which is the only thing here that needs CSS rather than markup.
+ *
+ * EVERY LINK CARRIES ITS SECTION'S MARK, from the same set the map markers and
+ * the filter chips use. It replaced a flag repeated eleven times, which said
+ * "this is a nav item" — something the reader already knew from it being in
+ * the nav.
  */
-import { SECTIONS, sectionFor } from "../lib/sections";
+import { sectionFor, NAV_GROUPS, NAV_TOP, groupFor, sectionBySlug, groupNavFor } from "../lib/sections";
+import FeatureIcon from "./FeatureIcon.astro";
 
 const { pathname } = Astro.url;
 const current = sectionFor(pathname);
+const openGroup = groupFor(current?.slug ?? null);
+
+/* One shape for every entry so the two renderings can't drift apart. */
+const flat = [
+  { href: "/", label: "Home", icon: "home" },
+  { href: "/ask/", label: "Ask", icon: "ask" },
+  ...NAV_TOP.map((slug) => {
+    const s = sectionBySlug(slug)!;
+    return { href: `/${s.slug}/`, label: s.label, icon: s.icon };
+  }),
+];
+
+const tail = [{ href: "/contacts/", label: "Contacts", icon: "phone" }];
+
+const isHere = (href: string) =>
+  href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+const linkClass = (on: boolean) =>
+  `tap label no-underline gap-1.5 ${on ? "text-cream" : "text-cream-soft hover:text-cream"}`;
+/* cream-soft, not surf: surf is 6.3:1 on the deep field and these are 11px.
+   cream-soft clears 7.8:1. */
+const under = (on: boolean) => (on ? "box-shadow: inset 0 -3px 0 var(--color-ochre);" : "");
 ---
 
-{/* Home. The wordmark already goes here, but people reach for a link that
-    looks like a link. */}
-<a
-  href="/"
-  class={`tap label no-underline ${pathname === "/" ? "text-cream" : "text-cream-soft hover:text-cream"}`}
-  aria-current={pathname === "/" ? "page" : undefined}
-  style={pathname === "/" ? "box-shadow: inset 0 -3px 0 var(--color-ochre);" : ""}
->
-  Home
-</a>
-
-{/* Ask and Plan span every section, so they sit outside the list. */}
-  {
-    [
-      ["/ask/", "Ask"],
-      ["/contacts/", "Contacts"],
-    ].map(([href, label]) => (
-      <a
-        href={href}
-        class={`tap label no-underline ${pathname === href ? "text-cream" : "text-cream-soft hover:text-cream"}`}
-        aria-current={pathname === href ? "page" : undefined}
-        style={pathname === href ? "box-shadow: inset 0 -3px 0 var(--color-ochre);" : ""}
-      >
-        {label}
-      </a>
-    ))
-  }
 {
-    SECTIONS.map((s) => {
-      const here = current?.slug === s.slug;
-      return (
-        <a
-          href={`/${s.slug}/`}
-          {/* cream-soft, not surf: surf is 6.3:1 on the deep field and
-              these are 11px. cream-soft clears 7.8:1. */}
-          class={`tap label no-underline ${here ? "text-cream" : "text-cream-soft hover:text-cream"}`}
-          aria-current={here ? "page" : undefined}
-          style={here ? "box-shadow: inset 0 -3px 0 var(--color-ochre);" : ""}
+  flat.map((l) => (
+    <a
+      href={l.href}
+      class={linkClass(isHere(l.href))}
+      aria-current={isHere(l.href) ? "page" : undefined}
+      style={under(isHere(l.href))}
+    >
+      {l.label}
+      <FeatureIcon icon={l.icon as any} class="w-[0.95em] h-[0.95em] shrink-0 opacity-90" />
+    </a>
+  ))
+}
+
+{
+  NAV_GROUPS.map((g) => {
+    const on = openGroup?.label === g.label;
+    return (
+      <details class="nav-group relative" open={on}>
+        <summary
+          class={`${linkClass(on)} list-none cursor-pointer inline-flex items-center`}
+          style={under(on)}
         >
-          {s.label}
-        </a>
-      );
-    })
+          {g.label}
+          <svg
+            viewBox="0 0 24 24"
+            class="nav-group-caret w-[0.8em] h-[0.8em] shrink-0"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="square"
+            aria-hidden="true"
+          >
+            <path d="M4 8l8 8 8-8" />
+          </svg>
+        </summary>
+
+        <div class="nav-group-panel flex flex-col items-start gap-y-0.5 py-1 ps-4 sm:ps-0">
+          {g.slugs.map((slug) => {
+            const s = sectionBySlug(slug)!;
+            return groupNavFor(s).map((n) => (
+              <a
+                href={n.href}
+                class={linkClass(pathname === n.href)}
+                aria-current={pathname === n.href ? "page" : undefined}
+              >
+                <FeatureIcon icon={s.icon as any} class="w-[0.95em] h-[0.95em] shrink-0 opacity-90" />
+                {n.label}
+              </a>
+            ));
+          })}
+        </div>
+      </details>
+    );
+  })
+}
+
+{
+  tail.map((l) => (
+    <a
+      href={l.href}
+      class={linkClass(isHere(l.href))}
+      aria-current={isHere(l.href) ? "page" : undefined}
+      style={under(l.href === pathname)}
+    >
+      {l.label}
+      <FeatureIcon icon={l.icon as any} class="w-[0.95em] h-[0.95em] shrink-0 opacity-90" />
+    </a>
+  ))
+}
+
+<style>
+  .nav-group > summary::-webkit-details-marker { display: none; }
+  .nav-group > summary::marker { content: ""; }
+  .nav-group[open] > summary .nav-group-caret { transform: rotate(180deg); }
+  .nav-group-caret { transition: transform 140ms ease; }
+  @media (prefers-reduced-motion: reduce) {
+    .nav-group-caret { transition: none; }
   }
+
+  /* On a phone the panel is an indented list and pushes the menu down, which
+     is what a menu should do. From `sm` up the masthead is one row and a
+     panel that pushed it down would shove the page on every open, so it
+     floats instead. */
+  @media (min-width: 40rem) {
+    .nav-group-panel {
+      position: absolute;
+      top: calc(100% + 0.6rem);
+      inset-inline-end: 0;
+      z-index: 40;
+      min-width: max-content;
+      background: var(--color-abyss);
+      border: 2px solid var(--color-ochre);
+      padding: 0.6rem 0.9rem;
+      box-shadow: 5px 5px 0 0 rgb(0 0 0 / 0.35);
+    }
+  }
+</style>

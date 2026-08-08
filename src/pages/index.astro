@@ -11,7 +11,9 @@ import Layout from "../layouts/Layout.astro";
 import CoastBand from "../components/CoastBand.astro";
 import ShareRow from "../components/ShareRow.astro";
 import FlagMark from "../components/FlagMark.astro";
+import FeatureIcon from "../components/FeatureIcon.astro";
 import DogFigure from "../components/DogFigure.astro";
+import { sectionBySlug } from "../lib/sections";
 
 import townsData from "../data/towns.json";
 import stateParksData from "../data/state-parks.json";
@@ -133,6 +135,15 @@ const headerFor = (href: string) => {
  * "Section 07" sitting second.
  */
 const ORDER_FIRST = ["/parks/", "/parks/community/", "/dogs/"];
+
+/* The section registry keys on slug; these cards key on href. Community parks
+   is the one that isn't a first path segment, so it's named here rather than
+   derived — and it falls back to the trails mark rather than to nothing. */
+const iconFor = (href: string): string => {
+  if (href === "/parks/community/") return "playground";
+  const slug = href.split("/").filter(Boolean)[0] ?? "";
+  return sectionBySlug(slug)?.icon ?? "trails";
+};
 
 const sectionsRaw = [
   {
@@ -469,8 +480,13 @@ const schema = [
           <div class="p-5">
           {!header && <span class="stamp text-ochre-deep absolute top-5 right-5">{s.n}</span>}
 
-          <p class="label m-0 flex items-center gap-2">
-            <FlagMark class="w-[0.5rem] h-[0.62rem] shrink-0" />
+          {/* The section's own mark, in the section's own colour, replacing a
+              flag that was repeated on all ten and therefore said only "this
+              is a section" — which the reader could already see. The same
+              glyph appears on this section's nav item, its map markers and its
+              filter chips, so it's learnt once. */}
+          <p class="label m-0 flex items-center gap-2" style={`color:${colorFor(iconFor(s.href))}`}>
+            <FeatureIcon icon={iconFor(s.href) as any} class="w-[1.05em] h-[1.05em] shrink-0" />
             Section {s.n}
           </p>
 

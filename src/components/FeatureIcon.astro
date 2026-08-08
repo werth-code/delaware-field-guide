@@ -38,7 +38,9 @@ export type FeatureKey =
   | "pier" | "guardedSwimming" | "surfFishing"
   | "free" | "giftShop" | "accessible" | "branches" | "stables" | "parking"
   /* Situations rather than facilities — see feature-colors.ts. */
-  | "rainyDay" | "outOfState" | "kidFriendly" | "feeCharged";
+  | "rainyDay" | "outOfState" | "kidFriendly" | "feeCharged"
+  /* Navigation, not features. */
+  | "ask" | "phone" | "home";
 
 interface Props {
   icon: FeatureKey;
@@ -98,6 +100,12 @@ const { icon, class: className = "", style } = Astro.props;
       beaches" and "Museums & libraries" wore the same mark in two colours.
       Colour alone carrying the difference is exactly what this icon set exists
       to avoid. Nothing else on the site is a cloud. */}
+  {/* Nav marks. A magnifier for Ask rather than a question mark, because the
+      page is a search and a question mark is what a browser puts next to
+      "help". */}
+  {icon === "ask" && (<><circle cx="11" cy="11" r="6.5" /><path d="M16 16l4.5 4.5" /></>)}
+  {icon === "phone" && (<path d="M6 3h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 4 5a2 2 0 0 1 2-2Z" />)}
+  {icon === "home" && (<><path d="M4 11 12 4l8 7" /><path d="M6 10v10h12V10" /></>)}
   {icon === "rainyDay" && (<><path d="M7 15a4 4 0 0 1 .5-8 5.5 5.5 0 0 1 10.4 1.6A3.4 3.4 0 0 1 17.5 15Z" /><path d="M8.5 18.5 7.5 21" /><path d="M12.5 18.5 11.5 21" /><path d="M16.5 18.5 15.5 21" /></>)}
   {/* A state line with an arrow crossing it. A map pin would have said
       "place", which is what every other pin on the site already says. */}

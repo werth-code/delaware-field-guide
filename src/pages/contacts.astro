@@ -30,6 +30,7 @@ import indoorData from "../data/indoor.json";
 import drinkData from "../data/drink.json";
 import nearbyData from "../data/nearby.json";
 import { isPublishable } from "../lib/verification";
+import { sectionBySlug } from "../lib/sections";
 
 type Row = {
   name: string;
@@ -57,12 +58,16 @@ const rows = (data: unknown[], href: (r: any) => string): Row[] =>
        is reference, and reference goes underneath. */
     .sort((a, b) => Number(Boolean(b.phone)) - Number(Boolean(a.phone)) || a.name.localeCompare(b.name));
 
+/* The keys are the masthead's, taken from the section registry rather than
+   retyped — this page had "free" for museums and "petsAllowed" for over the
+   line, which are the marks those groups wore before the situation icons
+   landed. A reader who learns the umbrella in the nav should meet it here. */
 const groups = [
-  { key: "trails", title: "State parks", rows: rows(stateParksData, (r) => `/parks/${r.slug}/`) },
+  { key: sectionBySlug("parks")!.icon, title: "State parks", rows: rows(stateParksData, (r) => `/parks/${r.slug}/`) },
   { key: "playground", title: "County and town parks", rows: rows(communityData, (r) => `/parks/community/${r.slug}/`) },
-  { key: "free", title: "Museums and libraries", rows: rows(indoorData, (r) => `/indoors/${r.slug}/`) },
-  { key: "giftShop", title: "Wineries and breweries", rows: rows(drinkData, (r) => `/wineries-and-breweries/${r.slug}/`) },
-  { key: "petsAllowed", title: "Just over the line", rows: rows(nearbyData, (r) => `/nearby/${r.slug}/`) },
+  { key: sectionBySlug("indoors")!.icon, title: "Museums and libraries", rows: rows(indoorData, (r) => `/indoors/${r.slug}/`) },
+  { key: sectionBySlug("wineries-and-breweries")!.icon, title: "Wineries and breweries", rows: rows(drinkData, (r) => `/wineries-and-breweries/${r.slug}/`) },
+  { key: sectionBySlug("nearby")!.icon, title: "Just over the line", rows: rows(nearbyData, (r) => `/nearby/${r.slug}/`) },
 ].filter((g) => g.rows.length);
 
 const all = groups.flatMap((g) => g.rows);
@@ -88,60 +93,77 @@ const tel = (p: string) => `tel:+1${p.replace(/\D/g, "")}`;
       open in a parking lot. The numbers are the content. */}
 
   {
-    groups.map((g) => (
-      <div class="wrap pb-8">
-        <h2 class="font-display text-[1.5rem] font-bold text-marsh border-b-[3px] border-marsh pb-2 mb-4 mt-6 flex items-center gap-2">
-          <FeatureIcon
-            icon={g.key as any}
-            class="w-[0.9em] h-[0.9em] shrink-0"
-            style={`color:${colorFor(g.key)}`}
-          />
-          {g.title}
-          <span class="stamp text-ink-soft ms-1">
-            {g.rows.filter((r) => r.phone).length}/{g.rows.length}
-          </span>
-        </h2>
+    groups.map((g, i) => (
+      <div class="wrap pb-4">
+        {/*
+          COLLAPSIBLE, AND THE FIRST ONE OPEN. Five headings and eighty rows
+          meant scrolling past every state park to reach a brewery. A <details>
+          per group turns it into five lines you can read at once — and it
+          opens without JavaScript, which matters on the page somebody loads in
+          a parking lot on one bar.
 
-        <dl class="sign breakout divide-y-2 divide-tide/30">
-          {g.rows.map((r) => (
-            <div class="px-4 sm:px-5 py-3.5 sm:flex sm:items-baseline sm:gap-5">
-              <dt class="sm:w-[14rem] sm:shrink-0">
-                <a href={r.href} class="text-[1rem] font-medium">{r.name}</a>
-                {r.where && <span class="stamp text-ink-soft block mt-0.5">{r.where}</span>}
-              </dt>
-              <dd class="m-0 mt-1.5 sm:mt-0 flex-1">
-                {r.phone ? (
-                  <a href={tel(r.phone)} class="font-mono text-[1.05rem] font-medium tracking-[0.01em]">
-                    {r.phone}
-                  </a>
-                ) : (
-                  <span class="text-[0.92rem] text-ink-soft italic">
-                    No number yet —{" "}
-                    <a href="/report/">tell me if you have it</a>
+          The count on the summary is the point of leaving it shut: 17/17 tells
+          you whether opening it is worth the tap.
+        */}
+        <details class="contact-group sign breakout" open={i === 0}>
+          <summary class="list-none cursor-pointer px-4 sm:px-5 py-3.5 flex items-center gap-2 font-display text-[1.35rem] font-bold text-marsh">
+            <FeatureIcon
+              icon={g.key as any}
+              class="w-[0.9em] h-[0.9em] shrink-0"
+              style={`color:${colorFor(g.key)}`}
+            />
+            {g.title}
+            <span class="stamp text-ink-soft ms-auto font-normal">
+              {g.rows.filter((r) => r.phone).length}/{g.rows.length}
+            </span>
+            <svg viewBox="0 0 24 24" class="contact-caret w-[0.7em] h-[0.7em] shrink-0 text-ink-soft" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true">
+              <path d="M4 8l8 8 8-8" />
+            </svg>
+          </summary>
+
+          <dl class="m-0 border-t-2 border-tide/30 divide-y-2 divide-tide/30">
+            {g.rows.map((r) => (
+              <div class="px-4 sm:px-5 py-3.5 sm:flex sm:items-baseline sm:gap-5">
+                <dt class="sm:w-[14rem] sm:shrink-0 flex items-baseline gap-2">
+                  {/* The section's mark on every row, so a number that has been
+                      copied out of context still says what kind of place it
+                      belongs to. */}
+                  <FeatureIcon
+                    icon={g.key as any}
+                    class="w-[0.85em] h-[0.85em] shrink-0 translate-y-[0.1em]"
+                    style={`color:${colorFor(g.key)}`}
+                  />
+                  <span>
+                    <a href={r.href} class="text-[1rem] font-medium">{r.name}</a>
+                    {r.where && <span class="stamp text-ink-soft block mt-0.5">{r.where}</span>}
                   </span>
-                )}
-                {/* Whose line it is. On this page more than anywhere — it's
-                    the page you open to dial, and a county permit office and a
-                    park gate are not the same call. */}
-                {r.phone && r.phoneNote && (
-                  <span class="block mt-1 text-[0.86rem] leading-snug text-ink-soft max-w-[52ch]">
-                    {r.phoneNote}
-                  </span>
-                )}
-                {r.address && (
-                  <span class="stamp text-ink-soft block mt-1">{r.address}</span>
-                )}
-                {r.website && (
-                  <span class="block mt-1">
-                    <a href={r.website.url} rel="noopener nofollow" class="stamp">
-                      {r.website.label}
+                </dt>
+                <dd class="m-0 mt-1.5 sm:mt-0 flex-1">
+                  {r.phone ? (
+                    <a href={tel(r.phone)} class="font-mono text-[1.05rem] font-medium tracking-[0.01em]">
+                      {r.phone}
                     </a>
-                  </span>
-                )}
-              </dd>
-            </div>
-          ))}
-        </dl>
+                  ) : (
+                    <span class="text-[0.92rem] text-ink-soft italic">
+                      No number yet — <a href="/report/">tell me if you have it</a>
+                    </span>
+                  )}
+                  {r.phone && r.phoneNote && (
+                    <span class="block mt-1 text-[0.86rem] leading-snug text-ink-soft max-w-[52ch]">
+                      {r.phoneNote}
+                    </span>
+                  )}
+                  {r.address && <span class="stamp text-ink-soft block mt-1">{r.address}</span>}
+                  {r.website && (
+                    <span class="block mt-1">
+                      <a href={r.website.url} rel="noopener nofollow" class="stamp">{r.website.label}</a>
+                    </span>
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </details>
       </div>
     ))
   }
@@ -184,23 +206,16 @@ const tel = (p: string) => `tel:+1${p.replace(/\D/g, "")}`;
     </dl>
   </div>
 
-  <div class="wrap prose-field pb-4">
-    <h2>Why some are blank</h2>
-    <p class="max-w-[58ch]">
-      Delaware State Parks publishes an office number for all seventeen parks
-      and those are all here. The gaps are the county and town parks: New
-      Castle and Kent run theirs from a small number of offices rather than
-      publishing a line per park, and most towns publish nothing for theirs at
-      all.
-    </p>
-    <p class="max-w-[58ch]">
-      Where I have a number it came from the operator and it sits on the record
-      page with the date I read it. Where I don't, this says so rather than
-      printing a switchboard and calling it an answer.
-    </p>
-    <p class="max-w-[58ch]">
-      If you know one — or ring one and find it's changed —
-      <a href="/report/">that's the single most useful thing you can send me</a>.
-    </p>
-  </div>
+  {/* "Why some are blank" came off, and there is now almost nothing left to
+      explain: every state park and all nineteen community parks have a number.
+      What blanks remain are the dog parks, and each of those says "No number
+      yet" on its own row with a link to send one — which is the same offer the
+      three paragraphs were making, on the line where it applies. */}
+<style>
+  .contact-group > summary::-webkit-details-marker { display: none; }
+  .contact-group > summary::marker { content: ""; }
+  .contact-group[open] > summary .contact-caret { transform: rotate(180deg); }
+  .contact-caret { transition: transform 140ms ease; }
+  @media (prefers-reduced-motion: reduce) { .contact-caret { transition: none; } }
+</style>
 </Layout>
