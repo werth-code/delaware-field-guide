@@ -41,8 +41,19 @@ const year = new Date().getFullYear();
         <a href="/about/" class="text-cream">How that works</a>.
       </p>
 
-      <p class="m-0 stamp text-cream-soft flex items-center gap-2">
+      <p class="m-0 stamp text-cream-soft flex items-center gap-2 flex-wrap">
         <FlagMark class="w-[0.5rem] h-[0.62rem] shrink-0 text-ochre" />
+        {/* ODbL attribution for the map. It was under the map itself until the
+            caption came off; it is a licence condition rather than a courtesy,
+            so it needed somewhere permanent rather than deleting. */}
+        <span>
+          Map data ©{" "}
+          <a href="https://www.openstreetmap.org/copyright" rel="noopener nofollow" class="text-cream">
+            OpenStreetMap
+          </a>{" "}
+          contributors
+        </span>
+        <span aria-hidden="true">·</span>
         © {year} · Built by{" "}
         <a href="https://werth.design" rel="noopener" class="text-cream">Werth Design</a>
       </p>

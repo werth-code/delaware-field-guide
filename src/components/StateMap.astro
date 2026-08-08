@@ -334,11 +334,17 @@ const vw = Math.ceil(W * SCALE);
     </div>
   </div>
 
-  <figcaption class="px-4 sm:px-5 pb-4 stamp text-ink-soft">
-    Roads, water and county lines from OpenStreetMap. Tap a marker to see what it is, and again to open it. Solid markers are the
-    place itself; paler ones are the town center, where I couldn't pin the
-    building — about the width of the marker, at this scale.
-  </figcaption>
+  {/*
+    THE CAPTION CAME OFF. It explained the tap behaviour, which the map teaches
+    in one tap, and the solid-versus-pale marker distinction, which every
+    marker already states in its own <title> — hover or focus one pinned to a
+    town centre and it says "(town center)".
+
+    THE OPENSTREETMAP CREDIT MOVED RATHER THAN GOING WITH IT. The roads, the
+    water and the county lines are derived from OSM and ODbL requires the
+    attribution; it now sits in the site footer, which appears under this map
+    on every page that carries one. See Footer.astro.
+  */}
 </figure>
 
 <script>
