@@ -56,6 +56,7 @@ const courses = [
     paid: true,
     tags: presentState(p),
     photo: p.photos?.[0] ?? null,
+    course: p.discGolfCourse ?? null,
   })),
   ...community.map((p) => ({
     name: p.name,
@@ -66,6 +67,7 @@ const courses = [
     where: p.town,
     fee: "Free to enter",
     paid: false,
+    course: null,
     tags: presentCommunity(p),
     photo: p.photos?.[0] ?? null,
   })),
@@ -99,8 +101,22 @@ const courses = [
     <ul class="list-none p-0 m-0 grid gap-4 sm:grid-cols-2 breakout">
       {
         courses.map((c, i) => (
-          <li data-reveal style={`--stagger:${Math.min(i, 7)}`}>
-            <a href={c.href} class="sign sign-action block no-underline h-full group overflow-hidden">
+          <li data-reveal style={`--stagger:${Math.min(i, 7)}`} class="flex flex-col">
+            <a href={c.href} class="sign sign-action block no-underline group overflow-hidden">
+              {/* The state's own course map, rendered from its scorecard PDF.
+                  It's the single most useful thing about a course and it was
+                  sitting on destateparks.com the whole time. */}
+              {c.course?.mapImage && (
+                <img
+                  src={`/photos/${c.course.mapImage}-700.jpg`}
+                  alt={`Course map for ${c.name}, from the Delaware State Parks scorecard`}
+                  width={700}
+                  height={440}
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full aspect-[16/10] object-cover object-top block border-b-2 border-marsh bg-shell"
+                />
+              )}
               <div class="p-4 sm:p-5">
                 <div class="flex items-start justify-between gap-3">
                   <div>
@@ -125,6 +141,16 @@ const courses = [
                   </span>
                 </div>
 
+                {c.course && (c.course.holes || c.course.length) && (
+                  <p class="stamp text-ink-soft mt-3 mb-0">
+                    {[
+                      c.course.holes ? `${c.course.holes} holes` : null,
+                      c.course.par ? `par ${c.course.par}` : null,
+                      c.course.length,
+                    ].filter(Boolean).join(" · ")}
+                  </p>
+                )}
+
                 {c.tags.length > 0 && (
                   <ul class="list-none p-0 m-0 mt-3.5 flex flex-wrap gap-1.5">
                     {c.tags.slice(0, 5).map((t) => (
@@ -134,6 +160,17 @@ const courses = [
                 )}
               </div>
             </a>
+
+            {/* OUTSIDE the card. The card is one stretched anchor, so a link
+                to the PDF can't live inside it — nested anchors are invalid
+                and the browser drops one of them. */}
+            {c.course && (
+              <p class="stamp mt-2 mb-0">
+                <a href={c.course.mapUrl} rel="noopener nofollow" target="_blank" class="text-marsh">
+                  The state's scorecard and map (PDF)
+                </a>
+              </p>
+            )}
           </li>
         ))
       }
@@ -141,17 +178,18 @@ const courses = [
   </div>
 
   <div class="wrap prose-field pb-2">
-    <h2>What the state publishes, and what it doesn't</h2>
+    <h2>What the state publishes</h2>
     <p class="max-w-[58ch]">
-      Delaware State Parks names the seven parks with a course. That is the
-      whole of it — no hole counts, no tee pads, no maps, nothing about which
-      is wooded and which is open.
+      A scorecard and a course map for six of the seven state park courses,
+      as PDFs on destateparks.com. Hole counts, par off each tee, the length
+      of every hole, the basket model, and a drawn map of the layout.
     </p>
     <p class="max-w-[58ch]">
-      Every other guide to this fills that in, and not one of them says where
-      the numbers came from. So this page tells you where the courses are and
-      what getting in costs, and says plainly that the layouts aren't
-      published rather than inventing them.
+      This page said the opposite for months — that DNREC named the parks and
+      published nothing else, so the layouts here would stay blank rather than
+      be invented. That was wrong, and it was wrong because nobody had looked.
+      The maps are on the cards above and each one links to the state's
+      original.
     </p>
 
     <div class="sign breakout my-6 px-4 sm:px-5 py-4 not-prose">

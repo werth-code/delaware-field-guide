@@ -61,6 +61,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks: disc golf scorecards",
+        "url": "https://www.destateparks.com/",
+        "primary": true,
+        "note": "The state publishes a scorecard and course map PDF per course. Read 8 August 2026; each park's own card is linked from its record."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -87,6 +93,14 @@
       "lat": 38.7845,
       "lon": -75.093,
       "precision": "site"
+    },
+    "discGolfCourse": {
+      "holes": 19,
+      "par": "57 red / 59 white / 61 blue",
+      "length": "3,725 ft red · 5,670 ft white · 6,095 ft blue",
+      "kit": "Rubber pads, modified Mach-1 baskets",
+      "mapUrl": "https://www.destateparks.com/wp-content/uploads/2026/02/activity_Cape_DiscGolf.pdf",
+      "mapImage": "dg-cape-henlopen"
     }
   },
   {
@@ -329,8 +343,7 @@
     "verifiedSource": null,
     "outstanding": [
       "Confirm boat and paddle rental availability and season.",
-      "Confirm whether DNREC posts bloom advisories on site.",
-      "Get the disc golf hole count and layout. The state names the parks and publishes nothing else."
+      "Confirm whether DNREC posts bloom advisories on site."
     ],
     "sources": [
       {
@@ -353,6 +366,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks: disc golf scorecards",
+        "url": "https://www.destateparks.com/",
+        "primary": true,
+        "note": "The state publishes a scorecard and course map PDF per course. Read 8 August 2026; each park's own card is linked from its record."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -360,6 +379,14 @@
       "lat": 38.523,
       "lon": -75.479,
       "precision": "site"
+    },
+    "discGolfCourse": {
+      "holes": null,
+      "par": null,
+      "length": null,
+      "kit": null,
+      "mapUrl": "https://www.destateparks.com/wp-content/uploads/2024/09/activity_TrapPond_DiscGolf.pdf",
+      "mapImage": null
     }
   },
   {
@@ -423,6 +450,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks: disc golf scorecards",
+        "url": "https://www.destateparks.com/",
+        "primary": true,
+        "note": "The state publishes a scorecard and course map PDF per course. Read 8 August 2026; each park's own card is linked from its record."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -430,6 +463,14 @@
       "lat": 38.988,
       "lon": -75.533,
       "precision": "site"
+    },
+    "discGolfCourse": {
+      "holes": 18,
+      "par": "56 pro / 71 am",
+      "length": "5,036 ft",
+      "kit": null,
+      "mapUrl": "https://www.destateparks.com/wp-content/uploads/2024/09/activity_KillensPond_DiscGolf.pdf",
+      "mapImage": "dg-killens-pond"
     }
   },
   {
@@ -656,6 +697,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks: disc golf scorecards",
+        "url": "https://www.destateparks.com/",
+        "primary": true,
+        "note": "The state publishes a scorecard and course map PDF per course. Read 8 August 2026; each park's own card is linked from its record."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -710,6 +757,14 @@
       "lat": 39.718,
       "lon": -75.758,
       "precision": "site"
+    },
+    "discGolfCourse": {
+      "holes": 18,
+      "par": null,
+      "length": null,
+      "kit": "Two pin positions, A and B. In the Carpenter Recreation Area, past the fee booth",
+      "mapUrl": "https://www.destateparks.com/wp-content/uploads/2024/09/activity_WhiteClay_DiscGolf.pdf",
+      "mapImage": "dg-white-clay-creek"
     }
   },
   {
@@ -751,7 +806,6 @@
     "verifiedSource": null,
     "outstanding": [
       "Confirm hawk watch season and the nature center's hours.",
-      "Get the disc golf hole count and whether it costs anything.",
       "Get the pavilion rental prices and how far ahead you have to book.",
       "Confirm the ranger station's hours — the restrooms are there.",
       "Name every entrance and say which has restrooms and which doesn't.",
@@ -780,6 +834,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks: disc golf scorecards",
+        "url": "https://www.destateparks.com/",
+        "primary": true,
+        "note": "The state publishes a scorecard and course map PDF per course. Read 8 August 2026; each park's own card is linked from its record."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -849,6 +909,14 @@
       "lat": 39.806,
       "lon": -75.574,
       "precision": "site"
+    },
+    "discGolfCourse": {
+      "holes": 18,
+      "par": null,
+      "length": "6,521 ft A · 7,157 ft B",
+      "kit": "Two pin positions, A and B. Designed and built by Delaware Disc Golfers",
+      "mapUrl": "https://www.destateparks.com/wp-content/uploads/2024/09/activity_BrandywineCreek_DiscGolf.pdf",
+      "mapImage": "dg-brandywine-creek"
     }
   },
   {
@@ -890,7 +958,6 @@
     "outstanding": [
       "Confirm who runs the Bellevue stables, what it costs, and whether you can book a lesson or a hack as a member of the public.",
       "Confirm track access and whether the mansion grounds are open.",
-      "Confirm the disc golf hole count and whether there's a fee.",
       "The state parks type has no pavilion or picnic field, and Bellevue plainly has both. Decide whether to add one — it's the same gap the playground and the stables fell through."
     ],
     "sources": [
@@ -914,6 +981,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks: disc golf scorecards",
+        "url": "https://www.destateparks.com/",
+        "primary": true,
+        "note": "The state publishes a scorecard and course map PDF per course. Read 8 August 2026; each park's own card is linked from its record."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -1014,7 +1087,15 @@
         "label": "Park office",
         "note": "On the right, immediately after you come in the entrance."
       }
-    ]
+    ],
+    "discGolfCourse": {
+      "holes": 18,
+      "par": "54 red / 59 white",
+      "length": "4,340 ft red · 5,970 ft white",
+      "kit": "Mixed tees, Discraft Chainstar baskets",
+      "mapUrl": "https://www.destateparks.com/wp-content/uploads/2024/09/activity_Bellevue_DiscGolf.pdf",
+      "mapImage": "dg-bellevue"
+    }
   },
   {
     "slug": "alapocas-run",
