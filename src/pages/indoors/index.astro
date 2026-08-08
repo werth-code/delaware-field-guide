@@ -17,6 +17,7 @@
  * pretend otherwise.
  */
 import Layout from "../../layouts/Layout.astro";
+import PhotoStrip, { type StripItem } from "../../components/PhotoStrip.astro";
 import NearMe from "../../components/NearMe.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
 import CardPhoto from "../../components/CardPhoto.astro";
@@ -29,6 +30,7 @@ import indoorData from "../../data/indoor.json";
 import { COUNTY_ORDER, completeness, hoursAnswer, isIndoors, present, type IndoorPlace } from "../../lib/indoor";
 import { isPublishable, robotsFor } from "../../lib/verification";
 import { byPhotoThen } from "../../lib/order";
+
 
 const places = (indoorData as unknown as IndoorPlace[]).filter(isIndoors);
 const live = places.filter(isPublishable);
@@ -59,6 +61,13 @@ const byCounty = COUNTY_ORDER.map((county) => ({
   county,
   places: ranked.filter((p) => p.county === county),
 })).filter((g) => g.places.length > 0);
+/* ONE frame per record, not one per photograph.
+   Flattening every photo made Swallow Falls twelve of the twenty-one
+   frames, which is a slideshow of one park pretending to be an index of
+   the section. The lead photo is the one the record chose to lead with. */
+const stripItems: StripItem[] = (places as any[])
+  .filter((p) => p.photos?.length)
+  .map((p) => ({ photo: p.photos[0], href: `/indoors/${p.slug}/`, name: p.name }));
 ---
 
 <Layout
@@ -77,6 +86,13 @@ const byCounty = COUNTY_ORDER.map((county) => ({
       covers <a href="/parks/">the days you can get outside</a>.
     </p>
   </div>
+
+  <div class="wrap pb-6">
+
+    <PhotoStrip items={stripItems} accent="free" class="breakout" />
+
+  </div>
+
 
   <div class="wrap pb-4">
     <Filters tags={filterTags} noun="places" class="breakout">

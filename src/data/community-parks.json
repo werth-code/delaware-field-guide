@@ -141,6 +141,14 @@
     },
     "photos": [
       {
+        "file": "carousel-rocks",
+        "alt": "A child sitting on top of a cast-concrete rock formation with a cave beneath it, part of a climbing playground on wood chips, with more rock pinnacles and a fenced pasture behind.",
+        "caption": "The climbing playground. Cast concrete made to look like rock — boulders, pinnacles, and this one with a cave straight through it.",
+        "credit": "Site maintainer",
+        "takenOn": "2026-08-08",
+        "portrait": false
+      },
+      {
         "file": "carousel-geese",
         "alt": "A pair of Canada geese with four goslings grazing on mown grass, with a fenced pasture rising to a track and parked cars at the top of the slope.",
         "caption": "Geese with goslings on the meadow below the parking area, with the equestrian center's fencing on the ridge.",

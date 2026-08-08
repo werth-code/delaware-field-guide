@@ -10,6 +10,7 @@
  * number IS the reason to read this page instead of a magazine listicle.
  */
 import Layout from "../../layouts/Layout.astro";
+import PhotoStrip, { type StripItem } from "../../components/PhotoStrip.astro";
 import NearMe from "../../components/NearMe.astro";
 import Tag from "../../components/Tag.astro";
 import CardShare from "../../components/CardShare.astro";
@@ -35,6 +36,10 @@ const byCounty = COUNTY_ORDER.map((county) => ({
   county,
   places: places.filter((p) => p.county === county),
 })).filter((g) => g.places.length > 0);
+/* ONE frame per record, not one per photograph — see the parks listing. */
+const stripItems: StripItem[] = (places as any[])
+  .filter((p) => p.photos?.length)
+  .map((p) => ({ photo: p.photos[0], href: `/wineries-and-breweries/${p.slug}/`, name: p.name }));
 ---
 
 <Layout
@@ -60,6 +65,9 @@ const byCounty = COUNTY_ORDER.map((county) => ({
           {county} County
           <span class="stamp text-ink-soft ms-2">{group.length}</span>
         </h2>
+
+        <PhotoStrip items={stripItems} accent="giftShop" class="breakout mb-5" />
+
 
         <NearMe noun="places" class="breakout mb-4" />
 

@@ -43,12 +43,6 @@ for (const p of parks) {
     tagCounts.set(t.key, e);
   }
 }
-/* Every photograph in the section, flattened, each pointing back at its
-   record. Derived, so a photo added to a park appears here in the same
-   commit. */
-const stripItems: StripItem[] = (parks as any[]).flatMap((p) =>
-  (p.photos ?? []).map((photo: any) => ({ photo, href: `/parks/${p.slug}/`, name: p.name })),
-);
 
 const filterTags = [...tagCounts.values()].sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
 
@@ -74,6 +68,13 @@ const schema = verified.length
       },
     ]
   : [];
+/* ONE frame per record, not one per photograph.
+   Flattening every photo made Swallow Falls twelve of the twenty-one
+   frames, which is a slideshow of one park pretending to be an index of
+   the section. The lead photo is the one the record chose to lead with. */
+const stripItems: StripItem[] = (parks as any[])
+  .filter((p) => p.photos?.length)
+  .map((p) => ({ photo: p.photos[0], href: `/parks/${p.slug}/`, name: p.name }));
 ---
 
 <Layout
