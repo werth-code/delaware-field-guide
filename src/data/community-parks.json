@@ -1070,7 +1070,7 @@
     "dogParkSlug": null,
     "hours": null,
     "hoursNote": "The city publishes no hours for this park.",
-    "phone": null,
+    "phone": "302-571-4278",
     "warnings": [
       "Outside Wilmington city limits despite being a city park. It's in Greenville.",
       "The only toilet is a portable unit, and no drinking water. Fine for an hour, not for a day out."
@@ -1080,7 +1080,6 @@
     "outstanding": [
       "Get opening hours. The city publishes none.",
       "Confirm whether the portable unit is there year round or only in spring.",
-      "Get a phone number for the Park Trust Fund Commission.",
       "Confirm the usual peak week for the magnolias and daffodils."
     ],
     "sources": [
@@ -1106,13 +1105,19 @@
         "date": "2026-08-04",
         "author": "Site maintainer",
         "body": "There's a porta potty, a paved path and the creek. Little else — no playground, no pavilion, nothing to fill a bottle from."
+      },
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "302-571-4278 for Valley Garden. This was the last park on the site with no number at all: the Wilmington Park Trust Fund Commission runs it and publishes nothing, so no amount of reading operator pages was going to produce this one."
       }
     ],
     "coords": {
       "lat": 39.797,
       "lon": -75.616,
       "precision": "site"
-    }
+    },
+    "phoneNote": "From the site's own maintainer, not from a published listing — the Wilmington Park Trust Fund Commission publishes no number I could find."
   },
   {
     "slug": "delcastle-recreational-park",
