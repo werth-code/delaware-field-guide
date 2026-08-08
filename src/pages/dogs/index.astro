@@ -6,6 +6,7 @@
  */
 import Layout from "../../layouts/Layout.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
+import { colorFor } from "../../lib/feature-colors";
 
 import townsData from "../../data/towns.json";
 import type { Town } from "../../lib/rules";
@@ -52,7 +53,38 @@ const schema = towns.length
     <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
       Where your dog is legal on the Delaware coast
     </h1>
-    <p class="mt-4 mb-0 text-[1.1rem] max-w-[58ch]">
+
+    {/*
+      The dog, directly under the headline, the same way Alapocas sits under
+      the front page's. It's the only photograph on this site that belongs to
+      no record — it isn't a place, it's the section's subject — so the alt
+      text lives here rather than being looked up.
+
+      Square on a phone, 4:3 above it, cropped low: the frame is a portrait one
+      and centring it fills the band with leaf litter.
+    */}
+    <a href="/dogs/dog-parks/" class="block no-underline group breakout mt-7">
+      <figure class="m-0 relative">
+        <img
+          src="/photos/dogs-header-1400.jpg"
+          alt="A black and tan dog lying in fallen leaves in low winter sun, tongue out, an orange rubber ball by its paws."
+          width={1400}
+          height={1866}
+          fetchpriority="high"
+          decoding="async"
+          style="object-position:50% 30%"
+          class="w-full aspect-square sm:aspect-[4/3] object-cover block border-2 border-marsh"
+        />
+        <figcaption
+          class="absolute left-0 right-0 bottom-0 px-3 py-2 stamp text-cream bg-marsh/85 backdrop-blur-[2px] block truncate"
+          style={`border-bottom:3px solid ${colorFor("petsAllowed")}`}
+        >
+          The seven dog parks →
+        </figcaption>
+      </figure>
+    </a>
+
+    <p class="mt-6 mb-0 text-[1.1rem] max-w-[58ch]">
       Five towns. Twenty-five miles of coast. And <strong>no two have exactly
       the same rules</strong>.
     </p>
