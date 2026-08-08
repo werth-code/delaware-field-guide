@@ -1029,5 +1029,101 @@
       "lon": -75.654,
       "precision": "site"
     }
+  },
+  {
+    "slug": "can-do-playground",
+    "name": "Can-Do Playground",
+    "operator": "Delaware State Parks",
+    "county": "New Castle",
+    "town": "Wilmington",
+    "address": "1914 West Park Drive, Wilmington, DE 19803",
+    "acres": null,
+    "blurb": "The state's big accessible playground, inside Alapocas Run State Park. Ramps to the upper decks rather than steps, poured rubber under the swings, shade over the main structure, and sand tables raised high enough to pull a wheelchair under. A Ninja Fit obstacle course and a picnic pavilion sit in the same field.",
+    "restrooms": {
+      "present": null,
+      "type": null,
+      "seasonal": null,
+      "note": "Not confirmed at the playground itself. The park's are at the Blue Ball Barn, which is a walk away.",
+      "confirmedOn": null,
+      "confirmedBy": null
+    },
+    "facilities": {
+      "playground": true,
+      "water": null,
+      "shade": true,
+      "pavilion": true,
+      "grills": null,
+      "trails": true,
+      "pavedPath": true,
+      "sports": true,
+      "fishing": null,
+      "discGolf": null,
+      "skate": null,
+      "dogPark": false
+    },
+    "accessibility": "Ramps to most of the upper decks rather than steps only, poured rubber under the swings, concrete paths right up to the equipment, and raised sand tables. Confirmed in person August 2026.",
+    "dogParkSlug": null,
+    "hours": null,
+    "hoursNote": "Not published separately from the park's. Ring the Blue Ball Barn on 302-577-1164.",
+    "phone": "302-577-1164",
+    "warnings": [
+      "NO DOGS. The sign at the entrance reads \"No pets allowed in playground area\", and the park's own board lists pets among the things prohibited. Service animals are named as welcome. You can walk the dog on the greenway; you cannot bring it in here.",
+      "This is inside a state park, not a county or town park. It appears here because it is a playground and that is how people look for it."
+    ],
+    "verifiedDate": "2026-08-07",
+    "verifiedSource": "Site maintainer, first-hand, with photographs",
+    "outstanding": [
+      "Restrooms at the playground itself, or only at the Blue Ball Barn?",
+      "Which parking lot is nearest — the park map shows C and D beside it.",
+      "Does the pet ban cover the whole day-use field or only inside the fence?",
+      "Any age split on the equipment, and is the Ninja Fit course age-limited?"
+    ],
+    "photos": [
+      {
+        "file": "cando-overview",
+        "alt": "A wide view of a large playground with brown ramps and railings up to elevated decks, a shade canopy over the centre, wood-chip surfacing and concrete paths.",
+        "caption": "Ramps rather than steps to most of the upper decks, which is the whole point of the place.",
+        "credit": "Site maintainer",
+        "takenOn": "2026-08-07",
+        "portrait": false
+      },
+      {
+        "file": "cando-ninja",
+        "alt": "A blue steel ninja obstacle course on a dark deck under a signboard reading Ninja Fit Playground, with a large timber picnic pavilion and mown grass in front.",
+        "caption": "The Ninja Fit course, in the same field as the playground, with the pavilion between them.",
+        "credit": "Site maintainer",
+        "takenOn": "2026-08-07",
+        "portrait": false
+      },
+      {
+        "file": "cando-sand",
+        "alt": "A sand play area with two large raised green sand tables on legs and a domed shelter behind them.",
+        "caption": "The raised sand tables are high enough to pull a wheelchair under.",
+        "credit": "Site maintainer",
+        "takenOn": "2026-08-07",
+        "portrait": false
+      },
+      {
+        "file": "cando-fields",
+        "alt": "An open mown field with a paved path curving through it, picnic pavilions and a small building to the left, and play equipment in the distance.",
+        "caption": "The field the whole thing sits in. Paved path, pavilions, and the athletic fields beyond.",
+        "credit": "Site maintainer",
+        "takenOn": "2026-08-07",
+        "portrait": false
+      },
+      {
+        "file": "cando-rules",
+        "alt": "Signs on a post reading No Pets Allowed In Playground Area with a crossed-out dog, a plaque reading Service Animals Welcome, and a brown sign listing what is prohibited in the park.",
+        "caption": "The sign that decides whether the dog gets out of the car.",
+        "credit": "Site maintainer",
+        "takenOn": "2026-08-07",
+        "portrait": true
+      }
+    ],
+    "coords": {
+      "lat": 39.7756,
+      "lon": -75.562,
+      "precision": "site"
+    }
   }
 ]

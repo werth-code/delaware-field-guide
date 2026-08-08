@@ -993,12 +993,32 @@
         "credit": "Site maintainer",
         "takenOn": "2026-08-07",
         "portrait": true
+      },
+      {
+        "file": "cando-ninja",
+        "alt": "A blue steel ninja obstacle course on a dark deck under a signboard reading Ninja Fit Playground, with a large timber picnic pavilion and mown grass in front.",
+        "caption": "The Ninja Fit course sits in the same field as the Can-Do Playground, with the pavilion between them.",
+        "credit": "Site maintainer",
+        "takenOn": "2026-08-07",
+        "portrait": false
+      },
+      {
+        "file": "cando-fields",
+        "alt": "An open mown field with a paved path curving through it, picnic pavilions and a small building to the left, and play equipment in the distance.",
+        "caption": "The day-use field. Paved path, pavilions, the athletic fields the park map marks, and the playground at the far end.",
+        "credit": "Site maintainer",
+        "takenOn": "2026-08-07",
+        "portrait": false
       }
     ],
     "onSite": [
       {
         "label": "Can-Do Playground",
         "note": "A large accessible playground: ramps to the elevated decks rather than steps only, poured rubber under the swings, shade sails over the main structure, benches, and a sand area with raised sand tables you can pull a wheelchair under. Photographed August 2026."
+      },
+      {
+        "label": "Ninja Fit course",
+        "note": "A blue steel obstacle course on its own deck, in the same field as the Can-Do Playground with a timber picnic pavilion between them. Signposted \"Ninja Fit Playground\". Older children than the main structure suits."
       },
       {
         "label": "Parking",
@@ -1032,6 +1052,12 @@
         "author": "Site maintainer",
         "body": "Alapocas Run has the Can-Do Playground and this dataset had no field for a playground at all — the state parks type was built from what DNREC lists, and DNREC doesn't list them. It has one now. The signage is the other find: pets are prohibited in the playground area outright, with service animals named as welcome. That sits alongside \"leashed on the trails and greenway\", because the same board bars bicycles, and the Northern Delaware Greenway through this park is a paved cycle route — so the board governs the Blue Ball Barn day-use area rather than every acre.",
         "photo": "cando-rules"
+      },
+      {
+        "date": "2026-08-07",
+        "author": "Site maintainer",
+        "body": "The Ninja Fit obstacle course is in the same field as the Can-Do Playground, not a separate park — I had them down as two places until the maintainer said otherwise. Picnic pavilion between the two, athletic fields beyond, all off the same paved path.",
+        "photo": "cando-ninja"
       }
     ],
     "coords": {
