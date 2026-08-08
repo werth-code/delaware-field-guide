@@ -1,10 +1,14 @@
 {
-  "_comment": "Emergency contacts. The most safety-critical data on this site — a wrong number here costs a dog. Nothing in this file may be inferred, rounded, or carried over from a listing site. Every number needs a first-party confirmation call before verifiedDate is set, and the hours need re-checking seasonally because urgent-care hours at coastal practices move with the season.",
+  "_comment": "Emergency contacts. The most safety-critical data on this site — a wrong number here costs a dog. Nothing in this file may be inferred, rounded, or carried over from a listing site. Every number needs a first-party confirmation call before verifiedDate is set, and the hours need re-checking seasonally because urgent-care hours at coastal practices move with the season. THIS RULE IS NOW ENFORCED AT BUILD TIME: scripts/check-build.mjs fails the build if headline.fact reaches dist/ while headline.verifiedDate is null. It went unenforced for months and an unverified categorical claim shipped on six pages as the most important line on each of them.",
   "headline": {
     "fact": "There is no 24-hour emergency vet in Sussex County.",
-    "detail": "That is the single most important thing on this page and almost nobody tells visitors. If your dog is in trouble at 11pm at Rehoboth, the nearest round-the-clock option is an hour or more away. Know which one you're driving to BEFORE you need it — pick one now and put it in your phone.",
+    "detail": "That is the single most important thing on this page. If your dog is in trouble at 11pm at Rehoboth, the nearest round-the-clock option is an hour or more away. Know which one you're driving to BEFORE you need it — pick one now and put it in your phone.",
     "verifiedDate": null,
-    "verifiedSource": null
+    "verifiedSource": null,
+    "provisional": {
+      "fact": "Work out where you would drive, before you need to.",
+      "detail": "Round-the-clock veterinary cover near the Delaware beaches is thin, and the hours below are the ones each practice publishes — I have not yet rung any of them to confirm. Pick one now, ring it to check it is open when you think it is, and put the number in your phone. Doing that on a Tuesday afternoon is free. Doing it at 11pm with a sick dog in the car is not."
+    }
   },
   "vets": [
     {
@@ -17,7 +21,8 @@
       "driveFromRehoboth": "About 1 hour",
       "coversWeekdayDaytime": false,
       "verifiedDate": null,
-      "verifiedSource": null
+      "verifiedSource": null,
+      "confirmed": false
     },
     {
       "slug": "pets-er-salisbury",
@@ -25,11 +30,12 @@
       "phone": "410-543-8400",
       "address": "402 Punkin Ct, Salisbury, MD 21804",
       "hours": "Not confirmed",
-      "hoursNote": "Closest option to Fenwick and Bethany. Confirm hours and whether they take out-of-state clients.",
+      "hoursNote": "Hours not published anywhere I can reach, and I have not rung them. It is the closest option to Fenwick and Bethany on the map, which is exactly why that blank matters — do not drive here on the strength of this listing without ringing first. Also unconfirmed: whether they take Delaware clients.",
       "driveFromRehoboth": "About 1 hour",
       "coversWeekdayDaytime": null,
       "verifiedDate": null,
-      "verifiedSource": null
+      "verifiedSource": null,
+      "confirmed": false
     },
     {
       "slug": "bluepearl-christiana",
@@ -41,7 +47,8 @@
       "driveFromRehoboth": "About 1 hour 45 minutes",
       "coversWeekdayDaytime": true,
       "verifiedDate": null,
-      "verifiedSource": null
+      "verifiedSource": null,
+      "confirmed": false
     },
     {
       "slug": "rehoboth-beach-animal-hospital",
@@ -60,7 +67,8 @@
         "primary": true,
         "note": "Read 8 August 2026. Describes a full-service practice for dogs, cats, pocket pets and exotics — wellness, dental, diagnostics, surgery, microchipping — and says to call 302-227-2009 or book online. It does not describe urgent care, walk-ins, or after-hours cover."
       },
-      "isEmergency": false
+      "isEmergency": false,
+      "confirmed": false
     }
   ],
   "statewide": [
@@ -82,6 +90,7 @@
     }
   ],
   "outstanding": [
+    "PUBLISH THE HEADLINE. \"No 24-hour emergency vet in Sussex County\" is written and waiting in this file behind a null verifiedDate. Ring the practices below, and if it holds, set the date and it goes live as the top line on six pages.",
     "Call every number in this file and confirm it rings the right place. This is the one dataset where a stale number does real harm.",
     "Confirm Delmarva's weekday 6pm–8am window and the Fri–Sun 24-hour claim.",
     "Ring Rehoboth Beach Animal Hospital on 302-227-2009 and ask the only question that matters here: do they take a dog in trouble the same day, and on which days and hours? Their own site describes appointments and nothing else.",

@@ -120,6 +120,68 @@ for (const f of files.filter((x) => x.endsWith(".html"))) {
   }
 }
 
+/* ------------------------------------------- unverified safety claims -- */
+
+/*
+ * Nothing from emergency.json may reach a built page while its verifiedDate is
+ * null.
+ *
+ * WHY THIS IS A BUILD GATE AND NOT A NOTE
+ *
+ * emergency.json has carried a comment since the day it was created saying
+ * every number needs a first-party confirmation call before verifiedDate is
+ * set. The comment was correct, prominent, and completely ineffective: the
+ * headline "There is no 24-hour emergency vet in Sussex County" shipped on six
+ * pages, styled as the most important line on each, with verifiedDate null the
+ * entire time.
+ *
+ * A categorical negative about a whole county's provision is the hardest claim
+ * on this site to support and the most expensive to get wrong, because the
+ * failure mode is somebody driving past a practice that would have taken the
+ * dog. An instruction to be careful had already been tried. This is the same
+ * lesson as the sitemap and US-English gates: if it matters, the build enforces
+ * it, because I will otherwise talk myself past it at midnight.
+ */
+/*
+ * SCOPED TO THE HEADLINE, DELIBERATELY.
+ *
+ * The first version of this gate also blocked every vet's hours, and blocking
+ * those is wrong. A practice publishing "Mon–Thu 6pm–8am" on its own site is a
+ * sourced fact — the same tier as a DNREC fee — and withholding it until I've
+ * rung them leaves somebody with less information at 11pm, not more.
+ *
+ * The headline is a different animal. Nobody published it: I wrote it, about a
+ * whole county, in the negative. That is the class of claim that has to earn
+ * its way onto the page. Unconfirmed hours publish with a visible marker
+ * instead — see TownContacts.astro.
+ */
+const emergency = JSON.parse(readFileSync("src/data/emergency.json", "utf8"));
+const guarded = [["headline.fact", emergency.headline?.fact, emergency.headline?.verifiedDate]];
+
+for (const [label, claim, verifiedDate] of guarded) {
+  if (!claim || verifiedDate) continue;
+  /* Long claims are matched on a distinctive opening rather than in full —
+     the renderer wraps and entity-escapes, so exact matching would silently
+     never fire, which is the failure mode this gate exists to prevent. */
+  const needle = String(claim).slice(0, 42).replace(/\s+/g, " ").trim();
+  if (needle.length < 12) continue;
+  for (const f of files.filter((x) => x.endsWith(".html"))) {
+    const text = readFileSync(f, "utf8")
+      .replace(/<script[\s\S]*?<\/script>/gi, " ")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/&#(\d+);/g, (_, d) => String.fromCharCode(+d))
+      .replace(/&quot;/g, '"')
+      .replace(/&amp;/g, "&")
+      .replace(/\s+/g, " ");
+    if (text.includes(needle)) {
+      problems.push(
+        `${relative(DIST, f)}: publishes unverified emergency claim (${label}) — ` +
+          `set verifiedDate in emergency.json after a first-party call, or keep it unpublished`,
+      );
+    }
+  }
+}
+
 if (problems.length) {
   console.error(`\n  ✗ Build check failed:\n${problems.map((p) => `      ${p}`).join("\n")}\n`);
   process.exit(1);

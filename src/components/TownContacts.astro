@@ -93,18 +93,41 @@ const statewide = emergency.statewide;
 
 <h2 id="emergency">If something goes wrong</h2>
 
-{/* The headline fact, loud, because it changes what you do rather than what
-    you know. */}
-<aside
-  class="breakout border-2 border-flag-red border-l-[9px] bg-flag-red-wash px-4 sm:px-5 py-4 rounded-[2px] my-6"
-  style="box-shadow: 5px 5px 0 0 var(--color-flag-red-bearing);"
->
-  <p class="label text-flag-red-bearing m-0 flex items-center gap-1.5">
-    <FlagIcon icon="alert" class="w-[1em] h-[1em]" />
-    {emergency.headline.fact}
-  </p>
-  <p class="mt-2 mb-0 text-[0.98rem] leading-[1.5] max-w-[58ch]">{emergency.headline.detail}</p>
-</aside>
+{/* The headline, loud, because it changes what you do rather than what you know.
+
+    WHICH HEADLINE RUNS IS DECIDED BY THE DATE, NOT BY ME.
+
+    The strong version — "there is no 24-hour emergency vet in Sussex County" —
+    is a categorical negative about an entire county's provision. It is the most
+    useful sentence on this page if it's true, and the most harmful if it isn't,
+    because somebody reads it and drives past a practice that would have taken
+    the dog. It shipped here for months on nobody's authority while this file's
+    own comment said every number needed a confirmation call first.
+
+    So the claim now waits behind its own verifiedDate, and until that is set
+    the page gives the same instruction without asserting what does or doesn't
+    exist. scripts/check-build.mjs fails the build if the strong version reaches
+    dist/ unverified — a comment asking me to be careful had already proved it
+    was worth exactly nothing. */}
+{(() => {
+  const h = emergency.headline;
+  const live = h.verifiedDate ? h : h.provisional;
+  return (
+    <aside
+      class="breakout border-2 border-flag-red border-l-[9px] bg-flag-red-wash px-4 sm:px-5 py-4 rounded-[2px] my-6"
+      style="box-shadow: 5px 5px 0 0 var(--color-flag-red-bearing);"
+    >
+      <p class="label text-flag-red-bearing m-0 flex items-center gap-1.5">
+        <FlagIcon icon="alert" class="w-[1em] h-[1em]" />
+        {live.fact}
+      </p>
+      <p class="mt-2 mb-0 text-[0.98rem] leading-[1.5] max-w-[58ch]">{live.detail}</p>
+      {h.verifiedDate && (
+        <p class="stamp text-flag-red-bearing mt-2.5 mb-0">Checked {h.verifiedDate}</p>
+      )}
+    </aside>
+  );
+})()}
 
 <ul class="list-none p-0 m-0 my-6 space-y-3 breakout">
   {
@@ -127,8 +150,18 @@ const statewide = emergency.statewide;
 
         <p class="stamp text-ink-soft mt-1.5 mb-0">{v.address}</p>
         <p class="mt-2 mb-0 text-[0.92rem]">
-          <span class="label">Hours</span> <span class="stamp">{v.hours}</span>
+          <span class="label">Hours</span>{" "}
+          <span class="stamp">{v.hours ?? "Not published"}</span>
         </p>
+        {/* These hours are what the practice publishes, not what somebody told
+            me on the phone. On any other page that distinction is a nicety. On
+            this one it decides whether a person drives an hour at midnight to a
+            locked door, so it gets said on the card rather than in a footnote. */}
+        {!v.confirmed && (
+          <p class="mt-1.5 mb-0 text-[0.86rem] leading-snug text-flag-red-bearing">
+            Not confirmed by phone — ring before you drive.
+          </p>
+        )}
         {v.hoursNote && (
           <p class="mt-1.5 mb-0 text-[0.86rem] leading-snug text-ink-soft max-w-[54ch]">
             {v.hoursNote}
