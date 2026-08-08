@@ -92,6 +92,12 @@ export interface StateParkFeatures {
    */
   playground: boolean | null;
   /**
+   * Riding stables. Same gap the playground was: DNREC's park pages list
+   * paddling and camping and say nothing about the horses, and Bellevue has a
+   * working stable and ring that is one of the main reasons people go.
+   */
+  stables: boolean | null;
+  /**
    * Added late, and that is the point.
    *
    * The other nine features are the ones DNREC publishes, which is why they
@@ -192,6 +198,7 @@ export const FEATURE_LABELS: [keyof StateParkFeatures, string][] = [
   ["pier", "Pier"],
   ["discGolf", "Disc golf"],
   ["playground", "Playground"],
+  ["stables", "Riding stables"],
   ["restrooms", "Restrooms"],
 ];
 

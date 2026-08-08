@@ -19,7 +19,8 @@
       "pier": true,
       "discGolf": true,
       "restrooms": null,
-      "playground": null
+      "playground": null,
+      "stables": null
     },
     "feeBand": "beach",
     "dogs": {
@@ -102,7 +103,8 @@
       "pier": null,
       "discGolf": null,
       "restrooms": null,
-      "playground": null
+      "playground": null,
+      "stables": null
     },
     "feeBand": "beach",
     "dogs": {
@@ -170,7 +172,8 @@
       "pier": null,
       "discGolf": null,
       "restrooms": null,
-      "playground": null
+      "playground": null,
+      "stables": null
     },
     "feeBand": "beach",
     "dogs": {
@@ -226,7 +229,8 @@
       "pier": true,
       "discGolf": null,
       "restrooms": null,
-      "playground": null
+      "playground": null,
+      "stables": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -282,7 +286,8 @@
       "pier": null,
       "discGolf": true,
       "restrooms": null,
-      "playground": null
+      "playground": null,
+      "stables": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -347,7 +352,8 @@
       "pier": null,
       "discGolf": true,
       "restrooms": null,
-      "playground": null
+      "playground": null,
+      "stables": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -410,7 +416,8 @@
       "pier": null,
       "discGolf": true,
       "restrooms": true,
-      "playground": null
+      "playground": null,
+      "stables": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -564,7 +571,8 @@
       "pier": null,
       "discGolf": true,
       "restrooms": true,
-      "playground": null
+      "playground": null,
+      "stables": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -676,7 +684,8 @@
       "pier": null,
       "discGolf": true,
       "restrooms": true,
-      "playground": null
+      "playground": null,
+      "stables": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -808,7 +817,8 @@
       "pier": false,
       "discGolf": true,
       "restrooms": true,
-      "playground": true
+      "playground": true,
+      "stables": true
     },
     "feeBand": "inland",
     "dogs": {
@@ -822,9 +832,11 @@
     "verifiedSource": null,
     "outstanding": [
       "PRIORITY: get the Bellevue park office phone number. The office is confirmed on the ground; only the number is missing.",
+      "Confirm who runs the Bellevue stables, what it costs, and whether you can book a lesson or a hack as a member of the public.",
       "Get the park office number.",
       "Confirm track access and whether the mansion grounds are open.",
-      "Confirm the disc golf hole count and whether there's a fee."
+      "Confirm the disc golf hole count and whether there's a fee.",
+      "The state parks type has no pavilion or picnic field, and Bellevue plainly has both. Decide whether to add one — it's the same gap the playground and the stables fell through."
     ],
     "sources": [
       {
@@ -846,6 +858,13 @@
     "sourcedOn": "2026-08-02",
     "photos": [
       {
+        "file": "bellevue-pond-geese",
+        "alt": "Canada geese on a pond in winter, bare trees, picnic tables and a pavilion along the far bank, and a small child crouched at the gravel edge watching them.",
+        "caption": "The pond in winter. The geese are here in numbers and they are not shy, which is most of the appeal if you are three.",
+        "credit": "Site maintainer",
+        "takenOn": null
+      },
+      {
         "file": "bellevue-turtle",
         "alt": "A small turtle with yellow throat markings resting on wet gravel at the edge of shallow water, among fallen autumn leaves.",
         "caption": "A turtle at the pond edge in autumn. Not a promise — but you do see them here.",
@@ -853,6 +872,41 @@
         "takenOn": null,
         "portrait": true,
         "focus": "50% 63%"
+      },
+      {
+        "file": "bellevue-pond-shallows",
+        "alt": "Shallow water over pale sand at the edge of a pond, scattered with sweetgum burrs, with turtles hauled out on a rock in the distance.",
+        "caption": "The shallow end, and the reason the turtle photograph exists. Sweetgum burrs all along the waterline — worth something on your feet.",
+        "credit": "Site maintainer",
+        "takenOn": null
+      },
+      {
+        "file": "bellevue-reflections",
+        "alt": "Bare trees reflected in completely still water, with the corner of a wooden dock at the top left.",
+        "caption": "Still enough on a calm morning to hold the whole treeline upside down.",
+        "credit": "Site maintainer",
+        "takenOn": null
+      },
+      {
+        "file": "bellevue-pond-summer",
+        "alt": "A pond in summer seen over a timber railing, willows along the far bank, flat water holding the cloud.",
+        "caption": "The same water in midsummer, from the railing. Willows the whole way along the far side.",
+        "credit": "Site maintainer",
+        "takenOn": null
+      },
+      {
+        "file": "bellevue-stables",
+        "alt": "A grey horse in a dirt paddock in front of a long single-storey stable block, with steel gates and rails enclosing it.",
+        "caption": "The stable block and one of the paddocks. It's a working yard rather than an attraction, but you can stand at the rail.",
+        "credit": "Site maintainer",
+        "takenOn": null
+      },
+      {
+        "file": "bellevue-paddock",
+        "alt": "A bay horse in a fly mask grazing in a fenced grass paddock in summer, with white post-and-rail fencing beyond.",
+        "caption": "Turnout on the grass in summer.",
+        "credit": "Site maintainer",
+        "takenOn": null
       }
     ],
     "fieldNotes": [
@@ -865,6 +919,18 @@
         "date": "2026-08-08",
         "author": "Site maintainer",
         "body": "No boat launch, no boat rentals and no pier — the pond here isn't that kind of water. There is a playground, and there are restrooms. All five had been sitting at \"Not confirmed\" for the same reason they were at Alapocas: DNREC's roster lists what a park HAS, so nothing in it distinguishes a facility that's absent from one nobody has checked. There is a park office too, on the right immediately after the entrance — what's still missing there is its phone number, which is a different gap from the building not existing, and the page said \"Not confirmed\" for both."
+      },
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "Bellevue has working riding stables — a stable block, paddocks and a ring — and this dataset had no field for them at all. That is the same hole the playground fell through: the state parks type was built from what DNREC publishes, DNREC's park pages talk about paddling and camping and say nothing about horses, and so a facility that is one of the main reasons people come here had nowhere to be recorded. There is a stables field now, and Bellevue is the first record to use it.",
+        "photo": "bellevue-stables"
+      },
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "The pond is the other half of this park: Canada geese year-round and turtles on the rocks, shallow and sandy at one end with sweetgum burrs the whole way along the waterline. There is a pavilion and picnic tables on the far bank in the winter photograph, which is another thing this dataset can't currently say about a state park.",
+        "photo": "bellevue-pond-geese"
       }
     ],
     "coords": {
@@ -899,7 +965,8 @@
       "pier": false,
       "discGolf": false,
       "restrooms": true,
-      "playground": true
+      "playground": true,
+      "stables": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -1107,7 +1174,8 @@
       "pier": null,
       "discGolf": null,
       "restrooms": null,
-      "playground": null
+      "playground": null,
+      "stables": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -1162,7 +1230,8 @@
       "pier": null,
       "discGolf": null,
       "restrooms": null,
-      "playground": null
+      "playground": null,
+      "stables": null
     },
     "feeBand": null,
     "dogs": {
@@ -1220,7 +1289,8 @@
       "pier": null,
       "discGolf": null,
       "restrooms": null,
-      "playground": null
+      "playground": null,
+      "stables": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -1275,7 +1345,8 @@
       "pier": null,
       "discGolf": null,
       "restrooms": null,
-      "playground": null
+      "playground": null,
+      "stables": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -1332,7 +1403,8 @@
       "pier": false,
       "discGolf": false,
       "restrooms": null,
-      "playground": null
+      "playground": null,
+      "stables": null
     },
     "feeBand": null,
     "dogs": {
@@ -1390,7 +1462,8 @@
       "pier": null,
       "discGolf": null,
       "restrooms": null,
-      "playground": true
+      "playground": true,
+      "stables": null
     },
     "feeBand": "inland",
     "dogs": {

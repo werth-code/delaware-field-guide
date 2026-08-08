@@ -36,7 +36,7 @@ export type FeatureKey =
   | "winterUse" | "petsAllowed" | "playground" | "water" | "shade" | "pavilion"
   | "grills" | "sports" | "pavedPath" | "discGolf" | "skate" | "dogPark"
   | "pier" | "guardedSwimming" | "surfFishing"
-  | "free" | "giftShop" | "accessible" | "branches";
+  | "free" | "giftShop" | "accessible" | "branches" | "stables";
 
 interface Props {
   icon: FeatureKey;
@@ -88,6 +88,10 @@ const { icon, class: className = "", style } = Astro.props;
       shape survives being small. */}
   {icon === "trails" && (<><path d="M12 3v18" /><path d="M12 6h8v3.5h-8" /><path d="M12 12H4v3.5h8" /></>)}
   {icon === "pavedPath" && (<><path d="M7 21 10 3" /><path d="M17 21 14 3" /><path d="M11 6h2" /><path d="M10 12h4" /><path d="M9 18h6" /></>)}
+  {/* A horseshoe, open end down. The obvious alternative was a horse, and a
+      horse at 16px is a blob — the shoe reads at any size and means one
+      thing. */}
+  {icon === "stables" && (<><path d="M7 20v-6a5 5 0 0 1 10 0v6" /><path d="M5 20h4" /><path d="M15 20h4" /></>)}
   {icon === "playground" && (<><path d="M6 21V7" /><path d="M10 21V7" /><path d="M6 11h4" /><path d="M6 15h4" /><path d="M10 7c6 1 8 7 8 14" /><path d="M4 21h16" /></>)}
   {icon === "sports" && (<><circle cx="12" cy="12" r="8.5" /><path d="M12 3.5v17" /><path d="M3.5 12h17" /></>)}
   {icon === "discGolf" && (<><ellipse cx="12" cy="8" rx="8" ry="3.5" /><path d="M12 11.5V21" /><path d="M7 21h10" /></>)}

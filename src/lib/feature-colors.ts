@@ -69,6 +69,7 @@ export const FEATURE_COLOR: Record<string, string> = {
   trails: "#295e35",
   pavedPath: "#4a4f55",
   playground: "#1f4fa8",
+  stables: "#6b4423",
   sports: "#5a3a7a",
   discGolf: "#345c28",
   skate: "#6d3b6b",
