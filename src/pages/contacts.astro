@@ -93,19 +93,24 @@ const tel = (p: string) => `tel:+1${p.replace(/\D/g, "")}`;
       open in a parking lot. The numbers are the content. */}
 
   {
-    groups.map((g, i) => (
+    groups.map((g) => (
       <div class="wrap pb-4">
         {/*
-          COLLAPSIBLE, AND THE FIRST ONE OPEN. Five headings and eighty rows
-          meant scrolling past every state park to reach a brewery. A <details>
-          per group turns it into five lines you can read at once — and it
-          opens without JavaScript, which matters on the page somebody loads in
-          a parking lot on one bar.
+          ALL FIVE SHUT ON ARRIVAL. Eighty rows across five headings meant
+          scrolling past every state park to reach a brewery. Shut, the whole
+          page is five lines and you can see everything it holds without moving
+          — which is the point of a page you open in a parking lot.
 
-          The count on the summary is the point of leaving it shut: 17/17 tells
-          you whether opening it is worth the tap.
+          The first one used to be open, and that was the wrong default for the
+          same reason: it made state parks the answer for a reader who hadn't
+          said what they wanted, and buried the other four under seventeen rows
+          of it.
+
+          The count on each summary is what makes shut usable. 17/17 tells you
+          the group is complete before you spend a tap on it; 13/14 tells you
+          it mostly is.
         */}
-        <details class="contact-group sign breakout" open={i === 0}>
+        <details class="contact-group sign breakout">
           <summary class="list-none cursor-pointer px-4 sm:px-5 py-3.5 flex items-center gap-2 font-display text-[1.35rem] font-bold text-marsh">
             <FeatureIcon
               icon={g.key as any}
