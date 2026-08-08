@@ -19,10 +19,25 @@
  * one place a page like this starts to look like everybody else's.
  *
  * Progressive enhancement, in this order:
- *   1. On a phone, the native share sheet replaces the whole row — it reaches
- *      Messages, WhatsApp and everything else the visitor actually uses.
+ *   1. On a phone, a native Share button is added AHEAD of the row — it
+ *      reaches Messages, WhatsApp and everything else the visitor actually
+ *      uses.
  *   2. Copy-link is upgraded to the clipboard API.
  *   3. With no JS at all, every target below is a working link.
+ *
+ * THE NATIVE BUTTON USED TO REPLACE THE ROW, and that was wrong. Every phone
+ * has navigator.share, so on every phone this section was a single unlabelled
+ * SHARE button and nothing else — all nine networks hidden behind a sheet the
+ * reader has to open to discover. The share sheet is the best path for "send
+ * this to whoever is driving" and a poor one for "post this in
+ * r/DelawareBeaches", and the second is the half that grows the site. Both are
+ * on screen now.
+ *
+ * NO INSTAGRAM, though it gets asked for. Instagram publishes no web share
+ * intent: there is no URL that opens a composer with a link in it, because the
+ * platform doesn't carry outbound links in posts at all. A button would either
+ * dead-end or just open instagram.com, and a control that doesn't do what it
+ * says is worse than an absent one.
  */
 interface Props {
   /** Page title — becomes the shared text. */
@@ -130,7 +145,7 @@ const targets = [
       data-title={title}
       data-text={text}
     >
-      {/* Replaced by the native share sheet where one exists. */}
+      {/* Added ahead of the row where a share sheet exists — not instead of it. */}
       <button
         type="button"
         data-share-native
@@ -181,17 +196,15 @@ const targets = [
       //    everything else, which is where these links actually travel.
       const native = root.querySelector("[data-share-native]");
       const fallback = root.querySelector("[data-share-fallback]");
-      if (navigator.share && native && fallback) {
+      if (navigator.share && native) {
         native.hidden = false;
-        fallback.hidden = true;
         native.addEventListener("click", async () => {
+          /* Swallowed on purpose: the only failures here are the reader
+             cancelling the sheet and a browser refusing it, and in both cases
+             every explicit target is still sitting right there. */
           try {
             await navigator.share({ title, text, url });
-          } catch {
-            // Cancelled, or refused. Give the explicit targets back.
-            native.hidden = true;
-            fallback.hidden = false;
-          }
+          } catch {}
         });
       }
 
