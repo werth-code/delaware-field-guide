@@ -929,5 +929,1352 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": []
+  },
+  {
+    "slug": "argilla-brewing",
+    "name": "Argilla Brewing Co. @ Pietro's Pizza",
+    "kind": "Brewpub",
+    "town": "Newark",
+    "county": "New Castle",
+    "address": "2667 Kirkwood Highway, Newark, DE 19711",
+    "blurb": "A brewery inside a pizza restaurant on the Kirkwood Highway.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "Tourism listings describe dog-friendly outdoor tables. That's a report, not the business's own words, so this page doesn't state it as policy. Ring before you drive.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Sunday – Monday",
+        "text": "11am – 9pm"
+      },
+      {
+        "days": "Tuesday",
+        "text": "Closed"
+      },
+      {
+        "days": "Wednesday",
+        "text": "11am – 9pm"
+      },
+      {
+        "days": "Thursday",
+        "text": "11am – 10pm"
+      },
+      {
+        "days": "Friday – Saturday",
+        "text": "11am – 11pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Argilla Brewing",
+      "url": "https://www.pietrospizza.com/argilla-brewing-company/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Argilla Brewing @ Pietro's Pizza",
+        "url": "https://www.pietrospizza.com/argilla-brewing-company/",
+        "primary": true,
+        "note": "The operator's ordering page. Hours, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "crooked-hammock-middletown",
+    "name": "Crooked Hammock Brewery — Middletown",
+    "kind": "Brewpub",
+    "town": "Middletown",
+    "county": "New Castle",
+    "address": "Middletown, DE",
+    "blurb": "A brewpub with a backyard, the Middletown one of two Delaware sites.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The brewery runs dog-themed events but publishes no general policy I can find, which is not the same thing.",
+      "source": null
+    },
+    "hours": null,
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Crooked Hammock Brewery",
+      "url": "https://crookedhammockbrewery.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Crooked Hammock Brewery",
+        "url": "https://crookedhammockbrewery.com/",
+        "primary": true,
+        "note": "The operator. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the address and the hours.",
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "first-state-brewing-middletown",
+    "name": "First State Brewing Co. — Middletown",
+    "kind": "Brewery",
+    "town": "Middletown",
+    "county": "New Castle",
+    "address": "109 Patriot Drive, Middletown, DE 19709",
+    "blurb": "Brewery and kitchen on Patriot Drive.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The outdoor patio is reported dog-friendly. That's a report, not the business's own words, so this page doesn't state it as policy. Ring before you drive.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Monday",
+        "text": "Closed"
+      },
+      {
+        "days": "Tuesday – Thursday",
+        "text": "3pm – 10pm"
+      },
+      {
+        "days": "Friday – Saturday",
+        "text": "12pm – 11pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "12pm – 8pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "First State Brewing Co.",
+      "url": "https://www.firststatebrewingcompany.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "First State Brewing Company",
+        "url": "https://www.firststatebrewingcompany.com/",
+        "primary": true,
+        "note": "The operator. Hours, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "high-steaks-brewery",
+    "name": "High Steaks Brewery",
+    "kind": "Brewery",
+    "town": "Wilmington",
+    "county": "New Castle",
+    "address": "Delaware Park, 777 Delaware Park Boulevard, Wilmington, DE 19804",
+    "blurb": "The brewery at Delaware Park. It replaced 1937 Brewing, which is the name most listings still carry.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Wednesday – Thursday",
+        "text": "12pm – 8pm"
+      },
+      {
+        "days": "Friday – Saturday",
+        "text": "12pm – 10pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "12pm – 7pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Delaware Park",
+      "url": "https://www.delawarepark.com/"
+    },
+    "onSite": [],
+    "warnings": [
+      "Older guides list this as 1937 Brewing Company. Same place, previous name."
+    ],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Delaware Park",
+        "url": "https://www.delawarepark.com/",
+        "primary": true,
+        "note": "Hours for the brewery at the park, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "liquid-alchemy",
+    "name": "Liquid Alchemy Beverages",
+    "kind": "Meadery",
+    "town": "Wilmington",
+    "county": "New Castle",
+    "address": "28 Brookside Drive, Wilmington, DE 19804",
+    "blurb": "Mead and cider in Wilmington, and the only place in the north of the state making either.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "Repeatedly described as dog-friendly, inside and on the patio. That's a report, not the business's own words, so this page doesn't state it as policy. Ring before you drive.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Wednesday",
+        "text": "4pm – 9pm"
+      },
+      {
+        "days": "Friday",
+        "text": "4pm – 9pm"
+      },
+      {
+        "days": "Saturday",
+        "text": "2pm – 9pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "12pm – 5pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Liquid Alchemy Beverages",
+      "url": "https://www.liquidalchemybeverages.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Liquid Alchemy Beverages",
+        "url": "https://www.liquidalchemybeverages.com/",
+        "primary": true,
+        "note": "The operator. Hours, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "stewarts-brewing",
+    "name": "Stewart's Brewing Company",
+    "kind": "Brewpub",
+    "town": "Bear",
+    "county": "New Castle",
+    "address": "219 Governor's Place, Bear, DE 19701",
+    "blurb": "One of the oldest brewpubs in the state, at Bear.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Monday",
+        "text": "Closed"
+      },
+      {
+        "days": "Tuesday – Saturday",
+        "text": "12pm – 10pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "11am – 10pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Stewart's Brewing Company",
+      "url": "https://stewartsbrewingcompany.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Stewart's Brewing Company",
+        "url": "https://stewartsbrewingcompany.com/",
+        "primary": true,
+        "note": "The operator. Hours, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "volunteer-brewing",
+    "name": "Volunteer Brewing Company",
+    "kind": "Brewery",
+    "town": "Middletown",
+    "county": "New Castle",
+    "address": "116 W Main Street, Middletown, DE 19709",
+    "blurb": "Main Street Middletown, with a large backyard beer garden.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "A big outdoor space and no published rule about dogs in it — worth one phone call.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Monday – Tuesday",
+        "text": "Closed"
+      },
+      {
+        "days": "Wednesday",
+        "text": "4pm – 9pm"
+      },
+      {
+        "days": "Thursday",
+        "text": "3pm – 9pm"
+      },
+      {
+        "days": "Friday",
+        "text": "3pm – 10pm"
+      },
+      {
+        "days": "Saturday",
+        "text": "12pm – 10pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "12pm – 6pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Volunteer Brewing Company",
+      "url": "https://www.volunteerbrewing.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Volunteer Brewing Company",
+        "url": "https://www.volunteerbrewing.com/",
+        "primary": true,
+        "note": "The operator. Hours, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "big-oyster-milford",
+    "name": "Big Oyster Brewery — Milford",
+    "kind": "Brewpub",
+    "town": "Milford",
+    "county": "Kent",
+    "address": "Milford, DE",
+    "blurb": "The Milford brewery, with a seasonal outdoor bar over the Southern Delaware Golf Club.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": null,
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Big Oyster Brewery",
+      "url": "https://www.bigoysterbrewery.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Big Oyster Brewery",
+        "url": "https://www.bigoysterbrewery.com/",
+        "primary": true,
+        "note": "The operator. Confirms the Milford site is active in 2026. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the street address and the hours.",
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "brick-works-smyrna",
+    "name": "Brick Works Brewing & Eats — Smyrna",
+    "kind": "Brewpub",
+    "town": "Smyrna",
+    "county": "Kent",
+    "address": "230 S Dupont Boulevard, Smyrna, DE 19977",
+    "blurb": "Brewpub on the Dupont Boulevard, brewing on site.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": null,
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Brick Works Smyrna",
+      "url": "https://brickworkssmyrna.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Brick Works Brewing & Eats, Smyrna",
+        "url": "https://brickworkssmyrna.com/",
+        "primary": true,
+        "note": "The operator. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the hours.",
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "camden-brew",
+    "name": "Camden Brew Company",
+    "kind": "Brewery",
+    "town": "Camden",
+    "county": "Kent",
+    "address": "169 Old Camden Road, Camden, DE 19934",
+    "blurb": "A newer brewery with a beer garden, south of Dover.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Monday – Saturday",
+        "text": "12pm – 10pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "Closed"
+      }
+    ],
+    "hoursNote": "From a tourism listing rather than the brewery. It's a newer operation and the schedule has moved before — ring first.",
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Camden Brew Company",
+      "url": "https://visitcentraldelaware.com/directory/camden-brew-company/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Visit Central Delaware: Camden Brew Company",
+        "url": "https://visitcentraldelaware.com/directory/camden-brew-company/",
+        "primary": false,
+        "note": "Tourism listing, read 8 August 2026. Not the brewery's own hours."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "rebel-seed-cidery",
+    "name": "Rebel Seed Cidery",
+    "kind": "Cidery",
+    "town": "Marydel",
+    "county": "Kent",
+    "address": "447 Westville Road, Marydel, DE 19964",
+    "blurb": "Cider, on the same Marydel site as Harvest Ridge.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": null,
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Rebel Seed Cidery",
+      "url": "https://visitcentraldelaware.com/directory/rebel-seed-cidery/"
+    },
+    "onSite": [
+      {
+        "label": "Shares a site with Harvest Ridge",
+        "note": "Same address and the same complex as the winery — one drive, two things."
+      }
+    ],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Visit Central Delaware: Rebel Seed Cidery",
+        "url": "https://visitcentraldelaware.com/directory/rebel-seed-cidery/",
+        "primary": false,
+        "note": "Tourism listing, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the hours, and whether Harvest Ridge's dog policy covers the cidery too.",
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "pizzadili-winery",
+    "name": "Pizzadili Vineyard & Winery",
+    "kind": "Winery",
+    "town": "Felton",
+    "county": "Kent",
+    "address": "1683 Peach Basket Road, Felton, DE 19943",
+    "blurb": "A vineyard and winery at Felton, and one of the state's five.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": null,
+    "hoursNote": "Sources disagree: Visit Delaware has listed daily 12–5, Visit Central Delaware Monday and Saturday 11–5 with Sunday 12–5 and closed Tuesday to Friday. Neither is the winery. Nothing is published here until the winery says which.",
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Pizzadili Vineyard & Winery",
+      "url": "https://www.visitdelaware.com/listing/pizzadili-vineyard-and-winery/4433/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Visit Delaware and Visit Central Delaware",
+        "url": "https://www.visitdelaware.com/listing/pizzadili-vineyard-and-winery/4433/",
+        "primary": false,
+        "note": "Two tourism listings, read 8 August 2026, giving different opening days. Recorded as a conflict rather than picking one."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "PRIORITY: the two tourism listings disagree on which days it opens. Ring the winery.",
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "wtf-meadery",
+    "name": "What To Ferment Meadery",
+    "kind": "Meadery",
+    "town": "Milford",
+    "county": "Kent",
+    "address": "27 S Walnut Street, Unit 101, Milford, DE 19963",
+    "blurb": "Mead in Milford, three days a week.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Thursday – Friday",
+        "text": "5pm – 9pm"
+      },
+      {
+        "days": "Saturday",
+        "text": "2pm – 9pm"
+      }
+    ],
+    "hoursNote": "Last call 8:45pm. From a tourism listing rather than the meadery.",
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "What To Ferment Meadery",
+      "url": "https://visitcentraldelaware.com/directory/wtf-what-to-ferment-meadery/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Visit Central Delaware: WTF Meadery",
+        "url": "https://visitcentraldelaware.com/directory/wtf-what-to-ferment-meadery/",
+        "primary": false,
+        "note": "Tourism listing, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "bethany-brewing",
+    "name": "Bethany Brewing Company",
+    "kind": "Brewery",
+    "town": "Ocean View",
+    "county": "Sussex",
+    "address": "38450 Hickman Road, Ocean View, DE 19970",
+    "blurb": "Inland from Bethany, open late seven days.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "Tourism describes it as dog-friendly, and the brewery runs pet events. That's a report, not the business's own words, so this page doesn't state it as policy. Ring before you drive.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Monday – Saturday",
+        "text": "12pm – 10pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "12pm – 8pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Bethany Brewing Company",
+      "url": "https://www.bethanybrewing.net/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Bethany Brewing Company",
+        "url": "https://www.bethanybrewing.net/",
+        "primary": true,
+        "note": "The operator. Hours, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "big-oyster-lewes",
+    "name": "Big Oyster Brewery — Lewes",
+    "kind": "Brewpub",
+    "town": "Lewes",
+    "county": "Sussex",
+    "address": "Lewes, DE",
+    "blurb": "The Lewes brewpub, the older of Big Oyster's two.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": null,
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Big Oyster Brewery",
+      "url": "https://www.bigoysterbrewery.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Big Oyster Brewery",
+        "url": "https://www.bigoysterbrewery.com/",
+        "primary": true,
+        "note": "The operator. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the street address and the hours.",
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "brick-works-long-neck",
+    "name": "Brick Works Brewing & Eats — Long Neck",
+    "kind": "Brewpub",
+    "town": "Long Neck",
+    "county": "Sussex",
+    "address": "36932 Silicato Drive, Suite 1, Long Neck, DE 19966",
+    "blurb": "The Long Neck brewpub, near Millsboro.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": null,
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Brick Works Long Neck",
+      "url": "https://brickworksmillsboro.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Brick Works Brewing & Eats, Long Neck",
+        "url": "https://brickworksmillsboro.com/",
+        "primary": true,
+        "note": "The operator. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the hours.",
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "crooked-hammock-lewes",
+    "name": "Crooked Hammock Brewery — Lewes",
+    "kind": "Brewpub",
+    "town": "Lewes",
+    "county": "Sussex",
+    "address": "Lewes, DE",
+    "blurb": "The original Crooked Hammock, with the backyard it's known for.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "Dog events, no published general policy.",
+      "source": null
+    },
+    "hours": null,
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Crooked Hammock Brewery",
+      "url": "https://crookedhammockbrewery.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Crooked Hammock Brewery",
+        "url": "https://crookedhammockbrewery.com/",
+        "primary": true,
+        "note": "The operator. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the address and the hours.",
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "dewey-beer-dewey",
+    "name": "Dewey Beer Co. — Dewey Beach",
+    "kind": "Brewpub",
+    "town": "Dewey Beach",
+    "county": "Sussex",
+    "address": "2100 Coastal Highway, Dewey Beach, DE 19971",
+    "blurb": "On the highway through Dewey, a few minutes from the one beach town that never shuts dogs out.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "Outdoor dog access is reported. That's a report, not the business's own words, so this page doesn't state it as policy. Ring before you drive.",
+      "source": null
+    },
+    "hours": null,
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Dewey Beer Co.",
+      "url": "https://www.deweybeerco.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Dewey Beer Company",
+        "url": "https://www.deweybeerco.com/",
+        "primary": true,
+        "note": "The operator. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the hours.",
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "dewey-beer-harbeson",
+    "name": "Dewey Beer Co. — Harbeson",
+    "kind": "Brewery",
+    "town": "Harbeson",
+    "county": "Sussex",
+    "address": "21241 Iron Throne Drive, Harbeson, DE 19951",
+    "blurb": "The production brewery and tasting room inland at Harbeson.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "Dog access inside and out is reported. That's a report, not the business's own words, so this page doesn't state it as policy. Ring before you drive.",
+      "source": null
+    },
+    "hours": null,
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Dewey Beer Co.",
+      "url": "https://www.deweybeerco.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Dewey Beer Company",
+        "url": "https://www.deweybeerco.com/",
+        "primary": true,
+        "note": "The operator. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the hours.",
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "dogfish-brewings-and-eats",
+    "name": "Dogfish Head Brewings & Eats",
+    "kind": "Brewpub",
+    "town": "Rehoboth Beach",
+    "county": "Sussex",
+    "address": "320 Rehoboth Avenue, Rehoboth Beach, DE 19971",
+    "blurb": "The original Dogfish brewpub on Rehoboth Avenue.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "Dogfish publishes a dogs policy for the Milton tasting room. It doesn't say whether this brewpub is the same, so this page doesn't assume it is.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Sunday – Tuesday",
+        "text": "11am – 10pm"
+      },
+      {
+        "days": "Wednesday – Saturday",
+        "text": "11am – 11pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Dogfish Head Brewings & Eats",
+      "url": "https://www.dogfish.com/visit/brewings-and-eats"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Dogfish Head: Brewings & Eats",
+        "url": "https://www.dogfish.com/visit/brewings-and-eats",
+        "primary": true,
+        "note": "The operator. Hours, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "first-state-brewing-rehoboth",
+    "name": "First State Brewing Co. — Rehoboth",
+    "kind": "Brewery",
+    "town": "Rehoboth Beach",
+    "county": "Sussex",
+    "address": "19266 Coastal Highway, Unit 1, Rehoboth Beach, DE 19971",
+    "blurb": "First State's newer coastal site.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": null,
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "First State Brewing Co.",
+      "url": "https://www.firststatebrewingcompany.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "First State Brewing Company",
+        "url": "https://www.firststatebrewingcompany.com/",
+        "primary": true,
+        "note": "The operator. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the hours for the Rehoboth site specifically.",
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "lewes-brewing",
+    "name": "Lewes Brewing Company",
+    "kind": "Brewery",
+    "town": "Lewes",
+    "county": "Sussex",
+    "address": "1145 Savannah Road, Lewes, DE 19958",
+    "blurb": "On Savannah Road into Lewes, open daily.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "Dogs on the outdoor patios are reported. That's a report, not the business's own words, so this page doesn't state it as policy. Ring before you drive.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Every day",
+        "text": "11am – 9pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Lewes Brewing Company",
+      "url": "https://www.lewesbrewing.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Lewes Brewing Company",
+        "url": "https://www.lewesbrewing.com/",
+        "primary": true,
+        "note": "The operator. Hours, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "ocean-view-brewing",
+    "name": "Ocean View Brewing Company",
+    "kind": "Brewpub",
+    "town": "Ocean View",
+    "county": "Sussex",
+    "address": "85 Atlantic Avenue, Ocean View, DE 19970",
+    "blurb": "Brewpub on the Atlantic Avenue road in to Bethany.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Every day",
+        "text": "11:30am – 10pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Ocean View Brewing Company",
+      "url": "https://www.oceanviewbrewingde.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Ocean View Brewing Company",
+        "url": "https://www.oceanviewbrewingde.com/",
+        "primary": true,
+        "note": "The operator. Hours, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "revelation-georgetown",
+    "name": "Revelation Craft Brewing — Georgetown",
+    "kind": "Brewery",
+    "town": "Georgetown",
+    "county": "Sussex",
+    "address": "413 S Bedford Street, Georgetown, DE 19947",
+    "blurb": "The Georgetown brewery, inland.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Monday",
+        "text": "Closed"
+      },
+      {
+        "days": "Tuesday",
+        "text": "4pm – 8pm"
+      },
+      {
+        "days": "Wednesday – Thursday",
+        "text": "12pm – 9pm"
+      },
+      {
+        "days": "Friday – Saturday",
+        "text": "12pm – 10pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "11am – 8pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Revelation Craft Brewing: Georgetown",
+      "url": "https://revbeer.com/georgetown/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Revelation Craft Brewing, Georgetown",
+        "url": "https://revbeer.com/georgetown/",
+        "primary": true,
+        "note": "The operator. Hours, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "revelation-rehoboth",
+    "name": "Revelation Craft Brewing — Rehoboth",
+    "kind": "Brewery",
+    "town": "Rehoboth Beach",
+    "county": "Sussex",
+    "address": "37251 Rehoboth Avenue, Rehoboth Beach, DE 19971",
+    "blurb": "Revelation's Rehoboth site.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Monday – Thursday",
+        "text": "11am – 10pm"
+      },
+      {
+        "days": "Friday – Saturday",
+        "text": "11am – 11pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "11am – 9pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Revelation Craft Brewing",
+      "url": "https://revbeer.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Revelation Craft Brewing",
+        "url": "https://revbeer.com/",
+        "primary": true,
+        "note": "The operator. Hours, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "three-notchd-rehoboth",
+    "name": "Three Notch'd Brewery & Craft Kitchen",
+    "kind": "Brewpub",
+    "town": "Rehoboth Beach",
+    "county": "Sussex",
+    "address": "19815 Coastal Highway, Rehoboth Beach, DE 19971",
+    "blurb": "Opened June 2026 in the space Iron Hill left when the chain collapsed.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Monday – Saturday",
+        "text": "11am – 10pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "11am – 9pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Three Notch'd Brewery: Rehoboth Beach",
+      "url": "https://threenotchdbrewing.com/pages/rehoboth-beach"
+    },
+    "onSite": [],
+    "warnings": [
+      "Guides still list this address as Iron Hill. Iron Hill closed every Delaware location in 2025."
+    ],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Three Notch'd Brewery & Craft Kitchen, Rehoboth Beach",
+        "url": "https://threenotchdbrewing.com/pages/rehoboth-beach",
+        "primary": true,
+        "note": "The operator. Hours and the June 2026 opening, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
+  },
+  {
+    "slug": "38-75-brewing",
+    "name": "38°-75° Brewing at Gary's Dewey Beach Grill",
+    "kind": "Brewpub",
+    "town": "Dewey Beach",
+    "county": "Sussex",
+    "address": "2000 Coastal Highway, Dewey Beach, DE 19971",
+    "blurb": "A brewery inside Gary's on the Dewey highway, open very late in season.",
+    "dogs": {
+      "outdoor": null,
+      "indoor": null,
+      "note": "The business publishes no dog policy that I can find.",
+      "source": null
+    },
+    "hours": [
+      {
+        "days": "Monday",
+        "text": "5pm – midnight"
+      },
+      {
+        "days": "Tuesday – Wednesday",
+        "text": "Closed"
+      },
+      {
+        "days": "Thursday",
+        "text": "5pm – 1am"
+      },
+      {
+        "days": "Friday",
+        "text": "11am – 1am"
+      },
+      {
+        "days": "Saturday",
+        "text": "10am – 1am"
+      },
+      {
+        "days": "Sunday",
+        "text": "10am – midnight"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "38°-75° Brewing",
+      "url": "https://www.38-75brewing.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "38°-75° Brewing",
+        "url": "https://www.38-75brewing.com/",
+        "primary": true,
+        "note": "The operator. Hours, read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask the operator directly whether dogs are allowed, and where."
+    ]
   }
 ]
