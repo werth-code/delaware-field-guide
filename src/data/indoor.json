@@ -660,10 +660,10 @@
     "town": "Dover",
     "county": "Kent",
     "address": "375 S. New Street, Dover, DE 19904",
-    "blurb": "Eldridge Reeves Johnson, the Victor Talking Machine Company, and Nipper the dog. Phonographs, recordings and Johnson's posthumous Grammy. It is shut right now for renovation and does not reopen with an anticipated reopening in October 2026 2026.",
+    "blurb": "Eldridge Reeves Johnson, the Victor Talking Machine Company, and Nipper the dog. Phonographs, recordings and Johnson's posthumous Grammy. It is shut for renovation and the division anticipates reopening in October 2026.",
     "hours": {
       "lines": null,
-      "season": "Closed for renovation. The division says it reopens in autumn 2026.",
+      "season": "Closed for renovation. The division anticipates reopening in October 2026.",
       "note": "There is nothing to visit at the moment. The Delaware Digital History Museum has material online in the meantime."
     },
     "admission": {
@@ -715,8 +715,7 @@
       "lat": 39.155,
       "lon": -75.523,
       "precision": "site"
-    },
-    "season": "Closed for renovation. The division anticipates reopening in October 2026."
+    }
   },
   {
     "slug": "biggs-museum",
