@@ -24,6 +24,7 @@ import CardPhoto from "../../components/CardPhoto.astro";
 import Tag from "../../components/Tag.astro";
 import CardShare from "../../components/CardShare.astro";
 import CardCall from "../../components/CardCall.astro";
+import CardDirections from "../../components/CardDirections.astro";
 import CardGallery from "../../components/CardGallery.astro";
 
 import indoorData from "../../data/indoor.json";
@@ -94,6 +95,7 @@ const stripItems: StripItem[] = (places as any[])
               <a href={`/attractions/${place.slug}/`} class="absolute inset-0 z-10 no-underline">
                 <span class="sr-only">{place.name}</span>
               </a>
+              <CardDirections name={place.name} town={place.town} address={place.address ?? null} />
               <CardCall phone={place.phone} title={place.name} />
               <CardShare path={`/attractions/${place.slug}/`} title={place.name} />
 

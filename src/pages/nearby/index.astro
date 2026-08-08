@@ -11,6 +11,7 @@ import FlagIcon from "../../components/FlagIcon.astro";
 import CardPhoto from "../../components/CardPhoto.astro";
 import CardShare from "../../components/CardShare.astro";
 import CardCall from "../../components/CardCall.astro";
+import CardDirections from "../../components/CardDirections.astro";
 import CardGallery from "../../components/CardGallery.astro";
 
 import nearbyData from "../../data/nearby.json";
@@ -68,6 +69,7 @@ const stripItems: StripItem[] = (places as any[])
             <a href={`/nearby/${p.slug}/`} class="absolute inset-0 z-10 no-underline">
               <span class="sr-only">{p.name}</span>
             </a>
+            <CardDirections name={p.name} town={p.town} address={p.address ?? null} />
             <CardCall phone={p.phone} title={p.name} />
             <CardShare path={`/nearby/${p.slug}/`} title={p.name} />
             <div class="sm:flex sm:items-stretch">

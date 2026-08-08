@@ -87,9 +87,17 @@ const rows: { label: string; text: string; state: "yes" | "no" | "unknown" }[] =
     state: place.parking ? "yes" : "unknown",
   },
 ];
+
+/* The picture a shared link unfurls with. Falls back to the site card
+   when this record has no photograph of its own. */
+const ogPhoto = place.photos?.[0] ?? null;
+const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
+
 ---
 
 <Layout
+  ogImage={ogImage}
+  ogImageAlt={ogPhoto?.alt ?? null}
   title={title}
   description={description}
   robots={robotsFor(place)}

@@ -11,6 +11,7 @@ import FlagIcon from "../../components/FlagIcon.astro";
 import CardPhoto from "../../components/CardPhoto.astro";
 import CardShare from "../../components/CardShare.astro";
 import CardCall from "../../components/CardCall.astro";
+import CardDirections from "../../components/CardDirections.astro";
 import CardGallery from "../../components/CardGallery.astro";
 
 import eventsData from "../../data/events.json";
@@ -103,6 +104,7 @@ const STATE_CLASS = {
             <a href={`/events/${event.slug}/`} class="absolute inset-0 z-10 no-underline">
               <span class="sr-only">{event.name}</span>
             </a>
+            <CardDirections name={event.name} town={event.town} address={event.address ?? null} />
             <CardCall phone={event.phone} title={event.name} />
             <CardShare path={`/events/${event.slug}/`} title={event.name} />
             <div class="sm:flex sm:items-stretch">

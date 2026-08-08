@@ -14,9 +14,14 @@
  * the network publishes for exactly this, so the whole row costs nothing until
  * someone taps it.
  *
- * The labels are words rather than brand logos, which is the same reason the
- * rest of the site is set in stamped type: nine little corporate glyphs is the
- * one place a page like this starts to look like everybody else's.
+ * ICONS, NOT WORDS. This carried nine text labels for a long time on the
+ * argument that a row of corporate glyphs is where a page like this starts to
+ * look like everybody else's. That argument lost to the row itself: eleven
+ * word-buttons wrapped to four lines on a phone and read as a wall of
+ * shouting mono, and nobody scans a share row — they look for the one mark
+ * they already recognise, which is exactly what a logo is for. Every button
+ * keeps its name on aria-label and title, because an icon-only row is opaque
+ * to a screen reader unless the name is put back by hand.
  *
  * Progressive enhancement, in this order:
  *   1. On a phone, a native Share button is added AHEAD of the row — it
@@ -39,6 +44,8 @@
  * dead-end or just open instagram.com, and a control that doesn't do what it
  * says is worse than an absent one.
  */
+import ShareIcon from "./ShareIcon.astro";
+
 interface Props {
   /** Page title — becomes the shared text. */
   title: string;
@@ -152,9 +159,7 @@ const targets = [
         hidden
         class="tap sign-quiet bg-marsh text-cream border-marsh px-4 gap-2 font-mono text-[0.72rem] font-medium uppercase tracking-[0.09em] cursor-pointer"
       >
-        <svg viewBox="0 0 24 24" class="w-[1.05em] h-[1.05em]" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true">
-          <path d="M12 16V4" /><path d="M7 9l5-5 5 5" /><path d="M4 15v5h16v-5" />
-        </svg>
+        <ShareIcon name="share" />
         Share
       </button>
 
@@ -163,12 +168,13 @@ const targets = [
           targets.map((t) => (
             <a
               href={t.href}
-              class="tap sign-quiet px-3.5 gap-2 no-underline font-mono text-[0.72rem] font-medium uppercase tracking-[0.09em] text-marsh hover:bg-shell-sunk"
+              class="tap sign-quiet w-11 justify-center px-0 no-underline text-marsh hover:bg-marsh hover:text-cream"
               rel={t.key === "sms" || t.key === "email" ? undefined : "noopener nofollow"}
               target={t.key === "sms" || t.key === "email" ? undefined : "_blank"}
-              title={t.hint ?? undefined}
+              aria-label={t.hint ? `${t.label} — ${t.hint}` : t.label}
+              title={t.hint ? `${t.label} — ${t.hint}` : t.label}
             >
-              {t.label}
+              <ShareIcon name={t.key} />
             </a>
           ))
         }
@@ -176,9 +182,17 @@ const targets = [
         <button
           type="button"
           data-share-copy
-          class="tap sign-quiet px-3.5 gap-2 font-mono text-[0.72rem] font-medium uppercase tracking-[0.09em] text-marsh hover:bg-shell-sunk cursor-pointer"
+          aria-label="Copy link"
+          title="Copy link"
+          class="tap sign-quiet w-11 justify-center px-0 text-marsh hover:bg-marsh hover:text-cream cursor-pointer relative"
         >
-          <span data-copy-label>Copy link</span>
+          <span data-copy-idle><ShareIcon name="copy" /></span>
+          <span data-copy-done hidden><ShareIcon name="copied" /></span>
+          {/* The label used to swap to the word "Copied". With an icon-only
+              button there is no label to swap, so the confirmation is a tick
+              plus a live region — otherwise a screen reader gets no feedback
+              at all that the tap did anything. */}
+          <span class="sr-only" data-copy-say aria-live="polite"></span>
         </button>
       </div>
     </div>
@@ -188,6 +202,11 @@ const targets = [
 <script is:inline>
   (() => {
     for (const root of document.querySelectorAll("[data-share]")) {
+      /* is:inline emits this script once per COMPONENT INSTANCE, and each copy
+         walks every row on the page. A page with two rows bound every handler
+         twice — two share sheets from one tap. Same trap CardShare documents. */
+      if (root.dataset.bound) continue;
+      root.dataset.bound = "1";
       const url = root.dataset.url;
       const title = root.dataset.title;
       const text = root.dataset.text;
@@ -210,13 +229,16 @@ const targets = [
 
       // 2. Copy link.
       const copy = root.querySelector("[data-share-copy]");
-      const label = copy?.querySelector("[data-copy-label]");
+      const idle = copy?.querySelector("[data-copy-idle]");
+      const done = copy?.querySelector("[data-copy-done]");
+      const say = copy?.querySelector("[data-copy-say]");
+      const show = (ok) => { if (idle) idle.hidden = ok; if (done) done.hidden = !ok; };
       copy?.addEventListener("click", async () => {
         try {
           await navigator.clipboard.writeText(url);
-          label.textContent = "Copied";
-          copy.setAttribute("aria-live", "polite");
-          setTimeout(() => (label.textContent = "Copy link"), 2000);
+          show(true);
+          if (say) say.textContent = "Link copied";
+          setTimeout(() => { show(false); if (say) say.textContent = ""; }, 2000);
         } catch {
           /* Clipboard refused — insecure context, or permission denied.
              Putting the raw URL in the button label was the old fallback and
@@ -229,11 +251,10 @@ const targets = [
           document.body.appendChild(field);
           field.select();
           field.setSelectionRange(0, url.length);
-          label.textContent = "Press \u2318C";
-          copy.setAttribute("aria-live", "polite");
+          if (say) say.textContent = "Press Command C to copy the link";
           setTimeout(() => {
             field.remove();
-            label.textContent = "Copy link";
+            if (say) say.textContent = "";
           }, 4000);
         }
       });

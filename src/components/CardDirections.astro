@@ -1,0 +1,57 @@
+---
+/**
+ * A directions control on a single listing card.
+ *
+ * Sibling of CardCall, and the same argument: the reader deciding between
+ * seventeen parks is deciding on distance as much as on facilities, and
+ * "where is this actually" was three taps away — open the listing, open the
+ * park, find the directions link.
+ *
+ * A LINK, NOT AN EMBED, for the reasons set out at length in MapLink: an
+ * iframe would put Google's scripts and cookies on a page that loads no
+ * third-party anything. This opens the map app the reader already has, with
+ * their own location and live traffic in it.
+ *
+ * The query is built the same way MapLink builds it — a real street address
+ * where the record has one, name plus town where it doesn't. It is a SEARCH,
+ * not a claim, which is why it carries no verification stamp and why it isn't
+ * gated on the record being verified. Sending somebody to a map is not the
+ * same act as telling them the restrooms are open.
+ *
+ * THE CARD'S LAYER ORDER, inherited from CardShare which learnt it the hard
+ * way:  z-10 stretched link · z-20 gallery strip · z-30 these controls.
+ * Anything added later goes above 30 or it vanishes behind the strip.
+ */
+interface Props {
+  name: string;
+  town?: string | null;
+  address?: string | null;
+  region?: string;
+  class?: string;
+}
+const { name, town = null, address = null, region = "DE", class: className = "" } = Astro.props;
+
+const query = [name, address ?? town, region].filter(Boolean).join(", ");
+const href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener nofollow"
+  aria-label={`Directions to ${name} (opens Google Maps)`}
+  title={`Directions to ${name}`}
+  class={`absolute top-2 right-[6.6rem] z-30 inline-flex items-center justify-center w-11 h-11 rounded-[var(--radius-sign)] no-underline text-marsh bg-shell/85 backdrop-blur-[2px] border border-marsh/25 hover:bg-shell hover:border-marsh ${className}`}
+>
+  <svg
+    viewBox="0 0 16 16"
+    class="w-[1.15rem] h-[1.15rem]"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.6"
+    aria-hidden="true"
+  >
+    <path d="M8 1.6c-2.3 0-4.1 1.8-4.1 4.1C3.9 9 8 14.4 8 14.4S12.1 9 12.1 5.7c0-2.3-1.8-4.1-4.1-4.1z" stroke-linejoin="round" />
+    <circle cx="8" cy="5.7" r="1.5" />
+  </svg>
+</a>

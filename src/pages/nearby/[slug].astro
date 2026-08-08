@@ -53,9 +53,17 @@ const title =
   [`${place.name} — ${place.distance.split("—")[0].trim()}`,
    `${place.name} — ${place.town}, ${place.state}`,
    place.name].find((t) => t.length <= 60) ?? place.name;
+
+/* The picture a shared link unfurls with. Falls back to the site card
+   when this record has no photograph of its own. */
+const ogPhoto = place.photos?.[0] ?? null;
+const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
+
 ---
 
-<Layout title={title} description={description} robots={robotsFor(place)} dateModified={place.verifiedDate ?? place.sourcedOn} schema={schema}>
+<Layout
+  ogImage={ogImage}
+  ogImageAlt={ogPhoto?.alt ?? null} title={title} description={description} robots={robotsFor(place)} dateModified={place.verifiedDate ?? place.sourcedOn} schema={schema}>
   <article>
     <div class="wrap pt-11 pb-6">
       <p class="label m-0">

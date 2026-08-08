@@ -9,6 +9,7 @@
  */
 import Layout from "../layouts/Layout.astro";
 import CoastBand from "../components/CoastBand.astro";
+import ShareRow from "../components/ShareRow.astro";
 import FlagMark from "../components/FlagMark.astro";
 import DogFigure from "../components/DogFigure.astro";
 
@@ -321,6 +322,8 @@ const schema = [
   title="Delaware Field Guide — parks, beaches and dog rules, dated"
   description="A verified reference for outdoor Delaware: 17 state parks, dog rules by town, museums, breweries and surf fishing. Every fact carries the date I checked it."
   schema={schema}
+  {/* The layout's generic row is off because this page supplies its own,
+      with a pitch about the site rather than about one park. */}
   share={false}
 >
   <CoastBand />
@@ -506,6 +509,22 @@ const schema = [
         );
       })
     }
+  </div>
+
+  {/*
+    THE FRONT PAGE OPTED OUT OF SHARING and shouldn't have. Every record page
+    has had a share row for months; the one page somebody would send when they
+    mean "this whole site is useful" had nothing. The pitch is different from a
+    record's — you aren't saving anyone a specific drive, you're handing over a
+    reference — so it says so rather than reusing the parking-lot line.
+  */}
+  <div class="wrap pb-10">
+    <ShareRow
+      title="Delaware Field Guide"
+      summary="Parks, dog rules and days out in Delaware, each with the date it was checked"
+      heading="Send someone the whole thing"
+      pitch="If you know somebody who keeps asking whether the dog can come, this is the link. Every answer on it carries the date I checked it."
+    />
   </div>
 
   {/*

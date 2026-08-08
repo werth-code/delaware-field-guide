@@ -71,9 +71,17 @@ const description = base.length < 118 ? `${base} Run by ${park.operator}.` : bas
    page you are already on is a dead control that looks live. */
 const stripItems: StripItem[] = ((park as any).photos ?? []).map((photo: any) => ({ photo }));
 
+
+/* The picture a shared link unfurls with. Falls back to the site card
+   when this record has no photograph of its own. */
+const ogPhoto = park.photos?.[0] ?? null;
+const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
+
 ---
 
 <Layout
+  ogImage={ogImage}
+  ogImageAlt={ogPhoto?.alt ?? null}
   title={park.name.length > 40 ? park.name : `${park.name} — restrooms and facilities`}
   description={description.slice(0, 157)}
   robots={robotsFor(park)}

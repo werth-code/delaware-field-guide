@@ -160,9 +160,17 @@ const faqSchema = {
 // Unverified pages are noindex — don't hand a crawler structured data for
 // something I've told it not to index.
 const schema = publishable ? [articleSchema, faqSchema] : [];
+
+/* The picture a shared link unfurls with. Falls back to the site card
+   when this record has no photograph of its own. */
+const ogPhoto = town.photos?.[0] ?? null;
+const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
+
 ---
 
 <Layout
+  ogImage={ogImage}
+  ogImageAlt={ogPhoto?.alt ?? null}
   title={town.title}
   description={town.metaDescription}
   robots={robotsFor(town)}

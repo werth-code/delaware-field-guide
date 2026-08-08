@@ -79,9 +79,17 @@ const STATE_CLASS = {
   upcoming: "text-marsh",
   unknown: "text-ink-soft italic",
 };
+
+/* The picture a shared link unfurls with. Falls back to the site card
+   when this record has no photograph of its own. */
+const ogPhoto = event.photos?.[0] ?? null;
+const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
+
 ---
 
 <Layout
+  ogImage={ogImage}
+  ogImageAlt={ogPhoto?.alt ?? null}
   title={title}
   description={description.slice(0, 157)}
   robots={robotsFor(event)}

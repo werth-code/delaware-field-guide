@@ -16,6 +16,22 @@ interface Props {
   schema?: Record<string, unknown>[];
   /** Share row before the footer. Off on the home page, where there's no single answer to pass on. */
   share?: boolean;
+  /**
+   * The picture a shared link unfurls with.
+   *
+   * Every page used the same one, and its alt text read "where your dog is
+   * legal on the Delaware coast" — so a link to the Bellevue stables, to
+   * Hagley, to the Arden Fair all arrived in somebody's chat as a banner about
+   * dogs on beaches. The descriptions were already per-page; the picture was
+   * the part still saying the same thing everywhere.
+   *
+   * Pass a record's own photograph where it has one. `/og.png` remains the
+   * fallback, because a shared link with no image unfurls as a gray box and
+   * that is a real cost when word of mouth is the distribution plan.
+   */
+  ogImage?: string | null;
+  /** Alt for the above. Required with ogImage — a picture nobody described. */
+  ogImageAlt?: string | null;
 }
 
 const {
@@ -25,7 +41,13 @@ const {
   dateModified = null,
   schema = [],
   share = true,
+  ogImage = null,
+  ogImageAlt = null,
 } = Astro.props;
+
+const shareImage = new URL(ogImage ?? "/og.png", Astro.site).href;
+const shareImageAlt =
+  ogImageAlt ?? "Delaware Field Guide — parks, dog rules and days out in Delaware, each with the date it was checked";
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 
@@ -57,12 +79,15 @@ if (!String(robots ?? "").includes("noindex")) checkMeta(Astro.url.pathname, tit
     <meta property="og:locale" content="en_US" />
     {/* A shared link with no image unfurls as a gray box, which is a real cost
         when word of mouth is the distribution plan. */}
-    <meta property="og:image" content={new URL("/og.png", Astro.site).href} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Delaware Field Guide — where your dog is legal on the Delaware coast" />
+    <meta property="og:image" content={shareImage} />
+    {/* Dimensions only for the built-in card, whose size I know. A record
+        photograph is 1400px wide and either 3:2 or 3:4, and declaring the
+        wrong ones makes a preview letterbox a picture that didn't need it. */}
+    {!ogImage && <meta property="og:image:width" content="1200" />}
+    {!ogImage && <meta property="og:image:height" content="630" />}
+    <meta property="og:image:alt" content={shareImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content={new URL("/og.png", Astro.site).href} />
+    <meta name="twitter:image" content={shareImage} />
     {dateModified && <meta property="article:modified_time" content={dateModified} />}
 
     <link rel="sitemap" href="/sitemap-index.xml" />

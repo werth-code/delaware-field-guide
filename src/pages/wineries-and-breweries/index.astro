@@ -15,6 +15,7 @@ import NearMe from "../../components/NearMe.astro";
 import Tag from "../../components/Tag.astro";
 import CardShare from "../../components/CardShare.astro";
 import CardCall from "../../components/CardCall.astro";
+import CardDirections from "../../components/CardDirections.astro";
 import ShareRow from "../../components/ShareRow.astro";
 
 import drinkData from "../../data/drink.json";
@@ -85,6 +86,7 @@ const stripItems: StripItem[] = (places as any[])
                 <a href={`/wineries-and-breweries/${place.slug}/`} class="absolute inset-0 z-10 no-underline">
                   <span class="sr-only">{place.name}</span>
                 </a>
+                <CardDirections name={place.name} town={place.town} address={place.address ?? null} />
                 <CardCall phone={place.phone} title={place.name} />
                 <CardShare path={`/wineries-and-breweries/${place.slug}/`} title={place.name} />
 
