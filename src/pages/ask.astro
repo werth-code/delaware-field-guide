@@ -154,9 +154,12 @@ const schema = [
   /* ---- vocabulary ------------------------------------------------------ */
   const NEED_WORDS = {
     restrooms: ["toilet","toilets","restroom","restrooms","bathroom","bathrooms","loo","wc"],
-    playground: ["playground","swings","slide","play area","kids","children"],
+    playground: ["playground","swings","slide","play area","kids","kid","children","child","toddler","toddlers","little ones","preschooler","grandkids","grandchildren"],
     water: ["drinking water","water fountain","fountain","drink"],
-    shade: ["shade","shady","out of the sun"],
+    /* Heat is a need, not a mood. "Where do I go on a hot day" is asking for
+       shade, and this site has a confirmed shade answer for a dozen parks —
+       it just had no word for the question. */
+    shade: ["shade","shady","out of the sun","hot","heat","heatwave","heat wave","sweltering","boiling","scorching","baking","too hot"],
     trails: ["trail","trails","walk","walking","hike","hiking","stroll"],
     beach: ["beach","sand","ocean","surf","swim","swimming","seaside"],
     camping: ["camp","camping","campground","tent","rv"],
@@ -292,6 +295,11 @@ const schema = [
     const needs = [];
     for (const [key, words] of Object.entries(NEED_WORDS))
       if (words.some(w => has(q, w))) needs.push(key);
+    /* Nobody says "playground". They say "with a 3 year old", and the age is
+       the whole request — it's why the answer is a playground and not a trail.
+       A word list can't hold every number, so this is the one pattern. */
+    if (!needs.includes("playground") && /\b(\d{1,2}|one|two|three|four|five|six|seven|eight|nine|ten)[\s-]*(year|yr)s?[\s-]*old\b/.test(q))
+      needs.push("playground");
 
     const wantsDog = DOG_WORDS.some(w => has(q, w));
     let kind = null;

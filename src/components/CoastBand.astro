@@ -21,7 +21,17 @@ interface Props {
   /** Bottom band matches the page ground so the dune runs into the sheet. */
   height?: string;
 }
-const { class: className = "", height = "h-[13rem] sm:h-[17rem]" } = Astro.props;
+/**
+ * MUCH SHORTER ON A PHONE. At 13rem this was a third of the first screen
+ * spent on a picture with no information in it, before the headline had said
+ * anything. The poster is scenery — it should set the tone in the corner of
+ * your eye and then get out of the way of the reason you came.
+ *
+ * It crops with `slice` from the middle, so a shorter band keeps the horizon,
+ * the sun and the dune. What it loses is empty sky, which is exactly the part
+ * that was costing the space.
+ */
+const { class: className = "", height = "h-[7rem] sm:h-[17rem]" } = Astro.props;
 
 const grass = [
   [318, 292], [332, 296], [346, 291], [1042, 276], [1056, 280], [1070, 275],
