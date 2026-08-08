@@ -138,3 +138,26 @@ Ranked by how well they fit a guide about being outdoors in Delaware:
   Downtown Newark Food and Brew Fest, Belgian Beer Fest, Clifford Brown Jazz
   Festival, Holy Trinity Greek Festival, St. Anthony's Italian Festival,
   Artisan Market at Winterthur, Wilmington Grand Prix.
+
+## Photographs the indoors section still needs
+
+Eight of the twelve images in the August 2026 batch went up. Four did not, and
+the reason is worth keeping: they were labelled "representative" in the
+attribution file, and on this site a photograph is a claim.
+
+- **New Castle County Libraries**, **Kent County Libraries** and **Sussex
+  County Libraries** were all the same building — Briarcliff Manor Public
+  Library, in New York. Three records, one library, none of them in Delaware.
+- **Johnson Victrola Museum** was a 1920 Victrola photographed at the Kanazawa
+  Phonograph Museum in Japan.
+
+All four are correctly licensed and could legally have gone up. That isn't the
+problem. A picture on a record says "this is what this place looks like", and
+three library records showing a library in another state would be the same
+class of error as the file I once captioned as the Ninja Fit course when it was
+a picture of a pavilion.
+
+What would fix it: a photograph of any actual Delaware branch, and one of the
+Victrola museum's own gallery or its building on S. New Street. The museum is
+shut for renovation until October 2026, so its exterior is the realistic one
+for now.

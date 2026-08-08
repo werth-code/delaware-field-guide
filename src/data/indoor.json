@@ -65,7 +65,21 @@
       "lat": 39.79,
       "lon": -75.61,
       "precision": "site"
-    }
+    },
+    "photos": [
+      {
+        "file": "nature-science",
+        "alt": "A long low museum building with yellow panels and a sharply angled glass entrance canopy, lawn and driveway in front.",
+        "caption": "The entrance. The sign in this photograph still reads Delaware Museum of Natural History — the museum was renamed Delaware Museum of Nature & Science after it was taken.",
+        "credit": "Dmadeo",
+        "takenOn": null,
+        "license": {
+          "label": "CC BY-SA 3.0",
+          "url": "https://creativecommons.org/licenses/by-sa/3.0/"
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Delaware_Museum_of_Natural_History.png"
+      }
+    ]
   },
   {
     "slug": "delaware-art-museum",
@@ -131,7 +145,21 @@
       "lat": 39.76,
       "lon": -75.568,
       "precision": "site"
-    }
+    },
+    "photos": [
+      {
+        "file": "delaware-art-museum",
+        "alt": "A large stone-edged labyrinth laid out in gravel inside a curved stone wall, bare winter trees behind it, one person walking the far edge.",
+        "caption": "The labyrinth behind the museum, in winter. Outside, free, and open when the galleries aren't.",
+        "credit": "Smallbones",
+        "takenOn": null,
+        "license": {
+          "label": "CC0 1.0",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:DAM_Labyrinth_Wilmington_DE.JPG"
+      }
+    ]
   },
   {
     "slug": "hagley-museum",
@@ -204,7 +232,21 @@
       "lat": 39.771,
       "lon": -75.59,
       "precision": "site"
-    }
+    },
+    "photos": [
+      {
+        "file": "hagley-museum",
+        "alt": "A large stone house with black shutters and wisteria over the front, a tour group of about a dozen people standing on the lawn and brick path in front of it.",
+        "caption": "Eleutherian Mills, the du Pont family house on the Hagley site, with a tour group on the lawn. Public domain, from a U.S. Department of Transportation photograph.",
+        "credit": null,
+        "takenOn": null,
+        "license": {
+          "label": "Public domain",
+          "url": "https://commons.wikimedia.org/wiki/Commons:Licensing"
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hagley_museum.JPG"
+      }
+    ]
   },
   {
     "slug": "winterthur",
@@ -272,7 +314,21 @@
       "lat": 39.803,
       "lon": -75.607,
       "precision": "site"
-    }
+    },
+    "photos": [
+      {
+        "file": "winterthur",
+        "alt": "A very large cream-coloured country house with brick chimneys and a glazed conservatory wing, surrounded by mature trees and lawn in spring.",
+        "caption": "The house from the drive. It runs to 175 rooms, which is worth knowing before you decide how long you have.",
+        "credit": "Daderot",
+        "takenOn": null,
+        "license": {
+          "label": "CC0 1.0",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Winterthur_Museum_-_DSC01315.JPG"
+      }
+    ]
   },
   {
     "slug": "new-castle-court-house-museum",
@@ -343,7 +399,21 @@
       "lat": 39.662,
       "lon": -75.568,
       "precision": "site"
-    }
+    },
+    "photos": [
+      {
+        "file": "new-castle-court-house",
+        "alt": "A brick colonial courthouse with a white cupola and balcony, three flags flying from it, cars parked along the street in front.",
+        "caption": "The courthouse from Delaware Street. The cupola is the surveying point the Twelve-Mile Circle was struck from.",
+        "credit": "Ataraxy22",
+        "takenOn": null,
+        "license": {
+          "label": "CC BY-SA 3.0",
+          "url": "https://creativecommons.org/licenses/by-sa/3.0/"
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:New_Castle_Court_House_Museum.jpg"
+      }
+    ]
   },
   {
     "slug": "new-castle-county-libraries",
@@ -650,7 +720,21 @@
       "lat": 39.158,
       "lon": -75.52,
       "precision": "site"
-    }
+    },
+    "photos": [
+      {
+        "file": "old-state-house",
+        "alt": "A red brick Georgian state house with a white cupola and arched window, framed by a tree, on Dover's green.",
+        "caption": "On The Green in Dover. Free to go in, and closed Sunday through Tuesday.",
+        "credit": "Ataraxy22",
+        "takenOn": null,
+        "license": {
+          "label": "CC BY-SA 3.0",
+          "url": "https://creativecommons.org/licenses/by-sa/3.0/"
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Old_Statehouse,_Dover,_DE.jpg"
+      }
+    ]
   },
   {
     "slug": "johnson-victrola-museum",
@@ -780,7 +864,21 @@
       "lat": 39.159,
       "lon": -75.521,
       "precision": "site"
-    }
+    },
+    "photos": [
+      {
+        "file": "biggs-museum",
+        "alt": "A red brick building with tall arched windows and a white doorway, a modern glazed wing to the right carrying an exhibition banner, lawn and brick path in front.",
+        "caption": "The old county building on Federal Street, with the modern wing alongside. Closed Monday and Tuesday.",
+        "credit": "Warren LeMay",
+        "takenOn": null,
+        "license": {
+          "label": "CC BY-SA 2.0",
+          "url": "https://creativecommons.org/licenses/by-sa/2.0/"
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Biggs_Museum_of_American_Art_(Old_County_Building),_Federal_Street,_Dover,_DE.jpg"
+      }
+    ]
   },
   {
     "slug": "zwaanendael-museum",
@@ -845,7 +943,21 @@
       "lat": 38.775,
       "lon": -75.14,
       "precision": "site"
-    }
+    },
+    "photos": [
+      {
+        "file": "zwaanendael",
+        "alt": "An ornate Dutch-style brick building with a stepped and scrolled gable, red and white shutters, and a blue front door under carved stonework.",
+        "caption": "Built in 1931 as a copy of the town hall at Hoorn in the Netherlands. Closed Sunday and Monday.",
+        "credit": "Harrison Keely",
+        "takenOn": null,
+        "license": {
+          "label": "CC BY 4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Zwaanendael_Museum_in_Lewes,_Delaware.jpg"
+      }
+    ]
   },
   {
     "slug": "brandywine-zoo",

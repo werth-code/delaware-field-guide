@@ -25,6 +25,22 @@ export interface Photo {
    */
   credit: string | null;
   /**
+   * The licence, where the photograph isn't mine.
+   *
+   * Every picture on this site was mine until the indoors section, and an
+   * uncredited photo simply meant "I took it". Wikimedia Commons images come
+   * with conditions: CC BY and CC BY-SA REQUIRE the credit and a link to the
+   * licence, and the share-alike ones stay share-alike after cropping. That is
+   * a licence term, not a courtesy — the same reason the OpenStreetMap credit
+   * sits in the footer.
+   *
+   * So a borrowed photograph carries who took it, under what, and where it
+   * came from, and the page prints all three. `null` still means mine.
+   */
+  license?: { label: string; url: string } | null;
+  /** Where it came from, so the credit can be checked rather than trusted. */
+  sourceUrl?: string | null;
+  /**
    * When it was taken: `YYYY-MM-DD`, `YYYY-MM`, or null.
    *
    * Null is here for the same reason it is everywhere else on this site: the
