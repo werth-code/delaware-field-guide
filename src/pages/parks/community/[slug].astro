@@ -18,7 +18,7 @@ import FieldNotes from "../../../components/FieldNotes.astro";
 
 import parksData from "../../../data/community-parks.json";
 import dogParksData from "../../../data/parks.json";
-import {
+import { linkDogParks,
   FACILITY_LABELS,
   completeness,
   restroomAnswer,
@@ -28,8 +28,13 @@ import {
 import { formatStampDate } from "../../../lib/rules";
 import { isPublishable, isVerified, reportOutstanding, robotsFor, sourcedText, stampText, tierOf } from "../../../lib/verification";
 
+/* linkDogParks is called INSIDE getStaticPaths, not shared with the body via a
+   module-level binding. Astro extracts getStaticPaths into its own build chunk
+   carrying the imports but not the sibling declarations, so anything defined
+   out here — const, arrow or hoisted function — is simply not there when it
+   runs. Calling it twice is cheap; the alternative silently isn't defined. */
 export const getStaticPaths = (() =>
-  (parksData as CommunityPark[]).map((park) => ({
+  linkDogParks(parksData as CommunityPark[], dogParksData as { slug: string }[]).map((park) => ({
     params: { slug: park.slug },
     props: { park },
   }))) satisfies GetStaticPaths;
@@ -46,7 +51,7 @@ const dogPark = park.dogParkSlug
   ? (dogParksData as { slug: string; name: string }[]).find((d) => d.slug === park.dogParkSlug)
   : null;
 
-const others = (parksData as CommunityPark[]).filter(
+const others = linkDogParks(parksData as CommunityPark[], dogParksData as { slug: string }[]).filter(
   (p) => p.county === park.county && p.slug !== park.slug,
 );
 

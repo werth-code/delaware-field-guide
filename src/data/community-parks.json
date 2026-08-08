@@ -31,7 +31,7 @@
       "dogPark": true
     },
     "accessibility": "Adaptive swings and a fully fenced adaptive sensory playground. Paved promenade.",
-    "dogParkSlug": "new-castle-county-bark-park",
+    "dogParkSlug": "glasgow-bark-park",
     "hours": "07:00-20:00",
     "hoursNote": "Sat/Sun opens 05:00. Park hours — the dog run may differ.",
     "phone": "302-395-5606",
@@ -120,7 +120,7 @@
       "dogPark": true
     },
     "accessibility": null,
-    "dogParkSlug": null,
+    "dogParkSlug": "carousel-bark-park",
     "hours": null,
     "hoursNote": null,
     "phone": "302-995-7670",
@@ -253,7 +253,7 @@
     "town": "Wilmington",
     "address": "Middleboro Rd, Wilmington, DE 19804",
     "acres": null,
-    "blurb": "A large county park south-west of Wilmington with ponds, ball fields and picnic areas. Other guides list a dog park here; I have not been able to confirm it exists as described.",
+    "blurb": "A large county park south-west of Wilmington with ponds, ball fields and picnic areas. New Castle County lists a dog park here on its own dog-parks page; what's inside it — fencing, water, shade, surface — nobody has checked.",
     "restrooms": {
       "present": null,
       "type": null,
@@ -272,22 +272,20 @@
       "fishing": true,
       "discGolf": null,
       "skate": false,
-      "dogPark": null
+      "dogPark": true
     },
     "accessibility": null,
     "dogParkSlug": "banning-regional-dog-park",
     "hours": null,
     "hoursNote": null,
     "phone": "302-395-5606",
-    "warnings": [
-      "The dog park listed here by other guides is unconfirmed. Do not drive out for it on the strength of a listing."
-    ],
+    "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
       "RESTROOMS — confirm.",
-      "CONFIRM WHETHER THE DOG PARK EXISTS. This is the same open question sitting in parks.json.",
-      "Confirm the address and hours."
+      "Confirm the address and hours.",
+      "Go to the Banning dog park and record fencing, size split, water, shade and surface. The county confirms it exists and publishes nothing else about it."
     ],
     "sources": [
       {
@@ -299,6 +297,12 @@
         "url": "https://www.newcastlede.gov/directory.aspx",
         "primary": true,
         "note": "The county's own directory, read 8 August 2026. Lists Carousel Park & Equestrian Center on 302-995-7670, Rockwood Park & Museum on (302) 761-4340, and a Parks Permit Office on 302-395-5606."
+      },
+      {
+        "label": "New Castle County: Dog Parks",
+        "url": "https://www.newcastlede.gov/3105/Dog-Parks",
+        "primary": true,
+        "note": "The operator. Lists Banning Regional Park as a county dog park. Read 6 August 2026."
       }
     ],
     "sourcedOn": "2026-08-02",

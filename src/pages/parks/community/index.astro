@@ -22,7 +22,8 @@ import Filters from "../../../components/Filters.astro";
 import CardGallery from "../../../components/CardGallery.astro";
 
 import parksData from "../../../data/community-parks.json";
-import {
+import dogParksData from "../../../data/parks.json";
+import { linkDogParks,
   COUNTY_ORDER,
   completeness,
   present,
@@ -33,7 +34,7 @@ import { isPublishable, robotsFor } from "../../../lib/verification";
 import { byPhotoThen } from "../../../lib/order";
 
 
-const parks = parksData as CommunityPark[];
+const parks = linkDogParks(parksData as CommunityPark[], dogParksData as { slug: string }[]);
 const verified = parks.filter(isPublishable);
 const pageGate = {
   verifiedDate: verified.length ? "confirmed" : null,

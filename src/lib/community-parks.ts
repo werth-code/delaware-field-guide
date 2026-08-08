@@ -178,3 +178,44 @@ export function completeness(park: CommunityPark): { known: number; total: numbe
 }
 
 export const COUNTY_ORDER: County[] = ["New Castle", "Kent", "Sussex"];
+
+/**
+ * Every dogParkSlug must name a real dog park, and a park that names one must
+ * say it has one.
+ *
+ * TWO WAYS THIS BROKE ON THE SAME DAY, WHICH IS WHY IT IS NOW ENFORCED.
+ *
+ * Renaming `new-castle-county-bark-park` to `glasgow-bark-park` and merging
+ * two Carousel records into `carousel-bark-park` left both parent parks
+ * pointing at slugs that no longer existed. The detail template does a `.find()`
+ * and renders the "this park contains…" block only on a hit, so a dangling
+ * pointer doesn't throw or warn — the link just quietly stops appearing. It had
+ * already stopped appearing on Glasgow before anyone noticed.
+ *
+ * Banning was the other direction: `dogParkSlug` pointed at a real record
+ * sourced to New Castle County's own dog-parks page, while `facilities.dogPark`
+ * sat at null and the blurb told readers not to drive out for a dog park "other
+ * guides list". Two files, one fact, two answers, and the one on the busier page
+ * was the wrong one.
+ *
+ * So the boolean is derived from the link, and the link is checked at build
+ * time. The pair can no longer disagree, and a rename fails loudly.
+ */
+export function linkDogParks(parks: CommunityPark[], dogParks: { slug: string }[]): CommunityPark[] {
+  const known = new Set(dogParks.map((d) => d.slug));
+  const dangling = parks
+    .filter((p) => p.dogParkSlug && !known.has(p.dogParkSlug))
+    .map((p) => `${p.slug} → ${p.dogParkSlug}`);
+  if (dangling.length) {
+    throw new Error(
+      `Community park points at a dog park that doesn't exist:\n  ${dangling.join("\n  ")}\n` +
+        `Fix the slug in community-parks.json or restore the record in parks.json. ` +
+        `A dangling link renders as nothing at all, so this can't be left to a code review.`,
+    );
+  }
+  return parks.map((p) =>
+    p.dogParkSlug
+      ? { ...p, facilities: { ...p.facilities, dogPark: true } }
+      : p,
+  );
+}
