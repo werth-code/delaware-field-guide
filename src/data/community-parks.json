@@ -138,7 +138,24 @@
       "lat": 39.73,
       "lon": -75.68,
       "precision": "site"
-    }
+    },
+    "photos": [
+      {
+        "file": "carousel-geese",
+        "alt": "A pair of Canada geese with four goslings grazing on mown grass, with a fenced pasture rising to a track and parked cars at the top of the slope.",
+        "caption": "Geese with goslings on the meadow below the parking area, with the equestrian center's fencing on the ridge.",
+        "credit": "Site maintainer",
+        "takenOn": "2026-08-08",
+        "portrait": true
+      }
+    ],
+    "fieldNotes": [
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "The climbing playground is cast concrete made to look like rock — boulders, pinnacles and a hollow one with a cave through it, on wood chips, with the equestrian center's white fencing right behind. Geese and goslings graze the meadow below the parking area, which is worth knowing if you are the sort of person a goose objects to."
+      }
+    ]
   },
   {
     "slug": "rockwood-park",
@@ -1040,12 +1057,12 @@
     "acres": null,
     "blurb": "The state's big accessible playground, inside Alapocas Run State Park. Ramps to the upper decks rather than steps, poured rubber under the swings, shade over the main structure, and sand tables raised high enough to pull a wheelchair under. A Ninja Fit obstacle course and a picnic pavilion sit in the same field.",
     "restrooms": {
-      "present": null,
+      "present": true,
       "type": null,
       "seasonal": null,
-      "note": "Not confirmed at the playground itself. The park's are at the Blue Ball Barn, which is a walk away.",
-      "confirmedOn": null,
-      "confirmedBy": null
+      "note": "Between the Can-Do Playground and the Ninja Fit course, and well kept. Confirmed in person.",
+      "confirmedOn": "2026-08-08",
+      "confirmedBy": "Site maintainer, in person"
     },
     "facilities": {
       "playground": true,
@@ -1073,10 +1090,10 @@
     "verifiedDate": "2026-08-07",
     "verifiedSource": "Site maintainer, first-hand, with photographs",
     "outstanding": [
-      "Restrooms at the playground itself, or only at the Blue Ball Barn?",
       "Which parking lot is nearest — the park map shows C and D beside it.",
       "Does the pet ban cover the whole day-use field or only inside the fence?",
-      "Any age split on the equipment, and is the Ninja Fit course age-limited?"
+      "Any age split on the equipment, and is the Ninja Fit course age-limited?",
+      "Are the restrooms open year-round, or seasonal?"
     ],
     "photos": [
       {

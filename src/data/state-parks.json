@@ -904,7 +904,6 @@
     "outstanding": [
       "Which parking lot is closest to the Can-Do Playground — the map shows C and D near it, but not which one you want.",
       "Confirm the Can-Do Playground's own opening hours — the park's and the playground's may differ.",
-      "Are there restrooms at the playground itself, or only at the barn?",
       "Does the pet ban cover the whole Blue Ball Barn day-use area, or only inside the playground fence? The sign says both things at once.",
       "Get the park office number.",
       "Confirm whether rock climbing needs a permit.",
@@ -1019,6 +1018,10 @@
       {
         "label": "Ninja Fit course",
         "note": "A blue steel obstacle course on its own deck, in the same field as the Can-Do Playground with a timber picnic pavilion between them. Signposted \"Ninja Fit Playground\". Older children than the main structure suits."
+      },
+      {
+        "label": "Restrooms at the playground",
+        "note": "Between the Can-Do Playground and the Ninja Fit course, and well kept. This is separate from the Blue Ball Barn, which is a walk away — you do not have to make that walk with a small child."
       },
       {
         "label": "Parking",
