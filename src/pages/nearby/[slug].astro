@@ -46,7 +46,13 @@ const schema = isPublishable(place)
 
 const base = `${place.name}, ${place.town} ${place.state} — ${place.distance.toLowerCase()}.`;
 const description = `${base} Season, admission and what's confirmed.`.slice(0, 157);
-const title = [`${place.name} — ${place.distance.split("—")[0].trim()}`, place.name].find((t) => t.length <= 60) ?? place.name;
+/* `distance` is a sentence on some records and a dashed phrase on others, so
+   the first candidate can come out at 98 characters — and the fallback was
+   the bare name, which is 17 and reads as thin. Town and state always fit. */
+const title =
+  [`${place.name} — ${place.distance.split("—")[0].trim()}`,
+   `${place.name} — ${place.town}, ${place.state}`,
+   place.name].find((t) => t.length <= 60) ?? place.name;
 ---
 
 <Layout title={title} description={description} robots={robotsFor(place)} dateModified={place.verifiedDate ?? place.sourcedOn} schema={schema}>

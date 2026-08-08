@@ -68,7 +68,7 @@ const schema = publishable && label.state !== "unknown"
   : [];
 
 const base = `${event.name}, ${event.town} — dates, admission and what's actually confirmed.`;
-const description = base.length < 118 ? `${base} Checked with the organizer and dated.` : base;
+const description = base.length < 118 ? `${base} Read from the organizer's own page, with the date I read it.` : base;
 
 const title =
   [`${event.name} — dates and what to expect`, `${event.name}, ${event.town} MD`, event.name]

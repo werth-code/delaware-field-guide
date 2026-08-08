@@ -31,7 +31,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
 
 // Every page runs the SERP-length check, so a new page can't quietly ship a
 // title Google will cut in half.
-checkMeta(Astro.url.pathname, title, description);
+/* Only pages that can actually appear in a result. A noindex page has no
+   snippet to clip and no slot to waste, so warning about its description is
+   noise that trains you to ignore the ones that matter. */
+if (!String(robots ?? "").includes("noindex")) checkMeta(Astro.url.pathname, title, description);
 ---
 
 <!doctype html>
