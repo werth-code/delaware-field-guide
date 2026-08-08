@@ -31,6 +31,7 @@
  */
 import type { Park } from "../lib/parks";
 import { formatStampDate } from "../lib/rules";
+import ReportPhotos from "./ReportPhotos.astro";
 import FlagIcon from "./FlagIcon.astro";
 
 export interface Report {
@@ -113,7 +114,7 @@ const live = reports
 
     {
       endpoint ? (
-        <form method="POST" action={endpoint} class="grid gap-4 max-w-[34rem]">
+        <form method="POST" action={endpoint} data-report-photo-form class="grid gap-4 max-w-[34rem]">
           <input type="hidden" name="park" value={park.slug} />
           <input type="hidden" name="_subject" value={`Field report — ${park.name}`} />
           {/* Honeypot. Bots fill it, people never see it. */}
@@ -161,6 +162,12 @@ const live = reports
             />
           </div>
 
+          {/* The one thing a reader can give this site that no amount of
+              ringing the county produces. It was only on /report/, which meant
+              the fastest way to send a picture of this park was to leave its
+              page. */}
+          <ReportPhotos id={`photos-${park.slug}`} class="" />
+
           <div class="grid sm:grid-cols-2 gap-4">
             <div class="grid gap-1.5">
               <label for={`name-${park.slug}`} class="label">Name (optional)</label>
@@ -190,6 +197,10 @@ const live = reports
           >
             Send report
           </button>
+
+          {/* The shared script writes progress here — without it an upload on
+              a slow connection is a button that went quiet. */}
+          <p class="stamp text-ink-soft m-0" data-status aria-live="polite"></p>
 
           <p class="stamp text-ink-soft m-0">
             We read every one. Nothing is published automatically, and I never

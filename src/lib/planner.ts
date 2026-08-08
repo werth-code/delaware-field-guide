@@ -236,6 +236,18 @@ export function buildIndex(): PlannerPlace[] {
         indoors: dry,
         restrooms: p.restrooms ?? null,
         free: p.admission?.free ?? null,
+        /*
+         * NOT A BEACH — and this is a fact, not a default.
+         *
+         * The finder was telling people "Not checked here: a beach" against
+         * Ashland Nature Center, which has a creek you can paddle in and no
+         * beach at all. Every record in this file is a museum, a library, a
+         * zoo or a nature center; not one of them is a beach, and saying
+         * "nobody has checked" about something the dataset plainly knows is
+         * the same overclaim as the reverse. Null is for unknown, not for
+         * unasked.
+         */
+        beach: false,
       },
       /* Almost none of these take a dog, and the ones that might have never
          said so. Unknown, not no. */

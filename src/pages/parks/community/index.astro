@@ -178,28 +178,15 @@ const stripItems: StripItem[] = (parks as any[])
   }
 
   <div class="wrap prose-field pb-2">
-    <h2>Why restrooms get top billing</h2>
-    <p class="max-w-[58ch]">
-      Because it's the thing that decides whether an outing works with a
-      four-year-old or an older dog, and because virtually nobody publishes it.
-      A yes/no isn't enough either — a permanent block, a portable unit, and a
-      block that only opens after Memorial Day are three different answers, and
-      the third one ruins an April trip.
-    </p>
+    {/* TWO ESSAYS REMOVED. One explained why restrooms lead the card — which
+        the cards demonstrate by leading with restrooms. The other explained
+        that Sussex County runs no park system.
 
-    <h2>There is nothing here from Sussex County</h2>
-    <p class="max-w-[58ch]">
-      Not an oversight. Sussex County doesn't run a park system — its own parks
-      page is a list of the state parks inside its borders, and that's the whole
-      of it. Below Kent, the public parks that aren't state-run belong to towns:
-      Lewes, Milton, Georgetown, Seaford, Laurel. Each publishes separately, and
-      that's a pass of its own rather than something I can quietly fold in here.
-    </p>
-
-    <p class="max-w-[58ch]">
-      Saying so beats an empty heading. A reader in Rehoboth should know the
-      answer is "the state parks and your town", not that I forgot.
-    </p>
+        THE SUSSEX FACT ITSELF IS NOT FURNITURE and hasn't been dropped: a
+        reader in Rehoboth scrolling a page of New Castle and Kent parks needs
+        to know the answer is "the state parks and your town" rather than that
+        I forgot. It's one line in the coverage panel below, next to the
+        counts, which is where somebody checking coverage actually looks. */}
 
     <div class="sign breakout my-6 px-4 sm:px-5 py-4">
       <p class="label m-0">Where this dataset stands</p>
@@ -217,7 +204,15 @@ const stripItems: StripItem[] = (parks as any[])
           ))
         }
       </dl>
+      {/* Kept from the essay that came off this page: a reader in Rehoboth
+          scrolling New Castle and Kent parks needs to know the answer is "the
+          state parks and your town", not that this was overlooked. */}
       <p class="mt-3.5 mb-0 text-[0.9rem] leading-snug text-ink-soft max-w-[56ch]">
+        Nothing from Sussex, and that isn't an oversight — Sussex County runs
+        no park system of its own, so below Kent the parks that aren't
+        state-run belong to the towns. That's a pass of its own.
+      </p>
+      <p class="mt-2.5 mb-0 text-[0.9rem] leading-snug text-ink-soft max-w-[56ch]">
         {restroomsUnknown} of {parks.length} still read <em>Not confirmed</em>.
         That's the honest state of it — every one is on
         <a href="/how-we-verify/">the call list</a> and none of them will say

@@ -1,0 +1,177 @@
+---
+/**
+ * Photographs on a field report, and the upload behaviour for the form
+ * they're attached to.
+ *
+ * WHY IT'S A COMPONENT
+ *
+ * /report/ had the whole pipeline and every record page's own report box had
+ * none — so the fastest way to send a picture of Bellevue was to leave the
+ * Bellevue page. A photograph is the one thing a reader can give this site
+ * that no amount of ringing the county will produce, and it was the one thing
+ * the box on the page couldn't take.
+ *
+ * Copying forty lines of canvas code into the second form was the other
+ * option. Two copies of a resize routine is two things to get wrong later.
+ *
+ * WHAT THE SCRIPT DOES
+ *
+ * Resizes before upload. A modern phone photo is 4-6MB and 12 megapixels;
+ * nothing on this site renders wider than 1400px, so sending the original
+ * wastes the visitor's data and would push the Worker past the free plan's
+ * 10ms CPU allowance the moment anything server-side touched it. 1600px on the
+ * long edge at q0.82 lands around 300KB and is still more detail than the site
+ * publishes.
+ *
+ * If any of it fails — no canvas, an image the browser won't decode, a blob
+ * that comes back empty — the original file is sent unchanged. A degraded
+ * upload beats a failed one.
+ *
+ * WITHOUT JAVASCRIPT the form still posts normally, photos and all, straight
+ * to the endpoint. It's slower and unresized, and it works.
+ *
+ * IT BINDS [data-report-photo-form], NOT [data-report-form], and that is not
+ * a naming quibble. ReportBox already owned the second attribute and already
+ * had a submit handler on it; when this script first shipped it bound the same
+ * forms, so a single tap ran two handlers, two preventDefaults and two fetches
+ * — the report sent twice. A component that takes over submitting a form has
+ * to own the attribute it binds.
+ *
+ * NOT is:inline — it binds every matching form on the page once, the same
+ * lesson CardShare and ShareRow both had to learn the hard way.
+ */
+interface Props {
+  /** Unique per form: there can be two report boxes on one page. */
+  id: string;
+  class?: string;
+}
+const { id, class: klass = "mt-4" } = Astro.props;
+---
+
+<div class={klass}>
+  <label class="label block" for={id}>Photos — up to four</label>
+  <p class="stamp text-ink-soft mt-1 mb-0">
+    Resized in your browser before they're sent, so this works on one bar of
+    signal. Location data is stripped from anything published.
+  </p>
+  <input
+    id={id}
+    name="photos"
+    type="file"
+    accept="image/jpeg,image/png,image/webp"
+    multiple
+    data-report-photos
+    class="mt-2 w-full text-[0.9rem]"
+  />
+  <p class="stamp text-ink-soft mt-1.5 mb-0" data-photo-note hidden></p>
+</div>
+
+<script>
+  (() => {
+    const MAX_EDGE = 1600;
+    const MAX_PHOTOS = 4;
+
+    const shrink = (file) =>
+      new Promise((resolve) => {
+        if (!/^image\/(jpeg|png|webp)$/.test(file.type)) return resolve(file);
+        const url = URL.createObjectURL(file);
+        const img = new Image();
+        img.onload = () => {
+          URL.revokeObjectURL(url);
+          const scale = Math.min(1, MAX_EDGE / Math.max(img.width, img.height));
+          if (scale === 1 && file.size < 900_000) return resolve(file);
+          const canvas = document.createElement("canvas");
+          canvas.width = Math.round(img.width * scale);
+          canvas.height = Math.round(img.height * scale);
+          const ctx = canvas.getContext("2d");
+          if (!ctx) return resolve(file);
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          canvas.toBlob(
+            (blob) => {
+              if (!blob || blob.size >= file.size) return resolve(file);
+              resolve(new File([blob], file.name.replace(/\.\w+$/, "") + ".jpg", { type: "image/jpeg" }));
+            },
+            "image/jpeg",
+            0.82,
+          );
+        };
+        img.onerror = () => {
+          URL.revokeObjectURL(url);
+          resolve(file);
+        };
+        img.src = url;
+      });
+
+    const kb = (n) => `${Math.round(n / 1024)}KB`;
+
+    for (const form of document.querySelectorAll("[data-report-photo-form]")) {
+      if (form.dataset.bound) continue;
+      form.dataset.bound = "1";
+
+      const input = form.querySelector("[data-report-photos]");
+      const note = form.querySelector("[data-photo-note]");
+      /* Two forms, two names for the same line: /report/ calls it
+         [data-status], ReportBox calls it [data-report-status] and ships it
+         with a `hidden` class. Renaming one of them is a bigger edit than
+         accepting both. */
+      const status = form.querySelector("[data-status], [data-report-status]");
+
+      input?.addEventListener("change", () => {
+        const files = [...(input.files ?? [])];
+        if (!note) return;
+        if (!files.length) {
+          note.hidden = true;
+          return;
+        }
+        note.hidden = false;
+        note.textContent =
+          files.length > MAX_PHOTOS
+            ? `That's ${files.length}. Only the first ${MAX_PHOTOS} will be sent.`
+            : `${files.length} photo${files.length > 1 ? "s" : ""} ready.`;
+      });
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const button = form.querySelector('button[type="submit"]');
+        if (button) button.disabled = true;
+        const say = (t) => {
+          if (!status) return;
+          status.textContent = t;
+          status.classList.remove("hidden");
+        };
+        say("Preparing…");
+
+        const data = new FormData(form);
+        data.delete("photos");
+        data.set("js", "1");
+
+        const files = [...(input?.files ?? [])].slice(0, MAX_PHOTOS);
+        let sent = 0;
+        for (const file of files) {
+          const small = await shrink(file);
+          sent += small.size;
+          data.append("photos", small, small.name);
+          say(`Preparing… ${kb(sent)}`);
+        }
+
+        say(files.length ? `Sending ${kb(sent)}…` : "Sending…");
+        try {
+          const res = await fetch(form.action, { method: "POST", body: data });
+          const body = await res.json().catch(() => ({}));
+          if (!res.ok || body.error) {
+            say(body.error || "That didn't send. Try again in a minute.");
+            if (button) button.disabled = false;
+            return;
+          }
+          form.innerHTML =
+            '<p class="label m-0 text-flag-green-bearing">Sent</p>' +
+            '<p class="mt-2 mb-0 text-[1rem] leading-[1.55] max-w-[54ch]">Thank you — that goes in front of a person, not onto the site. ' +
+            "If it changes a fact you'll see the date on the record change.</p>";
+        } catch {
+          say("That didn't send. Your connection, or mine.");
+          if (button) button.disabled = false;
+        }
+      });
+    }
+  })();
+</script>
