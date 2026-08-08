@@ -23,11 +23,32 @@ import drinkData from "../data/drink.json";
 import eventsData from "../data/events.json";
 import nearbyData from "../data/nearby.json";
 import { isPublishable } from "../lib/verification";
+import type { StatePark } from "../lib/state-parks";
 import { colorFor, COUNTY_COLOR } from "../lib/feature-colors";
 import FeatureIcon from "../components/FeatureIcon.astro";
 
 const towns = townsData as { slug: string; name: string; verifiedDate: string | null; verifiedSource: string | null }[];
 const stateParks = stateParksData as { county: string; verifiedDate: string | null; verifiedSource: string | null }[];
+
+/**
+ * THE PICTURE UNDER THE HEADLINE.
+ *
+ * The front page said "find the right place in Delaware" and then showed you
+ * nothing but type, on a site about going outside.
+ *
+ * Which photograph is chosen is named here rather than flagged in the data,
+ * because "the best picture on the site" is an editorial call about this page
+ * and not a fact about the park. Everything printed with it — the alt text,
+ * the park's name, the credit — is read out of the record, so correcting the
+ * park corrects the front door in the same edit. If the file is ever renamed
+ * or the record drops below publishable, this resolves to null and the hero
+ * disappears rather than shipping a broken image.
+ */
+const HERO_PHOTO = { slug: "alapocas-run", file: "alapocas-run-greenway" };
+const heroPark = (stateParksData as unknown as StatePark[]).find(
+  (p) => p.slug === HERO_PHOTO.slug && isPublishable(p),
+);
+const heroPhoto = heroPark?.photos?.find((p) => p.file === HERO_PHOTO.file) ?? null;
 const communityParks = communityParksData as { county: string; verifiedDate: string | null; verifiedSource: string | null }[];
 const dogParks = dogParksData as { verifiedDate: string | null; verifiedSource: string | null }[];
 
@@ -341,6 +362,55 @@ const schema = [
     <h1 class="text-[2.7rem] sm:text-[3.6rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
       Find the right place in Delaware
     </h1>
+
+    {/*
+      A SQUARE ON A PHONE, FOUR-BY-THREE ON A DESKTOP, and no wider than that.
+
+      This is a portrait photograph, and the measure on this site is 47rem, so
+      the letterbox banner the ratio wants to be at desktop width would be a
+      strip of tree trunk with the path, the footbridge and the whole canopy
+      cropped off either end. Four-by-three is about as wide as a 3:4 source
+      can go before it stops being the picture that was taken.
+
+      It's also the only image on the page that loads eagerly. It sits
+      directly under the headline, so making somebody wait for it is never the
+      right call.
+    */}
+    {
+      heroPhoto && heroPark && (
+        <a href={`/parks/${heroPark.slug}/`} class="block no-underline group breakout mt-7">
+          <figure class="m-0 relative">
+            <img
+              src={`/photos/${heroPhoto.file}-1400.jpg`}
+              alt={heroPhoto.alt}
+              width={1400}
+              height={1866}
+              fetchpriority="high"
+              decoding="async"
+              {/* Weighted low, not centred. Centring this frame fills it with
+                  canopy and pushes the path, the fence and the footbridge —
+                  the part that says "you can walk here" — off the bottom. */}
+              style="object-position:50% 85%"
+              class="w-full aspect-square sm:aspect-[4/3] object-cover block border-2 border-marsh"
+            />
+            {/* Two lines, not one. Name and credit on a single line truncate
+                at 375px, and the half that gets cut is the attribution — the
+                one part of a caption that can't be abbreviated. */}
+            <figcaption
+              class="absolute left-0 right-0 bottom-0 px-3 py-2 stamp text-cream bg-marsh/85 backdrop-blur-[2px] block"
+              style={`border-bottom:3px solid ${colorFor("trails")}`}
+            >
+              <span class="block truncate">{heroPark.name}, {heroPark.town}</span>
+              {heroPhoto.credit && (
+                <span class="block truncate opacity-80 text-[0.72rem] mt-0.5">
+                  {heroPhoto.credit}
+                </span>
+              )}
+            </figcaption>
+          </figure>
+        </a>
+      )
+    }
 
     <p class="mt-6 mb-0 text-[1.2rem] leading-[1.5] max-w-[52ch]">
       Somewhere to take the dog. Somewhere dry when it rains. A park that
