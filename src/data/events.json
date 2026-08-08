@@ -192,5 +192,55 @@
       "Ask the county whether $5 has held from year to year or whether it moves.",
       "Confirm the shuttle's first and last run, which the release doesn't give."
     ]
+  },
+  {
+    "slug": "brandywine-festival-of-the-arts",
+    "name": "Brandywine Festival of the Arts",
+    "edition": null,
+    "town": "Wilmington",
+    "venue": "Brandywine Park",
+    "address": "1001 North Park Drive, Wilmington, DE 19802",
+    "blurb": "Two days of juried art under the trees in Brandywine Park, the weekend after Labor Day, and it has been running for well over half a century. Over 200 artists. Five dollars a day to get in, cash or Venmo. Park at Incyte on Augustine Cut Off and take the shuttle, which is the rare one that will carry your dog.",
+    "rule": {
+      "kind": "anchor",
+      "anchor": "labor-day",
+      "offsetDays": 5,
+      "days": 2
+    },
+    "confirmed": {},
+    "admission": {
+      "note": "$5 a day, cash or Venmo. The festival doesn't say on its own site whether children get in free, so this page doesn't either.",
+      "amount": 5
+    },
+    "website": {
+      "label": "Brandywine Festival of the Arts",
+      "url": "https://www.brandywinearts.com/"
+    },
+    "warnings": [
+      "Free shuttle buses run to the festival entrance from Incyte, 1815 Augustine Cut Off. The festival states the shuttles are pet friendly, \"for friendly pets\".",
+      "Only a very limited number of accessible spaces are on the park grounds themselves, and the festival asks you to show a placard to the police officers at the entrances.",
+      "This site has not confirmed a date directly with the festival. The dates above are worked out from the festival's own stated rule, not read off its calendar."
+    ],
+    "sources": [
+      {
+        "label": "Brandywine Festival of the Arts: home",
+        "url": "https://www.brandywinearts.com/",
+        "note": "The organizer's own site, read 8 August 2026. States \"The Brandywine Festival of the Arts is an annual arts festival in Wilmington, Delaware held the weekend after Labor Day\" and \"Admission is $5 per day. Cash or Venmo accepted.\""
+      },
+      {
+        "label": "Brandywine Festival of the Arts: directions",
+        "url": "https://www.brandywinearts.com/directions.html",
+        "note": "Read 8 August 2026. States \"The festival is held at Brandywine Park located at 1001 North Park Drive, Wilmington, DE 19802\", the Incyte parking at 1815 Augustine Cut Off, that the free shuttles are \"pet friendly (for friendly pets)\", and that on-site accessible parking is very limited."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "PRIORITY: get the hours. Neither the home page nor the directions page states them.",
+      "Confirm whether children are admitted free, and from what age.",
+      "Confirm the computed dates against the festival's own calendar once it publishes them — the rule is theirs, the arithmetic is ours.",
+      "Ask what time the Incyte shuttle starts and stops."
+    ]
   }
 ]

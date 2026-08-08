@@ -91,3 +91,50 @@ one arrives.
   harm. Also missing: Lewes and Fenwick police non-emergency lines, the Delaware
   SPCA Sussex intake number, and Rehoboth Beach Animal Hospital's number and
   actual urgent-care hours. Re-check all vet hours each season.
+
+## Event leads from the Wilmington visitor guide
+
+Read from the Greater Wilmington & Brandywine Valley Visitors Guide 2026/27
+(Today Media Custom Communications, digital edition, pages 30–32) on
+8 August 2026.
+
+**None of this is a source and none of it can be published as read.** It is a
+visitor bureau's promotional guide — an aggregator, and the front of the book
+says so itself: "Information in this publication is as accurate as possible at
+press time but is subject to change. Please call ahead to verify information
+before traveling." It also lists months and never dates. So it is worth exactly
+one thing, which is knowing what exists. Every one of these has to be taken to
+the organizer's own page or phone before a word of it goes on the site, the
+same way Arden and Rockwood were.
+
+Three from this list are already done: the Ice Cream Festival, the Arden Fair,
+and the Brandywine Festival of the Arts — which turned out to be the second
+event on the site whose organizer publishes a rule rather than a date.
+
+Ranked by how well they fit a guide about being outdoors in Delaware:
+
+- **Separation Day**, New Castle, June. Delaware's own state holiday, with
+  fireworks over the river. The most obviously in-scope thing on the list.
+- **Wilmington Flower Market**, May. Rides, a beer garden, and it raises money
+  for children's charities.
+- **Ladybug Festival**, Wilmington, May. Free, outdoors, all female-fronted
+  music.
+- **Art on the Green**, New Castle, September. Over 200 artists in Battery
+  Park — a park this site already covers.
+- **Wildflower Weekend at Mt. Cuba**, April. Three days, native spring flowers
+  at peak bloom.
+- **Delaware Marathon Running Festival**, Wilmington, April. The first 13 miles
+  run through Brandywine Park.
+- **Delaware Saengerbund Oktoberfest**, Newark, September.
+- **Hagley Car Show** (September) and **Hagley Craft Fair** (October).
+- **Historic Odessa Brewfest**, September.
+- **Delaware Shakespeare Summer Festival**, July — at Rockwood Park, which is
+  already a record here.
+- **Holidays in Odessa**, **Noel at Nemours**, **A Longwood Christmas**,
+  **A Brandywine Christmas**, November–January. Indoor and ticketed; these
+  belong to /indoors/ more than to /events/ if they land anywhere.
+- Food and drink, lowest priority and possibly out of scope entirely: Celebrity
+  Chefs Brunch, City Restaurant Week, Brandywine Valley Restaurant Week,
+  Downtown Newark Food and Brew Fest, Belgian Beer Fest, Clifford Brown Jazz
+  Festival, Holy Trinity Greek Festival, St. Anthony's Italian Festival,
+  Artisan Market at Winterthur, Wilmington Grand Prix.
