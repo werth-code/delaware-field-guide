@@ -75,6 +75,17 @@ export const FEATURE_COLOR: Record<string, string> = {
   skate: "#6d3b6b",
   winterUse: "#37566e",
 
+  /* Things the roster never listed. Same rule as everything above: darkened
+     in steps until each cleared 7:1 filled, not chosen by eye. */
+  paddling: "#0f5266",
+  crabbing: "#8a3520",
+  waterPark: "#0b5169",
+  ropesCourse: "#404e1f",
+  climbingWall: "#7a4420",
+  tennis: "#6a2f66",
+  golf: "#2f5325",
+  horseTrails: "#6d4024",
+
   /* Dogs. */
   petsAllowed: "#77481b",
   dogPark: "#734b1a",

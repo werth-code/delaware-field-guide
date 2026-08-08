@@ -21,7 +21,15 @@
       "restrooms": null,
       "playground": null,
       "stables": null,
-      "fishing": null
+      "fishing": null,
+      "waterPark": null,
+      "ropesCourse": null,
+      "climbingWall": null,
+      "tennis": null,
+      "golf": null,
+      "crabbing": null,
+      "paddling": null,
+      "horseTrails": null
     },
     "feeBand": "beach",
     "dogs": {
@@ -131,7 +139,15 @@
       "restrooms": null,
       "playground": null,
       "stables": null,
-      "fishing": null
+      "fishing": null,
+      "waterPark": null,
+      "ropesCourse": null,
+      "climbingWall": null,
+      "tennis": null,
+      "golf": null,
+      "crabbing": null,
+      "paddling": null,
+      "horseTrails": null
     },
     "feeBand": "beach",
     "dogs": {
@@ -212,7 +228,15 @@
       "restrooms": null,
       "playground": null,
       "stables": null,
-      "fishing": null
+      "fishing": null,
+      "waterPark": null,
+      "ropesCourse": null,
+      "climbingWall": null,
+      "tennis": null,
+      "golf": null,
+      "crabbing": null,
+      "paddling": true,
+      "horseTrails": null
     },
     "feeBand": "beach",
     "dogs": {
@@ -250,6 +274,12 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "What each park offers, gone through park by park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -281,7 +311,15 @@
       "restrooms": null,
       "playground": null,
       "stables": null,
-      "fishing": null
+      "fishing": null,
+      "waterPark": null,
+      "ropesCourse": null,
+      "climbingWall": null,
+      "tennis": null,
+      "golf": null,
+      "crabbing": true,
+      "paddling": true,
+      "horseTrails": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -319,6 +357,12 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "What each park offers, gone through park by park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -350,7 +394,15 @@
       "restrooms": null,
       "playground": null,
       "stables": null,
-      "fishing": null
+      "fishing": null,
+      "waterPark": null,
+      "ropesCourse": null,
+      "climbingWall": null,
+      "tennis": null,
+      "golf": null,
+      "crabbing": null,
+      "paddling": true,
+      "horseTrails": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -402,6 +454,12 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "What each park offers, gone through park by park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -411,12 +469,12 @@
       "precision": "site"
     },
     "discGolfCourse": {
-      "holes": null,
-      "par": null,
-      "length": null,
-      "kit": null,
+      "holes": 18,
+      "par": "54 red-to-A up to 64 gold-to-C",
+      "length": "3,180 ft red-to-A · 7,497 ft gold-to-C",
+      "kit": "Rubber pads, Discatcher baskets. Red and gold tees, three pin positions",
       "mapUrl": "https://www.destateparks.com/wp-content/uploads/2024/09/activity_TrapPond_DiscGolf.pdf",
-      "mapImage": null
+      "mapImage": "dg-trap-pond"
     }
   },
   {
@@ -441,7 +499,15 @@
       "restrooms": null,
       "playground": null,
       "stables": null,
-      "fishing": null
+      "fishing": null,
+      "waterPark": true,
+      "ropesCourse": null,
+      "climbingWall": null,
+      "tennis": null,
+      "golf": null,
+      "crabbing": null,
+      "paddling": null,
+      "horseTrails": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -492,6 +558,12 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "What each park offers, gone through park by park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -532,7 +604,15 @@
       "restrooms": true,
       "playground": null,
       "stables": null,
-      "fishing": null
+      "fishing": null,
+      "waterPark": null,
+      "ropesCourse": true,
+      "climbingWall": null,
+      "tennis": null,
+      "golf": null,
+      "crabbing": null,
+      "paddling": null,
+      "horseTrails": true
     },
     "feeBand": "inland",
     "dogs": {
@@ -584,6 +664,12 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "What each park offers, gone through park by park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -700,7 +786,15 @@
       "restrooms": true,
       "playground": null,
       "stables": null,
-      "fishing": null
+      "fishing": null,
+      "waterPark": null,
+      "ropesCourse": null,
+      "climbingWall": null,
+      "tennis": null,
+      "golf": true,
+      "crabbing": null,
+      "paddling": null,
+      "horseTrails": true
     },
     "feeBand": "inland",
     "dogs": {
@@ -753,6 +847,12 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "What each park offers, gone through park by park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -839,7 +939,15 @@
       "restrooms": true,
       "playground": null,
       "stables": null,
-      "fishing": null
+      "fishing": null,
+      "waterPark": null,
+      "ropesCourse": null,
+      "climbingWall": null,
+      "tennis": null,
+      "golf": null,
+      "crabbing": null,
+      "paddling": null,
+      "horseTrails": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -996,7 +1104,15 @@
       "restrooms": true,
       "playground": true,
       "stables": true,
-      "fishing": true
+      "fishing": true,
+      "waterPark": null,
+      "ropesCourse": null,
+      "climbingWall": null,
+      "tennis": true,
+      "golf": null,
+      "crabbing": null,
+      "paddling": null,
+      "horseTrails": true
     },
     "feeBand": "inland",
     "dogs": {
@@ -1048,6 +1164,12 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "What each park offers, gone through park by park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -1180,7 +1302,15 @@
       "restrooms": true,
       "playground": true,
       "stables": null,
-      "fishing": null
+      "fishing": null,
+      "waterPark": null,
+      "ropesCourse": null,
+      "climbingWall": true,
+      "tennis": null,
+      "golf": null,
+      "crabbing": null,
+      "paddling": null,
+      "horseTrails": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -1222,6 +1352,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "What each park offers, gone through park by park."
       }
     ],
     "sourcedOn": "2026-08-07",
@@ -1432,7 +1568,15 @@
       "restrooms": null,
       "playground": null,
       "stables": null,
-      "fishing": null
+      "fishing": null,
+      "waterPark": null,
+      "ropesCourse": null,
+      "climbingWall": null,
+      "tennis": null,
+      "golf": null,
+      "crabbing": null,
+      "paddling": null,
+      "horseTrails": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -1500,7 +1644,15 @@
       "restrooms": null,
       "playground": null,
       "stables": null,
-      "fishing": null
+      "fishing": null,
+      "waterPark": null,
+      "ropesCourse": null,
+      "climbingWall": null,
+      "tennis": null,
+      "golf": null,
+      "crabbing": null,
+      "paddling": null,
+      "horseTrails": null
     },
     "feeBand": null,
     "dogs": {
@@ -1572,7 +1724,15 @@
       "restrooms": null,
       "playground": null,
       "stables": null,
-      "fishing": null
+      "fishing": null,
+      "waterPark": null,
+      "ropesCourse": null,
+      "climbingWall": null,
+      "tennis": null,
+      "golf": null,
+      "crabbing": null,
+      "paddling": true,
+      "horseTrails": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -1609,6 +1769,12 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "What each park offers, gone through park by park."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -1640,7 +1806,15 @@
       "restrooms": null,
       "playground": null,
       "stables": null,
-      "fishing": null
+      "fishing": null,
+      "waterPark": null,
+      "ropesCourse": null,
+      "climbingWall": null,
+      "tennis": null,
+      "golf": null,
+      "crabbing": null,
+      "paddling": null,
+      "horseTrails": null
     },
     "feeBand": "inland",
     "dogs": {
@@ -1710,7 +1884,15 @@
       "restrooms": null,
       "playground": null,
       "stables": null,
-      "fishing": null
+      "fishing": null,
+      "waterPark": null,
+      "ropesCourse": null,
+      "climbingWall": null,
+      "tennis": null,
+      "golf": null,
+      "crabbing": null,
+      "paddling": null,
+      "horseTrails": null
     },
     "feeBand": null,
     "dogs": {
@@ -1781,7 +1963,15 @@
       "restrooms": true,
       "playground": true,
       "stables": false,
-      "fishing": null
+      "fishing": null,
+      "waterPark": null,
+      "ropesCourse": null,
+      "climbingWall": null,
+      "tennis": null,
+      "golf": null,
+      "crabbing": null,
+      "paddling": null,
+      "horseTrails": null
     },
     "feeBand": "inland",
     "dogs": {
