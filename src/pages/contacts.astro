@@ -35,6 +35,7 @@ type Row = {
   name: string;
   href: string;
   phone: string | null;
+  phoneNote?: string | null;
   address: string | null;
   website: { label: string; url: string } | null;
   where: string | null;
@@ -47,6 +48,7 @@ const rows = (data: unknown[], href: (r: any) => string): Row[] =>
       name: r.name,
       href: href(r),
       phone: r.phone ?? null,
+      phoneNote: r.phoneNote ?? null,
       address: r.address ?? null,
       website: r.website ?? null,
       where: r.town ?? null,
@@ -116,6 +118,14 @@ const tel = (p: string) => `tel:+1${p.replace(/\D/g, "")}`;
                   <span class="text-[0.92rem] text-ink-soft italic">
                     No number yet —{" "}
                     <a href="/report/">tell me if you have it</a>
+                  </span>
+                )}
+                {/* Whose line it is. On this page more than anywhere — it's
+                    the page you open to dial, and a county permit office and a
+                    park gate are not the same call. */}
+                {r.phone && r.phoneNote && (
+                  <span class="block mt-1 text-[0.86rem] leading-snug text-ink-soft max-w-[52ch]">
+                    {r.phoneNote}
                   </span>
                 )}
                 {r.address && (

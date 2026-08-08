@@ -219,9 +219,18 @@ const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
           <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Phone</dt>
           <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem]">
             {park.phone ? (
-              <a href={`tel:${park.phone.replace(/[^0-9+]/g, "")}`} class="tap stamp text-[1rem]">
-                {park.phone}
-              </a>
+              <>
+                <a href={`tel:${park.phone.replace(/[^0-9+]/g, "")}`} class="tap stamp text-[1rem]">
+                  {park.phone}
+                </a>
+                {/* Whose number it is. A county switchboard printed under
+                    "Phone" reads as the number for the park itself. */}
+                {park.phoneNote && (
+                  <span class="block mt-1 text-[0.88rem] leading-snug text-ink-soft max-w-[46ch]">
+                    {park.phoneNote}
+                  </span>
+                )}
+              </>
             ) : (
               <span class="text-ink-soft italic">Not confirmed</span>
             )}

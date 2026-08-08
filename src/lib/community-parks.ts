@@ -66,6 +66,17 @@ export interface CommunityPark {
   hours: string | null;
   hoursNote: string | null;
   phone: string | null;
+  /**
+   * Whose number that is.
+   *
+   * Almost none of these parks has a line of its own — the number reaches
+   * New Castle County's permit office, Kent County Parks, or Dover City Hall.
+   * The record page labels the row "Phone", and without this a county
+   * switchboard reads as the number for the gate. Two parks (Carousel and
+   * Rockwood) genuinely do have their own, and this is how the page can say
+   * which is which.
+   */
+  phoneNote?: string | null;
   warnings: string[];
   verifiedDate: string | null;
   verifiedSource: string | null;

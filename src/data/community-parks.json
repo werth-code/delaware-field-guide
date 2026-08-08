@@ -34,20 +34,25 @@
     "dogParkSlug": "new-castle-county-bark-park",
     "hours": "07:00-20:00",
     "hoursNote": "Sat/Sun opens 05:00. Park hours — the dog run may differ.",
-    "phone": null,
+    "phone": "302-395-5606",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
       "Restrooms confirmed present — still need the type (permanent vs portable) and whether they are seasonal or year-round.",
       "Confirm drinking water.",
-      "Get the county parks number.",
       "Confirm farmers market day and season."
     ],
     "sources": [
       {
         "label": "New Castle County Parks",
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      },
+      {
+        "label": "New Castle County: staff directory",
+        "url": "https://www.newcastlede.gov/directory.aspx",
+        "primary": true,
+        "note": "The county's own directory, read 8 August 2026. Lists Carousel Park & Equestrian Center on 302-995-7670, Rockwood Park & Museum on (302) 761-4340, and a Parks Permit Office on 302-395-5606."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -80,7 +85,8 @@
       "lat": 39.603,
       "lon": -75.748,
       "precision": "site"
-    }
+    },
+    "phoneNote": "New Castle County's parks permit office. The county publishes no separate number for this park, so this reaches the people who run it rather than the gate."
   },
   {
     "slug": "carousel-park",
@@ -117,20 +123,25 @@
     "dogParkSlug": null,
     "hours": null,
     "hoursNote": null,
-    "phone": null,
+    "phone": "302-995-7670",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
       "Restrooms confirmed present — still need type (permanent vs portable) and whether they are seasonal.",
       "⚑ The off-leash dog area here is NOT in our dog-park dataset. Visit it, run the seven fields, and add it — this is a real coverage gap.",
-      "Get a street number for the address.",
       "Confirm hours."
     ],
     "sources": [
       {
         "label": "New Castle County Parks",
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      },
+      {
+        "label": "New Castle County: staff directory",
+        "url": "https://www.newcastlede.gov/directory.aspx",
+        "primary": true,
+        "note": "The county's own directory, read 8 August 2026. Lists Carousel Park & Equestrian Center on 302-995-7670, Rockwood Park & Museum on (302) 761-4340, and a Parks Permit Office on 302-395-5606."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -163,7 +174,8 @@
         "author": "Site maintainer",
         "body": "The climbing playground is cast concrete made to look like rock — boulders, pinnacles and a hollow one with a cave through it, on wood chips, with the equestrian center's white fencing right behind. Geese and goslings graze the meadow below the parking area, which is worth knowing if you are the sort of person a goose objects to."
       }
-    ]
+    ],
+    "phoneNote": "The park's own line, from the county directory."
   },
   {
     "slug": "rockwood-park",
@@ -200,7 +212,7 @@
     "dogParkSlug": null,
     "hours": null,
     "hoursNote": null,
-    "phone": null,
+    "phone": "302-761-4340",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -213,6 +225,12 @@
       {
         "label": "New Castle County Parks",
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      },
+      {
+        "label": "New Castle County: staff directory",
+        "url": "https://www.newcastlede.gov/directory.aspx",
+        "primary": true,
+        "note": "The county's own directory, read 8 August 2026. Lists Carousel Park & Equestrian Center on 302-995-7670, Rockwood Park & Museum on (302) 761-4340, and a Parks Permit Office on 302-395-5606."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -220,7 +238,8 @@
       "lat": 39.759,
       "lon": -75.517,
       "precision": "site"
-    }
+    },
+    "phoneNote": "The park's own line, from the county directory."
   },
   {
     "slug": "banning-park",
@@ -255,7 +274,7 @@
     "dogParkSlug": "banning-regional-dog-park",
     "hours": null,
     "hoursNote": null,
-    "phone": null,
+    "phone": "302-395-5606",
     "warnings": [
       "The dog park listed here by other guides is unconfirmed. Do not drive out for it on the strength of a listing."
     ],
@@ -270,6 +289,12 @@
       {
         "label": "New Castle County Parks",
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      },
+      {
+        "label": "New Castle County: staff directory",
+        "url": "https://www.newcastlede.gov/directory.aspx",
+        "primary": true,
+        "note": "The county's own directory, read 8 August 2026. Lists Carousel Park & Equestrian Center on 302-995-7670, Rockwood Park & Museum on (302) 761-4340, and a Parks Permit Office on 302-395-5606."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -277,7 +302,8 @@
       "lat": 39.718,
       "lon": -75.59,
       "precision": "site"
-    }
+    },
+    "phoneNote": "New Castle County's parks permit office. The county publishes no separate number for this park, so this reaches the people who run it rather than the gate."
   },
   {
     "slug": "brandywine-springs-park",
@@ -312,7 +338,7 @@
     "dogParkSlug": null,
     "hours": null,
     "hoursNote": null,
-    "phone": null,
+    "phone": "302-395-5606",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -324,6 +350,12 @@
       {
         "label": "New Castle County Parks",
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      },
+      {
+        "label": "New Castle County: staff directory",
+        "url": "https://www.newcastlede.gov/directory.aspx",
+        "primary": true,
+        "note": "The county's own directory, read 8 August 2026. Lists Carousel Park & Equestrian Center on 302-995-7670, Rockwood Park & Museum on (302) 761-4340, and a Parks Permit Office on 302-395-5606."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -331,7 +363,8 @@
       "lat": 39.74,
       "lon": -75.63,
       "precision": "site"
-    }
+    },
+    "phoneNote": "New Castle County's parks permit office. The county publishes no separate number for this park, so this reaches the people who run it rather than the gate."
   },
   {
     "slug": "iron-hill-park",
@@ -366,7 +399,7 @@
     "dogParkSlug": "iron-hill-dog-park",
     "hours": "08:00-20:00",
     "hoursNote": "Park hours — the dog run may differ.",
-    "phone": null,
+    "phone": "302-395-5606",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -379,6 +412,12 @@
       {
         "label": "New Castle County Parks",
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      },
+      {
+        "label": "New Castle County: staff directory",
+        "url": "https://www.newcastlede.gov/directory.aspx",
+        "primary": true,
+        "note": "The county's own directory, read 8 August 2026. Lists Carousel Park & Equestrian Center on 302-995-7670, Rockwood Park & Museum on (302) 761-4340, and a Parks Permit Office on 302-395-5606."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -386,7 +425,8 @@
       "lat": 39.656,
       "lon": -75.766,
       "precision": "site"
-    }
+    },
+    "phoneNote": "New Castle County's parks permit office. The county publishes no separate number for this park, so this reaches the people who run it rather than the gate."
   },
   {
     "slug": "talley-day-park",
@@ -423,7 +463,7 @@
     "dogParkSlug": "talley-day-dog-park",
     "hours": "06:00-18:00",
     "hoursNote": null,
-    "phone": null,
+    "phone": "302-395-5606",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -435,6 +475,12 @@
       {
         "label": "New Castle County Parks",
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      },
+      {
+        "label": "New Castle County: staff directory",
+        "url": "https://www.newcastlede.gov/directory.aspx",
+        "primary": true,
+        "note": "The county's own directory, read 8 August 2026. Lists Carousel Park & Equestrian Center on 302-995-7670, Rockwood Park & Museum on (302) 761-4340, and a Parks Permit Office on 302-395-5606."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -452,7 +498,8 @@
       "lat": 39.81,
       "lon": -75.523,
       "precision": "site"
-    }
+    },
+    "phoneNote": "New Castle County's parks permit office. The county publishes no separate number for this park, so this reaches the people who run it rather than the gate."
   },
   {
     "slug": "river-road-park",
@@ -487,7 +534,7 @@
     "dogParkSlug": "river-road-dog-park",
     "hours": null,
     "hoursNote": "Not posted anywhere findable.",
-    "phone": null,
+    "phone": "302-395-5606",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -499,6 +546,12 @@
       {
         "label": "New Castle County Parks",
         "url": "https://www.newcastlede.gov/1380/Park-Maps"
+      },
+      {
+        "label": "New Castle County: staff directory",
+        "url": "https://www.newcastlede.gov/directory.aspx",
+        "primary": true,
+        "note": "The county's own directory, read 8 August 2026. Lists Carousel Park & Equestrian Center on 302-995-7670, Rockwood Park & Museum on (302) 761-4340, and a Parks Permit Office on 302-395-5606."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -506,7 +559,8 @@
       "lat": 39.748,
       "lon": -75.506,
       "precision": "town"
-    }
+    },
+    "phoneNote": "New Castle County's parks permit office. The county publishes no separate number for this park, so this reaches the people who run it rather than the gate."
   },
   {
     "slug": "brecknock-park",
@@ -541,7 +595,7 @@
     "dogParkSlug": null,
     "hours": null,
     "hoursNote": null,
-    "phone": null,
+    "phone": "302-744-2495",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -554,6 +608,12 @@
       {
         "label": "Kent County Levy Court: Parks",
         "url": "https://www.kentcountyde.gov/Parks"
+      },
+      {
+        "label": "Kent County Levy Court: Parks and Recreation",
+        "url": "https://www.kentcountyde.gov/Residents/Parks-and-Recreation",
+        "primary": true,
+        "note": "Read 8 August 2026. States \"Phone questions during business hours (M-F 8AM to 5PM): 302-744-2495\"."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -561,7 +621,8 @@
       "lat": 39.077,
       "lon": -75.545,
       "precision": "site"
-    }
+    },
+    "phoneNote": "Kent County Parks & Recreation, weekdays 8am–5pm. The county publishes no per-park numbers, so this is the office that runs it."
   },
   {
     "slug": "tidbury-creek-park",
@@ -596,7 +657,7 @@
     "dogParkSlug": "tidbury-dog-park",
     "hours": "07:00-19:00",
     "hoursNote": "The dog park is CLOSED SUNDAYS. Confirm whether that applies to the whole park or only the dog run.",
-    "phone": null,
+    "phone": "302-744-2495",
     "warnings": [
       "The dog park is closed on Sundays."
     ],
@@ -611,6 +672,12 @@
       {
         "label": "Kent County Levy Court: Parks",
         "url": "https://www.kentcountyde.gov/Parks"
+      },
+      {
+        "label": "Kent County Levy Court: Parks and Recreation",
+        "url": "https://www.kentcountyde.gov/Residents/Parks-and-Recreation",
+        "primary": true,
+        "note": "Read 8 August 2026. States \"Phone questions during business hours (M-F 8AM to 5PM): 302-744-2495\"."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -618,7 +685,8 @@
       "lat": 39.12,
       "lon": -75.53,
       "precision": "site"
-    }
+    },
+    "phoneNote": "Kent County Parks & Recreation, weekdays 8am–5pm. The county publishes no per-park numbers, so this is the office that runs it."
   },
   {
     "slug": "hunn-nature-park",
@@ -653,7 +721,7 @@
     "dogParkSlug": null,
     "hours": null,
     "hoursNote": null,
-    "phone": null,
+    "phone": "302-744-2495",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -666,6 +734,12 @@
       {
         "label": "Kent County Levy Court: Parks",
         "url": "https://www.kentcountyde.gov/Parks"
+      },
+      {
+        "label": "Kent County Levy Court: Parks and Recreation",
+        "url": "https://www.kentcountyde.gov/Residents/Parks-and-Recreation",
+        "primary": true,
+        "note": "Read 8 August 2026. States \"Phone questions during business hours (M-F 8AM to 5PM): 302-744-2495\"."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -673,7 +747,8 @@
       "lat": 39.135,
       "lon": -75.5,
       "precision": "town"
-    }
+    },
+    "phoneNote": "Kent County Parks & Recreation, weekdays 8am–5pm. The county publishes no per-park numbers, so this is the office that runs it."
   },
   {
     "slug": "big-oak-park",
@@ -708,7 +783,7 @@
     "dogParkSlug": null,
     "hours": null,
     "hoursNote": null,
-    "phone": null,
+    "phone": "302-744-2495",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -719,7 +794,16 @@
       "lat": 39.29,
       "lon": -75.6,
       "precision": "town"
-    }
+    },
+    "phoneNote": "Kent County Parks & Recreation, weekdays 8am–5pm. The county publishes no per-park numbers, so this is the office that runs it.",
+    "sources": [
+      {
+        "label": "Kent County Levy Court: Parks and Recreation",
+        "url": "https://www.kentcountyde.gov/Residents/Parks-and-Recreation",
+        "primary": true,
+        "note": "Read 8 August 2026. States \"Phone questions during business hours (M-F 8AM to 5PM): 302-744-2495\"."
+      }
+    ]
   },
   {
     "slug": "browns-branch-park",
@@ -754,7 +838,7 @@
     "dogParkSlug": null,
     "hours": null,
     "hoursNote": null,
-    "phone": null,
+    "phone": "302-744-2495",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -765,7 +849,16 @@
       "lat": 39.19,
       "lon": -75.66,
       "precision": "town"
-    }
+    },
+    "phoneNote": "Kent County Parks & Recreation, weekdays 8am–5pm. The county publishes no per-park numbers, so this is the office that runs it.",
+    "sources": [
+      {
+        "label": "Kent County Levy Court: Parks and Recreation",
+        "url": "https://www.kentcountyde.gov/Residents/Parks-and-Recreation",
+        "primary": true,
+        "note": "Read 8 August 2026. States \"Phone questions during business hours (M-F 8AM to 5PM): 302-744-2495\"."
+      }
+    ]
   },
   {
     "slug": "lebanon-landing",
@@ -800,7 +893,7 @@
     "dogParkSlug": null,
     "hours": null,
     "hoursNote": null,
-    "phone": null,
+    "phone": "302-744-2495",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -811,7 +904,16 @@
       "lat": 39.09,
       "lon": -75.44,
       "precision": "town"
-    }
+    },
+    "phoneNote": "Kent County Parks & Recreation, weekdays 8am–5pm. The county publishes no per-park numbers, so this is the office that runs it.",
+    "sources": [
+      {
+        "label": "Kent County Levy Court: Parks and Recreation",
+        "url": "https://www.kentcountyde.gov/Residents/Parks-and-Recreation",
+        "primary": true,
+        "note": "Read 8 August 2026. States \"Phone questions during business hours (M-F 8AM to 5PM): 302-744-2495\"."
+      }
+    ]
   },
   {
     "slug": "kesselring-park",
@@ -846,7 +948,7 @@
     "dogParkSlug": null,
     "hours": null,
     "hoursNote": null,
-    "phone": null,
+    "phone": "302-744-2495",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -857,7 +959,16 @@
       "lat": 39.16,
       "lon": -75.51,
       "precision": "town"
-    }
+    },
+    "phoneNote": "Kent County Parks & Recreation, weekdays 8am–5pm. The county publishes no per-park numbers, so this is the office that runs it.",
+    "sources": [
+      {
+        "label": "Kent County Levy Court: Parks and Recreation",
+        "url": "https://www.kentcountyde.gov/Residents/Parks-and-Recreation",
+        "primary": true,
+        "note": "Read 8 August 2026. States \"Phone questions during business hours (M-F 8AM to 5PM): 302-744-2495\"."
+      }
+    ]
   },
   {
     "slug": "schutte-park",
@@ -892,7 +1003,7 @@
     "dogParkSlug": "schutte-dog-park",
     "hours": null,
     "hoursNote": "Not posted anywhere findable.",
-    "phone": null,
+    "phone": "302-736-7005",
     "warnings": [
       "No hydration station in the dog park — bring water.",
       "Reviews report seasonal bee swarms when the grass goes uncut."
@@ -908,6 +1019,12 @@
       {
         "label": "City of Dover: Parks and Recreation",
         "url": "https://www.cityofdover.com/"
+      },
+      {
+        "label": "City of Dover: Parks and Recreation contact",
+        "url": "https://www.cityofdover.gov/contact-us-parks-and-recreation",
+        "primary": true,
+        "note": "Read 8 August 2026. Gives 302-736-7005 for Parks and Recreation."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -915,7 +1032,8 @@
       "lat": 39.156,
       "lon": -75.547,
       "precision": "site"
-    }
+    },
+    "phoneNote": "City of Dover Parks & Recreation. The city publishes no number for the park itself."
   },
   {
     "slug": "valley-garden-park",
