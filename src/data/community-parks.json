@@ -56,7 +56,7 @@
         "file": "glasgow-park-a",
         "alt": "Bare and just-budding trees standing in still floodwater in open woodland, the trunks doubled in the reflection, moss and leaf litter in the foreground.",
         "caption": "Standing water through the woods in early spring, trees doubled in it.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       },
@@ -64,7 +64,7 @@
         "file": "glasgow-park-b",
         "alt": "A paved path running beside a stand of tall pale-trunked trees in early spring, moss and leaf litter along the verge.",
         "caption": "The paved path along the treeline. Level, and wide enough to pass on.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       }
@@ -144,7 +144,7 @@
         "file": "carousel-rocks",
         "alt": "A child sitting on top of a cast-concrete rock formation with a cave beneath it, part of a climbing playground on wood chips, with more rock pinnacles and a fenced pasture behind.",
         "caption": "The climbing playground. Cast concrete made to look like rock — boulders, pinnacles, and this one with a cave straight through it.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-08",
         "portrait": false
       },
@@ -152,7 +152,7 @@
         "file": "carousel-geese",
         "alt": "A pair of Canada geese with four goslings grazing on mown grass, with a fenced pasture rising to a track and parked cars at the top of the slope.",
         "caption": "Geese with goslings on the meadow below the parking area, with the equestrian center's fencing on the ridge.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-08",
         "portrait": true
       }
@@ -443,7 +443,7 @@
         "file": "talley-day-playground",
         "alt": "A large blue and green play structure with tube slides and climbing nets, in a clearing surrounded by tall mature trees, with a paved path and benches in front.",
         "caption": "The main playground, set back in the trees. Benches and a water fountain right there, which is not a given.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       }
@@ -978,7 +978,7 @@
         "file": "valley-garden-magnolias",
         "alt": "Saucer magnolias in pink bloom and a white star magnolia beside a narrow stream, with a bench, mown grass and a bank of daffodils behind.",
         "caption": "The magnolias over the stream, with the daffodil bank behind. Early spring, which is the week this park is famous for.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       }
@@ -1108,7 +1108,7 @@
         "file": "cando-overview",
         "alt": "A wide view of a large playground with brown ramps and railings up to elevated decks, a shade canopy over the centre, wood-chip surfacing and concrete paths.",
         "caption": "Ramps rather than steps to most of the upper decks, which is the whole point of the place.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-07",
         "portrait": false
       },
@@ -1116,7 +1116,7 @@
         "file": "cando-ninja",
         "alt": "A blue steel ninja obstacle course on a dark deck under a signboard reading Ninja Fit Playground, with a large timber picnic pavilion and mown grass in front.",
         "caption": "The Ninja Fit course, in the same field as the playground, with the pavilion between them.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-07",
         "portrait": false
       },
@@ -1124,7 +1124,7 @@
         "file": "cando-sand",
         "alt": "A sand play area with two large raised green sand tables on legs and a domed shelter behind them.",
         "caption": "The raised sand tables are high enough to pull a wheelchair under.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-07",
         "portrait": false
       },
@@ -1132,7 +1132,7 @@
         "file": "cando-fields",
         "alt": "An open mown field with a paved path curving through it, picnic pavilions and a small building to the left, and play equipment in the distance.",
         "caption": "The field the whole thing sits in. Paved path, pavilions, and the athletic fields beyond.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-07",
         "portrait": false
       },
@@ -1140,7 +1140,7 @@
         "file": "cando-rules",
         "alt": "Signs on a post reading No Pets Allowed In Playground Area with a crossed-out dog, a plaque reading Service Animals Welcome, and a brown sign listing what is prohibited in the park.",
         "caption": "The sign that decides whether the dog gets out of the car.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-07",
         "portrait": true
       }

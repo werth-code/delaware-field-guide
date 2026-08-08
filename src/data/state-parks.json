@@ -63,7 +63,7 @@
         "file": "cape-henlopen-bay",
         "alt": "Still bay water at dusk under a heavy gray and cream cloudscape, with low marsh islands topped by pines in the middle distance and marsh grass in the foreground.",
         "caption": "The bay side at dusk, flat calm. A tower breaks the treeline on the far right of the horizon.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false,
         "focus": "50% 55%"
@@ -72,7 +72,7 @@
         "file": "cape-henlopen-marsh",
         "alt": "A wide flat salt marsh of green and gold grass under an overcast sky, tall pale reed heads in the foreground and a narrow tidal creek winding away to the left.",
         "caption": "Salt marsh under cloud, with a tidal creek winding off to the left. Reeds up close, low woods on the horizon.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       }
@@ -141,7 +141,7 @@
         "file": "delaware-seashore-surf",
         "alt": "Three figures in silhouette standing at the edge of the surf with their backs to the camera, facing a line of breaking waves under a wide cloudy sky, sun glare on the water to the right.",
         "caption": "At the surf line, late in the day with the sun off to one side. Waves breaking a fair way out.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       }
@@ -508,7 +508,7 @@
         "file": "lums-pond-dock",
         "alt": "The end of a weathered wooden dock, looking straight down a wide wooded pond under a gray overcast sky.",
         "caption": "From the end of one of the docks, looking down the pond. Overcast summer day.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       },
@@ -516,7 +516,7 @@
         "file": "lums-pond-boat-ramp",
         "alt": "A concrete boat ramp with a galvanised handrail running down into still water, with a wooded far bank beyond.",
         "caption": "The launch ramp. Concrete, with a rail along the side.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       },
@@ -524,7 +524,7 @@
         "file": "lums-pond-docks",
         "alt": "Floating dock sections meeting at a right angle on flat water that mirrors the clouds, backed by a solid wall of green trees.",
         "caption": "The floating docks, on water flat enough to hold the sky.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       },
@@ -532,7 +532,7 @@
         "file": "lums-pond-railing",
         "alt": "A view across a still pond from behind a weathered wooden railing, with willows on the far bank.",
         "caption": "Across the water from a railing on the far side, willows opposite.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       },
@@ -540,7 +540,7 @@
         "file": "lums-pond-shoreline",
         "alt": "An adult and a small child standing at a bare earth shoreline at the edge of a wide pond, framed by tall trees in new spring leaf, with wooded far bank beyond.",
         "caption": "The shoreline in spring, framed by the trees. You can get right down to the water in places.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       }
@@ -637,7 +637,7 @@
         "file": "white-clay-creek-water",
         "alt": "Dark, still creek water in deep shade, mirroring the trunks and branches of the wooded bank above it, with a fallen limb reaching out over the surface.",
         "caption": "The creek in shade, flat enough to hold the whole bank upside down.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       },
@@ -645,7 +645,7 @@
         "file": "white-clay-creek-meadow",
         "alt": "A wide meadow of tall seed-headed autumn grasses running to a dark tree line, under a blue sky with high cloud and low sun.",
         "caption": "One of the meadows in autumn, grasses gone to seed.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       },
@@ -653,7 +653,7 @@
         "file": "white-clay-creek-clearing",
         "alt": "A green clearing seen through a gap between trees in early autumn, with the first yellow leaves in the foreground and woods closing in on both sides.",
         "caption": "A clearing through a gap in the trees, first of the yellow leaves showing.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       }
@@ -734,7 +734,7 @@
         "file": "brandywine-creek-meadow",
         "alt": "A wide meadow of tall summer grass and white wildflowers with a mown path running through it, backed by a dense tree line and a wooded ridge.",
         "caption": "One of the meadows in high summer, with a mown path through the grass. There are meadows here, but the walk most people come for is the paved path through the woods along the creek.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-07",
         "portrait": false,
         "focus": "50% 40%"
@@ -743,7 +743,7 @@
         "file": "brandywine-creek-rocks",
         "alt": "A wide, shallow rocky creek bed in bare winter woods, with a small child in a green coat standing on the stones at the edge.",
         "caption": "The creek at low water in late winter. Shallow enough to walk out on the stones, which is most of the appeal if you are four.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       }
@@ -861,14 +861,14 @@
         "file": "bellevue-pond-geese",
         "alt": "Canada geese on a pond in winter, bare trees, picnic tables and a pavilion along the far bank, and a small child crouched at the gravel edge watching them.",
         "caption": "The pond in winter. The geese are here in numbers and they are not shy, which is most of the appeal if you are three.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null
       },
       {
         "file": "bellevue-turtle",
         "alt": "A small turtle with yellow throat markings resting on wet gravel at the edge of shallow water, among fallen autumn leaves.",
         "caption": "A turtle at the pond edge in autumn. Not a promise — but you do see them here.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": true,
         "focus": "50% 63%"
@@ -877,35 +877,35 @@
         "file": "bellevue-pond-shallows",
         "alt": "Shallow water over pale sand at the edge of a pond, scattered with sweetgum burrs, with turtles hauled out on a rock in the distance.",
         "caption": "The shallow end, and the reason the turtle photograph exists. Sweetgum burrs all along the waterline — worth something on your feet.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null
       },
       {
         "file": "bellevue-reflections",
         "alt": "Bare trees reflected in completely still water, with the corner of a wooden dock at the top left.",
         "caption": "Still enough on a calm morning to hold the whole treeline upside down.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null
       },
       {
         "file": "bellevue-pond-summer",
         "alt": "A pond in summer seen over a timber railing, willows along the far bank, flat water holding the cloud.",
         "caption": "The same water in midsummer, from the railing. Willows the whole way along the far side.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null
       },
       {
         "file": "bellevue-stables",
         "alt": "A grey horse in a dirt paddock in front of a long single-storey stable block, with steel gates and rails enclosing it.",
         "caption": "The stable block and one of the paddocks. It's a working yard rather than an attraction, but you can stand at the rail.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null
       },
       {
         "file": "bellevue-paddock",
         "alt": "A bay horse in a fly mask grazing in a fenced grass paddock in summer, with white post-and-rail fencing beyond.",
         "caption": "Turnout on the grass in summer.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null
       }
     ],
@@ -1012,7 +1012,7 @@
         "file": "alapocas-run-greenway",
         "alt": "A paved trail curving through tall beech woods toward a wooden footbridge, with a post-and-rail fence alongside and low morning sun through the canopy.",
         "caption": "The paved Northern Delaware Greenway through the beech woods, heading for one of the footbridges over the run. Early morning, which is when it looks like this.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": true
       },
@@ -1020,7 +1020,7 @@
         "file": "alapocas-run-bridge",
         "alt": "Looking along a rust-colored steel truss footbridge with a wet timber deck scattered with pale fallen leaves, the paved trail continuing into dense green woods beyond.",
         "caption": "One of the steel footbridges over the run, wet and leaf-covered. The paved trail carries straight on the other side.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       },
@@ -1028,7 +1028,7 @@
         "file": "cando-sign",
         "alt": "A low stone slab set in mulch, carved and painted with the words Can-Do Playground in red, blue, yellow, green and pink letters, with play equipment behind it.",
         "caption": "The stone at the entrance. This is the Can-Do Playground, inside Alapocas Run — most people name it rather than the park.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-07",
         "portrait": false
       },
@@ -1036,7 +1036,7 @@
         "file": "cando-overview",
         "alt": "A wide view of a large playground with brown ramps and railings leading up to elevated decks, a shade canopy over the centre, wood-chip surfacing, concrete paths and benches.",
         "caption": "Ramps rather than steps to most of the upper decks, which is the whole point of the place. Concrete paths run right up to the equipment.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-07",
         "portrait": false
       },
@@ -1044,7 +1044,7 @@
         "file": "cando-ramps",
         "alt": "Playground swings in the foreground on dark poured-rubber surfacing, with a long ramped play structure, slides, shade sails and benches behind.",
         "caption": "Poured rubber under the swings, not mulch. Benches face the equipment from both sides.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-07",
         "portrait": false
       },
@@ -1052,7 +1052,7 @@
         "file": "cando-sand",
         "alt": "A sand play area with two large raised green sand tables on legs, a domed shelter behind them, and plastic buckets and spades scattered in the sand.",
         "caption": "The sand area. The raised tables are high enough to pull a wheelchair under, and the sand itself is deep and clean.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-07",
         "portrait": false
       },
@@ -1060,7 +1060,7 @@
         "file": "cando-sandcastle",
         "alt": "Two children crouched in the playground's sand area, seen from behind and above, one filling a bucket and one turning out a red sandcastle mould, with plastic spades scattered around.",
         "caption": "The sand is the part that holds them longest. Buckets and moulds get left out here and stay out.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-07",
         "portrait": false
       },
@@ -1068,7 +1068,7 @@
         "file": "cando-rules",
         "alt": "Two signs on a post: a white one reading No Pets Allowed In Playground Area with a crossed-out dog, a small black plaque reading Service Animals Welcome, and a brown one headed Welcome, Prohibited In Park: tobacco, glass containers, pets, bicycles, skateboards, rollerblades.",
         "caption": "The sign that decides whether the dog gets out of the car. Pets are barred, service animals are named as welcome, and the park office number is on it.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-07",
         "portrait": true
       },
@@ -1076,7 +1076,7 @@
         "file": "cando-ninja",
         "alt": "A blue steel ninja obstacle course on a dark deck under a signboard reading Ninja Fit Playground, with a large timber picnic pavilion and mown grass in front.",
         "caption": "The Ninja Fit course sits in the same field as the Can-Do Playground, with the pavilion between them.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-07",
         "portrait": false
       },
@@ -1084,7 +1084,7 @@
         "file": "cando-fields",
         "alt": "An open mown field with a paved path curving through it, picnic pavilions and a small building to the left, and play equipment in the distance.",
         "caption": "The day-use field. Paved path, pavilions, the athletic fields the park map marks, and the playground at the far end.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-07",
         "portrait": false
       }
@@ -1507,7 +1507,7 @@
         "file": "brandywine-park-fountain",
         "alt": "A tiered carved marble fountain with a statue on top playing into a scalloped basin, a small child watching from the rim, mown park lawn and mature trees behind.",
         "caption": "The fountain in Brandywine Park. The inscription round the base reads in Latin.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false,
         "focus": "50% 45%"
@@ -1516,7 +1516,7 @@
         "file": "riverwalk-boardwalk",
         "alt": "A weathered timber boardwalk curving through tall marsh grass and goldenrod, with a rail-line viaduct and power pylons on the skyline beyond.",
         "caption": "The boardwalk out through the marsh. Freight line and pylons on the skyline — this is city marsh, not wilderness, and it's better for it.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       },
@@ -1524,7 +1524,7 @@
         "file": "riverwalk-arch-bridge",
         "alt": "Looking along a wide timber-decked footbridge with a laminated timber arch overhead and steel cables, marsh and power lines on both sides.",
         "caption": "The arched footbridge over the marsh. Wide enough for bikes and strollers both ways.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       },
@@ -1532,7 +1532,7 @@
         "file": "riverwalk-deec",
         "alt": "A four-story building clad in dark shingles and timber slats with a tall open stair tower beside it, seen from below across tall marsh grass.",
         "caption": "The DuPont Environmental Education Center from the marsh below, with its stair tower.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       },
@@ -1540,7 +1540,7 @@
         "file": "riverwalk-deec-sign",
         "alt": "A gray sign reading DuPont Environmental Education Center mounted on a slatted timber wall, with steel mesh walkway rails in front.",
         "caption": "The sign on the building. The center is run by the Delaware Nature Society, not by the park.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       },
@@ -1548,7 +1548,7 @@
         "file": "riverwalk-refuge-sign",
         "alt": "A dark metal sign on a dry stone wall reading The Russell W. Peterson Urban Wildlife Refuge, with a cut-out heron and cattails at its left end.",
         "caption": "The refuge sign at the entrance, heron cut into the end of it.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       }

@@ -890,7 +890,7 @@
         "file": "brandywine-zoo-goats",
         "alt": "A small child in a gray long-sleeved top reaching out to touch a black and white goat standing on straw in a walled contact yard, with a wooden ramp and platform behind.",
         "caption": "The contact yard. The goats come to you, which is the entire point if you are three.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       },
@@ -898,7 +898,7 @@
         "file": "brandywine-zoo-bees",
         "alt": "A dense mass of honeybees covering honeycomb behind glass, hundreds of individuals with a few cells of capped comb visible at the edges.",
         "caption": "The observation hive, behind glass. Worth standing at for longer than you'd think.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       }
@@ -1346,7 +1346,7 @@
         "file": "ashland-red-clay",
         "alt": "A shallow, clear creek running over pale gravel between wooded banks under a blue sky, with a gravel bar in the foreground and stepping stones upstream.",
         "caption": "The Red Clay Creek where the trail meets it. Ankle-deep over gravel here, and clear enough to see the bottom right across.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-08",
         "portrait": false
       },
@@ -1354,7 +1354,7 @@
         "file": "ashland-frog",
         "alt": "A large green and brown frog sitting in a green mesh dip net held over a hand.",
         "caption": "What comes out of the pond. Caught, looked at, and put straight back.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": "2026-08-08",
         "portrait": false
       }

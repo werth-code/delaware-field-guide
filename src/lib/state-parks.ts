@@ -14,7 +14,16 @@ export interface Photo {
   file: string;
   alt: string;
   caption?: string | null;
-  credit: string;
+  /**
+   * Who took it. Null for mine.
+   *
+   * Every photograph here that isn't credited is one I took, and printing
+   * "Site maintainer" under 57 of them said nothing while looking like it
+   * said something — a byline on a single-author site is furniture. A credit
+   * line now means somebody else was standing there, which is the only case
+   * where it's worth the reader's attention.
+   */
+  credit: string | null;
   /**
    * When it was taken: `YYYY-MM-DD`, `YYYY-MM`, or null.
    *

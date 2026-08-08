@@ -39,7 +39,7 @@
         "file": "plumpton-peacock",
         "alt": "A peacock in full display, filling the frame with its fanned tail of eyed feathers, its blue neck and green crest turned slightly to one side.",
         "caption": "A peacock mid-display on the path. Not in an enclosure — just standing there.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       },
@@ -47,7 +47,7 @@
         "file": "plumpton-chicken",
         "alt": "A white and buff speckled hen with a wild gray crest of feathers on its head, standing on bare dirt beside a wooden fence rail, with a hoofed animal's legs visible behind.",
         "caption": "One of the loose hens, working the dirt by a fence rail. Hoofstock on the other side.",
-        "credit": "Site maintainer",
+        "credit": null,
         "takenOn": null,
         "portrait": false
       }
@@ -68,7 +68,9 @@
         "visitedOn": null,
         "from": "Site maintainer, first-hand",
         "what": "Peacocks and chickens roam the paths loose. Photographed on site.",
-        "affects": ["loose birds"]
+        "affects": [
+          "loose birds"
+        ]
       }
     ],
     "outstanding": [
