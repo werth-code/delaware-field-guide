@@ -349,15 +349,15 @@ const schema = [
     name: "Delaware Field Guide",
     url: "https://delawarefieldguide.com/",
     description:
-      "A reference for outdoor Delaware. Every fact carries the date it was checked and the source it came from.",
+      "A practical reference for Delaware. Every fact carries the date it was checked and the source it came from.",
     publisher: { "@type": "Organization", name: "Delaware Field Guide" },
   },
 ];
 ---
 
 <Layout
-  title="Delaware Field Guide — parks, beaches and dog rules, dated"
-  description="A verified reference for outdoor Delaware: 17 state parks, dog rules by town, museums, breweries and surf fishing. Every fact carries the date I checked it."
+  title="Delaware Field Guide — Dog Rules, Parks & Things to Do"
+  description="Current Delaware dog rules, parks, indoor places, surf fishing, events and local drinks. Check hours, fees, restrooms and sources before you drive."
   schema={schema}
   {/* The layout's generic row is off because this page supplies its own,
       with a pitch about the site rather than about one park. */}
@@ -388,7 +388,7 @@ const schema = [
   <div class="wrap pt-9 pb-8">
     <p class="label m-0 flex items-center gap-2">
       <FlagMark class="w-[0.5rem] h-[0.62rem] shrink-0 text-ochre-deep" />
-      A reference for outdoor Delaware
+      A practical reference for Delaware
     </p>
 
     <h1 class="text-[2.7rem] sm:text-[3.6rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
@@ -452,8 +452,10 @@ const schema = [
         site has; this is the list of things people arrive already wondering,
         which is the same content read from the other end. */}
     <p class="mt-6 mb-0 text-[1.2rem] leading-[1.5] max-w-[52ch]">
-      Looking for somewhere to take the dog to play, or a dry place to go with
-      the kids when it rains? Are the restrooms open? How much is admission?
+      Looking for somewhere to take the dog, a park with a restroom and a
+      playground, or an indoor place when it rains? This checks the details
+      that decide whether the trip works: current dog rules, hours, entrance
+      fees, parking and what's actually there.
     </p>
 
     <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[52ch]">
