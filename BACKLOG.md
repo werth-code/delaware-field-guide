@@ -161,3 +161,36 @@ What would fix it: a photograph of any actual Delaware branch, and one of the
 Victrola museum's own gallery or its building on S. New Street. The museum is
 shut for renovation until October 2026, so its exterior is the realistic one
 for now.
+
+## Wine, beer, cider and mead — the queue behind the published 17
+
+The August 2026 statewide pass found far more than the four this site had.
+Thirteen went up immediately because the business itself publishes a dog
+policy. The rest are active and real and are NOT published here yet, because
+the only thing this page promises is that the policy came from the operator.
+
+**Needs one dog-policy call, then it can go up.** New Castle: Argilla,
+Crooked Hammock Middletown, First State Middletown, Liquid Alchemy (mead and
+cider, and the biggest single omission in the north), Stewart's, Volunteer,
+High Steaks at Delaware Park. Kent: Big Oyster Milford, Brick Works Smyrna,
+Camden Brew, Rebel Seed Cidery, Pizzadili, WTF Meadery. Sussex: Bethany
+Brewing, Big Oyster Lewes, Brick Works Long Neck, Crooked Hammock Lewes,
+Dewey Beer (both sites), Dogfish Brewings & Eats, First State Rehoboth, Lewes
+Brewing, Ocean View Brewing, Revelation (both sites), Three Notch'd Rehoboth,
+38°-75° at Gary's.
+
+Several of those have published hours already recorded in the research; hours
+without a dog policy still isn't a card this page can carry, so they wait
+together.
+
+**Do not add these — they are gone or renamed.** 1937 Brewing at Delaware Park
+is now High Steaks. The Bellefonte site on Marsh Road is now Brew Works North.
+Iron Hill closed every Delaware location in its 2025 collapse, and the
+Rehoboth space is Three Notch'd since June 2026. Stitch House closed in 2024.
+Midnight Oil closed. Fordham & Dominion's Dover taproom closed and its website
+still looks live, which is exactly how a stale listing gets copied forward.
+
+**Fields worth adding when the page grows:** food (kitchen / trucks / bring
+your own / none), outdoor seating, kids, and a dog-policy date of its own.
+That last one matters — a dog rule changes far more often than an address, and
+this site currently dates the record rather than the rule.

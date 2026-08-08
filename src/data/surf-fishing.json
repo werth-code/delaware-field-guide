@@ -234,7 +234,23 @@
         "note": "2026 surf fishing rules, permits and reservations."
       }
     ],
-    "sourcedOn": "2026-08-03"
+    "sourcedOn": "2026-08-03",
+    "dayUse": {
+      "rule": "A current surf fishing vehicle permit also gets that vehicle into the day-use areas of most Delaware State Parks, free, during the fee season.",
+      "why": "It changes the arithmetic. A $90 resident annual permit against a $5 day rate pays for itself in eighteen visits — and if you were going to the parks anyway, the surf fishing is the part that comes free rather than the other way round.",
+      "catch": "It's the vehicle that's admitted, not the person. And it is most parks, not all — this site has not established the exceptions.",
+      "sources": [
+        {
+          "label": "Delaware State Parks: surf fishing",
+          "url": "https://www.destateparks.com/surf-fishing/",
+          "primary": true,
+          "note": "Read 8 August 2026: the permit's day-use entry, the leash rule inside vehicle areas, and the closure conditions."
+        }
+      ],
+      "sourcedOn": "2026-08-08",
+      "verifiedDate": null,
+      "verifiedSource": null
+    }
   },
   "offPeakEnding": {
     "fact": "The off-peak surf fishing permit is being discontinued in 2027.",
@@ -347,11 +363,32 @@
         "label": "DNREC Division of Parks & Recreation",
         "url": "https://www.destateparks.com/surf-fishing/",
         "note": "2026 surf fishing rules, permits and reservations."
+      },
+      {
+        "label": "Delaware State Parks: surf fishing",
+        "url": "https://www.destateparks.com/surf-fishing/",
+        "primary": true,
+        "note": "Read 8 August 2026: the permit's day-use entry, the leash rule inside vehicle areas, and the closure conditions."
       }
     ],
-    "sourcedOn": "2026-08-03"
+    "sourcedOn": "2026-08-03",
+    "alsoCloses": [
+      {
+        "cause": "Tide",
+        "detail": "A high tide can leave no drivable sand between the water and the dune line. The crossing stays open and the beach becomes impassable."
+      },
+      {
+        "cause": "Weather",
+        "detail": "Storms and overwash close crossings at short notice, and the reservation you hold does not survive it."
+      },
+      {
+        "cause": "Nesting",
+        "detail": "Piping plover, least tern and migrating shorebirds. The Point at Cape Henlopen has closed every year since 1993."
+      }
+    ]
   },
   "outstanding": [
+    "Which parks does the permit NOT admit you to? DNREC says 'most' and names none.",
     "PRIORITY: does a two-year off-peak permit bought in 2026 stay valid through 2027, when the off-peak permit is discontinued? Nobody has asked this.",
     "Resolve the senior permit conflict — one source says no senior discount on the standard annual, another lists $80/$160/$320.",
     "Confirm all 2026 permit prices, every tier, with DNREC.",
@@ -361,5 +398,22 @@
     "Confirm Key Box and Conquest parking lots are open.",
     "Confirm the reservation release times — Tue/Wed/Thu 11am.",
     "Confirm the $107 fine and whether it has changed for 2026."
-  ]
+  ],
+  "dogs": {
+    "headline": "The surf-fishing crossings are where a dog is legal in July.",
+    "rule": "Dogs may go into surf fishing vehicle areas year-round, on a leash of six feet or less.",
+    "why": "Every ocean beach town shuts dogs out for the summer, and the state's own swimming and sunbathing beaches are closed to them from May 1 to September 30. The drive-on sand is the exception, and almost nothing tells visitors that.",
+    "catch": "It is the vehicle areas specifically — not the guarded beach next to them, and not the dunes. A closure for nesting birds shuts the dog out along with everything else.",
+    "sources": [
+      {
+        "label": "Delaware State Parks: surf fishing",
+        "url": "https://www.destateparks.com/surf-fishing/",
+        "primary": true,
+        "note": "Read 8 August 2026: the permit's day-use entry, the leash rule inside vehicle areas, and the closure conditions."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null
+  }
 }

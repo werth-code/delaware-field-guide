@@ -27,7 +27,9 @@
 import type { FieldNote, Photo } from "./state-parks";
 import type { FieldReport, Verdict } from "./indoor";
 
-export type DrinkKind = "Winery" | "Brewery" | "Brewpub" | "Cidery" | "Distillery";
+/* Meadery joined the list when Brimming Horn and Liquid Alchemy did. Delaware
+   has more mead than it has wineries, which is not what I expected. */
+export type DrinkKind = "Winery" | "Brewery" | "Brewpub" | "Cidery" | "Meadery" | "Distillery";
 
 /**
  * Where a dog may actually be.
@@ -97,6 +99,13 @@ export function dogAnswer(d: DogPolicy): Answer {
   if (d.outdoor === true && d.indoor === true) return { text: "Yes, inside and out", state: "yes" };
   if (d.outdoor === true && d.indoor === false) return { text: "Outside only", state: "yes" };
   if (d.outdoor === true) return { text: "Yes outside — inside not confirmed", state: "yes" };
+  /* INSIDE-ONLY WAS MISSING and fell through to "not confirmed", which
+     understated a published yes. Brew Works North found it: leashed dogs are
+     welcome in the taproom and there is no licensed outdoor area at all, so
+     `outdoor: false, indoor: true` is a real and unusual combination rather
+     than a data error. */
+  if (d.outdoor === false && d.indoor === true) return { text: "Inside only", state: "yes" };
+  if (d.indoor === true) return { text: "Yes inside — outside not confirmed", state: "yes" };
   if (d.outdoor === false && d.indoor === false) return { text: "No", state: "no" };
   return { text: "Not confirmed — ring first", state: "unknown" };
 }
@@ -107,6 +116,7 @@ export const COUNTY_ORDER = ["New Castle", "Kent", "Sussex"];
 export function present(p: DrinkPlace): { key: string; label: string; emphasis: boolean }[] {
   const out: { key: string; label: string; emphasis: boolean }[] = [];
   if (p.dogs.outdoor === true) out.push({ key: "petsAllowed", label: "Dogs outside", emphasis: true });
+  else if (p.dogs.indoor === true) out.push({ key: "petsAllowed", label: "Dogs inside", emphasis: true });
   if (p.tasting) out.push({ key: "free", label: "Tastings", emphasis: false });
   if (p.hours) out.push({ key: "branches", label: "Hours published", emphasis: false });
   return out;

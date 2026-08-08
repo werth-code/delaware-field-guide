@@ -205,8 +205,17 @@
       "note": "The winery publishes no dog policy.",
       "source": null
     },
-    "hours": null,
-    "hoursNote": "The winery does not publish opening hours on its own site. Ring 302-645-9463.",
+    "hours": [
+      {
+        "days": "Monday – Saturday",
+        "text": "11am – 5pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "12pm – 5pm"
+      }
+    ],
+    "hoursNote": "From Visit Delaware rather than the winery's own site, which still publishes none. Corroboration, not confirmation.",
     "tasting": null,
     "phone": "302-645-9463",
     "website": {
@@ -227,13 +236,19 @@
         "label": "Nassau Valley Vineyards",
         "url": "http://www.nassauvalley.com/",
         "note": "The operator. Gives the Winery Way address and the phone number, describes tastings, tours, event hire and a farmers' market, and calls itself Delaware's first winery. Publishes no opening hours, no tasting fee and no dog policy. Note the https address redirects to http."
+      },
+      {
+        "label": "Visit Delaware: Nassau Valley Vineyards",
+        "url": "https://www.visitdelaware.com/listing/nassau-valley-vineyards/4057/",
+        "primary": false,
+        "note": "State tourism listing, read 8 August 2026. Gives Mon–Sat 11–5 and Sun 12–5. Not the winery itself, so this record says where it came from."
       }
     ],
     "sourcedOn": "2026-08-05",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the opening hours. They are not on the site at all.",
+      "Get the hours from the winery itself. What's published now is a tourism listing.",
       "Get the tasting fee.",
       "Ring and get the dog policy.",
       "Confirm which days the farmers' market runs."
@@ -244,5 +259,675 @@
       "lon": -75.156,
       "precision": "site"
     }
+  },
+  {
+    "slug": "apothecary-brewing",
+    "name": "Apothecary Brewing Co.",
+    "kind": "Brewery",
+    "town": "Claymont",
+    "county": "New Castle",
+    "address": "2703 Philadelphia Pike, Suite A, Claymont, DE 19703",
+    "blurb": "A taproom on the Philadelphia Pike at the top of the state, and one of the few here that says outright that your dog can come.",
+    "dogs": {
+      "outdoor": true,
+      "indoor": true,
+      "note": "The brewery's own wording: well-behaved, leashed dogs are welcome.",
+      "source": "operator"
+    },
+    "hours": null,
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Apothecary Brewing Co.",
+      "url": "https://apothecarybrewing.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Apothecary Brewing Co.",
+        "url": "https://apothecarybrewing.com/",
+        "primary": true,
+        "note": "The operator. States that well-behaved leashed dogs are welcome. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the opening hours off the operator — this is a newer taproom and its schedule moves."
+    ]
+  },
+  {
+    "slug": "autumn-arch",
+    "name": "Autumn Arch Beer Project",
+    "kind": "Brewery",
+    "town": "Newark",
+    "county": "New Castle",
+    "address": "810 Pencader Drive, Suite C, Newark, DE 19702",
+    "blurb": "The most precisely worded dog policy of any brewery in the state: inside and out during ordinary hours, not at the bar, and not during the big events.",
+    "dogs": {
+      "outdoor": true,
+      "indoor": true,
+      "note": "Dogs are welcome in the tasting room and outside during regular hours. Not at the bar itself, and restricted during festivals and large events — so a busy Saturday is the one to ring about.",
+      "source": "operator"
+    },
+    "hours": null,
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Autumn Arch Beer Project",
+      "url": "https://autumnarch.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Autumn Arch Beer Project",
+        "url": "https://autumnarch.com/",
+        "primary": true,
+        "note": "The operator. Dogs inside and outside during regular hours, not at the bar, with restrictions during festivals and large events. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the hours, and ask which events count as 'large' — that's the difference between a wasted drive and a good afternoon."
+    ]
+  },
+  {
+    "slug": "bellefonte-brewing",
+    "name": "Bellefonte Brewing Co.",
+    "kind": "Brewery",
+    "town": "Wilmington",
+    "county": "New Castle",
+    "address": "3605 Old Capitol Trail, Unit 8C, Wilmington, DE 19808",
+    "blurb": "Old Capitol Trail, and dog-friendly by its own description. Not the old Brandywine site — that address is Brew Works North now.",
+    "dogs": {
+      "outdoor": true,
+      "indoor": null,
+      "note": "The brewery describes itself as dog-friendly. It doesn't separate inside from out, so this site doesn't either.",
+      "source": "operator"
+    },
+    "hours": [
+      {
+        "days": "Monday – Thursday",
+        "text": "5pm – 10pm"
+      },
+      {
+        "days": "Friday",
+        "text": "3pm – midnight"
+      },
+      {
+        "days": "Saturday",
+        "text": "12pm – midnight"
+      },
+      {
+        "days": "Sunday",
+        "text": "1pm – 8pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Bellefonte Brewing Co.",
+      "url": "https://bellefontebrewing.com/"
+    },
+    "onSite": [],
+    "warnings": [
+      "This is the Old Capitol Trail location. The former Bellefonte site on Marsh Road is now Brew Works North, a different business."
+    ],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Bellefonte Brewing Co.",
+        "url": "https://bellefontebrewing.com/",
+        "primary": true,
+        "note": "The operator. Hours and the dog-friendly description. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Ask whether dogs are allowed inside or only on the outdoor side."
+    ]
+  },
+  {
+    "slug": "brew-works-north",
+    "name": "Brew Works North",
+    "kind": "Brewery",
+    "town": "Wilmington",
+    "county": "New Castle",
+    "address": "1851 Marsh Road, Wilmington, DE 19810",
+    "blurb": "Wilmington Brew Works' second taproom. Dogs on Sundays only, noon to six — the narrowest dog window of any brewery here, and worth knowing before you drive.",
+    "dogs": {
+      "outdoor": false,
+      "indoor": true,
+      "note": "Leashed, well-behaved dogs on Sundays between 12pm and 6pm, and only then. There's no licensed outdoor area, so the dog is inside or not at all.",
+      "source": "operator"
+    },
+    "hours": [
+      {
+        "days": "Monday – Tuesday",
+        "text": "5pm – 10pm"
+      },
+      {
+        "days": "Wednesday – Thursday",
+        "text": "4pm – 10pm"
+      },
+      {
+        "days": "Friday",
+        "text": "2pm – midnight"
+      },
+      {
+        "days": "Saturday",
+        "text": "12pm – midnight"
+      },
+      {
+        "days": "Sunday",
+        "text": "12pm – 9pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Brew Works North",
+      "url": "https://wilmingtonbrewworks.com/brew-works-north/"
+    },
+    "onSite": [],
+    "warnings": [
+      "Dogs Sunday 12–6 only. Any other day, or after six on a Sunday, and the answer is no."
+    ],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Wilmington Brew Works: Brew Works North",
+        "url": "https://wilmingtonbrewworks.com/brew-works-north/",
+        "primary": true,
+        "note": "The operator. Hours, the Sunday 12–6 dog window, and that there is no licensed outdoor area. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": []
+  },
+  {
+    "slug": "dew-point-brewing",
+    "name": "Dew Point Brewing Co.",
+    "kind": "Brewery",
+    "town": "Yorklyn",
+    "county": "New Castle",
+    "address": "2878 Creek Road, Yorklyn, DE 19736",
+    "blurb": "In the Yorklyn mill valley, near Auburn Valley State Park. Dogs outside only.",
+    "dogs": {
+      "outdoor": true,
+      "indoor": false,
+      "note": "Leashed, well-behaved dogs outside only. The operator is explicit that they don't come in.",
+      "source": "operator"
+    },
+    "hours": [
+      {
+        "days": "Wednesday – Thursday",
+        "text": "4pm – 9pm"
+      },
+      {
+        "days": "Friday",
+        "text": "3pm – 10pm"
+      },
+      {
+        "days": "Saturday",
+        "text": "1pm – 10pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "1pm – 7pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Dew Point Brewing Co.",
+      "url": "https://www.dewpointbrewing.com/tasting-room"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Dew Point Brewing: tasting room",
+        "url": "https://www.dewpointbrewing.com/tasting-room",
+        "primary": true,
+        "note": "The operator. Hours, and dogs outside only. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": []
+  },
+  {
+    "slug": "jakl-beer-works",
+    "name": "JAKL Beer Works",
+    "kind": "Brewery",
+    "town": "Middletown",
+    "county": "New Castle",
+    "address": "128 Patriot Drive, Unit 11, Middletown, DE 19709",
+    "blurb": "Middletown, and a straight yes: well-behaved leashed dogs inside and out.",
+    "dogs": {
+      "outdoor": true,
+      "indoor": true,
+      "note": "The brewery's own FAQ: well-behaved, leashed dogs are welcome inside and outside.",
+      "source": "operator"
+    },
+    "hours": [
+      {
+        "days": "Monday",
+        "text": "4pm – 9pm"
+      },
+      {
+        "days": "Tuesday",
+        "text": "Closed"
+      },
+      {
+        "days": "Wednesday – Thursday",
+        "text": "4pm – 9pm"
+      },
+      {
+        "days": "Friday",
+        "text": "3pm – 11pm"
+      },
+      {
+        "days": "Saturday",
+        "text": "12pm – 11pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "12pm – 7pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "JAKL Beer Works",
+      "url": "https://www.jaklbeerworks.com/about"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "JAKL Beer Works: about",
+        "url": "https://www.jaklbeerworks.com/about",
+        "primary": true,
+        "note": "The operator's own FAQ. Dogs inside and outside, leashed and well behaved, plus the hours. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": []
+  },
+  {
+    "slug": "twisted-irons",
+    "name": "Twisted Irons Craft Brewing Co.",
+    "kind": "Brewery",
+    "town": "Newark",
+    "county": "New Castle",
+    "address": "303 Ruthar Drive, Suites E & F, Newark, DE 19711",
+    "blurb": "Newark, and the official site says kid and dog friendly in those words.",
+    "dogs": {
+      "outdoor": true,
+      "indoor": true,
+      "note": "The brewery describes itself as kid and dog friendly. It doesn't split inside from out.",
+      "source": "operator"
+    },
+    "hours": [
+      {
+        "days": "Monday",
+        "text": "5pm – 11pm"
+      },
+      {
+        "days": "Tuesday",
+        "text": "5pm – 10pm"
+      },
+      {
+        "days": "Wednesday – Thursday",
+        "text": "3pm – 10pm"
+      },
+      {
+        "days": "Friday – Saturday",
+        "text": "9am – 11pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "12pm – 8pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Twisted Irons Craft Brewing",
+      "url": "https://twistedirons.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Twisted Irons Craft Brewing",
+        "url": "https://twistedirons.com/",
+        "primary": true,
+        "note": "The operator. 'Kid & dog friendly', and the hours. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": []
+  },
+  {
+    "slug": "wilmington-brew-works",
+    "name": "Wilmington Brew Works",
+    "kind": "Brewery",
+    "town": "Wilmington",
+    "county": "New Castle",
+    "address": "3129 Miller Road, Wilmington, DE 19802",
+    "blurb": "Dogs on the patios and in the beer garden, and not inside. That distinction is the whole point of asking.",
+    "dogs": {
+      "outdoor": true,
+      "indoor": false,
+      "note": "Dogs are allowed on the patios and in the beer garden. Indoors is people and service animals only.",
+      "source": "operator"
+    },
+    "hours": [
+      {
+        "days": "Monday – Tuesday",
+        "text": "5pm – 9pm"
+      },
+      {
+        "days": "Wednesday – Thursday",
+        "text": "3pm – 10pm"
+      },
+      {
+        "days": "Friday – Saturday",
+        "text": "12pm – 10pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "12pm – 6pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Wilmington Brew Works",
+      "url": "https://wilmingtonbrewworks.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Wilmington Brew Works",
+        "url": "https://wilmingtonbrewworks.com/",
+        "primary": true,
+        "note": "The operator. Hours, and dogs on the patios and beer garden but not indoors. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": []
+  },
+  {
+    "slug": "salted-vines",
+    "name": "Salted Vines Vineyard & Winery",
+    "kind": "Winery",
+    "town": "Frankford",
+    "county": "Sussex",
+    "address": "32512 Blackwater Road, Frankford, DE 19945",
+    "blurb": "A working vineyard inland from Bethany. Dogs on the property and the patios, not in the tasting room.",
+    "dogs": {
+      "outdoor": true,
+      "indoor": false,
+      "note": "The winery's own FAQ: leashed, well-behaved dogs on the property and patios, not inside the tasting-room building.",
+      "source": "operator"
+    },
+    "hours": [
+      {
+        "days": "Sunday – Thursday",
+        "text": "12pm – 6pm"
+      },
+      {
+        "days": "Friday",
+        "text": "12pm – 8pm"
+      },
+      {
+        "days": "Saturday",
+        "text": "11am – 7pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Salted Vines: FAQs",
+      "url": "https://www.saltedvines.com/visit/faqs"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Salted Vines: visit FAQs",
+        "url": "https://www.saltedvines.com/visit/faqs",
+        "primary": true,
+        "note": "The operator's own FAQ. Dogs on the property and patios but not inside, plus the hours. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": []
+  },
+  {
+    "slug": "twin-branch-winery",
+    "name": "Twin Branch Winery",
+    "kind": "Winery",
+    "town": "Milton",
+    "county": "Sussex",
+    "address": "14756 Twin Branch Road, Milton, DE 19968",
+    "blurb": "Delaware's fifth winery, back open after a land-use interruption, and dog-friendly in its own words.",
+    "dogs": {
+      "outdoor": true,
+      "indoor": null,
+      "note": "The winery's About page describes it as dog-friendly. It doesn't separate inside from out.",
+      "source": "operator"
+    },
+    "hours": null,
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Twin Branch Winery: about",
+      "url": "https://twinbranchwine.com/milton-delaware-twin-branch-winery-about"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Twin Branch Winery: about",
+        "url": "https://twinbranchwine.com/milton-delaware-twin-branch-winery-about",
+        "primary": true,
+        "note": "The operator. Describes the winery as dog-friendly. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the opening hours from the winery."
+    ]
+  },
+  {
+    "slug": "brimming-horn-milton",
+    "name": "Brimming Horn Meadery — Milton",
+    "kind": "Meadery",
+    "town": "Milton",
+    "county": "Sussex",
+    "address": "28615 Lewes Georgetown Highway, Milton, DE 19968",
+    "blurb": "Mead, on the Lewes–Georgetown highway. Its own menu page says well-behaved children and pets are always welcome.",
+    "dogs": {
+      "outdoor": true,
+      "indoor": true,
+      "note": "The meadery's own wording: well-behaved children and pets are always welcome.",
+      "source": "operator"
+    },
+    "hours": null,
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Brimming Horn Meadery: Milton",
+      "url": "https://www.brimminghornmeadery.com/miltonmenu"
+    },
+    "onSite": [
+      {
+        "label": "Bear Cult Brewing",
+        "note": "Bear Cult beers are poured here as well as mead — it's a beer operation sharing the site rather than a separate place to drive to."
+      }
+    ],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Brimming Horn Meadery: Milton menu",
+        "url": "https://www.brimminghornmeadery.com/miltonmenu",
+        "primary": true,
+        "note": "The operator. States that well-behaved children and pets are always welcome. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Get the opening hours for both locations."
+    ]
+  },
+  {
+    "slug": "brimming-horn-seaford",
+    "name": "Brimming Horn Meadery — Seaford",
+    "kind": "Meadery",
+    "town": "Seaford",
+    "county": "Sussex",
+    "address": "106 Spring Street, Seaford, DE 19973",
+    "blurb": "The second Brimming Horn, inland at Seaford. Same business, same published pet policy.",
+    "dogs": {
+      "outdoor": true,
+      "indoor": true,
+      "note": "The business publishes one pet policy — well-behaved pets always welcome — and doesn't distinguish between its two sites. Whether Seaford differs is unconfirmed.",
+      "source": "operator"
+    },
+    "hours": null,
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Brimming Horn Meadery",
+      "url": "https://www.brimminghornmeadery.com/"
+    },
+    "onSite": [],
+    "warnings": [],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Brimming Horn Meadery",
+        "url": "https://www.brimminghornmeadery.com/",
+        "primary": true,
+        "note": "The operator. The pet policy is published for the business rather than per location. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Confirm the pet policy applies at Seaford specifically, and get its hours."
+    ]
+  },
+  {
+    "slug": "dogfish-head-milton",
+    "name": "Dogfish Head Milton Brewery",
+    "kind": "Brewery",
+    "town": "Milton",
+    "county": "Sussex",
+    "address": "6 Cannery Village Center, Milton, DE 19968",
+    "blurb": "The production brewery and tasting room at Milton. One of very few tasting rooms in the state where a leashed dog can come inside.",
+    "dogs": {
+      "outdoor": true,
+      "indoor": true,
+      "note": "Dogfish publishes a dogs page: well-behaved, leashed dogs are welcome inside the Milton tasting room.",
+      "source": "operator"
+    },
+    "hours": [
+      {
+        "days": "Sunday – Thursday",
+        "text": "11am – 8pm"
+      },
+      {
+        "days": "Friday – Saturday",
+        "text": "11am – 9pm"
+      }
+    ],
+    "hoursNote": null,
+    "tasting": null,
+    "phone": null,
+    "website": {
+      "label": "Dogfish Head: dogs",
+      "url": "https://www.dogfish.com/visit/dogs-at-dogfish"
+    },
+    "onSite": [],
+    "warnings": [
+      "This is the Milton brewery. The Rehoboth brewpub is a separate place and its dog rule isn't confirmed here."
+    ],
+    "verdict": null,
+    "coords": null,
+    "sources": [
+      {
+        "label": "Dogfish Head: dogs at Dogfish",
+        "url": "https://www.dogfish.com/visit/dogs-at-dogfish",
+        "primary": true,
+        "note": "The operator's own dog policy page, plus the Milton tasting room hours. Read 8 August 2026."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": []
   }
 ]

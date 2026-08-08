@@ -17,7 +17,7 @@ import FlagIcon from "../../components/FlagIcon.astro";
 import data from "../../data/surf-fishing.json";
 import { isPublishable, robotsFor } from "../../lib/verification";
 
-const { headline, reservations, afterFour, crossings, closures, noResidentPriority } = data;
+const { headline, reservations, afterFour, crossings, closures, noResidentPriority, permits, dogs } = data;
 
 const pageGate = {
   verifiedDate: isPublishable(headline) ? "confirmed" : null,
@@ -162,6 +162,17 @@ const byPark = ["Cape Henlopen", "Cape Henlopen area", "Delaware Seashore", "Fen
       <li><strong>Tower Beach</strong> — walk-on only, no vehicles from Key Box toward Dewey.</li>
     </ul>
 
+    {/* Two things the permit buys that nobody prints beside the price. */}
+    <h2>{dogs.headline}</h2>
+    <p class="max-w-[58ch]">{dogs.rule}</p>
+    <p class="max-w-[58ch]">{dogs.why}</p>
+    <p class="max-w-[58ch]"><strong>{dogs.catch}</strong></p>
+
+    <h2>The permit gets the vehicle into the parks as well</h2>
+    <p class="max-w-[58ch]">{permits.dayUse.rule}</p>
+    <p class="max-w-[58ch]">{permits.dayUse.why}</p>
+    <p class="max-w-[58ch]"><strong>{permits.dayUse.catch}</strong></p>
+
     <h2>{closures.headline}</h2>
     <p class="max-w-[58ch]">{closures.detail}</p>
     <p class="max-w-[58ch]"><strong>{closures.consequence}</strong></p>
@@ -172,6 +183,17 @@ const byPark = ["Cape Henlopen", "Cape Henlopen area", "Delaware Seashore", "Fen
       <a href="/dogs/summer/">a dog is legal on in summer</a>. That's why it
       closes, and why the closure isn't negotiable.
     </p>
+
+    {closures.alsoCloses && (
+      <ul class="not-prose list-none p-0 my-5 space-y-2.5 max-w-[58ch]">
+        {closures.alsoCloses.map((c) => (
+          <li class="text-[0.95rem] leading-snug">
+            <strong class="label text-ink">{c.cause}</strong>
+            <span class="block mt-0.5 text-ink-soft">{c.detail}</span>
+          </li>
+        ))}
+      </ul>
+    )}
 
     <h2>{noResidentPriority.question}</h2>
     <p class="max-w-[58ch]">{noResidentPriority.answer}</p>
