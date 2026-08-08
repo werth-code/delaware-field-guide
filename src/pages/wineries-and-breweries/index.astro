@@ -33,6 +33,7 @@ const gate = {
 
 const publishDogs = places.filter((p) => p.dogs.source === "operator").length;
 const noHours = places.filter((p) => !p.hours).length;
+const withHours = places.length - noHours;
 
 const byCounty = COUNTY_ORDER.map((county) => ({
   county,
@@ -45,28 +46,37 @@ const stripItems: StripItem[] = (places as any[])
 ---
 
 <Layout
-  title="Delaware wineries and breweries — which allow dogs"
-  description="Delaware wineries and breweries by county, with hours, tasting fees and the dog policy taken from the business itself rather than a review site."
+  title="Delaware breweries, wineries, cideries and meaderies"
+  description="Every active Delaware brewery, winery, cidery and meadery by county, with opening hours — and a dog policy only where the business publishes one itself."
   robots={robotsFor(gate)}
+  {/* The page brings its own share row with its own argument, below. Without
+      this the layout adds a second one and the page ends on two. */}
+  share={false}
 >
   <div class="wrap pt-11 pb-6">
     <p class="label m-0">Wineries and breweries</p>
     <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[17ch] text-marsh">
-      Can the dog come?
+      Where to drink what Delaware makes
     </h1>
     <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
-      Looking for places around Delaware to enjoy local wine or craft beer?
+      Looking for places around Delaware to enjoy local wine, craft beer, cider
+      or mead?
+    </p>
+
+    {/* COUNTED, NOT TYPED. This said "four of them" for months and was wrong
+        the moment the list grew. Twice today a hardcoded number on this site
+        went stale within an hour of being written. */}
+    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
+      {places.length} of them, across all three counties — breweries,
+      brewpubs, wineries, cideries and meaderies. {withHours} publish their
+      opening hours, and those are here.
     </p>
 
     <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
-      Four of them, spread across the state, with tastings, tours and outdoor
-      seating between them. Hours vary, and only one publishes a dog policy —
-      so it's worth checking ahead before you visit.
-    </p>
-
-    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
-      Most have patio space. If the weather turns, there are indoor tasting
-      rooms, or try <a href="/indoors/">the museums and libraries</a> instead.
+      Dogs are one column of many, and only {publishDogs} of these say
+      anything about them. Where the business publishes a policy this page
+      quotes it; where it doesn't, the page says so rather than repeating what
+      a review site guessed.
     </p>
   </div>
 
@@ -173,9 +183,9 @@ const stripItems: StripItem[] = (places as any[])
 
     <ShareRow
       title={"Delaware wineries and breweries"}
-      summary={"Which ones actually allow dogs, from the business rather than a review site."}
+      summary={"Every active brewery, winery, cidery and meadery in the state, with hours."}
       heading={"Send this before someone drives out"}
-      pitch={"Most guides say dog friendly. Most of these have never said it themselves."}
+      pitch={"Opening hours from the businesses themselves, and a dog answer only where they publish one. Half the places on this list aren't on the guides at all."}
       class="breakout my-8"
     />
 
