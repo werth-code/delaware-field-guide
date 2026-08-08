@@ -54,21 +54,22 @@
       "slug": "rehoboth-beach-animal-hospital",
       "name": "Rehoboth Beach Animal Hospital",
       "phone": "302-227-2009",
-      "address": "Rehoboth Beach, DE",
-      "hours": null,
-      "hoursNote": "Its own site describes an appointment-based full-service practice — not urgent care, not walk-in, and nothing about after-hours. This site previously said \"urgent care, reported five days a week\"; that came from a listing, not from the practice, and it is not repeated here. Useful for a different reason: it names pocket pets and exotics, which most practices don't.",
+      "address": "20259 Coastal Highway, Rehoboth Beach, DE 19971",
+      "hours": "Mon–Thu 8am – 6:30pm · Fri 8am – 5:30pm · Closed Sat & Sun",
+      "hoursNote": "Publishes urgent care Monday to Friday, as a curbside service, inside those office hours. Not overnight and not on weekends — the two windows a beach trip is most likely to need. Its own site points you elsewhere for after-hours care. Nearest of anything on this list if the problem starts on a weekday afternoon.",
       "driveFromRehoboth": "In town",
       "coversWeekdayDaytime": null,
       "verifiedDate": null,
       "verifiedSource": null,
       "source": {
-        "label": "Rehoboth Beach Animal Hospital, its own site",
-        "url": "https://www.rehobothanimalhospital.com/",
+        "label": "Rehoboth Beach Animal Hospital — urgent care and location",
+        "url": "https://rehobothbeachvet.com/services/urgent-care",
         "primary": true,
-        "note": "Read 8 August 2026. Describes a full-service practice for dogs, cats, pocket pets and exotics — wellness, dental, diagnostics, surgery, microchipping — and says to call 302-227-2009 or book online. It does not describe urgent care, walk-ins, or after-hours cover."
+        "note": "Read 8 August 2026. States urgent care is offered \"Monday - Friday as a curbside service\" and publishes the office hours above. I had this wrong: an earlier version of this record said the practice describes no urgent care, because I read rehobothanimalhospital.com rather than rehobothbeachvet.com. Same practice, same phone number, different site."
       },
       "isEmergency": false,
-      "confirmed": false
+      "confirmed": false,
+      "urgentCare": true
     }
   ],
   "statewide": [
@@ -91,9 +92,10 @@
   ],
   "outstanding": [
     "PUBLISH THE HEADLINE. \"No 24-hour emergency vet in Sussex County\" is written and waiting in this file behind a null verifiedDate. Ring the practices below, and if it holds, set the date and it goes live as the top line on six pages.",
+    "Ring Rehoboth Beach Animal Hospital and confirm the urgent-care window — whether curbside urgent care runs the full office day, whether they take a walk-in without an existing file, and what they tell you to do at 9pm.",
+    "Confirm BluePearl's claim to be Delaware's only 24/7 emergency and specialty hospital. Their site returns 403 to me; if it holds up it is the sourced, attributed version of the Sussex headline this file is holding back.",
     "Call every number in this file and confirm it rings the right place. This is the one dataset where a stale number does real harm.",
     "Confirm Delmarva's weekday 6pm–8am window and the Fri–Sun 24-hour claim.",
-    "Ring Rehoboth Beach Animal Hospital on 302-227-2009 and ask the only question that matters here: do they take a dog in trouble the same day, and on which days and hours? Their own site describes appointments and nothing else.",
     "Confirm whether Pet's ER in Salisbury takes Delaware clients and what its hours are.",
     "Get the Delaware SPCA intake number for Sussex County.",
     "Confirm the ASPCA poison-control fee so the page can state it.",
