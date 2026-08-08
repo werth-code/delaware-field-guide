@@ -148,6 +148,15 @@ export interface StatePark {
   phone: string | null;
   hours: string | null;
   /**
+   * An attraction inside the park that the gate fee does NOT cover.
+   *
+   * Killens Pond's water park, Go Ape at Lums Pond and the Fort Delaware ferry
+   * are all charged on top, and a reader who has just read "$5 in-state" has
+   * every reason to think otherwise. This is the sentence that stops somebody
+   * arriving at a ticket window with the wrong number in their head.
+   */
+  feeNote?: string | null;
+  /**
    * The season, which is a different question from the daily hours.
    *
    * "Open year round" and "8am to sunset" are both answers to "when can I go"

@@ -226,6 +226,14 @@ const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
             {fee.state === "yes" && (
               <span class="block stamp text-ink-soft mt-1">Charged {FEE_SEASON}. Free outside it.</span>
             )}
+            {/* What the gate fee does NOT cover. A reader who has just read
+                "$5 in-state" has every reason to assume it covers the water
+                park, and it doesn't. */}
+            {park.feeNote && (
+              <span class="block mt-1.5 text-[0.88rem] leading-snug text-flag-red-bearing not-italic">
+                {park.feeNote}
+              </span>
+            )}
           </dd>
         </div>
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">

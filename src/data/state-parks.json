@@ -32,7 +32,7 @@
       "Ticks. Campground reviews flag them repeatedly, especially the wooded loops and dune scrub."
     ],
     "phone": "302-645-8983",
-    "hours": null,
+    "hours": "8 a.m. – sunset, daily",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -67,6 +67,12 @@
         "url": "https://www.destateparks.com/",
         "primary": true,
         "note": "The state publishes a scorecard and course map PDF per course. Read 8 August 2026; each park's own card is linked from its record."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -136,7 +142,7 @@
       "Discarded fishhooks and cut monofilament line on the drive-on beaches."
     ],
     "phone": "302-227-2800",
-    "hours": null,
+    "hours": "8 a.m. – sunset, daily",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -159,6 +165,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -209,7 +221,7 @@
     },
     "warnings": [],
     "phone": "302-227-2800",
-    "hours": null,
+    "hours": "8 a.m. – sunset, daily",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -232,6 +244,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -272,7 +290,7 @@
     },
     "warnings": [],
     "phone": "302-227-2800",
-    "hours": null,
+    "hours": "8 a.m. – sunset, daily",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -295,6 +313,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -338,7 +362,7 @@
       "Mosquitoes at dusk."
     ],
     "phone": "302-875-5153",
-    "hours": null,
+    "hours": "8 a.m. – sunset, daily",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -372,6 +396,12 @@
         "url": "https://www.destateparks.com/",
         "primary": true,
         "note": "The state publishes a scorecard and course map PDF per course. Read 8 August 2026; each park's own card is linked from its record."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -422,7 +452,7 @@
       "Millpond. Bloom season is August and September."
     ],
     "phone": "302-284-4526",
-    "hours": null,
+    "hours": "8 a.m. – sunset, daily",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -456,6 +486,12 @@
         "url": "https://www.destateparks.com/",
         "primary": true,
         "note": "The state publishes a scorecard and course map PDF per course. Read 8 August 2026; each park's own card is linked from its record."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -471,7 +507,8 @@
       "kit": null,
       "mapUrl": "https://www.destateparks.com/wp-content/uploads/2024/09/activity_KillensPond_DiscGolf.pdf",
       "mapImage": "dg-killens-pond"
-    }
+    },
+    "feeNote": "The water park is charged separately. Park admission does not include it."
   },
   {
     "slug": "lums-pond",
@@ -507,7 +544,7 @@
       "Millpond conditions — check the water before letting a dog swim."
     ],
     "phone": "302-368-6989",
-    "hours": null,
+    "hours": "8 a.m. – sunset, daily",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -541,6 +578,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -632,7 +675,8 @@
       "lat": 39.556,
       "lon": -75.722,
       "precision": "site"
-    }
+    },
+    "feeNote": "Go Ape, the treetop course, is charged separately. Park admission does not include it."
   },
   {
     "slug": "white-clay-creek",
@@ -667,7 +711,7 @@
       "Ticks, through the whole warm season."
     ],
     "phone": "302-368-6900",
-    "hours": null,
+    "hours": "8 a.m. – sunset, daily",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -703,6 +747,12 @@
         "url": "https://www.destateparks.com/",
         "primary": true,
         "note": "The state publishes a scorecard and course map PDF per course. Read 8 August 2026; each park's own card is linked from its record."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -801,7 +851,7 @@
       "Several entrances, and they aren't equivalent. The ranger station, gift shop and pavilion bookings are all at the main one."
     ],
     "phone": "302-577-3534",
-    "hours": null,
+    "hours": "8 a.m. – sunset, daily",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -810,8 +860,7 @@
       "Confirm the ranger station's hours — the restrooms are there.",
       "Name every entrance and say which has restrooms and which doesn't.",
       "Get the paved path's length and whether it's a loop.",
-      "Confirm the boat launch location and whether it takes trailers.",
-      "Get the daily opening hours. 'Open year round' is the season, not the hours."
+      "Confirm the boat launch location and whether it takes trailers."
     ],
     "sources": [
       {
@@ -840,6 +889,12 @@
         "url": "https://www.destateparks.com/",
         "primary": true,
         "note": "The state publishes a scorecard and course map PDF per course. Read 8 August 2026; each park's own card is linked from its record."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -952,7 +1007,7 @@
       "Ticks, in numbers. Check yourself and the dog after the meadow and the wooded trails, not just after the long walks."
     ],
     "phone": "302-761-6963",
-    "hours": null,
+    "hours": "8 a.m. – sunset, daily",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -987,6 +1042,12 @@
         "url": "https://www.destateparks.com/",
         "primary": true,
         "note": "The state publishes a scorecard and course map PDF per course. Read 8 August 2026; each park's own card is linked from its record."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -1380,7 +1441,7 @@
     },
     "warnings": [],
     "phone": "302-761-6963",
-    "hours": null,
+    "hours": "8 a.m. – sunset, daily",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -1402,6 +1463,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -1444,7 +1511,7 @@
       "Ferry-only access. Seasonal, and the last boat back is the last boat back."
     ],
     "phone": "302-834-7941",
-    "hours": null,
+    "hours": "Seasonal, and the ferry schedule decides it",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -1467,6 +1534,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -1474,7 +1547,8 @@
       "lat": 39.588,
       "lon": -75.571,
       "precision": "site"
-    }
+    },
+    "feeNote": "Admission and the ferry are charged separately, and neither is included in ordinary park admission."
   },
   {
     "slug": "fort-dupont",
@@ -1507,7 +1581,7 @@
     },
     "warnings": [],
     "phone": "302-834-7941",
-    "hours": null,
+    "hours": "8 a.m. – sunset, daily",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -1529,6 +1603,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -1571,7 +1651,7 @@
       "Limited opening. Confirm before going."
     ],
     "phone": "302-729-4280",
-    "hours": null,
+    "hours": "Varies by area and program",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -1593,6 +1673,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -1635,7 +1721,7 @@
       "Not a conventional park — it's a set of separate sites, so plan around individual building hours."
     ],
     "phone": "302-739-9194",
-    "hours": null,
+    "hours": "Varies by site — there is no single set of hours covering every Heritage Park site",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -1658,6 +1744,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -1698,7 +1790,7 @@
     },
     "warnings": [],
     "phone": "302-577-7020",
-    "hours": null,
+    "hours": "Generally 8 a.m. to sunset, but individual sites vary",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -1730,6 +1822,12 @@
         "url": "https://destateparks.com/Contact",
         "primary": true,
         "note": "DNREC's own contact page, read 8 August 2026. Lists an office number for every state park."
+      },
+      {
+        "label": "Delaware State Parks, confirmed 8 August 2026",
+        "url": "https://destateparks.com/",
+        "primary": true,
+        "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
       }
     ],
     "sourcedOn": "2026-08-07",
