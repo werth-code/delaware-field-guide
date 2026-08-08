@@ -80,6 +80,18 @@ export interface StateParkFeatures {
   pier: boolean | null;
   discGolf: boolean | null;
   /**
+   * Tenth schema gap a field report has opened, and the most surprising one.
+   *
+   * "Is there a playground" is among the first things anyone asks about a
+   * park, the community parks dataset has had the field since the beginning,
+   * and the state parks type simply never did — because this one was modeled
+   * on what DNREC lists on a park page, and DNREC does not list playgrounds
+   * there. Alapocas Run has the Can-Do Playground, one of the largest
+   * accessible playgrounds in the state, and this dataset had nowhere to say
+   * so.
+   */
+  playground: boolean | null;
+  /**
    * Added late, and that is the point.
    *
    * The other nine features are the ones DNREC publishes, which is why they
@@ -177,6 +189,7 @@ export const FEATURE_LABELS: [keyof StateParkFeatures, string][] = [
   ["boatRentals", "Boat rentals"],
   ["pier", "Pier"],
   ["discGolf", "Disc golf"],
+  ["playground", "Playground"],
   ["restrooms", "Restrooms"],
 ];
 
