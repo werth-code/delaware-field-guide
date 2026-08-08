@@ -113,6 +113,8 @@ export interface StatePark {
   acres: number | null;
   kind: string;
   town: string;
+  /** Street address. The printed park maps carry one; the website mostly doesn't. */
+  address?: string | null;
   blurb: string;
   features: StateParkFeatures;
   /** Which 2026 fee band applies. `null` = not confirmed. */

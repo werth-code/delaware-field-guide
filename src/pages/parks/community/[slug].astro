@@ -26,7 +26,7 @@ import {
   type CommunityPark,
 } from "../../../lib/community-parks";
 import { formatStampDate } from "../../../lib/rules";
-import { isPublishable, isVerified, reportOutstanding, robotsFor } from "../../../lib/verification";
+import { isPublishable, isVerified, reportOutstanding, robotsFor, sourcedText, stampText, tierOf } from "../../../lib/verification";
 
 export const getStaticPaths = (() =>
   (parksData as CommunityPark[]).map((park) => ({
@@ -267,6 +267,41 @@ const stripItems: StripItem[] = ((park as any).photos ?? []).map((photo: any) =>
       <MapEmbed name={park.name} town={park.town} address={park.address} />
 
       {park.fieldNotes && park.fieldNotes.length > 0 && <FieldNotes notes={park.fieldNotes} />}
+
+      {/*
+        WHERE THIS CAME FROM.
+        Six record types on this site showed their sources and the seventeen
+        state parks — the flagship section — showed none. The promise is that
+        every fact carries its provenance; that promise was being kept
+        everywhere except the pages most people land on.
+      */}
+      <aside
+        class={`sign breakout my-8 px-4 sm:px-5 py-5 border-l-[9px] ${
+          isVerified(park) ? "border-l-flag-green" : "border-l-marsh"
+        }`}
+      >
+        {
+          isVerified(park)
+            ? <p class="m-0"><span class="stamp stamp-struck">{stampText(park)}</span></p>
+            : tierOf(park) === "sourced"
+              ? (
+                <>
+                  <p class="label text-ochre-deep m-0">Read from the source — not yet confirmed by phone</p>
+                  <p class="stamp text-ink-soft mt-1.5 mb-0">{sourcedText(park)}</p>
+                </>
+              )
+              : <p class="stamp text-ink-soft m-0">Not yet checked against a primary source.</p>
+        }
+        <ul class="list-none p-0 mt-4 mb-0 space-y-1.5">
+          {(park.sources ?? []).map((s) => (
+            <li class="text-[0.88rem] leading-snug">
+              <a href={s.url} rel="nofollow">{s.label}</a>
+              {s.note && <span class="text-ink-soft"> — {s.note}</span>}
+            </li>
+          ))}
+        </ul>
+      </aside>
+
 
       <ReportBox subject={park.name} path={`/parks/community/${park.slug}/`} gaps={park.outstanding ?? []} />
 
