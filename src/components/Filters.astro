@@ -46,10 +46,28 @@ const { tags, noun, class: className = "" } = Astro.props;
       hidden
       class={`sign px-4 sm:px-5 py-3.5 ${className}`}
     >
-      <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <p class="label m-0">Narrow it down</p>
-        <p class="stamp text-ink-soft m-0" data-filter-count />
-      </div>
+      {/*
+        SHUT ON ARRIVAL. Seventeen parks came with eleven filter chips, a
+        distance sort and a location box stacked above them — most of a phone
+        screen of controls between the heading and the first park, for a reader
+        who mostly wants to scroll the parks. The count stays on the summary
+        line so the panel still reports what it's doing while closed.
+
+        A <details>, not a div and a class. It opens without JavaScript, it is
+        keyboard-operable and announced as a disclosure for free, and the
+        browser already knows how to do all of that better than a re-implementation
+        would. The one cost is styling the marker away, below.
+      */}
+      <details data-filter-panel>
+        <summary class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 cursor-pointer list-none">
+          <span class="label m-0 inline-flex items-center gap-1.5">
+            <svg viewBox="0 0 24 24" class="w-[0.85em] h-[0.85em] shrink-0" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-filter-caret>
+              <path d="M9 6l6 6-6 6" />
+            </svg>
+            Narrow it down
+          </span>
+          <span class="stamp text-ink-soft m-0" data-filter-count />
+        </summary>
 
       <ul class="list-none p-0 m-0 mt-3 flex flex-wrap gap-1.5" data-filter-chips>
         {tags.map((t) => (
@@ -84,6 +102,7 @@ const { tags, noun, class: className = "" } = Astro.props;
   <div class="mt-3 pt-3 border-t-2 border-tide/30">
     <slot />
   </div>
+      </details>
 </div>
   )
 }
@@ -94,6 +113,18 @@ const { tags, noun, class: className = "" } = Astro.props;
   cards did not exist yet and every query came back empty. The bar rendered
   and did nothing. A hoisted module is deferred until the document is parsed.
 -->
+<style>
+  /* The default triangle sits outside the flex row and breaks the alignment,
+     and Safari needs the -webkit- form as well as the standard one. */
+  [data-filter-panel] > summary::-webkit-details-marker { display: none; }
+  [data-filter-panel] > summary::marker { content: ""; }
+  [data-filter-panel][open] [data-filter-caret] { transform: rotate(90deg); }
+  [data-filter-caret] { transition: transform 140ms ease; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-filter-caret] { transition: none; }
+  }
+</style>
+
 <script>
   (() => {
     const root = document.querySelector("[data-filters]");
@@ -102,6 +133,11 @@ const { tags, noun, class: className = "" } = Astro.props;
     /* Cards carry their confirmed tags. Anything without the attribute is not
        filterable and stays put — a group heading, a note, a spacer. */
     root.hidden = false;
+
+    /* Opened as soon as anything is actually filtering, because a panel that
+       is shut while quietly hiding half the list is the worst version of this
+       control — the reader sees a short list and no reason for it. */
+    const panel = root.querySelector("[data-filter-panel]");
 
     const cards = [...document.querySelectorAll("[data-tags]")];
     /* Unhidden FIRST: the sort controls nest inside this box, and an early
@@ -158,6 +194,7 @@ const { tags, noun, class: className = "" } = Astro.props;
         ? `${shown} of ${cards.length} ${noun}`
         : `${cards.length} ${noun}`;
       clear.hidden = active.size === 0;
+      if (panel && active.size) panel.open = true;
     }
 
     /* NearMe reorders these cards and moves them between county groups. When
