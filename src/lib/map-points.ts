@@ -22,6 +22,8 @@ import stateParksData from "../data/state-parks.json";
 import communityParksData from "../data/community-parks.json";
 import indoorData from "../data/indoor.json";
 import drinkData from "../data/drink.json";
+import dogParksData from "../data/parks.json";
+import eventsData from "../data/events.json";
 
 type Geo = {
   slug: string;
@@ -70,6 +72,8 @@ export function buildMapPoints() {
     ...pin(indoorAll.filter((p) => !isIndoors(p)) as unknown[], "petsAllowed", (r) => `/attractions/${r.slug}/`),
     ...pin(drinkData as unknown[], "giftShop", (r) => `/wineries-and-breweries/${r.slug}/`),
     ...pin(townsData as unknown[], "beach", (r) => `/dogs/${r.slug}/`),
+    ...pin(dogParksData as unknown[], "dogPark", (r) => `/dogs/dog-parks/${r.slug}/`),
+    ...pin(eventsData as unknown[], "pavilion", (r) => `/events/${r.slug}/`),
   ];
 }
 
@@ -80,6 +84,8 @@ export const MAP_KINDS = [
   { key: "free", label: "Museums & libraries", color: colorFor("free") },
   { key: "giftShop", label: "Wine & beer", color: colorFor("giftShop") },
   { key: "petsAllowed", label: "Places to go", color: colorFor("petsAllowed") },
+  { key: "dogPark", label: "Dog parks", color: colorFor("dogPark") },
+  { key: "pavilion", label: "Events", color: colorFor("pavilion") },
 ];
 
 export const MAP_COUNTIES = ["New Castle", "Kent", "Sussex"].map((c) => ({

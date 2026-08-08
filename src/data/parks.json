@@ -4,8 +4,8 @@
     "name": "New Castle County Bark Park",
     "address": "2275 Pulaski Hwy, Newark, DE 19702",
     "county": "New Castle",
-    "lat": null,
-    "lng": null,
+    "lat": 39.60684,
+    "lng": -75.73644,
     "fenced": true,
     "sizeSplit": true,
     "water": true,
@@ -31,17 +31,28 @@
         "url": "https://www.newcastlede.gov/3105/Dog-Parks",
         "primary": true,
         "note": "The operator. Names this as the dog park at Glasgow Regional Park, 2275 Pulaski Hwy, \"open daily from dawn until dusk\", fenced with separate areas for large and small dogs. It does not publish clock hours, a surface, or whether there is water."
+      },
+      {
+        "label": "OpenStreetMap — location only",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Coordinates only, not a fact about the park. OSM leisure=dog_park on Pulaski Highway, Glasgow — the park at 2275 Pulaski Hwy. ODbL."
       }
     ],
-    "sourcedOn": "2026-08-06"
+    "sourcedOn": "2026-08-06",
+    "coords": {
+      "lat": 39.60684,
+      "lon": -75.73644,
+      "precision": "site"
+    }
   },
   {
     "slug": "talley-day-dog-park",
     "name": "Talley Day Dog Park",
     "address": "1308 Foulk Rd, Wilmington, DE 19803",
     "county": "New Castle",
-    "lat": null,
-    "lng": null,
+    "lat": 39.79411,
+    "lng": -75.52103,
     "fenced": true,
     "sizeSplit": true,
     "water": true,
@@ -65,17 +76,28 @@
         "url": "https://www.newcastlede.gov/3105/Dog-Parks",
         "primary": true,
         "note": "The operator. Lists Talley Day Park as a county dog park and gives the address, and says Talley Day was the first park in New Castle County with fenced dog parks. It publishes no hours, surface or water detail."
+      },
+      {
+        "label": "OpenStreetMap — location only",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Coordinates only, not a fact about the park. OSM leisure=dog_park off Carriage Way, 19803 — inside Talley Day Park. ODbL."
       }
     ],
-    "sourcedOn": "2026-08-06"
+    "sourcedOn": "2026-08-06",
+    "coords": {
+      "lat": 39.79411,
+      "lon": -75.52103,
+      "precision": "site"
+    }
   },
   {
     "slug": "elsmere-dog-park",
     "name": "Elsmere Dog Park",
     "address": "116 Western Ave, Elsmere, DE 19805",
     "county": "New Castle",
-    "lat": null,
-    "lng": null,
+    "lat": 39.73725,
+    "lng": -75.58985,
     "fenced": true,
     "sizeSplit": true,
     "water": false,
@@ -92,6 +114,19 @@
     "outstanding": [
       "Confirm agility equipment condition",
       "Photograph the drainage/mud issue after rain"
+    ],
+    "coords": {
+      "lat": 39.73725,
+      "lon": -75.58985,
+      "precision": "site"
+    },
+    "sources": [
+      {
+        "label": "OpenStreetMap — location only",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Coordinates only, not a fact about the park. OSM leisure=dog_park named Elsmere Bark Park, Baltimore Avenue, Elsmere. ODbL."
+      }
     ]
   },
   {
@@ -99,8 +134,8 @@
     "name": "Charles E. Price Memorial Park Dog Park",
     "address": "955 Levels Rd, Middletown, DE 19709",
     "county": "New Castle",
-    "lat": null,
-    "lng": null,
+    "lat": 39.42823,
+    "lng": -75.74779,
     "fenced": true,
     "sizeSplit": true,
     "water": null,
@@ -117,6 +152,19 @@
     "outstanding": [
       "Confirm water",
       "Confirm whether the inconsistent opening times are still a problem"
+    ],
+    "coords": {
+      "lat": 39.42823,
+      "lon": -75.74779,
+      "precision": "site"
+    },
+    "sources": [
+      {
+        "label": "OpenStreetMap — location only",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Coordinates only, not a fact about the park. OSM leisure=dog_park on Levels Road, Middletown. ODbL."
+      }
     ]
   },
   {
@@ -151,8 +199,8 @@
     "name": "Lums Pond Dog Park",
     "address": "Lums Pond State Park, Bear, DE 19701",
     "county": "New Castle",
-    "lat": null,
-    "lng": null,
+    "lat": 39.56568,
+    "lng": -75.70761,
     "fenced": false,
     "sizeSplit": false,
     "water": true,
@@ -180,9 +228,20 @@
         "url": "https://destateparks.com/wp-content/uploads/2024/04/brochue_Lums_Pond.pdf",
         "primary": true,
         "note": "The operator. The park's own welcome sheet places the off-leash area about a quarter of a mile past the iron gate, states plainly that it is NOT fenced, and mentions a limited number of picnic tables and bags on site."
+      },
+      {
+        "label": "OpenStreetMap — location only",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Coordinates only, not a fact about the park. OSM leisure=dog_park named Lums Pond State Park Dog Park. ODbL."
       }
     ],
-    "sourcedOn": "2026-08-06"
+    "sourcedOn": "2026-08-06",
+    "coords": {
+      "lat": 39.56568,
+      "lon": -75.70761,
+      "precision": "site"
+    }
   },
   {
     "slug": "brandywine-off-leash-dog-park",
@@ -214,8 +273,8 @@
     "name": "Iron Hill Park Dog Park",
     "address": "1337 S Old Baltimore Pike, Newark, DE 19702",
     "county": "New Castle",
-    "lat": null,
-    "lng": null,
+    "lat": 39.63736,
+    "lng": -75.75595,
     "fenced": true,
     "sizeSplit": null,
     "water": null,
@@ -242,17 +301,28 @@
         "url": "https://www.newcastlede.gov/3105/Dog-Parks",
         "primary": true,
         "note": "The operator. Lists Iron Hill Park as a county dog park and gives the address. It publishes nothing else about it — no hours, no fencing, no surface."
+      },
+      {
+        "label": "OpenStreetMap — location only",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Coordinates only, not a fact about the park. OSM leisure=dog_park on Iron Hill Road, Brookside — inside Iron Hill Park. ODbL."
       }
     ],
-    "sourcedOn": "2026-08-06"
+    "sourcedOn": "2026-08-06",
+    "coords": {
+      "lat": 39.63736,
+      "lon": -75.75595,
+      "precision": "site"
+    }
   },
   {
     "slug": "banning-regional-dog-park",
     "name": "Banning Regional Park Dog Park",
     "address": "Wilmington, DE",
     "county": "New Castle",
-    "lat": null,
-    "lng": null,
+    "lat": 39.71702,
+    "lng": -75.59157,
     "fenced": null,
     "sizeSplit": null,
     "water": null,
@@ -277,9 +347,20 @@
         "url": "https://www.newcastlede.gov/3105/Dog-Parks",
         "primary": true,
         "note": "The operator. Lists Banning Regional Park as a county dog park and gives the address. Nothing else is published about it."
+      },
+      {
+        "label": "OpenStreetMap — location only",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Coordinates only, not a fact about the park. OSM leisure=dog_park inside Banning Park. ODbL."
       }
     ],
-    "sourcedOn": "2026-08-06"
+    "sourcedOn": "2026-08-06",
+    "coords": {
+      "lat": 39.71702,
+      "lon": -75.59157,
+      "precision": "site"
+    }
   },
   {
     "slug": "skyline-off-leash-area",
@@ -344,8 +425,8 @@
     "name": "Little Creek Dog Park",
     "address": "Port Mahon Rd, Dover, DE 19901",
     "county": "Kent",
-    "lat": null,
-    "lng": null,
+    "lat": 39.16659,
+    "lng": -75.44729,
     "fenced": true,
     "sizeSplit": true,
     "water": true,
@@ -364,6 +445,19 @@
       "HOURS — not published",
       "Confirm surface",
       "Confirm the hand pumps work"
+    ],
+    "coords": {
+      "lat": 39.16659,
+      "lon": -75.44729,
+      "precision": "site"
+    },
+    "sources": [
+      {
+        "label": "OpenStreetMap — location only",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Coordinates only, not a fact about the park. OSM leisure=dog_park named Bark Park, Main Street, Little Creek. ODbL."
+      }
     ]
   },
   {
@@ -423,8 +517,8 @@
     "name": "Milford Dog Park",
     "address": "1 Marshall St, Milford, DE 19963",
     "county": "Sussex",
-    "lat": null,
-    "lng": null,
+    "lat": 38.91453,
+    "lng": -75.42048,
     "fenced": true,
     "sizeSplit": true,
     "water": true,
@@ -442,6 +536,19 @@
       "Confirm shade",
       "Confirm surface",
       "One of only two public options within ~40 min of Rehoboth — worth a visit"
+    ],
+    "coords": {
+      "lat": 38.91453,
+      "lon": -75.42048,
+      "precision": "site"
+    },
+    "sources": [
+      {
+        "label": "OpenStreetMap — location only",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Coordinates only, not a fact about the park. OSM leisure=dog_park named Milford Dog Park, Fisher Avenue. ODbL."
+      }
     ]
   },
   {
@@ -449,8 +556,8 @@
     "name": "Millsboro Dog Park",
     "address": "424 Wilson Hwy, Millsboro, DE 19966",
     "county": "Sussex",
-    "lat": 38.5862007,
-    "lng": -75.2924575,
+    "lat": 38.58634,
+    "lng": -75.29267,
     "fenced": true,
     "sizeSplit": true,
     "water": false,
@@ -468,6 +575,19 @@
       "PHOTOGRAPH the broken water fountain — reviewers complain about it repeatedly and nobody has a picture",
       "Confirm whether the new trough replaced the fountain or supplements it",
       "Confirm surface"
+    ],
+    "coords": {
+      "lat": 38.58634,
+      "lon": -75.29267,
+      "precision": "site"
+    },
+    "sources": [
+      {
+        "label": "OpenStreetMap — location only",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Coordinates only, not a fact about the park. OSM leisure=dog_park named Millsboro Dog Park. ODbL."
+      }
     ]
   },
   {
@@ -475,8 +595,8 @@
     "name": "Lewes Unleashed",
     "address": "Lewes, DE 19958",
     "county": "Sussex",
-    "lat": null,
-    "lng": null,
+    "lat": 38.77821,
+    "lng": -75.16179,
     "fenced": true,
     "sizeSplit": true,
     "water": true,
@@ -496,6 +616,19 @@
       "Confirm whether any day-pass or visitor option exists",
       "PHOTOGRAPH the gate and its member-access signage",
       "Get a street address"
+    ],
+    "coords": {
+      "lat": 38.77821,
+      "lon": -75.16179,
+      "precision": "site"
+    },
+    "sources": [
+      {
+        "label": "OpenStreetMap — location only",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Coordinates only, not a fact about the park. OSM leisure=dog_park named Lewes Unleashed Dog Park. ODbL."
+      }
     ]
   }
 ]

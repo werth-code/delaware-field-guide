@@ -33,6 +33,12 @@
         "label": "Delaware State Fair: official site",
         "url": "https://www.delawarestatefair.com/",
         "note": "States \"JULY 23 - August 1, 2026\" and the fairgrounds address. Publishes no recurring rule, so future years are not computed."
+      },
+      {
+        "label": "Coordinates",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Location only, not a fact about the event. Nominatim, the fairgrounds themselves."
       }
     ],
     "sourcedOn": "2026-08-03",
@@ -43,7 +49,12 @@
       "Ask whether the fair follows a recurring pattern — a stated rule would let us publish future years instead of going quiet.",
       "Confirm gate hours.",
       "Confirm whether dogs are permitted on the fairgrounds. Most state fairs prohibit them except service animals, and I shouldn't assume it."
-    ]
+    ],
+    "coords": {
+      "lat": 38.91254,
+      "lon": -75.57442,
+      "precision": "site"
+    }
   },
   {
     "slug": "sea-witch-festival",
@@ -85,6 +96,12 @@
         "label": "City of Rehoboth Beach: Sea Witch Festival",
         "url": "https://www.cityofrehoboth.com/events/convention-center/sea-witch-festival",
         "note": "The town's own listing."
+      },
+      {
+        "label": "Coordinates",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Location only, not a fact about the event. Nominatim, Rehoboth Beach — the festival runs through the town, so the town is the honest precision."
       }
     ],
     "sourcedOn": "2026-08-03",
@@ -95,7 +112,12 @@
       "Ask the Chamber whether the festival follows a rule, such as the last full weekend in October.",
       "Confirm which individual events are ticketed.",
       "Confirm parade route and road closures once the program is published in October."
-    ]
+    ],
+    "coords": {
+      "lat": 38.71647,
+      "lon": -75.08351,
+      "precision": "town"
+    }
   },
   {
     "slug": "arden-fair",
@@ -132,6 +154,12 @@
         "label": "The Arden Club: Arden Fair",
         "url": "https://ardenclub.org/arden-fair/",
         "note": "The organizer's own page, read 8 August 2026. States \"Every year the Arden Fair and Antiques Market is held on the Saturday of Labor Day Weekend\", gives Saturday 5 September 2026 as the 118th fair, free admission, opening bagpipes at 9:50 a.m. and closing at 6 p.m., and the Hanby Outdoor Center shuttle."
+      },
+      {
+        "label": "Coordinates",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Location only, not a fact about the event. Nominatim, the Arden Club."
       }
     ],
     "sourcedOn": "2026-08-08",
@@ -141,7 +169,12 @@
       "Ring the club to confirm the shuttle runs the whole day, and where it puts you down.",
       "Ask whether the antiques market keeps the same hours as the rest of the fair.",
       "The club states the rule but the site should still check the club's calendar each year, in case a year is moved."
-    ]
+    ],
+    "coords": {
+      "lat": 39.81002,
+      "lon": -75.48871,
+      "precision": "site"
+    }
   },
   {
     "slug": "rockwood-ice-cream-festival",
@@ -182,6 +215,12 @@
         "label": "New Castle County: Ice Cream Festival at Rockwood Park",
         "url": "https://www.newcastlede.gov/1103/Ice-Cream-Festival-at-Rockwood-Park",
         "note": "The standing county page for the festival. As of 8 August 2026 it carries only a thank-you for the finished 2026 event and no dates, which is why the announcement above is the source for the facts here."
+      },
+      {
+        "label": "Coordinates",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Location only, not a fact about the event. Rockwood Park's own record on this site — the festival is held there."
       }
     ],
     "sourcedOn": "2026-08-08",
@@ -191,7 +230,12 @@
       "PRIORITY: the 2027 date, once the county announces it. Until then this record has no future date at all.",
       "Ask the county whether $5 has held from year to year or whether it moves.",
       "Confirm the shuttle's first and last run, which the release doesn't give."
-    ]
+    ],
+    "coords": {
+      "lat": 39.759,
+      "lon": -75.517,
+      "precision": "site"
+    }
   },
   {
     "slug": "brandywine-festival-of-the-arts",
@@ -231,6 +275,12 @@
         "label": "Brandywine Festival of the Arts: directions",
         "url": "https://www.brandywinearts.com/directions.html",
         "note": "Read 8 August 2026. States \"The festival is held at Brandywine Park located at 1001 North Park Drive, Wilmington, DE 19802\", the Incyte parking at 1815 Augustine Cut Off, that the free shuttles are \"pet friendly (for friendly pets)\", and that on-site accessible parking is very limited."
+      },
+      {
+        "label": "Coordinates",
+        "url": "https://www.openstreetmap.org/",
+        "primary": false,
+        "note": "Location only, not a fact about the event. Nominatim, Brandywine Park."
       }
     ],
     "sourcedOn": "2026-08-08",
@@ -241,6 +291,11 @@
       "Confirm whether children are admitted free, and from what age.",
       "Confirm the computed dates against the festival's own calendar once it publishes them — the rule is theirs, the arithmetic is ours.",
       "Ask what time the Incyte shuttle starts and stops."
-    ]
+    ],
+    "coords": {
+      "lat": 39.75547,
+      "lon": -75.5487,
+      "precision": "site"
+    }
   }
 ]
