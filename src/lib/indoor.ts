@@ -85,8 +85,27 @@ export type IndoorKind =
  * /attractions/ takes the rest — same record shape, same template, no shelter
  * promised.
  */
+/**
+ * The default answer by kind. Every consumer must go through isIndoors rather
+ * than testing this directly — /attractions/ tested it directly and Ashland
+ * fell through both sections, existing on neither page, the moment a record
+ * overruled its kind.
+ */
 export const OUTDOOR_KINDS: IndoorKind[] = ["Zoo"];
-export const isIndoors = (p: { kind: IndoorKind }) => !OUTDOOR_KINDS.includes(p.kind);
+
+/**
+ * Kind is the default. The record can overrule it, because shelter is a fact
+ * about a specific place and not about its category.
+ *
+ * Ashland Nature Center is the case that forced this. It is a nature center,
+ * the same kind as the Delaware Museum of Nature & Science, and that museum is
+ * a genuine wet-afternoon answer. Ashland is four miles of trail with a ranger
+ * station that holds a child for about ten minutes — so filing it by kind put
+ * it on a page headed "when it rains", which is the exact mistake the zoo
+ * taught us not to make.
+ */
+export const isIndoors = (p: { kind: IndoorKind; isIndoors?: boolean | null }) =>
+  p.isIndoors ?? !OUTDOOR_KINDS.includes(p.kind);
 
 /**
  * Opening hours, in the two shapes these actually come in.
@@ -144,6 +163,11 @@ export interface IndoorPlace {
   /* The indoor equivalents of the park facility questions. `null` is
      unconfirmed everywhere and never renders as "no". */
   restrooms: boolean | null;
+  /**
+   * Overrides the kind when deciding whether this answers "it's raining".
+   * Leave null to let the kind decide.
+   */
+  isIndoors?: boolean | null;
   giftShop: boolean | null;
   /** Free-text: "step-free entrance, ADA restrooms" beats a boolean here. */
   accessibility: string | null;

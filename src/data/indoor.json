@@ -1277,7 +1277,7 @@
     "town": "Hockessin",
     "county": "New Castle",
     "address": "3511 Barley Mill Road, Hockessin, DE 19707",
-    "blurb": "Four miles of trails through forest, meadow and along the Red Clay Creek, with a visitor center and a pond. Free to walk, open sunrise to sunset, and one of the few places on this site where the dog can come and the creek is shallow enough to stand in.",
+    "blurb": "Four miles of trails through forest, meadow and along the Red Clay Creek, free and open sunrise to sunset, with a creek shallow enough for children to stand in and a dog welcome on a leash. This is an outdoor trip: the building is small.",
     "hours": {
       "lines": [
         {
@@ -1311,7 +1311,7 @@
     "accessibility": "The society lists accessible areas without saying which. Worth ringing 302-239-2334 if it decides the trip.",
     "parking": "Its own lot at the nature center. Confirmed first-hand; how quickly it fills at a weekend isn't.",
     "inside": [
-      "A visitor center with a gift shop, doubling as the ranger station.",
+      "A small ranger station with a gift shop — interesting, and about ten minutes' worth.",
       "About four miles of self-guided trails through forest, meadow and floodplain.",
       "The Red Clay Creek, shallow and gravel-bottomed where the trail meets it — the part children actually end up in.",
       "An outdoor play kitchen.",
@@ -1320,6 +1320,7 @@
     ],
     "branches": null,
     "warnings": [
+      "NOT a wet-weather answer. The ranger station is worth a look and will hold a child for about ten minutes; everything else here is outside.",
       "The building and the trails keep different hours. The trails are open sunrise to sunset every day; the visitor center is not.",
       "The Ashland Covered Bridge is just outside the entrance and you drive through it. It is one lane and low."
     ],
@@ -1369,7 +1370,13 @@
         "author": "Site maintainer",
         "body": "Restrooms, walking trails, a ranger station that doubles as the gift shop, and its own parking. The creek is the part worth driving for with small children — shallow, gravel-bottomed and slow where the trail meets it, so they can get in without it being a decision. There's an outdoor play kitchen too.",
         "photo": "ashland-red-clay"
+      },
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "Filed under indoors when I added it, which was wrong. Ashland is an outdoor trip — the ranger station is somewhat interesting but would only occupy kids for about ten minutes. It has moved to attractions and no longer answers \"somewhere dry when it rains\"."
       }
-    ]
+    ],
+    "isIndoors": false
   }
 ]

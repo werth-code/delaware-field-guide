@@ -23,14 +23,14 @@ import {
   giftShopAnswer,
   hoursAnswer,
   restroomAnswer,
-  OUTDOOR_KINDS,
+  isIndoors,
   type IndoorPlace,
 } from "../../lib/indoor";
 import { isVerified, isPublishable, robotsFor, sourcedText, stampText, tierOf } from "../../lib/verification";
 import { formatStampDate } from "../../lib/rules";
 
 export const getStaticPaths = (() =>
-  (indoorData as unknown as IndoorPlace[]).filter((p) => OUTDOOR_KINDS.includes(p.kind)).map((place) => ({
+  (indoorData as unknown as IndoorPlace[]).filter((p) => !isIndoors(p)).map((place) => ({
     params: { slug: place.slug },
     props: { place },
   }))) satisfies GetStaticPaths;
