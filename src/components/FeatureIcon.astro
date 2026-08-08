@@ -41,6 +41,7 @@ export type FeatureKey =
   | "rainyDay" | "outOfState" | "kidFriendly" | "feeCharged"
   /* Navigation, not features. */
   | "ask" | "phone" | "home"
+  | "fenced" | "paved" | "indoors"
   | "paddling" | "crabbing" | "waterPark" | "ropesCourse"
   | "climbingWall" | "tennis" | "golf" | "horseTrails";
 
@@ -96,7 +97,7 @@ const { icon, class: className = "", style } = Astro.props;
       the size these actually render — the whole point of the set is that the
       shape survives being small. */}
   {icon === "trails" && (<><path d="M12 3v18" /><path d="M12 6h8v3.5h-8" /><path d="M12 12H4v3.5h8" /></>)}
-  {icon === "pavedPath" && (<><path d="M7 21 10 3" /><path d="M17 21 14 3" /><path d="M11 6h2" /><path d="M10 12h4" /><path d="M9 18h6" /></>)}
+  {(icon === "pavedPath" || icon === "paved") && (<><path d="M7 21 10 3" /><path d="M17 21 14 3" /><path d="M11 6h2" /><path d="M10 12h4" /><path d="M9 18h6" /></>)}
   {/* A horseshoe, open end down. The obvious alternative was a horse, and a
       horse at 16px is a blob — the shoe reads at any size and means one
       thing. */}
@@ -126,7 +127,7 @@ const { icon, class: className = "", style } = Astro.props;
   {icon === "tennis" && (<><ellipse cx="9" cy="9" rx="5" ry="5" /><path d="M5.5 5.5l7 7" /><path d="M12.5 5.5l-7 7" /><path d="M13 13l7 8" /></>)}
   {icon === "golf" && (<><path d="M9 21V3l9 4-9 4" /><path d="M5 21h9" /></>)}
   {icon === "horseTrails" && (<><path d="M5 21v-7a4 4 0 0 1 4-4h3l4-5v6a10 10 0 0 1-3 7v3" /><path d="M12 10V6" /></>)}
-  {icon === "rainyDay" && (<><path d="M7 15a4 4 0 0 1 .5-8 5.5 5.5 0 0 1 10.4 1.6A3.4 3.4 0 0 1 17.5 15Z" /><path d="M8.5 18.5 7.5 21" /><path d="M12.5 18.5 11.5 21" /><path d="M16.5 18.5 15.5 21" /></>)}
+  {(icon === "rainyDay" || icon === "indoors") && (<><path d="M7 15a4 4 0 0 1 .5-8 5.5 5.5 0 0 1 10.4 1.6A3.4 3.4 0 0 1 17.5 15Z" /><path d="M8.5 18.5 7.5 21" /><path d="M12.5 18.5 11.5 21" /><path d="M16.5 18.5 15.5 21" /></>)}
   {/* A line being crossed. The first version ran the border the full height,
       which gave it the same silhouette as `trails` — a signpost on a tall
       vertical post — and at 14px on the contacts page the two were the same
@@ -141,6 +142,9 @@ const { icon, class: className = "", style } = Astro.props;
   {/* A ticket. Currency signs are national and this is the mark that has to
       read the same to somebody from Maryland. */}
   {icon === "feeCharged" && (<><path d="M3 8h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4Z" /><path d="M10 8v10" stroke-dasharray="2.5 2.5" /></>)}
+  {/* A fence. `dogPark` is the paw-and-ground mark; this is the one fact
+      about a dog park that decides whether the trip works. */}
+  {icon === "fenced" && (<><path d="M4 21V8l3-3 3 3v13" /><path d="M14 21V8l3-3 3 3v13" /><path d="M2 11h20" /><path d="M2 16h20" /></>)}
   {icon === "stables" && (<><path d="M7 20v-6a5 5 0 0 1 10 0v6" /><path d="M5 20h4" /><path d="M15 20h4" /></>)}
   {icon === "playground" && (<><path d="M6 21V7" /><path d="M10 21V7" /><path d="M6 11h4" /><path d="M6 15h4" /><path d="M10 7c6 1 8 7 8 14" /><path d="M4 21h16" /></>)}
   {/* Goalposts, not a ball. A ball is a circle with marks inside it and so is

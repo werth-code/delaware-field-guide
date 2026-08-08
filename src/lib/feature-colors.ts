@@ -86,6 +86,16 @@ export const FEATURE_COLOR: Record<string, string> = {
   golf: "#2f5325",
   horseTrails: "#6d4024",
 
+  /* The planner's own vocabulary. It names three things the facility lists
+     don't: whether a dog area is fenced, whether the paths are paved, and
+     whether a place is indoors. Without these three the ask results were the
+     only cards on the site whose chips had no colour at all. `paved` and
+     `indoors` deliberately match pavedPath and rainyDay — same thing, two
+     names, and they must not read as two things. */
+  fenced: "#5c4a12",
+  paved: "#4a4f55",
+  indoors: "#254367",
+
   /* Dogs. */
   petsAllowed: "#77481b",
   dogPark: "#734b1a",

@@ -28,6 +28,13 @@ import { buildMapPoints, MAP_KINDS, MAP_COUNTIES } from "../lib/map-points";
 
 const MAP_POINTS = buildMapPoints();
 
+/* The colour for every need, resolved at build time and handed to the script.
+   The result cards were the only ones on this site whose amenity chips had no
+   colour — plain marsh text, while the same amenity on a park card, a town
+   card or a map marker carries its own. The script builds its HTML as strings
+   and can't call colorFor, so it gets a lookup. */
+const NEED_COLORS = Object.fromEntries(NEED_LABELS.map(([k]) => [k, colorFor(k)]));
+
 const INDEX = buildIndex();
 const endpoint = import.meta.env.PUBLIC_CHAT_ENDPOINT ?? "";
 
@@ -178,7 +185,7 @@ const schema = [
   }
 </style>
 
-<script define:vars={{ INDEX, ENDPOINT: endpoint, NEED_LABELS }}>
+<script define:vars={{ INDEX, ENDPOINT: endpoint, NEED_LABELS, NEED_COLORS }}>
   /* ---- vocabulary ------------------------------------------------------ */
   const NEED_WORDS = {
     restrooms: ["toilet","toilets","restroom","restrooms","bathroom","bathrooms","loo","wc"],
@@ -455,8 +462,13 @@ const schema = [
 
   function card(s) {
     const p = s.p;
+    /* Same shape as the Tag component everywhere else: the feature's own
+       colour on the border and the label, on the pale ground. */
     const chips = NEED_LABELS.filter(([k]) => p.f[k] === true).slice(0,6)
-      .map(([,l]) => `<li class="sign-quiet px-2 py-0.5 stamp text-[0.68rem] text-marsh">${esc(l)}</li>`).join("");
+      .map(([k,l]) => {
+        const c = NEED_COLORS[k] || "#10201c";
+        return `<li class="inline-flex items-center px-2 py-1 stamp text-[0.68rem] leading-none border rounded-[var(--radius-sign)] bg-shell" style="color:${c};border-color:${c}">${esc(l)}</li>`;
+      }).join("");
     const dog = s.dog
       ? `<p class="stamp mt-2 mb-0 ${s.dog.ok === true ? "text-flag-green-bearing" : s.dog.ok === false ? "text-flag-red-bearing" : "text-ink-soft"}">${esc(s.dog.why)}</p>`
       : "";

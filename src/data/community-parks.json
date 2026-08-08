@@ -454,10 +454,10 @@
       "water": true,
       "shade": true,
       "pavilion": true,
-      "grills": null,
+      "grills": true,
       "trails": true,
-      "pavedPath": null,
-      "sports": null,
+      "pavedPath": true,
+      "sports": true,
       "fishing": false,
       "discGolf": false,
       "skate": false,
@@ -503,7 +503,14 @@
       "lon": -75.523,
       "precision": "site"
     },
-    "phoneNote": "New Castle County's parks permit office. The county publishes no separate number for this park, so this reaches the people who run it rather than the gate."
+    "phoneNote": "New Castle County's parks permit office. The county publishes no separate number for this park, so this reaches the people who run it rather than the gate.",
+    "fieldNotes": [
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "Confirmed on the ground: a baseball/soccer field, basketball courts, a gaga pit, the playground, shade, paved paths, trails and charcoal grills. Three of those were sitting at \"Not confirmed\" — courts and fields, paved paths, and grills.\n\nThe gaga pit has no field and isn't getting one. A schema field for something one park in nineteen has would print \"Not confirmed\" on the other eighteen, which is noise pretending to be rigour. It lives here, where somebody with a nine-year-old will find it."
+      }
+    ]
   },
   {
     "slug": "river-road-park",
