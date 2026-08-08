@@ -1268,5 +1268,108 @@
       "lon": -75.524,
       "precision": "town"
     }
+  },
+  {
+    "slug": "ashland-nature-center",
+    "name": "Ashland Nature Center",
+    "kind": "Nature center",
+    "operator": "Delaware Nature Society",
+    "town": "Hockessin",
+    "county": "New Castle",
+    "address": "3511 Barley Mill Road, Hockessin, DE 19707",
+    "blurb": "Four miles of trails through forest, meadow and along the Red Clay Creek, with a visitor center and a pond. Free to walk, open sunrise to sunset, and one of the few places on this site where the dog can come and the creek is shallow enough to stand in.",
+    "hours": {
+      "lines": [
+        {
+          "days": "Trails and grounds",
+          "text": "Daily, sunrise to sunset"
+        },
+        {
+          "days": "Visitor center, Monday – Friday",
+          "text": "9am – 4pm (April to October)"
+        },
+        {
+          "days": "Visitor center, Saturday & Sunday",
+          "text": "10am – 3pm (April to October)"
+        }
+      ],
+      "season": "The visitor center hours above are the April-to-October ones. What it does in winter is not published.",
+      "note": "The trails keep their own hours and are open every day regardless of the building."
+    },
+    "admission": {
+      "note": "Free. The Delaware Nature Society says so plainly on its own page for the site.",
+      "free": true,
+      "amount": 0
+    },
+    "phone": "302-239-2334",
+    "website": {
+      "label": "Delaware Nature Society: Ashland Nature Center",
+      "url": "https://delawarenaturesociety.org/centers/ashland-nature-center/"
+    },
+    "restrooms": true,
+    "giftShop": true,
+    "accessibility": "The society lists accessible areas without saying which. Worth ringing 302-239-2334 if it decides the trip.",
+    "parking": "Its own lot at the nature center. Confirmed first-hand; how quickly it fills at a weekend isn't.",
+    "inside": [
+      "A visitor center with a gift shop, doubling as the ranger station.",
+      "About four miles of self-guided trails through forest, meadow and floodplain.",
+      "The Red Clay Creek, shallow and gravel-bottomed where the trail meets it — the part children actually end up in.",
+      "An outdoor play kitchen.",
+      "A pond, and the dipping nets that go with it.",
+      "Restrooms and a picnic area."
+    ],
+    "branches": null,
+    "warnings": [
+      "The building and the trails keep different hours. The trails are open sunrise to sunset every day; the visitor center is not.",
+      "The Ashland Covered Bridge is just outside the entrance and you drive through it. It is one lane and low."
+    ],
+    "sources": [
+      {
+        "label": "Delaware Nature Society: Ashland Nature Center",
+        "url": "https://delawarenaturesociety.org/centers/ashland-nature-center/",
+        "primary": true,
+        "note": "The operator. Gives the Barley Mill Road address and 302-239-2334, admission as free, trails and grounds open daily sunrise to sunset, visitor center hours April to October, roughly four miles of self-guided trails, restrooms, a picnic area, accessible areas, dogs as pet-friendly on a leash, and the covered bridge at the entrance."
+      }
+    ],
+    "sourcedOn": "2026-08-08",
+    "verifiedDate": "2026-08-08",
+    "verifiedSource": "Site maintainer, first-hand, with photographs",
+    "outstanding": [
+      "What the visitor center does from November to March — the published hours stop at October.",
+      "Which areas are the accessible ones. The society says there are some without naming them.",
+      "Is the pond dipping equipment there for anyone, or only on a booked program?",
+      "Does the parking lot fill at weekends?"
+    ],
+    "photos": [
+      {
+        "file": "ashland-red-clay",
+        "alt": "A shallow, clear creek running over pale gravel between wooded banks under a blue sky, with a gravel bar in the foreground and stepping stones upstream.",
+        "caption": "The Red Clay Creek where the trail meets it. Ankle-deep over gravel here, and clear enough to see the bottom right across.",
+        "credit": "Site maintainer",
+        "takenOn": "2026-08-08",
+        "portrait": false
+      },
+      {
+        "file": "ashland-frog",
+        "alt": "A large green and brown frog sitting in a green mesh dip net held over a hand.",
+        "caption": "What comes out of the pond. Caught, looked at, and put straight back.",
+        "credit": "Site maintainer",
+        "takenOn": "2026-08-08",
+        "portrait": false
+      }
+    ],
+    "coords": {
+      "lat": 39.7877,
+      "lon": -75.6672,
+      "precision": "site"
+    },
+    "fieldNotes": [
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "Restrooms, walking trails, a ranger station that doubles as the gift shop, and its own parking. The creek is the part worth driving for with small children — shallow, gravel-bottomed and slow where the trail meets it, so they can get in without it being a decision. There's an outdoor play kitchen too.",
+        "photo": "ashland-red-clay"
+      }
+    ]
   }
 ]
