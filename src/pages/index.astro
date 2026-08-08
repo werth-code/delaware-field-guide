@@ -20,6 +20,7 @@ import stateParksData from "../data/state-parks.json";
 import communityParksData from "../data/community-parks.json";
 import dogParksData from "../data/parks.json";
 import surfData from "../data/surf-fishing.json";
+import { isIndoors } from "../lib/indoor";
 import indoorData from "../data/indoor.json";
 import drinkData from "../data/drink.json";
 import eventsData from "../data/events.json";
@@ -55,8 +56,20 @@ const dogParks = dogParksData as { verifiedDate: string | null; verifiedSource: 
 
 type Row = { verifiedDate: string | null; verifiedSource: string | null };
 const indoorAll = indoorData as unknown as (Row & { kind: string })[];
-const indoors = indoorAll.filter((r) => r.kind !== "Zoo");
-const attractions = indoorAll.filter((r) => r.kind === "Zoo");
+/* isIndoors(), NOT kind === "Zoo".
+ *
+ * This is the third place that same stale test had been copied to. It was
+ * written when the only outdoor record in indoor.json was the Brandywine Zoo,
+ * and it broke the day Ashland Nature Center arrived: Ashland isn't a zoo, so
+ * it counted as indoors here while /attractions/ listed it, and the homepage
+ * reported "13 of 13 indoor places" and "1 of 1 places to go" for a dataset
+ * holding 12 and 2.
+ *
+ * I fixed this in map-points.ts and in /attractions/ earlier and missed this
+ * copy, which is the argument against there being copies. One predicate, in
+ * lib/indoor.ts, imported. */
+const indoors = indoorAll.filter(isIndoors);
+const attractions = indoorAll.filter((r) => !isIndoors(r));
 const drink = drinkData as unknown as Row[];
 const events = eventsData as unknown as Row[];
 const nearby = nearbyData as unknown as Row[];
@@ -202,7 +215,7 @@ const sectionsRaw = [
   {
     href: "/surf-fishing/",
     title: "Surf fishing",
-    lede: "Five of the twelve crossings need a reservation in peak hours. Not seven.",
+    lede: `${surfData.crossings.filter((c) => c.reservation === true).length} of the ${surfData.crossings.length} crossings need a reservation in peak hours.`,
     detail:
       "Drive-on access, permits, licenses, and the after-4pm rule that lets annual permit holders skip reservations entirely.",
     contents: [
@@ -213,7 +226,13 @@ const sectionsRaw = [
       "Walk-on access, free, no permit",
     ],
     total: surfData.crossings.length,
-    live: 0,
+    /* WAS HARDCODED 0, AND IT WAS MEASURING THE WRONG THING.
+       It counted crossings with their own child page — an internal fact about
+       this site's routing. The homepage told a reader "0 of 12 crossings
+       published" while /surf-fishing/ answered all twelve. Nobody standing on
+       the sand cares whether an answer has its own URL; they care whether it
+       exists. Count the answers. */
+    live: surfData.crossings.filter((c) => c.reservation !== null).length,
     unit: "crossings",
     figure: false,
   },
@@ -222,7 +241,7 @@ const sectionsRaw = [
     title: "Indoors",
     lede: "Museums, science centers and libraries — for when it rains.",
     detail:
-      "Hagley, Winterthur, the Biggs, the state's natural history museum, and fifteen library branches. Hours lead every card, because most of these shut two or three days a week.",
+      `Hagley, Winterthur, the Biggs, the state's natural history museum, and ${indoorAll.reduce((n, r: any) => n + (r.branches?.length ?? 0), 0)} library branches. Hours lead every card, because most of these shut two or three days a week.`,
     contents: [
       "Opening hours, checked against the operator",
       "What admission actually costs",
@@ -235,14 +254,17 @@ const sectionsRaw = [
   },
   {
     href: "/wineries-and-breweries/",
-    title: "Wine and beer",
-    lede: "Which wineries and breweries actually allow dogs.",
+    title: "Beer, wine, cider & mead",
+    /* Was "Which wineries and breweries actually allow dogs" — a card about
+       one column of a table with forty-four rows. Dogs are still answered
+       here, but they aren't what the section is. */
+    lede: `Every active brewery, winery, cidery and meadery in Delaware — ${drink.length} of them.`,
     detail:
-      "Every guide calls these dog friendly. Almost none of them asked the business. This page prints the policy only where the winery or brewery publishes one itself.",
+      "Opening hours where the business publishes them, and a dog policy only where it says so in its own words. Half of these aren't on the tourism guides at all.",
     contents: [
-      "The dog answer, from the operator or not at all",
-      "Hours and tasting fees",
-      "Which publish no policy at all",
+      "Hours from the business, not a listing site",
+      "Dog policy where the operator publishes one",
+      "Breweries, brewpubs, wineries, cideries and meaderies",
     ],
     ...count(drink),
     unit: "listed",

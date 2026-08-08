@@ -1,4 +1,5 @@
 ---
+import { mapQuery } from "../lib/place-query";
 /**
  * Rendered Google map.
  *
@@ -28,7 +29,7 @@ interface Props {
 
 const { name, town = null, address = null, region = "DE", zoom = 13, class: klass = "" } = Astro.props;
 
-const query = [name, address ?? town, region].filter(Boolean).join(", ");
+const query = mapQuery({ name, town, address, region });
 const src = `https://www.google.com/maps?q=${encodeURIComponent(query)}&z=${zoom}&output=embed`;
 const linkHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 ---

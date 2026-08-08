@@ -288,3 +288,76 @@ export function asks(p: IndoorPlace): string[] {
   }
   return q;
 }
+
+/**
+ * Which days a place is shut, worked out from the days it says it's open.
+ *
+ * WHY THIS IS COMPUTED AND NOT WRITTEN DOWN
+ *
+ * The indoors index carried a hand-typed paragraph — "the Delaware Art Museum
+ * and the Biggs are closed Monday and Tuesday" — while biggs-museum's own
+ * record said Thursday to Sunday, which is Monday, Tuesday AND Wednesday. The
+ * detail page rendered both sentences, three inches apart, disagreeing about a
+ * Wednesday. Somebody drives on that.
+ *
+ * That is the fourth hand-maintained number on this site to go stale in two
+ * days. The others were a recurring-events count, a dog-park caption and a
+ * "four of them" on the drinks page. The fix that generalises isn't checking
+ * them more carefully, it's not typing them.
+ *
+ * RETURNS NULL RATHER THAN GUESSING. Ashland's lines are prefixed ("Visitor
+ * center, Monday – Friday") and the libraries have no lines at all. A parser
+ * that shrugs and returns something for those would put a wrong closing day on
+ * the page, which is the exact failure being fixed. Unparseable means absent.
+ */
+const DAYS = [
+  "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+] as const;
+
+export function closedDays(p: IndoorPlace): string[] | null {
+  const lines = p.hours?.lines;
+  if (!lines?.length) return null;
+
+  const open = new Set<string>();
+  for (const line of lines) {
+    const s = (line.days ?? "").trim();
+    const every = /^every day$/i.test(s);
+    const except = s.match(/^every day,? except (\w+day)$/i);
+    const range = s.match(/^(\w+day)\s*[–—-]\s*(\w+day)$/);
+    const pair = s.match(/^(\w+day)\s*(?:&|and)\s*(\w+day)$/i);
+    const one = s.match(/^(\w+day)$/);
+
+    const idx = (d: string) => DAYS.findIndex((x) => x.toLowerCase() === d.toLowerCase());
+
+    if (every) DAYS.forEach((d) => open.add(d));
+    else if (except) {
+      const skip = idx(except[1]);
+      if (skip < 0) return null;
+      DAYS.forEach((d, i) => i !== skip && open.add(d));
+    } else if (range) {
+      const a = idx(range[1]), b = idx(range[2]);
+      if (a < 0 || b < 0) return null;
+      /* Wraps the week end: "Saturday – Tuesday" is four days, not none. */
+      for (let i = a; ; i = (i + 1) % 7) {
+        open.add(DAYS[i]);
+        if (i === b) break;
+      }
+    } else if (pair) {
+      const a = idx(pair[1]), b = idx(pair[2]);
+      if (a < 0 || b < 0) return null;
+      open.add(DAYS[a]);
+      open.add(DAYS[b]);
+    } else if (one) {
+      const a = idx(one[1]);
+      if (a < 0) return null;
+      open.add(DAYS[a]);
+    } else return null; /* anything else: say nothing */
+  }
+  return DAYS.filter((d) => !open.has(d));
+}
+
+/** "Monday and Tuesday" · "Monday, Tuesday and Wednesday" — for prose. */
+export function listDays(days: string[]): string {
+  if (days.length === 1) return days[0];
+  return `${days.slice(0, -1).join(", ")} and ${days[days.length - 1]}`;
+}

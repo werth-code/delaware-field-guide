@@ -29,12 +29,20 @@ import Filters from "../../components/Filters.astro";
 import CardGallery from "../../components/CardGallery.astro";
 
 import indoorData from "../../data/indoor.json";
-import { COUNTY_ORDER, completeness, hoursAnswer, isIndoors, present, type IndoorPlace } from "../../lib/indoor";
+import { COUNTY_ORDER, closedDays, completeness, hoursAnswer, isIndoors, listDays, present, type IndoorPlace } from "../../lib/indoor";
 import { isPublishable, robotsFor } from "../../lib/verification";
 import { byPhotoThen } from "../../lib/order";
 
 
 const places = (indoorData as unknown as IndoorPlace[]).filter(isIndoors);
+
+/* Places that shut on a weekday somebody would reasonably turn up on. Sorted
+   by how many days they're shut, so the worst surprise leads. */
+const shutSome = places
+  .map((p) => ({ name: p.shortName ?? p.name, days: closedDays(p) }))
+  .filter((x): x is { name: string; days: string[] } => !!x.days?.length)
+  .sort((a, b) => b.days.length - a.days.length || a.name.localeCompare(b.name))
+  .slice(0, 5);
 const live = places.filter(isPublishable);
 const gate = {
   verifiedDate: null,
@@ -86,11 +94,19 @@ const stripItems: StripItem[] = (places as any[])
       A quick check can save you a wasted trip.
     </p>
 
+    {/* GENERATED. This paragraph used to be typed out, and it said the Biggs
+        was closed Monday and Tuesday while the Biggs' own record said Thursday
+        to Sunday — which is Monday, Tuesday and Wednesday. Both sentences
+        rendered on the same detail page, disagreeing about a Wednesday.
+        Now the sentence cannot disagree with the record it describes. */}
     <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
-      Some Delaware favorites keep unusual schedules. The Delaware Art Museum
-      and the Biggs are closed Monday and Tuesday. The Old State House is
-      closed Sunday through Tuesday. Hagley closes Wednesdays, and Zwaanendael
-      is closed Sunday and Monday.
+      Some Delaware favorites keep unusual schedules.{" "}
+      {shutSome.map((s, i) => (
+        <>
+          {i > 0 && (i === shutSome.length - 1 ? " And " : " ")}
+          {s.name} is closed {listDays(s.days)}.
+        </>
+      ))}
     </p>
 
     <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">

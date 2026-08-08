@@ -98,7 +98,7 @@ const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
         {park.name}
       </h1>
       <p class="stamp text-ink-soft mt-3 mb-0">
-        {park.operator} · {park.address}{park.acres ? ` · ${park.acres} acres` : ""}
+        {[park.operator, park.address, park.acres ? `${park.acres} acres` : null].filter(Boolean).join(" · ")}
       </p>
       <p class="mt-3 mb-0">
         <MapLink name={park.name} town={park.town} address={park.address} label="Open in Google Maps" />

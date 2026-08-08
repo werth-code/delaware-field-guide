@@ -1,4 +1,5 @@
 ---
+import { mapQuery } from "../lib/place-query";
 /**
  * Directions link.
  *
@@ -34,7 +35,7 @@ const {
 
 /* Prefer a real street address; fall back to name + town, which Google
    resolves reliably for parks. */
-const query = [name, address ?? town, region].filter(Boolean).join(", ");
+const query = mapQuery({ name, town, address, region });
 const href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 ---
 

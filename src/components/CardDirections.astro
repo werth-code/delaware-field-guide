@@ -1,4 +1,5 @@
 ---
+import { mapQuery } from "../lib/place-query";
 /**
  * A directions control on a single listing card.
  *
@@ -37,7 +38,7 @@ interface Props {
 }
 const { name, town = null, address = null, region = "DE", class: className = "" } = Astro.props;
 
-const query = [name, address ?? town, region].filter(Boolean).join(", ");
+const query = mapQuery({ name, town, address, region });
 const href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 ---
 

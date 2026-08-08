@@ -70,7 +70,7 @@ export const SECTIONS: Section[] = [
   },
   {
     slug: "wineries-and-breweries",
-    label: "Wine & beer",
+    label: "Drinks",
     icon: "giftShop",
     nav: [{ href: "/wineries-and-breweries/", label: "Wineries and breweries" }],
   },

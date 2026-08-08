@@ -931,10 +931,10 @@
     "name": "Kesselring County Park",
     "operator": "Kent County",
     "county": "Kent",
-    "town": "Kent County",
-    "address": "Kent County, DE",
+    "town": null,
+    "address": null,
     "acres": null,
-    "blurb": "A Kent County park. Facilities not yet confirmed.",
+    "blurb": "A Kent County park. I have not found the county's own page for it — the parks listing names it and nothing else. Location, facilities and hours all unconfirmed.",
     "restrooms": {
       "present": null,
       "type": null,
@@ -964,13 +964,11 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Everything. Call Kent County Parks and fill this record in, or drop it."
+      "Everything. Call Kent County Parks and fill this record in, or drop it.",
+      "Where it actually is. The county lists the name; I have no address, and the previous record carried the county centroid as though it were the park.",
+      "Everything else — facilities, hours, parking, restrooms."
     ],
-    "coords": {
-      "lat": 39.16,
-      "lon": -75.51,
-      "precision": "town"
-    },
+    "coords": null,
     "phoneNote": "Kent County Parks & Recreation, weekdays 8am–5pm. The county publishes no per-park numbers, so this is the office that runs it.",
     "sources": [
       {

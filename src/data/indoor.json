@@ -268,9 +268,9 @@
       "note": "The research library keeps its own hours: Monday to Friday 9am to 4pm for drop-ins, special collections by appointment. Yuletide adds some Friday and Saturday evenings."
     },
     "admission": {
-      "note": "Not confirmed. Winterthur sells tickets online and by phone but doesn't publish a price table on its visit page.",
+      "note": "Adults $29, seniors 62+ and students 13+ $27, groups of 15+ $26, children 3–12 $12, under 3 free. Yuletide runs dearer: $33 adult, $31 senior/student, $12 child. SNAP and EBT cardholders pay $2; active-duty military are free through Blue Star Museums. Published by Winterthur on its admission and packages page, read 8 August 2026.",
       "free": false,
-      "amount": null
+      "amount": 29.0
     },
     "phone": "800-448-3883",
     "website": {
@@ -298,6 +298,12 @@
         "label": "Winterthur: visit",
         "url": "https://www.winterthur.org/visit/",
         "note": "The operator. Gives Tuesday to Sunday 10am to 5pm, the separate library hours, the Kennett Pike address, the phone number, the 60-acre garden and 25 miles of paths, Enchanted Woods, the gift shop and dining. Publishes no admission price table."
+      },
+      {
+        "label": "Winterthur — admission and packages",
+        "url": "https://www.winterthur.org/visit/admission-packages/",
+        "note": "The full price table. Read 8 August 2026.",
+        "primary": true
       }
     ],
     "sourcedOn": "2026-08-04",
@@ -821,7 +827,7 @@
       "note": null
     },
     "admission": {
-      "note": "Not confirmed. The museum publishes no admission price on its visit page.",
+      "note": "Not confirmed. I have not found a published price, and the museum's own site was unreachable when I last tried (8 August 2026). Ring before you rely on it being free.",
       "free": null,
       "amount": null
     },

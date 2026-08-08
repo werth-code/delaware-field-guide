@@ -134,7 +134,7 @@ const stripItems: StripItem[] = (parks as any[])
                         {park.name}
                       </h3>
                       <p class="stamp text-ink-soft mt-1 mb-0">
-                        {park.operator} · {park.town}
+                        {[park.operator, park.town].filter(Boolean).join(" · ")}
                       </p>
                     </div>
                     <span class="stamp text-ink-soft shrink-0">{known}/{total}</span>
