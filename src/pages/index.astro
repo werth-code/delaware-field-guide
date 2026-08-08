@@ -78,7 +78,10 @@ const count = (rows: { verifiedDate: string | null; verifiedSource: string | nul
  * describing a photograph differently from the page it came off.
  *
  * A section gets a header only where the site has a real photograph of that
- * subject. Four of them don't: indoors, wine and beer, disc golf and events.
+ * subject. Three of them don't: wine and beer, disc golf and events. Indoors
+ * had none until the Wikimedia batch landed; it wears the New Castle Court
+ * House now, which is a borrowed photograph and carries its credit and licence
+ * on the record it came from.
  * A stand-in illustration for those would be furniture pretending to be
  * content, which is the same thing the "not yet photographed" panels were
  * pulled for. They stay plain until somebody has actually been.
@@ -92,6 +95,7 @@ const SECTION_HEADERS: Record<string, string> = {
   "/parks/": "cape-henlopen-bay",
   "/parks/community/": "talley-day-playground",
   "/surf-fishing/": "delaware-seashore-surf",
+  "/indoors/": "new-castle-court-house",
   "/attractions/": "ashland-red-clay",
   "/nearby/": "plumpton-peacock",
 };
