@@ -63,6 +63,12 @@ export default defineConfig({
   // This is THE URL structure decision. It is fixed. See README.
   build: { format: 'directory' },
 
+  // /map/ existed for one afternoon before the map moved onto /ask/, which is
+  // now the one page for "where should I go". Redirecting rather than deleting,
+  // because a URL that has been public at all may have been linked, and a 404
+  // is a worse answer than the page the visitor actually wanted.
+  redirects: { '/map/': '/ask/' },
+
   integrations: [
     sitemap({
       filter: (page) =>

@@ -23,6 +23,10 @@ import Layout from "../layouts/Layout.astro";
 import FeatureIcon from "../components/FeatureIcon.astro";
 import { colorFor } from "../lib/feature-colors";
 import { buildIndex, NEED_LABELS } from "../lib/planner";
+import StateMap from "../components/StateMap.astro";
+import { buildMapPoints, MAP_KINDS, MAP_COUNTIES } from "../lib/map-points";
+
+const MAP_POINTS = buildMapPoints();
 
 const INDEX = buildIndex();
 const endpoint = import.meta.env.PUBLIC_CHAT_ENDPOINT ?? "";
@@ -30,13 +34,18 @@ const endpoint = import.meta.env.PUBLIC_CHAT_ENDPOINT ?? "";
 /* Each example wears the colour and glyph of the thing it asks for — the same
    pair the filter chips use on every listing page, so the palette is already
    learnt by the time anyone reaches this page. */
+/* Phrased as the thing somebody actually thinks, not as the section it lands
+   in: "somewhere dry when it rains" is the thought, "/indoors/" is where I
+   happen to file it. These came off the front page when the examples and the
+   map were consolidated here — they were better written than the ones this
+   page had, which named features instead of asking questions. */
 const examples: { text: string; key: string }[] = [
-  { text: "Dog on the beach in July", key: "beach" },
-  { text: "Can I bring my dog to Rehoboth today?", key: "petsAllowed" },
-  { text: "Playground and restrooms in Sussex", key: "playground" },
-  { text: "Fenced dog park near Wilmington", key: "dogPark" },
-  { text: "Free beach with parking", key: "free" },
-  { text: "Somewhere shady to walk the dog", key: "shade" },
+  { text: "Can the dog come to the beach?", key: "petsAllowed" },
+  { text: "Somewhere dry when it rains", key: "free" },
+  { text: "A playground with restrooms", key: "playground" },
+  { text: "A fenced dog park near Wilmington", key: "dogPark" },
+  { text: "Somewhere to take a 3 year old on a hot day", key: "shade" },
+  { text: "Free beach with parking", key: "beach" },
 ];
 
 const schema = [
@@ -55,7 +64,7 @@ const schema = [
 
 <Layout
   title="Ask — Delaware dog rules and places, in a sentence"
-  description="Type what you need — dogs on the beach in July, a fenced dog park, a playground with restrooms — and get the Delaware places that confirm it, with dates."
+  description="Type what you need — a dog on the beach in July, a playground with restrooms — and get the Delaware places that confirm it, on a map, with dates."
   schema={schema}
 >
   <div class="wrap pt-11 pb-6">
@@ -64,9 +73,14 @@ const schema = [
       Just ask it
     </h1>
     <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
-      Say it the way you'd say it out loud — "dog on the beach in July". It
+      Say it the way you'd say it out loud: "dog on the beach in July". It
       works out the date, checks the rule for that town on that day, and shows
       you the source.
+    </p>
+    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
+      Your answer lands on the map below as well as in the list, so you can see
+      where it is before you read it. Or ignore the box and just browse the
+      map.
     </p>
   </div>
 
@@ -110,6 +124,27 @@ const schema = [
         }
       </ul>
     </form>
+  </div>
+
+  {/*
+    THE MAP IS THE ANSWER SURFACE, not a second page.
+    Asking a question and browsing a map are the same question asked two ways
+    — "where should I go" — and they were two separate doors you had to guess
+    between. Now the question filters the markers, so you can see the shape of
+    the answer before reading a word of it: four pins in one corner of the
+    state is a different answer from four scattered across it.
+
+    It sits ABOVE the results deliberately. Put it below and the thing that
+    reacts to your question is off-screen at the moment you ask.
+  */}
+  <div class="wrap pb-6">
+    <StateMap
+      points={MAP_POINTS}
+      kinds={MAP_KINDS}
+      counties={MAP_COUNTIES}
+      startWith={["New Castle"]}
+      heading="On the map"
+    />
   </div>
 
   <div class="wrap pb-4">
@@ -452,7 +487,56 @@ const schema = [
   const input = document.getElementById("ask-input");
   const out = document.getElementById("ask-out");
 
+  /**
+   * Hand the answer to the map.
+   *
+   * Confirmed AND unchecked, because the results list shows both and a map
+   * that quietly dropped the unchecked ones would disagree with the page it
+   * is sitting on — which on this site is the one thing that must never
+   * happen. Blocked places are left off: they're the answer to "can I", not
+   * to "where".
+   *
+   * Places with no coordinates simply have no marker, so the banner counts
+   * the answer and the map counts its own pins. Those two numbers can differ
+   * and that is honest: the gap is what I haven't pinned yet.
+   */
+  const mapRoot = document.querySelector("[data-statemap]");
+  function tellMap(r) {
+    if (!mapRoot) return;
+    if (r.empty) {
+      send({ slugs: null });
+      return;
+    }
+    const hits = [...r.matches, ...r.unconfirmed];
+    const label = r.matches.length
+      ? `Your question: ${r.matches.length} confirmed${r.unconfirmed.length ? `, ${r.unconfirmed.length} not checked` : ""}`
+      : `Your question: ${r.unconfirmed.length} that might work, none confirmed`;
+    send({ slugs: hits.map((h) => h.p.href), label });
+  }
+
+  /**
+   * WHY THIS ISN'T JUST dispatchEvent.
+   *
+   * This script carries `define:vars`, so Astro renders it inline and it runs
+   * DURING parsing. StateMap's script has no vars, so Astro hoists it into a
+   * deferred module that runs after. Arriving on /ask/?q=… therefore fired the
+   * answer at a listener that did not exist yet: the results list was right and
+   * the map ignored it completely, which is the worst of the three possible
+   * outcomes because both halves look like they're working.
+   *
+   * Every later render happens well after load, so this only defers the first.
+   */
+  function send(detail) {
+    const fire = () => mapRoot.dispatchEvent(new CustomEvent("map:answer", { detail }));
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fire, { once: true });
+    } else {
+      fire();
+    }
+  }
+
   function render(r, lead, followUps, pending) {
+    tellMap(r);
     const grid = a => a.length ? `<div class="grid sm:grid-cols-2 gap-3 mt-3">${a.map(card).join("")}</div>` : "";
     const bare = r.empty;
     /* Only worth saying where the answer actually moves with the date — the

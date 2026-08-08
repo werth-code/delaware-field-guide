@@ -22,10 +22,8 @@ import drinkData from "../data/drink.json";
 import eventsData from "../data/events.json";
 import nearbyData from "../data/nearby.json";
 import { isPublishable } from "../lib/verification";
-import { buildMapPoints } from "../lib/map-points";
 import type { StatePark } from "../lib/state-parks";
-import { colorFor, COUNTY_COLOR } from "../lib/feature-colors";
-import FeatureIcon from "../components/FeatureIcon.astro";
+import { colorFor } from "../lib/feature-colors";
 
 const towns = townsData as { slug: string; name: string; verifiedDate: string | null; verifiedSource: string | null }[];
 const stateParks = stateParksData as { county: string; verifiedDate: string | null; verifiedSource: string | null }[];
@@ -121,10 +119,23 @@ const headerFor = (href: string) => {
   return photo ? { file: file!, ...photo } : null;
 };
 
-const sections = [
+/**
+ * THE ORDER OF THE CARDS.
+ *
+ * Three named first, because they're what people come for and "state parks"
+ * is the phrase most of them arrive typing. Then whatever has a photograph,
+ * because a card with a picture on it is worth more than a card without one
+ * and burying them behind four text cards wastes them. Then the rest.
+ *
+ * The numbers on the cards are positions, computed below rather than written
+ * on each section — they were hardcoded, and the first reorder would have left
+ * "Section 07" sitting second.
+ */
+const ORDER_FIRST = ["/parks/", "/parks/community/", "/dogs/"];
+
+const sectionsRaw = [
   {
     href: "/dogs/",
-    n: "01",
     title: "Dogs",
     lede: "Where your dog is legal, on what date, and what it costs.",
     detail:
@@ -142,7 +153,6 @@ const sections = [
   },
   {
     href: "/parks/",
-    n: "02",
     title: "State parks",
     lede: "All 17, what's actually at each one, and the 2026 fees.",
     detail:
@@ -159,7 +169,6 @@ const sections = [
   },
   {
     href: "/parks/community/",
-    n: "03",
     title: "Community parks",
     lede: "The local ones. Is there a toilet, and is it open?",
     detail:
@@ -176,7 +185,6 @@ const sections = [
   },
   {
     href: "/surf-fishing/",
-    n: "04",
     title: "Surf fishing",
     lede: "Five of the twelve crossings need a reservation. Not seven.",
     detail:
@@ -195,7 +203,6 @@ const sections = [
   },
   {
     href: "/indoors/",
-    n: "05",
     title: "Indoors",
     lede: "Museums, science centers and libraries — for when it rains.",
     detail:
@@ -212,7 +219,6 @@ const sections = [
   },
   {
     href: "/wineries-and-breweries/",
-    n: "06",
     title: "Wine and beer",
     lede: "Which wineries and breweries actually allow dogs.",
     detail:
@@ -228,7 +234,6 @@ const sections = [
   },
   {
     href: "/disc-golf/",
-    n: "07",
     title: "Disc golf",
     lede: "Nine courses. The round is free; the gate isn't.",
     detail:
@@ -245,7 +250,6 @@ const sections = [
   },
   {
     href: "/events/",
-    n: "08",
     title: "Events",
     lede: "Annual fairs and festivals, with dates worked out rather than guessed.",
     detail:
@@ -261,7 +265,6 @@ const sections = [
   },
   {
     href: "/attractions/",
-    n: "09",
     title: "Places to go",
     lede: "Days out that aren't parks. You pay in, they shut at a time.",
     detail:
@@ -276,7 +279,6 @@ const sections = [
   },
   {
     href: "/nearby/",
-    n: "10",
     title: "Just over the line",
     lede: "Worth the drive, and not in Delaware.",
     detail:
@@ -291,30 +293,17 @@ const sections = [
   },
 ];
 
-const mapCount = buildMapPoints().length;
+const sections = [...sectionsRaw]
+  .sort((a, b) => {
+    const rank = (s: { href: string }) => {
+      const named = ORDER_FIRST.indexOf(s.href);
+      if (named !== -1) return named;
+      return headerFor(s.href) ? 10 : 20;
+    };
+    return rank(a) - rank(b) || sectionsRaw.indexOf(a) - sectionsRaw.indexOf(b);
+  })
+  .map((s, i) => ({ ...s, n: String(i + 1).padStart(2, "0") }));
 
-const facts = [
-  { n: String(stateParks.length), label: "state parks" },
-  { n: String(dogParks.length + communityParks.length), label: "local parks" },
-  { n: String(towns.length), label: "beach towns" },
-  { n: String(indoors.length + drink.length + attractions.length), label: "museums, bars, days out" },
-];
-
-/*
- * The questions people actually turn up with, each one a real query against
- * the real index. They are questions, not section names: "somewhere dry when
- * it rains" is what someone thinks, "/indoors/" is where we happen to file it.
- */
-const heroAsks: { q: string; key: string }[] = [
-  { q: "Can the dog come to the beach?", key: "petsAllowed" },
-  { q: "Somewhere dry when it rains", key: "free" },
-  { q: "A playground with restrooms", key: "playground" },
-  { q: "A fenced dog park near me", key: "dogPark" },
-  { q: "Free beach with parking", key: "beach" },
-  { q: "Somewhere shady to walk", key: "shade" },
-];
-
-/* North to south, the way you'd drive it. */
 const schema = [
   {
     "@context": "https://schema.org",
@@ -429,76 +418,18 @@ const schema = [
       checked, it says so.
     </p>
 
-    <p class="label mt-8 mb-0">Try one of these</p>
-    <ul class="list-none p-0 m-0 mt-2.5 flex flex-wrap gap-1.5">
-      {
-        heroAsks.map((a) => (
-          <li>
-            <a
-              href={`/ask/?q=${encodeURIComponent(a.q)}`}
-              style={`--fc:${colorFor(a.key)}`}
-              class="example-chip tap inline-flex items-center gap-1.5 px-3 py-2 no-underline text-[0.85rem] leading-none border-2 rounded-[var(--radius-sign)] bg-shell"
-            >
-              <FeatureIcon icon={a.key as any} class="w-[1.15em] h-[1.15em] shrink-0" />
-              {a.q}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    {/*
+      WHAT USED TO BE HERE: six example questions, two buttons, a row of
+      counts, and a card pointing at the map. All four were the same move —
+      the front page demonstrating the site to you before letting you into it
+      — and stacked together they put four screens between the headline and
+      the ten cards that are the actual contents.
 
-    <div class="mt-7 flex flex-wrap gap-3">
-      <a
-        href="/ask/"
-        class="tap no-underline bg-marsh text-cream border-2 border-marsh px-5 py-3 font-mono text-[0.78rem] uppercase tracking-[0.1em] font-medium"
-      >
-        Ask it anything →
-      </a>
-      <a
-        href="/parks/"
-        class="tap no-underline sign-quiet border-2 border-marsh text-marsh px-5 py-3 font-mono text-[0.78rem] uppercase tracking-[0.1em] font-medium"
-      >
-        The 17 state parks
-      </a>
-    </div>
-  </div>
-
-  {/* Orientation for someone who has never been. */}
-  <div class="wrap pb-9">
-    <dl class="sign breakout grid grid-cols-2 sm:grid-cols-4 gap-0 divide-x-2 divide-y-2 sm:divide-y-0 divide-tide/30">
-      {
-        facts.map((f) => (
-          <div class="px-4 py-4">
-            <dt class="font-display text-[2.1rem] font-bold text-marsh leading-none">{f.n}</dt>
-            <dd class="m-0 mt-1.5 stamp text-ink-soft">{f.label}</dd>
-          </div>
-        ))
-      }
-    </dl>
-  </div>
-
-  {/* The map used to sit here in full. It's the one thing on this site that
-      is a tool rather than a document, and burying it two thirds down a front
-      page meant most phones never reached it. It has its own page now, and
-      this is the door to it. */}
-  <div class="wrap pb-9">
-    <a
-      href="/map/"
-      class="sign sign-action no-underline block p-5 group flex items-center gap-4 justify-between"
-    >
-      <span class="block">
-        <span class="label block">Map</span>
-        <span class="font-display text-[1.6rem] font-bold mt-1.5 mb-0 block tracking-[-0.03em] text-marsh underline decoration-ochre decoration-[3px] underline-offset-[0.14em] group-hover:decoration-marsh">
-          Everything, on the state
-        </span>
-        <span class="mt-2 block text-[0.95rem] leading-[1.5] text-ink-soft max-w-[46ch]">
-          {mapCount} places on one map of Delaware, filtered by county and by
-          section. Tap a marker and it tells you what the place is before you
-          open it.
-        </span>
-      </span>
-      <span class="stamp text-ochre-deep shrink-0 text-[1.4rem]" aria-hidden="true">→</span>
-    </a>
+      The examples and the map now live together on /ask/, which is where you
+      end up the moment you use either. The counts said 17 state parks and 36
+      local parks one scroll above ten cards that each say how many of their
+      own records are published, which is the same numbers twice.
+    */}
   </div>
 
   <div class="wrap">

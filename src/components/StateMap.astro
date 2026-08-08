@@ -125,6 +125,23 @@ const vw = Math.ceil(W * SCALE);
     </ul>
   )}
 
+  {/*
+    ANSWER MODE. When a question has been asked on this page, the map stops
+    being a browser and becomes the result — and the chips above stop applying,
+    so leaving them on screen would show controls that visibly do nothing. This
+    replaces them, and says how to get back.
+  */}
+  <div class="px-4 sm:px-5 pb-3" data-map-answer hidden>
+    <p class="sign-quiet m-0 px-3 py-2 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-l-[6px] border-l-ochre">
+      <span class="stamp text-ink" data-map-answer-text></span>
+      <button
+        type="button"
+        data-map-answer-clear
+        class="tap stamp text-marsh underline cursor-pointer bg-transparent border-0 p-0"
+      >Show everything</button>
+    </p>
+  </div>
+
   {/* Filters. Hidden until the script runs — the map itself works without. */}
   <ul class="list-none px-4 sm:px-5 pb-3 m-0 flex flex-wrap gap-1.5" data-map-filters hidden>
     {kinds.map((k) => (
@@ -339,6 +356,30 @@ const vw = Math.ceil(W * SCALE);
     bar.hidden = false;
     const off = new Set();
 
+    /**
+     * ANSWER MODE.
+     *
+     * `answer` is a Set of slugs when a question on this page has produced a
+     * result, and null the rest of the time. While it is set it OVERRIDES the
+     * chips entirely rather than intersecting with them — a question already
+     * says which counties and which kinds it wants, and intersecting would let
+     * a chip silently subtract places that genuinely answer what was asked.
+     *
+     * The map is told about this from outside, by a `map:answer` event, so it
+     * never has to know that an ask form exists. It stays a map.
+     *
+     * The set holds HREFS, not slugs. Both sides already agree on the href —
+     * the ask index prefixes its ids by section (`sp-`, `cp-`, `town-`) and
+     * the map doesn't, so a slug would have to be un-prefixed on one side and
+     * that is a rule that gets out of date.
+     */
+    let answer = null;
+    /* Separate from `answer`, because the banner has something to say in a
+       case where the markers must NOT be filtered — see the handler. */
+    let note = null;
+    const answerBar = root.querySelector("[data-map-answer]");
+    const answerText = root.querySelector("[data-map-answer-text]");
+
     /* Counties are opt-IN, kinds are opt-OUT. The asymmetry is deliberate:
        there are three counties and eleven kinds, so "which county" is a
        choice you make and "which kinds" is a list you prune. */
@@ -366,13 +407,22 @@ const vw = Math.ceil(W * SCALE);
       }
       let shown = 0;
       for (const p of pts) {
-        const hide =
-          off.has(p.dataset.kind) ||
-          (countyChips.length > 0 && !onCounties.has(p.dataset.county));
+        const hide = answer
+          ? !answer.has(p.getAttribute("href"))
+          : off.has(p.dataset.kind) ||
+            (countyChips.length > 0 && !onCounties.has(p.dataset.county));
         p.style.display = hide ? "none" : "";
         if (!hide) shown++;
       }
-      count.textContent = `${shown} of ${pts.length} places`;
+      /* In answer mode the denominator is meaningless: "6 of 59" invites the
+         reader to wonder what happened to the other 53, when the answer is
+         that they were asked about and did not match. */
+      count.textContent = answer
+        ? `${shown} on the map`
+        : `${shown} of ${pts.length} places`;
+      if (answerBar) answerBar.hidden = !note;
+      if (bar) bar.hidden = Boolean(answer);
+      if (countyBar) countyBar.hidden = Boolean(answer);
       /* A filtered-away marker can't stay selected — the card would be
          describing something that is no longer on the map. */
       if (selected && selected.style.display === "none") deselect();
@@ -395,6 +445,41 @@ const vw = Math.ceil(W * SCALE);
         paint();
       });
     }
+
+    /* Set or clear the answer from outside. `detail.slugs` null clears it.
+       Anything that matched but has no coordinates simply isn't on the map,
+       which is why the text below counts the markers rather than the answer. */
+    root.addEventListener("map:answer", (e) => {
+      const slugs = (e.detail && e.detail.slugs) || null;
+      const wanted = slugs && slugs.length ? new Set(slugs) : null;
+      const onMap = wanted
+        ? pts.filter((p) => wanted.has(p.getAttribute("href"))).length
+        : 0;
+
+      /* AN ANSWER WITH NO PINS MUST NOT FILTER THE MAP.
+         Seventeen dog parks have no coordinates in the data yet, so "a fenced
+         dog park near Wilmington" is a real, correct, two-place answer with
+         nothing to show. Filtering to it emptied the map and printed "0 on the
+         map", which reads as a broken map rather than as a gap in what I've
+         recorded. So the markers stay as they were and the banner says what
+         happened. */
+      if (wanted && onMap === 0) {
+        answer = null;
+        note = `Not on the map yet: ${slugs.length} ${slugs.length === 1 ? "place" : "places"} in the answer below, none of them pinned.`;
+      } else {
+        answer = wanted;
+        note = wanted ? (e.detail.label || "Showing what matches your question") : null;
+      }
+      if (answerText) answerText.textContent = note || "";
+      paint();
+      deselect();
+    });
+    root.querySelector("[data-map-answer-clear]")?.addEventListener("click", () => {
+      answer = null;
+      note = null;
+      paint();
+      deselect();
+    });
 
     /* ---- the card ------------------------------------------------------ */
 
