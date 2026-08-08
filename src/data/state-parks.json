@@ -851,7 +851,7 @@
         "credit": "Site maintainer",
         "takenOn": null,
         "portrait": true,
-        "focus": "50% 45%"
+        "focus": "50% 63%"
       }
     ],
     "fieldNotes": [
@@ -882,10 +882,10 @@
       "camping": false,
       "cabins": false,
       "trails": true,
-      "boatLaunch": null,
-      "boatRentals": null,
-      "pier": null,
-      "discGolf": null,
+      "boatLaunch": false,
+      "boatRentals": false,
+      "pier": false,
+      "discGolf": false,
       "restrooms": true,
       "playground": true
     },
@@ -1061,6 +1061,11 @@
         "author": "Site maintainer",
         "body": "The Ninja Fit obstacle course is in the same field as the Can-Do Playground, not a separate park — I had them down as two places until the maintainer said otherwise. Picnic pavilion between the two, athletic fields beyond, all off the same paved path.",
         "photo": "cando-ninja"
+      },
+      {
+        "date": "2026-08-08",
+        "author": "Site maintainer",
+        "body": "No boat launch, no boat rentals, no pier and no disc golf course. All four had been sitting at \"Not confirmed\" because DNREC's park finder only lists what a park HAS, so an absent facility and an unchecked one looked identical in this dataset. Alapocas Run is a wooded run and a greenway with no open water to launch anything into, which is exactly the kind of thing a visit settles and a roster never will."
       }
     ],
     "coords": {

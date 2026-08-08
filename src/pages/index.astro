@@ -69,6 +69,58 @@ const count = (rows: { verifiedDate: string | null; verifiedSource: string | nul
   live: rows.filter(isPublishable).length,
 });
 
+/**
+ * HEADER PHOTOGRAPHS FOR THE SECTION CARDS.
+ *
+ * Named by file only. The alt text and the crop come from whichever record
+ * owns the picture, looked up below — so a section card can never end up
+ * describing a photograph differently from the page it came off.
+ *
+ * A section gets a header only where the site has a real photograph of that
+ * subject. Four of them don't: indoors, wine and beer, disc golf and events.
+ * A stand-in illustration for those would be furniture pretending to be
+ * content, which is the same thing the "not yet photographed" panels were
+ * pulled for. They stay plain until somebody has actually been.
+ *
+ * The dog is the one picture on this page that belongs to no record. It isn't
+ * a place — it's the section's subject, and there is no Delaware park it is a
+ * fact about — so it carries its own alt text here.
+ */
+const SECTION_HEADERS: Record<string, string> = {
+  "/dogs/": "dogs-header",
+  "/parks/": "cape-henlopen-bay",
+  "/parks/community/": "talley-day-playground",
+  "/surf-fishing/": "delaware-seashore-surf",
+  "/attractions/": "ashland-red-clay",
+  "/nearby/": "plumpton-peacock",
+};
+
+const LOOSE_PHOTOS: Record<string, { alt: string; focus?: string }> = {
+  "dogs-header": {
+    alt: "A black and tan dog lying in fallen leaves in low winter sun, tongue out, an orange rubber ball by its paws.",
+    focus: "50% 30%",
+  },
+};
+
+/* Every photograph on the site, by file, so a header can borrow the record's
+   own words rather than being described a second time. */
+const photoIndex = new Map<string, { alt: string; focus?: string }>(
+  Object.entries(LOOSE_PHOTOS),
+);
+for (const file of [townsData, stateParksData, communityParksData, dogParksData, indoorData, nearbyData]) {
+  for (const record of file as unknown as { photos?: { file: string; alt: string; focus?: string }[] }[]) {
+    for (const photo of record.photos ?? []) {
+      if (!photoIndex.has(photo.file)) photoIndex.set(photo.file, photo);
+    }
+  }
+}
+
+const headerFor = (href: string) => {
+  const file = SECTION_HEADERS[href];
+  const photo = file ? photoIndex.get(file) : undefined;
+  return photo ? { file: file!, ...photo } : null;
+};
+
 const sections = [
   {
     href: "/dogs/",
@@ -488,9 +540,32 @@ const schema = [
 
   <div class="wrap py-9 grid gap-6 sm:gap-5 sm:grid-cols-2">
     {
-      sections.map((s) => (
-        <a href={s.href} class="sign sign-action no-underline block p-5 group relative">
-          <span class="stamp text-ochre-deep absolute top-5 right-5">{s.n}</span>
+      sections.map((s) => {
+        const header = headerFor(s.href);
+        return (
+        <a href={s.href} class="sign sign-action no-underline block group relative overflow-hidden">
+          {header && (
+            <figure class="m-0 relative">
+              <img
+                src={`/photos/${header.file}-700.jpg`}
+                alt={header.alt}
+                width={700}
+                height={394}
+                loading="lazy"
+                decoding="async"
+                style={header.focus ? `object-position:${header.focus}` : undefined}
+                class="w-full aspect-[16/9] object-cover block border-b-[3px] border-b-marsh"
+              />
+              {/* The section number moves onto the picture rather than being
+                  dropped, because the card is read by its number in the prose
+                  above the grid. */}
+              <span class="absolute bottom-0 right-0 px-2.5 py-1 stamp text-cream bg-marsh/85 backdrop-blur-[2px]">
+                {s.n}
+              </span>
+            </figure>
+          )}
+          <div class="p-5">
+          {!header && <span class="stamp text-ochre-deep absolute top-5 right-5">{s.n}</span>}
 
           <p class="label m-0 flex items-center gap-2">
             <FlagMark class="w-[0.5rem] h-[0.62rem] shrink-0" />
@@ -501,7 +576,12 @@ const schema = [
             <p class="font-display text-[1.85rem] font-bold mt-2 mb-0 tracking-[-0.03em] text-marsh underline decoration-ochre decoration-[3px] underline-offset-[0.14em] group-hover:decoration-marsh">
               {s.title}
             </p>
-            {s.figure && <DogFigure pose="dog" collar class="w-[3.1rem] h-[3.1rem] text-marsh shrink-0" />}
+            {/* The drawn dog only appears where there's no photograph of one.
+                With the real animal in the band directly above it, the mark
+                reads as a second, worse dog. */}
+            {s.figure && !header && (
+              <DogFigure pose="dog" collar class="w-[3.1rem] h-[3.1rem] text-marsh shrink-0" />
+            )}
           </div>
 
           <p class="mt-2.5 mb-0 text-[0.98rem] leading-[1.45] font-medium">{s.lede}</p>
@@ -522,8 +602,10 @@ const schema = [
           <p class="stamp text-ink-soft mt-4 mb-0">
             {s.live} of {s.total} {s.unit} published
           </p>
+          </div>
         </a>
-      ))
+        );
+      })
     }
   </div>
 
