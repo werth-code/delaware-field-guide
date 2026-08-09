@@ -72,6 +72,12 @@ const courses = [
     photo: p.photos?.[0] ?? null,
   })),
 ];
+
+/* Counted off the same list the cards render from, so the "where this stands"
+   panel can't drift from the courses above it — which is exactly how it came
+   to claim zero hole counts on a page displaying six of them. */
+const withHoles = courses.filter((c) => c.course?.holes != null).length;
+const capeHoles = courses.find((c) => c.href === "/parks/cape-henlopen/")?.course?.holes ?? null;
 ---
 
 <Layout
@@ -185,11 +191,9 @@ const courses = [
       of every hole, the basket model, and a drawn map of the layout.
     </p>
     <p class="max-w-[58ch]">
-      This page said the opposite for months — that DNREC named the parks and
-      published nothing else, so the layouts here would stay blank rather than
-      be invented. That was wrong, and it was wrong because nobody had looked.
-      The maps are on the cards above and each one links to the state's
-      original.
+      The maps are on the cards above, and each one links to the state's
+      original. This page used to say no such thing existed;
+      <a href="/changed/">what changed</a> has the correction.
     </p>
 
     <div class="sign breakout my-6 px-4 sm:px-5 py-4 not-prose">
@@ -199,7 +203,7 @@ const courses = [
           [
             { n: total, label: "courses listed" },
             { n: free, label: "free to walk into" },
-            { n: 0, label: "hole counts confirmed" },
+            { n: withHoles, label: "hole counts from the state" },
           ].map((s) => (
             <div>
               <dt class="font-display text-[2rem] font-bold text-marsh leading-none">{s.n}</dt>
@@ -208,10 +212,17 @@ const courses = [
           ))
         }
       </dl>
+      {/* This read "0 hole counts confirmed", with a caption explaining that
+          the state publishes none — directly under a paragraph saying the state
+          publishes hole counts, par off every tee and a drawn map. Both
+          sentences were on the page at once. The zero was hardcoded and was
+          left behind when the scorecards landed. Counted now. */}
       <p class="mt-3.5 mb-0 text-[0.9rem] leading-snug text-ink-soft max-w-[56ch]">
-        That last zero is honest. Everyone says the state courses are 18 holes
-        and the state doesn't say it anywhere I can point at, so it isn't here
-        yet.
+        Off the state's own scorecards, not off a listing.
+        {capeHoles && capeHoles !== 18 && (
+          <> Worth the pedantry: Cape Henlopen is {capeHoles} holes, not the 18
+          everyone repeats.</>
+        )}
       </p>
     </div>
   </div>
@@ -237,7 +248,7 @@ const courses = [
     <ul>
       <li><a href="/parks/">The 17 state parks</a></li>
       <li><a href="/parks/community/">Community and county parks</a></li>
-      <li><a href="/ask/">Just ask it</a></li>
+      <li><a href="/ask/">Ask Delaware Field Guide</a></li>
     </ul>
   </div>
 </Layout>

@@ -89,5 +89,21 @@
       "url": null
     },
     "sourcedOn": "2026-08-01"
+  },
+  {
+    "date": "2026-08-07",
+    "section": "Disc golf",
+    "entity": "Delaware disc golf",
+    "href": "/disc-golf/",
+    "type": "correction",
+    "headline": "I said the state published no course details. It publishes scorecards for six of them.",
+    "description": "This page told readers that DNREC named the parks and published nothing else, so hole counts and layouts would stay blank here rather than be invented. That was wrong. Delaware State Parks publishes a scorecard and a drawn course map as a PDF for six of the seven state park courses — hole counts, par off each tee, the length of every hole and the basket model. They were on destateparks.com the whole time and nobody had looked. The maps are now on the course cards and each links to the state's original. One thing fell out of it worth keeping: Cape Henlopen is 19 holes, not the 18 that gets repeated everywhere.",
+    "whoIsWrong": "Course directories and disc golf apps list these as 18 holes across the board, including Cape Henlopen.",
+    "source": {
+      "label": "Delaware State Parks — disc golf scorecards",
+      "url": "https://www.destateparks.com/",
+      "note": "Six scorecard PDFs, read 7 August 2026."
+    },
+    "sourcedOn": "2026-08-07"
   }
 ]
