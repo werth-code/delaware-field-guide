@@ -15,7 +15,7 @@
     "fee": 0,
     "hours": "Dawn to dusk",
     "hoursNote": "New Castle County publishes \"dawn until dusk\" for this park, not clock hours. The 7am-8pm previously shown here had no source behind it.",
-    "notes": "Highest-traffic public dog park in the state. Two large enclosures, 8-ft fencing. Free tennis balls. Reviews flag inconsistent bag restocking.",
+    "notes": "Two large enclosures with 8-ft fencing. Free tennis balls.",
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -52,7 +52,8 @@
       "precision": "site"
     },
     "restrooms": "none",
-    "restroomsNote": "New Castle County's own profile for this dog park says Bathrooms: No."
+    "restroomsNote": "New Castle County's own profile for this dog park says Bathrooms: No.",
+    "reported": "Visitors describe it as the busiest public dog park in the state, and flag bag dispensers that aren't consistently restocked. Bring your own bags."
   },
   {
     "slug": "talley-day-dog-park",
@@ -163,7 +164,7 @@
     "fee": 0,
     "hours": "07:00-19:00",
     "hoursNote": "Reviews report inconsistent actual opening times — worth confirming and saying so.",
-    "notes": "Reviewers describe it as the largest in the state. Full grass rather than mulch. Agility obstacles, adjacent playground and pond. Rotting benches reported.",
+    "notes": "Full grass rather than mulch. Agility obstacles, with a playground and pond adjacent.",
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -185,7 +186,8 @@
       }
     ],
     "restrooms": null,
-    "restroomsNote": null
+    "restroomsNote": null,
+    "reported": "Visitors describe it as the largest in the state and have reported benches in poor repair."
   },
   {
     "slug": "river-road-dog-park",
@@ -241,7 +243,7 @@
     "feeNote": "State park entry applies: from 1 March 2026, $5 in-state / $10 out-of-state for inland parks. Fees rose in 2026 — older guides quote $4/$8.",
     "hours": "07:00-19:30",
     "hoursNote": null,
-    "notes": "Highest-rated dog park in the state (4.9★) and the two things that matter most about it are the two things nobody publishes: it is NOT fenced, and it costs money. Requires reliable recall.",
+    "notes": "NOT fenced, and inside a state park with a gate fee — the two things that decide whether this trip works, and neither is published on the park's own page.",
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -273,7 +275,8 @@
       "precision": "site"
     },
     "restrooms": null,
-    "restroomsNote": null
+    "restroomsNote": null,
+    "reported": "The best-reviewed dog park in the state by visitor rating."
   },
   {
     "slug": "brandywine-off-leash-dog-park",
@@ -521,7 +524,7 @@
     "fee": 0,
     "hours": null,
     "hoursNote": "Not posted — needs a call.",
-    "notes": "Three sections: large, small, and a dedicated ball-throwing run. Full agility course. Reviews report seasonal bee swarms when the grass goes uncut.",
+    "notes": "Three sections: large, small, and a dedicated ball-throwing run. Full agility course.",
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -531,7 +534,8 @@
       "Confirm the no-water finding — it's a top-six complaint"
     ],
     "restrooms": null,
-    "restroomsNote": null
+    "restroomsNote": null,
+    "reported": "Visitors report seasonal bee swarms when the grass goes uncut."
   },
   {
     "slug": "tidbury-dog-park",
@@ -589,7 +593,7 @@
     "fee": 0,
     "hours": "07:00-19:00",
     "hoursNote": null,
-    "notes": "Three separate areas. Best-reviewed free option in southern Delaware. Pond-side walking trails and a floating dock. Regular 3–4 PM local crowd.",
+    "notes": "Three separate areas, pond-side walking trails and a floating dock.",
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
@@ -618,7 +622,8 @@
       }
     ],
     "restrooms": null,
-    "restroomsNote": null
+    "restroomsNote": null,
+    "reported": "Well reviewed among the free options in southern Delaware, and visitors mention a regular late-afternoon crowd around 3–4pm."
   },
   {
     "slug": "millsboro-dog-park",
@@ -684,7 +689,7 @@
     "feeNote": "PRIVATE — paid membership. Join online; a key fob is MAILED to you before your first visit.",
     "hours": "07:00-21:00",
     "hoursNote": "Members only. Hours are irrelevant if you don't have the fob.",
-    "notes": "About 5 acres, four areas: small, large, senior, and a training area. Member events. The mailed-fob lead time is a trip-ruiner for visitors who arrive expecting public access — this is the highest-value single fact in the dataset.",
+    "notes": "About 5 acres in four areas: small, large, senior and a training area. Member events. The mailed-fob lead time is a trip-ruiner for visitors who arrive expecting same-day access.",
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,

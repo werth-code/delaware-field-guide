@@ -1,6 +1,6 @@
 [
   {
-    "_comment": "Call sheet for the 12 review-confirmed dog-friendly properties. Ask exactly four things — pet fee TOTAL (per night or per stay), weight limit, how many dogs, and whether the dog can be left in the room unattended — then one bonus question that doubles as demand research: 'What do guests ask you most often before they book with a dog?' Log the date and the name of whoever told you. Nothing here renders until petFee.amount and verifiedDate are filled in.",
+    "_comment": "Call sheet for the review-reported dog-friendly properties. Ask exactly four things — pet fee TOTAL (per night or per stay), weight limit, how many dogs, and whether the dog can be left in the room unattended — then one bonus question that doubles as demand research: 'What do guests ask you most often before they book with a dog?' Log the date and the name of whoever told you. NOTHING IN evidenceNote IS A POLICY. It is what guests wrote, it renders on a public page, and it must read as a guest report rather than as research notes — star ratings, competitor observations and instructions to myself do not belong in a field that ships.",
     "_askedOnEveryCall": [
       "What is the pet fee, in total — is that per night or per stay?",
       "Is there a weight limit?",
@@ -24,7 +24,7 @@
     "breedRestrictions": null,
     "confirmedDogFriendly": true,
     "evidenceType": "review",
-    "evidenceNote": "4.9★ (544) — highest-rated lodging in the dataset. Guest review specifically cites the dog enjoying the stay. Bikes, fire pit, walkable to Lewes.",
+    "evidenceNote": "A guest describes bringing a dog and the dog enjoying the stay. Bikes and a fire pit on site.",
     "verifiedDate": null,
     "affiliateUrl": null,
     "guestQuestionsHeard": null
@@ -44,7 +44,7 @@
     "breedRestrictions": null,
     "confirmedDogFriendly": true,
     "evidenceType": "review",
-    "evidenceNote": "4.5★ (316). Multiple reviews cite pet-friendly atmosphere and outdoor space. NOTE: also a content competitor — they publish their own dog guide.",
+    "evidenceNote": "Several guests mention the dog-friendly atmosphere and the outdoor space.",
     "verifiedDate": null,
     "affiliateUrl": null,
     "guestQuestionsHeard": null
@@ -64,7 +64,7 @@
     "breedRestrictions": null,
     "confirmedDogFriendly": true,
     "evidenceType": "review",
-    "evidenceNote": "4.2★ (795). Guest brought a dog for her 15th birthday; staff praised.",
+    "evidenceNote": "A guest brought a dog for its fifteenth birthday and says staff made a fuss of it.",
     "verifiedDate": null,
     "affiliateUrl": null,
     "guestQuestionsHeard": null
@@ -84,7 +84,7 @@
     "breedRestrictions": null,
     "confirmedDogFriendly": true,
     "evidenceType": "review",
-    "evidenceNote": "4.5★ (148). Strongest dog signal on the list — welcomed dogs with toys and treats; a guest stayed specifically for Doodles in Dewey weekend.",
+    "evidenceNote": "The warmest dog reports on this list — guests describe toys and treats on arrival.",
     "verifiedDate": null,
     "affiliateUrl": null,
     "guestQuestionsHeard": null
@@ -104,7 +104,7 @@
     "breedRestrictions": null,
     "confirmedDogFriendly": true,
     "evidenceType": "review",
-    "evidenceNote": "4.3★ (1,374). Explicitly noted as dog friendly; bay and ocean both walkable.",
+    "evidenceNote": "Guests describe it as dog-friendly. Bay and ocean both walkable.",
     "verifiedDate": null,
     "affiliateUrl": null,
     "guestQuestionsHeard": null
@@ -124,7 +124,7 @@
     "breedRestrictions": null,
     "confirmedDogFriendly": true,
     "evidenceType": "review",
-    "evidenceNote": "3.8★ (214). 'No frills pet-friendly stay in Dewey.' Dated but clean.",
+    "evidenceNote": "Described by a guest as a no-frills pet-friendly stay. Dated but clean.",
     "verifiedDate": null,
     "affiliateUrl": null,
     "guestQuestionsHeard": null
@@ -144,7 +144,7 @@
     "breedRestrictions": null,
     "confirmedDogFriendly": true,
     "evidenceType": "review",
-    "evidenceNote": "4.2★ (478). Dog-friendly, but one guest flagged mismatched expectations — verify the policy carefully and publish the caveat.",
+    "evidenceNote": "Guests describe it as dog-friendly, though one arrived expecting a different policy from the one they found. Worth being precise on the phone.",
     "verifiedDate": null,
     "affiliateUrl": null,
     "guestQuestionsHeard": null
@@ -164,7 +164,7 @@
     "breedRestrictions": null,
     "confirmedDogFriendly": true,
     "evidenceType": "review",
-    "evidenceNote": "4.3★ (916). Two separate reviews: 'pup friendly, which is why we stayed here.' Free beach chairs and umbrellas.",
+    "evidenceNote": "Two guests say the dog policy is why they chose it. Free beach chairs and umbrellas.",
     "verifiedDate": null,
     "affiliateUrl": null,
     "guestQuestionsHeard": null
@@ -184,7 +184,7 @@
     "breedRestrictions": null,
     "confirmedDogFriendly": true,
     "evidenceType": "review",
-    "evidenceNote": "4.3★ (322). Pet friendly, with grass areas around the property for potty breaks.",
+    "evidenceNote": "Guests mention grass around the property for a dog to use.",
     "verifiedDate": null,
     "affiliateUrl": null,
     "guestQuestionsHeard": null
@@ -204,7 +204,7 @@
     "breedRestrictions": null,
     "confirmedDogFriendly": true,
     "evidenceType": "review",
-    "evidenceNote": "4.4★ (591). Best single detail found in the whole lodging sweep: ask for the room with a sliding door opening directly onto the dog park. Nobody publishes this — confirm it and it's yours.",
+    "evidenceNote": "The single most useful thing found in this sweep: guests say to ask for the room with a sliding door opening straight onto the lawn.",
     "verifiedDate": null,
     "affiliateUrl": null,
     "guestQuestionsHeard": null
@@ -224,7 +224,7 @@
     "breedRestrictions": null,
     "confirmedDogFriendly": true,
     "evidenceType": "review",
-    "evidenceNote": "3.5★ (759). Pet friendly, but quality complaints are significant — publish with the caveat.",
+    "evidenceNote": "Guests describe it as pet-friendly. Reviews also carry repeated complaints about upkeep.",
     "verifiedDate": null,
     "affiliateUrl": null,
     "guestQuestionsHeard": null
@@ -244,7 +244,7 @@
     "breedRestrictions": null,
     "confirmedDogFriendly": true,
     "evidenceType": "review",
-    "evidenceNote": "4.1★ (438). Pet friendly; recent cleanliness complaints — include with caveat.",
+    "evidenceNote": "Guests describe it as pet-friendly. Recent reviews mention cleanliness problems.",
     "verifiedDate": null,
     "affiliateUrl": null,
     "guestQuestionsHeard": null

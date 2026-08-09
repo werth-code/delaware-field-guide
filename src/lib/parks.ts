@@ -46,6 +46,17 @@ export interface Park {
   hours: string | null;
   hoursNote: string | null;
   notes: string | null;
+  /**
+   * What visitors say, kept apart from what the record asserts.
+   *
+   * These records used to carry "highest-traffic public dog park in the
+   * state", "rotting benches" and "seasonal bee swarms" in the same field, in
+   * the same voice, as the fencing and the hours. A county's fencing rule and
+   * a stranger's impression of the benches are not the same kind of claim and
+   * should not read as though they are — especially here, where nearly every
+   * record is `reported` tier already.
+   */
+  reported?: string | null;
   photos: string[];
   verifiedDate: string | null;
   verifiedSource: string | null;

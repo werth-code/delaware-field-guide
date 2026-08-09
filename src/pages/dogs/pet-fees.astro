@@ -40,8 +40,8 @@ const val = (v: unknown, suffix = "") =>
 ---
 
 <Layout
-  title="Delaware pet fees: what lodging actually charges for a dog"
-  description="Pet fees, weight limits and dog counts for dog-friendly lodging at the Delaware beaches — confirmed with each property, not copied from a booking listing."
+  title="Pet-Friendly Hotels in Delaware — Dog Fees, Limits & Rules"
+  description="Compare pet-friendly Delaware hotels by total dog fee, weight limit, number of dogs and unattended-pet rules, taken from the property rather than a booking filter."
   robots={robotsFor(pageGate)}
 >
   <div class="wrap pt-11 pb-6">
@@ -58,23 +58,31 @@ const val = (v: unknown, suffix = "") =>
 
   <div class="wrap prose-field pb-2">
     <div class="sign px-4 sm:px-5 py-4 my-6">
-      <p class="label m-0">Numbers not collected yet</p>
+      <p class="label m-0">Nothing here is confirmed yet</p>
       <p class="mt-2 mb-0 text-[0.95rem] leading-[1.55] max-w-[58ch]">
-        Every property below is confirmed dog-friendly from guest review text,
-        which beats a booking site's category tag. But a review saying the staff
-        loved your dog isn't a pet fee. The four numbers come from calling the
-        twelve properties, and until that happens this page shows what I have
-        and what I don't, and stays out of search.
+        A hotel can call itself pet-friendly and still add $50, $100 or more to
+        the stay. This page will track the total fee, the weight limit, how many
+        dogs and whether one can be left in the room — from each property's own
+        policy.
+      </p>
+      <p class="mt-2.5 mb-0 text-[0.95rem] leading-[1.55] max-w-[58ch]">
+        None of that is collected. What is below is the list of places to ask,
+        and every number on it is blank. Guests describe these as dog-friendly,
+        which is a reason to ring them — it is not a policy, and this page will
+        not print it as one. Until the properties themselves answer, the page is
+        kept out of search rather than published as a comparison it cannot yet
+        make.
       </p>
       <p class="mt-2.5 mb-0 text-[0.9rem] text-ink-soft max-w-[58ch]">
-        For scale, the range found elsewhere in the region runs from free
+        For scale, published fees elsewhere in the region run from nothing
         (Red Roof New Castle, one dog under 80lb) to $200 for a seven-night stay
-        (Hyatt Place Wilmington Riverfront), to $200 plus a $100 deep-clean at
-        an Ocean City oceanfront. Same trip, same dog, $0 to $300.
+        (Hyatt Place Wilmington Riverfront), to $200 plus a $100 deep-clean at an
+        Ocean City oceanfront. Same trip, same dog, $0 to $300 — which is why
+        the blank matters.
       </p>
     </div>
 
-    <h2>The twelve to call</h2>
+    <h2>Where to ask, and what to ask for</h2>
   </div>
 
   {
@@ -122,7 +130,12 @@ const val = (v: unknown, suffix = "") =>
                 ))}
               </dl>
 
-              <p class="mt-3 mb-0 text-[0.86rem] leading-snug text-ink-soft">{p.evidenceNote}</p>
+              {/* Labeled, so a guest's impression can never be mistaken for the
+                  property's policy. The four numbers above are the policy, and
+                  they are all still blank. */}
+              <p class="mt-3 mb-0 text-[0.86rem] leading-snug text-ink-soft">
+                <span class="label">What guests report</span> {p.evidenceNote}
+              </p>
             </li>
           ))}
         </ul>

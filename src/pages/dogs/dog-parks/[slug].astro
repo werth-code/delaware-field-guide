@@ -194,6 +194,24 @@ const title =
         )
       }
 
+      {/* Visitor reports, under their own heading.
+          This used to sit in `notes` alongside the fencing and the hours, in
+          the same voice — "highest-traffic public dog park in the state" reading
+          exactly like a county rule. One of those is checkable and one is a
+          stranger's impression, and a page whose whole argument is that it
+          distinguishes between kinds of claim cannot blur the two. */}
+      {
+        park.reported && (
+          <>
+            <h2>What visitors report</h2>
+            <p class="max-w-[58ch]">{park.reported}</p>
+            <p class="stamp text-ink-soft">
+              Not checked by me — this is what people who have been there say.
+            </p>
+          </>
+        )
+      }
+
       {/* The internal to-do list used to render here as "Still to confirm".
           It was written for whoever makes the phone calls — "PRIORITY: get the
           admission price" — and putting that in front of a visitor asks them

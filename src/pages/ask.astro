@@ -70,25 +70,35 @@ const schema = [
 ---
 
 <Layout
-  title="Ask — Delaware dog rules and places, in a sentence"
-  description="Type what you need — a dog on the beach in July, a playground with restrooms — and get the Delaware places that confirm it, on a map, with dates."
+  title="Ask Delaware Field Guide — Find Parks, Dog Rules & Days Out"
+  description="Describe the Delaware outing you need in normal language — a fenced dog park near Wilmington, a playground with restrooms, a beach where the dog can go today."
   schema={schema}
 >
   <div class="wrap pt-11 pb-6">
     <p class="label m-0">Ask</p>
     <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[14ch] text-marsh">
-      Search naturally
+      Ask what you need
     </h1>
     <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
-      Describe what you're looking for in your own words: "dog on the beach in
-      July."
+      Describe the Delaware outing you want in normal language — a fenced dog
+      park near Wilmington, somewhere indoors with the kids, a beach where the
+      dog can go today.
     </p>
     {/* The map clause is kept from the copy this replaced. It isn't a
         description of the page, it's the one thing a first-time reader can't
         guess: the box drives the markers below it as well as the list. */}
     <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
-      No filters, no complicated search. Just tell me what you want and I'll
-      find the places that match, and show you where they are on the map.
+      No filters, no complicated search. Tell me what you want and I'll show
+      the places that match and where they are on the map.
+    </p>
+    {/* WHAT THIS IS NOT, said plainly. A box that takes a sentence looks like
+        every AI search on the internet, and those answer from anywhere. This
+        one only ever returns records from the Field Guide, and the difference
+        is the entire point of the site. */}
+    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
+      It searches what the Field Guide has actually checked — nothing else. If
+      a fact hasn't been checked, the answer says so rather than filling the
+      gap.
     </p>
   </div>
 
