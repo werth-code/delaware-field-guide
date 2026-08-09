@@ -296,7 +296,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.79431,
+      "lon": -75.46784,
+      "precision": "site"
+    },
     "sources": [
       {
         "label": "Apothecary Brewing Co.",
@@ -309,8 +313,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the opening hours off the operator — this is a newer taproom and its schedule moves.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Get the opening hours off the operator — this is a newer taproom and its schedule moves."
     ]
   },
   {
@@ -355,7 +358,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.61149,
+      "lon": -75.76971,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Autumn Arch Beer Project",
@@ -373,9 +380,7 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
-    ]
+    "outstanding": []
   },
   {
     "slug": "bellefonte-brewing",
@@ -421,7 +426,11 @@
       "This is the Old Capitol Trail location. The former Bellefonte site on Marsh Road is now Brew Works North, a different business."
     ],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.73065,
+      "lon": -75.63387,
+      "precision": "site"
+    },
     "sources": [
       {
         "label": "Bellefonte Brewing Co.",
@@ -439,9 +448,7 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
-    ]
+    "outstanding": []
   },
   {
     "slug": "brew-works-north",
@@ -491,7 +498,11 @@
       "Dogs Sunday 12–6 only. Any other day, or after six on a Sunday, and the answer is no."
     ],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.74302,
+      "lon": -75.52914,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Wilmington Brew Works: Brew Works North",
@@ -503,9 +514,7 @@
     "sourcedOn": "2026-08-08",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
-    ]
+    "outstanding": []
   },
   {
     "slug": "dew-point-brewing",
@@ -549,7 +558,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.80886,
+      "lon": -75.67385,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Dew Point Brewing: tasting room",
@@ -561,9 +574,7 @@
     "sourcedOn": "2026-08-08",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
-    ]
+    "outstanding": []
   },
   {
     "slug": "jakl-beer-works",
@@ -615,7 +626,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.43577,
+      "lon": -75.75031,
+      "precision": "site"
+    },
     "sources": [
       {
         "label": "JAKL Beer Works: about",
@@ -627,9 +642,7 @@
     "sourcedOn": "2026-08-08",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
-    ]
+    "outstanding": []
   },
   {
     "slug": "twisted-irons",
@@ -677,7 +690,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.68284,
+      "lon": -75.75157,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Twisted Irons Craft Brewing",
@@ -689,9 +706,7 @@
     "sourcedOn": "2026-08-08",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
-    ]
+    "outstanding": []
   },
   {
     "slug": "wilmington-brew-works",
@@ -735,7 +750,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.76637,
+      "lon": -75.5371,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Wilmington Brew Works",
@@ -747,9 +766,7 @@
     "sourcedOn": "2026-08-08",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
-    ]
+    "outstanding": []
   },
   {
     "slug": "salted-vines",
@@ -789,7 +806,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.51804,
+      "lon": -75.23376,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Salted Vines: visit FAQs",
@@ -801,9 +822,7 @@
     "sourcedOn": "2026-08-08",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
-    ]
+    "outstanding": []
   },
   {
     "slug": "twin-branch-winery",
@@ -830,7 +849,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.7778,
+      "lon": -75.31016,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Twin Branch Winery: about",
@@ -849,8 +872,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the opening hours from the winery.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Get the opening hours from the winery."
     ]
   },
   {
@@ -896,7 +918,11 @@
     ],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.73361,
+      "lon": -75.2435,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Brimming Horn Meadery: Milton menu",
@@ -914,9 +940,7 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
-    ]
+    "outstanding": []
   },
   {
     "slug": "brimming-horn-seaford",
@@ -956,7 +980,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.64129,
+      "lon": -75.61025,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Brimming Horn Meadery",
@@ -974,9 +1002,7 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
-    ]
+    "outstanding": []
   },
   {
     "slug": "dogfish-head-milton",
@@ -1014,7 +1040,11 @@
       "This is the Milton brewery. The Rehoboth brewpub is a separate place and its dog rule isn't confirmed here."
     ],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.7778,
+      "lon": -75.31016,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Dogfish Head: dogs at Dogfish",
@@ -1026,9 +1056,7 @@
     "sourcedOn": "2026-08-08",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
-    ]
+    "outstanding": []
   },
   {
     "slug": "argilla-brewing",
@@ -1076,7 +1104,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.68284,
+      "lon": -75.75157,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Argilla Brewing @ Pietro's Pizza",
@@ -1089,8 +1121,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -1118,7 +1149,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.44976,
+      "lon": -75.71663,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Crooked Hammock Brewery",
@@ -1132,8 +1167,7 @@
     "verifiedSource": null,
     "outstanding": [
       "Get the address and the hours.",
-      "Are dogs allowed inside, or outdoor areas only?",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Are dogs allowed inside, or outdoor areas only?"
     ]
   },
   {
@@ -1178,7 +1212,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.43766,
+      "lon": -75.74853,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "First State Brewing Company",
@@ -1191,8 +1229,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -1235,7 +1272,11 @@
       "Older guides list this as 1937 Brewing Company. Same place, previous name."
     ],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.70554,
+      "lon": -75.65532,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Delaware Park",
@@ -1248,8 +1289,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -1294,7 +1334,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.74595,
+      "lon": -75.54659,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Liquid Alchemy Beverages",
@@ -1307,8 +1351,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -1349,7 +1392,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.62921,
+      "lon": -75.65854,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Stewart's Brewing Company",
@@ -1362,8 +1409,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -1416,7 +1462,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.44945,
+      "lon": -75.71909,
+      "precision": "site"
+    },
     "sources": [
       {
         "label": "Volunteer Brewing Company",
@@ -1429,8 +1479,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -1458,7 +1507,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.91305,
+      "lon": -75.42787,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Big Oyster Brewery",
@@ -1472,8 +1525,7 @@
     "verifiedSource": null,
     "outstanding": [
       "Get the street address and the hours.",
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -1514,7 +1566,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.29882,
+      "lon": -75.60116,
+      "precision": "site"
+    },
     "sources": [
       {
         "label": "Brick Works Brewing & Eats, Smyrna",
@@ -1533,8 +1589,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -1571,7 +1626,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.11939,
+      "lon": -75.53617,
+      "precision": "site"
+    },
     "sources": [
       {
         "label": "Visit Central Delaware: Camden Brew Company",
@@ -1584,8 +1643,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -1620,7 +1678,11 @@
       "Presented by the operator as part of the Harvest Ridge venue rather than a separate public taproom. Go to Harvest Ridge."
     ],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.08223,
+      "lon": -75.74155,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Visit Central Delaware: Rebel Seed Cidery",
@@ -1633,8 +1695,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Should this be a listing at all, or is it one venue under two names? Two brands at one address is not two destinations.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Should this be a listing at all, or is it one venue under two names? Two brands at one address is not two destinations."
     ]
   },
   {
@@ -1664,7 +1725,11 @@
       "Ring before you drive. It is not currently clear that the tasting room is open to the public at all."
     ],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.0227,
+      "lon": -75.56624,
+      "precision": "site"
+    },
     "sources": [
       {
         "label": "Visit Delaware and Visit Central Delaware",
@@ -1683,8 +1748,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Is Pizzadili open to the public for ordinary tasting-room visits at all? If so, what days and hours? 302-284-9463 — from the Delaware Department of Agriculture listing.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Is Pizzadili open to the public for ordinary tasting-room visits at all? If so, what days and hours? 302-284-9463 — from the Delaware Department of Agriculture listing."
     ],
     "status": "unclear"
   },
@@ -1722,7 +1786,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.91295,
+      "lon": -75.42835,
+      "precision": "site"
+    },
     "sources": [
       {
         "label": "Visit Central Delaware: WTF Meadery",
@@ -1735,8 +1803,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -1773,7 +1840,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.54763,
+      "lon": -75.08813,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Bethany Brewing Company",
@@ -1786,8 +1857,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Inside or outside only? The operator's own profile says dog friendly without saying where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Inside or outside only? The operator's own profile says dog friendly without saying where."
     ]
   },
   {
@@ -1815,7 +1885,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.7734,
+      "lon": -75.13796,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Big Oyster Brewery",
@@ -1829,8 +1903,7 @@
     "verifiedSource": null,
     "outstanding": [
       "Get the street address and the hours.",
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -1871,7 +1944,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.6211,
+      "lon": -75.15121,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Brick Works Brewing & Eats, Long Neck",
@@ -1890,8 +1967,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -1919,7 +1995,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.7734,
+      "lon": -75.13796,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Crooked Hammock Brewery",
@@ -1933,8 +2013,7 @@
     "verifiedSource": null,
     "outstanding": [
       "Get the address and the hours.",
-      "Are dogs allowed inside, or outdoor areas only?",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Are dogs allowed inside, or outdoor areas only?"
     ]
   },
   {
@@ -1975,7 +2054,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.69615,
+      "lon": -75.07499,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Dewey Beer Company",
@@ -1999,9 +2082,7 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
-    ]
+    "outstanding": []
   },
   {
     "slug": "dewey-beer-harbeson",
@@ -2033,7 +2114,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.72483,
+      "lon": -75.28491,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Dewey Beer Company",
@@ -2057,9 +2142,7 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
-    ]
+    "outstanding": []
   },
   {
     "slug": "dogfish-brewings-and-eats",
@@ -2095,7 +2178,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.71569,
+      "lon": -75.08688,
+      "precision": "site"
+    },
     "sources": [
       {
         "label": "Dogfish Head: Brewings & Eats",
@@ -2108,8 +2195,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -2137,7 +2223,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.7241,
+      "lon": -75.12675,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "First State Brewing Company",
@@ -2151,8 +2241,7 @@
     "verifiedSource": null,
     "outstanding": [
       "Get the hours for the Rehoboth site specifically.",
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -2185,7 +2274,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.76374,
+      "lon": -75.15011,
+      "precision": "site"
+    },
     "sources": [
       {
         "label": "Lewes Brewing Company",
@@ -2203,9 +2296,7 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
-    ]
+    "outstanding": []
   },
   {
     "slug": "ocean-view-brewing",
@@ -2237,7 +2328,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.5451,
+      "lon": -75.09423,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Ocean View Brewing Company",
@@ -2250,8 +2345,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -2300,7 +2394,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.67891,
+      "lon": -75.37816,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Revelation Craft Brewing, Georgetown",
@@ -2313,8 +2411,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -2355,7 +2452,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.71456,
+      "lon": -75.0923,
+      "precision": "town"
+    },
     "sources": [
       {
         "label": "Revelation Craft Brewing",
@@ -2368,8 +2469,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
   {
@@ -2408,7 +2508,11 @@
       "Guides still list this address as Iron Hill. Iron Hill closed every Delaware location in 2025."
     ],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.71646,
+      "lon": -75.10877,
+      "precision": "site"
+    },
     "sources": [
       {
         "label": "Three Notch'd Brewery & Craft Kitchen, Rehoboth Beach",
@@ -2426,9 +2530,7 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
-    ]
+    "outstanding": []
   },
   {
     "slug": "38-75-brewing",
@@ -2480,7 +2582,11 @@
     "onSite": [],
     "warnings": [],
     "verdict": null,
-    "coords": null,
+    "coords": {
+      "lat": 38.69546,
+      "lon": -75.07484,
+      "precision": "site"
+    },
     "sources": [
       {
         "label": "38°-75° Brewing",
@@ -2493,8 +2599,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where.",
-      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+      "Ask the operator directly whether dogs are allowed, and where."
     ]
   }
 ]
