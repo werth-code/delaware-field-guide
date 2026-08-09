@@ -33,16 +33,17 @@ const live = rows.filter((r) => r.count >= MIN_TO_INDEX).length;
   <div class="wrap pt-11 pb-6">
     <p class="label m-0">Good for</p>
     <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[17ch] text-marsh">
-      Start from the problem
+      Start with what you need
     </h1>
+    {/* Four fragments, not a sentence. The old version explained the idea —
+        "nobody sets out wanting a county park" — which is true and is one
+        sentence more than a reader needs before the lists. */}
     <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
-      Nobody sets out wanting a county park. They want somewhere dry, or shaded,
-      or open on a Sunday, or with a bathroom near the swings.
+      Dry. Shaded. Open Sunday. A playground with a bathroom.
     </p>
     <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
-      Each list below is built from confirmed facts only, so a place appears
-      because somebody checked — not because it probably qualifies. That keeps
-      several of these shorter than they could be, which is the point.
+      These lists use confirmed facts only. If a detail has not been checked,
+      the place does not appear.
     </p>
     <p class="stamp text-ink-soft mt-5 mb-0">
       {live} of {rows.length} lists long enough to be worth searching for
