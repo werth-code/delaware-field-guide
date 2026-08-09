@@ -1,0 +1,158 @@
+---
+/**
+ * Birding hub.
+ *
+ * Pulls from two places on purpose: sites with their own record here, and the
+ * `birding` block on records that already existed. A place appears once,
+ * wherever its facts actually live.
+ */
+import Layout from "../../layouts/Layout.astro";
+import sitesData from "../../data/birding-sites.json";
+import stateParksData from "../../data/state-parks.json";
+import indoorData from "../../data/indoor.json";
+import {
+  assertNoSensitiveCoords,
+  publishableSites,
+  TRAIL_SITE_COUNT,
+  type BirdingSite,
+} from "../../lib/birding";
+import { isPublishable } from "../../lib/verification";
+
+const sites = publishableSites(assertNoSensitiveCoords(sitesData as unknown as BirdingSite[]));
+
+/* Places already on the site that have gained a birding block. Linked to their
+   own page — not copied into a second one. */
+type Lens = { name: string; href: string; kind: string; why: string; sensitive: boolean };
+const lenses: Lens[] = [
+  ...(stateParksData as any[])
+    .filter((p) => p.birding && isPublishable(p))
+    .map((p) => ({ name: p.name, href: `/parks/${p.slug}/`, kind: "State park",
+                   why: p.birding.why, sensitive: !!p.birding.sensitive })),
+  ...(indoorData as any[])
+    .filter((p) => p.birding && isPublishable(p))
+    .map((p) => ({ name: p.name, href: `/indoors/${p.slug}/`, kind: p.kind,
+                   why: p.birding.why, sensitive: !!p.birding.sensitive })),
+];
+
+const covered = sites.length + lenses.length;
+---
+
+<Layout
+  title="Birding in Delaware — Where to Go, When & What to Know"
+  description="Find the best places to go birding in Delaware, with fees, parking, restrooms, best seasons, scope advice, seasonal closures and current source links."
+  robots={covered ? undefined : "noindex, follow"}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">Birding</p>
+    <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[15ch] text-marsh">
+      Birding in Delaware
+    </h1>
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
+      Where to go, when it gets interesting, and what you need to know before
+      you drive.
+    </p>
+
+    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
+      Delaware sits on the Atlantic Flyway with tidal marsh, ocean beach,
+      Piedmont forest and cypress swamp squeezed into forty miles. You can see
+      very different birds without driving very far.
+    </p>
+
+    {/* The line that decides what this section is. Rebuilding eBird would be
+        worthless and worse than what exists. */}
+    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
+      This is about the trip around the birds: what it costs, when the gate
+      opens, whether a scope earns its weight, which places work from the car,
+      and which three days in autumn the roads shut completely. For sightings
+      and live checklists I link to eBird rather than trying to rebuild it.
+    </p>
+
+    <p class="stamp text-ink-soft mt-5 mb-0">
+      {covered} of the Delaware Birding Trail's {TRAIL_SITE_COUNT} sites covered so far
+    </p>
+  </div>
+
+  {
+    sites.length > 0 && (
+      <div class="wrap pb-6">
+        <h2 class="label m-0 pb-3">Refuges</h2>
+        <ul class="list-none p-0 m-0 grid gap-4 sm:grid-cols-2 breakout">
+          {sites.map((s) => (
+            <li>
+              <a href={`/birding/${s.slug}/`} class="sign sign-action block no-underline group px-4 py-4 sm:px-5 sm:py-5 h-full">
+                <p class="font-display text-[1.15rem] font-semibold tracking-[-0.03em] m-0 text-marsh underline decoration-ochre decoration-2 underline-offset-[0.16em] group-hover:decoration-marsh">
+                  {s.name}
+                </p>
+                <p class="stamp text-ink-soft mt-1 mb-0">{s.operator} · {s.town}</p>
+                <p class="mt-3 mb-0 text-[0.92rem] leading-snug max-w-[44ch]">{s.birding.why}</p>
+                {s.birding.closures?.length && (
+                  <p class="stamp text-flag-red-bearing mt-3 mb-0">
+                    {s.birding.closures.length} current closure
+                    {s.birding.closures.length === 1 ? "" : "s"}
+                  </p>
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  {
+    lenses.length > 0 && (
+      <div class="wrap pb-6">
+        <h2 class="label m-0 pb-3">Places already on the site</h2>
+        <p class="mt-0 mb-4 text-[0.95rem] text-ink-soft max-w-[58ch]">
+          These have full records already — hours, fees, facilities, the lot.
+          The birding notes sit on those pages rather than in a second copy that
+          could disagree with the first.
+        </p>
+        <ul class="list-none p-0 m-0 grid gap-3 sm:grid-cols-2 breakout">
+          {lenses.map((l) => (
+            <li>
+              <a href={l.href} class="sign sign-action block no-underline group px-4 py-4 h-full">
+                <p class="font-display text-[1.08rem] font-semibold tracking-[-0.03em] m-0 text-marsh underline decoration-ochre decoration-2 underline-offset-[0.16em] group-hover:decoration-marsh">
+                  {l.name}
+                </p>
+                <p class="stamp text-ink-soft mt-1 mb-0">{l.kind}</p>
+                <p class="mt-2 mb-0 text-[0.9rem] leading-snug max-w-[46ch]">{l.why}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  <div class="wrap prose-field pb-4">
+    <h2>What isn't here yet</h2>
+    <p class="max-w-[58ch]">
+      {TRAIL_SITE_COUNT - covered} of the Birding Trail's sites have no useful
+      page here — Woodland Beach, Little Creek, Ted Harvey, Milford Neck,
+      Slaughter Beach, Assawoman, the Great Cypress Swamp and the rest. They
+      exist and they're good. I just haven't checked them, and a list of names
+      with nothing behind it is what every other birding page in Delaware
+      already gives you.
+    </p>
+
+    <h2>Where the birds actually are</h2>
+    <p class="max-w-[58ch]">
+      Sightings, checklists and live reports belong to
+      <a href="https://ebird.org/region/US-DE" rel="noopener">eBird</a>, and to the
+      people who keep it up. The
+      <a href="https://www.dosbirds.org/" rel="noopener">Delaware Ornithological Society</a>,
+      <a href="https://delawareaudubon.org/" rel="noopener">Delaware Audubon</a> and the
+      <a href="https://delawarenaturesociety.org/" rel="noopener">Delaware Nature Society</a>
+      run walks and field trips with people who know far more than I do. Go with them.
+    </p>
+
+    <h2>One thing this section won't do</h2>
+    <p class="max-w-[58ch]">
+      It won't publish precise locations for active nests, rare breeders or
+      roosts where being found is the problem. Where a manager closes a beach or
+      withholds a location, that closure is the fact worth having — not a way
+      around it. Getting a better look is never worth more than the bird.
+    </p>
+  </div>
+</Layout>

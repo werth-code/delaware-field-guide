@@ -51,6 +51,15 @@ const communityParks = communityParksData as { slug: string; name: string }[];
 
 export const SECTIONS: Section[] = [
   {
+    /* Under Days out rather than Parks. Eleven of the Birding Trail's sites
+       are state parks, but somebody searching "where can I go see birds" is
+       not thinking about park administration. */
+    slug: "birding",
+    label: "Birding",
+    icon: "trails",
+    nav: [{ href: "/birding/", label: "Where to go, and when" }],
+  },
+  {
     /* Sits with the sections rather than beside Ask, even though it's a way in
        rather than a subject. Ask needs you to phrase the question; this is for
        the reader who knows the constraint — rain, a bathroom, shade — and wants
@@ -170,7 +179,7 @@ export interface NavGroup {
 
 export const NAV_GROUPS: NavGroup[] = [
   { label: "Parks", slugs: ["parks", "surf-fishing"] },
-  { label: "Days out", slugs: ["good-for", "indoors", "attractions", "wineries-and-breweries", "disc-golf", "events", "nearby"] },
+  { label: "Days out", slugs: ["good-for", "birding", "indoors", "attractions", "wineries-and-breweries", "disc-golf", "events", "nearby"] },
 ];
 
 /** Sections that sit at the top level rather than inside a group. */

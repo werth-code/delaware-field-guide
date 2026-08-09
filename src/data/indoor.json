@@ -1501,6 +1501,24 @@
         "body": "Filed under indoors when I added it, which was wrong. Ashland is an outdoor trip — the ranger station is somewhat interesting but would only occupy kids for about ten minutes. It has moved to attractions and no longer answers \"somewhere dry when it rains\"."
       }
     ],
-    "isIndoors": false
+    "isIndoors": false,
+    "birding": {
+      "why": "Delaware Nature Society's hawk watch site, with banding and a Motus tower — the place to start if you want somebody to show you how.",
+      "habitats": [
+        "Piedmont forest",
+        "Farm fields"
+      ],
+      "seasons": null,
+      "scope": false,
+      "scopeNote": "The hawk watch is a sky-watching exercise. Binoculars.",
+      "fromCar": false,
+      "fromCarNote": null,
+      "beginnerFriendly": true,
+      "structures": null,
+      "closures": null,
+      "ebird": null,
+      "sensitive": false,
+      "sensitiveNote": null
+    }
   }
 ]

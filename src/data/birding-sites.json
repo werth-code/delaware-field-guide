@@ -1,0 +1,135 @@
+[
+  {
+    "slug": "bombay-hook",
+    "name": "Bombay Hook National Wildlife Refuge",
+    "town": "Smyrna",
+    "county": "Kent",
+    "operator": "U.S. Fish & Wildlife Service",
+    "existingRecord": null,
+    "address": "2591 Whitehall Neck Road, Smyrna, DE 19977",
+    "fee": {
+      "note": "Not confirmed. The refuge says to pay the entrance fee on Recreation.gov but doesn't publish the amount on the page I can reach — its own fees page returns a 404. Bring a card and expect to pay something.",
+      "amount": null
+    },
+    "hours": null,
+    "restrooms": null,
+    "parking": null,
+    "birding": {
+      "why": "A twelve-mile drive through managed pools, salt marsh and mudflat, most of which you can bird without getting out of the car.",
+      "habitats": [
+        "Tidal marsh",
+        "Freshwater marsh",
+        "Farm fields"
+      ],
+      "seasons": null,
+      "scope": true,
+      "scopeNote": "Open water and mudflat at distance. A scope changes what this place is; binoculars alone leave a lot of gray dots.",
+      "fromCar": true,
+      "fromCarNote": "The wildlife drive is the refuge. One of the rare Delaware outings that works better from the car — the vehicle is the blind, and stepping out is what puts birds up.",
+      "beginnerFriendly": true,
+      "structures": null,
+      "closures": [
+        {
+          "what": "All roads and trails closed. The visitor center stays open.",
+          "when": "9 October, 13 November and 16 December 2026",
+          "why": "Refuge hunt days. Three specific dates, published by the refuge — the kind of thing that ruins a two-hour drive and appears on no tourism page."
+        }
+      ],
+      "ebird": "https://ebird.org/hotspot/L133335",
+      "sensitive": false,
+      "sensitiveNote": null
+    },
+    "coords": null,
+    "warnings": [
+      "Salt marsh in summer means biting insects. May is the reason to come; repellent is the reason the trip stays pleasant.",
+      "The three 2026 hunt dates close every road and trail. Check them before driving from out of state."
+    ],
+    "sources": [
+      {
+        "label": "Bombay Hook National Wildlife Refuge — U.S. Fish & Wildlife Service",
+        "url": "https://www.fws.gov/refuge/bombay-hook",
+        "note": "Read 9 August 2026. Publishes the 2026 hunting closure dates and directs fee payment to Recreation.gov without naming an amount.",
+        "primary": true
+      }
+    ],
+    "sourcedOn": "2026-08-09",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "The entrance fee. Their own fees page 404s and the overview names no amount.",
+      "Refuge and visitor-center opening hours.",
+      "Restrooms — where, and whether they're open before the visitor center.",
+      "Observation towers: how many, where, and whether any is step-free.",
+      "How long the twelve-mile drive actually takes at birding pace."
+    ]
+  },
+  {
+    "slug": "prime-hook",
+    "name": "Prime Hook National Wildlife Refuge",
+    "town": "Milton",
+    "county": "Sussex",
+    "operator": "U.S. Fish & Wildlife Service",
+    "existingRecord": null,
+    "address": "11978 Turkle Pond Road, Milton, DE 19968",
+    "fee": {
+      "note": "Not confirmed. Nothing published on the pages I can reach names a fee.",
+      "amount": null
+    },
+    "hours": null,
+    "restrooms": null,
+    "parking": null,
+    "birding": {
+      "why": "Marsh, and 7.5 miles of trails — but a lot of the best of it is birded from the county roads crossing the marsh rather than from any trailhead.",
+      "habitats": [
+        "Freshwater marsh",
+        "Tidal marsh",
+        "Bay beach"
+      ],
+      "seasons": null,
+      "scope": true,
+      "scopeNote": "Marsh at distance rewards one. Not essential on the wooded trails.",
+      "fromCar": true,
+      "fromCarNote": "The roads across the marsh are part of the refuge, and a first-timer who parks at a trailhead and walks can miss what they came for.",
+      "beginnerFriendly": true,
+      "structures": null,
+      "closures": [
+        {
+          "what": "Fowler Beach closed.",
+          "when": "Through the nesting season, reopening 1 October 2026",
+          "why": "Federally threatened piping plovers and state-endangered least terns nesting. The refuge's own closure, not a guess."
+        },
+        {
+          "what": "Canoe trail — eastern portion impassable.",
+          "when": "Current, as of August 2026",
+          "why": "Heavily silted. The refuge says not to attempt it and to go west from Foord's Landing only."
+        }
+      ],
+      "ebird": "https://ebird.org/hotspot/L133340",
+      "sensitive": true,
+      "sensitiveNote": "Piping plover and least tern nesting. The refuge closes Fowler Beach for it, and this page publishes the closure rather than anything that would help somebody get closer."
+    },
+    "coords": null,
+    "warnings": [
+      "Fowler Beach is shut for nesting until 1 October 2026.",
+      "Don't take a canoe east on the canoe trail — the refuge says it's silted in."
+    ],
+    "sources": [
+      {
+        "label": "Prime Hook National Wildlife Refuge — U.S. Fish & Wildlife Service",
+        "url": "https://www.fws.gov/refuge/prime-hook",
+        "note": "Read 9 August 2026. Publishes the 7.5 miles of trails, the Fowler Beach nesting closure with its 1 October reopening, and the canoe-trail silting.",
+        "primary": true
+      }
+    ],
+    "sourcedOn": "2026-08-09",
+    "verifiedDate": null,
+    "verifiedSource": null,
+    "outstanding": [
+      "Entrance fee, if any.",
+      "Visitor-center hours.",
+      "Restrooms.",
+      "Which county roads across the marsh are the productive ones, and where it's safe to stop a car.",
+      "Observation platforms."
+    ]
+  }
+]

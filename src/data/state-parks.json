@@ -115,6 +115,25 @@
       "kit": "Rubber pads, modified Mach-1 baskets",
       "mapUrl": "https://www.destateparks.com/wp-content/uploads/2026/02/activity_Cape_DiscGolf.pdf",
       "mapImage": "dg-cape-henlopen"
+    },
+    "birding": {
+      "why": "Coastal migration in autumn, and The Point — with the caveat that The Point is what closes for nesting birds.",
+      "habitats": [
+        "Ocean beach",
+        "Bay beach",
+        "Piedmont forest"
+      ],
+      "scope": true,
+      "scopeNote": "Useful for seabirds and for anything out on the flats.",
+      "fromCar": false,
+      "fromCarNote": "This one is walked.",
+      "beginnerFriendly": true,
+      "sensitive": true,
+      "sensitiveNote": "The Point closes seasonally for nesting and migrating birds. The closure is the fact worth publishing; anything that would help somebody work around it is not.",
+      "seasons": null,
+      "structures": null,
+      "closures": null,
+      "ebird": null
     }
   },
   {
@@ -475,6 +494,24 @@
       "kit": "Rubber pads, Discatcher baskets. Red and gold tees, three pin positions",
       "mapUrl": "https://www.destateparks.com/wp-content/uploads/2024/09/activity_TrapPond_DiscGolf.pdf",
       "mapImage": "dg-trap-pond"
+    },
+    "birding": {
+      "why": "Bald cypress at the northern edge of its range — a swamp habitat found nowhere else in the state.",
+      "habitats": [
+        "Cypress swamp",
+        "Millpond"
+      ],
+      "scope": false,
+      "scopeNote": null,
+      "fromCar": false,
+      "fromCarNote": "Better from the water than the car — this is a paddling site.",
+      "beginnerFriendly": true,
+      "sensitive": false,
+      "seasons": null,
+      "structures": null,
+      "closures": null,
+      "ebird": null,
+      "sensitiveNote": null
     }
   },
   {
@@ -915,6 +952,23 @@
       "kit": "Two pin positions, A and B. In the Carpenter Recreation Area, past the fee booth",
       "mapUrl": "https://www.destateparks.com/wp-content/uploads/2024/09/activity_WhiteClay_DiscGolf.pdf",
       "mapImage": "dg-white-clay-creek"
+    },
+    "birding": {
+      "why": "Woodland migrants and breeding forest birds — the inland counterweight to a state known for its coast.",
+      "habitats": [
+        "Piedmont forest"
+      ],
+      "scope": false,
+      "scopeNote": "Woodland. Binoculars, and patience.",
+      "fromCar": false,
+      "fromCarNote": null,
+      "beginnerFriendly": true,
+      "sensitive": false,
+      "seasons": null,
+      "structures": null,
+      "closures": null,
+      "ebird": null,
+      "sensitiveNote": null
     }
   },
   {
@@ -1080,6 +1134,24 @@
       "kit": "Two pin positions, A and B. Designed and built by Delaware Disc Golfers",
       "mapUrl": "https://www.destateparks.com/wp-content/uploads/2024/09/activity_BrandywineCreek_DiscGolf.pdf",
       "mapImage": "dg-brandywine-creek"
+    },
+    "birding": {
+      "why": "Piedmont forest and open meadow within half an hour of Wilmington.",
+      "habitats": [
+        "Piedmont forest",
+        "Farm fields"
+      ],
+      "scope": false,
+      "scopeNote": null,
+      "fromCar": false,
+      "fromCarNote": null,
+      "beginnerFriendly": true,
+      "sensitive": false,
+      "seasons": null,
+      "structures": null,
+      "closures": null,
+      "ebird": null,
+      "sensitiveNote": null
     }
   },
   {

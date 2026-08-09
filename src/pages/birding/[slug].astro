@@ -1,0 +1,151 @@
+---
+/**
+ * A birding site that has no other record on this site.
+ *
+ * Only the refuges and wildlife areas reach here. Anything already covered as
+ * a state park or nature center keeps its own page and gains a birding block
+ * there instead — one place, one record.
+ */
+import Layout from "../../layouts/Layout.astro";
+import sitesData from "../../data/birding-sites.json";
+import { assertNoSensitiveCoords, type BirdingSite } from "../../lib/birding";
+import { isPublishable, robotsFor } from "../../lib/verification";
+
+export function getStaticPaths() {
+  return (sitesData as unknown as BirdingSite[]).map((site) => ({
+    params: { slug: site.slug },
+    props: { site },
+  }));
+}
+
+const { site } = Astro.props as { site: BirdingSite };
+assertNoSensitiveCoords([site]);
+
+const tri = (v: boolean | null) => (v === null ? "Not confirmed" : v ? "Yes" : "No");
+
+const rows = [
+  { label: "Fee", value: site.fee.note },
+  { label: "Hours", value: site.hours ?? "Not confirmed" },
+  { label: "Restrooms", value: site.restrooms === null ? "Not confirmed" : tri(site.restrooms) },
+  { label: "Birding from the car", value: site.birding.fromCarNote ?? tri(site.birding.fromCar) },
+  { label: "Scope", value: site.birding.scopeNote ?? tri(site.birding.scope) },
+  { label: "Good for a beginner", value: tri(site.birding.beginnerFriendly) },
+];
+---
+
+<Layout
+  title={`${site.name} Birding — Access, Seasons & What to Know`}
+  description={`Plan a birding trip to ${site.name}: access, fees, closures, whether a scope helps, and what the operator publishes. Checked and dated.`}
+  robots={robotsFor(site)}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">Birding · {site.county} County</p>
+    <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[17ch] text-marsh">
+      {site.name}
+    </h1>
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">{site.birding.why}</p>
+    <p class="stamp text-ink-soft mt-3 mb-0">
+      {site.operator}{site.town ? ` · ${site.town}` : ""}
+    </p>
+  </div>
+
+  {/* Closures first. They are the only thing on this page that can waste the
+      whole drive, and the only thing no tourism listing carries. */}
+  {
+    site.birding.closures?.length && (
+      <div class="wrap pb-2">
+        <aside
+          class="breakout border-2 border-flag-red border-l-[9px] bg-flag-red-wash px-4 sm:px-5 py-4 rounded-[2px] my-2"
+          style="box-shadow: 5px 5px 0 0 var(--color-flag-red-bearing);"
+        >
+          <p class="label text-flag-red-bearing m-0">Closed, or closing</p>
+          <ul class="list-none p-0 m-0 mt-2.5 space-y-3">
+            {site.birding.closures.map((c) => (
+              <li>
+                <p class="m-0 text-[1rem] leading-snug"><strong>{c.what}</strong></p>
+                <p class="stamp text-ink-soft mt-1 mb-0">{c.when}</p>
+                {c.why && <p class="mt-1 mb-0 text-[0.9rem] leading-snug">{c.why}</p>}
+              </li>
+            ))}
+          </ul>
+        </aside>
+      </div>
+    )
+  }
+
+  <div class="wrap pb-6">
+    <h2 class="label m-0 pb-3">Before you go</h2>
+    <dl class="sign breakout my-2 divide-y-2 divide-tide/25">
+      {
+        rows.map((r) => (
+          <div class="px-4 sm:px-5 py-3">
+            <dt class="label m-0">{r.label}</dt>
+            <dd class="m-0 mt-1 text-[0.98rem] leading-[1.5]">{r.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    {
+      site.birding.sensitive && site.birding.sensitiveNote && (
+        <>
+          <h2>Nesting birds</h2>
+          <p class="max-w-[58ch]">{site.birding.sensitiveNote}</p>
+        </>
+      )
+    }
+
+    {
+      site.warnings?.length && (
+        <>
+          <h2>What can spoil the trip</h2>
+          <ul>{site.warnings.map((w) => <li>{w}</li>)}</ul>
+        </>
+      )
+    }
+
+    <h2>Current sightings</h2>
+    <p class="max-w-[58ch]">
+      {
+        site.birding.ebird ? (
+          <>
+            What people are actually seeing here is on{" "}
+            <a href={site.birding.ebird} rel="noopener">eBird</a>, updated by birders
+            rather than by me. This page is the trip; that page is the birds.
+          </>
+        ) : (
+          <>No eBird hotspot recorded here yet.</>
+        )
+      }
+    </p>
+
+    {
+      site.outstanding?.length && (
+        <>
+          <h2>Still to check</h2>
+          <ul>{site.outstanding.map((o) => <li>{o}</li>)}</ul>
+        </>
+      )
+    }
+
+    <h2>Source</h2>
+    <ul>
+      {
+        site.sources.map((s) => (
+          <li>
+            <a href={s.url} rel="noopener">{s.label}</a>
+            {s.note ? ` — ${s.note}` : ""}
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2>Bird somewhere else</h2>
+    <ul>
+      <li><a href="/birding/">Birding in Delaware</a></li>
+      <li><a href="/parks/">All 17 Delaware state parks</a></li>
+    </ul>
+  </div>
+</Layout>
