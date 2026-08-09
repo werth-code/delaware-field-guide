@@ -32,7 +32,7 @@
     },
     "accessibility": "Adaptive swings and a fully fenced adaptive sensory playground. Paved promenade.",
     "dogParkSlug": "glasgow-bark-park",
-    "hours": "07:00-20:00",
+    "hours": "Dawn to dusk",
     "hoursNote": "Sat/Sun opens 05:00. Park hours — the dog run may differ.",
     "phone": "302-395-5606",
     "warnings": [],
@@ -40,8 +40,7 @@
     "verifiedSource": null,
     "outstanding": [
       "Restrooms confirmed present — still need the type (permanent vs portable) and whether they are seasonal or year-round.",
-      "Confirm drinking water.",
-      "Confirm farmers market day and season."
+      "Confirm drinking water."
     ],
     "sources": [
       {
@@ -53,9 +52,15 @@
         "url": "https://www.newcastlede.gov/directory.aspx",
         "primary": true,
         "note": "The county's own directory, read 8 August 2026. Lists Carousel Park & Equestrian Center on 302-995-7670, Rockwood Park & Museum on (302) 761-4340, and a Parks Permit Office on 302-395-5606."
+      },
+      {
+        "label": "New Castle County — Parks",
+        "url": "https://www.newcastlede.gov/1523/Parks",
+        "primary": true,
+        "note": "Read 9 August 2026. County parks are dawn to dusk; facility lists are per park."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-09",
     "photos": [
       {
         "file": "glasgow-park-a",
@@ -86,7 +91,13 @@
       "lon": -75.748,
       "precision": "site"
     },
-    "phoneNote": "New Castle County's parks permit office. The county publishes no separate number for this park, so this reaches the people who run it rather than the gate."
+    "phoneNote": "New Castle County's parks permit office. The county publishes no separate number for this park, so this reaches the people who run it rather than the gate.",
+    "onSite": [
+      {
+        "label": "Farmers market",
+        "note": "Thursdays 3–7pm, May through October. The 2026 season opens 7 May."
+      }
+    ]
   },
   {
     "slug": "carousel-park",
@@ -251,14 +262,14 @@
     "operator": "New Castle County",
     "county": "New Castle",
     "town": "Wilmington",
-    "address": "Middleboro Rd, Wilmington, DE 19804",
+    "address": "102 Middleboro Road, Wilmington, DE 19804",
     "acres": null,
     "blurb": "A large county park south-west of Wilmington with ponds, ball fields and picnic areas. New Castle County lists a dog park here on its own dog-parks page; what's inside it — fencing, water, shade, surface — nobody has checked.",
     "restrooms": {
-      "present": null,
+      "present": true,
       "type": null,
       "seasonal": null,
-      "note": "Not confirmed."
+      "note": "Listed by New Castle County. Season and hours not published."
     },
     "facilities": {
       "playground": null,
@@ -276,7 +287,7 @@
     },
     "accessibility": null,
     "dogParkSlug": "banning-regional-dog-park",
-    "hours": null,
+    "hours": "Dawn to dusk",
     "hoursNote": null,
     "phone": "302-395-5606",
     "warnings": [],
@@ -284,7 +295,6 @@
     "verifiedSource": null,
     "outstanding": [
       "RESTROOMS — confirm.",
-      "Confirm the address and hours.",
       "Go to the Banning dog park and record fencing, size split, water, shade and surface. The county confirms it exists and publishes nothing else about it."
     ],
     "sources": [
@@ -303,9 +313,15 @@
         "url": "https://www.newcastlede.gov/3105/Dog-Parks",
         "primary": true,
         "note": "The operator. Lists Banning Regional Park as a county dog park. Read 6 August 2026."
+      },
+      {
+        "label": "New Castle County — Parks",
+        "url": "https://www.newcastlede.gov/1523/Parks",
+        "primary": true,
+        "note": "Read 9 August 2026. County parks are dawn to dusk; facility lists are per park."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-09",
     "coords": {
       "lat": 39.718,
       "lon": -75.59,
@@ -344,7 +360,7 @@
     },
     "accessibility": null,
     "dogParkSlug": null,
-    "hours": null,
+    "hours": "Dawn to dusk",
     "hoursNote": null,
     "phone": "302-395-5606",
     "warnings": [],
@@ -364,9 +380,15 @@
         "url": "https://www.newcastlede.gov/directory.aspx",
         "primary": true,
         "note": "The county's own directory, read 8 August 2026. Lists Carousel Park & Equestrian Center on 302-995-7670, Rockwood Park & Museum on (302) 761-4340, and a Parks Permit Office on 302-395-5606."
+      },
+      {
+        "label": "New Castle County — Parks",
+        "url": "https://www.newcastlede.gov/1523/Parks",
+        "primary": true,
+        "note": "Read 9 August 2026. County parks are dawn to dusk; facility lists are per park."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-09",
     "coords": {
       "lat": 39.74,
       "lon": -75.63,
@@ -405,7 +427,7 @@
     },
     "accessibility": null,
     "dogParkSlug": "iron-hill-dog-park",
-    "hours": "08:00-20:00",
+    "hours": "Dawn to dusk",
     "hoursNote": "Park hours — the dog run may differ.",
     "phone": "302-395-5606",
     "warnings": [],
@@ -426,9 +448,15 @@
         "url": "https://www.newcastlede.gov/directory.aspx",
         "primary": true,
         "note": "The county's own directory, read 8 August 2026. Lists Carousel Park & Equestrian Center on 302-995-7670, Rockwood Park & Museum on (302) 761-4340, and a Parks Permit Office on 302-395-5606."
+      },
+      {
+        "label": "New Castle County — Parks",
+        "url": "https://www.newcastlede.gov/1523/Parks",
+        "primary": true,
+        "note": "Read 9 August 2026. County parks are dawn to dusk; facility lists are per park."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-09",
     "coords": {
       "lat": 39.656,
       "lon": -75.766,
@@ -469,7 +497,7 @@
     },
     "accessibility": null,
     "dogParkSlug": "talley-day-dog-park",
-    "hours": "06:00-18:00",
+    "hours": "Dawn to dusk",
     "hoursNote": null,
     "phone": "302-395-5606",
     "warnings": [],
@@ -477,7 +505,7 @@
     "verifiedSource": null,
     "outstanding": [
       "Restrooms confirmed present — establish whether they are the park’s own or the library’s, and whether they are usable when the library is shut.",
-      "Confirm the water fountains are dog-fillable."
+      "Are the new dog-park water fountains dog-fillable? The county says fountains were installed in both the small- and large-dog areas, which is not the same as a bowl a dog can drink from."
     ],
     "sources": [
       {
@@ -489,9 +517,15 @@
         "url": "https://www.newcastlede.gov/directory.aspx",
         "primary": true,
         "note": "The county's own directory, read 8 August 2026. Lists Carousel Park & Equestrian Center on 302-995-7670, Rockwood Park & Museum on (302) 761-4340, and a Parks Permit Office on 302-395-5606."
+      },
+      {
+        "label": "New Castle County — Parks",
+        "url": "https://www.newcastlede.gov/1523/Parks",
+        "primary": true,
+        "note": "Read 9 August 2026. County parks are dawn to dusk; facility lists are per park."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-09",
     "photos": [
       {
         "file": "talley-day-playground",
@@ -583,7 +617,7 @@
     "operator": "Kent County",
     "county": "Kent",
     "town": "Camden",
-    "address": "80 Old Camden Rd, Camden, DE 19934",
+    "address": "80 Old Camden Road, Camden, DE 19934",
     "acres": 86,
     "blurb": "Eighty-six acres with the fullest facility list of any county park in Kent. Sand volleyball, horseshoes, multiple trails, pavilions with grills, sports fields, a nature center and a stage. Historic buildings on site.",
     "restrooms": {
@@ -608,7 +642,7 @@
     },
     "accessibility": null,
     "dogParkSlug": null,
-    "hours": null,
+    "hours": "6am – 9pm, daily",
     "hoursNote": null,
     "phone": "302-744-2495",
     "warnings": [],
@@ -616,7 +650,6 @@
     "verifiedSource": null,
     "outstanding": [
       "Confirm restroom season and hours — 'has restrooms' and 'restrooms open in February' are different facts.",
-      "Confirm the address.",
       "Confirm pavilion booking and whether it costs."
     ],
     "sources": [
@@ -631,7 +664,7 @@
         "note": "Read 8 August 2026. States \"Phone questions during business hours (M-F 8AM to 5PM): 302-744-2495\"."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-09",
     "coords": {
       "lat": 39.077,
       "lon": -75.545,
@@ -709,7 +742,7 @@
     "operator": "Kent County",
     "county": "Kent",
     "town": "Dover",
-    "address": "Dover, DE 19901",
+    "address": "1624 Sorghum Mill Road, Dover, DE 19904",
     "acres": null,
     "blurb": "A 1.5-mile nature trail, flat and easy, used mostly for walking and dog-walking. A nature preserve rather than a facilities park. Come for the walk, not the amenities.",
     "restrooms": {
@@ -732,9 +765,9 @@
       "skate": false,
       "dogPark": false
     },
-    "accessibility": "Trail described by the county as accessible for all skill levels. Surface not confirmed.",
+    "accessibility": "Not confirmed as wheelchair accessible. The county calls the 1.5-mile loop a gravelled nature trail while its facility list says paved and unpaved — 'accessible for all skill levels' is a statement about difficulty, not about wheels.",
     "dogParkSlug": null,
-    "hours": null,
+    "hours": "6am – 9pm, daily",
     "hoursNote": null,
     "phone": "302-744-2495",
     "warnings": [],
@@ -742,8 +775,8 @@
     "verifiedSource": null,
     "outstanding": [
       "RESTROOMS — confirm whether there are any at all.",
-      "Confirm the trail surface — 'accessible for all skill levels' is not the same as wheelchair accessible.",
-      "Get a street address."
+      "Get a street address.",
+      "Whether any part of the loop is genuinely wheelchair accessible, as distinct from easy walking."
     ],
     "sources": [
       {
@@ -757,7 +790,7 @@
         "note": "Read 8 August 2026. States \"Phone questions during business hours (M-F 8AM to 5PM): 302-744-2495\"."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-09",
     "coords": {
       "lat": 39.135,
       "lon": -75.5,
@@ -771,39 +804,40 @@
     "operator": "Kent County",
     "county": "Kent",
     "town": "Smyrna",
-    "address": "Smyrna, DE 19977",
+    "address": "417 Big Oak Road, Smyrna, DE 19977",
     "acres": null,
-    "blurb": "A Kent County park in the Smyrna area. Facilities not yet confirmed. This record exists so the gap is visible rather than hidden.",
+    "blurb": "A Kent County park north of Dover with a 1.1-mile loop, ball fields and an outdoor fitness area. Restrooms and water fountains both listed by the county — rarer than it should be.",
     "restrooms": {
-      "present": null,
+      "present": true,
       "type": null,
       "seasonal": null,
-      "note": "Not confirmed."
+      "note": "Public restroom listed by Kent County. Season not published."
     },
     "facilities": {
-      "playground": null,
-      "water": null,
+      "playground": true,
+      "water": true,
       "shade": null,
-      "pavilion": null,
-      "grills": null,
-      "trails": null,
-      "pavedPath": null,
-      "sports": null,
+      "pavilion": true,
+      "grills": true,
+      "trails": true,
+      "pavedPath": true,
+      "sports": true,
       "fishing": null,
       "discGolf": null,
       "skate": null,
       "dogPark": null
     },
-    "accessibility": null,
+    "accessibility": "Kent County lists accessible facilities. What that covers specifically isn't published.",
     "dogParkSlug": null,
-    "hours": null,
-    "hoursNote": null,
+    "hours": "6am – 9pm, daily",
+    "hoursNote": "Posted on the park's own county page. Kent County's general rules also restrict park and parking-lot use to daylight hours; where the two differ, the park's posted hours are these.",
     "phone": "302-744-2495",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Everything. Call Kent County Parks and fill this record in, or drop it."
+      "Whether the restrooms are open year round.",
+      "Confirm the acreage."
     ],
     "coords": {
       "lat": 39.29,
@@ -818,32 +852,43 @@
         "primary": true,
         "note": "Read 8 August 2026. States \"Phone questions during business hours (M-F 8AM to 5PM): 302-744-2495\"."
       }
-    ]
+    ],
+    "onSite": [
+      {
+        "label": "Park loop",
+        "note": "1.1 miles, paved and unpaved."
+      },
+      {
+        "label": "Fitness area",
+        "note": "Outdoor fitness equipment, plus a bike rack."
+      }
+    ],
+    "sourcedOn": "2026-08-09"
   },
   {
     "slug": "browns-branch-park",
     "name": "Browns Branch County Park",
     "operator": "Kent County",
     "county": "Kent",
-    "town": "Greensboro Rd area",
-    "address": "Kent County, DE",
-    "acres": null,
-    "blurb": "A Kent County park. Facilities not yet confirmed.",
+    "town": "Harrington",
+    "address": "1415 Killens Pond Road, Harrington, DE 19952",
+    "acres": 78,
+    "blurb": "A 78-acre Kent County park near Killens Pond with a wetland boardwalk, ball fields and shaded picnic ground. Dogs are allowed on a leash.",
     "restrooms": {
       "present": null,
       "type": null,
       "seasonal": null,
-      "note": "Not confirmed."
+      "note": "Not confirmed, and deliberately not marked yes: the county lists no permanent restroom, and its permit FAQ talks about bringing portable ones in for tournaments. Assume none."
     },
     "facilities": {
-      "playground": null,
+      "playground": true,
       "water": null,
-      "shade": null,
+      "shade": true,
       "pavilion": null,
       "grills": null,
-      "trails": null,
-      "pavedPath": null,
-      "sports": null,
+      "trails": true,
+      "pavedPath": true,
+      "sports": true,
       "fishing": null,
       "discGolf": null,
       "skate": null,
@@ -851,14 +896,15 @@
     },
     "accessibility": null,
     "dogParkSlug": null,
-    "hours": null,
-    "hoursNote": null,
+    "hours": "6am – 9pm, daily",
+    "hoursNote": "Posted on the park's own county page. Kent County's general rules also restrict park and parking-lot use to daylight hours; where the two differ, the park's posted hours are these.",
     "phone": "302-744-2495",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Everything. Call Kent County Parks and fill this record in, or drop it."
+      "Whether there is any permanent restroom, or only portables brought in for events.",
+      "Drinking water."
     ],
     "coords": {
       "lat": 39.19,
@@ -873,7 +919,14 @@
         "primary": true,
         "note": "Read 8 August 2026. States \"Phone questions during business hours (M-F 8AM to 5PM): 302-744-2495\"."
       }
-    ]
+    ],
+    "onSite": [
+      {
+        "label": "Wetland boardwalk",
+        "note": "Part of the trail network."
+      }
+    ],
+    "sourcedOn": "2026-08-09"
   },
   {
     "slug": "lebanon-landing",
@@ -935,42 +988,41 @@
     "name": "Kesselring County Park",
     "operator": "Kent County",
     "county": "Kent",
-    "town": null,
-    "address": null,
-    "acres": null,
-    "blurb": "A Kent County park. I have not found the county's own page for it — the parks listing names it and nothing else. Location, facilities and hours all unconfirmed.",
+    "town": "Dover",
+    "address": "1683 New Burton Road, Dover, DE 19904",
+    "acres": 52,
+    "blurb": "A 52-acre Kent County park in Dover with a synthetic turf field, a 0.8-mile walking route and shade.",
     "restrooms": {
       "present": null,
       "type": null,
       "seasonal": null,
-      "note": "Not confirmed."
+      "note": "Not confirmed. The county lists no public toilets."
     },
     "facilities": {
-      "playground": null,
+      "playground": true,
       "water": null,
-      "shade": null,
+      "shade": true,
       "pavilion": null,
       "grills": null,
-      "trails": null,
-      "pavedPath": null,
-      "sports": null,
+      "trails": true,
+      "pavedPath": true,
+      "sports": true,
       "fishing": null,
       "discGolf": null,
       "skate": null,
       "dogPark": null
     },
-    "accessibility": null,
+    "accessibility": "Kent County gives it an accessible designation. What that covers isn't published.",
     "dogParkSlug": null,
-    "hours": null,
-    "hoursNote": null,
+    "hours": "6am – 9pm, daily",
+    "hoursNote": "Posted on the park's own county page. Kent County's general rules also restrict park and parking-lot use to daylight hours; where the two differ, the park's posted hours are these.",
     "phone": "302-744-2495",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Everything. Call Kent County Parks and fill this record in, or drop it.",
-      "Where it actually is. The county lists the name; I have no address, and the previous record carried the county centroid as though it were the park.",
-      "Everything else — facilities, hours, parking, restrooms."
+      "Public toilets — the county lists none, which may mean none exist or may mean it isn't published.",
+      "Drinking water."
     ],
     "coords": null,
     "phoneNote": "Kent County Parks & Recreation, weekdays 8am–5pm. The county publishes no per-park numbers, so this is the office that runs it.",
@@ -981,7 +1033,18 @@
         "primary": true,
         "note": "Read 8 August 2026. States \"Phone questions during business hours (M-F 8AM to 5PM): 302-744-2495\"."
       }
-    ]
+    ],
+    "onSite": [
+      {
+        "label": "Walking route",
+        "note": "0.8 miles, paved and unpaved."
+      },
+      {
+        "label": "Turf field",
+        "note": "Synthetic, plus multipurpose fields."
+      }
+    ],
+    "sourcedOn": "2026-08-09"
   },
   {
     "slug": "schutte-park",
@@ -1145,9 +1208,7 @@
       "present": true,
       "type": null,
       "seasonal": null,
-      "note": "Listed on the county's own amenity list for this park.",
-      "confirmedOn": "2026-08-04",
-      "confirmedBy": "New Castle County facility listing"
+      "note": "Listed by New Castle County, and new bathrooms at the softball quad were completed by December 2025. Whether any of them are open year round is not published."
     },
     "facilities": {
       "playground": true,
@@ -1165,7 +1226,7 @@
     },
     "accessibility": "The county lists this park as ADA accessible. What that covers specifically isn't published.",
     "dogParkSlug": null,
-    "hours": "dawn-dusk",
+    "hours": "Dawn to dusk",
     "hoursNote": "New Castle County parks are open dawn to dusk.",
     "phone": "302-395-5606",
     "warnings": [],
@@ -1182,9 +1243,15 @@
         "label": "New Castle County: Delcastle Recreational Park",
         "url": "https://www.newcastlede.gov/facilities/facility/details/Delcastle-Recreational-Park-66",
         "note": "The operator's own facility listing. Gives the Duncan Road address, the parks permit office number, dawn-to-dusk hours, and an amenity list of ADA accessible, baseball/softball, basketball, fitness circuit, football, grills, open space, parking, paved trails, playground, restrooms, soccer, street hockey, tennis and wooded area. States there is no admission fee for any county park and that fees apply only to court, field and pavilion rentals."
+      },
+      {
+        "label": "New Castle County — Parks",
+        "url": "https://www.newcastlede.gov/1523/Parks",
+        "primary": true,
+        "note": "Read 9 August 2026. County parks are dawn to dusk; facility lists are per park."
       }
     ],
-    "sourcedOn": "2026-08-04",
+    "sourcedOn": "2026-08-09",
     "coords": {
       "lat": 39.718,
       "lon": -75.654,

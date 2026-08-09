@@ -37,6 +37,7 @@
       "href": "/dogs/state-parks/"
     },
     "warnings": [
+      "The Point closed on 1 March 2026 for nesting and migrating birds. The ocean-side beach reopens 1 September and the bayside beach 1 October. This is separate from the guarded-swimming season — the park can be open, the swimming beach guarded, and The Point still shut.",
       "Ticks. Campground reviews flag them repeatedly, especially the wooded loops and dune scrub."
     ],
     "phone": "302-645-8983",
@@ -81,9 +82,15 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
+      },
+      {
+        "label": "Delaware State Parks — Cape Henlopen",
+        "url": "https://www.destateparks.com/park/cape-henlopen/",
+        "primary": true,
+        "note": "The Point closure dates, read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-09",
     "photos": [
       {
         "file": "cape-henlopen-bay",
@@ -134,7 +141,13 @@
       "structures": null,
       "closures": null,
       "ebird": null
-    }
+    },
+    "onSite": [
+      {
+        "label": "The Point — closed until autumn",
+        "note": "Shut 1 March 2026 for nesting and migrating birds. Ocean side reopens 1 September, bayside 1 October."
+      }
+    ]
   },
   {
     "slug": "delaware-seashore",
@@ -351,7 +364,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Confirm the fee band — bay-side parks may be priced as beach parks.",
+      "Which 2026 fee band DNREC actually assigns this park — inland ($5/$10) or beach ($10/$20). Not inferring it from geography: a bay-side park could be classed either way and the gap is $10 a car.",
       "Confirm crabbing pier access and whether a license is needed."
     ],
     "sources": [
@@ -665,7 +678,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Confirm the fee band for 2026 — inland ($5/$10) or beach ($10/$20).",
+      "Which 2026 fee band DNREC actually assigns this park — inland ($5/$10) or beach ($10/$20). Not inferring it from geography: a bay-side park could be classed either way and the gap is $10 a car.",
       "Confirm the off-leash area hours separately from park hours.",
       "Confirm whether the beach is guarded, and when.",
       "Get the pavilion rental prices and booking lead time.",
@@ -1013,13 +1026,12 @@
       "Several entrances, and they aren't equivalent. The ranger station, gift shop and pavilion bookings are all at the main one."
     ],
     "phone": "302-577-3534",
-    "hours": "8 a.m. – sunset, daily",
+    "hours": "8 a.m. – sunset, daily, year round",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
       "Confirm hawk watch season and the nature center's hours.",
       "Get the pavilion rental prices and how far ahead you have to book.",
-      "Confirm the ranger station's hours — the restrooms are there.",
       "Name every entrance and say which has restrooms and which doesn't.",
       "Get the paved path's length and whether it's a loop.",
       "Confirm the boat launch location and whether it takes trailers."
@@ -1057,9 +1069,15 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
+      },
+      {
+        "label": "Delaware State Parks — Brandywine Creek nature center resource",
+        "url": "https://www.destateparks.com/park/brandywine-creek/",
+        "primary": true,
+        "note": "Park and office hours, read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-09",
     "photos": [
       {
         "file": "brandywine-creek-meadow",
@@ -1121,7 +1139,7 @@
         "body": "Correcting this page. It used to say 'rolling meadow rather than woodland', and the photo caption claimed the meadows were most of what the park is. Both wrong. It's a large park with a big trail system, and the path people come for is paved, wooded, and follows the creek. There's a boat launch, more than one set of restrooms, and it's open year round."
       }
     ],
-    "hoursNote": "Open year round.",
+    "hoursNote": "The park office keeps its own hours and they change with the season: 8am–4pm seven days a week from April to October, weekdays only from November to March. Worth knowing because the restrooms are there.",
     "coords": {
       "lat": 39.806,
       "lon": -75.574,
