@@ -11,6 +11,7 @@
  * costs a wasted drive. Getting this wrong costs a $107 fine.
  */
 import Layout from "../../layouts/Layout.astro";
+import FieldMarkModule from "../../components/FieldMarkModule.astro";
 import CoastBand from "../../components/CoastBand.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
 
@@ -197,6 +198,10 @@ const byPark = ["Cape Henlopen", "Cape Henlopen area", "Delaware Seashore", "Fen
 
     <h2>{noResidentPriority.question}</h2>
     <p class="max-w-[58ch]">{noResidentPriority.answer}</p>
+
+    {/* After the answer, before Related. Renders nothing unless this
+        exact path is whitelisted AND the sticker actually exists. */}
+    <FieldMarkModule />
 
     <h2>Related</h2>
     <ul>

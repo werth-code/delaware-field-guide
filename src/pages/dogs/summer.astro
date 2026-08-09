@@ -10,6 +10,7 @@
  * what it costs, what it bans, and what will hurt the dog when you get there.
  */
 import Layout from "../../layouts/Layout.astro";
+import FieldMarkModule from "../../components/FieldMarkModule.astro";
 import CoastBand from "../../components/CoastBand.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
 
@@ -188,6 +189,10 @@ const openLabel: Record<string, string> = {
         an October-to-April dog season instead of year-round.
       </li>
     </ul>
+
+    {/* After the answer, before Related. Renders nothing unless this
+        exact path is whitelisted AND the sticker actually exists. */}
+    <FieldMarkModule />
 
     <h2>Related</h2>
     <ul>

@@ -182,6 +182,32 @@ for (const [label, claim, verifiedDate] of guarded) {
   }
 }
 
+/* ------------------------------------------ commerce off safety pages -- */
+
+/*
+ * No product module may reach a page about getting hurt or overcharged.
+ *
+ * The component already refuses to render on these paths. This is the second
+ * lock, because the first one is a condition inside a file somebody can edit,
+ * and the emergency-vet headline proved this week that a rule which lives only
+ * in a comment or a condition is a rule that eventually doesn't hold.
+ *
+ * A sticker between "is the water safe for the dog" and the answer would be
+ * the single fastest way to spend the trust the rest of this site is built on.
+ */
+const SAFETY_PAGES = ["/dogs/pond-safety/", "/dogs/pet-fees/", "/contacts/"];
+
+for (const f of files.filter((x) => x.endsWith(".html"))) {
+  const path = "/" + relative(DIST, f).replace(/index\.html$/, "");
+  if (!SAFETY_PAGES.some((p) => path.startsWith(p))) continue;
+  if (/data-field-mark=/.test(readFileSync(f, "utf8"))) {
+    problems.push(
+      `${relative(DIST, f)}: product module on a safety page — ` +
+        `remove the placement, or remove the page from SAFETY_PAGES only if it stopped being one`,
+    );
+  }
+}
+
 if (problems.length) {
   console.error(`\n  ✗ Build check failed:\n${problems.map((p) => `      ${p}`).join("\n")}\n`);
   process.exit(1);

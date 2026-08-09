@@ -1,0 +1,129 @@
+---
+/**
+ * One Field Mark.
+ *
+ * Purchase-intent SEO lives here; information-intent SEO stays on the editorial
+ * page. The two must not blur, so this page never tries to answer "what are the
+ * Cape Henlopen dog rules" — it links to the page that does, twice.
+ */
+import Layout from "../../layouts/Layout.astro";
+import marksData from "../../data/field-marks.json";
+import { isSellable, isPublishableMark, type FieldMark } from "../../lib/field-marks";
+
+export function getStaticPaths() {
+  return (marksData as FieldMark[]).map((mark) => ({
+    params: { slug: mark.slug },
+    props: { mark },
+  }));
+}
+
+const { mark } = Astro.props as { mark: FieldMark };
+const all = marksData as FieldMark[];
+const sellable = isSellable(mark);
+
+/* Two neighbours, for the cross-sell the playbook asks for. Wraps the list so
+   001 and 008 both get two rather than falling off the end. */
+const i = all.findIndex((m) => m.slug === mark.slug);
+const related = [all[(i + 1) % all.length], all[(i + 2) % all.length]];
+
+/* Product structured data only for a product that exists. Schema describing
+   stock that has never been printed is a lie told to a machine. */
+const schema = isPublishableMark(mark)
+  ? [
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: `${mark.name} Sticker`,
+        sku: mark.sku,
+        description: mark.pitch,
+        brand: { "@type": "Brand", name: "Delaware Field Guide" },
+        offers: {
+          "@type": "Offer",
+          price: mark.price,
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          itemCondition: "https://schema.org/NewCondition",
+          url: new URL(`/field-marks/${mark.slug}/`, Astro.site).href,
+        },
+      },
+    ]
+  : [];
+---
+
+<Layout
+  title={`${mark.name} Sticker — Delaware Field Guide Field Mark`}
+  description={`Weatherproof ${mark.name} vinyl sticker from Delaware Field Guide. Field Mark ${mark.number}, designed for water bottles, coolers, cars and outdoor gear.`}
+  robots={isPublishableMark(mark) ? undefined : "noindex, follow"}
+  schema={schema}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">Field Mark {mark.number}</p>
+    <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[17ch] text-marsh">
+      {mark.name} Field Mark
+    </h1>
+
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">{mark.pitch}</p>
+    <p class="stamp text-ink-soft mt-3 mb-0">
+      Field Mark {mark.number} · {mark.name} · {mark.locality}
+    </p>
+
+    {
+      sellable ? (
+        <div class="sign breakout px-4 sm:px-5 py-4 my-7">
+          <p class="font-display text-[1.6rem] font-bold text-marsh m-0">${mark.price}</p>
+          <p class="mt-1 mb-0 text-[0.92rem] text-ink-soft">
+            Any three · $12 &middot; the first six · $22
+          </p>
+        </div>
+      ) : (
+        <div class="sign breakout px-4 sm:px-5 py-4 my-7">
+          <p class="label m-0">Not made yet</p>
+          <p class="mt-2 mb-0 max-w-[58ch] text-[0.95rem] leading-[1.55]">
+            This one doesn't exist. The artwork isn't finished, nothing has been
+            printed, and there is nothing to buy — so there is no price on it and
+            no button, rather than a button that takes your money for a plan.
+          </p>
+          <p class="mt-2.5 mb-0 max-w-[58ch] text-[0.9rem] leading-[1.55] text-ink-soft">
+            What it's meant to be: {mark.art}
+          </p>
+        </div>
+      )
+    }
+
+    <ul class="list-none p-0 m-0 space-y-1.5 text-[0.95rem]">
+      <li>3-inch die-cut vinyl</li>
+      <li>Glossy outdoor laminate</li>
+      <li>Made for bottles, coolers, cars and gear</li>
+      <li>Designed by Delaware Field Guide</li>
+    </ul>
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    <h2>About the place</h2>
+    <p class="max-w-[58ch]">{mark.about}</p>
+
+    {/* Rule 3: a sticker that doesn't send you back to the current rules is
+        just merch. This link is not optional and the type makes `guide`
+        required so it can't be dropped. */}
+    <p class="max-w-[58ch]">
+      <strong>
+        <a href={mark.guide}>Going back? Check the current fees, hours and rules →</a>
+      </strong>
+    </p>
+
+    <h2>More places you've been</h2>
+    <ul>
+      {
+        related.map((r) => (
+          <li>
+            <a href={`/field-marks/${r.slug}/`}>
+              {r.name} Field Mark
+            </a>{" "}
+            — {r.pitch}
+          </li>
+        ))
+      }
+      <li><a href="/field-marks/">All Field Marks</a></li>
+    </ul>
+  </div>
+</Layout>

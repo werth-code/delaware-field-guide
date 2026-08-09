@@ -21,6 +21,7 @@ const events = read('./src/data/events.json');
 const communityParks = read('./src/data/community-parks.json');
 const surf = read('./src/data/surf-fishing.json');
 const lodging = read('./src/data/lodging.json').filter((l) => typeof l.name === 'string');
+const fieldMarks = read('./src/data/field-marks.json');
 
 /*
  * Mirrors tierOf() in src/lib/verification.ts. A record publishes if it was
@@ -53,6 +54,20 @@ const unverified = [
     ? []
     : ['/plan/']),
   ...(confirmed(placeOf('state-park-surf-fishing-beaches') ?? {}) ? [] : ['/dogs/state-parks/']),
+
+  /*
+   * Field Marks. Mirrors isPublishableMark() in src/lib/field-marks.ts: a
+   * sticker is indexable only once it is priced, in stock and photographed.
+   * Right now that is none of them, so the whole section stays out — including
+   * the hub, because a collection page for a collection that doesn't exist is
+   * the merchandise version of publishing an unchecked fact.
+   */
+  ...fieldMarks
+    .filter((m) => !(m.status === 'available' && m.price !== null && m.photos?.length))
+    .map((m) => `/field-marks/${m.slug}/`),
+  ...(fieldMarks.some((m) => m.status === 'available' && m.price !== null && m.photos?.length)
+    ? []
+    : ['/field-marks/']),
 ];
 
 // https://astro.build/config
@@ -102,6 +117,24 @@ export default defineConfig({
     '/good-for/burn-off-an-hour/': '/parks/community/',
     '/good-for/somewhere-to-sit/': '/parks/community/',
     '/good-for/water-you-can-drink/': '/parks/community/',
+
+    // FIELD MARK QR CODES.
+    //
+    // The QR on a sticker's backing card points here, and here forwards to the
+    // guide page for that place — NOT to the product page. Whoever scans it
+    // already bought the sticker; selling it to them again is the most obvious
+    // possible misread of why they scanned.
+    //
+    // Indirection is the point: the printed card can never be edited, so the
+    // destination has to be changeable. If a park page moves, this line moves.
+    '/go/fm001/': '/parks/cape-henlopen/',
+    '/go/fm002/': '/dogs/rehoboth-beach/',
+    '/go/fm003/': '/parks/delaware-seashore/',
+    '/go/fm004/': '/dogs/bethany-beach/',
+    '/go/fm005/': '/dogs/dewey-beach/',
+    '/go/fm006/': '/dogs/lewes/',
+    '/go/fm007/': '/parks/white-clay-creek/',
+    '/go/fm008/': '/dogs/dewey-beach/',
   },
 
   integrations: [

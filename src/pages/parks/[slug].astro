@@ -10,6 +10,7 @@
 import type { GetStaticPaths } from "astro";
 
 import Layout from "../../layouts/Layout.astro";
+import FieldMarkModule from "../../components/FieldMarkModule.astro";
 import PhotoStrip, { type StripItem } from "../../components/PhotoStrip.astro";
 import PhotoGap from "../../components/PhotoGap.astro";
 import FlagIcon from "../../components/FlagIcon.astro";
@@ -355,6 +356,10 @@ const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
 
 
       <ReportBox subject={`${park.name} State Park`} path={`/parks/${park.slug}/`} asks={asksForStatePark(park)} />
+
+      {/* After the answer, before Related. Renders nothing unless this
+          exact path is whitelisted AND the sticker actually exists. */}
+      <FieldMarkModule />
 
       <h2>Related</h2>
       <ul>

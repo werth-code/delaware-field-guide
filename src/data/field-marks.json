@@ -1,0 +1,133 @@
+[
+  {
+    "number": "001",
+    "slug": "cape-henlopen",
+    "name": "Cape Henlopen",
+    "locality": "Lewes · Delaware",
+    "sku": "FM-001-CAPE",
+    "status": "design",
+    "price": null,
+    "guide": "/parks/cape-henlopen/",
+    "placements": [
+      "/parks/cape-henlopen/",
+      "/parks/"
+    ],
+    "pitch": "For the water bottle that keeps ending up at Cape Henlopen.",
+    "about": "Cape Henlopen sits where Delaware Bay meets the Atlantic outside Lewes. Beaches, dunes, bike trails, fishing and camping, and the busiest state park in Delaware.",
+    "art": "Dune line, Harbor of Refuge light, horseshoe crab, coastal grass. Pick two — not all four."
+  },
+  {
+    "number": "002",
+    "slug": "rehoboth-beach",
+    "name": "Rehoboth Beach",
+    "locality": "Delaware",
+    "sku": "FM-002-REHO",
+    "status": "design",
+    "price": null,
+    "guide": "/dogs/rehoboth-beach/",
+    "placements": [
+      "/dogs/rehoboth-beach/"
+    ],
+    "pitch": "A small mark for the beach that keeps making the weekend plan.",
+    "about": "Rehoboth is Delaware's best-known beach town — boardwalk, bandstand, and the one whose dog dates moved in 2026.",
+    "art": "One recognizable cue only: bandstand silhouette OR boardwalk line OR umbrella row. Generic beach art could be any coastal town and is worth nothing."
+  },
+  {
+    "number": "003",
+    "slug": "indian-river-inlet",
+    "name": "Indian River Inlet",
+    "locality": "Delaware Seashore",
+    "sku": "FM-003-IRI",
+    "status": "design",
+    "price": null,
+    "guide": "/parks/delaware-seashore/",
+    "placements": [
+      "/parks/delaware-seashore/",
+      "/surf-fishing/"
+    ],
+    "pitch": "You know the bridge before you see the sign.",
+    "about": "The inlet cuts Delaware Seashore State Park in two, under the Charles W. Cullen Bridge. Surf fishing, surfing, camping and the strongest current on the Delaware coast.",
+    "art": "The bridge is the whole design. Cable-stay silhouette, inlet current line, maybe a surf rod. Named for the inlet rather than the park because that's what people picture."
+  },
+  {
+    "number": "004",
+    "slug": "bethany-beach",
+    "name": "Bethany Beach",
+    "locality": "Delaware",
+    "sku": "FM-004-BETH",
+    "status": "design",
+    "price": null,
+    "guide": "/dogs/bethany-beach/",
+    "placements": [
+      "/dogs/bethany-beach/"
+    ],
+    "pitch": "Same week, same stretch of sand, every year.",
+    "about": "The quiet end of the Delaware beaches, and the one families come back to for the same week every summer. Dogs are off the beach two weeks longer than Rehoboth.",
+    "art": "Boardwalk and ocean, or beach-chair silhouettes. Check the totem pole's status before using it — it is a specific commissioned artwork, not a generic town motif."
+  },
+  {
+    "number": "005",
+    "slug": "dewey-beach",
+    "name": "Dewey Beach",
+    "locality": "Delaware",
+    "sku": "FM-005-DEWEY",
+    "status": "design",
+    "price": null,
+    "guide": "/dogs/dewey-beach/",
+    "placements": [
+      "/dogs/dewey-beach/"
+    ],
+    "pitch": "Ocean on one side, bay on the other, a mile between them.",
+    "about": "A mile of sand between the Atlantic and Rehoboth Bay. The only Delaware beach town that never closes to dogs — though it does require its own license.",
+    "art": "The bay/ocean duality is the idea: two water lines, one strip of town between. Sunrise and sunset on the same sticker."
+  },
+  {
+    "number": "006",
+    "slug": "lewes",
+    "name": "Lewes",
+    "locality": "Delaware",
+    "sku": "FM-006-LEWES",
+    "status": "design",
+    "price": null,
+    "guide": "/dogs/lewes/",
+    "placements": [
+      "/dogs/lewes/"
+    ],
+    "pitch": "Keep a little Lewes on the water bottle.",
+    "about": "The first town in the first state, on the canal where the ferry comes in. Historic front street on one side, Cape Henlopen on the other.",
+    "art": "Canal and front-street rooflines, or the ferry. 'Delaware' belongs in the product title — there is a Lewes in England and a Lewes in Sussex County, and search can't tell."
+  },
+  {
+    "number": "007",
+    "slug": "white-clay-creek",
+    "name": "White Clay Creek",
+    "locality": "Newark · Delaware",
+    "sku": "FM-007-WCC",
+    "status": "design",
+    "price": null,
+    "guide": "/parks/white-clay-creek/",
+    "placements": [
+      "/parks/white-clay-creek/"
+    ],
+    "pitch": "Not a beach. Still one of your places.",
+    "about": "A wild valley on the Pennsylvania line above Newark — trails, the creek itself, and the disc golf course. The test of whether inland Delaware carries the same attachment as the coast.",
+    "art": "Creek, sycamore, stone bridge. Deliberately not coastal — this design exists to find out whether the identity works away from sand."
+  },
+  {
+    "number": "008",
+    "slug": "dewey-beach-dog",
+    "name": "Dewey Beach — The Dog Goes Too",
+    "locality": "Delaware",
+    "sku": "FM-008-DEWEYDOG",
+    "status": "design",
+    "price": null,
+    "guide": "/dogs/dewey-beach/",
+    "placements": [
+      "/dogs/",
+      "/dogs/summer/"
+    ],
+    "pitch": "One of the few Delaware beaches where the dog still gets the sand in July.",
+    "about": "Dewey allows dogs year-round, on a town license, with limited hours in summer. NO DATES OR HOURS GO ON THIS STICKER — they change, and a sticker cannot be corrected.",
+    "art": "Dewey's bay/ocean line with a dog silhouette. The dog variant of 005, not a separate town."
+  }
+]
