@@ -70,9 +70,19 @@ mkdirSync(CACHE, { recursive: true });
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+/*
+ * `--force` re-fetches even when the cache is warm.
+ *
+ * Exists because the alternative is `rm -rf .cache/ebird`, and I did exactly
+ * that to re-verify a fix — on a machine with no key, which threw the cached
+ * responses away and made three live calls necessary to get back to where we
+ * already were. A flag costs nothing and cannot delete anything.
+ */
+const FORCE = process.argv.includes("--force");
+
 async function get(path, cacheName) {
   const cached = join(CACHE, cacheName);
-  if (existsSync(cached) && Date.now() - statSync(cached).mtimeMs < TTL_MS) {
+  if (!FORCE && existsSync(cached) && Date.now() - statSync(cached).mtimeMs < TTL_MS) {
     console.log(`  cached   ${cacheName}`);
     return JSON.parse(readFileSync(cached, "utf8"));
   }
@@ -108,8 +118,22 @@ const run = async () => {
   /* 3. Hotspots, for matching eBird locations to places this site covers. */
   const hotspots = await get(`/ref/hotspot/${REGION}?fmt=json`, "hotspots-us-de.json");
 
+  /*
+   * FILTER BY CATEGORY. The regional list is not a species list.
+   *
+   * Delaware's came back with 488 entries, of which 28 are hybrids — "Snow x
+   * Ross's Goose", "Swan x Canada Goose" and so on. The first version of this
+   * script counted all 488 and called them species, which would have put a
+   * wrong number on the front of the birding section on day one, sourced to an
+   * authority, and looking entirely credible.
+   *
+   * eBird's taxonomy marks these: `species`, `hybrid`, `slash` (couldn't tell
+   * which of two), `spuh` (genus only), `form`, `domestic`, `intergrade`. Only
+   * `species` is a species. The rest are kept, counted separately, and not
+   * pretended to be something they aren't.
+   */
   const byCode = new Map(taxonomy.map((t) => [t.speciesCode, t]));
-  const species = codes
+  const rows = codes
     .map((code) => {
       const t = byCode.get(code);
       if (!t) return null;
@@ -119,12 +143,18 @@ const run = async () => {
         scientificName: t.sciName,
         family: t.familyComName ?? null,
         order: t.order ?? null,
-        /* eBird hotspot/observation URLs are built from the code, so nothing
-           needs storing beyond it. */
+        category: t.category,
       };
     })
     .filter(Boolean)
     .sort((a, b) => a.commonName.localeCompare(b.commonName));
+
+  const species = rows.filter((r) => r.category === "species");
+  const otherTaxa = rows.filter((r) => r.category !== "species");
+  const byCategory = otherTaxa.reduce((acc, r) => {
+    acc[r.category] = (acc[r.category] ?? 0) + 1;
+    return acc;
+  }, {});
 
   const payload = {
     _comment:
@@ -132,7 +162,11 @@ const run = async () => {
       "species list and taxonomy come from the eBird API (Cornell Lab of " +
       "Ornithology) and are reference data, not sightings. Nothing in this file " +
       "asserts that a bird is present today — see /birding/ for how seasonality " +
-      "is handled and why live observations link out instead.",
+      "is handled and why live observations link out instead. " +
+      "IT IS ALSO NOT THE SAME THING AS DELAWARE'S OFFICIAL STATE LIST: that is " +
+      "maintained by the Delaware Ornithological Society records committee on its " +
+      "own criteria, and the two numbers do not match. Cite whichever you mean, " +
+      "by name.",
     source: {
       label: "eBird API 2.0 — Cornell Lab of Ornithology",
       url: "https://ebird.org/region/US-DE",
@@ -140,8 +174,12 @@ const run = async () => {
     },
     fetchedOn: new Date().toISOString().slice(0, 10),
     speciesCount: species.length,
+    /* Hybrids, slashes and genus-only entries: real records, not species. */
+    otherTaxaCount: otherTaxa.length,
+    otherTaxaByCategory: byCategory,
     hotspotCount: hotspots.length,
     species,
+    otherTaxa,
   };
   writeFileSync(join(OUT, "ebird-delaware.json"), JSON.stringify(payload, null, 2));
 
@@ -164,7 +202,10 @@ const run = async () => {
     ),
   );
 
-  console.log(`\n  ✓ ${species.length} species, ${hotspots.length} hotspots → ${OUT}/\n`);
+  console.log(
+    `\n  ✓ ${species.length} species (+${otherTaxa.length} hybrids and other taxa), ` +
+      `${hotspots.length} hotspots → ${OUT}/\n`,
+  );
 };
 
 run().catch((e) => {

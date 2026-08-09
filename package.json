@@ -13,7 +13,8 @@
     "og": "node scripts/build-og-image.mjs",
     "calls": "node scripts/call-sheet.mjs",
     "test": "npx tsx scripts/test-recurrence.mjs",
-    "fetch:ebird": "node scripts/fetch-ebird.mjs"
+    "fetch:ebird": "node scripts/fetch-ebird.mjs",
+    "fetch:ebird:force": "node scripts/fetch-ebird.mjs --force"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
