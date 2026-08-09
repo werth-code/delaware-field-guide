@@ -62,10 +62,13 @@ const byPark = ["Cape Henlopen", "Cape Henlopen area", "Delaware Seashore", "Fen
   </div>
 
   <div class="wrap prose-field pt-6">
+    {/* The headline above already says five of twelve. This used to repeat it
+        and then add the conditions, so the count landed three times in four
+        lines. It carries only what the headline doesn't: WHEN the requirement
+        actually bites. */}
     <p class="text-[1.28rem] leading-[1.45] font-medium max-w-[54ch] border-l-[5px] border-l-ochre ps-4 sm:ps-5">
-      Five of the twelve drive-on crossings need a reservation, and only on
-      weekends and holidays between {reservations.window}, 8am to 4pm. The other
-      seven need nothing but a permit.
+      And only on weekends and holidays between {reservations.window}, 8am to
+      4pm. Outside that window a permit is all any of them need.
     </p>
 
     <h2>The twelve crossings</h2>

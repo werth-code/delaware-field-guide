@@ -1,8 +1,8 @@
 {
   "_comment": "Surf fishing. Every figure here is from published sources, not first-party calls, and several CONFLICT between sources — those carry a `conflict` field and must not be published as settled. Two calls to DNREC resolve most of it. See CALL-SHEET.md.",
   "headline": {
-    "fact": "Only five drive-on beaches need a reservation in 2026 — not seven.",
-    "detail": "DNREC suspended reservations at seven of the twelve crossings in 2025. Nearly every guide, forum post and blog still says seven are reservable. Getting this wrong costs a fishing trip, or a $107 fine for driving on without one where it is still required.",
+    "fact": "Only five drive-on beaches need a reservation in 2026.",
+    "detail": "DNREC suspended reservations at seven of the twelve crossings in 2025.",
     "verifiedDate": null,
     "verifiedSource": null,
     "sources": [
