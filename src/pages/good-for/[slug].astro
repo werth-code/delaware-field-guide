@@ -12,6 +12,7 @@
  * is worth finding.
  */
 import Layout from "../../layouts/Layout.astro";
+import NearMe from "../../components/NearMe.astro";
 import { INTENTS, MIN_TO_INDEX, type Intent, type Hit } from "../../lib/intents";
 
 import stateParks from "../../data/state-parks.json";
@@ -32,6 +33,22 @@ const hits: Hit[] = intent.match({
 });
 
 const thin = hits.length < MIN_TO_INDEX;
+
+/*
+ * Distance sort is offered only when most of the list can actually move.
+ *
+ * Dog-friendly drinks has 14 places and coordinates for 3. NearMe's own rule —
+ * two locatable cards and it appears — would have shown a "sort by distance"
+ * control that reorders three cards and leaves eleven where they are. The
+ * reader gets a list that looks distance-ordered and isn't, which is worse than
+ * no control at all: a filter you can see is a promise about what you're
+ * looking at.
+ *
+ * Two thirds, arbitrarily but deliberately: enough that the order means
+ * something.
+ */
+const locatable = hits.filter((h) => h.lat != null && h.lon != null).length;
+const canSortByDistance = hits.length >= 2 && locatable / hits.length >= 0.66;
 
 /* By county, the way every other listing on this site groups. Grouping by
    town looked right until it ran: nine parks produced seven headings with one
@@ -76,6 +93,21 @@ const groups = [...byCounty.entries()]
     </p>
   </div>
 
+  {/* DISTANCE SORT. These lists cross the whole state, and county headings are
+      an ordering rather than a filter — a parent in Newark still reads past the
+      Sussex entries. Nobody drives two hours for a playground.
+
+      It reorders a list that is already complete in the HTML, so with no
+      JavaScript nothing is lost; it also hides itself unless at least two cards
+      know where they are. */}
+  {
+    canSortByDistance && (
+      <div class="wrap pb-4">
+        <NearMe noun="places" class="breakout" />
+      </div>
+    )
+  }
+
   <div class="wrap pb-8">
     {
       hits.length === 0 ? (
@@ -89,11 +121,12 @@ const groups = [...byCounty.entries()]
         </div>
       ) : (
         groups.map(([place, rows]) => (
-          <div class="pb-6">
+          <div class="pb-6" data-filter-group>
             <h2 class="label m-0 pb-3">{place}</h2>
             <ul class="list-none p-0 m-0 grid gap-3 sm:grid-cols-2 breakout">
               {rows.map((h) => (
                 <li>
+                  <article data-lat={h.lat ?? undefined} data-lon={h.lon ?? undefined}>
                   <a href={h.href} class="sign sign-action block no-underline group px-4 py-4 h-full">
                     <p class="font-display text-[1.08rem] font-semibold tracking-[-0.03em] m-0 text-marsh underline decoration-ochre decoration-2 underline-offset-[0.16em] group-hover:decoration-marsh">
                       {h.name}
@@ -105,6 +138,7 @@ const groups = [...byCounty.entries()]
                       </p>
                     )}
                   </a>
+                  </article>
                 </li>
               ))}
             </ul>

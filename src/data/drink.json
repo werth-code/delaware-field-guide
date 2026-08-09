@@ -309,7 +309,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the opening hours off the operator — this is a newer taproom and its schedule moves."
+      "Get the opening hours off the operator — this is a newer taproom and its schedule moves.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -372,7 +373,9 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": []
+    "outstanding": [
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+    ]
   },
   {
     "slug": "bellefonte-brewing",
@@ -436,7 +439,9 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": []
+    "outstanding": [
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+    ]
   },
   {
     "slug": "brew-works-north",
@@ -498,7 +503,9 @@
     "sourcedOn": "2026-08-08",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": []
+    "outstanding": [
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+    ]
   },
   {
     "slug": "dew-point-brewing",
@@ -554,7 +561,9 @@
     "sourcedOn": "2026-08-08",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": []
+    "outstanding": [
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+    ]
   },
   {
     "slug": "jakl-beer-works",
@@ -618,7 +627,9 @@
     "sourcedOn": "2026-08-08",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": []
+    "outstanding": [
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+    ]
   },
   {
     "slug": "twisted-irons",
@@ -678,7 +689,9 @@
     "sourcedOn": "2026-08-08",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": []
+    "outstanding": [
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+    ]
   },
   {
     "slug": "wilmington-brew-works",
@@ -734,7 +747,9 @@
     "sourcedOn": "2026-08-08",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": []
+    "outstanding": [
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+    ]
   },
   {
     "slug": "salted-vines",
@@ -786,7 +801,9 @@
     "sourcedOn": "2026-08-08",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": []
+    "outstanding": [
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+    ]
   },
   {
     "slug": "twin-branch-winery",
@@ -832,7 +849,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the opening hours from the winery."
+      "Get the opening hours from the winery.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -896,7 +914,9 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": []
+    "outstanding": [
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+    ]
   },
   {
     "slug": "brimming-horn-seaford",
@@ -954,7 +974,9 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": []
+    "outstanding": [
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+    ]
   },
   {
     "slug": "dogfish-head-milton",
@@ -1004,7 +1026,9 @@
     "sourcedOn": "2026-08-08",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": []
+    "outstanding": [
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+    ]
   },
   {
     "slug": "argilla-brewing",
@@ -1065,7 +1089,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1107,7 +1132,8 @@
     "verifiedSource": null,
     "outstanding": [
       "Get the address and the hours.",
-      "Are dogs allowed inside, or outdoor areas only?"
+      "Are dogs allowed inside, or outdoor areas only?",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1165,7 +1191,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1221,7 +1248,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1279,7 +1307,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1333,7 +1362,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1399,7 +1429,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1441,7 +1472,8 @@
     "verifiedSource": null,
     "outstanding": [
       "Get the street address and the hours.",
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1501,7 +1533,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1551,7 +1584,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1599,7 +1633,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Should this be a listing at all, or is it one venue under two names? Two brands at one address is not two destinations."
+      "Should this be a listing at all, or is it one venue under two names? Two brands at one address is not two destinations.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1648,7 +1683,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Is Pizzadili open to the public for ordinary tasting-room visits at all? If so, what days and hours? 302-284-9463 — from the Delaware Department of Agriculture listing."
+      "Is Pizzadili open to the public for ordinary tasting-room visits at all? If so, what days and hours? 302-284-9463 — from the Delaware Department of Agriculture listing.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ],
     "status": "unclear"
   },
@@ -1699,7 +1735,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1749,7 +1786,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Inside or outside only? The operator's own profile says dog friendly without saying where."
+      "Inside or outside only? The operator's own profile says dog friendly without saying where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1791,7 +1829,8 @@
     "verifiedSource": null,
     "outstanding": [
       "Get the street address and the hours.",
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1851,7 +1890,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1893,7 +1933,8 @@
     "verifiedSource": null,
     "outstanding": [
       "Get the address and the hours.",
-      "Are dogs allowed inside, or outdoor areas only?"
+      "Are dogs allowed inside, or outdoor areas only?",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -1958,7 +1999,9 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": []
+    "outstanding": [
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+    ]
   },
   {
     "slug": "dewey-beer-harbeson",
@@ -2014,7 +2057,9 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": []
+    "outstanding": [
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+    ]
   },
   {
     "slug": "dogfish-brewings-and-eats",
@@ -2063,7 +2108,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -2105,7 +2151,8 @@
     "verifiedSource": null,
     "outstanding": [
       "Get the hours for the Rehoboth site specifically.",
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -2156,7 +2203,9 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": []
+    "outstanding": [
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+    ]
   },
   {
     "slug": "ocean-view-brewing",
@@ -2201,7 +2250,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -2263,7 +2313,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -2317,7 +2368,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   },
   {
@@ -2374,7 +2426,9 @@
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": []
+    "outstanding": [
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
+    ]
   },
   {
     "slug": "38-75-brewing",
@@ -2439,7 +2493,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Ask the operator directly whether dogs are allowed, and where.",
+      "Coordinates. Without them this place can't be sorted by distance or pinned on the map — and it has a street address, so this is geocoding rather than research."
     ]
   }
 ]

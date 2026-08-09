@@ -48,6 +48,17 @@ export interface Hit {
   kind: string;
   town: string | null;
   county: string | null;
+  /**
+   * Where it is, so the page can be sorted by distance.
+   *
+   * Delaware is a hundred miles long and these lists cross the whole state.
+   * "Playgrounds with restrooms" grouped by county still asks a parent in
+   * Newark to read past six Sussex entries — and nobody drives two hours for a
+   * playground. Null where the record has no coordinates: NearMe leaves those
+   * where they are rather than guessing them to the end of the state.
+   */
+  lat?: number | null;
+  lon?: number | null;
   /** The reason this record is on this list, in its own words where possible. */
   note?: string | null;
 }
@@ -75,30 +86,31 @@ export interface Data {
 
 const town = (r: any) => r.town ?? null;
 const county = (r: any) => r.county ?? null;
+const at = (r: any) => ({ lat: r.coords?.lat ?? null, lon: r.coords?.lon ?? null });
 
 const fromState = (rows: any[], f: (p: any) => boolean, note?: (p: any) => string | null): Hit[] =>
   rows.filter(isPublishable).filter(f).map((p) => ({
     name: p.name, href: `/parks/${p.slug}/`, kind: "State park", town: town(p), county: county(p),
-    note: note?.(p) ?? null,
+    ...at(p), note: note?.(p) ?? null,
   }));
 
 const fromCommunity = (rows: any[], f: (p: any) => boolean, note?: (p: any) => string | null): Hit[] =>
   rows.filter(isPublishable).filter(f).map((p) => ({
     name: p.name, href: `/parks/community/${p.slug}/`, kind: p.operator ?? "Community park",
-    town: town(p), county: county(p), note: note?.(p) ?? null,
+    town: town(p), county: county(p), ...at(p), note: note?.(p) ?? null,
   }));
 
 const fromIndoor = (rows: any[], f: (p: any) => boolean, note?: (p: any) => string | null): Hit[] =>
   rows.filter(isPublishable).filter(f).map((p) => ({
     name: p.name,
     href: `${isIndoors(p) ? "/indoors" : "/attractions"}/${p.slug}/`,
-    kind: p.kind, town: town(p), county: county(p), note: note?.(p) ?? null,
+    kind: p.kind, town: town(p), county: county(p), ...at(p), note: note?.(p) ?? null,
   }));
 
 const fromDrink = (rows: any[], f: (p: any) => boolean, note?: (p: any) => string | null): Hit[] =>
   rows.filter(isPublishable).filter(f).map((p) => ({
     name: p.name, href: `/wineries-and-breweries/${p.slug}/`, kind: p.kind,
-    town: town(p), county: county(p), note: note?.(p) ?? null,
+    town: town(p), county: county(p), ...at(p), note: note?.(p) ?? null,
   }));
 
 export const INTENTS: Intent[] = [
