@@ -39,7 +39,14 @@ const show = mark !== null;
 {
   show && mark && (
     <aside class={`sign px-4 sm:px-5 py-4 my-7 not-prose ${className}`} data-field-mark={mark.sku}>
-      <p class="label m-0">{heading}</p>
+      {/* FOUR LABELS ON THIS SITE, AND THEY MUST NOT LOOK ALIKE.
+          "Checked directly" is a claim about a fact. "Sponsor" is a paid third
+          party. "Built by Werth Design" is a maker's credit. And this one is
+          something the Field Guide made and sells itself.
+          A reader should never have to work out which of the four they're
+          looking at, so each gets its own word in its own position. */}
+      <p class="label m-0 text-ochre-deep">From the Field Guide</p>
+      <p class="label m-0 mt-1.5">{heading}</p>
       <p class="font-display text-[1.15rem] font-semibold tracking-[-0.03em] mt-2 mb-0 text-marsh">
         Field Mark {mark.number} · {mark.name}
       </p>

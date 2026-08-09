@@ -21,20 +21,51 @@ const year = new Date().getFullYear();
   <div class="wrap py-11">
     <EmailCapture />
 
-    <nav aria-label="Site" class="mt-11 flex flex-wrap gap-x-7 gap-y-0">
-      <a href="/dogs/" class="tap text-[0.92rem] text-cream">Dogs</a>
-      <a href="/about/" class="tap text-[0.92rem] text-cream">Who writes this</a>
-      <a href="/contacts/" class="tap text-[0.92rem] text-cream">Phone numbers</a>
-      <a href="/report/" class="tap text-[0.92rem] text-cream">Send a report</a>
-      <a href="/about/" class="tap text-[0.92rem] text-cream">How I check it</a>
-      <a href="/verified/" class="tap text-[0.92rem] text-cream">Verification index</a>
-      <a href="/changed/" class="tap text-[0.92rem] text-cream">What changed</a>
-      {/* Merchandise stays subordinate to the publication — a footer link, not
-          a nav item, and not called "Shop". If it ever earns primary navigation
-          it will be because people are buying, not because it exists. */}
-      <a href="/field-marks/" class="tap text-[0.92rem] text-cream">Field Marks</a>
-      <a href="/llms.txt" class="tap text-[0.92rem] text-cream">llms.txt</a>
+    {/* THREE GROUPS, BECAUSE THE BUSINESS MODEL HAS THREE PARTS AND A READER
+        should not have to work out which is which. The publication, the things
+        it sells itself, and the studio that built it. A flat row of nine links
+        made all three look like the same kind of thing. */}
+    <nav aria-label="Site" class="mt-11 grid gap-x-8 gap-y-7 sm:grid-cols-3">
+      <div>
+        <p class="label text-cream/60 m-0 pb-2">The Field Guide</p>
+        <ul class="list-none p-0 m-0 space-y-0.5">
+          <li><a href="/about/" class="tap text-[0.92rem] text-cream">Who writes this</a></li>
+          <li><a href="/about/" class="tap text-[0.92rem] text-cream">How I check it</a></li>
+          <li><a href="/verified/" class="tap text-[0.92rem] text-cream">Verification index</a></li>
+          <li><a href="/changed/" class="tap text-[0.92rem] text-cream">What changed</a></li>
+          <li><a href="/report/" class="tap text-[0.92rem] text-cream">Send a report</a></li>
+          <li><a href="/contacts/" class="tap text-[0.92rem] text-cream">Phone numbers</a></li>
+          <li><a href="/advertising/" class="tap text-[0.92rem] text-cream">Advertising &amp; independence</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="label text-cream/60 m-0 pb-2">From the Field Guide</p>
+        <ul class="list-none p-0 m-0 space-y-0.5">
+          <li><a href="/field-marks/" class="tap text-[0.92rem] text-cream">Field Marks</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="label text-cream/60 m-0 pb-2">Made here</p>
+        <ul class="list-none p-0 m-0 space-y-0.5">
+          <li>
+            <a href="https://werth.design" rel="noopener" class="tap text-[0.92rem] text-cream">
+              Built by Werth Design
+            </a>
+          </li>
+          <li><a href="/llms.txt" class="tap text-[0.92rem] text-cream">llms.txt</a></li>
+        </ul>
+      </div>
     </nav>
+
+    {/* The whole model in one sentence, under the links that demonstrate it. */}
+    <p class="mt-8 mb-0 text-[0.86rem] leading-snug text-cream/70 max-w-[62ch]">
+      Independent editorial coverage. Sponsorship never changes a listing, a
+      ranking, a verification status or a caveat —
+      <a href="/advertising/" class="text-cream">the policy is here</a>, written
+      before there was anyone to sell to.
+    </p>
 
     <div
       class="mt-7 pt-7 border-t border-tide flex flex-wrap items-start justify-between gap-x-8 gap-y-4"
