@@ -1,0 +1,151 @@
+---
+/**
+ * A species with something Delaware-specific behind it.
+ *
+ * Order is fixed and it matters: what it is, when it's here, where to look,
+ * how not to harm it, where the live sightings are — and only then, if one
+ * exists, the product. A sticker never appears above a nesting caveat.
+ */
+import Layout from "../../../layouts/Layout.astro";
+import birdsData from "../../../data/birds.json";
+import FieldMarkModule from "../../../components/FieldMarkModule.astro";
+import FeatureIcon from "../../../components/FeatureIcon.astro";
+import { seasonSentence, SEASON_ORDER, type Bird } from "../../../lib/birds";
+import { HABITATS, INTEREST, SEASONS, SENSITIVE, INTEREST_DISCLAIMER } from "../../../lib/birding-taxonomy";
+import { robotsFor } from "../../../lib/verification";
+
+export function getStaticPaths() {
+  return (birdsData as unknown as Bird[]).map((bird) => ({
+    params: { slug: bird.slug },
+    props: { bird },
+  }));
+}
+
+const { bird } = Astro.props as { bird: Bird };
+const interest = INTEREST.find((i) => i.key === bird.interest)!;
+const habitats = bird.habitats.map((h) => HABITATS.find((x) => x.key === h)).filter(Boolean);
+const seasons = SEASON_ORDER.filter((s) => bird.bombayHook?.[s]).map(
+  (s) => ({ tag: SEASONS.find((t) => t.key === s)!, abundance: bird.bombayHook![s]! }),
+);
+const sentence = seasonSentence(bird);
+---
+
+<Layout
+  title={`${bird.name} in Delaware — Season, Habitat & Where to Look`}
+  description={`${bird.name} in Delaware: ${bird.lede} Seasonal abundance, habitat, where to look and current sightings.`}
+  robots={robotsFor(bird)}
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">Birding</p>
+    <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[17ch] text-marsh">
+      {bird.name}
+    </h1>
+    <p class="stamp text-ink-soft mt-2 mb-0 italic">{bird.scientific}</p>
+
+    {/* Icon + word + colour, never colour alone. */}
+    <p class="mt-4 mb-0 flex flex-wrap items-center gap-2">
+      <span
+        class="inline-flex items-center gap-1.5 px-2 py-1 rounded-[2px] font-mono text-[0.7rem] uppercase tracking-[0.08em] text-cream"
+        style={`background:${interest.color}`}
+      >
+        <FeatureIcon icon={interest.icon} class="w-[1em] h-[1em]" />
+        {interest.label}
+      </span>
+      {
+        habitats.map((h) => (
+          <span
+            class="inline-flex items-center gap-1.5 px-2 py-1 rounded-[2px] font-mono text-[0.7rem] uppercase tracking-[0.08em] text-cream"
+            style={`background:${h!.color}`}
+          >
+            <FeatureIcon icon={h!.icon} class="w-[1em] h-[1em]" />
+            {h!.label}
+          </span>
+        ))
+      }
+    </p>
+
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">{bird.lede}</p>
+  </div>
+
+  {/* Seasons, scoped to the one place anybody publishes them for. */}
+  {
+    seasons.length > 0 && (
+      <div class="wrap pb-6">
+        <h2 class="label m-0 pb-3">At Bombay Hook</h2>
+        <p class="mt-0 mb-3 text-[0.95rem] text-ink-soft max-w-[58ch]">
+          From the refuge's own checklist. This describes Bombay Hook, not
+          Delaware — no one publishes per-species seasons for the whole state,
+          and generalising one refuge across it would be inventing a fact.
+        </p>
+        <ul class="list-none p-0 m-0 flex flex-wrap gap-2 breakout">
+          {seasons.map((s) => (
+            <li
+              class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-[2px] font-mono text-[0.72rem] uppercase tracking-[0.08em]"
+              style={`background:${s.tag.fill};color:${s.tag.color}`}
+            >
+              <FeatureIcon icon={s.tag.icon} class="w-[1em] h-[1em]" />
+              {s.tag.label} · {s.abundance}
+            </li>
+          ))}
+        </ul>
+        {sentence && (
+          <p class="mt-3 mb-0 text-[0.95rem] text-ink-soft max-w-[58ch]">
+            {bird.name} is {sentence} at Bombay Hook.
+          </p>
+        )}
+      </div>
+    )
+  }
+
+  <div class="wrap prose-field pb-4">
+    <h2>In Delaware</h2>
+    <p class="max-w-[58ch]">{bird.delaware}</p>
+
+    {bird.whereToLook && (<><h2>Where to look</h2><p class="max-w-[58ch]">{bird.whereToLook}</p></>)}
+
+    {/* Before the commerce, always. */}
+    {
+      bird.sensitive && bird.sensitiveNote && (
+        <aside
+          class="not-prose sign breakout px-4 sm:px-5 py-4 my-6"
+          style={`border-color:${SENSITIVE.color};background:${SENSITIVE.fill}`}
+        >
+          <p class="label m-0 flex items-center gap-1.5" style={`color:${SENSITIVE.color}`}>
+            <FeatureIcon icon={SENSITIVE.icon} class="w-[1em] h-[1em]" />
+            {SENSITIVE.label}
+          </p>
+          <p class="mt-2 mb-0 max-w-[58ch] text-[0.95rem] leading-[1.55]">{bird.sensitiveNote}</p>
+        </aside>
+      )
+    }
+
+    <h2>Current sightings</h2>
+    <p class="max-w-[58ch]">
+      Whether anyone is seeing one right now is on
+      <a href={`https://ebird.org/species/${bird.code}/US-DE`} rel="noopener">eBird</a>,
+      not here. This page is what the bird is and where it fits; that page is
+      what people found this week.
+    </p>
+
+    <h2>Source</h2>
+    <ul>
+      {bird.sources.map((s) => (
+        <li><a href={s.url} rel="noopener">{s.label}</a>{s.note ? ` — ${s.note}` : ""}</li>
+      ))}
+    </ul>
+    <p class="stamp text-ink-soft">{INTEREST_DISCLAIMER}</p>
+  </div>
+
+  {/* Last, and only if the mark exists and this path is whitelisted. On the
+      Red Knot page it renders nothing at all — that route is on the safety
+      blocklist because of the feeding closures. */}
+  <div class="wrap pb-4"><FieldMarkModule heading="Saw it — or wish you had?" /></div>
+
+  <div class="wrap prose-field pb-4">
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/birding/birds/">Every bird recorded in Delaware</a></li>
+      <li><a href="/birding/">Where to go birding in Delaware</a></li>
+    </ul>
+  </div>
+</Layout>

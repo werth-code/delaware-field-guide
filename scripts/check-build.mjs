@@ -195,7 +195,14 @@ for (const [label, claim, verifiedDate] of guarded) {
  * A sticker between "is the water safe for the dog" and the answer would be
  * the single fastest way to spend the trust the rest of this site is built on.
  */
-const SAFETY_PAGES = ["/dogs/pond-safety/", "/dogs/pet-fees/", "/contacts/"];
+const SAFETY_PAGES = [
+  "/dogs/pond-safety/",
+  "/dogs/pet-fees/",
+  "/contacts/",
+  /* Nesting closures and sensitive species. */
+  "/birding/birds/red-knot/",
+  "/birding/prime-hook/",
+];
 
 for (const f of files.filter((x) => x.endsWith(".html"))) {
   const path = "/" + relative(DIST, f).replace(/index\.html$/, "");

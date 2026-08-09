@@ -129,5 +129,68 @@
     "pitch": "One of the few Delaware beaches where the dog still gets the sand in July.",
     "about": "Dewey allows dogs year-round, on a town license, with limited hours in summer. NO DATES OR HOURS GO ON THIS STICKER — they change, and a sticker cannot be corrected.",
     "art": "Dewey's bay/ocean line with a dog silhouette. The dog variant of 005, not a separate town."
+  },
+  {
+    "number": "101",
+    "slug": "american-flamingo",
+    "name": "American Flamingo",
+    "locality": "Delaware",
+    "sku": "BFM-101-FLAM",
+    "status": "design",
+    "price": null,
+    "guide": "/birding/birds/american-flamingo/",
+    "placements": [
+      "/birding/birds/american-flamingo/"
+    ],
+    "pitch": "Yes, this happened.",
+    "about": "Accepted onto Delaware's state bird list in 2025 by the Delaware Ornithological Society's records committee. A real record, and not a bird to go looking for.",
+    "art": "The bird, unmistakable, with no landscape. The joke is that it is on the list at all — the art should not argue with that by putting it somewhere plausible."
+  },
+  {
+    "number": "102",
+    "slug": "red-knot",
+    "name": "Red Knot",
+    "locality": "Delaware Bay",
+    "sku": "BFM-102-RKNT",
+    "status": "design",
+    "price": null,
+    "guide": "/birding/birds/red-knot/",
+    "placements": [],
+    "pitch": "One of the birds that makes May worth the drive.",
+    "about": "Red Knots stop on Delaware Bay in spring to feed on horseshoe-crab eggs. Abundant at Bombay Hook in spring and barely there the rest of the year.",
+    "art": "Bird and horseshoe crab, or bird on bay sand. NO LOCATION DETAIL — this species' feeding areas carry closures and the sticker must not read as an invitation."
+  },
+  {
+    "number": "103",
+    "slug": "prothonotary-warbler",
+    "name": "Prothonotary Warbler",
+    "locality": "Delaware",
+    "sku": "BFM-103-PROW",
+    "status": "design",
+    "price": null,
+    "guide": "/birding/birds/prothonotary-warbler/",
+    "placements": [
+      "/birding/birds/prothonotary-warbler/"
+    ],
+    "pitch": "A bright yellow bird in a dark wet wood.",
+    "about": "A swamp warbler of southern Delaware's cypress and millpond country.",
+    "art": "Yellow against dark water and cypress. The contrast is the whole design."
+  },
+  {
+    "number": "104",
+    "slug": "black-necked-stilt",
+    "name": "Black-necked Stilt",
+    "locality": "Delaware marsh",
+    "sku": "BFM-104-BNST",
+    "status": "design",
+    "price": null,
+    "guide": "/birding/birds/black-necked-stilt/",
+    "placements": [
+      "/birding/birds/black-necked-stilt/",
+      "/birding/bombay-hook/"
+    ],
+    "pitch": "Long pink legs. Nothing else in the marsh looks like it.",
+    "about": "Common at Bombay Hook in spring and summer, and one of the few good birds there you can see from the car.",
+    "art": "Legs and reflection. Black, white, and that pink."
   }
 ]

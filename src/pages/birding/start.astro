@@ -1,0 +1,129 @@
+---
+/**
+ * Birding for beginners.
+ *
+ * The biggest gap in Delaware birding information, and the one place this site
+ * can create a reader rather than compete for one. An experienced birder
+ * already has eBird, a club, a listserv and twenty years of local knowledge.
+ * Somebody typing "where can I go see birds" has none of that and is currently
+ * served by tourism copy.
+ *
+ * So: no jargon, no life list, no gear you have to buy before you start.
+ */
+import Layout from "../../layouts/Layout.astro";
+import FeatureIcon from "../../components/FeatureIcon.astro";
+import { PRACTICAL } from "../../lib/birding-taxonomy";
+
+const PLACES = [
+  { name: "Ashland Nature Center", href: "/indoors/ashland-nature-center/",
+    why: "Somebody there knows what you're looking at. The hawk watch runs in autumn and the walks are led." },
+  { name: "White Clay Creek State Park", href: "/parks/white-clay-creek/",
+    why: "Woodland birds within reach of Newark and Wilmington. No scope, no marsh, no tide to time." },
+  { name: "Brandywine Creek State Park", href: "/parks/brandywine-creek/",
+    why: "Forest and meadow half an hour from the city. Easy paths and somewhere to park." },
+  { name: "Bombay Hook", href: "/birding/bombay-hook/",
+    why: "The one on this list you can do from the car, which makes it the most forgiving first refuge — but check the closure dates before driving." },
+  { name: "Cape Henlopen State Park", href: "/parks/cape-henlopen/",
+    why: "Coast, and the autumn raptor migration. Bring the binoculars you already own." },
+];
+---
+
+<Layout
+  title="Birding for Beginners in Delaware — Where to Start"
+  description="New to birding? Five Delaware places to start, the free apps that identify what you see, and an honest answer about what gear you actually need."
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">Birding</p>
+    <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[18ch] text-marsh">
+      Start with the bird you can actually see
+    </h1>
+
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
+      You do not need expensive binoculars, a life list or the ability to tell
+      two sparrows apart. You need somewhere to go and about an hour.
+    </p>
+
+    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
+      Delaware helps, because a lot of its best birds are big and obvious. A
+      great blue heron standing in a marsh does not require skill to enjoy. Nor
+      does an osprey, a bald eagle, or several thousand snow geese getting up at
+      once in January.
+    </p>
+  </div>
+
+  <div class="wrap pb-6">
+    <h2 class="label m-0 pb-3">Five places to begin</h2>
+    <ul class="list-none p-0 m-0 grid gap-3 sm:grid-cols-2 breakout">
+      {
+        PLACES.map((p) => (
+          <li>
+            <a href={p.href} class="sign sign-action block no-underline group px-4 py-4 h-full">
+              <p class="font-display text-[1.08rem] font-semibold tracking-[-0.03em] m-0 text-marsh underline decoration-ochre decoration-2 underline-offset-[0.16em] group-hover:decoration-marsh">
+                {p.name}
+              </p>
+              <p class="mt-2 mb-0 text-[0.92rem] leading-snug max-w-[44ch]">{p.why}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    <h2>The two free apps worth having</h2>
+    <p class="max-w-[58ch]">
+      <a href="https://merlin.allaboutbirds.org/" rel="noopener">Merlin</a> identifies
+      a bird from a photo, a description, or by listening to it sing — which is
+      the one that will surprise you. <a href="https://ebird.org/" rel="noopener">eBird</a>
+      records what you saw and shows what other people are finding nearby. Both
+      are free and both are from the Cornell Lab.
+    </p>
+    <p class="max-w-[58ch]">
+      Between them they replace the field guide you were about to buy, at least
+      until you know whether you want one.
+    </p>
+
+    <h2>About binoculars</h2>
+    <p class="max-w-[58ch]">
+      Use whatever you have. If you buy, 8× magnification is the usual advice
+      for a beginner — a wider field of view makes the bird easier to find, and
+      finding it is the hard part. Higher magnification sounds better and shakes
+      more.
+    </p>
+    <p class="max-w-[58ch]">
+      A scope is a different question and mostly a Bombay Hook question, where
+      the birds are across a pool. Nowhere on the list above needs one.
+    </p>
+
+    <h2>What the marks on this site mean</h2>
+    <ul class="not-prose list-none p-0 m-0 grid gap-2 sm:grid-cols-2 my-4">
+      {
+        PRACTICAL.map((p) => (
+          <li class="flex items-center gap-2 text-[0.95rem]">
+            <FeatureIcon icon={p.icon} class="w-[1.15em] h-[1.15em] text-ink" />
+            {p.label}
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2>Two things worth knowing before you go</h2>
+    <p class="max-w-[58ch]">
+      Birds are busiest early. Not dawn-heroics early — but a marsh at nine in
+      the morning is a different place from a marsh at two in the afternoon.
+    </p>
+    <p class="max-w-[58ch]">
+      And keep your distance. A bird that flies off because you got closer is a
+      bird that stopped feeding, and in spring on Delaware Bay that costs it
+      more than it costs you. Where a beach or a point is closed for nesting,
+      that closure is doing something.
+    </p>
+
+    <h2>Next</h2>
+    <ul>
+      <li><a href="/birding/">Where to go birding in Delaware</a></li>
+      <li><a href="/birding/birds/">Every bird recorded in Delaware</a></li>
+      <li><a href="/good-for/rainy-day/">Somewhere dry, if the weather turns</a></li>
+    </ul>
+  </div>
+</Layout>

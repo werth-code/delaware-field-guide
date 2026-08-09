@@ -1,0 +1,171 @@
+---
+/**
+ * Every bird recorded in Delaware.
+ *
+ * Two numbers appear on this page and they disagree, on purpose. Explaining
+ * why is more useful than picking one — and picking one quietly is exactly the
+ * kind of thing the rest of this site exists to refuse.
+ *
+ * Searchable without JavaScript is not possible for 460 rows, so the list
+ * renders in full and the filter box only narrows what is already there. No
+ * script, no list.
+ */
+import Layout from "../../../layouts/Layout.astro";
+import ebird from "../../../data/generated/ebird-delaware.json";
+import birdsData from "../../../data/birds.json";
+import { INTEREST } from "../../../lib/birding-taxonomy";
+import type { Bird } from "../../../lib/birds";
+
+const all = ebird.species as { code: string; commonName: string; scientificName: string; family: string | null }[];
+const features = new Map((birdsData as unknown as Bird[]).map((b) => [b.code, b]));
+
+/* Grouped by family, which is how a checklist reads and how a birder scans. */
+const byFamily = new Map<string, typeof all>();
+for (const s of all) {
+  const f = s.family ?? "Other";
+  byFamily.set(f, [...(byFamily.get(f) ?? []), s]);
+}
+const families = [...byFamily.entries()];
+const interestOf = (code: string) =>
+  INTEREST.find((i) => i.key === features.get(code)?.interest) ?? null;
+---
+
+<Layout
+  title="Birds of Delaware — Every Species Recorded, and Where to Look"
+  description="Every bird species recorded in Delaware, from the eBird state checklist, with the species the Field Guide has something specific to say about marked."
+>
+  <div class="wrap pt-11 pb-6">
+    <p class="label m-0">Birding</p>
+    <h1 class="text-[2.2rem] sm:text-[2.9rem] mt-3.5 mb-0 max-w-[16ch] text-marsh">
+      Birds recorded in Delaware
+    </h1>
+
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
+      Some live here all year. Some pass through twice. Some have turned up
+      once, been argued about, and been accepted. This list keeps those apart.
+    </p>
+
+    {/* TWO NUMBERS, BOTH RIGHT. This is the sort of thing most sites resolve by
+        choosing the bigger one and saying nothing. */}
+    <div class="sign breakout px-4 sm:px-5 py-4 my-7">
+      <p class="label m-0">Why you will see two different totals</p>
+      <p class="mt-2 mb-0 max-w-[60ch] text-[0.95rem] leading-[1.55]">
+        The Delaware Ornithological Society's records committee accepts
+        <strong>432 species</strong> to the official state list, as of July 2025.
+        eBird's Delaware checklist holds <strong>{ebird.speciesCount} species</strong>,
+        plus {ebird.otherTaxaCount} hybrids it counts separately.
+      </p>
+      <p class="mt-2.5 mb-0 max-w-[60ch] text-[0.95rem] leading-[1.55]">
+        Neither is wrong. They are different artifacts with different criteria —
+        a records committee's judgement against a database of accepted
+        observations. The list below is the eBird one, because that is what this
+        site can join to a species code and keep current.
+      </p>
+      <p class="stamp text-ink-soft mt-3 mb-0">
+        eBird checklist read {ebird.fetchedOn} · DOS state list read 9 August 2026
+      </p>
+    </div>
+
+    <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
+      {features.size} of them have a page here, because those are the ones I have
+      something Delaware-specific to say about. The rest are on the list and
+      nowhere else — a name without a fact behind it is not a page.
+    </p>
+  </div>
+
+  <div class="wrap pb-6">
+    {/* Narrows a list that is already fully rendered. With JavaScript off you
+        get all 460 rows, which is the honest fallback. */}
+    <label class="sign breakout block px-4 py-3" for="bird-filter">
+      <span class="label block">Find a bird</span>
+      <input
+        id="bird-filter"
+        type="search"
+        placeholder="Common or scientific name"
+        autocomplete="off"
+        class="w-full mt-1.5 bg-transparent border-0 border-b-2 border-marsh text-[1.05rem] py-1 focus:outline-none"
+      />
+      <span class="stamp text-ink-soft block mt-2" data-bird-count></span>
+    </label>
+  </div>
+
+  <div class="wrap pb-8">
+    {
+      families.map(([family, rows]) => (
+        <div data-family class="pb-5">
+          <h2 class="label m-0 pb-2">{family}</h2>
+          <ul class="list-none p-0 m-0 grid gap-x-6 gap-y-1 sm:grid-cols-2 breakout">
+            {rows.map((s) => {
+              const feature = features.get(s.code);
+              const tag = interestOf(s.code);
+              return (
+                <li
+                  data-bird
+                  data-name={`${s.commonName} ${s.scientificName}`.toLowerCase()}
+                  class="py-1 border-b border-tide/20"
+                >
+                  {feature ? (
+                    <a href={`/birding/birds/${feature.slug}/`} class="no-underline">
+                      <span class="underline decoration-ochre decoration-2 underline-offset-[0.16em] text-marsh font-medium">
+                        {s.commonName}
+                      </span>
+                    </a>
+                  ) : (
+                    <span>{s.commonName}</span>
+                  )}
+                  {tag && (
+                    <span class="stamp ml-2" style={`color:${tag.color}`}>
+                      {tag.label}
+                    </span>
+                  )}
+                  <span class="stamp text-ink-soft block italic">{s.scientificName}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="wrap prose-field pb-4">
+    <h2>What this list does not tell you</h2>
+    <p class="max-w-[58ch]">
+      Whether a bird is here today. A checklist is a record of what has been
+      accepted, not a report of what is about. For live sightings,
+      <a href="https://ebird.org/region/US-DE" rel="noopener">eBird's Delaware page</a>
+      is the place, and it is updated by people who were actually outside.
+    </p>
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/birding/">Birding in Delaware</a> — where to go, and when</li>
+      <li><a href="/birding/start/">Birding for beginners</a> — five places to start</li>
+    </ul>
+  </div>
+</Layout>
+
+<script>
+  /* Progressive only: the list is complete in the HTML and this hides rows. */
+  const input = document.getElementById("bird-filter") as HTMLInputElement | null;
+  const count = document.querySelector("[data-bird-count]");
+  if (input && count) {
+    const rows = [...document.querySelectorAll<HTMLElement>("[data-bird]")];
+    const groups = [...document.querySelectorAll<HTMLElement>("[data-family]")];
+    const total = rows.length;
+    const apply = () => {
+      const q = input.value.trim().toLowerCase();
+      let shown = 0;
+      for (const r of rows) {
+        const hit = !q || (r.dataset.name ?? "").includes(q);
+        r.hidden = !hit;
+        if (hit) shown++;
+      }
+      for (const g of groups) {
+        g.hidden = ![...g.querySelectorAll<HTMLElement>("[data-bird]")].some((r) => !r.hidden);
+      }
+      count.textContent = q ? `${shown} of ${total} species` : `${total} species`;
+    };
+    input.addEventListener("input", apply);
+    apply();
+  }
+</script>

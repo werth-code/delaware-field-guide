@@ -60,6 +60,13 @@ export const SAFETY_PAGES = [
   "/dogs/pond-safety/",
   "/dogs/pet-fees/",
   "/contacts/",
+  /* Birding. A nesting closure exists because being found is the problem, and
+     a $5 sticker beside it would be the fastest way to spend the trust the
+     rest of this site is built on. Added before any bird product shipped
+     rather than after, because the plan's own rule says so and a rule that
+     lives only in a plan is not a rule. */
+  "/birding/birds/red-knot/",
+  "/birding/prime-hook/",
 ];
 
 /** Section of a page a module must never precede. Enforced by placement, not code. */

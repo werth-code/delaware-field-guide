@@ -1,0 +1,119 @@
+[
+  {
+    "code": "grefla2",
+    "slug": "american-flamingo",
+    "name": "American Flamingo",
+    "scientific": "Phoenicopterus ruber",
+    "interest": "chase",
+    "habitats": [
+      "saltMarsh",
+      "coast"
+    ],
+    "sensitive": false,
+    "lede": "Yes, it is on Delaware's list. No, you should not go looking for one.",
+    "delaware": "The Delaware Bird Records Committee added American Flamingo to the state list in 2025, alongside Common Ringed Plover, Townsend's Warbler and Lazuli Bunting. That makes the record real and reviewed. It does not make the flamingo a Delaware bird in any useful sense — it is the kind of entry a state list carries to be complete, not to set an expectation.",
+    "whereToLook": null,
+    "sources": [
+      {
+        "label": "Delaware Ornithological Society — Bird Records Committee",
+        "url": "https://www.dosbirds.org/citizen-science/bird-records-committee/",
+        "note": "Read 9 August 2026. Lists American Flamingo under 2025 additions to the state list.",
+        "primary": true
+      }
+    ],
+    "sourcedOn": "2026-08-09",
+    "fieldMark": "american-flamingo",
+    "bombayHook": null
+  },
+  {
+    "code": "redkno",
+    "slug": "red-knot",
+    "name": "Red Knot",
+    "scientific": "Calidris canutus",
+    "interest": "bucketList",
+    "habitats": [
+      "coast",
+      "saltMarsh"
+    ],
+    "sensitive": true,
+    "sensitiveNote": "Red Knots feed on Delaware Bay to put on the weight that gets them to the Arctic, and a flock put to flight is a flock not eating. Watch from the marked viewing areas and keep off the beaches where they are feeding. Getting closer is not worth what it costs them.",
+    "lede": "The bird that makes May worth the drive.",
+    "delaware": "Red Knots stop on Delaware Bay during spring migration to feed on horseshoe-crab eggs. The Bombay Hook checklist records them as abundant in spring and only occasional in summer and fall — a narrow window, which is why the timing matters more here than the place.",
+    "whereToLook": "Delaware Bay beaches in May. Slaughter Beach and the Prime Hook shore are the names that come up.",
+    "sources": [
+      {
+        "label": "Bombay Hook National Wildlife Refuge Birds — U.S. Fish & Wildlife Service",
+        "url": "https://www.fws.gov/sites/default/files/documents/BH_Bird_ChecklistwithLinks.pdf",
+        "note": "Seasonal abundance at Bombay Hook: abundant in spring.",
+        "primary": true
+      }
+    ],
+    "sourcedOn": "2026-08-09",
+    "fieldMark": "red-knot",
+    "bombayHook": {
+      "spring": "abundant",
+      "summer": "occasional",
+      "fall": "occasional"
+    }
+  },
+  {
+    "code": "prowar",
+    "slug": "prothonotary-warbler",
+    "name": "Prothonotary Warbler",
+    "scientific": "Protonotaria citrea",
+    "interest": "specialty",
+    "habitats": [
+      "swamp",
+      "forest"
+    ],
+    "sensitive": false,
+    "lede": "A bright yellow bird in a dark wet wood.",
+    "delaware": "A swamp warbler, and one of the reasons southern Delaware's cypress and millpond country is worth the drive from the north. Bombay Hook records it as occasional in spring and summer — it is a bird of the wet woods rather than the marsh, so the refuge is not where you would go for it.",
+    "whereToLook": "Bald cypress and wet woodland. Trap Pond is the habitat this bird is associated with in Delaware.",
+    "sources": [
+      {
+        "label": "Bombay Hook National Wildlife Refuge Birds — U.S. Fish & Wildlife Service",
+        "url": "https://www.fws.gov/sites/default/files/documents/BH_Bird_ChecklistwithLinks.pdf",
+        "note": "Occasional spring and summer at Bombay Hook.",
+        "primary": true
+      }
+    ],
+    "sourcedOn": "2026-08-09",
+    "fieldMark": "prothonotary-warbler",
+    "bombayHook": {
+      "spring": "occasional",
+      "summer": "occasional",
+      "fall": "rare"
+    }
+  },
+  {
+    "code": "bknsti",
+    "slug": "black-necked-stilt",
+    "name": "Black-necked Stilt",
+    "scientific": "Himantopus mexicanus",
+    "interest": "specialty",
+    "habitats": [
+      "saltMarsh",
+      "freshMarsh"
+    ],
+    "sensitive": false,
+    "lede": "Long pink legs. Nothing else in the marsh looks like it.",
+    "delaware": "Common at Bombay Hook in spring and summer, uncommon into fall, which makes it one of the birds most reliably associated with the wildlife drive. Hard to mistake for anything else and easy to see from the car, which is a rare combination.",
+    "whereToLook": "The impoundments along the Bombay Hook wildlife drive.",
+    "sources": [
+      {
+        "label": "Bombay Hook National Wildlife Refuge Birds — U.S. Fish & Wildlife Service",
+        "url": "https://www.fws.gov/sites/default/files/documents/BH_Bird_ChecklistwithLinks.pdf",
+        "note": "Common spring and summer, uncommon fall, at Bombay Hook.",
+        "primary": true
+      }
+    ],
+    "sourcedOn": "2026-08-09",
+    "fieldMark": "black-necked-stilt",
+    "bombayHook": {
+      "spring": "common",
+      "summer": "common",
+      "fall": "uncommon"
+    }
+  }
+]
