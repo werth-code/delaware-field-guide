@@ -1,0 +1,2202 @@
+{
+  "_comment": "GENERATED from the U.S. Fish & Wildlife Service's Bombay Hook bird checklist by scripts/parse-bombay-hook-checklist.mjs. SEASONALITY HERE IS FOR BOMBAY HOOK, not for Delaware — a refuge checklist describes one place. Abundance codes are the refuge's own: abundant, common, uncommon, occasional, rare, across Spring (Mar-May), Summer (Jun-Aug), Fall (Sep-Nov), Winter (Dec-Feb). A blank season means the refuge lists no code, which is not the same as absent. Rows where the PDF's column positions were ambiguous were DROPPED rather than guessed — see `dropped`. Names were mapped to current eBird taxonomy one at a time, never fuzzily — a wrong join would put one bird's seasonality on another bird's page. Twenty-two needed it, including AOS splits (Herring Gull to American Herring Gull, House Wren to Northern House Wren) where the refuge's bird is the North American daughter species.",
+  "source": {
+    "label": "Bombay Hook National Wildlife Refuge Birds — U.S. Fish & Wildlife Service",
+    "url": "https://www.fws.gov/sites/default/files/documents/BH_Bird_ChecklistwithLinks.pdf",
+    "note": "278 species. Taxonomy follows the AOU 7th edition, so some names predate current AOS/eBird usage; the renames applied are listed in the parser.",
+    "primary": true
+  },
+  "sourcedOn": "2026-08-09",
+  "matchedToEbird": 267,
+  "unresolvedNames": [],
+  "droppedAmbiguous": [
+    "American Wigeon",
+    "Barn Swallow",
+    "Black-headed Gull",
+    "Forster’s Tern",
+    "Gadwall",
+    "Northern Mockingbird",
+    "Northern Saw-whet Owl",
+    "Redhead",
+    "Ruby-throated Hummingbird",
+    "Sooty Shearwater",
+    "Stilt Sandpiper",
+    "Tundra Swan",
+    "Western Sandpiper",
+    "Wild Turkey"
+  ],
+  "species": {
+    "gwfgoo": {
+      "name": "Greater White-fronted Goose",
+      "seasons": {
+        "spring": "rare",
+        "fall": "occasional",
+        "winter": "occasional"
+      }
+    },
+    "rosgoo": {
+      "name": "Ross's Goose",
+      "seasons": {
+        "spring": "rare",
+        "fall": "rare",
+        "winter": "rare"
+      }
+    },
+    "cangoo": {
+      "name": "Canada Goose",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "abundant",
+        "winter": "abundant"
+      }
+    },
+    "mutswa": {
+      "name": "Mute Swan",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "occasional",
+        "winter": "occasional"
+      }
+    },
+    "wooduc": {
+      "name": "Wood Duck",
+      "seasons": {
+        "spring": "common",
+        "summer": "abundant",
+        "fall": "abundant",
+        "winter": "occasional"
+      }
+    },
+    "ambduc": {
+      "name": "American Black Duck",
+      "seasons": {
+        "spring": "common",
+        "summer": "uncommon",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "mallar3": {
+      "name": "Mallard",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "common",
+        "fall": "abundant",
+        "winter": "abundant"
+      }
+    },
+    "canvas": {
+      "name": "Canvasback",
+      "seasons": {
+        "fall": "occasional",
+        "winter": "occasional"
+      }
+    },
+    "doccor": {
+      "name": "Double-crested Cormorant",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "uncommon"
+      }
+    },
+    "buffle": {
+      "name": "Bufflehead",
+      "seasons": {
+        "spring": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "reshaw": {
+      "name": "Red-shouldered Hawk",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "occasional",
+        "fall": "occasional",
+        "winter": "occasional"
+      }
+    },
+    "comgol": {
+      "name": "Common Goldeneye",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "brwhaw": {
+      "name": "Broad-winged Hawk",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "hoomer": {
+      "name": "Hooded Merganser",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "rare",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "merlin": {
+      "name": "Merlin",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "uncommon",
+        "winter": "rare"
+      }
+    },
+    "rinphe1": {
+      "name": "Ring-necked Pheasant",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "perfal": {
+      "name": "Peregrine Falcon",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "occasional",
+        "fall": "uncommon",
+        "winter": "occasional"
+      }
+    },
+    "horgre": {
+      "name": "Horned Grebe",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional",
+        "winter": "occasional"
+      }
+    },
+    "corshe1": {
+      "name": "Cory's Shearwater",
+      "seasons": {
+        "spring": "rare",
+        "summer": "rare",
+        "fall": "rare"
+      }
+    },
+    "y00475": {
+      "name": "American Coot",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "bkbplo": {
+      "name": "Black-bellied Plover",
+      "seasons": {
+        "spring": "common",
+        "summer": "uncommon",
+        "fall": "common",
+        "winter": "occasional"
+      }
+    },
+    "amgplo": {
+      "name": "American Golden-Plover",
+      "seasons": {
+        "spring": "rare",
+        "summer": "rare",
+        "fall": "uncommon"
+      }
+    },
+    "ameoys": {
+      "name": "American Oystercatcher",
+      "seasons": {
+        "spring": "rare",
+        "summer": "rare"
+      }
+    },
+    "lesyel": {
+      "name": "Lesser Yellowlegs",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "abundant",
+        "winter": "occasional"
+      }
+    },
+    "snogoo": {
+      "name": "Snow Goose",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "occasional",
+        "fall": "abundant",
+        "winter": "abundant"
+      }
+    },
+    "eurwig": {
+      "name": "Eurasian Wigeon",
+      "seasons": {
+        "spring": "rare",
+        "fall": "rare",
+        "winter": "rare"
+      }
+    },
+    "buwtea": {
+      "name": "Blue-winged Teal",
+      "seasons": {
+        "spring": "common",
+        "summer": "uncommon",
+        "fall": "abundant"
+      }
+    },
+    "whiibi": {
+      "name": "White Ibis",
+      "seasons": {
+        "summer": "rare",
+        "fall": "rare"
+      }
+    },
+    "norsho": {
+      "name": "Northern Shoveler",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "occasional",
+        "fall": "abundant",
+        "winter": "uncommon"
+      }
+    },
+    "gloibi": {
+      "name": "Glossy Ibis",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "common"
+      }
+    },
+    "norpin": {
+      "name": "Northern Pintail",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "occasional",
+        "fall": "abundant",
+        "winter": "abundant"
+      }
+    },
+    "whfibi": {
+      "name": "White-faced Ibis",
+      "seasons": {
+        "summer": "rare"
+      }
+    },
+    "gnwtea": {
+      "name": "Green-winged Teal",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "occasional",
+        "fall": "abundant",
+        "winter": "common"
+      }
+    },
+    "rinduc": {
+      "name": "Ring-necked Duck",
+      "seasons": {
+        "spring": "common",
+        "fall": "uncommon",
+        "winter": "rare"
+      }
+    },
+    "blkvul": {
+      "name": "Black Vulture",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "gresca": {
+      "name": "Greater Scaup",
+      "seasons": {
+        "spring": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "lessca": {
+      "name": "Lesser Scaup",
+      "seasons": {
+        "spring": "common",
+        "fall": "abundant",
+        "winter": "abundant"
+      }
+    },
+    "osprey": {
+      "name": "Osprey",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon"
+      }
+    },
+    "sursco": {
+      "name": "Surf Scoter",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "baleag": {
+      "name": "Bald Eagle",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "whwsco2": {
+      "name": "White-winged Scoter",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional",
+        "winter": "occasional"
+      }
+    },
+    "norhar2": {
+      "name": "Northern Harrier",
+      "seasons": {
+        "spring": "common",
+        "summer": "occasional",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "blksco2": {
+      "name": "Black Scoter",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional",
+        "winter": "occasional"
+      }
+    },
+    "lotduc": {
+      "name": "Long-tailed Duck",
+      "seasons": {
+        "fall": "uncommon",
+        "winter": "occasional"
+      }
+    },
+    "coohaw": {
+      "name": "Cooper's Hawk",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "occasional",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "commer": {
+      "name": "Common Merganser",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "occasional",
+        "winter": "common"
+      }
+    },
+    "rolhaw": {
+      "name": "Rough-legged Hawk",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional",
+        "winter": "uncommon"
+      }
+    },
+    "rebmer": {
+      "name": "Red-breasted Merganser",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "goleag": {
+      "name": "Golden Eagle",
+      "seasons": {
+        "fall": "rare",
+        "winter": "rare"
+      }
+    },
+    "rudduc": {
+      "name": "Ruddy Duck",
+      "seasons": {
+        "spring": "common",
+        "summer": "uncommon",
+        "fall": "abundant",
+        "winter": "abundant"
+      }
+    },
+    "amekes": {
+      "name": "American Kestrel",
+      "seasons": {
+        "spring": "common",
+        "summer": "occasional",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "norbob": {
+      "name": "Northern Bobwhite",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "yelrai": {
+      "name": "Yellow Rail",
+      "seasons": {
+        "spring": "rare",
+        "fall": "rare"
+      }
+    },
+    "retloo": {
+      "name": "Red-throated Loon",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "rare",
+        "winter": "rare"
+      }
+    },
+    "clarai11": {
+      "name": "Clapper Rail",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "uncommon"
+      }
+    },
+    "comloo": {
+      "name": "Common Loon",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional",
+        "winter": "occasional"
+      }
+    },
+    "kinrai4": {
+      "name": "King Rail",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "occasional",
+        "winter": "rare"
+      }
+    },
+    "pibgre": {
+      "name": "Pied-billed Grebe",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "uncommon",
+        "winter": "occasional"
+      }
+    },
+    "virrai": {
+      "name": "Virginia Rail",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon",
+        "winter": "occasional"
+      }
+    },
+    "comgal1": {
+      "name": "Common Gallinule",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "uncommon",
+        "fall": "occasional",
+        "winter": "rare"
+      }
+    },
+    "wispet": {
+      "name": "Wilson's Storm-Petrel",
+      "seasons": {
+        "spring": "rare",
+        "summer": "rare"
+      }
+    },
+    "amebit": {
+      "name": "American Bittern",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "rare",
+        "fall": "uncommon",
+        "winter": "occasional"
+      }
+    },
+    "semplo": {
+      "name": "Semipalmated Plover",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "common"
+      }
+    },
+    "leabit": {
+      "name": "Least Bittern",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "occasional"
+      }
+    },
+    "killde": {
+      "name": "Killdeer",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "uncommon"
+      }
+    },
+    "grbher3": {
+      "name": "Great Blue Heron",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "greegr": {
+      "name": "Great Egret",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "common",
+        "winter": "occasional"
+      }
+    },
+    "bknsti": {
+      "name": "Black-necked Stilt",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "uncommon"
+      }
+    },
+    "snoegr": {
+      "name": "Snowy Egret",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "common",
+        "winter": "rare"
+      }
+    },
+    "ameavo": {
+      "name": "American Avocet",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "abundant",
+        "winter": "occasional"
+      }
+    },
+    "libher": {
+      "name": "Little Blue Heron",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "common",
+        "fall": "common"
+      }
+    },
+    "greyel": {
+      "name": "Greater Yellowlegs",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "abundant",
+        "winter": "uncommon"
+      }
+    },
+    "triher": {
+      "name": "Tricolored Heron",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "uncommon",
+        "fall": "occasional"
+      }
+    },
+    "categr1": {
+      "name": "Western Cattle-Egret",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "solsan": {
+      "name": "Solitary Sandpiper",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "uncommon",
+        "fall": "uncommon"
+      }
+    },
+    "grnher": {
+      "name": "Green Heron",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common"
+      }
+    },
+    "willet1": {
+      "name": "Willet",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "uncommon"
+      }
+    },
+    "bcnher": {
+      "name": "Black-crowned Night Heron",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "uncommon"
+      }
+    },
+    "sposan": {
+      "name": "Spotted Sandpiper",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common"
+      }
+    },
+    "ycnher": {
+      "name": "Yellow-crowned Night Heron",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "uncommon",
+        "fall": "uncommon"
+      }
+    },
+    "turvul": {
+      "name": "Turkey Vulture",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "shshaw": {
+      "name": "Sharp-shinned Hawk",
+      "seasons": {
+        "spring": "common",
+        "fall": "common",
+        "winter": "uncommon"
+      }
+    },
+    "rethaw": {
+      "name": "Red-tailed Hawk",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "blkrai": {
+      "name": "Black Rail",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "rare"
+      }
+    },
+    "sora": {
+      "name": "Sora",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "uplsan": {
+      "name": "Upland Sandpiper",
+      "seasons": {
+        "spring": "rare",
+        "fall": "rare"
+      }
+    },
+    "acafly": {
+      "name": "Acadian Flycatcher",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "occasional"
+      }
+    },
+    "btbwar": {
+      "name": "Black-throated Blue Warbler",
+      "seasons": {
+        "spring": "common",
+        "fall": "common"
+      }
+    },
+    "whimbr3": {
+      "name": "Hudsonian Whimbrel",
+      "seasons": {
+        "spring": "rare",
+        "summer": "rare",
+        "fall": "rare"
+      }
+    },
+    "aldfly": {
+      "name": "Alder Flycatcher",
+      "seasons": {
+        "spring": "rare",
+        "fall": "rare"
+      }
+    },
+    "yerwar": {
+      "name": "Yellow-rumped Warbler",
+      "seasons": {
+        "spring": "abundant",
+        "fall": "abundant",
+        "winter": "common"
+      }
+    },
+    "hudgod": {
+      "name": "Hudsonian Godwit",
+      "seasons": {
+        "summer": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "wilfly": {
+      "name": "Willow Flycatcher",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "occasional"
+      }
+    },
+    "btnwar": {
+      "name": "Black-throated Green Warbler",
+      "seasons": {
+        "spring": "common",
+        "fall": "common"
+      }
+    },
+    "margod": {
+      "name": "Marbled Godwit",
+      "seasons": {
+        "summer": "rare",
+        "fall": "rare"
+      }
+    },
+    "leafly": {
+      "name": "Least Flycatcher",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "bkbwar": {
+      "name": "Blackburnian Warbler",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "uncommon"
+      }
+    },
+    "rudtur": {
+      "name": "Ruddy Turnstone",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "uncommon",
+        "fall": "uncommon"
+      }
+    },
+    "easpho": {
+      "name": "Eastern Phoebe",
+      "seasons": {
+        "spring": "common",
+        "summer": "uncommon",
+        "fall": "common",
+        "winter": "rare"
+      }
+    },
+    "pinwar": {
+      "name": "Pine Warbler",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "redkno": {
+      "name": "Red Knot",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "grcfly": {
+      "name": "Great Crested Flycatcher",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "uncommon"
+      }
+    },
+    "prawar": {
+      "name": "Prairie Warbler",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "rare",
+        "fall": "occasional"
+      }
+    },
+    "sander": {
+      "name": "Sanderling",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "uncommon",
+        "fall": "common",
+        "winter": "occasional"
+      }
+    },
+    "easkin": {
+      "name": "Eastern Kingbird",
+      "seasons": {
+        "spring": "common",
+        "summer": "abundant",
+        "fall": "common"
+      }
+    },
+    "palwar": {
+      "name": "Palm Warbler",
+      "seasons": {
+        "spring": "common",
+        "fall": "common",
+        "winter": "rare"
+      }
+    },
+    "semsan": {
+      "name": "Semipalmated Sandpiper",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "abundant"
+      }
+    },
+    "sctfly": {
+      "name": "Scissor-tailed Flycatcher",
+      "seasons": {
+        "summer": "rare"
+      }
+    },
+    "babwar": {
+      "name": "Bay-breasted Warbler",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "bkpwar": {
+      "name": "Blackpoll Warbler",
+      "seasons": {
+        "spring": "common",
+        "fall": "uncommon"
+      }
+    },
+    "leasan": {
+      "name": "Least Sandpiper",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "rare"
+      }
+    },
+    "whevir": {
+      "name": "White-eyed Vireo",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common"
+      }
+    },
+    "cerwar": {
+      "name": "Cerulean Warbler",
+      "seasons": {
+        "spring": "rare"
+      }
+    },
+    "whrsan": {
+      "name": "White-rumped Sandpiper",
+      "seasons": {
+        "spring": "common",
+        "summer": "uncommon",
+        "fall": "uncommon"
+      }
+    },
+    "buhvir": {
+      "name": "Blue-headed Vireo",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "uncommon"
+      }
+    },
+    "bawwar": {
+      "name": "Black-and-white Warbler",
+      "seasons": {
+        "spring": "common",
+        "summer": "occasional",
+        "fall": "common"
+      }
+    },
+    "baisan": {
+      "name": "Baird's Sandpiper",
+      "seasons": {
+        "summer": "rare",
+        "fall": "rare"
+      }
+    },
+    "eawvir1": {
+      "name": "Eastern Warbling Vireo",
+      "seasons": {
+        "spring": "rare",
+        "fall": "rare"
+      }
+    },
+    "amered": {
+      "name": "American Redstart",
+      "seasons": {
+        "spring": "common",
+        "summer": "occasional",
+        "fall": "common"
+      }
+    },
+    "pecsan": {
+      "name": "Pectoral Sandpiper",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "rare"
+      }
+    },
+    "phivir": {
+      "name": "Philadelphia Vireo",
+      "seasons": {
+        "fall": "rare"
+      }
+    },
+    "prowar": {
+      "name": "Prothonotary Warbler",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "rare"
+      }
+    },
+    "dunlin": {
+      "name": "Dunlin",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "occasional",
+        "fall": "abundant",
+        "winter": "abundant"
+      }
+    },
+    "yetvir": {
+      "name": "Yellow-throated Vireo",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "woewar1": {
+      "name": "Worm-eating Warbler",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "rare"
+      }
+    },
+    "cursan": {
+      "name": "Curlew Sandpiper",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "rare"
+      }
+    },
+    "reevir1": {
+      "name": "Red-eyed Vireo",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "abundant"
+      }
+    },
+    "ovenbi1": {
+      "name": "Ovenbird",
+      "seasons": {
+        "spring": "common",
+        "summer": "uncommon",
+        "fall": "uncommon"
+      }
+    },
+    "norwat": {
+      "name": "Northern Waterthrush",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "rare",
+        "fall": "uncommon"
+      }
+    },
+    "bubsan": {
+      "name": "Buff-breasted Sandpiper",
+      "seasons": {
+        "summer": "rare",
+        "fall": "rare"
+      }
+    },
+    "blujay": {
+      "name": "Blue Jay",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "common",
+        "fall": "abundant",
+        "winter": "common"
+      }
+    },
+    "louwat": {
+      "name": "Louisiana Waterthrush",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "ruff": {
+      "name": "Ruff",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "amecro": {
+      "name": "American Crow",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "uncommon"
+      }
+    },
+    "kenwar": {
+      "name": "Kentucky Warbler",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "occasional"
+      }
+    },
+    "shbdow": {
+      "name": "Short-billed Dowitcher",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "abundant"
+      }
+    },
+    "fiscro": {
+      "name": "Fish Crow",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "occasional"
+      }
+    },
+    "conwar": {
+      "name": "Connecticut Warbler",
+      "seasons": {
+        "fall": "rare"
+      }
+    },
+    "lobdow": {
+      "name": "Long-billed Dowitcher",
+      "seasons": {
+        "spring": "common",
+        "summer": "uncommon",
+        "fall": "abundant",
+        "winter": "rare"
+      }
+    },
+    "horlar": {
+      "name": "Horned Lark",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "mouwar": {
+      "name": "Mourning Warbler",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "wilsni1": {
+      "name": "Wilson's Snipe",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "purmar": {
+      "name": "Purple Martin",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "occasional"
+      }
+    },
+    "comyel": {
+      "name": "Common Yellowthroat",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "common",
+        "winter": "occasional"
+      }
+    },
+    "amewoo": {
+      "name": "American Woodcock",
+      "seasons": {
+        "spring": "common",
+        "summer": "uncommon",
+        "fall": "common",
+        "winter": "occasional"
+      }
+    },
+    "treswa": {
+      "name": "Tree Swallow",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "abundant",
+        "winter": "rare"
+      }
+    },
+    "hoowar": {
+      "name": "Hooded Warbler",
+      "seasons": {
+        "spring": "rare",
+        "summer": "rare",
+        "fall": "rare"
+      }
+    },
+    "wilpha": {
+      "name": "Wilson's Phalarope",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "uncommon",
+        "fall": "occasional"
+      }
+    },
+    "nrwswa": {
+      "name": "Northern Rough-winged Swallow",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon"
+      }
+    },
+    "wlswar": {
+      "name": "Wilson's Warbler",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "renpha": {
+      "name": "Red-necked Phalarope",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "rare"
+      }
+    },
+    "banswa": {
+      "name": "Bank Swallow",
+      "seasons": {
+        "spring": "common",
+        "summer": "abundant",
+        "fall": "uncommon"
+      }
+    },
+    "canwar": {
+      "name": "Canada Warbler",
+      "seasons": {
+        "spring": "common",
+        "summer": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "cliswa": {
+      "name": "Cliff Swallow",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "yebcha": {
+      "name": "Yellow-breasted Chat",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon",
+        "winter": "rare"
+      }
+    },
+    "laugul": {
+      "name": "Laughing Gull",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "abundant"
+      }
+    },
+    "scatan": {
+      "name": "Scarlet Tanager",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "uncommon"
+      }
+    },
+    "bongul": {
+      "name": "Bonaparte's Gull",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "rare",
+        "fall": "occasional",
+        "winter": "uncommon"
+      }
+    },
+    "carchi": {
+      "name": "Carolina Chickadee",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "sumtan": {
+      "name": "Summer Tanager",
+      "seasons": {
+        "spring": "occasional"
+      }
+    },
+    "ribgul": {
+      "name": "Ring-billed Gull",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "common",
+        "fall": "abundant",
+        "winter": "abundant"
+      }
+    },
+    "tuftit": {
+      "name": "Tufted Titmouse",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "eastow": {
+      "name": "Eastern Towhee",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "uncommon"
+      }
+    },
+    "amhgul1": {
+      "name": "American Herring Gull",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "abundant",
+        "winter": "abundant"
+      }
+    },
+    "rebnut": {
+      "name": "Red-breasted Nuthatch",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "uncommon",
+        "winter": "occasional"
+      }
+    },
+    "amtspa": {
+      "name": "American Tree Sparrow",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional",
+        "winter": "uncommon"
+      }
+    },
+    "lbbgul": {
+      "name": "Lesser Black-backed Gull",
+      "seasons": {
+        "spring": "rare",
+        "summer": "rare",
+        "fall": "occasional",
+        "winter": "occasional"
+      }
+    },
+    "whbnut": {
+      "name": "White-breasted Nuthatch",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "occasional",
+        "winter": "occasional"
+      }
+    },
+    "chispa": {
+      "name": "Chipping Sparrow",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon",
+        "winter": "rare"
+      }
+    },
+    "gbbgul": {
+      "name": "Great Black-backed Gull",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "brncre": {
+      "name": "Brown Creeper",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "fiespa": {
+      "name": "Field Sparrow",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "uncommon"
+      }
+    },
+    "leater1": {
+      "name": "Least Tern",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "carwre": {
+      "name": "Carolina Wren",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "savspa": {
+      "name": "Savannah Sparrow",
+      "seasons": {
+        "spring": "abundant",
+        "fall": "abundant",
+        "winter": "uncommon"
+      }
+    },
+    "gubter2": {
+      "name": "Gull-billed Tern",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional"
+      }
+    },
+    "houwre": {
+      "name": "Northern House Wren",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "rare"
+      }
+    },
+    "graspa": {
+      "name": "Grasshopper Sparrow",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "uncommon",
+        "fall": "occasional",
+        "winter": "rare"
+      }
+    },
+    "caster1": {
+      "name": "Caspian Tern",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon"
+      }
+    },
+    "winwre3": {
+      "name": "Winter Wren",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "nstspa": {
+      "name": "Nelson's Sparrow",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "uncommon",
+        "winter": "occasional"
+      }
+    },
+    "royter1": {
+      "name": "Royal Tern",
+      "seasons": {
+        "summer": "rare",
+        "fall": "occasional"
+      }
+    },
+    "sedwre1": {
+      "name": "Sedge Wren",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "occasional",
+        "winter": "rare"
+      }
+    },
+    "sstspa": {
+      "name": "Saltmarsh Sparrow",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon",
+        "winter": "occasional"
+      }
+    },
+    "comter": {
+      "name": "Common Tern",
+      "seasons": {
+        "spring": "rare",
+        "summer": "rare",
+        "fall": "rare"
+      }
+    },
+    "marwre": {
+      "name": "Marsh Wren",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "occasional"
+      }
+    },
+    "seaspa": {
+      "name": "Seaside Sparrow",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "common",
+        "winter": "occasional"
+      }
+    },
+    "foxspa": {
+      "name": "Fox Sparrow",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "whwter": {
+      "name": "White-winged Tern",
+      "seasons": {
+        "summer": "rare"
+      }
+    },
+    "gockin": {
+      "name": "Golden-crowned Kinglet",
+      "seasons": {
+        "spring": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "sonspa": {
+      "name": "Song Sparrow",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "common",
+        "fall": "abundant",
+        "winter": "abundant"
+      }
+    },
+    "blkter": {
+      "name": "Black Tern",
+      "seasons": {
+        "spring": "rare",
+        "summer": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "ruckin": {
+      "name": "Ruby-crowned Kinglet",
+      "seasons": {
+        "spring": "common",
+        "fall": "common",
+        "winter": "uncommon"
+      }
+    },
+    "swaspa": {
+      "name": "Swamp Sparrow",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "blkski": {
+      "name": "Black Skimmer",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "uncommon",
+        "fall": "occasional"
+      }
+    },
+    "buggna": {
+      "name": "Blue-gray Gnatcatcher",
+      "seasons": {
+        "spring": "common",
+        "summer": "uncommon",
+        "fall": "occasional"
+      }
+    },
+    "whtspa": {
+      "name": "White-throated Sparrow",
+      "seasons": {
+        "spring": "abundant",
+        "fall": "abundant",
+        "winter": "abundant"
+      }
+    },
+    "easblu": {
+      "name": "Eastern Bluebird",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "whcspa": {
+      "name": "White-crowned Sparrow",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional",
+        "winter": "occasional"
+      }
+    },
+    "rocpig": {
+      "name": "Rock Pigeon",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "veery": {
+      "name": "Veery",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "rare",
+        "fall": "uncommon"
+      }
+    },
+    "daejun": {
+      "name": "Dark-eyed Junco",
+      "seasons": {
+        "spring": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "moudov": {
+      "name": "Mourning Dove",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "abundant",
+        "winter": "abundant"
+      }
+    },
+    "gycthr": {
+      "name": "Gray-cheeked Thrush",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "laplon": {
+      "name": "Lapland Longspur",
+      "seasons": {
+        "spring": "rare",
+        "winter": "occasional"
+      }
+    },
+    "yebcuc": {
+      "name": "Yellow-billed Cuckoo",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "uncommon"
+      }
+    },
+    "bicthr": {
+      "name": "Bicknell's Thrush",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "snobun": {
+      "name": "Snow Bunting",
+      "seasons": {
+        "fall": "occasional",
+        "winter": "occasional"
+      }
+    },
+    "bkbcuc": {
+      "name": "Black-billed Cuckoo",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "swathr": {
+      "name": "Swainson's Thrush",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "uncommon"
+      }
+    },
+    "norcar": {
+      "name": "Northern Cardinal",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "brnowl": {
+      "name": "American Barn Owl",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "herthr": {
+      "name": "Hermit Thrush",
+      "seasons": {
+        "spring": "common",
+        "fall": "common",
+        "winter": "uncommon"
+      }
+    },
+    "robgro": {
+      "name": "Rose-breasted Grosbeak",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "uncommon"
+      }
+    },
+    "easowl1": {
+      "name": "Eastern Screech-Owl",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "woothr": {
+      "name": "Wood Thrush",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "uncommon"
+      }
+    },
+    "blugrb1": {
+      "name": "Blue Grosbeak",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon"
+      }
+    },
+    "grhowl": {
+      "name": "Great Horned Owl",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "amerob": {
+      "name": "American Robin",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "common",
+        "fall": "abundant",
+        "winter": "common"
+      }
+    },
+    "indbun": {
+      "name": "Indigo Bunting",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "uncommon"
+      }
+    },
+    "brdowl": {
+      "name": "Barred Owl",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "grycat": {
+      "name": "Gray Catbird",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "common",
+        "fall": "abundant",
+        "winter": "uncommon"
+      }
+    },
+    "dickci": {
+      "name": "Dickcissel",
+      "seasons": {
+        "summer": "rare",
+        "fall": "rare"
+      }
+    },
+    "loeowl": {
+      "name": "Long-eared Owl",
+      "seasons": {
+        "fall": "rare",
+        "winter": "rare"
+      }
+    },
+    "sheowl": {
+      "name": "Short-eared Owl",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional",
+        "winter": "uncommon"
+      }
+    },
+    "brnthr": {
+      "name": "Brown Thrasher",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "occasional"
+      }
+    },
+    "boboli": {
+      "name": "Bobolink",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "common",
+        "fall": "abundant"
+      }
+    },
+    "rewbla": {
+      "name": "Red-winged Blackbird",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "abundant",
+        "winter": "abundant"
+      }
+    },
+    "comnig": {
+      "name": "Common Nighthawk",
+      "seasons": {
+        "summer": "rare",
+        "fall": "rare"
+      }
+    },
+    "eursta": {
+      "name": "European Starling",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "abundant",
+        "winter": "abundant"
+      }
+    },
+    "easmea": {
+      "name": "Eastern Meadowlark",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "easwpw1": {
+      "name": "Eastern Whip-poor-will",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional"
+      }
+    },
+    "amepip": {
+      "name": "American Pipit",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "rusbla": {
+      "name": "Rusty Blackbird",
+      "seasons": {
+        "spring": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "chiswi": {
+      "name": "Chimney Swift",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon"
+      }
+    },
+    "cedwax": {
+      "name": "Cedar Waxwing",
+      "seasons": {
+        "spring": "common",
+        "summer": "occasional",
+        "fall": "common",
+        "winter": "uncommon"
+      }
+    },
+    "comgra": {
+      "name": "Common Grackle",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "abundant",
+        "fall": "abundant",
+        "winter": "abundant"
+      }
+    },
+    "botgra": {
+      "name": "Boat-tailed Grackle",
+      "seasons": {
+        "spring": "occasional",
+        "summer": "occasional",
+        "fall": "common",
+        "winter": "uncommon"
+      }
+    },
+    "belkin1": {
+      "name": "Belted Kingfisher",
+      "seasons": {
+        "spring": "common",
+        "summer": "uncommon",
+        "fall": "common",
+        "winter": "uncommon"
+      }
+    },
+    "buwwar": {
+      "name": "Blue-winged Warbler",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "bnhcow": {
+      "name": "Brown-headed Cowbird",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "uncommon"
+      }
+    },
+    "gowwar": {
+      "name": "Golden-winged Warbler",
+      "seasons": {
+        "spring": "rare",
+        "fall": "rare"
+      }
+    },
+    "orcori": {
+      "name": "Orchard Oriole",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "occasional"
+      }
+    },
+    "rehwoo": {
+      "name": "Red-headed Woodpecker",
+      "seasons": {
+        "spring": "rare",
+        "fall": "rare",
+        "winter": "rare"
+      }
+    },
+    "tenwar": {
+      "name": "Tennessee Warbler",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "balori": {
+      "name": "Baltimore Oriole",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "occasional"
+      }
+    },
+    "rebwoo": {
+      "name": "Red-bellied Woodpecker",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "naswar": {
+      "name": "Nashville Warbler",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "purfin": {
+      "name": "Purple Finch",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional",
+        "winter": "occasional"
+      }
+    },
+    "yebsap": {
+      "name": "Yellow-bellied Sapsucker",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional",
+        "winter": "occasional"
+      }
+    },
+    "norpar": {
+      "name": "Northern Parula",
+      "seasons": {
+        "spring": "common",
+        "summer": "occasional",
+        "fall": "common"
+      }
+    },
+    "houfin": {
+      "name": "House Finch",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "dowwoo": {
+      "name": "Downy Woodpecker",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "orcwar": {
+      "name": "Orange-crowned Warbler",
+      "seasons": {
+        "fall": "rare",
+        "winter": "rare"
+      }
+    },
+    "redpol1": {
+      "name": "Redpoll",
+      "seasons": {
+        "fall": "rare",
+        "winter": "rare"
+      }
+    },
+    "haiwoo": {
+      "name": "Hairy Woodpecker",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    },
+    "yelwar1": {
+      "name": "Northern Yellow Warbler",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "uncommon"
+      }
+    },
+    "pinsis": {
+      "name": "Pine Siskin",
+      "seasons": {
+        "spring": "rare",
+        "fall": "occasional",
+        "winter": "rare"
+      }
+    },
+    "norfli": {
+      "name": "Northern Flicker",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common",
+        "winter": "common"
+      }
+    },
+    "chswar": {
+      "name": "Chestnut-sided Warbler",
+      "seasons": {
+        "spring": "common",
+        "fall": "common"
+      }
+    },
+    "amegfi": {
+      "name": "American Goldfinch",
+      "seasons": {
+        "spring": "abundant",
+        "summer": "common",
+        "fall": "abundant",
+        "winter": "common"
+      }
+    },
+    "olsfly": {
+      "name": "Olive-sided Flycatcher",
+      "seasons": {
+        "spring": "rare",
+        "fall": "rare"
+      }
+    },
+    "magwar": {
+      "name": "Magnolia Warbler",
+      "seasons": {
+        "spring": "common",
+        "fall": "common"
+      }
+    },
+    "evegro": {
+      "name": "Evening Grosbeak",
+      "seasons": {
+        "spring": "rare",
+        "fall": "rare",
+        "winter": "rare"
+      }
+    },
+    "eawpew": {
+      "name": "Eastern Wood-Pewee",
+      "seasons": {
+        "spring": "common",
+        "summer": "common",
+        "fall": "common"
+      }
+    },
+    "camwar": {
+      "name": "Cape May Warbler",
+      "seasons": {
+        "spring": "occasional",
+        "fall": "occasional"
+      }
+    },
+    "houspa": {
+      "name": "House Sparrow",
+      "seasons": {
+        "spring": "uncommon",
+        "summer": "uncommon",
+        "fall": "uncommon",
+        "winter": "uncommon"
+      }
+    }
+  }
+}
