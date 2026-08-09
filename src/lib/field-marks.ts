@@ -110,6 +110,34 @@ export function markFor(marks: FieldMark[], path: string): FieldMark | null {
   return eligible[0] ?? null;
 }
 
+/**
+ * The number ranges, which are the collection's only structure.
+ *
+ * 001–099 places, 100–199 birds, 200–299 whatever comes next. Reserved rather
+ * than sequential so a new series never has to renumber an existing one — a
+ * printed backing card carries its number forever, and Field Mark 007 must
+ * still mean White Clay Creek in five years.
+ */
+export const SERIES = [
+  { key: "places", label: "Places", from: 1, to: 99,
+    deck: "Places you've actually been." },
+  { key: "birds", label: "Birds", from: 100, to: 199,
+    deck: "Birds worth looking up." },
+];
+
+export const seriesOf = (m: FieldMark) =>
+  SERIES.find((s) => Number(m.number) >= s.from && Number(m.number) <= s.to) ?? null;
+
+/** Grouped for display, in number order, empty series omitted. */
+export function bySeries(marks: FieldMark[]) {
+  return SERIES.map((s) => ({
+    ...s,
+    marks: marks
+      .filter((m) => seriesOf(m)?.key === s.key)
+      .sort((a, b) => a.number.localeCompare(b.number)),
+  })).filter((g) => g.marks.length > 0);
+}
+
 /** "Any 3 · $12" style bundles. Null price until the line is real. */
 export const BUNDLES = [
   { label: "Any three", count: 3, price: 12 },
