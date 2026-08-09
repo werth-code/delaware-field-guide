@@ -35,9 +35,26 @@
           "why": "Refuge hunt days. Three specific dates, published by the refuge — the kind of thing that ruins a two-hour drive and appears on no tourism page."
         }
       ],
-      "ebird": "https://ebird.org/hotspot/L133335",
       "sensitive": false,
-      "sensitiveNote": null
+      "sensitiveNote": null,
+      "ebirdHotspots": [
+        {
+          "id": "L483327",
+          "name": "Bombay Hook NWR--Raymond Pool"
+        },
+        {
+          "id": "L483019",
+          "name": "Bombay Hook NWR--Shearness Pool"
+        },
+        {
+          "id": "L483813",
+          "name": "Bombay Hook NWR--Bear Swamp Pool"
+        },
+        {
+          "id": "L960072",
+          "name": "Bombay Hook NWR--Finis Pool"
+        }
+      ]
     },
     "coords": null,
     "warnings": [
@@ -104,9 +121,26 @@
           "why": "Heavily silted. The refuge says not to attempt it and to go west from Foord's Landing only."
         }
       ],
-      "ebird": "https://ebird.org/hotspot/L133340",
       "sensitive": true,
-      "sensitiveNote": "Piping plover and least tern nesting. The refuge closes Fowler Beach for it, and this page publishes the closure rather than anything that would help somebody get closer."
+      "sensitiveNote": "Piping plover and least tern nesting. The refuge closes Fowler Beach for it, and this page publishes the closure rather than anything that would help somebody get closer.",
+      "ebirdHotspots": [
+        {
+          "id": "L5844234",
+          "name": "Prime Hook NWR--Boardwalk Trail"
+        },
+        {
+          "id": "L464099",
+          "name": "Prime Hook NWR--Dike Trail (formerly Observation Point Trail)"
+        },
+        {
+          "id": "L285141",
+          "name": "Prime Hook NWR--Broadkill Marsh"
+        },
+        {
+          "id": "L7207656",
+          "name": "Prime Hook NWR--Foord's Landing Road"
+        }
+      ]
     },
     "coords": null,
     "warnings": [

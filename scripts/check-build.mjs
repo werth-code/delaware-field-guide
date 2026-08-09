@@ -284,6 +284,46 @@ for (const [name, path] of palettes) {
   }
 }
 
+/* ------------------------------------------- eBird hotspot IDs are real -- */
+
+/*
+ * Every eBird hotspot ID must exist in the fetched Delaware registry.
+ *
+ * I invented two. `L133335` for Bombay Hook and `L133340` for Prime Hook were
+ * written from nothing, shipped, and looked exactly like the real thing — an
+ * L and six digits. Neither is a Delaware hotspot. Nobody would have noticed
+ * until somebody tapped one and landed on a bird list for the wrong place, or
+ * on nothing.
+ *
+ * This is the failure this whole site is built to prevent, arriving in the one
+ * form the verification tiers do not catch: not an unsourced claim, but a
+ * plausible-looking identifier in a field that gets rendered as a link rather
+ * than read as a fact.
+ *
+ * The registry makes it checkable, so it is checked.
+ */
+try {
+  const registry = new Set(
+    JSON.parse(readFileSync("src/data/generated/ebird-hotspots.json", "utf8")).hotspots.map(
+      (h) => h.id,
+    ),
+  );
+  const sites = JSON.parse(readFileSync("src/data/birding-sites.json", "utf8"));
+  for (const site of sites) {
+    for (const h of site.birding?.ebirdHotspots ?? []) {
+      if (!registry.has(h.id)) {
+        problems.push(
+          `birding-sites.json: ${site.slug} cites eBird hotspot ${h.id}, which is not in the ` +
+            `Delaware registry — check it on ebird.org or re-run npm run fetch:ebird`,
+        );
+      }
+    }
+  }
+} catch {
+  /* No generated registry yet (a clean clone before the first fetch). Nothing
+     to check against, and failing the build for that would be worse. */
+}
+
 if (problems.length) {
   console.error(`\n  ✗ Build check failed:\n${problems.map((p) => `      ${p}`).join("\n")}\n`);
   process.exit(1);

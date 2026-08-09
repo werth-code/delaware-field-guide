@@ -109,17 +109,29 @@ const rows = [
     <h2>Current sightings</h2>
     <p class="max-w-[58ch]">
       {
-        site.birding.ebird ? (
+        site.birding.ebirdHotspots?.length ? (
           <>
-            What people are actually seeing here is on{" "}
-            <a href={site.birding.ebird} rel="noopener">eBird</a>, updated by birders
-            rather than by me. This page is the trip; that page is the birds.
+            What people are actually seeing is on eBird, updated by birders rather
+            than by me. This page is the trip; those are the birds. Neither refuge
+            has a single umbrella hotspot — they're split by stop, which is itself
+            worth knowing before you arrive:
           </>
         ) : (
           <>No eBird hotspot recorded here yet.</>
         )
       }
     </p>
+    {
+      site.birding.ebirdHotspots?.length && (
+        <ul>
+          {site.birding.ebirdHotspots.map((h) => (
+            <li>
+              <a href={`https://ebird.org/hotspot/${h.id}`} rel="noopener">{h.name}</a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
 
     {
       site.outstanding?.length && (
