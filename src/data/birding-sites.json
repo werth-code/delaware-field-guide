@@ -8,11 +8,11 @@
     "existingRecord": null,
     "address": "2591 Whitehall Neck Road, Smyrna, DE 19977",
     "fee": {
-      "note": "Not confirmed. The refuge says to pay the entrance fee on Recreation.gov but doesn't publish the amount on the page I can reach — its own fees page returns a 404. Bring a card and expect to pay something.",
-      "amount": null
+      "note": "$4 per vehicle, covering up to four occupants. $2 each on foot or by bike if you've parked at the visitor center. Under 16 free. A $12 annual pass covers the refuge for a year and pays for itself on the fourth visit. Paid through Recreation.gov.",
+      "amount": 4
     },
-    "hours": null,
-    "restrooms": null,
+    "hours": "Half an hour before sunrise to half an hour after sunset, year round",
+    "restrooms": true,
     "parking": null,
     "birding": {
       "why": "A twelve-mile drive through managed pools, salt marsh and mudflat, most of which you can bird without getting out of the car.",
@@ -59,7 +59,7 @@
     "coords": null,
     "warnings": [
       "Salt marsh in summer means biting insects. May is the reason to come; repellent is the reason the trip stays pleasant.",
-      "The three 2026 hunt dates close every road and trail. Check them before driving from out of state."
+      "Dogs are allowed on a leash of up to ten feet. That is shorter than most retractable leads at full extension."
     ],
     "sources": [
       {
@@ -67,17 +67,30 @@
         "url": "https://www.fws.gov/refuge/bombay-hook",
         "note": "Read 9 August 2026. Publishes the 2026 hunting closure dates and directs fee payment to Recreation.gov without naming an amount.",
         "primary": true
+      },
+      {
+        "label": "Bombay Hook NWR — fees and passes, U.S. Fish & Wildlife Service",
+        "url": "https://www.fws.gov/refuge/bombay-hook",
+        "primary": true,
+        "note": "Fee schedule via Recreation.gov, opening hours, leash rule and toilet locations. Read 9 August 2026."
       }
     ],
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "The entrance fee. Their own fees page 404s and the overview names no amount.",
-      "Refuge and visitor-center opening hours.",
-      "Restrooms — where, and whether they're open before the visitor center.",
       "Observation towers: how many, where, and whether any is step-free.",
       "How long the twelve-mile drive actually takes at birding pace."
+    ],
+    "onSite": [
+      {
+        "label": "Restrooms",
+        "note": "Accessible portable toilets at the visitor center parking lot and at the Bear Swamp Trail parking lot."
+      },
+      {
+        "label": "Annual pass",
+        "note": "$12 for the refuge, against $4 a visit."
+      }
     ]
   },
   {

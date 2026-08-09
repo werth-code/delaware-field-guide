@@ -171,7 +171,7 @@
     }
   ],
   "permits": {
-    "note": "Unchanged for 2026. The off-peak permit is being discontinued in 2027.",
+    "note": "Unchanged for 2026 — DNREC states there were no surf-fishing permit fee changes this year. The off-peak permit is being discontinued in 2027. The two-year amounts are the one exception: they are sold, and the price isn't published anywhere I can reach.",
     "tiers": [
       {
         "label": "Annual",
@@ -183,19 +183,20 @@
         "label": "Two-year",
         "resident": "$180",
         "nonResident": "$360",
-        "conflict": null
+        "conflict": "Not confirmed. This is the one-year figure doubled, which is arithmetic rather than a source — DNREC says two-year permits are sold in 2026 but does not publish the amount anywhere reachable. It stays unpublished until somebody reads it off DNREC or is told it on the phone."
       },
       {
         "label": "Senior annual",
         "resident": "$80",
         "nonResident": null,
-        "conflict": "One source says seniors get no discount on the standard annual permit; another lists $80. Unresolved — do not publish either figure until DNREC confirms."
+        "conflict": null,
+        "note": "Delaware residents 62 and over. Unchanged for 2026."
       },
       {
         "label": "Senior two-year",
         "resident": "$160",
         "nonResident": "$320",
-        "conflict": "Same unresolved conflict as the senior annual."
+        "conflict": "Not confirmed. This is the one-year figure doubled, which is arithmetic rather than a source — DNREC says two-year permits are sold in 2026 but does not publish the amount anywhere reachable. It stays unpublished until somebody reads it off DNREC or is told it on the phone."
       },
       {
         "label": "Off-peak annual",
@@ -207,7 +208,8 @@
         "label": "Off-peak senior (62+)",
         "resident": "$60",
         "nonResident": null,
-        "conflict": null
+        "conflict": null,
+        "note": "Delaware residents 62 and over. Unchanged for 2026."
       },
       {
         "label": "Special event",
@@ -232,9 +234,15 @@
         "label": "DNREC Division of Parks & Recreation",
         "url": "https://www.destateparks.com/surf-fishing/",
         "note": "2026 surf fishing rules, permits and reservations."
+      },
+      {
+        "label": "DNREC — 2026 surf-fishing permits",
+        "url": "https://dnrec.delaware.gov/",
+        "primary": true,
+        "note": "States no fee changes for 2026. Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-03",
+    "sourcedOn": "2026-08-09",
     "dayUse": {
       "rule": "A current surf fishing vehicle permit also gets that vehicle into the day-use areas of most Delaware State Parks, free, during the fee season.",
       "why": "It changes the arithmetic. A $90 resident annual permit against a $5 day rate pays for itself in eighteen visits — and if you were going to the parks anyway, the surf fishing is the part that comes free rather than the other way round.",
@@ -388,10 +396,10 @@
     ]
   },
   "outstanding": [
+    "The two-year permit amounts. DNREC sells them and doesn't print the price; do not double the annual.",
     "Which parks does the permit NOT admit you to? DNREC says 'most' and names none.",
     "PRIORITY: does a two-year off-peak permit bought in 2026 stay valid through 2027, when the off-peak permit is discontinued? Nobody has asked this.",
     "Resolve the senior permit conflict — one source says no senior discount on the standard annual, another lists $80/$160/$320.",
-    "Confirm all 2026 permit prices, every tier, with DNREC.",
     "Confirm the after-4pm rule and the 8am departure — this is the section's most useful fact and it rests on one source.",
     "Confirm vehicle requirements. The 4WD and 7-inch clearance figures come from a 2019 post.",
     "Confirm which of the twelve crossings are open right now, and any active closures (Delaware Seashore park office, Inlet Road).",

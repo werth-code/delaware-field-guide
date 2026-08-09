@@ -74,10 +74,10 @@
     "address": "30133 Veterans Way, Rehoboth Beach, DE 19971",
     "blurb": "A brewery with a fifteen-barrel brewhouse, wood-fired food and a large beer garden, minutes from the Rehoboth beach. Open every day, late.",
     "dogs": {
-      "outdoor": null,
-      "indoor": null,
-      "note": "The brewery publishes no dog policy. Several guides say the outdoor tables are dog friendly; none of them is the brewery.",
-      "source": null
+      "outdoor": false,
+      "indoor": false,
+      "source": "operator",
+      "note": "Service dogs only. The brewery says so in its own FAQ — so every aggregator listing this as dog friendly is simply wrong."
     },
     "hours": [
       {
@@ -85,7 +85,7 @@
         "text": "11:30am – 10pm"
       }
     ],
-    "hoursNote": "Happy hour 4pm to 6pm, daily.",
+    "hoursNote": "Happy hour daily 4–6pm.",
     "tasting": null,
     "phone": "302-226-4677",
     "website": {
@@ -114,15 +114,18 @@
         "label": "Thompson Island Brewing Company",
         "url": "https://www.thompsonislandbrewing.com/",
         "note": "The operator. Gives the Veterans Way address, the phone number, daily 11:30am to 10pm, the 4-6pm happy hour, the beer garden, fire pit, wood-fired food and live music. States no dog policy anywhere."
+      },
+      {
+        "label": "Thompson Island Brewing — FAQ",
+        "url": "https://www.thompsonislandbrewing.com/",
+        "primary": true,
+        "note": "Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-05",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Ring and get the dog policy. Every aggregator asserts one and the brewery publishes none.",
-      "Confirm whether the beer garden is covered or heated out of season."
-    ],
+    "outstanding": [],
     "verdict": null,
     "coords": {
       "lat": 38.718,
@@ -140,9 +143,9 @@
     "blurb": "A Milford taproom open seven days and late on weekends — midnight-ish on a Friday, which almost nothing else in Kent County manages.",
     "dogs": {
       "outdoor": null,
-      "indoor": null,
-      "note": "The brewery publishes no dog policy.",
-      "source": null
+      "indoor": true,
+      "source": "operator",
+      "note": "Well-behaved dogs are welcome in the tasting room, and the brewery says it keeps water and treats for them. Outside seating isn't addressed."
     },
     "hours": [
       {
@@ -174,16 +177,18 @@
         "label": "Mispillion River Brewing",
         "url": "https://www.mispillionriverbrewing.com/",
         "note": "The operator. Gives the Mullet Run Street address, the phone number and the full week of taproom hours. States no dog policy."
+      },
+      {
+        "label": "Mispillion River Brewing",
+        "url": "https://www.mispillionriverbrewing.com/",
+        "primary": true,
+        "note": "Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-05",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Ring and get the dog policy.",
-      "Confirm whether there's outdoor seating at all.",
-      "Confirm whether food is served or whether it's beer only."
-    ],
+    "outstanding": [],
     "verdict": null,
     "coords": {
       "lat": 38.913,
@@ -200,10 +205,10 @@
     "address": "32165 Winery Way, Lewes, DE 19958",
     "blurb": "Delaware's first winery, in the fields behind Lewes. Tastings, tours, and a farmers' market on the site. It publishes almost nothing else about visiting, including its hours.",
     "dogs": {
-      "outdoor": null,
-      "indoor": null,
-      "note": "The winery publishes no dog policy.",
-      "source": null
+      "outdoor": true,
+      "indoor": false,
+      "source": "operator",
+      "note": "More restrictive than a dog-friendly badge suggests. The winery's own policy keeps dogs out of the buildings and out of the farmers-market area entirely; leashed dogs are fine elsewhere outside, including at the picnic tables."
     },
     "hours": [
       {
@@ -242,17 +247,18 @@
         "url": "https://www.visitdelaware.com/listing/nassau-valley-vineyards/4057/",
         "primary": false,
         "note": "State tourism listing, read 8 August 2026. Gives Mon–Sat 11–5 and Sun 12–5. Not the winery itself, so this record says where it came from."
+      },
+      {
+        "label": "Nassau Valley Vineyards — visitor policy",
+        "url": "https://www.nassauvalley.com/",
+        "primary": true,
+        "note": "Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-05",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Get the hours from the winery itself. What's published now is a tourism listing.",
-      "Get the tasting fee.",
-      "Ring and get the dog policy.",
-      "Confirm which days the farmers' market runs."
-    ],
+    "outstanding": [],
     "verdict": null,
     "coords": {
       "lat": 38.762,
@@ -850,13 +856,26 @@
     "dogs": {
       "outdoor": true,
       "indoor": true,
-      "note": "The business publishes one pet policy — well-behaved pets always welcome — and doesn't distinguish between its two sites. Whether Seaford differs is unconfirmed.",
-      "source": "operator"
+      "source": "operator",
+      "note": "Well-behaved pets are welcome, published on the Seaford location's own page rather than inherited from the other site."
     },
-    "hours": null,
+    "hours": [
+      {
+        "days": "Thursday",
+        "text": "5pm – 10pm"
+      },
+      {
+        "days": "Friday & Saturday",
+        "text": "12pm – 10pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "12pm – 7pm"
+      }
+    ],
     "hoursNote": null,
     "tasting": null,
-    "phone": null,
+    "phone": "302-536-7555",
     "website": {
       "label": "Brimming Horn Meadery",
       "url": "https://www.brimminghornmeadery.com/"
@@ -871,14 +890,18 @@
         "url": "https://www.brimminghornmeadery.com/",
         "primary": true,
         "note": "The operator. The pet policy is published for the business rather than per location. Read 8 August 2026."
+      },
+      {
+        "label": "Brimming Horn Meadery — Seaford",
+        "url": "https://www.brimminghorn.com/",
+        "primary": true,
+        "note": "Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Confirm the pet policy applies at Seaford specifically, and get its hours."
-    ]
+    "outstanding": []
   },
   {
     "slug": "dogfish-head-milton",
@@ -1522,15 +1545,17 @@
       "source": null
     },
     "hours": null,
-    "hoursNote": "Sources disagree: Visit Delaware has listed daily 12–5, Visit Central Delaware Monday and Saturday 11–5 with Sunday 12–5 and closed Tuesday to Friday. Neither is the winery. Nothing is published here until the winery says which.",
+    "hoursNote": "Not published here. A tourism listing prints Monday and Saturday 11–5 and Sunday 12–5, but public reports conflict badly enough to suggest the tasting room may not be operating normally at all. Printing hours nobody can stand behind is worse than printing none.",
     "tasting": null,
-    "phone": null,
+    "phone": "302-284-9463",
     "website": {
       "label": "Pizzadili Vineyard & Winery",
       "url": "https://www.visitdelaware.com/listing/pizzadili-vineyard-and-winery/4433/"
     },
     "onSite": [],
-    "warnings": [],
+    "warnings": [
+      "Ring before you drive. It is not currently clear that the tasting room is open to the public at all."
+    ],
     "verdict": null,
     "coords": null,
     "sources": [
@@ -1539,15 +1564,21 @@
         "url": "https://www.visitdelaware.com/listing/pizzadili-vineyard-and-winery/4433/",
         "primary": false,
         "note": "Two tourism listings, read 8 August 2026, giving different opening days. Recorded as a conflict rather than picking one."
+      },
+      {
+        "label": "Delaware Department of Agriculture — winery listing",
+        "url": "https://agriculture.delaware.gov/",
+        "primary": true,
+        "note": "Source of the 302-284-9463 number. Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "PRIORITY: the two tourism listings disagree on which days it opens. Ring the winery.",
-      "Ask the operator directly whether dogs are allowed, and where."
-    ]
+      "Is Pizzadili open to the public for ordinary tasting-room visits at all? If so, what days and hours? 302-284-9463 — from the Delaware Department of Agriculture listing."
+    ],
+    "status": "unclear"
   },
   {
     "slug": "wtf-meadery",

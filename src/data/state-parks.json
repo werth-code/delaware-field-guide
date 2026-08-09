@@ -45,7 +45,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Confirm the fee band and the guarded-beach dates.",
+      "The 2026 guarded-beach dates for Main Beach, and DNREC's own fee classification for this park. Historic practice is Memorial Day to Labor Day, roughly 9–5, but historic practice is not a 2026 date and geography is not a fee band.",
       "Confirm which loops have shade and spigots.",
       "Confirm cabins and boat launch."
     ],
@@ -281,6 +281,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
+      "DNREC's own fee classification. Fenwick is plainly an ocean beach park, but the state publishes statewide beach and inland rates rather than a park table — so ask for this at the same time as Holts Landing and hold both records to one standard.",
       "Confirm exactly where the town beach ends and the park begins — this is the fact that decides whether a dog is legal.",
       "Confirm watersports rentals on the bay side."
     ],
@@ -572,7 +573,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Confirm water park season, hours and separate admission.",
+      "The water park's actual ticket prices. DNREC says they're unchanged from 2025 without printing them.",
       "Confirm where dogs are and are not allowed on site."
     ],
     "sources": [
@@ -614,9 +615,15 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "What each park offers, gone through park by park."
+      },
+      {
+        "label": "DNREC — 2026 park season",
+        "url": "https://dnrec.delaware.gov/",
+        "primary": true,
+        "note": "Water park season, sessions and the separate-admission note. Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-09",
     "coords": {
       "lat": 38.988,
       "lon": -75.533,
@@ -630,7 +637,13 @@
       "mapUrl": "https://www.destateparks.com/wp-content/uploads/2024/09/activity_KillensPond_DiscGolf.pdf",
       "mapImage": "dg-killens-pond"
     },
-    "feeNote": "The water park is charged separately. Park admission does not include it."
+    "feeNote": "The water park is charged separately. Park admission does not include it.",
+    "onSite": [
+      {
+        "label": "Water park",
+        "note": "2026 season runs 23 May to Labor Day, 7 September. Weekends only from Memorial Day into mid-June, then seven days a week until mid-August. Two sessions a day: 9:30am–1:30pm and 2–6pm. Admission is separate from park entry and unchanged from 2025; under-1s are now free. DNREC hasn't published the dollar amounts, so they aren't here."
+      }
+    ]
   },
   {
     "slug": "lums-pond",
@@ -674,7 +687,7 @@
       "Millpond conditions — check the water before letting a dog swim."
     ],
     "phone": "302-368-6989",
-    "hours": "8 a.m. – sunset, daily",
+    "hours": "8 a.m. – sunset, daily, year round",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -720,9 +733,15 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "What each park offers, gone through park by park."
+      },
+      {
+        "label": "Delaware State Parks — Lums Pond",
+        "url": "https://www.destateparks.com/park/lums-pond/",
+        "primary": true,
+        "note": "Park, office and nature center hours. Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-09",
     "onSite": [
       {
         "label": "Restrooms",
@@ -812,7 +831,8 @@
       "lon": -75.722,
       "precision": "site"
     },
-    "feeNote": "Go Ape, the treetop course, is charged separately. Park admission does not include it."
+    "feeNote": "Go Ape, the treetop course, is charged separately. Park admission does not include it.",
+    "hoursNote": "Park office 8am–4pm daily April to October, weekdays only November to March. The nature center keeps its own hours: Wednesday to Sunday, noon–4pm. Third-party sites publish 7am and 7:30pm times for the dog area — those aren't the state's and aren't here."
   },
   {
     "slug": "white-clay-creek",
@@ -1125,6 +1145,10 @@
       {
         "label": "Boat launch",
         "note": "There's one."
+      },
+      {
+        "label": "Park office and nature center",
+        "note": "41 Adams Dam Road. Some programming lists 4244 Wilsons Run Road as the meeting address instead, so check which one an event means before driving to the other."
       }
     ],
     "fieldNotes": [
@@ -1478,7 +1502,7 @@
       },
       {
         "file": "cando-overview",
-        "alt": "A wide view of a large playground with brown ramps and railings leading up to elevated decks, a shade canopy over the centre, wood-chip surfacing, concrete paths and benches.",
+        "alt": "A wide view of a large playground with brown ramps and railings leading up to elevated decks, a shade canopy over the center, wood-chip surfacing, concrete paths and benches.",
         "caption": "Ramps rather than steps to most of the upper decks, which is the whole point of the place. Concrete paths run right up to the equipment.",
         "credit": null,
         "takenOn": "2026-08-07",
@@ -1757,7 +1781,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Confirm ferry season, schedule, fare and PET POLICY — a dog on the wrong boat is a stranded dog.",
+      "One call, three answers: the 2026 fare table, the exact operating days, and THE PET POLICY. Fares of $15 adult / $14 senior and military / $8 child 2–12 are widely repeated but I can't find them on a current primary Delaware page, and a wrong pet answer strands somebody at a ferry dock.",
       "Confirm admission pricing, which is separate from the standard park fee."
     ],
     "sources": [
@@ -1790,7 +1814,8 @@
       "lon": -75.571,
       "precision": "site"
     },
-    "feeNote": "Admission and the ferry are charged separately, and neither is included in ordinary park admission."
+    "feeNote": "Admission and the ferry are charged separately, and neither is included in ordinary park admission.",
+    "hoursNote": "The 2026 season opened 25 April. Reaching it means the ferry from Delaware City — there is no other way on, and the ferry runs to its own schedule."
   },
   {
     "slug": "fort-dupont",
@@ -1997,8 +2022,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "List the individual sites and their hours.",
-      "Confirm whether any entry fee applies."
+      "List the individual sites and their hours."
     ],
     "sources": [
       {
@@ -2022,14 +2046,26 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
+      },
+      {
+        "label": "First State Heritage Park — Welcome Center",
+        "url": "https://history.delaware.gov/",
+        "primary": true,
+        "note": "Free admission, hours and parking. Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-09",
     "coords": {
       "lat": 39.158,
       "lon": -75.524,
       "precision": "site"
-    }
+    },
+    "onSite": [
+      {
+        "label": "Welcome Center",
+        "note": "Free, Monday to Friday 8am–4:30pm, with free parking. The state museums run by Historical and Cultural Affairs are free too — but that isn't the same as everything here being free, because some programs and tours carry their own charge."
+      }
+    ]
   },
   {
     "slug": "wilmington-state-parks",

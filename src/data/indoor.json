@@ -136,8 +136,8 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
+      "Is the sculpture garden ordinarily open when the museum building is shut, or only for scheduled evening events? Those are different answers and only one of them means you can turn up.",
       "Ask about step-free access and accessible restrooms.",
-      "Confirm whether the sculpture garden is open outside museum hours.",
       "Confirm whether the free Thursday needs a booking."
     ],
     "verdict": null,
@@ -753,8 +753,8 @@
     "blurb": "Eldridge Reeves Johnson, the Victor Talking Machine Company, and Nipper the dog. Phonographs, recordings and Johnson's posthumous Grammy. It is shut for renovation and the division anticipates reopening in October 2026.",
     "hours": {
       "lines": null,
-      "season": "Closed for renovation. The division anticipates reopening in October 2026.",
-      "note": "There is nothing to visit at the moment. The Delaware Digital History Museum has material online in the meantime."
+      "season": null,
+      "note": "Closed for renovation. The museum's own page says autumn 2026; a state update on 29 June narrows it to October. Reopening hours have not been published, so the old ones are not here — they would be the most confidently wrong thing on the page."
     },
     "admission": {
       "note": "Free when open. Donations accepted.",
@@ -777,8 +777,8 @@
     ],
     "branches": null,
     "warnings": [
-      "Closed for renovation until October 2026. Maps and listings still show it as open.",
-      "No restrooms on site."
+      "No restrooms on site.",
+      "Shut for renovation, reopening expected October 2026. Don't drive on any hours you find elsewhere."
     ],
     "sources": [
       {
@@ -793,12 +793,13 @@
         "note": "Update of 29 June 2026 gives an anticipated reopening of October 2026, rather than the vaguer 'autumn' this record carried."
       }
     ],
-    "sourcedOn": "2026-08-04",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
       "Confirm the October 2026 reopening nearer the time — an anticipated month is not an opening date, and this one has already moved from 'autumn'.",
-      "Confirm whether hours change when it reopens."
+      "Reopening date and the hours that come with it.",
+      "The renovation adds an accessible public restroom on the first floor — update the restrooms field when it opens, because the current 'none' will stop being true."
     ],
     "verdict": null,
     "coords": {

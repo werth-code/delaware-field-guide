@@ -132,15 +132,14 @@
     },
     "accessibility": null,
     "dogParkSlug": "carousel-bark-park",
-    "hours": null,
+    "hours": "Dawn to dusk, daily",
     "hoursNote": null,
     "phone": "302-995-7670",
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Restrooms confirmed present — still need type (permanent vs portable) and whether they are seasonal.",
-      "Confirm hours."
+      "Restrooms confirmed present — still need type (permanent vs portable) and whether they are seasonal."
     ],
     "sources": [
       {
@@ -154,7 +153,7 @@
         "note": "The county's own directory, read 8 August 2026. Lists Carousel Park & Equestrian Center on 302-995-7670, Rockwood Park & Museum on (302) 761-4340, and a Parks Permit Office on 302-395-5606."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-09",
     "coords": {
       "lat": 39.73,
       "lon": -75.68,
@@ -225,8 +224,8 @@
     },
     "accessibility": null,
     "dogParkSlug": null,
-    "hours": null,
-    "hoursNote": null,
+    "hours": "Dawn to dusk, daily",
+    "hoursNote": "The park. The mansion museum keeps its own building hours — Thursday to Saturday 10–4 and Sunday noon–4 — which is the difference between the gate being open and anything inside it being open.",
     "phone": "302-761-4340",
     "warnings": [],
     "verifiedDate": null,
@@ -248,7 +247,7 @@
         "note": "The county's own directory, read 8 August 2026. Lists Carousel Park & Equestrian Center on 302-995-7670, Rockwood Park & Museum on (302) 761-4340, and a Parks Permit Office on 302-395-5606."
       }
     ],
-    "sourcedOn": "2026-08-02",
+    "sourcedOn": "2026-08-09",
     "coords": {
       "lat": 39.759,
       "lon": -75.517,
@@ -1309,7 +1308,7 @@
     "photos": [
       {
         "file": "cando-overview",
-        "alt": "A wide view of a large playground with brown ramps and railings up to elevated decks, a shade canopy over the centre, wood-chip surfacing and concrete paths.",
+        "alt": "A wide view of a large playground with brown ramps and railings up to elevated decks, a shade canopy over the center, wood-chip surfacing and concrete paths.",
         "caption": "Ramps rather than steps to most of the upper decks, which is the whole point of the place.",
         "credit": null,
         "takenOn": "2026-08-07",

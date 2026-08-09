@@ -18,8 +18,8 @@
       }
     },
     "admission": {
-      "note": "Admission and parking are charged; the amounts are not stated on the fair's own front page and are not confirmed here.",
-      "amount": null
+      "note": "$10 for 13 and over, $5 for 6–12, free under 6. Online tickets add a 50c fee.",
+      "amount": 10
     },
     "website": {
       "label": "Delaware State Fair",
@@ -41,20 +41,20 @@
         "note": "Location only, not a fact about the event. Nominatim, the fairgrounds themselves."
       }
     ],
-    "sourcedOn": "2026-08-03",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
       "PRIORITY: get gate admission and parking prices, and whether any day is discounted.",
       "Ask whether the fair follows a recurring pattern — a stated rule would let us publish future years instead of going quiet.",
-      "Confirm gate hours.",
       "Confirm whether dogs are permitted on the fairgrounds. Most state fairs prohibit them except service animals, and I shouldn't assume it."
     ],
     "coords": {
       "lat": 38.91254,
       "lon": -75.57442,
       "precision": "site"
-    }
+    },
+    "hoursNote": "Gates open at noon on Thursday 23 July, then 9am every day from 24 July to 1 August. Gates and carnival close at 11pm Sunday to Friday and midnight on Saturdays. The carnival itself opens at 5pm on the 23rd and 1pm after that. The fair warns hours can move for weather or crowding."
   },
   {
     "slug": "sea-witch-festival",
@@ -147,7 +147,9 @@
       "url": "https://ardenclub.org/arden-fair/"
     },
     "warnings": [
-      "There is no parking in the village. Free shuttle buses run from the YMCA Hanby Outdoor Center on Chestnut Road, between Marsh and Darley Roads, just north of Arden."
+      "There is no parking in the village. Free shuttle buses run from the YMCA Hanby Outdoor Center on Chestnut Road, between Marsh and Darley Roads, just north of Arden.",
+      "Ordinary dogs are not allowed on the shuttle buses. Guide dogs are. If you're bringing a dog you need to solve parking yourself.",
+      "A disabled visitor can be dropped at the Orleans bus stop before the car goes off-site."
     ],
     "sources": [
       {
@@ -162,19 +164,20 @@
         "note": "Location only, not a fact about the event. Nominatim, the Arden Club."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ring the club to confirm the shuttle runs the whole day, and where it puts you down.",
       "Ask whether the antiques market keeps the same hours as the rest of the fair.",
-      "The club states the rule but the site should still check the club's calendar each year, in case a year is moved."
+      "The club states the rule but the site should still check the club's calendar each year, in case a year is moved.",
+      "The shuttle's first and last run, and where exactly it drops you inside Arden. The fair publishes neither."
     ],
     "coords": {
       "lat": 39.81002,
       "lon": -75.48871,
       "precision": "site"
-    }
+    },
+    "hoursNote": "Saturday 5 September 2026, free to get in. Free shuttle buses run every few minutes from the YMCA Hanby Outdoor Center, reached from Chestnut Road between Marsh and Darley. Programmed activity runs roughly 10am to 6pm — which is not the same as the shuttle's hours, and the fair doesn't publish those."
   },
   {
     "slug": "rockwood-ice-cream-festival",

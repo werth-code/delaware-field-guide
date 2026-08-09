@@ -10,20 +10,19 @@
     "sizeSplit": true,
     "water": true,
     "waterNote": "Water station on site.",
-    "shade": "none",
+    "shade": false,
     "surface": "mulch",
     "fee": 0,
     "hours": "Dawn to dusk",
     "hoursNote": "New Castle County publishes \"dawn until dusk\" for this park, not clock hours. The 7am-8pm previously shown here had no source behind it.",
-    "notes": "Two large enclosures with 8-ft fencing. Free tennis balls.",
+    "notes": "Two large enclosures with 8-ft fencing. Free tennis balls. The county's amenity scoring puts shade at essentially nothing — there is no relief on a hot afternoon.",
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Confirm the surface, and whether there is drinking water — both are shown here with no source behind them.",
-      "Confirm dog-run hours separately from park hours",
-      "Confirm shade",
-      "Confirm bag restocking is still an issue"
+      "Drinking water.",
+      "The surface underfoot.",
+      "Whether the dog run ever closes separately from the main park."
     ],
     "sources": [
       {
@@ -43,16 +42,22 @@
         "url": "https://www.newcastlede.gov/",
         "primary": true,
         "note": "The county's own dog-park profiles, read 8 August 2026. It names Glasgow, Carousel, Rockwood, Banning, Iron Hill and Talley Day as dog-park locations and publishes fencing, shade, bathrooms and hours for several of them."
+      },
+      {
+        "label": "New Castle County — Dog Parks",
+        "url": "https://www.newcastlede.gov/3105/Dog-Parks",
+        "primary": true,
+        "note": "Fencing, size split, no bathrooms and the shade score. Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-06",
+    "sourcedOn": "2026-08-09",
     "coords": {
       "lat": 39.60684,
       "lon": -75.73644,
       "precision": "site"
     },
     "restrooms": "none",
-    "restroomsNote": "New Castle County's own profile for this dog park says Bathrooms: No.",
+    "restroomsNote": "The county's own dog-park information says there are no bathrooms here.",
     "reported": "Visitors describe it as the busiest public dog park in the state, and flag bag dispensers that aren't consistently restocked. Bring your own bags."
   },
   {
@@ -67,17 +72,16 @@
     "water": true,
     "waterNote": "Two fenced areas, and county project information confirms new water fountains at both.",
     "shade": "mature",
-    "surface": "mulch",
+    "surface": "Mulch",
     "fee": 0,
     "hours": "Dawn to dusk",
-    "hoursNote": "New Castle County publishes no hours for this park. The 6am-6pm previously shown here had no source behind it.",
-    "notes": "Covered pavilions, benches, community toy bin. Adjacent to library and playground. Peak use right after work.",
+    "hoursNote": "The park's hours. No separate dog-run hours are published.",
+    "notes": "Separate small- and large-dog areas, both recently refenced and both open. Mulch underfoot in each. The large-dog side has a pavilion.",
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Confirm the surface, water and hours. The county publishes only the address and that this was the county's first fenced dog park.",
-      "Confirm dog-run hours separately from park hours"
+      "Do the new fountains have dog-level bowls or fillers, or are they human-only? A fountain and a dog bowl are different objects."
     ],
     "sources": [
       {
@@ -97,9 +101,15 @@
         "url": "https://www.newcastlede.gov/",
         "primary": true,
         "note": "The county's own dog-park profiles, read 8 August 2026. It names Glasgow, Carousel, Rockwood, Banning, Iron Hill and Talley Day as dog-park locations and publishes fencing, shade, bathrooms and hours for several of them."
+      },
+      {
+        "label": "New Castle County — Dog Parks",
+        "url": "https://www.newcastlede.gov/3105/Dog-Parks",
+        "primary": true,
+        "note": "Fencing, size split, mulch surface, fountains in both areas and the pavilion. Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-06",
+    "sourcedOn": "2026-08-09",
     "coords": {
       "lat": 39.79411,
       "lon": -75.52103,
@@ -241,18 +251,17 @@
     "surface": "grass",
     "fee": 5,
     "feeNote": "State park entry applies: from 1 March 2026, $5 in-state / $10 out-of-state for inland parks. Fees rose in 2026 — older guides quote $4/$8.",
-    "hours": "07:00-19:30",
-    "hoursNote": null,
+    "hours": "8 a.m. – sunset",
+    "hoursNote": "The park's hours. The state publishes no separate opening time for the off-leash area, and third-party sites disagree with each other about it — so nothing is claimed here.",
     "notes": "NOT fenced, and inside a state park with a gate fee — the two things that decide whether this trip works, and neither is published on the park's own page.",
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Confirm the hours, the surface and whether there is drinking water — the welcome sheet covers none of the three.",
-      "Confirm the fee and the months it applies",
-      "PHOTOGRAPH the sight line showing it isn't fenced — this is the single highest-value photo on the list",
-      "Confirm whether DNREC posts bloom advisories at the pond",
-      "Confirm which 2026 fee band Lums Pond falls in — inland ($5/$10) or beach ($10/$20)."
+      "Fencing — third-party sources conflict.",
+      "Surface.",
+      "Drinking water.",
+      "Whether the off-leash area opens separately from the park."
     ],
     "sources": [
       {
@@ -266,9 +275,15 @@
         "url": "https://www.openstreetmap.org/",
         "primary": false,
         "note": "Coordinates only, not a fact about the park. OSM leisure=dog_park named Lums Pond State Park Dog Park. ODbL."
+      },
+      {
+        "label": "Delaware State Parks — Lums Pond",
+        "url": "https://www.destateparks.com/park/lums-pond/",
+        "primary": true,
+        "note": "Confirms the off-leash area and the park's 8am–sunset schedule. Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-06",
+    "sourcedOn": "2026-08-09",
     "coords": {
       "lat": 39.56568,
       "lon": -75.70761,
@@ -334,11 +349,10 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Confirm the fencing, hours, surface and water. The county publishes only the address.",
-      "Confirm size split",
-      "Confirm water",
-      "Confirm shade",
-      "Confirm surface"
+      "Fencing.",
+      "Surface.",
+      "Drinking water.",
+      "Shade."
     ],
     "sources": [
       {
@@ -358,9 +372,15 @@
         "url": "https://www.newcastlede.gov/",
         "primary": true,
         "note": "The county's own dog-park profiles, read 8 August 2026. It names Glasgow, Carousel, Rockwood, Banning, Iron Hill and Talley Day as dog-park locations and publishes fencing, shade, bathrooms and hours for several of them."
+      },
+      {
+        "label": "New Castle County — Dog Parks",
+        "url": "https://www.newcastlede.gov/3105/Dog-Parks",
+        "primary": true,
+        "note": "Confirms the dog park exists and the park is dawn to dusk; publishes nothing about the run itself. Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-06",
+    "sourcedOn": "2026-08-09",
     "coords": {
       "lat": 39.63736,
       "lon": -75.75595,
@@ -794,7 +814,7 @@
   },
   {
     "slug": "brandywine-park-south-adams",
-    "name": "Brandywine Park off-leash — South Park Drive",
+    "name": "Brandywine Park off-leash area — South Park Drive & North Adams Street",
     "address": "S Park Dr & N Adams St, Wilmington, DE 19806",
     "county": "New Castle",
     "lat": null,
@@ -812,14 +832,18 @@
     "feeNote": null,
     "hours": null,
     "hoursNote": null,
-    "notes": "The second of Wilmington's two Brandywine Park off-leash locations, at the South Park Drive and North Adams Street end. A separate place from the West 18th Street one, and far enough away to need its own directions.",
+    "notes": "Wilmington's own dog-park page names the location as South Park Drive and North Adams Street. The record previously said 'South Adams', which is not a street here.",
     "photos": [],
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "outstanding": [
-      "Confirm the hours and whether there is any water or shade."
+      "Fencing.",
+      "Surface.",
+      "Drinking water.",
+      "Shade.",
+      "Whether the run has hours separate from the park."
     ],
     "sources": [
       {
@@ -827,6 +851,12 @@
         "url": "https://www.wilmingtonde.gov/",
         "primary": true,
         "note": "The city names three off-leash locations: Rockford Park at Red Oak Road and Park Drive, and Brandywine Park at both South Park Drive/North Adams Street and West 18th Street/North Monroe Street."
+      },
+      {
+        "label": "City of Wilmington — Dog Parks",
+        "url": "https://www.wilmingtonde.gov/",
+        "primary": true,
+        "note": "Location naming. Read 9 August 2026."
       }
     ]
   }
