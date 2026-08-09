@@ -281,7 +281,7 @@
       "source": "operator"
     },
     "hours": null,
-    "hoursNote": null,
+    "hoursNote": "Their site shows only a day-at-a-time status and no weekly schedule. Ring before you drive.",
     "tasting": null,
     "phone": null,
     "website": {
@@ -300,7 +300,7 @@
         "note": "The operator. States that well-behaved leashed dogs are welcome. Read 8 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -318,10 +318,27 @@
     "dogs": {
       "outdoor": true,
       "indoor": true,
-      "note": "Dogs are welcome in the tasting room and outside during regular hours. Not at the bar itself, and restricted during festivals and large events — so a busy Saturday is the one to ring about.",
-      "source": "operator"
+      "source": "operator",
+      "note": "Well-behaved dogs are welcome inside the tasting room and at outdoor seating during regular hours — but not at the bar itself, and not during the two or three festivals a year. The brewery says plainly it has asked loud or aggressive dogs to leave before, which is worth reading as an actual condition rather than boilerplate."
     },
-    "hours": null,
+    "hours": [
+      {
+        "days": "Tuesday & Wednesday",
+        "text": "3pm – 9pm"
+      },
+      {
+        "days": "Thursday",
+        "text": "3pm – 10pm"
+      },
+      {
+        "days": "Friday & Saturday",
+        "text": "12pm – 10pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "12pm – 8pm"
+      }
+    ],
     "hoursNote": null,
     "tasting": null,
     "phone": null,
@@ -339,14 +356,18 @@
         "url": "https://autumnarch.com/",
         "primary": true,
         "note": "The operator. Dogs inside and outside during regular hours, not at the bar, with restrictions during festivals and large events. Read 8 August 2026."
+      },
+      {
+        "label": "Autumn Arch Beer Project",
+        "url": "https://autumnarch.com/",
+        "primary": true,
+        "note": "Hours and dog policy, read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Get the hours, and ask which events count as 'large' — that's the difference between a wasted drive and a good afternoon."
-    ]
+    "outstanding": []
   },
   {
     "slug": "bellefonte-brewing",
@@ -769,11 +790,11 @@
     "dogs": {
       "outdoor": true,
       "indoor": null,
-      "note": "The winery's About page describes it as dog-friendly. It doesn't separate inside from out.",
-      "source": "operator"
+      "source": "operator",
+      "note": "The winery calls itself a dog-friendly environment where pets can join in. It doesn't say whether that includes indoors, so this page doesn't either."
     },
     "hours": null,
-    "hoursNote": null,
+    "hoursNote": "The winery publishes no weekly hours on its own site.",
     "tasting": null,
     "phone": null,
     "website": {
@@ -790,9 +811,15 @@
         "url": "https://twinbranchwine.com/milton-delaware-twin-branch-winery-about",
         "primary": true,
         "note": "The operator. Describes the winery as dog-friendly. Read 8 August 2026."
+      },
+      {
+        "label": "Twin Branch Winery",
+        "url": "https://twinbranchwine.com/",
+        "primary": true,
+        "note": "Dog policy, read 9 August 2026. No hours published."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -810,10 +837,23 @@
     "dogs": {
       "outdoor": true,
       "indoor": true,
-      "note": "The meadery's own wording: well-behaved children and pets are always welcome.",
-      "source": "operator"
+      "source": "operator",
+      "note": "\"Well behaved children and pets are always welcome at Brimming Horn\" — the meadery's own wording."
     },
-    "hours": null,
+    "hours": [
+      {
+        "days": "Monday – Wednesday",
+        "text": "3pm – 9pm"
+      },
+      {
+        "days": "Thursday – Saturday",
+        "text": "12pm – 10pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "12pm – 7pm"
+      }
+    ],
     "hoursNote": null,
     "tasting": null,
     "phone": null,
@@ -836,14 +876,18 @@
         "url": "https://www.brimminghornmeadery.com/miltonmenu",
         "primary": true,
         "note": "The operator. States that well-behaved children and pets are always welcome. Read 8 August 2026."
+      },
+      {
+        "label": "Brimming Horn Meadery — Milton",
+        "url": "https://www.brimminghornmeadery.com/miltonmenu",
+        "primary": true,
+        "note": "Hours and pet policy, read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Get the opening hours for both locations."
-    ]
+    "outstanding": []
   },
   {
     "slug": "brimming-horn-seaford",
@@ -1405,7 +1449,20 @@
       "note": "The business publishes no dog policy that I can find.",
       "source": null
     },
-    "hours": null,
+    "hours": [
+      {
+        "days": "Monday – Thursday",
+        "text": "11am – 9pm"
+      },
+      {
+        "days": "Friday & Saturday",
+        "text": "11am – 10pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "10am – 9pm"
+      }
+    ],
     "hoursNote": null,
     "tasting": null,
     "phone": null,
@@ -1423,13 +1480,18 @@
         "url": "https://brickworkssmyrna.com/",
         "primary": true,
         "note": "The operator. Read 8 August 2026."
+      },
+      {
+        "label": "Brick Works Brewing & Eats — Smyrna",
+        "url": "https://brickworkssmyrna.com/",
+        "primary": true,
+        "note": "Hours, read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the hours.",
       "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
@@ -1736,7 +1798,20 @@
       "note": "The business publishes no dog policy that I can find.",
       "source": null
     },
-    "hours": null,
+    "hours": [
+      {
+        "days": "Monday – Thursday",
+        "text": "11am – 9pm"
+      },
+      {
+        "days": "Friday & Saturday",
+        "text": "11am – 10pm"
+      },
+      {
+        "days": "Sunday",
+        "text": "10am – 9pm"
+      }
+    ],
     "hoursNote": null,
     "tasting": null,
     "phone": null,
@@ -1754,13 +1829,18 @@
         "url": "https://brickworksmillsboro.com/",
         "primary": true,
         "note": "The operator. Read 8 August 2026."
+      },
+      {
+        "label": "Brick Works Brewing & Eats — Long Neck",
+        "url": "https://brickworksmillsboro.com/",
+        "primary": true,
+        "note": "Hours, read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the hours.",
       "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
@@ -1820,7 +1900,20 @@
       "note": "Outdoor dog access is reported. That's a report, not the business's own words, so this page doesn't state it as policy. Ring before you drive.",
       "source": null
     },
-    "hours": null,
+    "hours": [
+      {
+        "days": "Sunday – Thursday",
+        "text": "12pm – 10pm"
+      },
+      {
+        "days": "Friday",
+        "text": "12pm – 11pm"
+      },
+      {
+        "days": "Saturday",
+        "text": "11am – 11pm"
+      }
+    ],
     "hoursNote": null,
     "tasting": null,
     "phone": null,
@@ -1838,13 +1931,18 @@
         "url": "https://www.deweybeerco.com/",
         "primary": true,
         "note": "The operator. Read 8 August 2026."
+      },
+      {
+        "label": "Dewey Beer Co. — Dewey Beach",
+        "url": "https://www.deweybeerco.com/deweybeach",
+        "primary": true,
+        "note": "Hours, read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the hours.",
       "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
@@ -1862,7 +1960,12 @@
       "note": "Dog access inside and out is reported. That's a report, not the business's own words, so this page doesn't state it as policy. Ring before you drive.",
       "source": null
     },
-    "hours": null,
+    "hours": [
+      {
+        "days": "Every day",
+        "text": "12pm – 9pm"
+      }
+    ],
     "hoursNote": null,
     "tasting": null,
     "phone": null,
@@ -1880,13 +1983,18 @@
         "url": "https://www.deweybeerco.com/",
         "primary": true,
         "note": "The operator. Read 8 August 2026."
+      },
+      {
+        "label": "Dewey Beer Co. — Harbeson",
+        "url": "https://www.deweybeerco.com/harbeson",
+        "primary": true,
+        "note": "Hours, read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the hours.",
       "Ask the operator directly whether dogs are allowed, and where."
     ]
   },
