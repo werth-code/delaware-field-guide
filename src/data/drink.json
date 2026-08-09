@@ -9,9 +9,9 @@
     "blurb": "A winery on the Maryland line at Marydel, open seven days with a tasting room and outdoor space. The only one of these that publishes what it does about dogs, and it's a yes.",
     "dogs": {
       "outdoor": true,
-      "indoor": null,
-      "note": "The winery's own wording: \"Friendly, leashed dogs are always welcome in our outdoor areas.\" It says nothing about the tasting room, so assume outside.",
-      "source": "operator"
+      "indoor": false,
+      "source": "operator",
+      "note": "Leashed dogs are welcome in the outdoor areas. The winery does not extend that to the tasting room, so this page doesn't either."
     },
     "hours": [
       {
@@ -48,13 +48,18 @@
         "label": "Harvest Ridge Winery: visit",
         "url": "https://harvestridgewinery.com/visit/",
         "note": "The operator. Gives the Westville Road address, the phone number, tasting room hours for both locations, the $25 tour-and-tasting and $15 flight prices, and the dog policy quoted above."
+      },
+      {
+        "label": "Harvest Ridge Winery",
+        "url": "https://harvestridgewinery.com/",
+        "primary": true,
+        "note": "Dog policy, read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-05",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask whether dogs are allowed in the tasting room itself, or outdoor areas only.",
       "Confirm whether the outdoor area is covered — it decides the answer on a wet day.",
       "Confirm whether food is served or whether it's wine only."
     ],
@@ -379,9 +384,9 @@
     "blurb": "Old Capitol Trail, and dog-friendly by its own description. Not the old Brandywine site — that address is Brew Works North now.",
     "dogs": {
       "outdoor": true,
-      "indoor": null,
-      "note": "The brewery describes itself as dog-friendly. It doesn't separate inside from out, so this site doesn't either.",
-      "source": "operator"
+      "indoor": true,
+      "source": "operator",
+      "note": "Dogs are fine indoors under ordinary operations — the Brewcade is explicitly dog-friendly. Ticketed events and festivals are the exception."
     },
     "hours": [
       {
@@ -420,14 +425,18 @@
         "url": "https://bellefontebrewing.com/",
         "primary": true,
         "note": "The operator. Hours and the dog-friendly description. Read 8 August 2026."
+      },
+      {
+        "label": "Bellefonte Brewing Co.",
+        "url": "https://bellefontebrewing.com/",
+        "primary": true,
+        "note": "Dog policy, read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Ask whether dogs are allowed inside or only on the outdoor side."
-    ]
+    "outstanding": []
   },
   {
     "slug": "brew-works-north",
@@ -1068,10 +1077,10 @@
     "address": "Middletown, DE",
     "blurb": "A brewpub with a backyard, the Middletown one of two Delaware sites.",
     "dogs": {
-      "outdoor": null,
+      "outdoor": true,
       "indoor": null,
-      "note": "The brewery runs dog-themed events but publishes no general policy I can find, which is not the same thing.",
-      "source": null
+      "source": "operator",
+      "note": "Dogs are part of the the backyard and outdoor areas the brewery builds around. The indoor rule isn't stated anywhere I can find."
     },
     "hours": null,
     "hoursNote": null,
@@ -1093,12 +1102,12 @@
         "note": "The operator. Read 8 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
       "Get the address and the hours.",
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Are dogs allowed inside, or outdoor areas only?"
     ]
   },
   {
@@ -1554,10 +1563,10 @@
     "address": "447 Westville Road, Marydel, DE 19964",
     "blurb": "Cider, on the same Marydel site as Harvest Ridge.",
     "dogs": {
-      "outdoor": null,
-      "indoor": null,
-      "note": "The business publishes no dog policy that I can find.",
-      "source": null
+      "outdoor": true,
+      "indoor": false,
+      "source": "operator",
+      "note": "Harvest Ridge's policy, since this is that venue: leashed dogs outside, not in the tasting room."
     },
     "hours": null,
     "hoursNote": null,
@@ -1573,7 +1582,9 @@
         "note": "Same address and the same complex as the winery — one drive, two things."
       }
     ],
-    "warnings": [],
+    "warnings": [
+      "Presented by the operator as part of the Harvest Ridge venue rather than a separate public taproom. Go to Harvest Ridge."
+    ],
     "verdict": null,
     "coords": null,
     "sources": [
@@ -1584,12 +1595,11 @@
         "note": "Tourism listing, read 8 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Get the hours, and whether Harvest Ridge's dog policy covers the cidery too.",
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Should this be a listing at all, or is it one venue under two names? Two brands at one address is not two destinations."
     ]
   },
   {
@@ -1739,7 +1749,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Inside or outside only? The operator's own profile says dog friendly without saying where."
     ]
   },
   {
@@ -1853,10 +1863,10 @@
     "address": "Lewes, DE",
     "blurb": "The original Crooked Hammock, with the backyard it's known for.",
     "dogs": {
-      "outdoor": null,
+      "outdoor": true,
       "indoor": null,
-      "note": "Dog events, no published general policy.",
-      "source": null
+      "source": "operator",
+      "note": "Dogs are part of the the backyard and outdoor areas the brewery builds around. The indoor rule isn't stated anywhere I can find."
     },
     "hours": null,
     "hoursNote": null,
@@ -1878,12 +1888,12 @@
         "note": "The operator. Read 8 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
       "Get the address and the hours.",
-      "Ask the operator directly whether dogs are allowed, and where."
+      "Are dogs allowed inside, or outdoor areas only?"
     ]
   },
   {
@@ -1895,10 +1905,10 @@
     "address": "2100 Coastal Highway, Dewey Beach, DE 19971",
     "blurb": "On the highway through Dewey, a few minutes from the one beach town that never shuts dogs out.",
     "dogs": {
-      "outdoor": null,
-      "indoor": null,
-      "note": "Outdoor dog access is reported. That's a report, not the business's own words, so this page doesn't state it as policy. Ring before you drive.",
-      "source": null
+      "outdoor": true,
+      "indoor": false,
+      "source": "operator",
+      "note": "Outside and on the patio, not indoors."
     },
     "hours": [
       {
@@ -1937,14 +1947,18 @@
         "url": "https://www.deweybeerco.com/deweybeach",
         "primary": true,
         "note": "Hours, read 9 August 2026."
+      },
+      {
+        "label": "Dewey Beer Co. — Dewey Beach",
+        "url": "https://www.deweybeerco.com/deweybeach",
+        "primary": true,
+        "note": "Dog policy, read 9 August 2026."
       }
     ],
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
-    ]
+    "outstanding": []
   },
   {
     "slug": "dewey-beer-harbeson",
@@ -1955,10 +1969,10 @@
     "address": "21241 Iron Throne Drive, Harbeson, DE 19951",
     "blurb": "The production brewery and tasting room inland at Harbeson.",
     "dogs": {
-      "outdoor": null,
-      "indoor": null,
-      "note": "Dog access inside and out is reported. That's a report, not the business's own words, so this page doesn't state it as policy. Ring before you drive.",
-      "source": null
+      "outdoor": true,
+      "indoor": true,
+      "source": "operator",
+      "note": "Inside and out."
     },
     "hours": [
       {
@@ -1989,14 +2003,18 @@
         "url": "https://www.deweybeerco.com/harbeson",
         "primary": true,
         "note": "Hours, read 9 August 2026."
+      },
+      {
+        "label": "Dewey Beer Co. — Harbeson",
+        "url": "https://www.deweybeerco.com/harbeson",
+        "primary": true,
+        "note": "Dog policy, read 9 August 2026."
       }
     ],
     "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
-    ]
+    "outstanding": []
   },
   {
     "slug": "dogfish-brewings-and-eats",
@@ -2099,10 +2117,10 @@
     "address": "1145 Savannah Road, Lewes, DE 19958",
     "blurb": "On Savannah Road into Lewes, open daily.",
     "dogs": {
-      "outdoor": null,
+      "outdoor": true,
       "indoor": null,
-      "note": "Dogs on the outdoor patios are reported. That's a report, not the business's own words, so this page doesn't state it as policy. Ring before you drive.",
-      "source": null
+      "source": "operator",
+      "note": "Dogs are welcome outside on the patios. The indoor rule isn't stated."
     },
     "hours": [
       {
@@ -2127,14 +2145,18 @@
         "url": "https://www.lewesbrewing.com/",
         "primary": true,
         "note": "The operator. Hours, read 8 August 2026."
+      },
+      {
+        "label": "Lewes Brewing Company",
+        "url": "https://www.lewesbrewing.com/",
+        "primary": true,
+        "note": "Dog policy, read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
-    ]
+    "outstanding": []
   },
   {
     "slug": "ocean-view-brewing",
@@ -2307,10 +2329,10 @@
     "address": "19815 Coastal Highway, Rehoboth Beach, DE 19971",
     "blurb": "Opened June 2026 in the space Iron Hill left when the chain collapsed.",
     "dogs": {
-      "outdoor": null,
+      "outdoor": true,
       "indoor": null,
-      "note": "The business publishes no dog policy that I can find.",
-      "source": null
+      "source": "operator",
+      "note": "The covered patio is explicitly pet-friendly — which matters more than most patios, because covered means it still works in the rain. Indoors isn't addressed."
     },
     "hours": [
       {
@@ -2341,14 +2363,18 @@
         "url": "https://threenotchdbrewing.com/pages/rehoboth-beach",
         "primary": true,
         "note": "The operator. Hours and the June 2026 opening, read 8 August 2026."
+      },
+      {
+        "label": "Three Notch'd Brewery & Craft Kitchen",
+        "url": "https://threenotchdbrewing.com/",
+        "primary": true,
+        "note": "Dog policy, read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
-    "outstanding": [
-      "Ask the operator directly whether dogs are allowed, and where."
-    ]
+    "outstanding": []
   },
   {
     "slug": "38-75-brewing",

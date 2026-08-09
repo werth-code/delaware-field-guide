@@ -371,7 +371,7 @@
     },
     "restrooms": true,
     "giftShop": null,
-    "accessibility": "The first floor is accessible to people with mobility concerns. Nothing published about the upper floors.",
+    "accessibility": "First floor accessible. The second floor is not wheelchair accessible — the museum says so itself, which is more use than a blanket 'accessible' badge.",
     "parking": "Street parking in downtown New Castle.",
     "inside": [
       "The 1732 courthouse, a National Historic Landmark",
@@ -392,7 +392,7 @@
         "note": "The operator, a state division. Gives the day-by-day hours including the different Sunday times, the full tour timetable, free admission, the Delaware Street address, the phone number, restrooms, first-floor accessibility, street parking and the exhibit list."
       }
     ],
-    "sourcedOn": "2026-08-04",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -645,15 +645,20 @@
         "label": "New Castle County: all branches and hours",
         "url": "https://www.newcastlede.gov/287/Branches",
         "note": "The operator. Gives all fifteen branches with addresses and phone numbers, notes the summer hours period of 29 June to 6 September 2026, and states that Newark Free Library is closed during a construction project."
+      },
+      {
+        "label": "DNREC — 2026 park season announcement",
+        "url": "https://dnrec.delaware.gov/",
+        "primary": true,
+        "note": "State park passes reservable at no cost with a library card. Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-04",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
       "Get the full week of hours for every branch, and the post-6-September timetable.",
       "Confirm when Newark Free Library reopens.",
-      "Ask whether the system lends Delaware state park passes.",
       "Confirm public restrooms and wifi per branch."
     ],
     "verdict": null,
@@ -661,7 +666,13 @@
       "lat": 39.7,
       "lon": -75.6,
       "precision": "town"
-    }
+    },
+    "onSite": [
+      {
+        "label": "State park passes",
+        "note": "A Delaware library card reserves a state park pass at no cost through the library system. Availability varies, so book it before the trip rather than at the gate — it is the cheapest way into a park that otherwise costs $5 to $20 a car."
+      }
+    ]
   },
   {
     "slug": "old-state-house",
@@ -918,7 +929,7 @@
     },
     "restrooms": false,
     "giftShop": null,
-    "accessibility": "The first floor is wheelchair accessible.",
+    "accessibility": "First floor is wheelchair accessible. The second floor is reached by stairs and there is no elevator.",
     "parking": "Street parking in downtown Lewes.",
     "inside": [
       "The story of Swanendael, the Dutch colony of 1631",
@@ -937,11 +948,10 @@
         "note": "The operator, a state division. Gives Tuesday to Saturday 10am to 4:15pm with Sunday and Monday closed, free admission, the Kings Highway address, the phone number, first-floor wheelchair access, downtown street parking, the current exhibits, and states that restrooms are not available at the museum but are in the adjacent Zwaanendael Park."
       }
     ],
-    "sourcedOn": "2026-08-04",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Confirm the Zwaanendael Park restrooms are open year round.",
       "Confirm holiday closures.",
       "Ask roughly how long a full visit takes."
     ],
@@ -963,6 +973,12 @@
           "url": "https://creativecommons.org/licenses/by/4.0/"
         },
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Zwaanendael_Museum_in_Lewes,_Delaware.jpg"
+      }
+    ],
+    "onSite": [
+      {
+        "label": "Restrooms",
+        "note": "None in the museum. There are public restrooms in the park behind it."
       }
     ]
   },
@@ -1271,22 +1287,33 @@
         "label": "Sussex County Libraries: locations and hours",
         "url": "https://sussexcounty.lib.de.us/locations-hours/",
         "note": "The county library department's own page. Lists all fourteen Sussex libraries with addresses and phone numbers, including the bookmobile. Links out for opening hours rather than publishing them here."
+      },
+      {
+        "label": "DNREC — 2026 park season announcement",
+        "url": "https://dnrec.delaware.gov/",
+        "primary": true,
+        "note": "State park passes reservable at no cost with a library card. Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-05",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
       "Get the opening hours for each library.",
-      "Confirm which have public restrooms and wifi.",
-      "Ask whether any of them lend Delaware state park passes."
+      "Confirm which have public restrooms and wifi."
     ],
     "verdict": null,
     "coords": {
       "lat": 38.69,
       "lon": -75.386,
       "precision": "town"
-    }
+    },
+    "onSite": [
+      {
+        "label": "State park passes",
+        "note": "A Delaware library card reserves a state park pass at no cost through the library system. Availability varies, so book it before the trip rather than at the gate — it is the cheapest way into a park that otherwise costs $5 to $20 a car."
+      }
+    ]
   },
   {
     "slug": "kent-county-libraries",
@@ -1377,22 +1404,33 @@
         "label": "Delaware Libraries: list of libraries",
         "url": "https://lib.de.us/list-of-libraries/",
         "note": "The Delaware Division of Libraries' own directory, which is the state body for all public libraries here. Gives each Kent County library with address and phone. Does not publish per-library opening hours."
+      },
+      {
+        "label": "DNREC — 2026 park season announcement",
+        "url": "https://dnrec.delaware.gov/",
+        "primary": true,
+        "note": "State park passes reservable at no cost with a library card. Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-05",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
       "Get the opening hours for each library.",
-      "Confirm which have public restrooms and wifi.",
-      "Ask whether any of them lend Delaware state park passes."
+      "Confirm which have public restrooms and wifi."
     ],
     "verdict": null,
     "coords": {
       "lat": 39.158,
       "lon": -75.524,
       "precision": "town"
-    }
+    },
+    "onSite": [
+      {
+        "label": "State park passes",
+        "note": "A Delaware library card reserves a state park pass at no cost through the library system. Availability varies, so book it before the trip rather than at the gate — it is the cheapest way into a park that otherwise costs $5 to $20 a car."
+      }
+    ]
   },
   {
     "slug": "ashland-nature-center",

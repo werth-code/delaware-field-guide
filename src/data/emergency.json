@@ -2,12 +2,12 @@
   "_comment": "Emergency contacts. The most safety-critical data on this site — a wrong number here costs a dog. Nothing in this file may be inferred, rounded, or carried over from a listing site. Every number needs a first-party confirmation call before verifiedDate is set, and the hours need re-checking seasonally because urgent-care hours at coastal practices move with the season. THIS RULE IS NOW ENFORCED AT BUILD TIME: scripts/check-build.mjs fails the build if headline.fact reaches dist/ while headline.verifiedDate is null. It went unenforced for months and an unverified categorical claim shipped on six pages as the most important line on each of them.",
   "headline": {
     "fact": "There is no 24-hour emergency vet in Sussex County.",
-    "detail": "That is the single most important thing on this page. If your dog is in trouble at 11pm at Rehoboth, the nearest round-the-clock option is an hour or more away. Know which one you're driving to BEFORE you need it — pick one now and put it in your phone.",
+    "detail": "Held back pending a first-party call. Note this is now a claim about Sussex County only — the statewide version was wrong, because Windcrest and BluePearl both run 24-hour emergency rooms near Wilmington.",
     "verifiedDate": null,
     "verifiedSource": null,
     "provisional": {
-      "fact": "Work out where you would drive, before you need to.",
-      "detail": "Round-the-clock veterinary cover near the Delaware beaches is thin, and the hours below are the ones each practice publishes — I have not yet rung any of them to confirm. Pick one now, ring it to check it is open when you think it is, and put the number in your phone. Doing that on a Tuesday afternoon is free. Doing it at 11pm with a sick dog in the car is not."
+      "fact": "The Delaware beaches have no 24-hour veterinary ER.",
+      "detail": "Rehoboth Beach Animal Hospital runs weekday urgent care and is shut on weekends. The genuine round-the-clock hospitals — Windcrest and BluePearl, both near Wilmington — are an hour and a half north. Work out which one you would drive to before you need it, and put the number in your phone. Doing that on a Tuesday afternoon is free."
     }
   },
   "vets": [
@@ -38,17 +38,43 @@
       "confirmed": false
     },
     {
+      "slug": "windcrest-wilmington",
+      "name": "Windcrest Animal Hospital",
+      "phone": "302-762-2694",
+      "address": "Wilmington, DE",
+      "hours": "24 hours, every day",
+      "hoursNote": "A second genuine round-the-clock emergency room in Wilmington — nights, weekends and holidays. Its existence is why this page no longer says anywhere is the only 24-hour option in Delaware.",
+      "driveFromRehoboth": "About 1 hour 30 minutes",
+      "coversWeekdayDaytime": true,
+      "verifiedDate": null,
+      "verifiedSource": null,
+      "confirmed": false,
+      "isEmergency": true,
+      "source": {
+        "label": "Windcrest Animal Hospital",
+        "url": "https://www.windcrestanimalhospital.com/",
+        "primary": true,
+        "note": "Publishes a 24/7 emergency room including nights, weekends and holidays. Read 9 August 2026."
+      }
+    },
+    {
       "slug": "bluepearl-christiana",
       "name": "BluePearl Pet Hospital, Christiana",
       "phone": "302-322-6933",
       "address": "106 Geoffrey Dr, Newark, DE 19713",
       "hours": "24 hours, every day",
-      "hoursNote": "The only genuine round-the-clock option in Delaware, but it is at the top of the state — a long drive from the beaches.",
+      "hoursNote": "Genuinely 24 hours, every day, no appointment. At the top of the state, though — a long drive from the beaches. This record used to call it the only round-the-clock option in Delaware. That is no longer true.",
       "driveFromRehoboth": "About 1 hour 45 minutes",
       "coversWeekdayDaytime": true,
       "verifiedDate": null,
       "verifiedSource": null,
-      "confirmed": false
+      "confirmed": false,
+      "source": {
+        "label": "BluePearl Pet Hospital, Christiana",
+        "url": "https://bluepearlvet.com/hospital/christiana-de/",
+        "primary": true,
+        "note": "24/7 emergency care. Read 9 August 2026."
+      }
     },
     {
       "slug": "rehoboth-beach-animal-hospital",
@@ -56,7 +82,7 @@
       "phone": "302-227-2009",
       "address": "20259 Coastal Highway, Rehoboth Beach, DE 19971",
       "hours": "Mon–Thu 8am – 6:30pm · Fri 8am – 5:30pm · Closed Sat & Sun",
-      "hoursNote": "Publishes urgent care Monday to Friday, as a curbside service, inside those office hours. Not overnight and not on weekends — the two windows a beach trip is most likely to need. Its own site points you elsewhere for after-hours care. Nearest of anything on this list if the problem starts on a weekday afternoon.",
+      "hoursNote": "Urgent care on weekdays, with a virtual waiting room, inside the published office hours. Closed Saturday and Sunday — which is the half of the week a beach trip is most likely to need it.",
       "driveFromRehoboth": "In town",
       "coversWeekdayDaytime": null,
       "verifiedDate": null,
@@ -92,13 +118,14 @@
   ],
   "outstanding": [
     "PUBLISH THE HEADLINE. \"No 24-hour emergency vet in Sussex County\" is written and waiting in this file behind a null verifiedDate. Ring the practices below, and if it holds, set the date and it goes live as the top line on six pages.",
+    "Ring Windcrest on 302-762-2694 and confirm the 24-hour emergency room, including holidays.",
     "Ring Rehoboth Beach Animal Hospital and confirm the urgent-care window — whether curbside urgent care runs the full office day, whether they take a walk-in without an existing file, and what they tell you to do at 9pm.",
-    "Confirm BluePearl's claim to be Delaware's only 24/7 emergency and specialty hospital. Their site returns 403 to me; if it holds up it is the sourced, attributed version of the Sussex headline this file is holding back.",
     "Call every number in this file and confirm it rings the right place. This is the one dataset where a stale number does real harm.",
     "Confirm Delmarva's weekday 6pm–8am window and the Fri–Sun 24-hour claim.",
     "Confirm whether Pet's ER in Salisbury takes Delaware clients and what its hours are.",
     "Get the Delaware SPCA intake number for Sussex County.",
     "Confirm the ASPCA poison-control fee so the page can state it.",
     "Re-check all hours at the start of each season — coastal practices change them."
-  ]
+  ],
+  "sourcedOn": "2026-08-09"
 }

@@ -211,19 +211,17 @@
     "water": null,
     "waterNote": null,
     "shade": "minimal",
-    "surface": "12\" shredded hardwood mulch, with drainage",
+    "surface": "Shredded hardwood mulch, 12 inches deep over drainage",
     "fee": 0,
     "hours": "Dawn to dusk",
     "hoursNote": "Not posted anywhere findable — this needs a call.",
-    "notes": "A large shade tree in the big-dog area was removed; shade is now limited. Benches and canine play equipment inside the fence.",
+    "notes": "Fully fenced with separate large- and small-dog areas. Twelve inches of shredded hardwood over drainage, which is the detail that decides what it's like after rain.",
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "HOURS — not published anywhere",
-      "Confirm size split",
-      "Confirm water",
-      "Confirm surface"
+      "Drinking water.",
+      "Shade."
     ],
     "restrooms": "elsewhere-in-park",
     "restroomsNote": "The parent park officially has restrooms. Whether they are beside the run is unconfirmed.",
@@ -233,8 +231,15 @@
         "url": "https://www.newcastlede.gov/",
         "primary": true,
         "note": "The county's own dog-park profiles, read 8 August 2026. It names Glasgow, Carousel, Rockwood, Banning, Iron Hill and Talley Day as dog-park locations and publishes fencing, shade, bathrooms and hours for several of them."
+      },
+      {
+        "label": "New Castle County — Dog Parks",
+        "url": "https://www.newcastlede.gov/3105/Dog-Parks",
+        "primary": true,
+        "note": "Fencing, size split and surface construction. Read 9 August 2026."
       }
-    ]
+    ],
+    "sourcedOn": "2026-08-09"
   },
   {
     "slug": "lums-pond-dog-park",
@@ -455,18 +460,17 @@
     "sizeSplit": false,
     "water": true,
     "waterNote": "A pond, with accessible ramps down to it.",
-    "shade": "partial",
+    "shade": true,
     "surface": "grass",
     "fee": 0,
     "hours": "Dawn to dusk",
     "hoursNote": "New Castle County publishes \"dawn until dusk\" for this park.",
-    "notes": "A large open off-leash field with wooded paths rather than a fenced run. Park across from Skyline United Methodist Church at 3100 Skyline Drive — which is why this and 'Skyline off-leash area' looked like two places for months. They are one.",
+    "notes": "Not an enclosed dog run. New Castle County describes an open off-leash field with wooded paths and a pond — which is a different kind of outing, and the wrong one if your dog doesn't recall.",
     "photos": [],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Confirm whether any part of this is fenced. The county describes an off-leash area, not a fence.",
-      "CONFIRM IT STILL OPERATES before listing it at all"
+      "Drinking water."
     ],
     "sources": [
       {
@@ -480,10 +484,16 @@
         "url": "https://www.newcastlede.gov/",
         "primary": true,
         "note": "The county's own dog-park profiles, read 8 August 2026. It names Glasgow, Carousel, Rockwood, Banning, Iron Hill and Talley Day as dog-park locations and publishes fencing, shade, bathrooms and hours for several of them."
+      },
+      {
+        "label": "New Castle County — Dog Parks",
+        "url": "https://www.newcastlede.gov/3105/Dog-Parks",
+        "primary": true,
+        "note": "Open off-leash field rather than a fenced run; no bathrooms; shade rated 3/5. Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-06",
-    "restrooms": "elsewhere-in-park",
+    "sourcedOn": "2026-08-09",
+    "restrooms": "none",
     "restroomsNote": "The county lists Bathrooms: No for the Bark Park itself. The wider Carousel Park has them, elsewhere."
   },
   {
@@ -747,22 +757,22 @@
     "sizeSplit": false,
     "water": null,
     "waterNote": null,
-    "shade": "mature",
+    "shade": true,
     "surface": null,
-    "restrooms": "at-dog-park",
-    "restroomsNote": "New Castle County lists bathrooms in its profile for this dog park.",
+    "restrooms": "elsewhere-in-park",
+    "restroomsNote": "The county says bathrooms are available at the park.",
     "fee": 0,
     "feeNote": null,
     "hours": "Dawn to dusk",
     "hoursNote": null,
-    "notes": "One gated area rather than a large/small split. Ample parking.",
+    "notes": "A fenced and gated dog area in a natural setting. The county rates shade top marks, which for an August afternoon is the fact that matters.",
     "photos": [],
     "warnings": [],
     "verifiedDate": null,
     "verifiedSource": null,
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "outstanding": [
-      "Confirm whether there's water inside the fence, and what the surface is."
+      "Drinking water inside the fence."
     ],
     "sources": [
       {
@@ -770,6 +780,12 @@
         "url": "https://www.newcastlede.gov/",
         "primary": true,
         "note": "The county's own dog-park profile, read 8 August 2026."
+      },
+      {
+        "label": "New Castle County — Dog Parks",
+        "url": "https://www.newcastlede.gov/3105/Dog-Parks",
+        "primary": true,
+        "note": "Fenced and gated; shade rated 5/5; bathrooms available. Read 9 August 2026."
       }
     ]
   },
@@ -800,8 +816,10 @@
     "verifiedSource": null,
     "sourcedOn": "2026-08-08",
     "outstanding": [
-      "Is any of it fenced? This is the fact that decides whether it's usable with a dog that doesn't recall.",
-      "Get the hours, the surface and whether there's water."
+      "Is any of it fenced? The city designates the off-leash area but doesn't say. Secondary sources claim unfenced — not importing that.",
+      "Hours.",
+      "Surface.",
+      "Drinking water."
     ],
     "sources": [
       {

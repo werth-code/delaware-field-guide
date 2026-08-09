@@ -10,7 +10,7 @@
     "address": "1416 Telegraph Road, Rising Sun, MD 21911",
     "kind": "Nonprofit zoo",
     "blurb": "A small nonprofit zoo in Cecil County, close enough to Newark to be an easy morning. Giraffes, tigers, bears, wolves, zebras, macaws and tortoises, plus mini golf. Peacocks and chickens wander the paths rather than sitting behind wire.",
-    "season": "Memorial Day to Labor Day, 9am – 6pm daily, last admission 5pm",
+    "season": "9am – 6pm daily from Memorial Day through Labor Day. 10am – 5pm the rest of the year, with last admission at 4pm.",
     "admission": {
       "note": "Adults $21.95, children 2–12 $15.95. Published by the zoo, read 8 August 2026. Prices outside the summer season aren't published.",
       "amount": 21.95
@@ -65,7 +65,7 @@
         "note": "Read 8 August 2026. Memorial Day to Labor Day, 9am to 6pm daily with last admission at 5pm; adults $21.95 and children 2–12 $15.95. This record previously said the zoo published neither, which was true when it was written and isn't now."
       }
     ],
-    "sourcedOn": "2026-08-04",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": null,
     "verifiedSource": null,
     "reports": [
@@ -80,7 +80,6 @@
       }
     ],
     "outstanding": [
-      "Get the winter hours and the off-season admission — the zoo publishes the summer figures only.",
       "Confirm restrooms, food and parking.",
       "Confirm whether the paths take a stroller or a wheelchair.",
       "Confirm whether you can feed any of the animals, and what that costs."
@@ -118,7 +117,7 @@
       },
       {
         "label": "Trails",
-        "note": "There are trails and Newlin publishes a trail map PDF, but it doesn't publish mileage, surface or difficulty anywhere I can find."
+        "note": "Unpaved throughout. Newlin publishes a trail map but no mileage."
       }
     ],
     "phone": "610-459-2359",
@@ -171,14 +170,13 @@
         "primary": true
       }
     ],
-    "sourcedOn": "2026-08-08",
+    "sourcedOn": "2026-08-09",
     "verifiedDate": "2026-08-08",
     "verifiedSource": "Visited, and photographed on the visit. Prices, address and the dog rule read off Newlin's own site the same week.",
     "outstanding": [
       "Grounds opening hours. Newlin doesn't publish them.",
       "Fishing. There's a Fly Fishing Club in the site navigation, but the pages behind it 404 and nothing published says whether the creek is open to a casual angler, whether it's stocked, or what a Pennsylvania licence buys you here.",
-      "Trail mileage and surface — whether any of it takes a stroller.",
-      "Whether dogs are allowed inside the mill buildings, as distinct from on the grounds."
+      "May a leashed dog come into the mill during a guided tour? Leashed dogs are allowed on the property; the tour isn't addressed."
     ]
   }
 ]
