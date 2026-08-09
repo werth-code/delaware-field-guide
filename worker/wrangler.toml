@@ -1,0 +1,37 @@
+# Delaware Field Guide — backend.
+#
+# Deployed as a Worker CUSTOM DOMAIN at api.delawarefieldguide.com rather than
+# as a route on the apex. That choice matters:
+#
+#   - The apex currently resolves straight to GitHub Pages (185.199.108-111.153)
+#     with Cloudflare as nameserver but the records grey-clouded. Routing a
+#     Worker on the apex would mean proxying GitHub Pages, which is a change to
+#     the live site's serving path for the sake of a form endpoint.
+#   - A custom domain on a subdomain is still FIRST PARTY. Same registrable
+#     domain, no third-party script, no cross-site cookie. The site's "no
+#     third-party JavaScript" rule is about what runs in the reader's browser,
+#     and nothing here does.
+#
+# Secrets are set with `npx wrangler secret put NAME` and never appear in this
+# file, in git, or anywhere I can read them.
+
+name = "delaware-field-guide-api"
+main = "src/index.js"
+compatibility_date = "2026-08-09"
+
+# Reports and rate-limit counters. Create once:
+#   npx wrangler kv namespace create REPORTS
+# then paste the id below.
+# [[kv_namespaces]]
+# binding = "REPORTS"
+# id = "paste-the-id-here"
+
+# Photographs submitted with reports. Create once:
+#   npx wrangler r2 bucket create dfg-report-photos
+# [[r2_buckets]]
+# binding = "PHOTOS"
+# bucket_name = "dfg-report-photos"
+
+[vars]
+# The only origin allowed to post here. Not a wildcard.
+SITE_ORIGIN = "https://delawarefieldguide.com"

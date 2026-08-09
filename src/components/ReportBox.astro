@@ -131,19 +131,42 @@ const id = `report-${path.replace(/[^a-z0-9]+/gi, "-")}`;
       </div>
     </div>
 
+    {/* THE PRIMARY ACTION MUST DO SOMETHING.
+        This rendered a submit button on 125 pages while PUBLIC_REPORT_ENDPOINT
+        was unset — so the form had no `action`, posted to a static page on
+        GitHub Pages, and threw the report away. The mailto was offered beside
+        it as a small grey link, which is not where anybody clicks.
+
+        Silently discarding a correction is worse than not asking for one, and
+        this is the site whose entire argument is that it wants to be told when
+        it's wrong. So with no endpoint the button IS the mail link. */}
     <div class="mt-4 flex flex-wrap items-center gap-3">
-      <button
-        type="submit"
-        class="tap bg-marsh text-cream border-2 border-marsh px-5 py-2.5 font-mono text-[0.78rem] uppercase tracking-[0.1em] font-medium hover:bg-ink"
-      >
-        Send report
-      </button>
       {
-        !endpoint && (
-          <a href={mailto} class="stamp text-ink-soft">or email it instead</a>
+        endpoint ? (
+          <button
+            type="submit"
+            class="tap bg-marsh text-cream border-2 border-marsh px-5 py-2.5 font-mono text-[0.78rem] uppercase tracking-[0.1em] font-medium hover:bg-ink"
+          >
+            Send report
+          </button>
+        ) : (
+          <a
+            href={mailto}
+            class="tap bg-marsh text-cream border-2 border-marsh px-5 py-2.5 font-mono text-[0.78rem] uppercase tracking-[0.1em] font-medium hover:bg-ink no-underline"
+          >
+            Email the report
+          </a>
         )
       }
     </div>
+    {
+      !endpoint && (
+        <p class="mt-2.5 mb-0 text-[0.83rem] leading-snug text-ink-soft max-w-[54ch]">
+          The form above isn't wired up yet, so this opens your mail app with
+          the details filled in. Copy your note across if you've typed it.
+        </p>
+      )
+    }
 
     <p class="mt-3.5 mb-0 text-[0.83rem] leading-snug text-ink-soft max-w-[54ch]">
       Not published. A person reads it, and if I can use it, it becomes a
