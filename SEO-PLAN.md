@@ -44,18 +44,18 @@ no need for per-query-variation pages, no ideal page length.
 | 1. Winterthur admission — adult $29, senior/student $27, child 3–12 $12, under-2 free, valid 2 consecutive days, Museums for All $2 for SNAP up to 4 people | ✅ shipped (add the 2-day validity + Museums for All detail) |
 | 2. Homepage/Indoors counts from one source | ✅ shipped — now 12 and 2, via `isIndoors()` |
 | 3. Dog-parks intro says 8 fields, names 7 | ✅ already fixed earlier |
-| 4. Disc-golf `including7` + "0 hole counts confirmed" | ✅ typo fixed. The 0 is **correct** — it means 0 *confirmed-tier*; counts came from state PDFs (`sourced`). Needs clearer labeling, not a new number. Move the long postmortem to /changed/. ◻ |
+| 4. Disc-golf `including7` + "0 hole counts confirmed" | ✅ shipped. **I was wrong to defend the zero** — it was hardcoded, not tier-derived, and contradicted the paragraph above it. Now counted: 6. Postmortem moved to /changed/. Fell out of it: Cape Henlopen is 19 holes, not 18. |
 | 5. **Rehoboth Beach Animal Hospital publishes urgent care** Mon–Fri curbside, Mon–Thu 8am–6:30pm, Fri 8am–5:30pm, closed weekends | ✅ shipped — I had read the wrong domain |
 | 6. Attribute the 24/7 claim to BluePearl rather than asserting a statewide negative | ◻ **blocked** — bluepearlvet.com 403s me, and you can't call yet. Headline stays held back behind the build gate. |
 | 7. Lewes "rule under review" is 8 months old — call the city, drop it from the title | ◻ **parked** — you said you can't call now. Left in `outstanding` so it resurfaces. **302-645-7777** |
 | 8. Dogs hub "Coming" for live pages | ✅ shipped |
-| 9. Banning dog-park conflict across datasets | ◻ |
+| 9. Banning dog-park conflict across datasets | ✅ shipped — `facilities.dogPark` is now derived from `dogParkSlug`, with a build gate on dangling links. Turned up two links I broke this session (Glasgow, Carousel). |
 | 10. Kesselring duplicate locality | ✅ shipped (data was the cause, not the formatter) |
 | 11. Homepage eyebrow "outdoor Delaware" → "A practical reference for Delaware" | ✅ shipped |
 | 12. About photography claim | ✅ shipped |
 | 13. Nearby population claim | ✅ shipped |
 | 14. Attractions category definition too rigid for Ashland | ✅ shipped — now "structured places… with posted hours, visitor facilities or a defined program" |
-| 15. Pet-fees internal research language | ◻ — note it is **already** `noindex, nofollow` and out of the sitemap; the copy still needs cleaning |
+| 15. Pet-fees internal research language | ✅ shipped — star ratings, "content competitor", "strongest dog signal" and notes-to-self removed; guest impressions now labeled "What guests report". Stays `noindex`. |
 
 ---
 
