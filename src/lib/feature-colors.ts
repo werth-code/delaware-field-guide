@@ -69,7 +69,12 @@ export const FEATURE_COLOR: Record<string, string> = {
   trails: "#295e35",
   pavedPath: "#4a4f55",
   playground: "#1f4fa8",
-  stables: "#6b4423",
+  /* Was #6b4423 — the same value as `picnic`, with nothing saying so on
+     purpose. Both appear on the same state-park facility grid, so one of them
+     was carrying no information at all. Found by the build check, not by
+     looking: two browns that close are indistinguishable on a 14px chip.
+     Shifted toward red and re-darkened to 7.57:1. */
+  stables: "#7a3f1c",
   sports: "#5a3a7a",
   discGolf: "#345c28",
   skate: "#6d3b6b",

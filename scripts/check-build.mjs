@@ -208,6 +208,82 @@ for (const f of files.filter((x) => x.endsWith(".html"))) {
   }
 }
 
+/* --------------------------------------------- palette: contrast + meaning -- */
+
+/*
+ * Two rules both palettes claim in their comments and neither enforced.
+ *
+ * 1. CONTRAST. feature-colors.ts says every value clears 7:1 filled, and it
+ *    does — because it was solved numerically once, by hand, and then trusted
+ *    forever. The birding vocabulary added sixteen more, and all four season
+ *    accents as first drafted came in between 5.30:1 and 6.15:1. They looked
+ *    completely fine. That is the entire problem with checking colour by eye.
+ *
+ * 2. ONE SEMANTIC COLOUR, ONE MEANING. Spring green must not later become
+ *    "verified", and habitat blue must not become "beginner". Two keys sharing
+ *    an exact hex across the two palettes means one of them has quietly
+ *    stopped carrying information.
+ *
+ * Near-neighbours are allowed and intentional — beach and swimming sit two
+ * hex digits apart because they are the same family. Exact collisions are not.
+ */
+const CREAM = "#fbf5e9";
+const srgb = (c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
+const luminance = (hex) => {
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+  return 0.2126 * srgb(r) + 0.7152 * srgb(g) + 0.0722 * srgb(b);
+};
+const contrast = (a, b) => {
+  const [x, y] = [luminance(a), luminance(b)].sort((m, n) => n - m);
+  return (x + 0.05) / (y + 0.05);
+};
+
+const palettes = [
+  ["feature-colors", "src/lib/feature-colors.ts"],
+  ["birding-taxonomy", "src/lib/birding-taxonomy.ts"],
+];
+
+/*
+ * Deliberate aliases: one colour, two names for the same thing, documented at
+ * the declaration. `paved` and `pavedPath` are the same surface; `coast` is the
+ * habitat name for `beach`. These must NOT read as two things, so sharing a hex
+ * is the point rather than the bug.
+ */
+const ALIASES = new Set(["paved", "indoors", "rainyDay", "coast"]);
+const seen = new Map();
+
+for (const [name, path] of palettes) {
+  const src = readFileSync(path, "utf8");
+  const entries = [
+    /* Plain `key: "#rrggbb"` maps. */
+    ...src.matchAll(/(?:^|\n)\s{2}(\w+):\s*"(#[0-9a-fA-F]{6})"/g),
+    /* Tag objects: the key is `key:`, the colour is `color:`, `fill` is the
+       ground it sits on rather than a colour in its own right. */
+    ...src.matchAll(/key:\s*"(\w+)",[^}]*?color:\s*"(#[0-9a-fA-F]{6})"(?:,\s*fill:\s*"(#[0-9a-fA-F]{6})")?/g),
+  ];
+  for (const m of entries) {
+    const [, key, color, fill] = m;
+    /* `color` and `fill` are property names, not feature keys. */
+    if (!key || !color || key === "color" || key === "fill") continue;
+    const ground = fill ?? CREAM;
+    const ratio = contrast(color, ground);
+    if (ratio < 7) {
+      problems.push(
+        `${name}: ${key} ${color} on ${ground} is ${ratio.toFixed(2)}:1 — needs 7:1. ` +
+          `Darken it in steps rather than picking a new one by eye.`,
+      );
+    }
+    const prior = seen.get(color);
+    if (prior && prior !== key && !ALIASES.has(key) && !ALIASES.has(prior)) {
+      problems.push(
+        `${name}: ${key} reuses ${color}, already meaning "${prior}". ` +
+          `One semantic colour, one meaning — pick a distinct value.`,
+      );
+    }
+    seen.set(color, key);
+  }
+}
+
 if (problems.length) {
   console.error(`\n  ✗ Build check failed:\n${problems.map((p) => `      ${p}`).join("\n")}\n`);
   process.exit(1);
