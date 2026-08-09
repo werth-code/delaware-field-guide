@@ -47,6 +47,25 @@ jobs:
       # the workflow badge. Written before the build so it lands in dist/.
       - run: echo "$GITHUB_SHA" > public/build-stamp.txt
 
+      # eBird reference data — the Delaware species list, taxonomy and hotspot
+      # registry — refreshed before the build.
+      #
+      # `secrets`, not `vars`. GitHub masks secrets in logs; vars are printed in
+      # plain text. And deliberately NOT named PUBLIC_ANYTHING: Astro inlines
+      # PUBLIC_ variables into the browser bundle, which would publish the key
+      # on every page of the site.
+      #
+      # continue-on-error because a birding refresh failing must never take the
+      # whole site down. The generated files are committed, so a failed fetch
+      # builds with last week's reference data — which for a state species list
+      # is indistinguishable from this week's.
+      - name: Refresh eBird reference data
+        if: ${{ env.EBIRD_API_KEY != '' }}
+        continue-on-error: true
+        env:
+          EBIRD_API_KEY: ${{ secrets.EBIRD_API_KEY }}
+        run: npm run fetch:ebird
+
       - name: Build
         uses: withastro/action@v3
         with:

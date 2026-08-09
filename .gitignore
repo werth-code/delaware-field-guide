@@ -23,3 +23,12 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 public/build-stamp.txt
+
+# eBird
+# The API key lives in the shell (local) or a repository secret (CI) and never
+# in the repo. .env is ignored so a stray one can't be committed by accident;
+# the response cache is ignored because it's regenerable and large.
+.env
+.env.*
+!.env.example
+.cache/

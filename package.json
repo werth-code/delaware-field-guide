@@ -12,7 +12,8 @@
     "astro": "astro",
     "og": "node scripts/build-og-image.mjs",
     "calls": "node scripts/call-sheet.mjs",
-    "test": "npx tsx scripts/test-recurrence.mjs"
+    "test": "npx tsx scripts/test-recurrence.mjs",
+    "fetch:ebird": "node scripts/fetch-ebird.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
