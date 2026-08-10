@@ -22,7 +22,7 @@
     "name": "Rehoboth Beach",
     "locality": "Delaware",
     "sku": "FM-002-REHO",
-    "status": "design",
+    "status": "proof",
     "price": null,
     "guide": "/dogs/rehoboth-beach/",
     "placements": [
@@ -30,7 +30,12 @@
     ],
     "pitch": "A small mark for the beach that keeps making the weekend plan.",
     "about": "Rehoboth is Delaware's best-known beach town — boardwalk, bandstand, and the one whose dog dates moved in 2026.",
-    "art": "One recognizable cue only: bandstand silhouette OR boardwalk line OR umbrella row. Generic beach art could be any coastal town and is worth nothing."
+    "art": "One recognizable cue only: bandstand silhouette OR boardwalk line OR umbrella row. Generic beach art could be any coastal town and is worth nothing.",
+    "proof": {
+      "file": "fm-rehoboth-beach",
+      "alt": "Circular badge: gulls mobbing a spilled striped tub of fries on the boardwalk, the bandstand and Rehoboth water tower behind, beach umbrella and chairs to the left.",
+      "caption": "Proof. Tagline reads “Fries With Friends.”"
+    }
   },
   {
     "number": "003",
@@ -38,7 +43,7 @@
     "name": "Indian River Inlet",
     "locality": "Delaware Seashore",
     "sku": "FM-003-IRI",
-    "status": "design",
+    "status": "proof",
     "price": null,
     "guide": "/parks/delaware-seashore/",
     "placements": [
@@ -47,7 +52,12 @@
     ],
     "pitch": "You know the bridge before you see the sign.",
     "about": "The inlet cuts Delaware Seashore State Park in two, under the Charles W. Cullen Bridge. Surf fishing, surfing, camping and the strongest current on the Delaware coast.",
-    "art": "The bridge is the whole design. Cable-stay silhouette, inlet current line, maybe a surf rod. Named for the inlet rather than the park because that's what people picture."
+    "art": "The bridge is the whole design. Cable-stay silhouette, inlet current line, maybe a surf rod. Named for the inlet rather than the park because that's what people picture.",
+    "proof": {
+      "file": "fm-indian-river-inlet",
+      "alt": "Circular badge: the Indian River Inlet bridge at sunrise seen from the sand, cable stays and piers, gulls overhead, a surf rod planted in the foreground, dune fence to the right.",
+      "caption": "Proof. Tagline reads “You know the bridge before you see the sign.”"
+    }
   },
   {
     "number": "004",
@@ -103,7 +113,7 @@
     "name": "White Clay Creek",
     "locality": "Newark · Delaware",
     "sku": "FM-007-WCC",
-    "status": "design",
+    "status": "proof",
     "price": null,
     "guide": "/parks/white-clay-creek/",
     "placements": [
@@ -111,7 +121,12 @@
     ],
     "pitch": "Not a beach. Still one of your places.",
     "about": "A wild valley on the Pennsylvania line above Newark — trails, the creek itself, and the disc golf course. The test of whether inland Delaware carries the same attachment as the coast.",
-    "art": "Creek, sycamore, stone bridge. Deliberately not coastal — this design exists to find out whether the identity works away from sand."
+    "art": "Creek, sycamore, stone bridge. Deliberately not coastal — this design exists to find out whether the identity works away from sand.",
+    "proof": {
+      "file": "fm-white-clay-creek",
+      "alt": "Circular badge: a wooden footbridge over a rocky creek in summer woodland, a deer on the left bank, a chickadee on a post, monarch and wildflowers in the foreground.",
+      "caption": "Proof. Tagline reads “Where the Trails Meet the Creek.”"
+    }
   },
   {
     "number": "008",
@@ -119,7 +134,7 @@
     "name": "Dewey Beach — The Dog Goes Too",
     "locality": "Delaware",
     "sku": "FM-008-DEWEYDOG",
-    "status": "design",
+    "status": "proof",
     "price": null,
     "guide": "/dogs/dewey-beach/",
     "placements": [
@@ -128,7 +143,12 @@
     ],
     "pitch": "One of the few Delaware beaches where the dog still gets the sand in July.",
     "about": "Dewey allows dogs year-round, on a town license, with limited hours in summer. NO DATES OR HOURS GO ON THIS STICKER — they change, and a sticker cannot be corrected.",
-    "art": "Dewey's bay/ocean line with a dog silhouette. The dog variant of 005, not a separate town."
+    "art": "Dewey's bay/ocean line with a dog silhouette. The dog variant of 005, not a separate town.",
+    "proof": {
+      "file": "fm-dewey-beach-dog",
+      "alt": "Circular badge: a brindle and white dog sitting on the sand at sunrise, paw prints behind it, lead, water bowl and tennis ball in the foreground, boardwalk and the Dewey Beach water tower to the right.",
+      "caption": "Proof. Tagline reads “The Dog Goes Too.”"
+    }
   },
   {
     "number": "101",
