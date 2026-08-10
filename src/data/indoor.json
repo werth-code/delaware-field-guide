@@ -98,7 +98,7 @@
         }
       ],
       "season": null,
-      "note": "Thursdays run to 8pm from April through December. Closed Monday and Tuesday, and closed New Year's Day, Independence Day, Thanksgiving and Christmas."
+      "note": "Thursdays run to 8pm from April through December — the late opening stops between January and March. Closed Monday and Tuesday, and closed New Year's Day, Independence Day, Thanksgiving and Christmas."
     },
     "admission": {
       "note": "Adults $18, seniors 65+ $16, students with ID $7, ages 7 to 18 $6. Free for members and under-7s. Free for everyone Thursday evenings 4pm to 8pm, April through December.",
@@ -132,9 +132,9 @@
         "note": "The operator. Gives Wednesday to Sunday 10am to 4pm, the extended April-to-December Thursdays to 8pm, the full admission table, the free Thursday evening, the Kentmere Parkway address, free on-site parking, the cafe and shop, and the four annual holiday closures."
       }
     ],
-    "sourcedOn": "2026-08-04",
-    "verifiedDate": null,
-    "verifiedSource": null,
+    "sourcedOn": "2026-08-09",
+    "verifiedDate": "2026-08-09",
+    "verifiedSource": "Read off the hours vinyl on the museum's own door, and photographed.",
     "outstanding": [
       "Is the sculpture garden ordinarily open when the museum building is shut, or only for scheduled evening events? Those are different answers and only one of them means you can turn up.",
       "Ask about step-free access and accessible restrooms.",
@@ -148,16 +148,40 @@
     },
     "photos": [
       {
-        "file": "delaware-art-museum",
-        "alt": "A large stone-edged labyrinth laid out in gravel inside a curved stone wall, bare winter trees behind it, one person walking the far edge.",
-        "caption": "The labyrinth behind the museum, in winter. Outside, free, and open when the galleries aren't.",
-        "credit": "Smallbones",
+        "file": "delaware-art-museum-front",
+        "alt": "The Delaware Art Museum's red brick facade with three tall arched glass entrances under a pediment, DELAWARE ART MUSEUM carved in the stone band above them, benches either side of a wide paved forecourt.",
+        "caption": "The front on Kentmere Parkway. The doors are the three arches; the parking is behind you.",
+        "credit": null,
         "takenOn": null,
-        "license": {
-          "label": "CC0 1.0",
-          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
-        },
-        "sourceUrl": "https://commons.wikimedia.org/wiki/File:DAM_Labyrinth_Wilmington_DE.JPG"
+        "license": null,
+        "sourceUrl": null
+      },
+      {
+        "file": "delaware-art-museum-hours",
+        "alt": "Opening hours printed in white vinyl on a glass door: Wednesday 10am to 4pm, Thursday 10am to 8pm with a 4pm closing from January to March, Friday to Sunday 10am to 4pm, Monday and Tuesday closed.",
+        "caption": "The hours, on the door. This is where the ones on this page came from — including the detail that the late Thursday stops between January and March.",
+        "credit": null,
+        "takenOn": null,
+        "license": null,
+        "sourceUrl": null
+      },
+      {
+        "file": "delaware-art-museum-sculpture-garden",
+        "alt": "A granite sign reading COPELAND SCULPTURE GARDEN mounted on a boulder, with mown lawn, benches and several large sculptures among trees behind it.",
+        "caption": "The Copeland Sculpture Garden. Outdoors, and a different proposition from the galleries — whether you can walk it when the building is shut is still an open question here.",
+        "credit": null,
+        "takenOn": null,
+        "license": null,
+        "sourceUrl": null
+      },
+      {
+        "file": "delaware-art-museum-pavilion",
+        "alt": "A long low glass-walled pavilion beside mown lawn, with a large green-patinated bronze sculpture of a stylised figure on a cylindrical plinth in the foreground and a tarmac path curving past.",
+        "caption": "The glass pavilion and the lawn. Sculpture is visible through the glass from outside, which is worth knowing on a day the galleries are closed.",
+        "credit": null,
+        "takenOn": null,
+        "license": null,
+        "sourceUrl": null
       }
     ]
   },
