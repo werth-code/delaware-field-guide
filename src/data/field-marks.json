@@ -19,7 +19,13 @@
       "file": "fm-cape-henlopen",
       "alt": "Circular badge: sunrise over the water where bay meets ocean, a white lighthouse with a red-roofed keeper's house on the dune, sea oats in the foreground.",
       "caption": "Proof. Tagline reads “Where the Sunrise Meets the Shore.” THE LIGHTHOUSE IS WRONG — Cape Henlopen's light fell into the sea on 13 April 1926 and there is no lighthouse standing on the cape today. The Delaware Breakwater light is visible offshore; the WWII observation towers are the structure people actually associate with the park."
-    }
+    },
+    "proofStatus": "rework",
+    "reworkNotes": [
+      "THE LIGHTHOUSE HAS TO GO. Cape Henlopen's fell into the sea on 13 April 1926 and no lighthouse stands on the cape. Drawing a building gone a century, on a sticker sold by a guide that checks facts, is the most expensive mistake available here.",
+      "Draw the WWII fire-control towers instead. Nothing else in Delaware has them, so the silhouette is unmistakable and nobody else's sticker can use it.",
+      "\"Where the Sunrise Meets the Shore\" could be any coast in America. Cape Henlopen's actual distinction is that the bay meets the ocean there."
+    ]
   },
   {
     "number": "002",
@@ -35,12 +41,15 @@
     ],
     "pitch": "A small mark for the beach that keeps making the weekend plan.",
     "about": "Rehoboth is Delaware's best-known beach town — boardwalk, bandstand, and the one whose dog dates moved in 2026.",
-    "art": "One recognizable cue only: bandstand silhouette OR boardwalk line OR umbrella row. Generic beach art could be any coastal town and is worth nothing.",
+    "art": "One recognizable cue only — bandstand, boardwalk or umbrella row. Generic beach art could be any coastal town.",
     "proof": {
       "file": "fm-rehoboth-beach",
       "alt": "Circular badge: gulls mobbing a spilled striped tub of fries on the boardwalk, the bandstand and Rehoboth water tower behind, beach umbrella and chairs to the left.",
       "caption": "Proof. Tagline reads “Fries With Friends.”"
-    }
+    },
+    "proofStatus": "accepted",
+    "reworkNotes": null,
+    "proofNote": "Funny because it is true. Anyone who has eaten on that boardwalk has lost fries to a gull — observed, not invented."
   },
   {
     "number": "003",
@@ -57,12 +66,22 @@
     ],
     "pitch": "You know the bridge before you see the sign.",
     "about": "The inlet cuts Delaware Seashore State Park in two, under the Charles W. Cullen Bridge. Surf fishing, surfing, camping and the strongest current on the Delaware coast.",
-    "art": "The bridge is the whole design. Cable-stay silhouette, inlet current line, maybe a surf rod. Named for the inlet rather than the park because that's what people picture.",
+    "art": "The bridge is the whole design. Cable-stay silhouette, inlet current line, maybe a surf rod.",
     "proof": {
       "file": "fm-indian-river-inlet",
       "alt": "Circular badge: the Indian River Inlet bridge at sunrise seen from the sand, cable stays and piers, gulls overhead, a surf rod planted in the foreground, dune fence to the right.",
       "caption": "Proof. Tagline reads “You know the bridge before you see the sign.”"
-    }
+    },
+    "proofStatus": "accepted",
+    "reworkNotes": null,
+    "alternates": [
+      {
+        "file": "fm-delaware-seashore",
+        "label": "Delaware Seashore State Park — not proceeding",
+        "note": "Same park as this one, drawn under its official name with the tagline \"Fall In Love At The Beach\". Kept because the horseshoe crabs are the best drawing in the set, but two badges for one destination is two SKUs for one place — and the inlet is what people picture."
+      }
+    ],
+    "proofNote": "The factual voice, and the best line in the set. Only somebody who has driven Route 1 says it."
   },
   {
     "number": "004",
@@ -78,12 +97,15 @@
     ],
     "pitch": "Same week, same stretch of sand, every year.",
     "about": "The quiet end of the Delaware beaches, and the one families come back to for the same week every summer. Dogs are off the beach two weeks longer than Rehoboth.",
-    "art": "Boardwalk and ocean, or beach-chair silhouettes. Check the totem pole's status before using it — it is a specific commissioned artwork, not a generic town motif.",
+    "art": "Boardwalk and ocean, or the bandstand. Check the totem pole's status before using it.",
     "proof": {
       "file": "fm-bethany-beach",
       "alt": "Circular badge: the Bethany Beach bandstand at sunrise, boardwalk, a bicycle with a basket, families on the sand, shells and a sand dollar in the foreground.",
       "caption": "Proof. Tagline reads “Year after Year.”"
-    }
+    },
+    "proofStatus": "accepted",
+    "reworkNotes": null,
+    "proofNote": "Sentimental on the surface and a fact underneath: Bethany really is the same-week-every-summer town."
   },
   {
     "number": "005",
@@ -99,12 +121,15 @@
     ],
     "pitch": "Ocean on one side, bay on the other, a mile between them.",
     "about": "A mile of sand between the Atlantic and Rehoboth Bay. The only Delaware beach town that never closes to dogs — though it does require its own license.",
-    "art": "The bay/ocean duality is the idea: two water lines, one strip of town between. Sunrise and sunset on the same sticker.",
+    "art": "The bay/ocean duality is the idea: two water lines, one strip of town between.",
     "proof": {
       "file": "fm-dewey-beach",
       "alt": "Circular badge: a boardwalk running between the ocean on the left and Rehoboth Bay on the right, beach chairs and umbrella one side, kayak and paddleboard the other, the town between them.",
       "caption": "Proof. Tagline reads “Ocean on one side, bay on the other, a mile apart.”"
-    }
+    },
+    "proofStatus": "accepted",
+    "reworkNotes": null,
+    "proofNote": "A fact rather than a sentiment — the ocean and the bay really are a mile apart, and that is what makes Dewey Dewey."
   },
   {
     "number": "006",
@@ -125,7 +150,12 @@
       "file": "fm-lewes",
       "alt": "Circular badge: Lewes waterfront at sunrise — the ferry standing off, a lighthouse, clapboard houses along the canal, a fishing boat lettered LEWES DE, a path through dune grass past a Cape May–Lewes Ferry sign.",
       "caption": "Proof. Tagline reads “First Town in the First State.” NOTE — the badge reads LEWES DELAWARE on the arch and DELAWARE again below it."
-    }
+    },
+    "proofStatus": "rework",
+    "reworkNotes": [
+      "It reads LEWES DELAWARE on the arch and DELAWARE again underneath.",
+      "\"First Town in the First State\" is true and is on every other Lewes souvenir in the state. The ferry is the thing only Lewes has."
+    ]
   },
   {
     "number": "007",
@@ -146,7 +176,12 @@
       "file": "fm-white-clay-creek",
       "alt": "Circular badge: a wooden footbridge over a rocky creek in summer woodland, a deer on the left bank, a chickadee on a post, monarch and wildflowers in the foreground.",
       "caption": "Proof. Tagline reads “Where the Trails Meet the Creek.”"
-    }
+    },
+    "proofStatus": "rework",
+    "reworkNotes": [
+      "Lose the brown park sign lettered WHITE CLAY CREEK STATE PARK — it reads as state signage, which the brief said to stay clear of.",
+      "\"Where the Trails Meet the Creek\" is a description rather than an observation. The state line runs through this park; the creek is a watershed people fought to protect. Either is more particular."
+    ]
   },
   {
     "number": "008",
@@ -168,7 +203,10 @@
       "file": "fm-dewey-beach-dog",
       "alt": "Circular badge: a brindle and white dog sitting on the sand at sunrise, paw prints behind it, lead, water bowl and tennis ball in the foreground, boardwalk and the Dewey Beach water tower to the right.",
       "caption": "Proof. Tagline reads “The Dog Goes Too.”"
-    }
+    },
+    "proofStatus": "accepted",
+    "reworkNotes": null,
+    "proofNote": "Says the thing the whole dogs section exists for."
   },
   {
     "number": "101",

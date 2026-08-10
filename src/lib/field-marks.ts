@@ -47,6 +47,25 @@ export interface FieldMark {
   about: string;
   /** Art direction — notes for the illustration, not customer-facing. */
   art: string;
+  /**
+   * A proof, once artwork exists. Recorded as ARTWORK — never added to a place's
+   * photo array, because an illustration of somewhere is not a photograph of it
+   * and this site does not blur that anywhere else.
+   */
+  proof?: { file: string; alt: string; caption: string } | null;
+  /**
+   * Whether that proof is accepted or going back for another pass.
+   *
+   * Separate from `status` on purpose: `status` is about whether a thing can be
+   * SOLD, and this is about whether the drawing is right. A proof can be
+   * beautiful, finished, and still wrong — Cape Henlopen's first pass drew a
+   * lighthouse that fell into the sea in 1926.
+   */
+  proofStatus?: "accepted" | "rework" | null;
+  /** Why a proof was kept. Editorial verdict, not art direction. */
+  proofNote?: string | null;
+  /** What has to change before it's accepted. Empty when it is. */
+  reworkNotes?: string[] | null;
   photos?: { file: string; alt: string }[];
 }
 

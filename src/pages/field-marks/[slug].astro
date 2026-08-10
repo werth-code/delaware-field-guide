@@ -67,6 +67,31 @@ const schema = isPublishableMark(mark)
       Field Mark {mark.number} · {mark.name} · {mark.locality}
     </p>
 
+    {/* THE PROOF, LABELLED AS ONE. It is artwork for a thing that doesn't exist
+        yet, on a page that says so — so it carries the word "proof" rather than
+        sitting here looking like a product shot of something you can buy. */}
+    {
+      mark.proof && (
+        <figure class="breakout mt-7 mb-0">
+          <img
+            src={`/photos/${mark.proof.file}-1400.jpg`}
+            srcset={`/photos/${mark.proof.file}-700.jpg 700w, /photos/${mark.proof.file}-1400.jpg 1400w`}
+            sizes="(min-width: 60rem) 34rem, 100vw"
+            alt={mark.proof.alt}
+            width={700}
+            height={700}
+            loading="eager"
+            decoding="sync"
+            class="w-full max-w-[34rem] h-auto block mx-auto"
+          />
+          <figcaption class="stamp text-ink-soft mt-3 mb-0 text-center max-w-[52ch] mx-auto">
+            {mark.proof.caption}
+            {mark.proofStatus === "rework" && " · Going back for another pass."}
+          </figcaption>
+        </figure>
+      )
+    }
+
     {
       sellable ? (
         <div class="sign breakout px-4 sm:px-5 py-4 my-7">
@@ -78,14 +103,39 @@ const schema = isPublishableMark(mark)
       ) : (
         <div class="sign breakout px-4 sm:px-5 py-4 my-7">
           <p class="label m-0">Not made yet</p>
+          {/* Three states, three honest sentences. Saying "the artwork isn't
+              finished" under a finished piece of artwork is a small lie that a
+              reader can see with their own eyes. */}
           <p class="mt-2 mb-0 max-w-[58ch] text-[0.95rem] leading-[1.55]">
-            This one doesn't exist. The artwork isn't finished, nothing has been
-            printed, and there is nothing to buy — so there is no price on it and
-            no button, rather than a button that takes your money for a plan.
+            {
+              mark.proofStatus === "accepted"
+                ? "The design above is approved, but nothing has been printed and there is nothing to buy yet — so there is no price and no button."
+                : mark.proofStatus === "rework"
+                  ? "The design above is a draft and is going back for another pass. Nothing has been printed and there is nothing to buy."
+                  : "This one doesn't exist. The artwork isn't drawn, nothing has been printed, and there is nothing to buy — so there is no price on it and no button, rather than a button that takes your money for a plan."
+            }
           </p>
-          <p class="mt-2.5 mb-0 max-w-[58ch] text-[0.9rem] leading-[1.55] text-ink-soft">
-            What it's meant to be: {mark.art}
-          </p>
+          {/* Once a proof is accepted the art direction has done its job, so the
+              page stops describing what the thing is meant to look like and
+              starts saying what still has to change — or nothing, if nothing does. */}
+          {
+            mark.proofStatus === "accepted" ? (
+              <p class="mt-2.5 mb-0 max-w-[58ch] text-[0.9rem] leading-[1.55] text-ink-soft">
+                Artwork approved. Still to do: a cut path, CMYK, and a print run.
+              </p>
+            ) : mark.reworkNotes?.length ? (
+              <>
+                <p class="label m-0 mt-3.5">Before this one is drawn again</p>
+                <ul class="mt-1.5 mb-0 ps-4 space-y-1 text-[0.9rem] leading-[1.5] max-w-[58ch] text-ink-soft">
+                  {mark.reworkNotes.map((n) => <li>{n}</li>)}
+                </ul>
+              </>
+            ) : (
+              <p class="mt-2.5 mb-0 max-w-[58ch] text-[0.9rem] leading-[1.55] text-ink-soft">
+                What it's meant to be: {mark.art}
+              </p>
+            )
+          }
         </div>
       )
     }
