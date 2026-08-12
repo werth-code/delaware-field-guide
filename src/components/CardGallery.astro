@@ -85,9 +85,61 @@ const many = photos.length > 1;
         data-gallery-count
         hidden
       />
+
+      {/* Arrows, for a pointer. The header above promised "dots and the
+          arrows" and shipped only dots — a mouse has no swipe, so on a
+          desktop the extra photos were unreachable without a page load.
+          Revealed on hover of the strip (and on keyboard focus); not shown
+          at all where hover doesn't exist, because there the swipe IS the
+          affordance and two buttons over a photo are clutter. */}
+      <button
+        type="button"
+        data-gallery-prev
+        aria-label="Previous photo"
+        hidden
+        class="gallery-arrow absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 grid place-items-center rounded-[var(--radius-sign)] bg-abyss/55 text-cream cursor-pointer border-0"
+      >
+        <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true">
+          <path d="M15 4l-8 8 8 8" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        data-gallery-next
+        aria-label="Next photo"
+        hidden
+        class="gallery-arrow absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 grid place-items-center rounded-[var(--radius-sign)] bg-abyss/55 text-cream cursor-pointer border-0"
+      >
+        <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true">
+          <path d="M9 4l8 8-8 8" />
+        </svg>
+      </button>
     </div>
   )
 }
+
+<style>
+  /* Invisible until the pointer is over the strip or the button has keyboard
+     focus — opacity, not display, so tab order never loses them. On touch
+     devices they don't exist: swipe already does this job there. */
+  .gallery-arrow {
+    opacity: 0;
+    transition: opacity 120ms ease-out;
+  }
+  [data-gallery]:hover .gallery-arrow,
+  .gallery-arrow:focus-visible {
+    opacity: 1;
+  }
+  .gallery-arrow[aria-disabled="true"] {
+    opacity: 0 !important;
+    pointer-events: none;
+  }
+  @media (hover: none) {
+    .gallery-arrow {
+      display: none;
+    }
+  }
+</style>
 
 <script>
   (() => {
@@ -99,11 +151,15 @@ const many = photos.length > 1;
       const dots = [...root.querySelectorAll("[data-gallery-dot]")];
       const dotWrap = root.querySelector("[data-gallery-dots]");
       const count = root.querySelector("[data-gallery-count]");
+      const prev = root.querySelector("[data-gallery-prev]");
+      const next = root.querySelector("[data-gallery-next]");
       const slides = strip.children.length;
       if (!slides) continue;
 
       dotWrap.hidden = false;
       count.hidden = false;
+      prev.hidden = false;
+      next.hidden = false;
 
       let index = 0;
       const paint = () => {
@@ -112,8 +168,30 @@ const many = photos.length > 1;
           d.classList.toggle("bg-cream/45", i !== index);
         });
         count.textContent = `${index + 1}/${slides}`;
+        /* An arrow pointing at nothing vanishes rather than dims — a disabled
+           control over a photograph is one more thing to read. */
+        prev.setAttribute("aria-disabled", index === 0 ? "true" : "false");
+        next.setAttribute("aria-disabled", index === slides - 1 ? "true" : "false");
       };
       paint();
+
+      /* The arrows drive the same scroll the finger does, so the snap, the
+         dots and the count all update through the one scroll listener. */
+      const go = (dir) => (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const i = Math.min(Math.max(index + dir, 0), slides - 1);
+        /* Index and paint update HERE, not in the scroll listener — a second
+           click mid-glide should count from where the strip is going, not
+           where it happens to be. The listener still owns finger swipes.
+           No behavior option on scrollTo: the strip's own scroll-smooth CSS
+           drives the easing, exactly as it does for a finger. */
+        index = i;
+        paint();
+        strip.scrollTo({ left: i * strip.clientWidth });
+      };
+      prev.addEventListener("click", go(-1));
+      next.addEventListener("click", go(1));
 
       strip.addEventListener(
         "scroll",

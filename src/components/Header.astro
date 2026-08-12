@@ -41,7 +41,7 @@ import NavLinks from "./NavLinks.astro";
     </summary>
 
     <nav aria-label="Sections" class="flex flex-col items-start pt-1.5 pb-1">
-      <NavLinks />
+      <NavLinks preopen />
     </nav>
   </details>
 
@@ -64,3 +64,29 @@ import NavLinks from "./NavLinks.astro";
 </header>
 
 <SectionNav />
+
+<script>
+  /*
+   * Menu manners. All of it enhancement on top of <details>, which keeps
+   * working with this script gone — the no-fail-shut rule is intact because
+   * everything here CLOSES things.
+   *
+   * Three behaviours every menu is expected to have and a bare <details>
+   * doesn't:
+   *   - choosing a link shuts the menu it lives in, immediately, so the tap
+   *     is acknowledged before the next page loads
+   *   - clicking anywhere else shuts an open dropdown
+   *   - so does Escape
+   */
+  document.addEventListener("click", (e) => {
+    const link = e.target instanceof Element && e.target.closest("a[href]");
+    for (const d of document.querySelectorAll(".nav-group[open], .nav-disclosure[open]")) {
+      if (link && d.contains(link)) d.removeAttribute("open");
+      else if (d.classList.contains("nav-group") && !d.contains(e.target)) d.removeAttribute("open");
+    }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    for (const d of document.querySelectorAll(".nav-group[open]")) d.removeAttribute("open");
+  });
+</script>

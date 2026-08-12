@@ -36,6 +36,15 @@
 import { sectionFor, NAV_GROUPS, NAV_TOP, groupFor, sectionBySlug, groupNavFor } from "../lib/sections";
 import FeatureIcon from "./FeatureIcon.astro";
 
+/* preopen: whether the group holding the CURRENT section renders expanded.
+   True only inside the phone disclosure, where the expanded group is an
+   indented "you are here" and costs nothing. On the wide row the panel
+   FLOATS, so pre-opening it hung a dropdown over every page of the section
+   you'd just navigated to — click "State parks", arrive at /parks/, and the
+   Parks menu is open again on top of the content. It read as a menu that
+   never closed. The summary's ochre underline already says where you are. */
+const { preopen = false } = Astro.props;
+
 const { pathname } = Astro.url;
 const current = sectionFor(pathname);
 const openGroup = groupFor(current?.slug ?? null);
@@ -80,7 +89,7 @@ const under = (on: boolean) => (on ? "box-shadow: inset 0 -3px 0 var(--color-och
   NAV_GROUPS.map((g) => {
     const on = openGroup?.label === g.label;
     return (
-      <details class="nav-group relative" open={on}>
+      <details class="nav-group relative" open={preopen && on}>
         <summary
           class={`${linkClass(on)} list-none cursor-pointer inline-flex items-center`}
           style={under(on)}
