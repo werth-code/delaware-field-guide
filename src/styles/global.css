@@ -179,12 +179,10 @@
     padding-inline: 1.25rem;
   }
 
-  @media (min-width: 70rem) {
-    .breakout {
-      width: calc(100% + 7rem);
-      margin-inline-start: -3.5rem;
-    }
-  }
+  /* .breakout lives OUTSIDE this layer, at the bottom of the file — see the
+     note there. A utility like m-0 on the same element silently beat the
+     layered version's negative margin and produced a panel that grew 7rem to
+     the right only. */
 
   .tap {
     display: inline-flex;
@@ -555,6 +553,33 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 
+
+/* ------------------------------------------------------ wide rail ------- */
+/*
+ * Unlayered on purpose. This lived in @layer components, where any Tailwind
+ * utility on the same element outranked it by layer order — a figure carrying
+ * `m-0 breakout` kept the widened box but lost the negative start margin, so
+ * the photo strip (and the map) grew 7rem to the RIGHT only and sat visibly
+ * off the page's rail. Layout primitives that other classes must not
+ * accidentally cancel don't belong in a layer utilities can beat.
+ */
+@media (min-width: 70rem) {
+  .breakout {
+    width: calc(100% + 7rem);
+    margin-inline-start: -3.5rem;
+  }
+
+  /* The page lede rides the same left rail as the breakout panels below it.
+     Without this the title sat 3.5rem right of every sign on the page — two
+     competing left edges in the first screenful, and the heading read as
+     indented rather than as a column. A poster has one left edge. Translate,
+     not margin: the wrap's auto-margin centering must not recompute, and at
+     this width there is 11.5rem of side space so nothing clips. Running text
+     keeps the inner rail, which is the ordinary two-rail page. */
+  main .wrap:has(> h1) {
+    translate: -3.5rem 0;
+  }
+}
 
 /* ------------------------------------------------------ masthead nav -- */
 
