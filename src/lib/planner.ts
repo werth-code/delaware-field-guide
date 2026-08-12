@@ -99,6 +99,14 @@ export interface PlannerPlace {
    */
   tier: Tier;
   f: Facilities;
+  /** The record's lead photo, so a result card can wear it. Null is common
+      and fine — a card without a photo is a card, not a gap. */
+  photo: string | null;
+  focus: string | null;
+  /** Where it is, when the record knows. Lets the browser sort an answer by
+      distance from a visitor who has offered their location — the maths stays
+      client-side, so the coordinates here are the only ones that ever move. */
+  loc: { lat: number; lon: number } | null;
   /** Beach towns: resolved rule windows keyed by year. */
   dogWindows?: Record<string, ResolvedWindow[]>;
   /** Everywhere else: a flat answer, since the rule doesn't move with the date. */
@@ -128,12 +136,24 @@ function resolveWindows(rules: Rule[]): Record<string, ResolvedWindow[]> {
   return out;
 }
 
+/** What every record carries into the index regardless of section: its lead
+    photo (same treatment as the map card — first photo, honest focal point)
+    and its coordinates, for distance sorting that never leaves the browser.
+    Loose type because the eight record shapes each declare these their own
+    way. */
+const carried = (r: any) => ({
+  photo: r?.photos?.[0]?.file ?? null,
+  focus: r?.photos?.[0]?.focus ?? null,
+  loc: r?.coords ? { lat: r.coords.lat, lon: r.coords.lon } : null,
+});
+
 export function buildIndex(): PlannerPlace[] {
   const places: PlannerPlace[] = [];
 
   for (const t of townsData as Town[]) {
     places.push({
       id: `town-${t.slug}`,
+      ...carried(t),
       name: t.name,
       href: `/dogs/${t.slug}/`,
       kind: "beach town",
@@ -150,6 +170,7 @@ export function buildIndex(): PlannerPlace[] {
   for (const p of stateParksData as StatePark[]) {
     places.push({
       id: `sp-${p.slug}`,
+      ...carried(p),
       name: p.name,
       href: `/parks/${p.slug}/`,
       kind: "state park",
@@ -173,6 +194,7 @@ export function buildIndex(): PlannerPlace[] {
   for (const p of communityParksData as CommunityPark[]) {
     places.push({
       id: `cp-${p.slug}`,
+      ...carried(p),
       name: p.name,
       href: `/parks/community/${p.slug}/`,
       kind: "community park",
@@ -223,6 +245,7 @@ export function buildIndex(): PlannerPlace[] {
     const dry = isIndoors(p);
     places.push({
       id: `in-${p.slug}`,
+      ...carried(p),
       name: p.name,
       href: dry ? `/indoors/${p.slug}/` : `/attractions/${p.slug}/`,
       kind: dry ? "indoors" : "attraction",
@@ -258,6 +281,7 @@ export function buildIndex(): PlannerPlace[] {
   for (const p of drinkData as any[]) {
     places.push({
       id: `dr-${p.slug}`,
+      ...carried(p),
       name: p.name,
       href: `/wineries-and-breweries/${p.slug}/`,
       kind: "winery or brewery",
@@ -277,6 +301,7 @@ export function buildIndex(): PlannerPlace[] {
   for (const p of nearbyData as any[]) {
     places.push({
       id: `nb-${p.slug}`,
+      ...carried(p),
       name: p.name,
       href: `/nearby/${p.slug}/`,
       kind: "nearby",
@@ -293,6 +318,7 @@ export function buildIndex(): PlannerPlace[] {
   for (const p of dogParksData as DogPark[]) {
     places.push({
       id: `dp-${p.slug}`,
+      ...carried(p),
       name: p.name,
       href: `/dogs/dog-parks/${p.slug}/`,
       kind: "dog park",
@@ -317,6 +343,7 @@ export function buildIndex(): PlannerPlace[] {
     if (p.href?.startsWith("/dogs/") && p.href !== "/dogs/state-parks/") continue; // town dupes
     places.push({
       id: `pl-${p.slug}`,
+      ...carried(p),
       name: p.name,
       href: p.href ?? "/dogs/summer/",
       kind: "summer beach",

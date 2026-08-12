@@ -80,25 +80,27 @@ const schema = [
       Ask what you need
     </h1>
     <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
-      Describe the Delaware outing you want in normal language — a fenced dog
-      park near Wilmington, somewhere indoors with the kids, a beach where the
-      dog can go today.
+      Type it the way you'd say it. Can the dog come to Rehoboth on the 4th of
+      July, a playground with restrooms near Dover, somewhere dry when it
+      rains.
     </p>
-    {/* The map clause is kept from the copy this replaced. It isn't a
-        description of the page, it's the one thing a first-time reader can't
-        guess: the box drives the markers below it as well as the list. */}
+    {/* The map clause survives another rewrite: it's still the one thing a
+        first-time reader can't guess — the box drives the markers below it as
+        well as the list. */}
     <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
-      No filters, no complicated search. Tell me what you want and I'll show
-      the places that match and where they are on the map.
+      Dog rules are the reason this page exists. Every beach town writes its
+      own and they move with the calendar, so most answers online are a season
+      out of date. Ask about a date and you get that date's rule. The matches
+      land below, and on the map.
     </p>
     {/* WHAT THIS IS NOT, said plainly. A box that takes a sentence looks like
         every AI search on the internet, and those answer from anywhere. This
         one only ever returns records from the Field Guide, and the difference
         is the entire point of the site. */}
     <p class="mt-4 mb-0 text-[1.05rem] leading-[1.55] max-w-[54ch]">
-      It searches what the Field Guide has actually checked — nothing else. If
-      a fact hasn't been checked, the answer says so rather than filling the
-      gap.
+      And everything it searches was checked by a person, with the date of the
+      check attached. If nobody's checked, the answer says not confirmed
+      instead of guessing.
     </p>
   </div>
 
@@ -121,7 +123,23 @@ const schema = [
         >
           Ask
         </button>
+        {/* OPT-IN, AND THE COORDINATES NEVER LEAVE THE TAB. The distance maths
+            runs in this script against coordinates already in the page, so
+            there's nothing to send and nowhere it's sent. That is why this can
+            exist on a site that promises no tracking: the browser's own
+            permission prompt is the entire consent story, and declining it
+            changes nothing but the sort order. Held in memory, not storage —
+            closing the tab forgets it. */}
+        <button
+          type="button"
+          id="ask-near"
+          aria-pressed="false"
+          class="tap sign-quiet px-4 font-mono text-[0.72rem] font-medium uppercase tracking-[0.09em] cursor-pointer"
+        >
+          Near me
+        </button>
       </div>
+      <p id="ask-near-note" class="stamp text-ink-soft mt-2 mb-0" aria-live="polite"></p>
 
       <p class="label mt-5 mb-2">Or try</p>
       <ul class="list-none p-0 m-0 flex flex-wrap gap-1.5">
@@ -503,12 +521,25 @@ const schema = [
     const gaps = s.unknown.length || s.dogUnknown
       ? `<p class="mt-2 mb-0 text-[0.84rem] leading-snug text-ink-soft">Not checked here: ${esc([...s.unknown.map(says), ...(s.dogUnknown ? ["the dog rule"] : [])].join(", "))}.</p>`
       : "";
-    return `<article class="sign px-4 py-3.5">
+    /* The record's own photo as a header, when it has one. Same rendition and
+       focal-point treatment as the map card, bled to the card's edges. Empty
+       alt on purpose: the name sits directly beneath, and reading it twice
+       helps nobody. Lazy, because a long answer renders a lot of cards. */
+    const photo = p.photo
+      ? `<img src="/photos/${esc(p.photo)}-700.jpg" alt="" loading="lazy" decoding="async"
+           width="700" height="394"
+           class="block object-cover aspect-[16/9] -mt-3.5 -mx-4 mb-3 border-b border-marsh/30"
+           style="width:calc(100% + 2rem);max-width:none;object-position:${esc(p.focus || "50% 50%")}">`
+      : "";
+    return `<article class="sign px-4 py-3.5 overflow-hidden" data-place-href="${esc(p.href)}">
+      ${photo}
       <div class="flex items-start justify-between gap-3">
         <h3 class="font-display text-[1.05rem] font-bold text-marsh m-0"><a href="${esc(p.href)}">${esc(p.name)}</a></h3>
         <span class="stamp text-ink-soft shrink-0">${esc(p.kind)}</span>
       </div>
-      <p class="stamp text-ink-soft mt-0.5 mb-0">${esc([p.town, p.county].filter(Boolean).join(" · "))}</p>
+      <p class="stamp text-ink-soft mt-0.5 mb-0">${esc([p.town, p.county].filter(Boolean).join(" · "))}${
+        s.mi != null ? ` · ${s.mi < 10 ? s.mi.toFixed(1) : Math.round(s.mi)} mi` : ""
+      }</p>
       ${dog}
       ${chips ? `<ul class="list-none p-0 m-0 mt-2.5 flex flex-wrap gap-1.5">${chips}</ul>` : ""}
       ${gaps}
@@ -519,6 +550,60 @@ const schema = [
   const form = document.getElementById("ask-form");
   const input = document.getElementById("ask-input");
   const out = document.getElementById("ask-out");
+
+  /* ---- distance, for whoever offers it -----------------------------------
+     Nobody drives two hours for a playground. If the visitor shares their
+     location the buckets sort nearest-first and each card says how far. The
+     position lives in this variable and nowhere else: not sent, not stored,
+     forgotten when the tab closes. Haversine over a state this size is exact
+     past any use we have for it. */
+  let userLoc = null;
+  let lastQ = null;
+  const locBtn = document.getElementById("ask-near");
+  const locNote = document.getElementById("ask-near-note");
+
+  function miles(a, b) {
+    const rad = (d) => (d * Math.PI) / 180;
+    const s =
+      Math.sin(rad(b.lat - a.lat) / 2) ** 2 +
+      Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(rad(b.lon - a.lon) / 2) ** 2;
+    return 2 * 3958.8 * Math.asin(Math.sqrt(s));
+  }
+
+  function requestLocation() {
+    if (!("geolocation" in navigator)) {
+      locNote.textContent = "This browser doesn't offer location.";
+      return;
+    }
+    locNote.textContent = "Asking the browser…";
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        userLoc = { lat: pos.coords.latitude, lon: pos.coords.longitude };
+        locBtn.setAttribute("aria-pressed", "true");
+        locBtn.style.background = "var(--color-marsh)";
+        locBtn.style.color = "var(--color-cream)";
+        locNote.textContent = "Sorting nearest first. Your location stays in this tab — it isn't sent anywhere.";
+        if (lastQ) ask(lastQ);
+      },
+      () => {
+        locNote.textContent = "No location shared. Everything works the same, just not sorted by distance.";
+      },
+      { maximumAge: 600000, timeout: 12000 },
+    );
+  }
+
+  locBtn?.addEventListener("click", () => {
+    if (userLoc) {
+      userLoc = null;
+      locBtn.setAttribute("aria-pressed", "false");
+      locBtn.style.background = "";
+      locBtn.style.color = "";
+      locNote.textContent = "";
+      if (lastQ) ask(lastQ);
+    } else {
+      requestLocation();
+    }
+  });
 
   /**
    * Hand the answer to the map.
@@ -544,7 +629,14 @@ const schema = [
     const label = r.matches.length
       ? `Your question: ${r.matches.length} confirmed${r.unconfirmed.length ? `, ${r.unconfirmed.length} not checked` : ""}`
       : `Your question: ${r.unconfirmed.length} that might work, none confirmed`;
-    send({ slugs: hits.map((h) => h.p.href), label });
+    /* The unchecked hrefs travel separately so the map can draw them as what
+       they are. The results list has always kept the two buckets apart; a map
+       that flattens them back into one kind of dot un-says that. */
+    send({
+      slugs: hits.map((h) => h.p.href),
+      unchecked: r.unconfirmed.map((h) => h.p.href),
+      label,
+    });
   }
 
   /**
@@ -600,7 +692,21 @@ const schema = [
   }
 
   async function ask(q) {
+    lastQ = q;
+    /* Typing "near me" IS the gesture — asking the browser for what the
+       sentence just asked us for. Granting re-runs the question sorted. */
+    if (!userLoc && /\bnear(by)?\s+me\b|\bclose\s+to\s+me\b/i.test(q)) requestLocation();
     const r = match(q);
+    if (userLoc) {
+      /* Distance decorates and sorts WITHIN each bucket. It never moves a
+         place between buckets — near and unverified is still unverified. */
+      for (const s of [...r.matches, ...r.unconfirmed]) {
+        s.mi = s.p.loc ? miles(userLoc, s.p.loc) : null;
+      }
+      const by = (a, b) => (a.mi ?? 1e9) - (b.mi ?? 1e9);
+      r.matches.sort(by);
+      r.unconfirmed.sort(by);
+    }
     render(r, deterministicLead(r), [], Boolean(ENDPOINT));   // correct answer first, no network
     out.scrollIntoView({ behavior: "smooth", block: "start" });
     if (!ENDPOINT) return;
@@ -657,6 +763,32 @@ const schema = [
       .slice(0, 3);
 
     render(r, lead, followUps, false);
+  }
+
+  /* ---- the map and the cards, introduced to each other ------------------ */
+
+  /* The map announces a chosen pin with a generic `map:select` — it still has
+     no idea an ask form exists. If the pin belongs to a card in the current
+     answer, bring that card to the reader; if not, this does nothing, which is
+     the correct amount. */
+  mapRoot?.addEventListener("map:select", (e) => {
+    const href = e.detail && e.detail.href;
+    const el = href && out.querySelector(`[data-place-href="${CSS.escape(href)}"]`);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    el.style.transition = "box-shadow 0.25s";
+    el.style.boxShadow = "0 0 0 3px var(--color-ochre)";
+    setTimeout(() => { el.style.boxShadow = ""; }, 1400);
+  });
+
+  /* And the other direction: resting on a card pulses its pin, so "which dot
+     is this one" never needs the two lists compared by hand. Focus counts as
+     resting — a keyboard reaches every card too. */
+  for (const evt of ["mouseover", "focusin"]) {
+    out.addEventListener(evt, (e) => {
+      const card = e.target.closest("[data-place-href]");
+      if (card) mapRoot?.dispatchEvent(new CustomEvent("map:highlight", { detail: { href: card.dataset.placeHref } }));
+    });
   }
 
   form.addEventListener("submit", e => { e.preventDefault(); const q = input.value.trim(); if (q) ask(q); });

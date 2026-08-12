@@ -362,6 +362,79 @@ const vw = Math.ceil(W * SCALE);
     bar.hidden = false;
     const off = new Set();
 
+    /* ---- zoom ------------------------------------------------------------
+       When an answer filters the map, the whole state stops being the right
+       frame: three pins in Wilmington under 900 units of empty Sussex reads
+       as a mistake. So the viewBox eases to the pins' bounding box and eases
+       back when the answer clears. Everything below is viewBox arithmetic —
+       no library, nothing new runs in anyone's browser.
+
+       Markers are counter-scaled by the square root of the zoom rather than
+       its inverse: fully compensated pins feel nailed to the glass while the
+       state moves beneath them, and uncompensated ones balloon. The square
+       root lets them grow a little, which is what a map that has been leaned
+       into should look like. */
+    /* The MAP's svg, by role — the filter chips each carry their own little
+       icon svg earlier in the figure, and querySelector("svg") finds those
+       first. Zooming a chip icon is a very quiet kind of broken. */
+    const svg = root.querySelector("svg[role='img']");
+    const BASE = svg.getAttribute("viewBox").split(/\s+/).map(Number);
+    let vb = [...BASE];
+    let zoomFrame = null;
+
+    const counterScale = () => {
+      const z = BASE[2] / vb[2];
+      for (const p of pts) {
+        if (Math.abs(z - 1) < 0.02) { p.removeAttribute("transform"); continue; }
+        const c = p.querySelector("circle");
+        const cx = c.getAttribute("cx"), cy = c.getAttribute("cy");
+        const s = (1 / Math.sqrt(z)).toFixed(3);
+        p.setAttribute("transform", `translate(${cx} ${cy}) scale(${s}) translate(-${cx} -${cy})`);
+      }
+    };
+    const setVB = (b) => {
+      vb = b;
+      svg.setAttribute("viewBox", b.map((n) => n.toFixed(1)).join(" "));
+      counterScale();
+    };
+    const zoomTo = (target) => {
+      cancelAnimationFrame(zoomFrame);
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return setVB(target);
+      const from = [...vb], t0 = performance.now(), MS = 380;
+      const step = (now) => {
+        const k = Math.min(1, (now - t0) / MS);
+        const e = 1 - Math.pow(1 - k, 3);
+        setVB(from.map((f, i) => f + (target[i] - f) * e));
+        if (k < 1) zoomFrame = requestAnimationFrame(step);
+      };
+      zoomFrame = requestAnimationFrame(step);
+    };
+    /* The box around whatever is showing, padded, held to the state's aspect,
+       floored at ~45% of full width so a single pin never becomes a poster of
+       one dot, and clamped inside the state so the ease never overshoots into
+       blank paper. */
+    const answerBox = () => {
+      const vis = pts.filter((p) => p.style.display !== "none");
+      if (!vis.length) return [...BASE];
+      let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+      for (const p of vis) {
+        const c = p.querySelector("circle");
+        const cx = +c.getAttribute("cx"), cy = +c.getAttribute("cy");
+        if (cx < x0) x0 = cx; if (cy < y0) y0 = cy;
+        if (cx > x1) x1 = cx; if (cy > y1) y1 = cy;
+      }
+      const PAD = 70;
+      x0 -= PAD; y0 -= PAD; x1 += PAD; y1 += PAD;
+      let w = Math.max(x1 - x0, BASE[2] * 0.45);
+      let h = Math.max(y1 - y0, (w * BASE[3]) / BASE[2]);
+      w = Math.max(w, (h * BASE[2]) / BASE[3]);
+      let bx = (x0 + x1) / 2 - w / 2;
+      let by = (y0 + y1) / 2 - h / 2;
+      bx = Math.min(Math.max(bx, BASE[0]), BASE[0] + BASE[2] - w);
+      by = Math.min(Math.max(by, BASE[1]), BASE[1] + BASE[3] - h);
+      return [bx, by, w, h];
+    };
+
     /**
      * ANSWER MODE.
      *
@@ -380,9 +453,36 @@ const vw = Math.ceil(W * SCALE);
      * that is a rule that gets out of date.
      */
     let answer = null;
+    /* The subset of the answer nobody has checked. The results list has kept
+       confirmed and might-work apart since the day it existed; these pins
+       render hollow so the map stops flattening that distinction. */
+    let answerUnchecked = new Set();
     /* Separate from `answer`, because the banner has something to say in a
        case where the markers must NOT be filtered — see the handler. */
     let note = null;
+
+    /* Solid disc = confirmed, hollow ring = in the answer but not checked.
+       Colour keeps meaning HOW SURE, exactly as the cards use it; the glyph
+       still says which section the place belongs to. */
+    const restyle = (p, hollow) => {
+      const c = p.querySelector("circle");
+      /* svg > svg: the glyph svg inside the positioning svg. A bare "svg svg"
+         also matches the positioning svg itself — its ancestor is the map —
+         and recolouring that one leaves the glyph shell-on-shell: invisible. */
+      const icon = p.querySelector("svg > svg");
+      const kc = p.dataset.color;
+      if (hollow) {
+        c.setAttribute("fill", "var(--color-shell)");
+        c.setAttribute("stroke", kc);
+        c.setAttribute("stroke-dasharray", "4 3");
+        if (icon) icon.style.color = kc;
+      } else {
+        c.setAttribute("fill", kc);
+        c.setAttribute("stroke", "var(--color-shell)");
+        c.removeAttribute("stroke-dasharray");
+        if (icon) icon.style.color = "var(--color-shell)";
+      }
+    };
     const answerBar = root.querySelector("[data-map-answer]");
     const answerText = root.querySelector("[data-map-answer-text]");
 
@@ -413,12 +513,16 @@ const vw = Math.ceil(W * SCALE);
       }
       let shown = 0;
       for (const p of pts) {
+        const href = p.getAttribute("href");
         const hide = answer
-          ? !answer.has(p.getAttribute("href"))
+          ? !answer.has(href)
           : off.has(p.dataset.kind) ||
             (countyChips.length > 0 && !onCounties.has(p.dataset.county));
         p.style.display = hide ? "none" : "";
-        if (!hide) shown++;
+        if (!hide) {
+          shown++;
+          restyle(p, Boolean(answer && answerUnchecked.has(href)));
+        }
       }
       /* In answer mode the denominator is meaningless: "6 of 59" invites the
          reader to wonder what happened to the other 53, when the answer is
@@ -458,32 +562,43 @@ const vw = Math.ceil(W * SCALE);
     root.addEventListener("map:answer", (e) => {
       const slugs = (e.detail && e.detail.slugs) || null;
       const wanted = slugs && slugs.length ? new Set(slugs) : null;
+      answerUnchecked = new Set((e.detail && e.detail.unchecked) || []);
       const onMap = wanted
         ? pts.filter((p) => wanted.has(p.getAttribute("href"))).length
         : 0;
 
       /* AN ANSWER WITH NO PINS MUST NOT FILTER THE MAP.
-         Seventeen dog parks have no coordinates in the data yet, so "a fenced
-         dog park near Wilmington" is a real, correct, two-place answer with
-         nothing to show. Filtering to it emptied the map and printed "0 on the
-         map", which reads as a broken map rather than as a gap in what I've
-         recorded. So the markers stay as they were and the banner says what
-         happened. */
+         Some places still have no coordinates in the data, so a real, correct
+         answer can have nothing to show. Filtering to it emptied the map and
+         printed "0 on the map", which reads as a broken map rather than as a
+         gap in what I've recorded. So the markers stay as they were and the
+         banner says what happened. */
       if (wanted && onMap === 0) {
         answer = null;
+        answerUnchecked = new Set();
         note = `Not on the map yet: ${slugs.length} ${slugs.length === 1 ? "place" : "places"} in the answer below, none of them pinned.`;
       } else {
         answer = wanted;
         note = wanted ? (e.detail.label || "Showing what matches your question") : null;
+        /* A partial gap gets the same honesty as a total one. "3 confirmed, 1
+           not checked" over a single visible dot invites the reader to count
+           to one and conclude the site can't; say where the others went. */
+        if (wanted && onMap < slugs.length) {
+          const gap = slugs.length - onMap;
+          note += ` · ${onMap} pinned, ${gap} not on the map yet`;
+        }
       }
       if (answerText) answerText.textContent = note || "";
       paint();
+      zoomTo(answer ? answerBox() : [...BASE]);
       deselect();
     });
     root.querySelector("[data-map-answer-clear]")?.addEventListener("click", () => {
       answer = null;
+      answerUnchecked = new Set();
       note = null;
       paint();
+      zoomTo([...BASE]);
       deselect();
     });
 
@@ -533,11 +648,16 @@ const vw = Math.ceil(W * SCALE);
           fields.photo.removeAttribute("src");
         }
 
+        /* Tell whoever is listening which place was chosen. The map still has
+           no idea an ask form exists — this is a map fact ("a pin was picked"),
+           and the ask page decides whether it means anything. */
+        root.dispatchEvent(new CustomEvent("map:select", { detail: { href: a.getAttribute("href") } }));
+
         /* Open on the opposite half from the marker, so the card never covers
-           the thing you just tapped. The viewBox is 1000 tall and the marker
-           carries its own y, so this needs no layout measurement and behaves
-           the same at every screen width. */
-        const lower = Number(d.cy) > 500;
+           the thing you just tapped. The marker carries its own y, but "which
+           half" is a question about the CURRENT viewBox — zoomed to Wilmington,
+           a cy of 180 can sit at the bottom of the frame. */
+        const lower = (Number(d.cy) - vb[1]) / vb[3] > 0.5;
         card.style.top = lower ? "0.5rem" : "";
         card.style.bottom = lower ? "" : "1.5rem";
 
@@ -545,14 +665,31 @@ const vw = Math.ceil(W * SCALE);
       });
     }
 
+    /* The inbound half of the handshake: something outside is resting on a
+       thing this map has a pin for. Thicken the ring briefly. A hidden pin
+       stays quiet — pulsing a marker that isn't there would be a haunting. */
+    root.addEventListener("map:highlight", (e) => {
+      const href = e.detail && e.detail.href;
+      const p = href && pts.find((pt) => pt.getAttribute("href") === href && pt.style.display !== "none");
+      if (!p) return;
+      const c = p.querySelector("circle");
+      c.setAttribute("stroke-width", "8");
+      clearTimeout(p.__pulse);
+      p.__pulse = setTimeout(() => {
+        if (p !== selected) c.setAttribute("stroke-width", "3");
+      }, 700);
+    });
+
     card.querySelector("[data-card-close]").addEventListener("click", deselect);
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") deselect();
     });
 
     /* Tapping the state itself dismisses. Markers stop the event first, so
-       this only ever fires on empty water or land. */
-    root.querySelector("svg").addEventListener("click", (e) => {
+       this only ever fires on empty water or land. (svg[role='img'], because
+       the first svg in the figure is a filter chip's icon — this listener had
+       been sitting on one, and tapping the state dismissed nothing.) */
+    svg.addEventListener("click", (e) => {
       if (!e.target.closest("[data-map-point]")) deselect();
     });
 

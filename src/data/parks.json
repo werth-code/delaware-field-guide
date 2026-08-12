@@ -239,7 +239,12 @@
         "note": "Fencing, size split and surface construction. Read 9 August 2026."
       }
     ],
-    "sourcedOn": "2026-08-09"
+    "sourcedOn": "2026-08-09",
+    "coords": {
+      "lat": 39.76007,
+      "lon": -75.4942,
+      "precision": "site"
+    }
   },
   {
     "slug": "lums-pond-dog-park",
@@ -331,7 +336,12 @@
         "primary": true,
         "note": "The city names three off-leash locations: Rockford Park at Red Oak Road and Park Drive, and Brandywine Park at both South Park Drive/North Adams Street and West 18th Street/North Monroe Street."
       }
-    ]
+    ],
+    "coords": {
+      "lat": 39.75524,
+      "lon": -75.54665,
+      "precision": "site"
+    }
   },
   {
     "slug": "iron-hill-dog-park",
@@ -494,7 +504,12 @@
     ],
     "sourcedOn": "2026-08-09",
     "restrooms": "none",
-    "restroomsNote": "The county lists Bathrooms: No for the Bark Park itself. The wider Carousel Park has them, elsewhere."
+    "restroomsNote": "The county lists Bathrooms: No for the Bark Park itself. The wider Carousel Park has them, elsewhere.",
+    "coords": {
+      "lat": 39.74595,
+      "lon": -75.54659,
+      "precision": "town"
+    }
   },
   {
     "slug": "little-creek-dog-park",
@@ -565,7 +580,12 @@
     ],
     "restrooms": null,
     "restroomsNote": null,
-    "reported": "Visitors report seasonal bee swarms when the grass goes uncut."
+    "reported": "Visitors report seasonal bee swarms when the grass goes uncut.",
+    "coords": {
+      "lat": 39.14596,
+      "lon": -75.55484,
+      "precision": "site"
+    }
   },
   {
     "slug": "tidbury-dog-park",
@@ -605,7 +625,12 @@
         "primary": false,
         "note": "Published opening hours. Not a first-party source and not phone-confirmed — recorded because it agrees with what this record already held, which is corroboration and not proof."
       }
-    ]
+    ],
+    "coords": {
+      "lat": 39.15817,
+      "lon": -75.52437,
+      "precision": "town"
+    }
   },
   {
     "slug": "milford-dog-park",
@@ -752,7 +777,11 @@
     "county": "New Castle",
     "lat": null,
     "lng": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.74595,
+      "lon": -75.54659,
+      "precision": "town"
+    },
     "fenced": true,
     "sizeSplit": false,
     "water": null,
@@ -796,7 +825,11 @@
     "county": "New Castle",
     "lat": null,
     "lng": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.76711,
+      "lon": -75.57231,
+      "precision": "site"
+    },
     "fenced": null,
     "sizeSplit": null,
     "water": null,
@@ -837,7 +870,11 @@
     "county": "New Castle",
     "lat": null,
     "lng": null,
-    "coords": null,
+    "coords": {
+      "lat": 39.75613,
+      "lon": -75.54962,
+      "precision": "site"
+    },
     "fenced": false,
     "sizeSplit": false,
     "water": null,
