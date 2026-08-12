@@ -247,6 +247,32 @@
     );
   }
 
+  /* ---- Gallery arrows ----------------------------------------------------
+     Shared by CardGallery and PhotoStrip — both promised arrows in their
+     headers before either had them. Invisible until the pointer is over the
+     strip or the button holds keyboard focus; opacity rather than display so
+     tab order never loses them. On touch they don't exist at all: swipe is
+     the affordance there. An arrow with nothing left to show vanishes rather
+     than dims — a disabled control over a photograph is one more thing to
+     read. */
+  .gallery-arrow {
+    opacity: 0;
+    transition: opacity 120ms ease-out;
+  }
+  [data-arrows]:hover .gallery-arrow,
+  .gallery-arrow:focus-visible {
+    opacity: 1;
+  }
+  .gallery-arrow[aria-disabled="true"] {
+    opacity: 0 !important;
+    pointer-events: none;
+  }
+  @media (hover: none) {
+    .gallery-arrow {
+      display: none;
+    }
+  }
+
   /* ---- Mono utilities --------------------------------------------------- */
   .stamp {
     font-family: var(--font-mono);

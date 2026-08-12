@@ -46,6 +46,7 @@ const many = photos.length > 1;
     <div
       class={`card-gallery relative z-20 overflow-hidden bg-tide/15 border-b-2 border-marsh ${klass}`}
       data-gallery
+      data-arrows
     >
       <div
         class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
@@ -118,28 +119,8 @@ const many = photos.length > 1;
   )
 }
 
-<style>
-  /* Invisible until the pointer is over the strip or the button has keyboard
-     focus — opacity, not display, so tab order never loses them. On touch
-     devices they don't exist: swipe already does this job there. */
-  .gallery-arrow {
-    opacity: 0;
-    transition: opacity 120ms ease-out;
-  }
-  [data-gallery]:hover .gallery-arrow,
-  .gallery-arrow:focus-visible {
-    opacity: 1;
-  }
-  .gallery-arrow[aria-disabled="true"] {
-    opacity: 0 !important;
-    pointer-events: none;
-  }
-  @media (hover: none) {
-    .gallery-arrow {
-      display: none;
-    }
-  }
-</style>
+{/* The arrow chrome (.gallery-arrow) lives in global.css — PhotoStrip grew
+    the same arrows and two scoped copies would drift. */}
 
 <script>
   (() => {

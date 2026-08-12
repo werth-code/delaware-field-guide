@@ -74,6 +74,7 @@ const {
         <p class="stamp text-ink-soft m-0" data-strip-count hidden />
       </div>
 
+      <div class="relative" data-arrows>
       <div
         class={`flex ${fill ? "" : "gap-3"} overflow-x-auto snap-x snap-mandatory scroll-smooth pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden`}
         data-strip-track
@@ -123,6 +124,35 @@ const {
         })}
       </div>
 
+      {/* Arrows, for a pointer — the header promised them alongside the
+          counter and shipped only the counter. A row page-steps, a
+          one-at-a-time strip steps a single frame. Positioned against the
+          image band by the script, since captions under the frames make the
+          track taller than the photograph. */}
+      <button
+        type="button"
+        data-strip-prev
+        aria-label="Previous photos"
+        hidden
+        class="gallery-arrow absolute left-2 w-9 h-9 -translate-y-1/2 grid place-items-center rounded-[var(--radius-sign)] bg-abyss/55 text-cream cursor-pointer border-0"
+      >
+        <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true">
+          <path d="M15 4l-8 8 8 8" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        data-strip-next
+        aria-label="More photos"
+        hidden
+        class="gallery-arrow absolute right-2 w-9 h-9 -translate-y-1/2 grid place-items-center rounded-[var(--radius-sign)] bg-abyss/55 text-cream cursor-pointer border-0"
+      >
+        <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true">
+          <path d="M9 4l8 8-8 8" />
+        </svg>
+      </button>
+      </div>
+
       <figcaption class="stamp text-ink-soft mt-2">
         {items[0].href
           ? "Swipe. Every picture opens the page it was taken for."
@@ -141,19 +171,53 @@ const {
       const track = root.querySelector("[data-strip-track]");
       const count = root.querySelector("[data-strip-count]");
       const items = root.querySelectorAll("[data-strip-item]");
+      const prev = root.querySelector("[data-strip-prev]");
+      const next = root.querySelector("[data-strip-next]");
       if (!track || !items.length) continue;
 
       count.hidden = false;
-      const paint = () => {
-        /* Which frame is under the left edge. Good enough for "3 of 21", and
-           it needs no observer. */
+      const scrollable = track.scrollWidth > track.clientWidth + 2;
+      if (scrollable) {
+        prev.hidden = false;
+        next.hidden = false;
+      }
+      /* Everything derives from a position: the finger's actual one, or the
+         one an arrow click is headed for. Painting from the DESTINATION means
+         count and arrow states are right the moment you click, not after the
+         glide lands. */
+      const paintAt = (pos) => {
         const gap = root.dataset.stripFill === "1" ? 0 : 12;
         const w = items[0].getBoundingClientRect().width + gap;
-        const i = Math.min(items.length - 1, Math.max(0, Math.round(track.scrollLeft / w)));
+        const i = Math.min(items.length - 1, Math.max(0, Math.round(pos / w)));
         count.textContent = `${i + 1} of ${items.length}`;
+        /* The arrows sit at the vertical centre of the PHOTOGRAPH, not the
+           track — captions under the frames make the track taller than the
+           image band, and an arrow floating over a caption looks lost. */
+        const imgH = root.querySelector("img")?.clientHeight ?? 0;
+        for (const b of [prev, next]) if (b) b.style.top = `${imgH / 2}px`;
+        if (prev) prev.setAttribute("aria-disabled", pos <= 2 ? "true" : "false");
+        if (next) next.setAttribute("aria-disabled",
+          pos >= track.scrollWidth - track.clientWidth - 2 ? "true" : "false");
       };
-      paint();
-      track.addEventListener("scroll", paint, { passive: true });
+      paintAt(0);
+      track.addEventListener("scroll", () => paintAt(track.scrollLeft), { passive: true });
+
+      /* One frame at a time when each photo fills the width; a pageful when
+         it's a filmstrip — nobody wants to click through 21 frames singly.
+         Position-derived rather than indexed, so the snap settles wherever
+         the browser thinks is honest. */
+      const go = (dir) => (e) => {
+        e.preventDefault();
+        const gap = root.dataset.stripFill === "1" ? 0 : 12;
+        const frame = items[0].getBoundingClientRect().width + gap;
+        const step = root.dataset.stripFill === "1" ? frame : Math.max(frame, track.clientWidth - frame / 2);
+        const max = track.scrollWidth - track.clientWidth;
+        const target = Math.min(Math.max(track.scrollLeft + dir * step, 0), max);
+        track.scrollTo({ left: target });
+        paintAt(target);
+      };
+      prev?.addEventListener("click", go(-1));
+      next?.addEventListener("click", go(1));
     }
   })();
 </script>
