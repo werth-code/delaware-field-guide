@@ -450,12 +450,30 @@ const schema = [
     return `${head} Another ${r.unconfirmed.length} could work — the gaps among them are ${gaps}, which nobody has checked yet.`;
   }
 
+  /* A model writes small numbers as words by default — "Five candidates", not
+     "5". The digit check below never sees those, so "Forty-seven places match"
+     sailed past a guard that stops "47 places match". Same claim, same damage. */
+  const WORD_NUM = {
+    zero:0, one:1, two:2, three:3, four:4, five:5, six:6, seven:7, eight:8,
+    nine:9, ten:10, eleven:11, twelve:12, thirteen:13, fourteen:14, fifteen:15,
+    sixteen:16, seventeen:17, eighteen:18, nineteen:19, twenty:20, thirty:30,
+    forty:40, fifty:50, sixty:60, seventy:70, eighty:80, ninety:90,
+  };
+  /* Quantifiers that assert a size nobody counted. There is no number to check
+     them against, which is the reason they cannot be allowed through. */
+  const VAGUE = /\b(dozens?|scores?|many|several|numerous|plenty|loads|lots|handful|couple|few)\b/i;
+
   function leadIsSafe(lead, r) {
     if (!lead || lead.length > 400) return false;
     const ok = new Set([r.matches.length, r.unconfirmed.length, r.matches.length + r.unconfirmed.length].map(String));
     // Dates in the lead are legitimate, so allow anything already in the label.
     const labelNums = new Set((r.query.when.label.match(/\d+/g) ?? []));
     for (const n of lead.match(/\d+/g) ?? []) if (!ok.has(n) && !labelNums.has(n)) return false;
+    if (VAGUE.test(lead)) return false;
+    // Hyphenated compounds split so both halves of "forty-seven" are checked.
+    for (const w of lead.toLowerCase().split(/[^a-z]+/)) {
+      if (w in WORD_NUM && !ok.has(String(WORD_NUM[w])) && !labelNums.has(String(WORD_NUM[w]))) return false;
+    }
     const offered = [...r.matches, ...r.unconfirmed].map(s => s.p.name.toLowerCase());
     const known = new Set([...offered, ...offered.flatMap(n => n.split(/\s+/)), ...MONTHS, "delaware"]);
     for (const m of lead.match(/\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)+/g) ?? []) {
@@ -616,7 +634,12 @@ const schema = [
        survived. So when the real answer is "no, not there", its lead would
        cheerfully describe the alternatives as though they were the answer.
        The refusal is deterministic and it wins. */
-    const lead = (!r.blocked.length && leadIsSafe(data?.lead, r))
+    /* With nothing confirmed, the model is holding only unchecked candidates
+       and cannot tell them apart from verified ones — it described a park whose
+       water is explicitly unknown as having "confirmed water access". The
+       deterministic lead already handles this case better anyway: it names the
+       gap and says to call and ask. The results still render either way. */
+    const lead = (!r.blocked.length && r.matches.length && leadIsSafe(data?.lead, r))
       ? data.lead
       : deterministicLead(r);
     const byId = new Map(all.map(s => [s.p.id, s]));
