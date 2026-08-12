@@ -1,4 +1,6 @@
 ---
+import { factIcon } from "../../lib/fact-icons";
+import FeatureIcon from "../../components/FeatureIcon.astro";
 /**
  * One winery or brewery.
  *
@@ -125,7 +127,7 @@ const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
       <h2>Going</h2>
       <dl class="sign breakout my-6 divide-y-2 divide-tide/25">
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Open</dt>
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon("Open") && <FeatureIcon icon={factIcon("Open")!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>Open</span></dt>
           <dd class={`m-0 mt-1 sm:mt-0 text-[0.95rem] leading-[1.55] ${place.hours ? "" : "text-ink-soft italic"}`}>
             {place.hours
               ? place.hours.map((h) => <span class="block">{h.days} — {h.text}</span>)
@@ -134,26 +136,26 @@ const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
           </dd>
         </div>
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Tastings</dt>
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon("Tastings") && <FeatureIcon icon={factIcon("Tastings")!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>Tastings</span></dt>
           <dd class={`m-0 mt-1 sm:mt-0 text-[0.95rem] leading-[1.55] max-w-[52ch] ${place.tasting ? "" : "text-ink-soft italic"}`}>
             {place.tasting ?? "Not confirmed"}
           </dd>
         </div>
         {(place.onSite ?? []).map((r) => (
           <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-            <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">{r.label}</dt>
+            <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon(r.label) && <FeatureIcon icon={factIcon(r.label)!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>{r.label}</span></dt>
             <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem] leading-[1.55] max-w-[52ch]">{r.note}</dd>
           </div>
         ))}
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Getting there</dt>
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon("Getting there") && <FeatureIcon icon={factIcon("Getting there")!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>Getting there</span></dt>
           <dd class="m-0 mt-1 sm:mt-0">
             <MapLink name={place.name} town={place.town} address={place.address ?? undefined} label="Open in Google Maps" />
           </dd>
         </div>
         {place.website && (
           <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-            <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Website</dt>
+            <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon("Website") && <FeatureIcon icon={factIcon("Website")!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>Website</span></dt>
             <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem]">
               <a href={place.website.url} rel="nofollow">{place.website.label}</a>
             </dd>

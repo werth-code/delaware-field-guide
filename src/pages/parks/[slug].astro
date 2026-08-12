@@ -1,4 +1,5 @@
 ---
+import { factIcon } from "../../lib/fact-icons";
 /**
  * One state park, one page.
  *
@@ -209,7 +210,7 @@ const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
             <dl class="sign breakout my-6 divide-y-2 divide-tide/30">
               {park.onSite.map((r) => (
                 <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-                  <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">{r.label}</dt>
+                  <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon(r.label) && <FeatureIcon icon={factIcon(r.label)!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>{r.label}</span></dt>
                   <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem] leading-[1.55] max-w-[52ch]">{r.note}</dd>
                 </div>
               ))}
@@ -221,7 +222,7 @@ const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
       <h2>Getting in</h2>
       <dl class="sign breakout my-6 divide-y-2 divide-tide/30">
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Entry, 2026</dt>
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon("Entry, 2026") && <FeatureIcon icon={factIcon("Entry, 2026")!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>Entry, 2026</span></dt>
           <dd class={`m-0 mt-1 sm:mt-0 text-[0.95rem] ${fee.state === "unknown" ? "text-ink-soft italic" : ""}`}>
             {fee.text}
             {fee.state === "yes" && (
@@ -238,21 +239,21 @@ const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
           </dd>
         </div>
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Annual pass</dt>
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon("Annual pass") && <FeatureIcon icon={factIcon("Annual pass")!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>Annual pass</span></dt>
           <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem] leading-[1.55]">
             ${PASSES.resident} for a Delaware-registered vehicle, ${PASSES.nonResident} out of state.
             <span class="block text-[0.88rem] text-ink-soft mt-1 leading-snug">{PASSES.note}</span>
           </dd>
         </div>
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Where to buy</dt>
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon("Where to buy") && <FeatureIcon icon={factIcon("Where to buy")!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>Where to buy</span></dt>
           <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem] leading-[1.55]">
             <a href={PASSES.whereUrl} rel="nofollow">Delaware State Parks — passes and permits</a>
             <span class="block text-[0.88rem] text-ink-soft mt-1 leading-snug">{PASSES.where}</span>
           </dd>
         </div>
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Hours</dt>
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon("Hours") && <FeatureIcon icon={factIcon("Hours")!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>Hours</span></dt>
           <dd class={`m-0 mt-1 sm:mt-0 text-[0.95rem] ${park.hours ? "" : "text-ink-soft italic"}`}>
             {park.hours ?? "Daily hours not confirmed"}
             {park.hoursNote && (
@@ -261,13 +262,13 @@ const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
           </dd>
         </div>
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Getting there</dt>
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon("Getting there") && <FeatureIcon icon={factIcon("Getting there")!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>Getting there</span></dt>
           <dd class="m-0 mt-1 sm:mt-0">
             <MapLink name={`${park.name} State Park`} town={park.town} label="Open in Google Maps" />
           </dd>
         </div>
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Park office</dt>
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon("Park office") && <FeatureIcon icon={factIcon("Park office")!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>Park office</span></dt>
           <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem]">
             {park.phone ? (
               <a href={`tel:${park.phone.replace(/[^0-9+]/g, "")}`} class="tap stamp text-[1rem]">

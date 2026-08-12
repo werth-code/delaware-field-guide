@@ -1,4 +1,6 @@
 ---
+import { factIcon } from "../../lib/fact-icons";
+import FeatureIcon from "../../components/FeatureIcon.astro";
 /**
  * One out-of-county place. The state banner leads, before anything else.
  */
@@ -107,13 +109,13 @@ const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
       <h2>Going</h2>
       <dl class="sign breakout my-6 divide-y-2 divide-tide/25">
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Season</dt>
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon("Season") && <FeatureIcon icon={factIcon("Season")!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>Season</span></dt>
           <dd class={`m-0 mt-1 sm:mt-0 text-[0.95rem] leading-[1.55] ${place.season ? "" : "text-ink-soft italic"}`}>
             {place.season ?? "Not confirmed"}
           </dd>
         </div>
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Admission</dt>
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon("Admission") && <FeatureIcon icon={factIcon("Admission")!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>Admission</span></dt>
           <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem] leading-[1.55]">{place.admission.note}</dd>
         </div>
         {(place.onSite ?? []).map((row) => (
@@ -123,7 +125,7 @@ const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
           </div>
         ))}
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Phone</dt>
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon("Phone") && <FeatureIcon icon={factIcon("Phone")!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>Phone</span></dt>
           <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem]">
             {place.phone
               ? <a href={`tel:${place.phone.replace(/[^0-9+]/g, "")}`} class="tap stamp text-[1rem]">{place.phone}</a>
@@ -131,14 +133,14 @@ const ogImage = ogPhoto ? `/photos/${ogPhoto.file}-1400.jpg` : null;
           </dd>
         </div>
         <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Getting there</dt>
+          <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon("Getting there") && <FeatureIcon icon={factIcon("Getting there")!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>Getting there</span></dt>
           <dd class="m-0 mt-1 sm:mt-0">
             <MapLink name={place.name} town={place.town} address={place.address} region={place.state} label="Open in Google Maps" />
           </dd>
         </div>
         {place.website && (
           <div class="px-4 sm:px-5 py-3 sm:flex sm:gap-6">
-            <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1">Website</dt>
+            <dt class="label sm:w-[9rem] sm:shrink-0 sm:pt-1 flex items-start gap-1.5">{factIcon("Website") && <FeatureIcon icon={factIcon("Website")!} class="w-[1.25em] h-[1.25em] shrink-0 mt-[0.02em] opacity-80" />}<span>Website</span></dt>
             <dd class="m-0 mt-1 sm:mt-0 text-[0.95rem]">
               <a href={place.website.url} rel="nofollow">{place.website.label}</a>
             </dd>

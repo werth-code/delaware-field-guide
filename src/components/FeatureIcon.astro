@@ -40,7 +40,7 @@ export type FeatureKey =
   /* Situations rather than facilities — see feature-colors.ts. */
   | "rainyDay" | "outOfState" | "kidFriendly" | "feeCharged"
   /* Navigation, not features. */
-  | "ask" | "phone" | "home"
+  | "ask" | "phone" | "home" | "mapPin" | "link"
   | "fenced" | "paved" | "indoors"
   | "paddling" | "crabbing" | "waterPark" | "ropesCourse"
   | "climbingWall" | "tennis" | "golf" | "horseTrails";
@@ -111,6 +111,10 @@ const { icon, class: className = "", style } = Astro.props;
       "help". */}
   {icon === "ask" && (<><circle cx="11" cy="11" r="6.5" /><path d="M16 16l4.5 4.5" /></>)}
   {icon === "phone" && (<path d="M6 3h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 4 5a2 2 0 0 1 2-2Z" />)}
+  {/* A place on the map — the fact-row "Where". */}
+  {icon === "mapPin" && (<><path d="M12 21s-6.5-5.6-6.5-10.5a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21Z" /><circle cx="12" cy="10.5" r="2.2" /></>)}
+  {/* Two links of chain — a website, somewhere else. */}
+  {icon === "link" && (<><path d="M9.5 14.5l5-5" /><path d="M8 11l-2.5 2.5a3.5 3.5 0 0 0 5 5L13 16" /><path d="M16 13l2.5-2.5a3.5 3.5 0 0 0-5-5L11 8" /></>)}
   {icon === "home" && (<><path d="M4 11 12 4l8 7" /><path d="M6 10v10h12V10" /></>)}
   {/* A paddle over water — not the boat launch's ramp, because putting a
       kayak in and backing a trailer down are different afternoons. */}
