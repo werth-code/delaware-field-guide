@@ -141,10 +141,8 @@
     text-decoration-color: currentColor;
   }
 
-  :focus-visible {
-    outline: 3px solid var(--color-ochre);
-    outline-offset: 2px;
-  }
+  /* (The :focus-visible rule lives at the end of the file — ochre-deep, 7.1:1
+     on sand. A second copy here in plain ochre used to lose to it silently.) */
 
   ::selection {
     background: var(--color-ochre);
@@ -221,22 +219,11 @@
     border-radius: var(--radius-sign);
   }
 
-  /* Panels you can press seat down into their own shadow. */
-  .sign-action {
-    transition:
-      transform 110ms var(--ease-sign),
-      box-shadow 110ms var(--ease-sign);
-  }
-
-  .sign-action:hover {
-    box-shadow: 7px 7px 0 0 var(--color-tide);
-    transform: translate(-2px, -2px);
-  }
-
-  .sign-action:active {
-    box-shadow: 1px 1px 0 0 var(--color-marsh);
-    transform: translate(4px, 4px);
-  }
+  /* Panels you can press. Hover and active live in the motion section at the
+     bottom of this file — they were defined here AND twice down there, and the
+     three fought: the winning hover shrank the shadow from 5px to 3px while
+     lifting the card, which is an object that gets closer to the light casting
+     less shadow. One home now, coherent physics. */
 
   /* ---- Status bar textures ---------------------------------------------
      The fourth redundant channel. Reads with zero color information. */
@@ -302,6 +289,9 @@
   .prose-field > p {
     margin-block: 1rem;
     max-width: 64ch;
+    /* No orphaned last word on a paragraph. Cheap where supported, harmless
+       where not. */
+    text-wrap: pretty;
   }
 
   .prose-field > :first-child {
@@ -430,17 +420,15 @@
     to { stroke-dashoffset: 0; }
   }
 
-  /* Anything that behaves like a control gets a small, quick reaction. */
-  .sign-action,
+  /* Anything that behaves like a control gets a small, quick reaction. The
+     press physics for .sign-action live in the load-choreography section with
+     the rest of the print metaphor. */
   .tap {
     transition:
       transform 0.13s ease-out,
       background-color 0.13s ease-out,
       color 0.13s ease-out,
       box-shadow 0.13s ease-out;
-  }
-  .sign-action:hover {
-    transform: translateY(-2px);
   }
   .tap:active {
     transform: translateY(1px);
@@ -526,17 +514,34 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   [data-reveal] { transition-delay: calc(var(--stagger, 0) * 45ms); }
 
-  /* A poster card lifts off the sheet and casts a hard-edged shadow, the way
-     a second color sits proud of the first. No blur: this is print. */
-  .sign-action { transition: transform 0.13s ease-out, box-shadow 0.13s ease-out; }
-  .sign-action:hover {
-    transform: translateY(-2px);
-    box-shadow: 3px 3px 0 0 var(--color-ochre);
+  /* THE PRESS, in one place.
+     This hover was defined three times across the file and the survivor had
+     the physics backwards: the card lifted while its shadow shrank from 5px
+     marsh to 3px ochre. A sheet lifted off the table casts MORE shadow, in
+     the same ink. And pressing seats it back down into its own offset — the
+     card travels toward where the shadow was, which is what a press IS. */
+  .sign-action {
+    transition: transform 0.13s var(--ease-sign), box-shadow 0.13s var(--ease-sign);
   }
-  .sign-action:active { transform: translateY(0); box-shadow: none; }
+  .sign-action:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 0 var(--color-marsh);
+  }
+  .sign-action:active {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 0 var(--color-marsh);
+  }
 
-  button.tap:active, a.tap:active { transform: translateY(1px); }
   .sign-quiet { transition: background-color 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out; }
+
+  /* Content the ASK page renders after a question: cards and follow-up chips
+     snap into register the same way the load does. Transform only, never
+     opacity — the reveal rule above explains why a fade is a legibility trade
+     this site refuses. Each element carries --stagger from the script. */
+  .register-in {
+    animation: press 0.32s cubic-bezier(0.2, 0.9, 0.3, 1) both;
+    animation-delay: calc(var(--stagger, 0) * 40ms);
+  }
 }
 
 :focus-visible {

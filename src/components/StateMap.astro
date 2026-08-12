@@ -662,6 +662,12 @@ const vw = Math.ceil(W * SCALE);
         card.style.bottom = lower ? "" : "1.5rem";
 
         card.hidden = false;
+        /* Same register-snap as everything else that arrives. Removed and
+           re-added so tapping marker after marker re-fires it. */
+        const inner = card.querySelector("div");
+        inner.classList.remove("register-in");
+        void inner.offsetWidth;
+        inner.classList.add("register-in");
       });
     }
 

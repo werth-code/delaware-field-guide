@@ -662,7 +662,14 @@ const schema = [
 
   function render(r, lead, followUps, pending) {
     tellMap(r);
-    const grid = a => a.length ? `<div class="grid sm:grid-cols-2 gap-3 mt-3">${a.map(card).join("")}</div>` : "";
+    /* Cards snap into register with a small stagger, the same way the page
+       loads — capped so a 90-card answer doesn't turn into a queue. Transform
+       only; a card is never invisible while it waits. */
+    const grid = a => a.length
+      ? `<div class="grid sm:grid-cols-2 gap-3 mt-3">${a.map((s, i) =>
+          card(s).replace('<article class="', `<article style="--stagger:${Math.min(i, 10)}" class="register-in `)
+        ).join("")}</div>`
+      : "";
     const bare = r.empty;
     /* Only worth saying where the answer actually moves with the date — the
        beach towns. A fenced dog park's rule is the same in January and July,
@@ -673,7 +680,7 @@ const schema = [
       ? `<p class="stamp text-ink-soft mt-2 mb-0">Answered for ${esc(r.query.when.label)}${r.query.when.explicit ? "" : " — say a month or a date to change it"}</p>` : "";
     const fu = followUps.length
       ? `<div class="mt-6"><p class="label mb-2">Ask next</p><ul class="list-none p-0 m-0 flex flex-wrap gap-1.5">${
-          followUps.map(f => `<button type="button" data-example="${esc(f)}" class="tap sign-quiet px-3 gap-2 cursor-pointer text-[0.86rem] text-marsh">${esc(f)}</button>`).join("")
+          followUps.map((f, i) => `<button type="button" data-example="${esc(f)}" style="--stagger:${i}" class="register-in tap sign-quiet px-3 gap-2 cursor-pointer text-[0.86rem] text-marsh">${esc(f)}</button>`).join("")
         }</ul></div>` : "";
 
     out.innerHTML = `<section class="sign breakout p-4 sm:p-6">
