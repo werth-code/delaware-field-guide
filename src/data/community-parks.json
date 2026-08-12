@@ -25,7 +25,7 @@
       "trails": true,
       "pavedPath": true,
       "sports": null,
-      "fishing": null,
+      "fishing": true,
       "discGolf": null,
       "skate": true,
       "dogPark": true
@@ -35,7 +35,9 @@
     "hours": "Dawn to dusk",
     "hoursNote": "Sat/Sun opens 05:00. Park hours — the dog run may differ.",
     "phone": "302-395-5606",
-    "warnings": [],
+    "warnings": [
+      "The main playground has been under construction since November 2025 — the H!gh 5 playground remains open. Check before promising a child the big one."
+    ],
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
@@ -58,6 +60,12 @@
         "url": "https://www.newcastlede.gov/1523/Parks",
         "primary": true,
         "note": "Read 9 August 2026. County parks are dawn to dusk; facility lists are per park."
+      },
+      {
+        "label": "New Castle County: Glasgow Regional Park facility page",
+        "url": "https://www.newcastlede.gov/Facilities/Facility/Details/Glasgow-Regional-Park-51",
+        "primary": true,
+        "note": "Read 13 August 2026. Subfacilities include a fishing pond, skate park, sledding hill, concert lawn, two pavilions, the Bank Barn and Frazer House. Main playground under construction beginning November 2025; H!gh 5 playground remains open. No restroom or water detail on this page."
       }
     ],
     "sourcedOn": "2026-08-09",
@@ -405,17 +413,17 @@
     "acres": null,
     "blurb": "Woodland and trails on the highest ground in this part of the county, with a well-known disc golf course, a playground and a small fenced dog park.",
     "restrooms": {
-      "present": null,
+      "present": true,
       "type": null,
       "seasonal": null,
-      "note": "Not confirmed."
+      "note": "On the county's facility feature list. Read there, not visited — type and season still unknown."
     },
     "facilities": {
       "playground": true,
       "water": null,
       "shade": true,
-      "pavilion": null,
-      "grills": null,
+      "pavilion": true,
+      "grills": true,
       "trails": true,
       "pavedPath": null,
       "sports": null,
@@ -424,7 +432,7 @@
       "skate": false,
       "dogPark": true
     },
-    "accessibility": null,
+    "accessibility": "ADA accessible per the county's facility feature list. What that covers on the ground hasn't been walked.",
     "dogParkSlug": "iron-hill-dog-park",
     "hours": "Dawn to dusk",
     "hoursNote": "Park hours — the dog run may differ.",
@@ -433,7 +441,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "RESTROOMS — confirm.",
+      "Restrooms are on the county's feature list — still need type (permanent vs portable) and season.",
       "Confirm drinking water.",
       "Confirm disc golf course access and whether it's free."
     ],
@@ -453,6 +461,12 @@
         "url": "https://www.newcastlede.gov/1523/Parks",
         "primary": true,
         "note": "Read 9 August 2026. County parks are dawn to dusk; facility lists are per park."
+      },
+      {
+        "label": "New Castle County: Iron Hill Park facility page",
+        "url": "https://www.newcastlede.gov/facilities/facility/details/Iron-Hill-Park-54",
+        "primary": true,
+        "note": "Read 13 August 2026. Feature list verbatim: ADA Accessible, Bike Trail, Disc Golf, Dog Park, Grills, Hiking Trails, Open Space, Parking, Pavilion, Picnic Tables, Playground, Restrooms, Tables, Trails, Wooded Area. Drinking water not mentioned."
       }
     ],
     "sourcedOn": "2026-08-09",
@@ -494,7 +508,7 @@
       "skate": false,
       "dogPark": true
     },
-    "accessibility": null,
+    "accessibility": "ADA accessible per the county's facility feature list. What that covers on the ground hasn't been walked.",
     "dogParkSlug": "talley-day-dog-park",
     "hours": "Dawn to dusk",
     "hoursNote": null,
@@ -522,6 +536,12 @@
         "url": "https://www.newcastlede.gov/1523/Parks",
         "primary": true,
         "note": "Read 9 August 2026. County parks are dawn to dusk; facility lists are per park."
+      },
+      {
+        "label": "New Castle County: Talley Day Park facility page",
+        "url": "https://www.newcastlede.gov/facilities/facility/details/talleydaypark-55",
+        "primary": true,
+        "note": "Read 13 August 2026. Feature list verbatim: ADA Accessible, Baseball / Softball Diamond, Basketball Court, Delaware Greenways, Dog Park, Grills, Open Space, Parking, Pavilion, Picnic Tables, Playground, Pond, Restrooms, Soccer Field, Tables, Tennis Court, Wooded Area. The dog-park water fountains are not on it — that question stays open."
       }
     ],
     "sourcedOn": "2026-08-09",
@@ -804,7 +824,7 @@
     "county": "Kent",
     "town": "Smyrna",
     "address": "417 Big Oak Road, Smyrna, DE 19977",
-    "acres": null,
+    "acres": 90,
     "blurb": "A Kent County park north of Dover with a 1.1-mile loop, ball fields and an outdoor fitness area. Restrooms and water fountains both listed by the county — rarer than it should be.",
     "restrooms": {
       "present": true,
@@ -815,7 +835,7 @@
     "facilities": {
       "playground": true,
       "water": true,
-      "shade": null,
+      "shade": true,
       "pavilion": true,
       "grills": true,
       "trails": true,
@@ -826,7 +846,7 @@
       "skate": null,
       "dogPark": null
     },
-    "accessibility": "Kent County lists accessible facilities. What that covers specifically isn't published.",
+    "accessibility": "Listed as accessible on the county's facility snapshot, with change rooms. What that covers on the ground hasn't been walked.",
     "dogParkSlug": null,
     "hours": "6am – 9pm, daily",
     "hoursNote": "Posted on the park's own county page. Kent County's general rules also restrict park and parking-lot use to daylight hours; where the two differ, the park's posted hours are these.",
@@ -835,8 +855,7 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Whether the restrooms are open year round.",
-      "Confirm the acreage."
+      "Whether the restrooms are open year round."
     ],
     "coords": {
       "lat": 39.27553,
@@ -850,6 +869,12 @@
         "url": "https://www.kentcountyde.gov/Residents/Parks-and-Recreation",
         "primary": true,
         "note": "Read 8 August 2026. States \"Phone questions during business hours (M-F 8AM to 5PM): 302-744-2495\"."
+      },
+      {
+        "label": "Kent County: Big Oak County Park",
+        "url": "https://www.kentcountyde.gov/Parks/Big-Oak-County-Park",
+        "primary": true,
+        "note": "Read 13 August 2026. A ninety-acre site, forty of it leased to the Delaware Aerospace Education Foundation. Amenities: public restroom, playground, walking trails (paved and unpaved), pavilion, softball and multi-purpose fields, picnic area, outdoor grill, fitness area. Snapshot adds shade areas, water fountains, toilets, accessible, change rooms. Hours 6:00 am to 9:00 pm daily."
       }
     ],
     "onSite": [
@@ -893,7 +918,7 @@
       "skate": null,
       "dogPark": null
     },
-    "accessibility": null,
+    "accessibility": "Listed as accessible on the county's facility snapshot. What that covers on the ground hasn't been walked.",
     "dogParkSlug": null,
     "hours": "6am – 9pm, daily",
     "hoursNote": "Posted on the park's own county page. Kent County's general rules also restrict park and parking-lot use to daylight hours; where the two differ, the park's posted hours are these.",
@@ -917,6 +942,12 @@
         "url": "https://www.kentcountyde.gov/Residents/Parks-and-Recreation",
         "primary": true,
         "note": "Read 8 August 2026. States \"Phone questions during business hours (M-F 8AM to 5PM): 302-744-2495\"."
+      },
+      {
+        "label": "Kent County: Browns Branch County Park",
+        "url": "https://www.kentcountyde.gov/Parks/Browns-Branch-County-Park",
+        "primary": true,
+        "note": "Read 13 August 2026. 38 acres of forested floodplain and 40 of former tilled uplands: baseball and soccer fields, volleyball, horseshoe, picnicking, a youth playground (ages 2-12), a walking trail with a wetland boardwalk. Snapshot: accessible, shade areas, walking trails paved and unpaved. No restroom or drinking water in either list. Hours 6:00 am to 9:00 pm daily."
       }
     ],
     "onSite": [
@@ -1011,7 +1042,7 @@
       "skate": null,
       "dogPark": null
     },
-    "accessibility": "Kent County gives it an accessible designation. What that covers isn't published.",
+    "accessibility": "Listed as accessible on the county's facility snapshot. What that covers on the ground hasn't been walked.",
     "dogParkSlug": null,
     "hours": "6am – 9pm, daily",
     "hoursNote": "Posted on the park's own county page. Kent County's general rules also restrict park and parking-lot use to daylight hours; where the two differ, the park's posted hours are these.",
@@ -1035,6 +1066,12 @@
         "url": "https://www.kentcountyde.gov/Residents/Parks-and-Recreation",
         "primary": true,
         "note": "Read 8 August 2026. States \"Phone questions during business hours (M-F 8AM to 5PM): 302-744-2495\"."
+      },
+      {
+        "label": "Kent County: Kesselring County Park",
+        "url": "https://www.kentcountyde.gov/Parks/Kesselring-County-Park",
+        "primary": true,
+        "note": "Read 13 August 2026. 52 acres by the Kent County Recreation Center: playground, a 0.8-mile trail route, turf and multi-purpose fields. Snapshot: accessible, shade areas, sports area grassed, walking trails paved and unpaved, youth activity area. No restroom or drinking water in either list. Hours 6:00 am to 9:00 pm daily."
       }
     ],
     "onSite": [

@@ -194,7 +194,7 @@ const stripItems: StripItem[] = (places as any[])
                 {has.length > 0 && (
                   <ul class="list-none p-0 m-0 mt-3.5 flex flex-wrap gap-1.5">
                     {has.map((f) => (
-                      <Tag icon={f.key as any} label={f.label} emphasis={f.emphasis} />
+                      <Tag icon={f.key as any} label={f.label} emphasis={f.emphasis} state="confirmed" />
                     ))}
                   </ul>
                 )}

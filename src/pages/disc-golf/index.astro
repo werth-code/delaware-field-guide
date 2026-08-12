@@ -160,7 +160,7 @@ const capeHoles = courses.find((c) => c.href === "/parks/cape-henlopen/")?.cours
                 {c.tags.length > 0 && (
                   <ul class="list-none p-0 m-0 mt-3.5 flex flex-wrap gap-1.5">
                     {c.tags.slice(0, 5).map((t) => (
-                      <Tag icon={t.key as any} label={t.label} emphasis={t.emphasis} />
+                      <Tag icon={t.key as any} label={t.label} emphasis={t.emphasis} state="confirmed" />
                     ))}
                   </ul>
                 )}

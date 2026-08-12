@@ -19,18 +19,32 @@ interface Props {
   label: string;
   /** The three that decide whether the trip works. */
   emphasis?: boolean;
+  /**
+   * "confirmed" dresses the chip in flag green — the site's one meaning for
+   * that color. A card's amenity chips only render for facts recorded true,
+   * so on cards this is the honest dress: the glyph says WHICH, the green
+   * says the data actually holds it. Left unset, the chip keeps its section
+   * color, which is right for filters and navigation where nothing is being
+   * asserted.
+   */
+  state?: "confirmed";
   class?: string;
 }
-const { icon, label, emphasis = false, class: className = "" } = Astro.props;
+const { icon, label, emphasis = false, state, class: className = "" } = Astro.props;
 
 /* Inline style rather than a Tailwind class, because 31 arbitrary hex values
    would each need a class Tailwind can only generate if it sees the literal
    string in a file. A color built at runtime never gets generated, and the
    chip renders with no fill at all. */
 const c = colorFor(icon);
-const style = emphasis
-  ? `background:${c};border-color:${c};color:var(--color-cream)`
-  : `color:${c};border-color:${c}`;
+const style =
+  state === "confirmed"
+    ? emphasis
+      ? `background:var(--color-flag-green-bearing);border-color:var(--color-flag-green-bearing);color:var(--color-cream)`
+      : `background:var(--color-flag-green-wash);border-color:var(--color-flag-green-bearing);color:var(--color-flag-green-bearing)`
+    : emphasis
+      ? `background:${c};border-color:${c};color:var(--color-cream)`
+      : `color:${c};border-color:${c}`;
 ---
 
 <li

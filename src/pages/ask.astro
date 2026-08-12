@@ -510,11 +510,14 @@ const schema = [
     const p = s.p;
     /* Same shape as the Tag component everywhere else: the feature's own
        colour on the border and the label, on the pale ground. */
+    /* These chips only render for facts recorded true, so they wear the
+       site's confirmed green — same dress as Tag's state="confirmed" on the
+       listing cards. The section colors stay on filters, where nothing is
+       being asserted. */
     const chips = NEED_LABELS.filter(([k]) => p.f[k] === true).slice(0,6)
-      .map(([k,l]) => {
-        const c = NEED_COLORS[k] || "#10201c";
-        return `<li class="inline-flex items-center px-2 py-1 stamp text-[0.68rem] leading-none border rounded-[var(--radius-sign)] bg-shell" style="color:${c};border-color:${c}">${esc(l)}</li>`;
-      }).join("");
+      .map(([k,l]) =>
+        `<li class="inline-flex items-center px-2 py-1 stamp text-[0.68rem] leading-none border rounded-[var(--radius-sign)]" style="color:var(--color-flag-green-bearing);border-color:var(--color-flag-green-bearing);background:var(--color-flag-green-wash)">${esc(l)}</li>`
+      ).join("");
     const dog = s.dog
       ? `<p class="stamp mt-2 mb-0 ${s.dog.ok === true ? "text-flag-green-bearing" : s.dog.ok === false ? "text-flag-red-bearing" : "text-ink-soft"}">${esc(s.dog.why)}</p>`
       : "";
