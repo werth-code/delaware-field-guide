@@ -7,6 +7,7 @@ things the static site genuinely cannot do, and does nothing else.
 |---|---|
 | `POST /report` | Field reports. **`PUBLIC_REPORT_ENDPOINT` has never been set**, so the form renders on 125 pages with no `action` — it posts to a static page and the report is lost. Worse than not asking. |
 | `POST /subscribe` | Email, for the birding starter checklist. |
+| `POST /ask` | Follow-up suggestions for the ask page — the one model job that survived tools/ask-eval (leads miscount, ordering is already optimal). Returns `{followUps}` only; the page's deterministic lead and order stand. Workers AI, no key to manage. |
 | `GET /go/:slug` | Sticker QR codes and sponsor links, counted first-party. |
 | `GET /health` | Whether the stores are bound. |
 
@@ -69,14 +70,28 @@ the report endpoint **refuses submissions rather than accepting and dropping the
 a form that silently discards a correction is worse than no form.
 
 **3. Point the site at it.** In the GitHub repo → Settings → Secrets and variables →
-Actions → **Variables** (not secrets; this URL is public by nature):
+Actions → **Variables** (not secrets; these URLs are public by nature):
 
 ```
 PUBLIC_REPORT_ENDPOINT = https://api.delawarefieldguide.com/report
+PUBLIC_CHAT_ENDPOINT   = https://api.delawarefieldguide.com/ask
 ```
 
-The next deploy makes the form actually submit for the first time. Until then it
-falls back to a prefilled mail link, which at least reaches a person.
+The next deploy makes the report form actually submit for the first time (until
+then it falls back to a prefilled mail link, which at least reaches a person)
+and turns on the ask page's follow-up suggestions. The `/ask` route needs no
+store and no secret — the Workers AI binding in wrangler.toml is granted at
+deploy. Verify with:
+
+```bash
+curl -s https://api.delawarefieldguide.com/ask -X POST \
+  -H "content-type: application/json" \
+  -H "origin: https://delawarefieldguide.com" \
+  -d '{"question":"fenced dog park near Wilmington","attributes":["shade","dogs allowed"],"candidates":[{"name":"Rockford Park","kind":"park","town":"Wilmington"}]}'
+```
+
+Leave `PUBLIC_CHAT_ENDPOINT` unset and the ask page stays fully deterministic —
+that is a supported mode, not a degraded one.
 
 ## Reading the queue
 

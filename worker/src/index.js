@@ -186,6 +186,116 @@ async function handleGo(request, env, slug) {
   return Response.redirect(target, 302);
 }
 
+/**
+ * Follow-up suggestions for /ask.
+ *
+ * THE ONE JOB THE MODEL KEPT. The endpoint contract the page speaks offers
+ * three fields — lead, order, followUps — and this returns only the last,
+ * on the strength of tools/ask-eval's numbers: local and hosted models
+ * miscount a handed list about half the time (the lead stays deterministic,
+ * where it is dated and names the unchecked gaps), and the matcher's own
+ * ordering already scores 0.98 monotonicity, so re-ranking buys nothing.
+ * The page falls back for the missing fields on its own.
+ *
+ * A suggestion is the one output that is STRUCTURALLY safe: ask.astro runs
+ * every followUp through parse() and discards anything that doesn't resolve
+ * to real filters, so the worst a bad one can be is useless, never wrong.
+ * Nothing here touches a fact.
+ *
+ * The model never receives the site's data — only the visitor's question and
+ * the names/kinds/towns of places the deterministic matcher already chose.
+ */
+const ASK_SCHEMA = {
+  type: "object",
+  properties: { followUps: { type: "array", items: { type: "string" } } },
+  required: ["followUps"],
+};
+
+async function handleAsk(request, env) {
+  /* Same-origin fetch, so the response needs the CORS header the form
+     endpoints never did. Still SITE_ORIGIN only — an open AI endpoint is a
+     bill anyone can run up. */
+  const cors = { "access-control-allow-origin": env.SITE_ORIGIN };
+  const reply = (status, body) =>
+    new Response(JSON.stringify(body), {
+      status,
+      headers: { "content-type": "application/json; charset=utf-8", ...cors },
+    });
+
+  const ip = request.headers.get("cf-connecting-ip");
+  if (await overLimit(env, ip, "ask", 60)) {
+    return reply(429, { ok: false, error: "rate_limited" });
+  }
+  if (!env.AI) {
+    /* Not bound yet. The page treats any failure as "no suggestions" and
+       renders everything else, so failing plainly costs nothing. */
+    return reply(503, { ok: false, error: "no_model" });
+  }
+
+  const body = await request.json().catch(() => null);
+  const question = (body?.question ?? "").toString().slice(0, 200).trim();
+  if (!question) return reply(400, { ok: false, error: "bad_question" });
+
+  const attributes = (Array.isArray(body?.attributes) ? body.attributes : [])
+    .filter((a) => typeof a === "string")
+    .map((a) => a.slice(0, 40))
+    .slice(0, 20);
+  const places = (Array.isArray(body?.candidates) ? body.candidates : [])
+    .slice(0, 24)
+    .map((c) => ({
+      name: (c?.name ?? "").toString().slice(0, 80),
+      kind: (c?.kind ?? "").toString().slice(0, 40),
+      town: (c?.town ?? "").toString().slice(0, 40),
+    }));
+
+  const system = `You suggest next questions for a Delaware outdoor reference site.
+
+Given a visitor's question and the places that answered it, offer 5 short
+follow-up questions they might ask next. Rules:
+- Each must be answerable by filtering on: ${attributes.join(", ")}, a town name, or a place type (park, beach, trail, dog park, brewery).
+- Plain language a visitor would type, under 60 characters.
+- Vary them: a different amenity, a nearby town, a season or weather angle.
+- Never suggest the question you were given.
+Return JSON only: {"followUps": ["...", "...", "...", "...", "..."]}`;
+
+  let raw;
+  try {
+    const out = await env.AI.run(env.ASK_MODEL, {
+      messages: [
+        { role: "system", content: system },
+        { role: "user", content: JSON.stringify({ question, places }) },
+      ],
+      max_tokens: 220,
+      temperature: 0.6,
+      response_format: { type: "json_schema", json_schema: ASK_SCHEMA },
+    });
+    raw = out?.response ?? out;
+  } catch {
+    return reply(502, { ok: false, error: "model_error" });
+  }
+
+  /* Parse defensively whatever shape came back — object, JSON string, or a
+     string wearing markdown fences — then sanitise. The page re-filters
+     through parse() regardless; this pass just keeps garbage off the wire. */
+  let followUps = [];
+  try {
+    const parsed =
+      typeof raw === "string"
+        ? JSON.parse(raw.replace(/^\s*```(?:json)?\s*|\s*```\s*$/g, ""))
+        : raw;
+    followUps = (Array.isArray(parsed?.followUps) ? parsed.followUps : [])
+      .filter((f) => typeof f === "string")
+      .map((f) => f.trim())
+      .filter((f) => f.length > 2 && f.length < 80)
+      .filter((f, i, a) => a.indexOf(f) === i)
+      .slice(0, 5);
+  } catch {
+    followUps = [];
+  }
+
+  return reply(200, { ok: true, followUps });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -224,6 +334,7 @@ export default {
 
     if (url.pathname === "/report") return handleReport(request, env);
     if (url.pathname === "/subscribe") return handleSubscribe(request, env);
+    if (url.pathname === "/ask") return handleAsk(request, env);
     return json(404, { ok: false, error: "not_found" });
   },
 };

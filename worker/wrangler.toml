@@ -32,6 +32,14 @@ compatibility_date = "2026-08-09"
 # binding = "PHOTOS"
 # bucket_name = "dfg-report-photos"
 
+# Follow-up suggestions for /ask. The binding needs no key or secret — it is
+# granted at deploy like KV. Model chosen for the job: suggestions are cheap,
+# frequent, and re-filtered by the page, so a small fast instruct model is
+# right and the name lives here so swapping it never touches code.
+[ai]
+binding = "AI"
+
 [vars]
 # The only origin allowed to post here. Not a wildcard.
 SITE_ORIGIN = "https://delawarefieldguide.com"
+ASK_MODEL = "@cf/meta/llama-4-scout-17b-16e-instruct"
