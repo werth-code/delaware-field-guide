@@ -1,0 +1,59 @@
+---
+/**
+ * The page for a path that doesn't exist.
+ *
+ * Without this file, a mistyped URL got GitHub Pages' own error page — no
+ * masthead, no way back in, and nothing that looked like this site. A dead
+ * link shared in a group chat is a first impression, and the first
+ * impression was somebody else's error page.
+ *
+ * It says what happened and offers the two moves that actually help: search
+ * for the thing by name, or start from a section. No sad-dog illustration,
+ * no jokes about being lost in the woods. A wrong turn on a reference site
+ * gets a signpost, not a performance.
+ */
+import Layout from "../layouts/Layout.astro";
+import FeatureIcon from "../components/FeatureIcon.astro";
+
+const sections = [
+  { href: "/ask/", label: "Search for a place to go", icon: "ask" },
+  { href: "/dogs/", label: "Dog rules by town", icon: "petsAllowed" },
+  { href: "/parks/", label: "State parks", icon: "trails" },
+  { href: "/parks/community/", label: "Community parks", icon: "playground" },
+  { href: "/indoors/", label: "Somewhere dry", icon: "rainyDay" },
+  { href: "/attractions/", label: "Places to go", icon: "kidFriendly" },
+] as const;
+---
+
+<Layout
+  title="Page not found — Delaware Field Guide"
+  description="That page doesn't exist. Search for a place to go, or start from a section."
+  robots="noindex"
+>
+  <div class="wrap pt-11 pb-16">
+    <p class="label m-0">Not found</p>
+    <h1 class="text-[2.5rem] sm:text-[3.3rem] mt-3.5 mb-0 max-w-[16ch] text-marsh">
+      That page isn't here
+    </h1>
+    <p class="mt-5 mb-0 text-[1.15rem] leading-[1.5] max-w-[54ch]">
+      The address may have a typo, or the page moved. Nothing checked and
+      dated has been lost — it's filed under one of these.
+    </p>
+
+    <ul class="list-none p-0 mt-8 mb-0 grid sm:grid-cols-2 gap-3 max-w-[38rem]">
+      {
+        sections.map((s) => (
+          <li>
+            <a
+              href={s.href}
+              class="sign sign-action tap no-underline flex items-center gap-3 px-4 py-3.5 text-marsh font-display font-bold text-[1.05rem]"
+            >
+              <FeatureIcon icon={s.icon as any} class="w-[1.15em] h-[1.15em] shrink-0" />
+              {s.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Layout>
