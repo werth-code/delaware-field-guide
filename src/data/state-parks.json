@@ -45,7 +45,6 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "The 2026 guarded-beach dates for Main Beach, and DNREC's own fee classification for this park. Historic practice is Memorial Day to Labor Day, roughly 9–5, but historic practice is not a 2026 date and geography is not a fee band.",
       "Confirm which loops have shade and spigots.",
       "Confirm cabins and boat launch."
     ],
@@ -88,6 +87,17 @@
         "url": "https://www.destateparks.com/park/cape-henlopen/",
         "primary": true,
         "note": "The Point closure dates, read 9 August 2026."
+      },
+      {
+        "label": "DNREC: Cape Henlopen park page",
+        "url": "https://www.destateparks.com/park/cape-henlopen/",
+        "primary": true,
+        "note": "Read 12 August 2026. States its own entrance fee — $10/day Delaware plates, $20/day out-of-state, the ocean rate — and the guarded season verbatim: 'Swimming Beach is Guarded Memorial Day Saturday to Labor Day Monday 9 a.m. – 5 p.m. daily.' For 2026 that is 23 May through 7 September."
+      },
+      {
+        "label": "DNREC: passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "Read 12 August 2026. The daily entrance fee is charged 1 March through 30 November; inland $5/$10, ocean $10/$20, walking and biking in free."
       }
     ],
     "sourcedOn": "2026-08-09",
@@ -281,7 +291,6 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "DNREC's own fee classification. Fenwick is plainly an ocean beach park, but the state publishes statewide beach and inland rates rather than a park table — so ask for this at the same time as Holts Landing and hold both records to one standard.",
       "Confirm exactly where the town beach ends and the park begins — this is the fact that decides whether a dog is legal.",
       "Confirm watersports rentals on the bay side."
     ],
@@ -313,6 +322,17 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "What each park offers, gone through park by park."
+      },
+      {
+        "label": "DNREC: Fenwick Island park page",
+        "url": "https://www.destateparks.com/park/fenwick-island/",
+        "primary": true,
+        "note": "Read 12 August 2026. States its own entrance fee: $10/day Delaware plates, $20/day out-of-state — the ocean rate, from the state's own page rather than inferred from geography."
+      },
+      {
+        "label": "DNREC: passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "Read 12 August 2026. The daily entrance fee is charged 1 March through 30 November; inland $5/$10, ocean $10/$20, walking and biking in free."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -365,7 +385,6 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Which 2026 fee band DNREC actually assigns this park — inland ($5/$10) or beach ($10/$20). Not inferring it from geography: a bay-side park could be classed either way and the gap is $10 a car.",
       "Confirm crabbing pier access and whether a license is needed."
     ],
     "sources": [
@@ -396,6 +415,17 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "What each park offers, gone through park by park."
+      },
+      {
+        "label": "DNREC: Holts Landing park page",
+        "url": "https://www.destateparks.com/park/holts-landing/",
+        "primary": true,
+        "note": "Read 12 August 2026. States its own entrance fee: $5/day Delaware plates, $10/day out-of-state — the inland rate. A bay-side park could have been classed either way; the state's own page settles it."
+      },
+      {
+        "label": "DNREC: passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "Read 12 August 2026. The daily entrance fee is charged 1 March through 30 November; inland $5/$10, ocean $10/$20, walking and biking in free."
       }
     ],
     "sourcedOn": "2026-08-02",
@@ -691,7 +721,6 @@
     "verifiedDate": null,
     "verifiedSource": null,
     "outstanding": [
-      "Which 2026 fee band DNREC actually assigns this park — inland ($5/$10) or beach ($10/$20). Not inferring it from geography: a bay-side park could be classed either way and the gap is $10 a car.",
       "Confirm the off-leash area hours separately from park hours.",
       "Confirm whether the beach is guarded, and when.",
       "Get the pavilion rental prices and booking lead time.",
@@ -739,6 +768,17 @@
         "url": "https://www.destateparks.com/park/lums-pond/",
         "primary": true,
         "note": "Park, office and nature center hours. Read 9 August 2026."
+      },
+      {
+        "label": "DNREC: Lums Pond park page",
+        "url": "https://www.destateparks.com/park/lums-pond/",
+        "primary": true,
+        "note": "Read 12 August 2026. States its own entrance fee: $5/day Delaware plates, $10/day out-of-state — the inland rate. Also lists an off-leash pet area, athletic fields, boat ramp, campground, fishing pier, nature center and playground among amenities."
+      },
+      {
+        "label": "DNREC: passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "note": "Read 12 August 2026. The daily entrance fee is charged 1 March through 30 November; inland $5/$10, ocean $10/$20, walking and biking in free."
       }
     ],
     "sourcedOn": "2026-08-09",
@@ -1783,7 +1823,7 @@
     "verifiedSource": null,
     "outstanding": [
       "One call, three answers: the 2026 fare table, the exact operating days, and THE PET POLICY. Fares of $15 adult / $14 senior and military / $8 child 2–12 are widely repeated but I can't find them on a current primary Delaware page, and a wrong pet answer strands somebody at a ferry dock.",
-      "Confirm admission pricing, which is separate from the standard park fee."
+      "Admission pricing. The statewide fees page confirms the daily entry fee does not apply here at all — what the ferry-and-fort ticket costs in 2026 is still the open question."
     ],
     "sources": [
       {
@@ -1807,6 +1847,12 @@
         "url": "https://destateparks.com/",
         "primary": true,
         "note": "Standard day-use hours of 8 a.m. to sunset, and which attractions are charged separately from park admission."
+      },
+      {
+        "label": "DNREC: passes, permits and fees",
+        "url": "https://www.destateparks.com/passes-permits-and-fees/",
+        "primary": true,
+        "note": "Read 12 August 2026. The daily entrance fee 'allows your vehicle and its passengers to enter any Delaware State Park on the date of purchase, except for Fort Delaware, Fenwick State Line Beach and the Brandywine Zoo.' So no fee band applies here by the state's own rule; admission is its own ticket."
       }
     ],
     "sourcedOn": "2026-08-02",

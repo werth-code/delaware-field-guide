@@ -156,7 +156,6 @@ Section two. Lower stakes — mostly hours, fees and facilities.
 
 ### Cape Henlopen — 302-645-8983
 
-- [ ] The 2026 guarded-beach dates for Main Beach, and DNREC's own fee classification for this park. Historic practice is Memorial Day to Labor Day, roughly 9–5, but historic practice is not a 2026 date and geography is not a fee band.
 - [ ] Confirm which loops have shade and spigots.
 - [ ] Confirm cabins and boat launch.
 
@@ -167,13 +166,11 @@ Section two. Lower stakes — mostly hours, fees and facilities.
 
 ### Fenwick Island — 302-227-2800
 
-- [ ] DNREC's own fee classification. Fenwick is plainly an ocean beach park, but the state publishes statewide beach and inland rates rather than a park table — so ask for this at the same time as Holts Landing and hold both records to one standard.
 - [ ] Confirm exactly where the town beach ends and the park begins — this is the fact that decides whether a dog is legal.
 - [ ] Confirm watersports rentals on the bay side.
 
 ### Holts Landing — 302-227-2800
 
-- [ ] Which 2026 fee band DNREC actually assigns this park — inland ($5/$10) or beach ($10/$20). Not inferring it from geography: a bay-side park could be classed either way and the gap is $10 a car.
 - [ ] Confirm crabbing pier access and whether a license is needed.
 
 ### Trap Pond — 302-875-5153
@@ -188,7 +185,6 @@ Section two. Lower stakes — mostly hours, fees and facilities.
 
 ### Lums Pond — 302-368-6989
 
-- [ ] Which 2026 fee band DNREC actually assigns this park — inland ($5/$10) or beach ($10/$20). Not inferring it from geography: a bay-side park could be classed either way and the gap is $10 a car.
 - [ ] Confirm the off-leash area hours separately from park hours.
 - [ ] Confirm whether the beach is guarded, and when.
 - [ ] Get the pavilion rental prices and booking lead time.
@@ -233,7 +229,7 @@ Section two. Lower stakes — mostly hours, fees and facilities.
 ### Fort Delaware — 302-834-7941
 
 - [ ] One call, three answers: the 2026 fare table, the exact operating days, and THE PET POLICY. Fares of $15 adult / $14 senior and military / $8 child 2–12 are widely repeated but I can't find them on a current primary Delaware page, and a wrong pet answer strands somebody at a ferry dock.
-- [ ] Confirm admission pricing, which is separate from the standard park fee.
+- [ ] Admission pricing. The statewide fees page confirms the daily entry fee does not apply here at all — what the ferry-and-fort ticket costs in 2026 is still the open question.
 
 ### Fort DuPont — 302-834-7941
 
@@ -577,5 +573,5 @@ they book with a dog?* That last one is free demand research.
 
 ---
 
-**271 open items.** Every one of them is a fact this site cannot publish
+**267 open items.** Every one of them is a fact this site cannot publish
 until someone picks up a phone. That is the moat, not overhead.
